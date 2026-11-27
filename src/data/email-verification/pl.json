@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "Potwierdź swój e-mail",
+    "subtitle": "Wysłaliśmy 6-cyfrowy kod na adres {email}. Wpisz go poniżej.",
+    "why": "To chroni Twoje konto i sprawia, że Premium zostanie przypisane właśnie do Twojego konta.",
+    "code_label": "Kod weryfikacyjny",
+    "confirm": "Potwierdź",
+    "resend": "Wyślij kod ponownie",
+    "resend_in": "Ponowne wysłanie za {s} s",
+    "sent": "Kod wysłany",
+    "spam_hint": "Nie ma wiadomości? Zajrzyj też do folderu Spam lub Oferty.",
+    "wrong_code": "Nieprawidłowy kod. Sprawdź i spróbuj ponownie.",
+    "expired": "Kod wygasł. Wyślij nowy kod.",
+    "too_many": "Zbyt wiele prób. Wyślij nowy kod.",
+    "rate_limited": "Poczekaj chwilę i spróbuj ponownie.",
+    "send_failed": "Nie udało się wysłać kodu. Sprawdź połączenie z internetem i spróbuj ponownie.",
+    "verified": "Twój e-mail został potwierdzony 🎉",
+    "wrong_email": "Zły e-mail? Wyloguj się i zarejestruj ponownie"
+  },
+  "email": {
+    "subject": "{code} — Twój kod weryfikacyjny Anacan",
+    "preheader": "Wpisz ten kod, aby potwierdzić swoje konto.",
+    "heading": "Twój kod weryfikacyjny",
+    "intro": "Wpisz ten kod w aplikacji, aby potwierdzić konto Anacan:",
+    "expires": "Kod jest ważny przez 15 minut.",
+    "ignore": "Jeśli to nie Ty, po prostu zignoruj tę wiadomość — na Twoim koncie nic się nie zmieni.",
+    "footer": "Anacan — przy Tobie na każdym etapie"
+  }
+}

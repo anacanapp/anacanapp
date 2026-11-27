@@ -3,11 +3,12 @@ import { tr } from '@/lib/tr';
 import { motion } from 'framer-motion';
 import {
   User, Settings, Bell, Shield, HelpCircle, LogOut,
-  ChevronRight, Crown, Heart, MessageCircle, Sparkles,
-  Trophy, Target, Star, Gift, TrendingUp, BarChart3 } from
+  ChevronRight, MessageCircle, Trophy, Target, Gift, Zap } from
 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
+import { useAuth } from '@/hooks/useAuth';
+import PartnerLinkForm from '@/components/partner/v2/PartnerLinkForm';
 import { useToast } from '@/hooks/use-toast';
 import { usePartnerStats } from '@/hooks/usePartnerStats';
 import { usePartnerMissions } from '@/hooks/usePartnerMissions';
@@ -16,11 +17,11 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import {
   usePartnerAchievements,
   usePartnerMenuItems,
-  useSurpriseCategories,
   FALLBACK_ACHIEVEMENTS,
-  FALLBACK_MENU_ITEMS,
-  FALLBACK_SURPRISE_CATEGORIES } from
+  FALLBACK_MENU_ITEMS } from
 '@/hooks/usePartnerConfig';
+import { usePartnerData } from '@/hooks/usePartnerData';
+import { feature37Text } from '@/lib/feature37-i18n';
 
 // Icon mapping for menu items
 const MENU_ICON_MAP: Record<string, any> = {
@@ -46,13 +47,6 @@ const MENU_LABEL_TR: Record<string, [string, string]> = {
   "partner-privacy": ["usepartnerconfig_gizlilik", "Gizlilik"],
   help: ["usepartnerconfig_yardim_da857a", "Yardım"],
 };
-const SURPRISE_CATEGORY_LABEL_TR: Record<string, [string, string]> = {
-  romantic: ["usepartnerconfig_romantik", "Romantik"],
-  care: ["usepartnerconfig_qaygi_868e7d", "Qayğı"],
-  adventure: ["usepartnerconfig_macera_bc3bdc", "Macəra"],
-  gift: ["usepartnerconfig_hediyye_8578f3", "Hədiyyə"],
-};
-
 interface PartnerProfileScreenProps {
   onNavigate?: (screen: string) => void;
 }
@@ -60,24 +54,20 @@ interface PartnerProfileScreenProps {
 const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
   useScrollToTop();
 
-  const { name, email, partnerWomanData, logout } = useUserStore(
-    useShallow((s) => ({ name: s.name, email: s.email, partnerWomanData: s.partnerWomanData, logout: s.logout }))
+  const { name, email, logout } = useUserStore(
+    useShallow((s) => ({ name: s.name, email: s.email, logout: s.logout }))
   );
+  const { partnerProfile, getPregnancyWeek, getBabyAgeDays } = usePartnerData();
   const { toast } = useToast();
+  const { signOut, profile } = useAuth();
+  const isLinked = !!profile?.linked_partner_id;
   const { stats, loading: statsLoading } = usePartnerStats();
   const { level, levelProgress, pointsToNextLevel } = usePartnerMissions();
-  const {
-    completedSurprises,
-    totalPoints: surprisePoints,
-    categoryStats,
-    monthlyChartData,
-    topCategory
-  } = useSurprises();
+  const { completedSurprises, totalPoints: surprisePoints } = useSurprises();
 
   // Fetch dynamic config
   const { data: dbAchievements = [] } = usePartnerAchievements();
   const { data: dbMenuItems = [] } = usePartnerMenuItems();
-  const { data: dbSurpriseCategories = [] } = useSurpriseCategories();
 
   // Build achievements from DB or fallback
   // NOT: əvvəllər yalnız Sürprizlər aktivliyi (completed_surprises/
@@ -114,180 +104,125 @@ const PartnerProfileScreen = ({ onNavigate }: PartnerProfileScreenProps) => {
     }));
   }, [dbMenuItems]);
 
-  // Build surprise category lookup
-  const getCategoryLabel = useMemo(() => {
-    const source = dbSurpriseCategories.length > 0 ? dbSurpriseCategories : FALLBACK_SURPRISE_CATEGORIES;
-    return (category: string) => {
-      const found = source.find((c) => c.category_key === category);
-      if (found) {
-        return {
-          label: SURPRISE_CATEGORY_LABEL_TR[found.category_key] ?
-          tr(...SURPRISE_CATEGORY_LABEL_TR[found.category_key]) :
-          found.label_az || category,
-          emoji: found.emoji,
-          color: found.color_gradient
-        };
-      }
-      return { label: category, emoji: '✨', color: 'from-blue-500 to-indigo-600' };
-    };
-  }, [dbSurpriseCategories]);
-
-  const maxPoints = Math.max(...monthlyChartData.map((d) => d.points), 1);
+  const stage = partnerProfile?.life_stage;
+  const weeks = stage === 'bump' ? getPregnancyWeek() : 0;
+  const babyDays = stage === 'mommy' ? getBabyAgeDays() : 0;
+  const stageLine = stage === 'bump' ?
+  `${tr('partnerprofilescreen_hamilelik_dovru_57af7a', 'Hamiləlik dövrü')}${weeks ? ` · ${feature37Text('pp_week').replace('{n}', String(weeks))}` : ''}` :
+  stage === 'mommy' ?
+  babyDays >= 60 ? feature37Text('pp_baby_age_months').replace('{n}', String(Math.floor(babyDays / 30))) : feature37Text('pp_baby_age_days').replace('{n}', String(babyDays)) :
+  tr('partnerprofilescreen_menstruasiya_dovru_a5852d', 'Menstruasiya dövrü');
 
   const statTiles = [
-    { icon: Trophy, value: stats.totalPoints + surprisePoints, label: tr("untranslated_toplam_xal_dy1dwr", "Toplam Xal"), tone: 'c-yellow' },
-    { icon: Target, value: stats.completedMissions, label: tr("partnerprofilescreen_tapsiriq_d827b6", "Tapşırıq"), tone: 'c-lav' },
-    { icon: Gift, value: completedSurprises.length, label: tr("partnerprofilescreen_surpriz_67b2b2", "Sürpriz"), tone: 'c-pink' },
-    { icon: MessageCircle, value: stats.messagesSent, label: tr("untranslated_mesaj_3c09op", "Mesaj"), tone: 'c-green' },
-  ];
-  // Category tiles use the design palette; the gradient classes stored with the categories are not
-  // generated by Tailwind and left white text on no background.
-  const tones = ['c-pink', 'c-lav', 'c-yellow', 'c-green', 'c-blue', 'c-peach'];
+  { icon: Trophy, value: stats.totalPoints + surprisePoints, label: feature37Text('pp_points'), bg: 'var(--a-yellow-1)', ink: 'var(--a-yellow-ink)' },
+  { icon: Target, value: stats.completedMissions, label: feature37Text('pp_missions'), bg: 'var(--a-blue-1)', ink: 'var(--a-blue-ink)' },
+  { icon: Gift, value: completedSurprises.length, label: feature37Text('pp_surprises'), bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)' },
+  { icon: MessageCircle, value: stats.messagesSent, label: feature37Text('pp_messages'), bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)' }];
+
+  const menu = [{ id: 'partner-notifications', icon: Bell, label: feature37Text('pn_title') }, ...menuItems, { id: 'settings', icon: Settings, label: feature37Text('pp_settings') }];
+  const card = { background: 'var(--a-surface)', borderRadius: 'var(--a-radius-md)', boxShadow: 'var(--a-card-shadow)' } as const;
 
   return (
-    <div className="a-scope pb-28" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
-      <div className="a-shell">
-        <header className="a3-topbar">
-          <h1 className="a3-page-title a3-grow">{tr("untranslated_partner_profili_lip00f", "Partner Profili")}</h1>
-          <button type="button" className="a3-icon-btn" onClick={() => onNavigate?.('partner-privacy')} aria-label={tr("usepartnerconfig_gizlilik", "Gizlilik")}>
-            <Settings size={22} />
-          </button>
+    <div className="a-scope pb-28 min-h-screen relative overflow-x-hidden" style={{ background: 'var(--a-bg)' }}>
+      <div className="a-sky" aria-hidden>
+        <span className="a-cloud c1" /><span className="a-cloud c2" /><span className="a-cloud c3" />
+      </div>
+      <div className="a-shell relative z-10">
+        <header className="a-topbar">
+          <div>
+            <p className="a-eyebrow">{feature37Text('pp_profile')}</p>
+            <p className="a-wordmark" style={{ fontSize: 19 }}>{name || 'Partner'}</p>
+          </div>
+          <div className="a-topbar-actions">
+            <button type="button" className="a-icon-btn" onClick={() => onNavigate?.('partner-privacy')} aria-label={tr('usepartnerconfig_gizlilik', 'Gizlilik')}>
+              <Shield size={16} />
+            </button>
+          </div>
         </header>
 
-        {/* Profile card */}
-        <section className="a3-card a3-pad" style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-          <span className="a3-ico-sq c-blue" style={{ width: 64, height: 64, borderRadius: 20, fontSize: 32 }} aria-hidden="true">👨</span>
-          <span style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
-            <span className="a3-entry-title" style={{ fontSize: 19 }}>{name || 'Partner'}</span>
-            {email && <span className="a3-meta" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{email}</span>}
-            <span className="a3-chip ac" style={{ alignSelf: 'flex-start' }}>
-              <Heart size={12} fill="currentColor" />
-              {partnerWomanData?.name || tr("partnerprofilescreen_heyat_yoldasi_ad6f31", "Həyat Yoldaşı")} {tr("partnerprofilescreen_ile_elaqeli_b0595d", "ilə əlaqəli")}
-            </span>
-          </span>
-        </section>
-
-        {/* Stats */}
-        <section className="a3-sec" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          {statTiles.map(({ icon: Icon, value, label, tone }) => (
-            <div key={label} className="a3-card a3-pad" style={{ gap: 6 }}>
-              <span className={`a3-ico-sq sm ${tone}`} aria-hidden="true"><Icon size={16} /></span>
-              <b className="a3-num" style={{ fontSize: 26, fontWeight: 700, color: 'var(--a-ink)', lineHeight: 1.1 }}>{value}</b>
-              <span className="a3-meta">{label}</span>
-            </div>
-          ))}
-        </section>
-
-        {/* Level */}
-        <section className="a3-sec">
-          <div className="a3-card a3-pad" style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-            <span className="a3-ico-sq c-yellow a3-num" style={{ width: 56, height: 56, borderRadius: 18, fontSize: 24, fontWeight: 700 }}>{level}</span>
-            <span style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <span className="a3-entry-title" style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Star size={15} />{tr("partnerprofilescreen_seviyye_8266e7", "Səviyyə")} {level}</span>
-              <span className="a3-meta">{tr("partnerprofilescreen_novbeti_seviyyeye_d52c78", "Növbəti səviyyəyə")} {pointsToNextLevel} {tr("partnerprofilescreen_xal_qalib_5931e2", "xal qalıb")}</span>
-              <span className="a-inline-bar" style={{ display: 'block', marginTop: 4 }}><span className="a-inline-bar-fill" style={{ display: 'block', width: `${levelProgress}%`, transition: 'width 600ms var(--a-ease)' }} /></span>
-            </span>
-          </div>
-        </section>
-
-        {/* Surprise statistics */}
-        {completedSurprises.length > 0 &&
-        <section className="a3-sec">
-            <h2 className="a3-sec-title" style={{ display: 'flex', alignItems: 'center', gap: 8 }}><BarChart3 size={18} />{tr("partnerprofilescreen_surpriz_statistikasi_5eee15", "Sürpriz Statistikası")}</h2>
-            <div className="a3-card a3-pad" style={{ gap: 16 }}>
-              <div>
-                <p className="a3-meta" style={{ marginBottom: 10 }}>{tr("partnerprofilescreen_ayliq_xal_qrafiki_dca77f", "Aylıq Xal Qrafiki")}</p>
-                <div className="flex items-end justify-between gap-2 h-24">
-                  {monthlyChartData.map((data) =>
-                <div key={data.month} className="flex-1 h-full flex flex-col items-center justify-end gap-1">
-                      <div style={{ width: '100%', height: `${data.points / maxPoints * 100}%`, minHeight: data.points > 0 ? 8 : 2, borderRadius: '8px 8px 0 0', background: 'var(--a-coral-strong)', opacity: data.points > 0 ? 1 : 0.25, transition: 'height 500ms var(--a-ease)' }} />
-                      <span className="a3-meta" style={{ fontSize: 11 }}>{data.label}</span>
-                    </div>
-                )}
-                </div>
+        <div className="space-y-3.5">
+          {/* Me + level */}
+          <motion.section className="a-card" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} style={{ padding: 16 }}>
+            <div className="flex items-center gap-3">
+              <span className="w-14 h-14 rounded-full flex items-center justify-center text-3xl shrink-0" style={{ background: 'var(--a-grad-blue)' }}>👨</span>
+              <div className="flex-1 min-w-0">
+                <p className="truncate" style={{ fontSize: 17, fontWeight: 900, color: 'var(--a-ink)' }}>{name || 'Partner'}</p>
+                {email && <p className="truncate" style={{ fontSize: 12, color: 'var(--a-ink-soft)' }}>{email}</p>}
               </div>
-              <div>
-                <p className="a3-meta" style={{ marginBottom: 10 }}>{tr("partnerprofilescreen_surpriz_novleri_592120", "Sürpriz Növləri")}</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {Object.entries(categoryStats).map(([category, count], i) => {
-                  const catInfo = getCategoryLabel(category);
-                  return (
-                    <div key={category} className={tones[i % tones.length]} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', borderRadius: 14 }}>
-                        <span style={{ fontSize: 20 }} aria-hidden="true">{catInfo.emoji}</span>
-                        <span style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-                          <span style={{ fontSize: 12.5, fontWeight: 600 }}>{catInfo.label}</span>
-                          <b className="a3-num" style={{ fontSize: 17 }}>{count}</b>
-                        </span>
-                      </div>);
-                })}
-                </div>
-              </div>
-              {topCategory &&
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <span className="a3-ico-sq sm c-yellow" aria-hidden="true"><TrendingUp size={16} /></span>
-                  <span style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span className="a3-meta">{tr("partnerprofilescreen_en_cox_edilen_f000e8", "Ən çox edilən")}</span>
-                    <b style={{ fontSize: 14.5, color: 'var(--a-ink)' }}>
-                      {getCategoryLabel(topCategory.category).emoji} {getCategoryLabel(topCategory.category).label} ({topCategory.count} {tr("partnerprofilescreen_defe_cf1e5e", "dəfə)")}
-                    </b>
-                  </span>
-                </div>
-            }
+              <span className="inline-flex items-center gap-1 shrink-0" style={{ background: 'var(--a-blue-1)', color: 'var(--a-blue-ink)', borderRadius: 999, padding: '5px 11px', fontSize: 11.5, fontWeight: 800 }}>
+                <Zap size={12} />{feature37Text('pp_level').replace('{n}', String(level))}
+              </span>
             </div>
-          </section>
-        }
+            <div className="h-2 rounded-full overflow-hidden" style={{ background: 'var(--a-surface-soft)', marginTop: 14 }}>
+              <motion.div className="h-full rounded-full" style={{ background: 'var(--a-grad-blue)' }} initial={{ width: 0 }} animate={{ width: `${levelProgress}%` }} />
+            </div>
+            <p style={{ fontSize: 10.5, color: 'var(--a-ink-faint)', marginTop: 4, textAlign: 'end' }}>{feature37Text('pp_to_next').replace('{n}', String(pointsToNextLevel))}</p>
+          </motion.section>
 
-        {/* Achievements */}
-        <section className="a3-sec">
-          <h2 className="a3-sec-title">{tr("partnerprofilescreen_nailiyyetler_92db73", "Nailiyyətlər")}</h2>
-          <div className="a3-rail">
-            {achievements.map((achievement) =>
-            <div key={achievement.id} style={{ width: 76, textAlign: 'center', opacity: achievement.unlocked ? 1 : 0.4 }}>
-                <span className={`a3-ico-sq ${achievement.unlocked ? 'c-lav' : ''}`} style={{ width: 60, height: 60, borderRadius: 20, fontSize: 28, margin: '0 auto 6px', background: achievement.unlocked ? undefined : 'var(--a-surface-soft)' }} aria-hidden="true">{achievement.emoji}</span>
-                <span className="a3-meta" style={{ display: 'block', fontSize: 11.5 }}>{achievement.name}</span>
+          {/* Connection */}
+          {isLinked && partnerProfile ?
+          <section className="flex items-center gap-3" style={{ ...card, padding: 14 }}>
+              <span className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0 overflow-hidden" style={{ background: 'var(--a-pink-1)' }}>
+                {partnerProfile.avatar_url ?
+                <img src={partnerProfile.avatar_url} alt={partnerProfile.name} className="w-full h-full object-cover" loading="lazy" /> :
+                stage === 'bump' ? '🤰' : stage === 'mommy' ? '👩‍🍼' : '🌸'}
+              </span>
+              <div className="flex-1 min-w-0">
+                <p style={{ fontSize: 10.5, fontWeight: 800, color: 'var(--a-ink-faint)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{feature37Text('pp_connected_with')}</p>
+                <p className="truncate" style={{ fontSize: 15, fontWeight: 900, color: 'var(--a-ink)' }}>{partnerProfile.name}</p>
+                <p className="truncate" style={{ fontSize: 11.5, color: 'var(--a-ink-soft)' }}>{stageLine}</p>
+              </div>
+              <span style={{ fontSize: 10.5, fontWeight: 800, color: 'var(--a-green-ink)', background: 'var(--a-green-1)', borderRadius: 999, padding: '3px 9px' }}>● {feature37Text('ph_linked')}</span>
+            </section> :
+          <div className="flex justify-center"><PartnerLinkForm /></div>
+          }
+
+          {/* Stats */}
+          <div className="grid grid-cols-4 gap-2">
+            {statTiles.map(({ icon: Icon, value, label, bg, ink }) =>
+            <div key={label} className="text-center" style={{ ...card, padding: '12px 4px' }}>
+                <span className="w-8 h-8 mx-auto flex items-center justify-center" style={{ borderRadius: 10, background: bg }}><Icon size={15} style={{ color: ink }} /></span>
+                <p style={{ fontSize: 17, fontWeight: 900, color: 'var(--a-ink)', marginTop: 6 }}>{statsLoading ? '·' : value}</p>
+                <p className="truncate" style={{ fontSize: 10, color: 'var(--a-ink-soft)' }}>{label}</p>
               </div>
             )}
           </div>
-        </section>
 
-        {/* Linked partner */}
-        {partnerWomanData &&
-        <section className="a3-sec">
-            <div className="a3-card a3-pad" style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-              <span className="a3-ico-sq c-pink" style={{ width: 52, height: 52, borderRadius: 18, fontSize: 26 }} aria-hidden="true">🤰</span>
-              <span style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <span className="a3-entry-title">{partnerWomanData.name}</span>
-                <span className="a3-meta">
-                  {partnerWomanData.lifeStage === 'bump' ? tr("partnerprofilescreen_hamilelik_dovru_57af7a", "Hamiləlik dövrü") :
-                partnerWomanData.lifeStage === 'mommy' ? tr("partnerprofilescreen_analiq_dovru_b1c7dd", "Analıq dövrü") : tr("partnerprofilescreen_menstruasiya_dovru_a5852d", "Menstruasiya dövrü")}
-                </span>
-              </span>
-              <Gift size={20} style={{ color: 'var(--a-coral-text)' }} />
+          {/* Achievements */}
+          <section style={{ ...card, padding: '14px 0 12px' }}>
+            <p style={{ fontSize: 14, fontWeight: 900, color: 'var(--a-ink)', padding: '0 16px 10px' }}>{feature37Text('pp_achievements')}</p>
+            <div className="flex gap-3 overflow-x-auto hide-scrollbar" style={{ padding: '0 16px' }}>
+              {achievements.map((a) =>
+              <div key={a.id} className="flex-shrink-0 text-center" style={{ width: 68, opacity: a.unlocked ? 1 : 0.4 }}>
+                  <div className="w-14 h-14 mx-auto flex items-center justify-center text-2xl" style={{ borderRadius: 18, background: a.unlocked ? 'var(--a-blue-1)' : 'var(--a-surface-soft)' }}>{a.emoji}</div>
+                  <p style={{ fontSize: 10, fontWeight: 600, color: 'var(--a-ink-soft)', marginTop: 5, lineHeight: 1.25 }}>{a.name}</p>
+                </div>
+              )}
             </div>
           </section>
-        }
 
-        {/* Menu */}
-        <section className="a3-sec">
-          <div className="a-list-card">
-            {menuItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <button key={item.id} type="button" onClick={() => onNavigate?.(item.id)} className="a-list-row" style={{ width: '100%', background: 'none', textAlign: 'start', cursor: 'pointer' }}>
-                  <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', color: 'var(--a-ink-soft)' }}><Icon size={18} /></span>
-                  <span className="a-list-title" style={{ flex: 1 }}>{item.label}</span>
-                  <ChevronRight size={18} className="rtl:rotate-180" style={{ color: 'var(--a-ink-faint)' }} />
+          {/* Menu */}
+          <nav style={{ ...card, overflow: 'hidden' }}>
+            {menu.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <button key={item.id} type="button" onClick={() => onNavigate?.(item.id)} className="w-full flex items-center gap-3 text-start"
+                style={{ padding: '13px 16px', borderTop: index ? '1px solid var(--a-line)' : undefined }}>
+                  <span className="w-9 h-9 flex items-center justify-center shrink-0" style={{ borderRadius: 12, background: 'var(--a-surface-soft)' }}>
+                    <Icon size={16} style={{ color: 'var(--a-ink-soft)' }} />
+                  </span>
+                  <span className="flex-1" style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)' }}>{item.label}</span>
+                  <ChevronRight size={16} className="rtl:rotate-180" style={{ color: 'var(--a-ink-faint)' }} />
                 </button>);
-          })}
-          </div>
-        </section>
+            })}
+          </nav>
 
-        <section className="a3-sec">
-          <button type="button" onClick={logout} className="a3-btn ghost block" style={{ color: 'var(--a-bad)' }}>
-            <LogOut size={18} />
-            {tr("partnerprofilescreen_cixis_c2de5c", "Çıxış")}
-          </button>
-        </section>
+          <motion.button type="button" onClick={async () => { await signOut(); logout(); }} whileTap={{ scale: 0.98 }}
+          className="w-full flex items-center justify-center gap-2"
+          style={{ padding: 14, borderRadius: 16, background: 'var(--a-alert-bg)', color: 'var(--a-alert-ink)', fontSize: 14, fontWeight: 800 }}>
+            <LogOut size={17} />{feature37Text('pp_logout')}
+          </motion.button>
+        </div>
       </div>
     </div>);
 

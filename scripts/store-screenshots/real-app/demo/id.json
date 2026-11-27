@@ -1,0 +1,34 @@
+{
+  "country": "ID",
+  "locale": "id-ID",
+  "names": {
+    "mother": "Putri",
+    "baby": "Alya",
+    "cycle": "Sari",
+    "partner": "Dimas"
+  },
+  "appointments": [
+    "Pemeriksaan USG",
+    "RS Ibu dan Anak",
+    "Tes darah",
+    "Kontrol dokter anak"
+  ],
+  "authors": [
+    "Ayu Lestari",
+    "Rina Wulandari",
+    "Dewi Kurnia"
+  ],
+  "posts": [
+    "Hari ini pertama kali merasakan tendangan! 🥹 Aku nggak bisa menggambarkan perasaan ini. Kalian di minggu ke berapa? #kehamilan",
+    "Ngobrol dengan Anacan.AI jam 3 pagi saat bayiku nggak mau tidur sangat membantu. Rekomendasi untuk para ibu baru 💛",
+    "Sudah 24 minggu, aku mulai menyiapkan tas rumah sakit. Apa saja di daftar kalian? 🧳"
+  ],
+  "ai_question": "Apa yang membantu mengatasi mual?",
+  "ai_answer": [
+    "3 cara sederhana mengatasi mual:\n\n",
+    "1. **Teh jahe** — secangkir di pagi hari saat perut kosong.\n",
+    "2. **Makan sedikit tapi sering** — jangan biarkan perut kosong.\n",
+    "3. **Sebelum bangun dari tempat tidur**, makan beberapa biskuit kering.\n\n",
+    "Minum banyak air sepanjang hari 💧 Jika muntah makin parah, hubungi dokter."
+  ]
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { tr } from '@/lib/tr';
+import { resolvePublicStorageUrl } from '@/lib/illustration-image';
 import { motion } from 'framer-motion';
 import { Baby, Upload, Trash2, Save, Plus, Image } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -128,7 +129,7 @@ const AdminBabyIllustrations = () => {
       ...existing,
       title_az: existing?.title_az || '',
       description_az: existing?.description_az || '',
-      image_url: existing?.image_url || ''
+      image_url: resolvePublicStorageUrl(existing?.image_url) || ''
     });
     setDialogOpen(true);
   };
@@ -200,7 +201,7 @@ const AdminBabyIllustrations = () => {
               
               {illustration ?
               <img
-                src={illustration.image_url}
+                src={resolvePublicStorageUrl(illustration.image_url) || ''}
                 alt={`Ay ${month}`}
                 className="w-10 h-10 object-contain" /> :
 
@@ -231,7 +232,7 @@ const AdminBabyIllustrations = () => {
               {formData.image_url ?
               <div className="relative">
                   <img
-                  src={formData.image_url}
+                  src={resolvePublicStorageUrl(formData.image_url) || ''}
                   alt="Preview"
                   className="w-32 h-32 object-contain mx-auto" />
                 

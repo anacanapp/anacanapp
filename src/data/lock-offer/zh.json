@@ -1,0 +1,13 @@
+{
+  "title": "保护你的数据",
+  "subtitle": "你的孕期、健康和宝宝记录都是私密的。让只有你能打开这个应用。",
+  "bio_ios": "Face ID",
+  "bio_android": "指纹或面部识别",
+  "bio_line": "看一眼或轻触即可打开",
+  "pin_title": "4 位 PIN 码",
+  "pin_line": "备用方式：随时可用 PIN 码解锁",
+  "settings_title": "随时可以关闭",
+  "settings_line": "可在 {where} 中关闭或更改 PIN 码",
+  "enable": "开启保护",
+  "later": "以后再说"
+}

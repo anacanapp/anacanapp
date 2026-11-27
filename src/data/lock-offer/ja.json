@@ -1,0 +1,13 @@
+{
+  "title": "あなたのデータを守ろう",
+  "subtitle": "妊娠・健康・赤ちゃんの記録はあなただけのもの。アプリを開けるのはあなただけに。",
+  "bio_ios": "Face ID",
+  "bio_android": "指紋認証または顔認証",
+  "bio_line": "見るだけ・触れるだけで開けます",
+  "pin_title": "4桁のPIN",
+  "pin_line": "予備として、いつでもPINで開けます",
+  "settings_title": "いつでもオフにできます",
+  "settings_line": "{where}からオフにしたり、PINを変更したりできます",
+  "enable": "保護をオンにする",
+  "later": "今はしない"
+}

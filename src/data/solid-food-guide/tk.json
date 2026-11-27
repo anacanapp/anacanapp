@@ -1,0 +1,593 @@
+{
+ "ui": {
+  "title": "Goşmaça iýmit gollanmasy",
+  "tab_stage": "Tapgyr",
+  "tab_balance": "Deňagramlylyk",
+  "tab_rules": "Düzgünler",
+  "tab_foods": "Iýmitler",
+  "tab_recipes": "Reseptler",
+  "age_aria": "Ýaşy",
+  "months_short": "{n} aý",
+  "years_short": "{n} ýaş",
+  "months_plus": "{n} aý+",
+  "years_plus": "{n} ýaş+",
+  "fact_milk": "Süýt",
+  "fact_meals": "Naharlar",
+  "fact_portion": "Porsiýa",
+  "fact_texture": "Gurluşy",
+  "portion_note": "Porsiýalar diňe ugur görkezýär — näçe iýmelidigini çagaňyz özi kesgitleýär.",
+  "readiness_title": "Taýýarlyk alamatlary",
+  "readiness_all": "Hemmesi bar — 6 aýda başlamaga taýýar.",
+  "readiness_hint": "WHO goşmaça iýmite 6 aýda (180 gün) başlamagy maslahat berýär. Ynamyňyz bolmasa, pediatryňyz bilen gürleşiň.",
+  "sample_day_title": "Nusga gün (8 aý)",
+  "dishes_title": "Bu ýaş üçin nahar pikirleri",
+  "see_recipes": "Reseptleri görmek",
+  "plate_title": "Deňagramly tabak (1 ýaşdan)",
+  "plate_note": "Süýt önümini we biraz peýdaly ýagy (zeýtun ýagy, sary ýag, awokado) goşuň.",
+  "needs_title": "Gündelik zerurlyk",
+  "needs_note": "6–11 aýlykda bedeniň agramynyň her kg-yna demir zerurlygy ömrüň dowamynda iň ýokary bolýar — her nahara demir çeşmesini goşuň.",
+  "sources_title": "Nirede tapmaly",
+  "iron_helps_title": "Demriň siňmegini güýçlendirýär",
+  "iron_blocks_title": "Demri azaldýar",
+  "allergens_title": "Allergenler: gijikdirmäň",
+  "allergens_intro": "Ýumurtgany we ýer hozuny 6 aýdan başlap, bir-birden beriň. Çagaňyzda agyr ekzema ýa-da ýumurtga allergiýasy bar bolsa, ilki lukman bilen gürleşiň.",
+  "avoid_title": "Bermäň",
+  "choking_title": "Demigmegiň öňüni alyň (4 ýaşa çenli)",
+  "choking_note": "Ögemek adaty zat; demigmek sessiz bolýar we çaga üsgürip bilmeýär — bu gyssagly ýagdaý.",
+  "myths_title": "Köne mifler",
+  "all": "Hemmesi",
+  "recipes_intro": "Anacan Reseptlerinden çagaňyzyň ýaşyna laýyk saýlananlar. Ilkinji reseptler mugt; galanlary Premium-da.",
+  "recipes_loading": "Reseptler ýüklenýär…",
+  "all_recipes": "Ähli çaga reseptleri",
+  "all_recipes_sub": "{n} resept · Reseptlerde açylýar",
+  "tag_iron": "★ Demir",
+  "tag_ca": "Ca",
+  "tag_omega": "Ω-3",
+  "tag_c": "C",
+  "tag_allergen": "Allergen",
+  "home_title": "Goşmaça iýmit gollanmasy",
+  "home_sub_before": "6 aýdan başlap — taýýarlyk we ilkinji iýmitler",
+  "home_sub_after": "Ýaşa görä paýlar, demir deňagramlylygy we reseptler",
+  "tool_desc": "Paýlar, demir deňagramlylygy, allergenler we reseptler"
+ },
+ "stages": [
+  {
+   "id": "0-6",
+   "label": "0–6 aý",
+   "milk": "Islegine görä ene süýdi / garyndy",
+   "meals": "Entek goşmaça iýmit ýok",
+   "portion": "—",
+   "texture": "—",
+   "goal": "Her gün D witamini damjalary; taýýarlyk alamatlaryna üns beriň"
+  },
+  {
+   "id": "6-8",
+   "label": "6–8 aý",
+   "milk": "Esasy iýmit, günde 5–6 gezek",
+   "meals": "2–3 nahar",
+   "portion": "2–3 nahar çemçesinden ½ käsä (~125 ml) çenli",
+   "texture": "Ýumşak püre → goýy püre, ýumşak elde iýilýän iýmitler",
+   "goal": "Demir, täze tagamlar, allergenleri tanyşdyrmak"
+  },
+  {
+   "id": "9-11",
+   "label": "9–11 aý",
+   "milk": "Günde 3–4 gezek",
+   "meals": "3 nahar + 1–2 ýeňil nahar",
+   "portion": "½ käse (~125 ml)",
+   "texture": "Ezilen, ownuk doglan, elde iýilýän iýmitler",
+   "goal": "Çeýnemek, barmaklar bilen tutmak, açyk käse"
+  },
+  {
+   "id": "12-24",
+   "label": "1–2 ýaş",
+   "milk": "Ene süýdi ýa-da sygyr süýdi günde 350–500 ml",
+   "meals": "3 nahar + 2 ýeňil nahar",
+   "portion": "¾–1 käse (~200–250 ml)",
+   "texture": "Maşgala naharlary (duzsuz, kiçi bölekler)",
+   "goal": "Maşgala naharlaryna geçmek"
+  },
+  {
+   "id": "24-48",
+   "label": "2–4 ýaş",
+   "milk": "Süýt / ýogurt, günde 2 porsiýa",
+   "meals": "3 nahar + 2 ýeňil nahar",
+   "portion": "1 käse; et/balyk ~30–50 g",
+   "texture": "Maşgala naharlary",
+   "goal": "Dürlülik, saýlap iýmegi dolandyrmak"
+  }
+ ],
+ "readiness": [
+  "Kellesini durnukly saklaýar",
+  "Goldaw bilen oturýar",
+  "Iýmite gyzyklanma bildirýär, agzyny açýar",
+  "Dili iýmiti yzyna itmeýär"
+ ],
+ "sampleDay": [
+  {
+   "time": "07:00",
+   "what": "Süýt"
+  },
+  {
+   "time": "09:00",
+   "what": "Demir bilen baýlaşdyrylan bulamaç + miwe"
+  },
+  {
+   "time": "12:00",
+   "what": "Süýt"
+  },
+  {
+   "time": "13:30",
+   "what": "Et + gök önümler"
+  },
+  {
+   "time": "16:00",
+   "what": "Süýt"
+  },
+  {
+   "time": "18:30",
+   "what": "Ýumurtga / ýogurt + däneler"
+  },
+  {
+   "time": "Ýatmazdan öň",
+   "what": "Süýt"
+  }
+ ],
+ "nutrientAges": [
+  "6–11 aý",
+  "1–2 ýaş",
+  "2–4 ýaş"
+ ],
+ "nutrients": [
+  {
+   "name": "Demir",
+   "need": [
+    "11 mg",
+    "7 mg",
+    "7–10 mg"
+   ],
+   "sources": "Sygyr/goýun eti, towuk budy, ýumurtganyň sarysy, merjimek, nohut, demir bilen baýlaşdyrylan bulamaç, ysmanak",
+   "rule": "Her nahar wagtynda C witamini bilen demir çeşmesi"
+  },
+  {
+   "name": "D witamini",
+   "need": [
+    "400 IU",
+    "600 IU",
+    "600 IU"
+   ],
+   "sources": "Damjalar, ýagly balyk, ýumurtganyň sarysy",
+   "rule": "Her gün damjalar"
+  },
+  {
+   "name": "Sink",
+   "need": [
+    "3 mg",
+    "3 mg",
+    "3–5 mg"
+   ],
+   "sources": "Et, ýumurtga, ýogurt, gök noýba önümleri, suly",
+   "rule": "Demre baý iýmitler bilen bir tabakda"
+  },
+  {
+   "name": "Kalsiý",
+   "need": [
+    "260 mg",
+    "700 mg",
+    "700–1000 mg"
+   ],
+   "sources": "Ýogurt, peýnir, süýt (1 ýaşdan), tahin",
+   "rule": "Günde 2–3 porsiýa süýt önümi"
+  },
+  {
+   "name": "Omega-3",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Gyzyl balyk, skumbriýa, sardina, grek hozy, kenep tohumlary",
+   "rule": "Hepdede 2 gezek balyk"
+  },
+  {
+   "name": "A witamini",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Käşir, kädi, süýji kartoşka, erik",
+   "rule": "Günde bir mämişi reňkli gök önüm"
+  },
+  {
+   "name": "C witamini",
+   "need": [
+    "—",
+    "—",
+    "—"
+   ],
+   "sources": "Bolgar burçy, brokkoli, ýertudana, kiwi, apelsin",
+   "rule": "Demre baý naharlar bilen bile"
+  }
+ ],
+ "plate": [
+  {
+   "label": "Belok",
+   "hint": "et, balyk, ýumurtga, gök noýba önümleri"
+  },
+  {
+   "label": "Däneler",
+   "hint": "bulamaç, tüwi, çörek"
+  },
+  {
+   "label": "Gök önümler we miweler",
+   "hint": "reňkli"
+  }
+ ],
+ "ironHelps": [
+  "C witamini (burç, brokkoli, ýertudana)",
+  "Et + gök önümler bile"
+ ],
+ "ironBlocks": [
+  "Nahar bilen çaý",
+  "1 ýaşa çenli esasy içgi hökmünde sygyr süýdi",
+  "Gaty köp kepekli iýmitler"
+ ],
+ "allergens": [
+  "Ýumurtga",
+  "Ýer hozy",
+  "Agaç hozlary",
+  "Sygyr süýdi",
+  "Soýa",
+  "Bugdaý",
+  "Künji",
+  "Balyk",
+  "Gabykly deňiz önümleri"
+ ],
+ "allergenSteps": [
+  "Bir gezekde diňe bir täze allergen; 2–3 günüň dowamynda reaksiýa üns beriň",
+  "Gözegçilik etmek aňsat bolar ýaly ony irden ýa-da günortan beriň",
+  "Ýumurtga doly bişen bolmaly; ýer hozy pasta görnüşinde, hiç haçan bütin däl",
+  "Göterilse, ony hepdede 2–3 gezek bermegi dowam ediň"
+ ],
+ "avoid": [
+  {
+   "food": "Bal",
+   "until": "12 aý",
+   "why": "Botulizm howpy"
+  },
+  {
+   "food": "Duz",
+   "until": "12 aý, soňra örän az",
+   "why": "Böwreklere agram"
+  },
+  {
+   "food": "Goşulan şeker, süýjüler",
+   "until": "24 aý",
+   "why": "Süýjä endik, diş çüýremegi"
+  },
+  {
+   "food": "Miwe şiresi",
+   "until": "12 aý; soňra günde ≤120 ml",
+   "why": "Işdäni azaldýar"
+  },
+  {
+   "food": "Sygyr süýdi (içgi hökmünde)",
+   "until": "12 aý",
+   "why": "Demri azaldýar; nahar bişirmekde bolýar"
+  },
+  {
+   "food": "Çig ýumurtga, et, balyk; pasterizlenmedik süýt",
+   "until": "4 ýaş",
+   "why": "Ýokanç"
+  },
+  {
+   "food": "Simaby köp balyk (gylyç balyk, akula, uly tunes)",
+   "until": "4 ýaş",
+   "why": "Simap"
+  },
+  {
+   "food": "Çaý, kofe, kola",
+   "until": "4 ýaş",
+   "why": "Kofein; demriň siňmegine päsgel berýär"
+  },
+  {
+   "food": "Kolbasa, sosiskalar, ysladylan etler",
+   "until": "Mümkin boldugyça az",
+   "why": "Duz, nitratlar"
+  },
+  {
+   "food": "Tüwi süýdi",
+   "until": "4–5 ýaş",
+   "why": "Arsen"
+  }
+ ],
+ "choking": [
+  "Bütin hoz ýa-da tohum däl — üwelen ýa-da pasta görnüşinde",
+  "Üzüm, alça, kiçi pomidorlar — uzynlygyna dört bölege bölüň",
+  "Çig käşir, alma — sürtüň ýa-da bişiriň",
+  "Kolbasa — uzyn zolaklar; popkorn, gaty süýji ýa-da saggyz däl",
+  "Hemişe oturyp we gözegçilik astynda iýmeli"
+ ],
+ "myths": [
+  {
+   "myth": "Ýumurtganyň agy diňe 1 ýaşdan soň",
+   "fact": "Bütin ýumurtgany 6 aýdan berip bolýar; ony gijikdirmek allergiýa howpuny artdyryp biler."
+  },
+  {
+   "myth": "Balyk, sitrus miweler we ýertudana 1 ýaşa çenli gadagan",
+   "fact": "Olaryň hemmesini 6 aýdan berip bolýar."
+  },
+  {
+   "myth": "Miweden başlasaňyz, çagaňyz gök önümleri halamaz",
+   "fact": "Güýçli subutnama ýok; möhüm zat demre baý iýmit we dürlülik."
+  },
+  {
+   "myth": "4 aýdan miwe püresi",
+   "fact": "WHO goşmaça iýmite 6 aýda başlamagy maslahat berýär."
+  }
+ ],
+ "foodGroups": {
+  "meat": "Et",
+  "fish": "Balyk",
+  "egg": "Ýumurtga",
+  "dairy": "Süýt önümleri",
+  "legumes": "Noýbalylar",
+  "grains": "Däneler",
+  "vegetables": "Gök önümler",
+  "fruit": "Miwe",
+  "fats_seeds": "Ýaglar, tohumlar"
+ },
+ "foods": [
+  {
+   "name": "Sygyr eti",
+   "value": "Demir, sink, B12",
+   "form": "Püre ýa-da uzyn ýumşak zolaklar"
+  },
+  {
+   "name": "Goýun eti",
+   "value": "Demir, sink",
+   "form": "Püre, üwelen"
+  },
+  {
+   "name": "Towuk budy",
+   "value": "Belok, demir",
+   "form": "Döwülen, püre"
+  },
+  {
+   "name": "Hindi towugy",
+   "value": "Belok, sink",
+   "form": "Püre, tefteliler"
+  },
+  {
+   "name": "Bagyr",
+   "value": "Demir, A witamini",
+   "form": "Hepdede bir gezek, 1–2 çaý çemçesi"
+  },
+  {
+   "name": "Losos",
+   "value": "Omega-3, D witamini",
+   "form": "Süňksüz, ezilen"
+  },
+  {
+   "name": "Skumbriýa, sardina",
+   "value": "Omega-3",
+   "form": "Süňksüz, ezilen"
+  },
+  {
+   "name": "Treska, kambala",
+   "value": "Belok, ýod",
+   "form": "Bölejiklere bölünen"
+  },
+  {
+   "name": "Towuk ýumurtgasy",
+   "value": "Belok, holin, D",
+   "form": "Gaty bişirilen, ezilen; omlet zolaklary"
+  },
+  {
+   "name": "Ýogurt (şekersiz)",
+   "value": "Kalsiý, probiotikler",
+   "form": "Çemçe bilen"
+  },
+  {
+   "name": "Tworog, ak peýnir",
+   "value": "Kalsiý, belok",
+   "form": "Ezilen; duzuny aýyrmak üçin peýniri suwda saklaň"
+  },
+  {
+   "name": "Sary ýag",
+   "value": "Energiýa",
+   "form": "Nahara az mukdarda goşulýar"
+  },
+  {
+   "name": "Sygyr süýdi",
+   "value": "Kalsiý",
+   "form": "Içgi hökmünde 12 aýdan; naharda 6 aýdan"
+  },
+  {
+   "name": "Gyzyl merjimek",
+   "value": "Demir, belok",
+   "form": "Çorba, püre"
+  },
+  {
+   "name": "Nohut",
+   "value": "Demir, süýüm",
+   "form": "Humus (duzsuz)"
+  },
+  {
+   "name": "Noýba, maş",
+   "value": "Demir, folat",
+   "form": "Ezilen"
+  },
+  {
+   "name": "Süle",
+   "value": "Süýüm, demir",
+   "form": "Bulamaç"
+  },
+  {
+   "name": "Tüwi",
+   "value": "Energiýa",
+   "form": "Bulamaç (hepdede 2–3 gezek)"
+  },
+  {
+   "name": "Grečka",
+   "value": "Demir, magniý",
+   "form": "Bulamaç"
+  },
+  {
+   "name": "Bulgur, manna, makaron, çörek",
+   "value": "Energiýa, B",
+   "form": "Bulamaç, ýumşak makaron"
+  },
+  {
+   "name": "Tary, kinoa",
+   "value": "Demir, belok",
+   "form": "Bulamaç"
+  },
+  {
+   "name": "Kädi, käşir, süýji kartoşka",
+   "value": "A witamini",
+   "form": "Püre, bugda bişirilen taýajyklar"
+  },
+  {
+   "name": "Kabaçok, brokkoli, gülkelem",
+   "value": "C, K witaminleri",
+   "form": "Bugda bişirilen; brokkoli “agaç” görnüşinde"
+  },
+  {
+   "name": "Kartoşka",
+   "value": "Energiýa",
+   "form": "Püre"
+  },
+  {
+   "name": "Ysmanak, şugundyr",
+   "value": "Folat, demir",
+   "form": "Beýleki gök önümler bilen garyşdyrylan"
+  },
+  {
+   "name": "Badamjan, burç, pomidor",
+   "value": "C witamini",
+   "form": "Bişirilen, gabygy aýrylan"
+  },
+  {
+   "name": "Gök nohut, gök noýba",
+   "value": "Demir, süýüm",
+   "form": "Ezilen"
+  },
+  {
+   "name": "Alma, armyt",
+   "value": "Süýüm",
+   "form": "Bişirilen püre, sürtülen"
+  },
+  {
+   "name": "Banan, awokado",
+   "value": "Energiýa, peýdaly ýaglar",
+   "form": "Uzyn zolaklar, ezilen"
+  },
+  {
+   "name": "Şetdaly, erik, ülje",
+   "value": "A, C witaminleri, süýüm",
+   "form": "Gabygy aýrylan, ýumşak"
+  },
+  {
+   "name": "Ýertudana, kiwi, apelsin",
+   "value": "C witamini",
+   "form": "Ezilen, dilimler"
+  },
+  {
+   "name": "Üzüm, alça, gülüler",
+   "value": "Antioksidantlar",
+   "form": "Uzynlygyna dört bölege bölünen; gülüleri ezilen"
+  },
+  {
+   "name": "Gury erik, kişmiş, hurma",
+   "value": "Demir, süýüm",
+   "form": "Suwda ýumşadylan, püre edilen"
+  },
+  {
+   "name": "Zeýtun ýagy",
+   "value": "Peýdaly ýag",
+   "form": "Nahara 1 çaý çemçesi goşulýar"
+  },
+  {
+   "name": "Arahis pastasy",
+   "value": "Belok",
+   "form": "Durulan, püre bilen garyşdyrylan"
+  },
+  {
+   "name": "Badam, grek hozy, fundük ýagy",
+   "value": "E witamini, omega-3",
+   "form": "Üwelen ýa-da pasta görnüşinde"
+  },
+  {
+   "name": "Tahin (künji)",
+   "value": "Kalsiý, demir",
+   "form": "Bulamaja garyşdyrylan"
+  },
+  {
+   "name": "Kenep, çia tohumlary",
+   "value": "Omega-3",
+   "form": "Üwelen"
+  }
+ ],
+ "dishes": {
+  "6-8": [
+   "Sygyr eti + kädi püresi",
+   "Towuk + käşir + kartoşka püresi",
+   "Gyzyl merjimek çorbasy",
+   "Suly bulamajy + alma püresi",
+   "Grek bulamajy",
+   "Ýogurtly banan püresi",
+   "Awokado + banan ezmesi",
+   "Ezilen gaty bişen ýumurtga",
+   "Bugda bişirilen brokkoli “agaçlary”",
+   "Gyzyl balyk + süýji kartoşka püresi",
+   "Nohut humusy (tahin bilen)",
+   "Peçde bişirilen armyt püresi + darçyn"
+  ],
+  "9-11": [
+   "Kiçi sygyr eti tefteliler",
+   "Gök önümli omlet zolaklary",
+   "Balyk kotletleri",
+   "Ýogurtly suly oladýalar",
+   "Towukly tüwi bulamajy + kabaçok",
+   "Goýun eti we gök önümli çorba",
+   "Merjimek kotletleri",
+   "Makaron + etli pomidor sousy",
+   "Grek + bagyr sousy",
+   "Tworogly syrniki (peçde bişirilen)",
+   "Brokkoli-peýnirli maffinler",
+   "Alma-suly batonçiklar"
+  ],
+  "12-24": [
+   "Üzüm ýapragyndan dolma (kiçi)",
+   "Kelem dolmasy",
+   "Çagalar üçin palaw",
+   "Towukly lapşa çorbasy",
+   "Düşbere (kiçi börek çorbasy)",
+   "Gök otly kükü (peçde bişirilen omlet)",
+   "Merjimek çorbasy",
+   "Balyk kotletleri + kartoşka püresi",
+   "Grek + sygyr etinden guläş",
+   "Menemen (ýumşak)",
+   "Çagalar üçin lazanýa",
+   "Ýogurt + miwe + suly parfe",
+   "Tworogly zapekanka",
+   "Suwly hingal"
+  ],
+  "24-48": [
+   "Towuk we gök önümli tefteliler + bulgur",
+   "Peçde bişirilen gyzyl balyk + gök önümler",
+   "Noýba çorbasy",
+   "Öý pizzasy (bitin däneli)",
+   "Gutap (gök otly / etli)",
+   "Borş",
+   "Kinoa salady + nohut",
+   "Ýumurtga bilen tost “esgerler”",
+   "Smuzi tabagy",
+   "Öý naggetsleri (peçde bişirilen)"
+  ]
+ },
+ "emergency": "Ýüzüň ýa-da dodaklaryň çişmegi, dem almak kynçylygy, gaýtalanýan gusmak, reňkiň agarmagy — derrew {emergency} belgä jaň ediň.",
+ "disclaimer": "Bu gollanma bilim bermek maksatly bolup, lukmançylyk maslahaty däldir. Demir we witamin dozalaryny pediatryňyz kesgitleýär. Çeşmeler: WHO (2023), AAP, Türkiýäniň Saglyk ministrligi, Russiýanyň Pediatrlar birleşigi, SACN."
+}

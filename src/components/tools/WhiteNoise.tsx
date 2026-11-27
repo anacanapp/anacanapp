@@ -145,8 +145,8 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
       whiteNoise.setVolume(preferences.white_noise_volume || 70);
       setTimer(preferences.white_noise_timer);
       if (preferences.last_white_noise_sound && !whiteNoise.isPlaying) {
-        const { allowed } = canUseWhiteNoise();
-        if (allowed || isPremium) {
+        // 2026-11-09: listening is Premium-only (free users can browse the sounds).
+        if (isPremium) {
           // Find and auto-play last sound
           const sound = sounds.find((s) => s.id === preferences.last_white_noise_sound);
           if (sound) {
@@ -207,8 +207,9 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
       setTimeRemaining(null);
       await updateLastWhiteNoiseSound(null);
     } else {
-      const { allowed, remainingSeconds } = canUseWhiteNoise();
-      if (!allowed && !isPremium) {setShowPremiumModal(true);return;}
+      // 2026-11-09: free users can browse the sounds; starting one opens the paywall.
+      if (!isPremium) {setShowPremiumModal(true);return;}
+      const { remainingSeconds } = canUseWhiteNoise();
       lastTrackTimeRef.current = Date.now();
       const sound = sounds.find((s) => s.id === soundId);
       if (!sound) return;
@@ -272,13 +273,13 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
           title={tr("whitenoise_yuxu_sesleri_4b518b", "Yuxu Səsləri")} />
 
         {/* Free tier usage banner */}
-        {!isPremium && remainingMinutes !== null &&
+        {!isPremium &&
         <motion.div
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="a-card mb-4"
           style={{
-            background: usageInfo.remainingSeconds < 300 ? 'var(--a-alert-bg)' : 'var(--a-surface)',
+            background: 'var(--a-surface)',
             border: 'none'
           }}>
           
@@ -286,18 +287,14 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
               <span
               className="a-list-icon"
               style={{ background: usageInfo.remainingSeconds < 300 ? 'var(--a-grad-pink)' : 'var(--a-grad-peach)' }}>
-                {usageInfo.remainingSeconds < 300 ?
-              <Lock size={17} strokeWidth={2.2} style={{ color: 'var(--a-alert-ink)' }} /> :
-
-              <Timer size={17} strokeWidth={2.2} style={{ color: 'var(--a-accent-ink)' }} />
-              }
+                <Lock size={17} strokeWidth={2.2} style={{ color: 'var(--a-accent-ink)' }} />
               </span>
               <div className="flex-1 min-w-0">
-                <p className="a-list-title" style={{ margin: 0, color: usageInfo.remainingSeconds < 300 ? 'var(--a-alert-ink)' : 'var(--a-ink)' }}>
-                  {remainingMinutes} {tr("whitenoise_deqiqe_qalib_da6009", "d\u0259qiq\u0259 qal\u0131b")}
+                <p className="a-list-title" style={{ margin: 0, color: 'var(--a-ink)' }}>
+                  {tr('premiumgate_default_title', 'Bu bölmə Premium-dadır')}
                 </p>
-                <p className="a-list-sub" style={{ margin: 0, color: usageInfo.remainingSeconds < 300 ? 'var(--a-alert-soft)' : undefined }}>
-                  {tr("whitenoise_limitsiz_dinleme_ucun_premium_0f0575", "Limitsiz dinl\u0259m\u0259 \xFC\xE7\xFCn Premium")}
+                <p className="a-list-sub" style={{ margin: 0 }}>
+                  {tr('pgate_default_desc_v2', 'Premium ilə açılır')}
                 </p>
               </div>
               <motion.button
@@ -320,8 +317,8 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="rounded-[26px] p-6 mb-4 relative overflow-hidden"
-            style={{ background: 'var(--a-coral-strong)', boxShadow: 'var(--a-coral-shadow)' }}>
+            className={`bg-gradient-to-br ${activeDbSound.color} rounded-[26px] p-6 mb-4 relative overflow-hidden`}
+            style={{ boxShadow: 'var(--a-card-shadow)' }}>
             
               <style>{WAVE_STYLE}</style>
               <div className="absolute inset-0 opacity-20">
@@ -376,9 +373,8 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
                   </motion.button>
                   <motion.button
                   onClick={() => handleSoundToggle(activeSound)}
-                  className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{ background: 'var(--a-surface)', color: 'var(--a-ink)' }}
-                  aria-label={tr("mentalhealthtracker_dayandir_b2ea06", "Dayandır")}
+                  className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-xl"
+                  style={{ color: '#333' }}
                   whileTap={{ scale: 0.9 }}>
                   
                     <Pause className="w-8 h-8" />
@@ -516,10 +512,11 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.25 + ntIdx * 0.08 + index * 0.03 }}
                       onClick={() => handleSoundToggle(sound.id)}
-                      aria-pressed={isActive}
-                      className="relative rounded-2xl flex flex-col items-center justify-center transition-all overflow-hidden p-3"
+                      className={`relative rounded-2xl flex flex-col items-center justify-center transition-all overflow-hidden p-3 ${
+                      isActive ? `bg-gradient-to-br ${sound.color}` : ''}`
+                      }
                       style={isActive ?
-                      { background: 'var(--a-coral-strong)', boxShadow: 'var(--a-coral-shadow)' } :
+                      { boxShadow: 'var(--a-card-shadow)' } :
                       { background: 'var(--a-surface)', border: '1px solid var(--a-line)', boxShadow: 'var(--a-card-shadow)' }}
                       whileHover={{ scale: 1.03, y: -2 }}
                       whileTap={{ scale: 0.97 }}>
@@ -537,12 +534,12 @@ const WhiteNoise = forwardRef<HTMLDivElement, WhiteNoiseProps>(function WhiteNoi
                         {sound.emoji}
                       </span>
                       <span
-                        className="text-[12.5px] font-semibold relative z-10 px-1 text-center leading-tight"
-                        style={{ color: isActive ? 'var(--a-on-coral)' : 'var(--a-ink)' }}>
+                        className="text-[11px] font-bold relative z-10 px-1 text-center leading-tight"
+                        style={{ color: isActive ? '#fff' : 'var(--a-ink)' }}>
                         {sound.name}
                       </span>
                       {sound.description && !isActive &&
-                      <span className="text-[11px] mt-0.5 text-center leading-tight line-clamp-1 px-1" style={{ color: 'var(--a-ink-soft)' }}>
+                      <span className="text-[9px] mt-0.5 text-center leading-tight line-clamp-1 px-1" style={{ color: 'var(--a-ink-soft)' }}>
                           {sound.description}
                         </span>
                       }

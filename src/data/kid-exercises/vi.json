@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Bài tập cho bé",
+    "tileDesc": "Bài tập vận động có hình minh họa cho trẻ 0–5 tuổi",
+    "title": "Bài tập cho bé",
+    "eyebrow": "Vận động và phát triển",
+    "ageFor": "Dành cho {name}",
+    "today": "Hôm nay",
+    "doneCount": "{n} bài tập",
+    "weekHint": "7 ngày qua: mỗi chấm là một ngày bạn và con đã tập.",
+    "picksTitle": "Bài tập hôm nay",
+    "picksSub": "Mỗi ngày ba bài tập mới phù hợp với độ tuổi.",
+    "allTitle": "Tất cả bài tập",
+    "count": "{n} bài tập",
+    "nowBadge": "Tuổi hiện tại",
+    "search": "Tìm bài tập",
+    "all": "Tất cả",
+    "favs": "Yêu thích",
+    "noFavs": "Chạm vào trái tim để thêm bài tập vào mục yêu thích.",
+    "noResults": "Không tìm thấy bài tập phù hợp.",
+    "rules": "Quy tắc chung",
+    "safetyNote": "Các bài tập này chỉ là thông tin chung, không thay thế việc khám bác sĩ. Nếu bé sinh non, có vấn đề sức khỏe hoặc bạn lo lắng về sự phát triển của bé, hãy hỏi ý kiến bác sĩ nhi khoa hoặc chuyên viên vật lý trị liệu nhi trước.",
+    "age": "Tuổi",
+    "duration": "Thời gian",
+    "how": "Cách thực hiện",
+    "benefit": "Lợi ích",
+    "caution": "Lưu ý",
+    "timer": "Đồng hồ bấm giờ",
+    "start": "Bắt đầu",
+    "pause": "Tạm dừng",
+    "reset": "Đặt lại",
+    "done": "Đã tập",
+    "doneToday": "Hôm nay đã tập",
+    "prev": "Trước",
+    "next": "Tiếp",
+    "fav": "Thêm vào yêu thích",
+    "unfav": "Bỏ khỏi yêu thích",
+    "close": "Đóng"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 tuổi",
+      "months": "0–12 tháng",
+      "rules": [
+        "Tập khi bé thức, bình tĩnh và không quá no (ít nhất 30–40 phút sau khi bú hoặc ăn).",
+        "Tập trên bề mặt cứng, phẳng và sạch (thảm hoặc đệm tập trên sàn); không để bé một mình ở chỗ cao.",
+        "Động tác phải chậm và nhẹ nhàng. Không bao giờ dùng sức, không kéo tay chân bé.",
+        "Nếu bé khóc, khó chịu hoặc mệt, hãy dừng ngay.",
+        "Các mốc tuổi chỉ mang tính tương đối; mỗi bé phát triển theo nhịp riêng của mình.",
+        "Với bé sinh non hoặc có vấn đề sức khỏe, hãy hỏi ý kiến bác sĩ nhi khoa trước."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 tuổi",
+      "months": "12–24 tháng",
+      "rules": [
+        "Ở tuổi này, tập luyện chính là chơi: đừng ép bé, hãy tự làm mẫu động tác và cùng tập với bé.",
+        "Mỗi ngày nên có ít nhất 30 phút chơi vận động có hướng dẫn và từ 1 giờ trở lên vận động tự do.",
+        "Làm cho căn phòng an toàn: không có góc nhọn, thảm trơn trượt hay đồ đạc dễ đổ. Tập chân trần hoặc đi tất chống trượt là tốt nhất.",
+        "Khi bé leo cầu thang, chơi cầu trượt, leo trèo và nhảy, luôn ở trong tầm tay với bé.",
+        "Khi chơi với đồ vật nhỏ (bóng, khối), hãy chú ý kích thước: tuyệt đối không đưa cho bé đồ vật có thể lọt vào miệng.",
+        "Các mốc tuổi chỉ mang tính tương đối. Nếu đến 18 tháng bé vẫn chưa tự đi được, hãy đưa bé đi khám bác sĩ nhi khoa."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 tuổi",
+      "months": "24–36 tháng",
+      "rules": [
+        "Ở tuổi này, tập luyện là trò chơi: tự làm mẫu động tác, cùng tập với bé, kèm theo bài hát và câu chuyện.",
+        "Mỗi ngày nên có ít nhất 1 giờ chơi vận động có hướng dẫn và từ 2 giờ trở lên vận động tự do.",
+        "Làm cho căn phòng và sân chơi an toàn: không có sàn trơn, góc nhọn hay đồ vật dễ đổ.",
+        "Khi bé nhảy, leo trèo, đu và chơi cầu trượt, hãy ở trong tầm tay với bé; chọn bề mặt mềm.",
+        "Đừng để bé quá mệt: trò chơi ngắn, nghỉ thường xuyên và uống nước.",
+        "Các mốc tuổi chỉ mang tính tương đối; mỗi bé phát triển theo nhịp riêng. Nếu bạn lo lắng điều gì, hãy đưa bé đi khám bác sĩ nhi khoa."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 tuổi",
+      "months": "36–48 tháng",
+      "rules": [
+        "Tập luyện vẫn là trò chơi: tự làm mẫu động tác, cùng tập với bé, thêm yếu tố thi đua và câu chuyện.",
+        "Mỗi ngày nên có ít nhất 1 giờ chơi vận động có hướng dẫn và từ 2 giờ trở lên vận động tự do; ngoài trời càng nhiều càng tốt.",
+        "Chọn nơi an toàn: sàn chống trượt, thảm mềm, xung quanh không có góc nhọn.",
+        "Khi bé đi xe có bánh (scooter, xe đạp), luôn cho bé đội mũ bảo hiểm.",
+        "Với các bài như lộn, cầu thăng bằng và leo trèo, hãy ở ngay bên cạnh bé.",
+        "Đừng để bé quá mệt: trò chơi ngắn, nghỉ thường xuyên và uống nước.",
+        "Các mốc tuổi chỉ mang tính tương đối; mỗi bé phát triển theo nhịp riêng. Nếu bạn lo lắng điều gì, hãy đưa bé đi khám bác sĩ nhi khoa."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 tuổi",
+      "months": "48–60 tháng",
+      "rules": [
+        "Tập luyện nên diễn ra như một trò chơi: tự làm mẫu động tác, cùng tập với bé, thêm những cuộc thi nhỏ và \"kỷ lục\".",
+        "Mỗi ngày nên có ít nhất 1 giờ chơi vận động có hướng dẫn và từ 2 giờ trở lên vận động tự do; ngoài trời càng nhiều càng tốt.",
+        "Chọn nơi an toàn: sàn chống trượt, thảm mềm, xung quanh không có góc nhọn.",
+        "Khi đi xe đạp và scooter, luôn cho bé đội mũ bảo hiểm và đi giày kín mũi.",
+        "Khi bé lộn, nhảy từ trên cao xuống, leo trèo và đu, hãy ở ngay bên cạnh bé.",
+        "Với các bài tập sức mạnh (plank, ngồi xổm), chất lượng quan trọng hơn thời gian: dừng lại khi bé không giữ đúng tư thế nữa.",
+        "Các mốc tuổi chỉ mang tính tương đối; mỗi bé phát triển theo nhịp riêng. Nếu bạn lo lắng điều gì, hãy đưa bé đi khám bác sĩ nhi khoa."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 tháng",
+    "3–6 ay": "3–6 tháng",
+    "6–9 ay": "6–9 tháng",
+    "9–12 ay": "9–12 tháng",
+    "12–15 ay": "12–15 tháng",
+    "15–18 ay": "15–18 tháng",
+    "18–24 ay": "18–24 tháng",
+    "Hoppanma və tarazlıq": "Nhảy và thăng bằng",
+    "Yerimə, qaçış və dırmaşma": "Đi, chạy và leo trèo",
+    "Topla oyunlar": "Trò chơi với bóng",
+    "Gimnastika və təqlid oyunları": "Thể dục và trò chơi bắt chước",
+    "Hoppanma": "Nhảy",
+    "Tarazlıq": "Thăng bằng",
+    "Təkərli vasitələr və qaçış": "Xe có bánh và chạy",
+    "Güc və gimnastika": "Sức mạnh và thể dục",
+    "Ritm və koordinasiya": "Nhịp điệu và phối hợp",
+    "Hoppanma və tullanma": "Nhảy và bật xa",
+    "Qaçış, velosiped və ritm oyunları": "Chạy, xe đạp và trò chơi nhịp điệu"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Nằm sấp",
+      "age": "ngay từ khi chào đời",
+      "how": "Đặt bé nằm sấp trên thảm, gập hai tay bé ở khuỷu và đặt cạnh đầu. Nhẹ nhàng đặt một tay lên lưng bé, tay kia lên mông. Trò chuyện với bé để bé cố ngẩng đầu lên.",
+      "duration": "2–3 lần mỗi ngày, mỗi lần 1–3 phút; tăng dần.",
+      "benefit": "Làm khỏe cơ cổ, vai và lưng, giúp phòng tránh bẹp phía sau đầu.",
+      "caution": "Chỉ khi bé thức và có người trông. Khi ngủ, luôn đặt bé nằm ngửa."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Nằm sấp trên ngực bố mẹ",
+      "age": "0–2 tháng",
+      "how": "Ngả lưng nửa nằm nửa ngồi, tựa vào gối. Đặt bé nằm sấp trên ngực bạn, một tay đỡ lưng, tay kia đỡ mông bé. Trò chuyện với bé để bé nhìn lên mặt bạn.",
+      "duration": "Vài lần mỗi ngày, 2–5 phút.",
+      "benefit": "Là cách nhẹ nhàng nhất để bé làm quen với tư thế nằm sấp; khuyến khích bé ngẩng đầu, gắn kết tình cảm.",
+      "caution": "Đừng tập bài này nếu chính bạn đang buồn ngủ."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Nằm sấp trên đùi",
+      "age": "0–3 tháng",
+      "how": "Ngồi xuống và đặt bé nằm sấp ngang trên đùi bạn. Một tay đặt trên lưng, tay kia trên mông bé. Bạn có thể nhẹ nhàng vuốt lưng bé.",
+      "duration": "2–3 phút.",
+      "benefit": "Vận động cơ cổ, giúp bé xì hơi dễ hơn và làm bé dịu lại."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Nhìn theo đồ chơi",
+      "age": "0–3 tháng",
+      "how": "Bé nằm ngửa. Cầm một món đồ chơi màu sắc tươi cách mặt bé 20–30 cm và từ từ di chuyển sang phải, sang trái. Chờ bé dõi theo bằng mắt và đầu.",
+      "duration": "1–2 phút, mỗi bên 4–5 lần.",
+      "benefit": "Phát triển sự chú ý thị giác, phối hợp mắt và đầu, giúp cổ quay đều cả hai bên."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Nắm ngón tay",
+      "age": "0–4 tháng",
+      "how": "Đặt ngón trỏ của bạn vào lòng bàn tay bé và chờ bé nắm chặt. Di chuyển ngón tay nhẹ lên xuống một chút. Lặp lại với cả hai tay.",
+      "duration": "Mỗi tay 3–5 lần.",
+      "benefit": "Củng cố phản xạ cầm nắm và cơ bàn tay, phát triển xúc giác.",
+      "caution": "Không nhấc bé lên bằng ngón tay của bạn."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Co gối lên bụng",
+      "age": "0–6 tháng",
+      "how": "Bé nằm ngửa. Cầm hai cẳng chân bé, từ từ gập hai đầu gối cùng lúc về phía bụng, giữ 3–5 giây rồi thả ra.",
+      "duration": "5–8 lần.",
+      "benefit": "Giảm đầy hơi và đau bụng quặn, tăng độ linh hoạt của khớp háng.",
+      "caution": "Không ấn mạnh; nếu thấy có lực cản thì dừng lại."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "\"Đạp xe\"",
+      "age": "1–6 tháng",
+      "how": "Bé nằm ngửa. Cầm cẳng chân bé và đưa hai chân luân phiên như đang đạp xe: một gối co về phía bụng, chân kia duỗi ra.",
+      "duration": "10–15 vòng, có nghỉ xen giữa.",
+      "benefit": "Vận động cơ chân và cơ bụng, hỗ trợ hoạt động của ruột, dạy bé phối hợp động tác luân phiên."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Dang tay và khép tay",
+      "age": "1–6 tháng",
+      "how": "Bé nằm ngửa. Đặt ngón cái của bạn vào lòng bàn tay bé hoặc nhẹ nhàng cầm cổ tay bé. Dang hai tay bé sang hai bên, rồi bắt chéo trước ngực (như bé đang tự ôm mình).",
+      "duration": "5–8 lần.",
+      "benefit": "Giãn cơ ngực và vai, dạy bé đưa hai tay về đường giữa cơ thể.",
+      "caution": "Không kéo tay bé; chỉ dang rộng đến mức bé cho phép."
+    },
+    "0-1/09_kicking": {
+      "title": "Đạp vào lòng bàn tay",
+      "age": "1–4 tháng",
+      "how": "Bé nằm ngửa. Áp lòng bàn tay bạn vào lòng bàn chân bé và tạo một lực cản nhẹ; bé sẽ dùng chân đẩy ra.",
+      "duration": "1–2 phút.",
+      "benefit": "Làm khỏe cơ chân, chuẩn bị động tác đẩy (cho việc bò và đứng sau này)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Chơi ở tư thế nằm nghiêng",
+      "age": "1–4 tháng",
+      "how": "Đặt bé nằm nghiêng, chèn một chiếc khăn cuộn sau lưng bé. Hai tay bé ở phía trước; đặt đồ chơi trước mặt bé. Sau đó đổi sang bên kia.",
+      "duration": "Mỗi bên 2–3 phút.",
+      "benefit": "Giúp hai tay dễ chạm nhau, chuẩn bị cho việc lật, phòng tránh đầu bé luôn nghiêng về một bên.",
+      "caution": "Chỉ khi bé thức và có người trông; không để bé ngủ ở tư thế này."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Nằm sấp có khăn đỡ",
+      "age": "2–4 tháng",
+      "how": "Đặt một chiếc khăn cuộn dưới ngực bé (ngang nách), hai tay bé ở phía trước khăn. Đặt đồ chơi trước mặt để bé ngẩng đầu lên nhìn.",
+      "duration": "3–5 phút, vài lần mỗi ngày.",
+      "benefit": "Giúp bé ngẩng đầu dễ hơn, chuẩn bị cho việc chống khuỷu tay."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Kéo lên ngồi",
+      "age": "3–5 tháng (sau khi bé đã giữ vững được đầu)",
+      "how": "Bé nằm ngửa. Đưa ngón cái của bạn cho bé nắm, giữ cổ tay bé và từ từ nâng bé lên tư thế ngồi, rồi đặt bé nằm xuống lại cũng chậm rãi như vậy.",
+      "duration": "3–5 lần.",
+      "benefit": "Làm khỏe cơ bụng, cơ cổ và cơ tay.",
+      "caution": "Nếu đầu bé ngửa ra sau, hãy hoãn bài tập lại. Không kéo nhanh."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Với lấy đồ chơi",
+      "age": "3–5 tháng",
+      "how": "Bé nằm ngửa. Cầm đồ chơi phía trên ngực bé, trong tầm tay bé, và chờ bé vươn tay ra nắm. Lúc thì đưa đồ chơi sang phải, lúc thì sang trái.",
+      "duration": "2–3 phút.",
+      "benefit": "Phát triển phối hợp tay và mắt, cơ vai và khả năng cầm nắm có chủ đích."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Chống khuỷu tay và với đồ",
+      "age": "4–6 tháng",
+      "how": "Bé nằm sấp, chống trên hai khuỷu tay. Đặt đồ chơi hơi xa về phía trước và sang một bên để bé vươn một tay ra lấy. Bạn có thể dùng tay giữ nhẹ hông bé cho vững.",
+      "duration": "3–5 phút.",
+      "benefit": "Dạy bé chuyển trọng lượng từ tay này sang tay kia, làm khỏe lưng và vai, chuẩn bị cho việc bò."
+    },
+    "0-1/15_rolling": {
+      "title": "Giúp bé lật",
+      "age": "4–6 tháng",
+      "how": "Bé nằm ngửa. Đặt đồ chơi ở một bên. Một tay giữ đùi, tay kia giữ hông bé, đưa chân phía trên sang phía bên kia; thân bé sẽ tự xoay theo. Tập cả hai bên.",
+      "duration": "Mỗi bên 3–4 lần.",
+      "benefit": "Phát triển cơ thân mình và động tác xoay người, dạy bé tự lật.",
+      "caution": "Không lật bé bằng cách kéo tay."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Nắm bàn chân",
+      "age": "4–6 tháng",
+      "how": "Bé nằm ngửa. Gập gối bé và đưa bàn chân lại gần tay để bé nắm lấy. Khi bé đã nắm được, để bé đung đưa nhẹ sang hai bên.",
+      "duration": "1–2 phút.",
+      "benefit": "Làm khỏe cơ bụng, tăng cảm nhận về cơ thể và độ dẻo của hông."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Ngồi có đỡ",
+      "age": "5–7 tháng",
+      "how": "Cho bé ngồi trên thảm, bạn đỡ từ phía sau ở hông hoặc eo bé. Đưa đồ chơi vào tay bé. Khi bé giữ thăng bằng tốt hơn, giảm dần sự hỗ trợ.",
+      "duration": "3–5 phút.",
+      "benefit": "Phát triển cơ thân mình và thăng bằng khi ngồi, giúp hai tay rảnh để chơi.",
+      "caution": "Khi lưng bé cong lại và bé mệt, hãy cho bé nằm xuống; không ép bé ngồi bằng cách chèn gối."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Nhún chân khi được đỡ đứng",
+      "age": "5–8 tháng",
+      "how": "Giữ chắc thân bé ở dưới nách và đặt chân bé lên mặt phẳng cứng. Để bé dồn một phần trọng lượng lên chân và nhún bằng cách co duỗi đầu gối.",
+      "duration": "1–2 phút.",
+      "benefit": "Làm khỏe cơ chân, chuẩn bị cho việc đứng.",
+      "caution": "Bạn đỡ phần lớn trọng lượng của bé; không buông bé đứng một mình."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Ngồi và với lấy đồ chơi",
+      "age": "6–8 tháng",
+      "how": "Bé tự ngồi, một tay chống xuống sàn. Đặt đồ chơi phía trước và hai bên, hơi xa một chút để bé vươn người lấy rồi ngồi thẳng lại. Đặt gối xung quanh bé.",
+      "duration": "5 phút.",
+      "benefit": "Phát triển thăng bằng khi ngồi, khả năng xoay thân và phản xạ chống tay khi ngã."
+    },
+    "0-1/20_peekaboo": {
+      "title": "\"Ú òa\"",
+      "age": "4–12 tháng",
+      "how": "Bé ngồi. Cầm một mảnh vải mỏng che trước mặt bạn (hoặc mặt bé), rồi hạ xuống và nói \"Ú òa!\". Khi bé lớn hơn, để bé tự kéo tấm vải xuống.",
+      "duration": "Chừng nào bé còn thích thú.",
+      "benefit": "Phát triển khái niệm vật vẫn tồn tại khi bị che khuất, sự chú ý, giao tiếp và tiếng cười; khuyến khích bé cử động tay tích cực."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Trò vỗ tay",
+      "age": "7–12 tháng",
+      "how": "Ngồi đối diện với bé. Vừa hát hoặc đếm, vừa vỗ lòng bàn tay bạn vào lòng bàn tay bé, sau đó làm mẫu cho bé tự vỗ tay.",
+      "duration": "2–3 phút.",
+      "benefit": "Phát triển sự phối hợp hai tay, cảm nhận nhịp điệu, khả năng bắt chước và giao tiếp."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Giúp bé bò",
+      "age": "7–9 tháng",
+      "how": "Bé chống hai tay và hai gối, phía trước có đồ chơi. Áp lòng bàn tay bạn vào lòng bàn chân bé để bé lấy đà đẩy người tiến lên.",
+      "duration": "3–5 phút.",
+      "benefit": "Phát triển động tác bò, phối hợp tay chân và sức mạnh thân mình.",
+      "caution": "Không đẩy bé, chỉ làm điểm tựa."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Bò qua chướng ngại",
+      "age": "8–10 tháng",
+      "how": "Đặt một chiếc gối thấp hoặc chăn cuộn lên thảm, để đồ chơi ở phía bên kia. Để bé tự vượt qua chướng ngại.",
+      "duration": "5 phút.",
+      "benefit": "Phát triển sức mạnh, thăng bằng và khả năng lên kế hoạch vận động, chuẩn bị cho việc leo trèo."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Lăn bóng",
+      "age": "8–12 tháng",
+      "how": "Bé ngồi dạng hai chân. Lăn một quả bóng mềm về phía bé, chờ bé bắt lấy và đẩy lại.",
+      "duration": "5 phút.",
+      "benefit": "Phát triển thăng bằng khi ngồi, phối hợp tay và mắt, thói quen chơi theo lượt."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Vịn để đứng lên",
+      "age": "8–10 tháng",
+      "how": "Đặt đồ chơi trên một chiếc ghế sofa thấp và chắc chắn. Bé sẽ quỳ lên, đặt một chân xuống sàn và cố đứng dậy. Nếu cần, đỡ nhẹ hông bé.",
+      "duration": "3–5 lần thử.",
+      "benefit": "Làm khỏe cơ chân và cơ mông, dạy bé tự đứng lên.",
+      "caution": "Đảm bảo đồ đạc không bị đổ và không có góc nhọn."
+    },
+    "0-1/26_cruising": {
+      "title": "Bước ngang men theo đồ đạc",
+      "age": "9–11 tháng",
+      "how": "Bé vịn sofa đứng. Đặt đồ chơi cách bé một chút để bé bước ngang tới lấy. Tập theo cả hai hướng.",
+      "duration": "5 phút.",
+      "benefit": "Dạy bé chuyển trọng lượng từ chân này sang chân kia và giữ thăng bằng; là bước chuẩn bị trực tiếp cho việc đi."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Ngồi xổm nhặt đồ chơi",
+      "age": "10–12 tháng",
+      "how": "Bé đứng, một tay vịn sofa. Đặt đồ chơi xuống sàn, cạnh chân bé. Chờ bé ngồi xổm xuống nhặt rồi đứng lên lại.",
+      "duration": "5–6 lần.",
+      "benefit": "Làm khỏe cơ chân và tăng thăng bằng, dạy bé kiểm soát động tác ngồi xuống đứng lên."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Tập đi có đỡ",
+      "age": "10–12 tháng",
+      "how": "Đứng sau lưng bé và giữ thân bé (ngang ngực). Để bé tự bước; khi bé giữ thăng bằng tốt hơn, giảm dần sự hỗ trợ.",
+      "duration": "3–5 phút.",
+      "benefit": "Phát triển kỹ năng bước đi và thăng bằng.",
+      "caution": "Giữ ở thân an toàn cho vai bé hơn là kéo hai tay bé lên cao để dắt đi."
+    },
+    "0-1/29_push_walker": {
+      "title": "Đẩy xe tập đi",
+      "age": "11–12 tháng",
+      "how": "Đưa cho bé một chiếc xe đẩy tập đi chắc chắn, nặng. Bé nắm tay cầm bằng cả hai tay và bước về phía trước. Bạn ở ngay bên cạnh.",
+      "duration": "5–10 phút.",
+      "benefit": "Tạo sự tự tin để tự đi, luyện độ dài bước chân và định hướng.",
+      "caution": "Xe đẩy không được chạy quá nhanh; không khuyến khích dùng xe tập đi có ghế ngồi (xe tròn)."
+    },
+    "1-2/01_first_steps": {
+      "title": "Những bước đi tự lập đầu tiên",
+      "age": "12–15 tháng",
+      "how": "Cho bé đứng, bạn quỳ cách bé 2–3 bước, dang rộng tay và gọi bé. Khi bé làm được, tăng dần khoảng cách.",
+      "duration": "5–10 lần thử.",
+      "benefit": "Tạo sự tự tin để tự đi và phát triển thăng bằng."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Dắt một tay đi",
+      "age": "12–15 tháng",
+      "how": "Chỉ nắm một tay của bé và đi theo nhịp của bé. Giữ tay bạn ngang vai bé, không kéo lên cao. Đổi tay.",
+      "duration": "5–10 phút.",
+      "benefit": "Là bước chuyển từ đỡ hai tay sang tự đi; giúp thăng bằng vững hơn."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Tự đứng dậy từ sàn không cần vịn",
+      "age": "12–15 tháng",
+      "how": "Khi bé ngồi giữa phòng, cầm một món đồ chơi hấp dẫn ngang tầm đầu bé. Chờ bé chống tay và chân xuống sàn, nhổm mông lên và tự đứng thẳng dậy.",
+      "duration": "5–6 lần.",
+      "benefit": "Làm khỏe cơ chân, cơ mông và cơ thân mình; dạy bé đứng lên mà không cần vịn đồ đạc."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Ngồi xổm không cần vịn",
+      "age": "13–18 tháng",
+      "how": "Đặt một quả bóng hoặc đồ chơi xuống sàn. Khuyến khích bé ngồi xổm xuống nhặt mà không vịn vào đâu, rồi đứng lên lại.",
+      "duration": "6–8 lần.",
+      "benefit": "Phát triển sức mạnh chân, thăng bằng và khả năng kiểm soát cử động."
+    },
+    "1-2/07_push_basket": {
+      "title": "Đẩy giỏ",
+      "age": "12–18 tháng",
+      "how": "Bỏ vài món đồ chơi vào một chiếc giỏ đựng quần áo nhẹ. Bé dùng hai tay đẩy giỏ đi khắp phòng.",
+      "duration": "5–10 phút.",
+      "benefit": "Làm khỏe cơ chân và cơ thân mình, giúp dáng đi vững vàng hơn."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Leo lên sofa thấp hoặc gối",
+      "age": "12–18 tháng",
+      "how": "Chọn một chiếc gối chắc hoặc sofa thấp cao ngang đầu gối. Bé tì bụng lên, nhấc một đầu gối lên rồi trèo lên. Tay bạn luôn sẵn sàng phía sau mông bé. Dạy cả cách xuống: nằm sấp, chân xuống trước.",
+      "duration": "4–5 lần.",
+      "benefit": "Phát triển sức mạnh toàn thân và khả năng lên kế hoạch vận động.",
+      "caution": "Không để bé một mình ở chỗ cao."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Bò lên cầu thang",
+      "age": "12–18 tháng",
+      "how": "Với 2–3 bậc thấp, bé đặt tay lên bậc trên rồi trèo lên. Bạn đứng phía sau, tay để cạnh mông bé. Khi xuống, dạy bé quay lưng lại và cho chân xuống trước.",
+      "duration": "Lên xuống 3–4 lần.",
+      "benefit": "Hình thành sức mạnh chân, sự phối hợp và thói quen an toàn khi đi cầu thang.",
+      "caution": "Chỉ khi có người trông; những lúc khác luôn đóng cửa chắn cầu thang."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Lăn bóng",
+      "age": "12–18 tháng",
+      "how": "Ngồi hoặc ngồi xổm đối diện nhau. Lăn bóng qua lại cho nhau; bé dùng hai tay bắt lấy rồi đẩy lại.",
+      "duration": "5 phút.",
+      "benefit": "Phát triển phối hợp tay và mắt, chơi theo lượt và thăng bằng thân mình."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Xếp tháp khối",
+      "age": "12–18 tháng",
+      "how": "Đưa cho bé những khối gỗ to và làm mẫu cách xếp tháp từ 2–4 khối. Khi tháp đổ, cùng xếp lại.",
+      "duration": "5–10 phút.",
+      "benefit": "Phát triển vận động tinh, sự khéo léo của bàn tay và tính kiên nhẫn."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Bỏ bóng vào hộp",
+      "age": "12–18 tháng",
+      "how": "Bé quỳ hoặc ngồi, nhặt từng quả bóng một và bỏ vào hộp. Sau đó đổ hộp ra và bắt đầu lại.",
+      "duration": "5 phút.",
+      "benefit": "Phát triển kỹ năng cầm và thả, phối hợp tay và mắt, thăng bằng khi quỳ."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Vừa đi vừa mang đồ chơi",
+      "age": "15–18 tháng",
+      "how": "Đưa cho bé một món đồ chơi to và nhẹ, nhờ bé mang sang đầu bên kia của phòng.",
+      "duration": "5 phút.",
+      "benefit": "Dạy bé giữ thăng bằng khi tay đang bận, làm khỏe cơ thân mình."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Kéo đồ chơi có dây",
+      "age": "15–20 tháng",
+      "how": "Đưa cho bé một món đồ chơi có bánh xe buộc dây ngắn. Bé vừa đi vừa kéo đồ chơi theo sau và quay lại nhìn nó.",
+      "duration": "5–10 phút.",
+      "benefit": "Dạy bé xoay đầu và thân khi đang đi, biết phân chia sự chú ý.",
+      "caution": "Dây phải ngắn (khoảng 30 cm); không để bé một mình với sợi dây."
+    },
+    "1-2/10_tunnel": {
+      "title": "Bò qua đường hầm",
+      "age": "12–24 tháng",
+      "how": "Mở hai đầu một thùng các-tông lớn để làm đường hầm. Gọi bé từ đầu bên kia hoặc đặt đồ chơi ở đó.",
+      "duration": "5–10 phút.",
+      "benefit": "Phát triển sức mạnh vai và thân mình, cảm nhận về không gian."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Con đường bằng gối",
+      "age": "15–20 tháng",
+      "how": "Xếp vài chiếc gối dẹt xuống sàn. Bé nắm một tay bạn và đi trên những chiếc gối đó.",
+      "duration": "3–5 lượt.",
+      "benefit": "Tăng thăng bằng trên bề mặt không vững, làm khỏe cơ cổ chân."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Ném bóng vào giỏ",
+      "age": "15–24 tháng",
+      "how": "Đặt một cái giỏ cách bé 1 bước chân. Làm mẫu ném quả bóng mềm vào giỏ; khi bé làm được, tăng dần khoảng cách.",
+      "duration": "8–10 lần ném.",
+      "benefit": "Phát triển động tác ném, phối hợp tay và mắt, sức mạnh vai."
+    },
+    "1-2/15_dance": {
+      "title": "Nhảy theo nhạc",
+      "age": "12–24 tháng",
+      "how": "Bật một bản nhạc vui nhộn và cùng nhảy với bé: nhún đầu gối, vỗ tay, xoay vòng.",
+      "duration": "5–10 phút.",
+      "benefit": "Tăng cảm nhận nhịp điệu, thăng bằng và sức bền, giúp bé vui vẻ."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Dọn đồ chơi",
+      "age": "15–24 tháng",
+      "how": "Rải đồ chơi ra sàn. Bé cúi xuống hoặc ngồi xổm, nhặt từng món và bỏ vào giỏ.",
+      "duration": "Đến khi hết đồ chơi.",
+      "benefit": "Cúi xuống đứng lên nhiều lần giúp khỏe cơ chân và cơ lưng; tạo thói quen ngăn nắp."
+    },
+    "1-2/24_ride_on": {
+      "title": "Xe chòi chân",
+      "age": "15–24 tháng",
+      "how": "Cho bé ngồi trên một chiếc xe đồ chơi thấp không có bàn đạp; chân bé phải chạm hẳn xuống sàn. Bé dùng chân đẩy để tiến về phía trước.",
+      "duration": "10 phút.",
+      "benefit": "Phát triển sức mạnh chân, phối hợp hai bên cơ thể và khả năng điều khiển hướng đi."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Đá bóng",
+      "age": "18–24 tháng",
+      "how": "Đặt một quả bóng nhẹ trước chân bé và làm mẫu cách đá. Lúc đầu bạn có thể nắm một tay bé.",
+      "duration": "8–10 cú đá.",
+      "benefit": "Phát triển khả năng giữ thăng bằng ngắn trên một chân và phối hợp chân và mắt."
+    },
+    "1-2/16_bubbles": {
+      "title": "Bắt bong bóng xà phòng",
+      "age": "18–24 tháng",
+      "how": "Thổi bong bóng xà phòng. Bé kiễng chân, vươn người, chạy theo để làm vỡ bong bóng.",
+      "duration": "5–10 phút.",
+      "benefit": "Luyện đứng kiễng chân, vươn người lên cao và phối hợp tay và mắt."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Nắm tay đi lên cầu thang",
+      "age": "18–24 tháng",
+      "how": "Bé đứng thẳng, nắm một tay bạn (hoặc tay vịn) và bước lên từng bậc. Bé đặt một chân lên bậc trước rồi mới đặt chân kia là hoàn toàn bình thường.",
+      "duration": "Lên xuống 2–3 lần.",
+      "benefit": "Tăng sức mạnh chân và thăng bằng trên một chân.",
+      "caution": "Khi đi xuống, luôn đứng thấp hơn bé một bậc."
+    },
+    "1-2/21_jump": {
+      "title": "Nhảy tại chỗ",
+      "age": "20–24 tháng",
+      "how": "Tự làm mẫu cách nhảy: co gối và bật khỏi sàn bằng hai chân. Lúc đầu bạn có thể nắm tay bé hoặc cho bé nhảy xuống từ một chiếc gối thấp.",
+      "duration": "5–8 lần nhảy.",
+      "benefit": "Củng cố sức bật của chân, xương và sự phối hợp.",
+      "caution": "Tập trên bề mặt mềm; nhảy bằng hai chân thường đến gần 2 tuổi bé mới làm được."
+    },
+    "1-2/22_run": {
+      "title": "Chạy",
+      "age": "18–24 tháng",
+      "how": "Ở nơi rộng rãi, không có chướng ngại, chơi đuổi bắt hoặc gọi bé từ xa.",
+      "duration": "5–10 phút, có nghỉ ngắn xen giữa.",
+      "benefit": "Phát triển sức bền, tốc độ và hệ tim mạch."
+    },
+    "1-2/23_balance_line": {
+      "title": "Đi trên vạch kẻ",
+      "age": "20–24 tháng",
+      "how": "Dán một dải băng màu bản rộng xuống sàn. Bé nắm một tay bạn và đi, đặt chân lên dải băng.",
+      "duration": "3–5 lượt.",
+      "benefit": "Phát triển thăng bằng và dáng đi trên một mặt đỡ hẹp."
+    },
+    "1-2/25_bear_walk": {
+      "title": "\"Gấu đi\"",
+      "age": "18–24 tháng",
+      "how": "Làm mẫu cách đi về phía trước với tay và chân chạm sàn, đầu gối không chạm đất, mông nhổm cao. Cùng nhau đi \"như chú gấu\".",
+      "duration": "2–3 lượt dọc phòng.",
+      "benefit": "Làm khỏe cơ vai, cơ tay và cơ thân mình, tăng sự phối hợp."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Vươn lên cao, chạm ngón chân",
+      "age": "18–24 tháng",
+      "how": "Đứng đối diện với bé. Đầu tiên kiễng chân và vươn hai tay lên cao, sau đó cúi xuống chạm vào ngón chân. Vừa làm vừa hát.",
+      "duration": "5–6 lần.",
+      "benefit": "Phát triển sự dẻo dai, thăng bằng và khả năng bắt chước động tác; dạy bé tên các bộ phận cơ thể."
+    },
+    "1-2/27_slide": {
+      "title": "Cầu trượt thấp",
+      "age": "18–24 tháng",
+      "how": "Bé ngồi ở đầu một chiếc cầu trượt thấp và trượt xuống, chân ở phía trước. Bạn dùng tay giữ thân bé, sau đó giảm dần sự hỗ trợ.",
+      "duration": "5–6 lần.",
+      "benefit": "Phát triển khả năng leo trèo, thăng bằng khi ngồi và sự can đảm.",
+      "caution": "Không ôm bé trong lòng rồi cùng trượt; chân bé có thể bị kẹt và chấn thương."
+    },
+    "1-2/28_back_walk": {
+      "title": "Đi lùi",
+      "age": "18–24 tháng",
+      "how": "Bé bước lùi trong khi kéo xe đẩy hoặc đồ chơi có dây về phía mình. Lúc đầu, nắm tay bé và cùng đi lùi.",
+      "duration": "3–4 lượt.",
+      "benefit": "Dạy thăng bằng, cảm nhận cơ thể và cách đổi hướng chuyển động.",
+      "caution": "Đảm bảo phía sau không có vật cản."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Bật xa bằng hai chân",
+      "age": "24–30 tháng",
+      "how": "Dán một dải băng màu xuống sàn. Bé co gối và bật qua dải băng bằng cả hai chân cùng lúc. Bạn làm mẫu trước.",
+      "duration": "6–8 lần bật.",
+      "benefit": "Phát triển sức mạnh chân, sự phối hợp hai chân và cách tiếp đất nhẹ nhàng."
+    },
+    "2-3/02_jump_down": {
+      "title": "Nhảy xuống từ bậc thấp",
+      "age": "24–30 tháng",
+      "how": "Bé nắm một tay bạn và nhảy từ một bậc chắc chắn cao 10–15 cm xuống tấm thảm mềm. Làm mẫu cách tiếp đất bằng cách co gối.",
+      "duration": "5–6 lần.",
+      "benefit": "Phát triển sự can đảm, sức mạnh chân và thăng bằng khi tiếp đất.",
+      "caution": "Không tăng độ cao; bậc không được trơn trượt."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Đứng một chân",
+      "age": "30–36 tháng",
+      "how": "Nói với bé: \"Đứng như chú cò nào\". Bé nắm một tay bạn, co một chân lên và đứng 2–3 giây. Đổi chân, sau đó thử không cần vịn.",
+      "duration": "Mỗi chân 3–4 lần.",
+      "benefit": "Tăng thăng bằng và làm khỏe cơ cổ chân."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Đi bằng đầu ngón chân",
+      "age": "24–36 tháng",
+      "how": "Nói \"Mình đi nhẹ nhàng như mèo nhé\" rồi cùng kiễng chân đi khắp phòng.",
+      "duration": "2–3 lượt.",
+      "benefit": "Củng cố cơ bắp chân, vòm bàn chân và thăng bằng.",
+      "caution": "Nếu bé lúc nào cũng đi bằng đầu ngón chân, hãy báo cho bác sĩ nhi khoa."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Đi trên tấm ván",
+      "age": "24–36 tháng",
+      "how": "Đặt một tấm ván rộng, thấp xuống sàn. Bé nắm một tay bạn và đi trên tấm ván; khi bé làm được, bỏ dần sự hỗ trợ.",
+      "duration": "4–5 lượt.",
+      "benefit": "Phát triển thăng bằng, sự tập trung và khả năng đặt chân thẳng hàng."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Đội túi đậu đi",
+      "age": "30–36 tháng",
+      "how": "Đặt một túi vải nhỏ (đựng gạo hoặc đậu) lên đầu bé. Bé đi chậm và thẳng lưng để túi không rơi.",
+      "duration": "3–4 lượt.",
+      "benefit": "Phát triển tư thế, thăng bằng và sự tập trung."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Nhảy từ chấm này sang chấm kia",
+      "age": "30–36 tháng",
+      "how": "Xếp những vòng tròn màu xuống sàn (miếng cao su, giấy, gối). Bé nhảy hoặc bước dài từ vòng này sang vòng kia.",
+      "duration": "3–4 lượt.",
+      "benefit": "Phát triển độ chính xác khi nhảy, thăng bằng và khả năng lên kế hoạch vận động.",
+      "caution": "Các vòng tròn không được trơn trượt."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Lên cầu thang đổi chân",
+      "age": "30–36 tháng",
+      "how": "Bé vịn tay vịn và bước lên, mỗi bậc chỉ đặt một chân. Khi đi xuống, bé vẫn đặt cả hai chân trên mỗi bậc là bình thường.",
+      "duration": "Lên xuống 2–3 lần.",
+      "benefit": "Tăng sức mạnh chân và thăng bằng trên một chân.",
+      "caution": "Khi đi xuống, đứng thấp hơn bé một bậc."
+    },
+    "2-3/14_marching": {
+      "title": "Đi đều bước",
+      "age": "24–36 tháng",
+      "how": "Bật nhạc và tổ chức một cuộc \"diễu hành\": nâng cao đầu gối, vung tay khi đi. Thỉnh thoảng hô các lệnh như \"xoay\", \"nhảy\", \"dừng\".",
+      "duration": "5 phút.",
+      "benefit": "Phát triển sự phối hợp, cảm nhận nhịp điệu và khả năng làm theo hướng dẫn."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Chạy và dừng",
+      "age": "24–36 tháng",
+      "how": "Khi bạn nói \"đèn xanh\", bé chạy; khi nói \"đèn đỏ\", bé đứng im tại chỗ. Bạn cũng có thể kẻ một vạch và yêu cầu bé dừng trước vạch.",
+      "duration": "5–10 phút.",
+      "benefit": "Phát triển tốc độ, khả năng phanh lại, kiểm soát cơ thể và sự chú ý."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Kéo xe",
+      "age": "24–36 tháng",
+      "how": "Chất đồ chơi lên một chiếc xe kéo; bé cầm tay kéo và kéo xe đi, vòng qua các khúc quanh.",
+      "duration": "5–10 phút.",
+      "benefit": "Làm khỏe cơ thân mình và cơ chân, dạy bé điều khiển hướng đi."
+    },
+    "2-3/07_tricycle": {
+      "title": "Xe đạp ba bánh",
+      "age": "30–36 tháng",
+      "how": "Cho bé ngồi lên xe đạp ba bánh, đặt chân bé lên bàn đạp. Lúc đầu đẩy nhẹ từ phía sau để bé cảm nhận chuyển động của bàn đạp.",
+      "duration": "10–15 phút.",
+      "benefit": "Phát triển động tác đạp luân phiên, sức mạnh và khả năng điều khiển tay lái.",
+      "caution": "Cho bé đội mũ bảo hiểm; đạp xe trên mặt phẳng, tránh xa đường xe chạy."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Bò dưới gầm bàn",
+      "age": "24–36 tháng",
+      "how": "Dựng một \"đường hầm\" từ bàn thấp, ghế hoặc thùng các-tông. Bé cúi đầu và bò chui qua bên dưới.",
+      "duration": "4–5 lượt.",
+      "benefit": "Phát triển sức mạnh vai và thân mình, giúp bé cảm nhận kích thước cơ thể mình."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Thang leo",
+      "age": "24–36 tháng",
+      "how": "Trên khung leo tam giác thấp hoặc ở sân chơi, bé bám tay và đặt chân lần lượt từng bậc để leo lên. Tay bạn luôn sẵn sàng phía sau mông bé.",
+      "duration": "4–5 lần.",
+      "benefit": "Phát triển sức mạnh toàn thân, lực nắm và sự can đảm.",
+      "caution": "Phía dưới phải có bề mặt mềm; không để bé một mình."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Tự trượt cầu trượt",
+      "age": "24–36 tháng",
+      "how": "Bé tự leo thang lên, ngồi xuống và trượt với chân ở phía trước. Bạn chờ ở phía dưới.",
+      "duration": "6–8 lần.",
+      "benefit": "Phát triển khả năng leo trèo, thăng bằng khi ngồi và tính tự lập.",
+      "caution": "Không cho bé trượt chúc đầu xuống hoặc nằm sấp."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Đu xà",
+      "age": "30–36 tháng",
+      "how": "Bé dùng hai tay bám vào một thanh xà thấp (chân cách sàn vài cm) và treo người 3–5 giây. Bạn giữ eo bé bằng hai tay.",
+      "duration": "3–4 lần.",
+      "benefit": "Củng cố sức mạnh tay, vai và lực nắm.",
+      "caution": "Không nhấc bé lên bằng tay và không đu đưa bé; phía dưới phải có thảm."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Ném bóng qua vai",
+      "age": "24–36 tháng",
+      "how": "Đứng cách nhau 1–2 mét. Bé ném một quả bóng nhỏ mềm qua vai về phía bạn.",
+      "duration": "8–10 lần ném.",
+      "benefit": "Phát triển kỹ thuật ném, sức mạnh vai và khả năng nhắm mục tiêu."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Bắt bóng",
+      "age": "30–36 tháng",
+      "how": "Từ khoảng cách 1 mét, nhẹ nhàng tung một quả bóng to, nhẹ về phía ngực bé. Bé đưa hai tay ra trước và ôm bóng vào ngực để bắt.",
+      "duration": "8–10 lần.",
+      "benefit": "Phát triển phối hợp tay và mắt và khả năng phản xạ."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Chạy đến và đá bóng",
+      "age": "24–36 tháng",
+      "how": "Làm một \"khung thành\" bằng hai chiếc cọc hoặc hộp. Bé bước một hai bước tới quả bóng rồi đá.",
+      "duration": "8–10 cú đá.",
+      "benefit": "Phát triển thăng bằng trên một chân, phối hợp chân và mắt và sức mạnh."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Ném túi đậu vào vòng",
+      "age": "24–36 tháng",
+      "how": "Đặt một chiếc vòng hoặc chậu xuống sàn. Từ khoảng cách 1 bước, bé ném túi đậu từ dưới lên để rơi vào trong; khi bé làm được, tăng dần khoảng cách.",
+      "duration": "8–10 lần ném.",
+      "benefit": "Dạy bé ném trúng đích và điều chỉnh lực."
+    },
+    "2-3/27_bowling": {
+      "title": "Bowling tại nhà",
+      "age": "24–36 tháng",
+      "how": "Xếp 6 chai nhựa rỗng thành hình tam giác. Bé ngồi xổm và dùng hai tay lăn bóng để làm đổ chai.",
+      "duration": "5–6 lượt.",
+      "benefit": "Phát triển khả năng nhắm, sức mạnh khi ngồi xổm và biết chờ đến lượt."
+    },
+    "2-3/24_balloon": {
+      "title": "Giữ bóng bay trên không",
+      "age": "24–36 tháng",
+      "how": "Tung bóng bay lên cao. Bé dùng tay đập nhẹ để không cho bóng rơi xuống sàn.",
+      "duration": "5–10 phút.",
+      "benefit": "Phát triển phối hợp tay và mắt, động tác vươn lên cao và phản xạ.",
+      "caution": "Nhặt ngay các mảnh bóng bay bị vỡ (nguy cơ hóc nghẹn)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "\"Đầu, vai, đầu gối, ngón chân\"",
+      "age": "24–36 tháng",
+      "how": "Vừa hát vừa lần lượt chạm tay vào đầu, vai, đầu gối và ngón chân. Tăng dần tốc độ.",
+      "duration": "3–4 lần.",
+      "benefit": "Phát triển sự dẻo dai, phối hợp và giúp bé nhận biết các bộ phận cơ thể."
+    },
+    "2-3/15_spin": {
+      "title": "Xoay vòng",
+      "age": "24–36 tháng",
+      "how": "Bé dang hai tay sang ngang và xoay chậm tại chỗ; sau đó xoay theo chiều ngược lại.",
+      "duration": "Mỗi chiều 2–3 vòng.",
+      "benefit": "Phát triển hệ thống thăng bằng (tiền đình) và khả năng kiểm soát cơ thể.",
+      "caution": "Xung quanh không được có vật cản; khi thấy chóng mặt thì bé dừng lại."
+    },
+    "2-3/17_frog_jump": {
+      "title": "\"Ếch nhảy\"",
+      "age": "30–36 tháng",
+      "how": "Bé ngồi xổm thật thấp, đặt hai tay xuống sàn giữa hai đầu gối, rồi bật về phía trước như chú ếch.",
+      "duration": "5–6 lần nhảy.",
+      "benefit": "Tăng sức mạnh cơ chân, cơ mông và độ linh hoạt của hông."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "\"Xe cút kít\"",
+      "age": "30–36 tháng",
+      "how": "Bé chống hai tay xuống sàn. Bạn giữ đùi bé (phía trên đầu gối) và nâng chân bé lên; bé đi vài \"bước\" bằng tay.",
+      "duration": "3–5 bước, 2–3 lần.",
+      "benefit": "Làm khỏe cơ tay, vai và thân mình.",
+      "caution": "Giữ ở đùi, không giữ ở cổ chân; nếu lưng bé võng xuống hoặc bé mệt, hãy dừng lại."
+    },
+    "2-3/21_log_roll": {
+      "title": "Lăn như \"khúc gỗ\"",
+      "age": "24–36 tháng",
+      "how": "Bé nằm thẳng trên thảm, duỗi hai tay qua đầu và lăn nghiêng người; sau đó lăn sang phía ngược lại.",
+      "duration": "Mỗi bên 3–4 vòng.",
+      "benefit": "Phát triển cơ thân mình, cảm nhận cơ thể và hệ thống thăng bằng."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "Giãn cơ \"con bướm\"",
+      "age": "24–36 tháng",
+      "how": "Bé ngồi, áp hai lòng bàn chân vào nhau, dùng tay giữ bàn chân và nhẹ nhàng đưa đầu gối lên xuống như \"đôi cánh\".",
+      "duration": "20–30 giây.",
+      "benefit": "Tăng độ dẻo của hông, giúp bé dịu lại sau khi vận động.",
+      "caution": "Không dùng tay ấn đầu gối bé xuống."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Nhảy lò cò",
+      "age": "3,5–4 tuổi",
+      "how": "Bé co một chân ra sau và nhảy bằng chân kia, tại chỗ hoặc tiến về phía trước. Lúc đầu nắm tay bé. Đổi chân.",
+      "duration": "Mỗi chân 3–5 lần nhảy.",
+      "benefit": "Phát triển sức mạnh chân, thăng bằng và sự phối hợp."
+    },
+    "3-4/02_long_jump": {
+      "title": "Bật xa tại chỗ",
+      "age": "3–4 tuổi",
+      "how": "Kẻ một vạch trên sàn. Bé co gối, vung tay và bật xa hết sức bằng hai chân. Đánh dấu chỗ bé tiếp đất và cùng phá \"kỷ lục\".",
+      "duration": "5–6 lần thử.",
+      "benefit": "Tăng sức bật của chân và sự phối hợp tay chân."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Nhảy qua rào",
+      "age": "3–4 tuổi",
+      "how": "Đặt một chướng ngại mềm cao 10–15 cm (thanh xốp, khăn cuộn). Bé bật qua bằng hai chân.",
+      "duration": "6–8 lần.",
+      "benefit": "Phát triển độ cao khi bật, sự can đảm và cách tiếp đất nhẹ nhàng.",
+      "caution": "Chướng ngại phải dễ đổ khi bé vướng chân."
+    },
+    "3-4/04_hopscotch": {
+      "title": "Nhảy ô",
+      "age": "3,5–4 tuổi",
+      "how": "Dùng phấn kẻ các ô trên sàn: một ô, rồi hai ô cạnh nhau. Ở ô đơn bé nhảy bằng một chân, ở ô đôi nhảy bằng hai chân. Lúc đầu bé có thể nhảy tất cả bằng hai chân.",
+      "duration": "4–5 lượt.",
+      "benefit": "Dạy thăng bằng, nhịp điệu và cách đổi chân."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Nhảy từ vòng này sang vòng kia",
+      "age": "3–4 tuổi",
+      "how": "Xếp 3–5 chiếc vòng xuống sàn. Bé bật bằng hai chân từ vòng này sang vòng kia.",
+      "duration": "4–5 lượt.",
+      "benefit": "Phát triển khả năng bật liên tiếp, độ chính xác và sức bền."
+    },
+    "3-4/19_leap_river": {
+      "title": "Nhảy qua \"dòng sông\"",
+      "age": "3–4 tuổi",
+      "how": "Dùng một tấm vải xanh hoặc hai sợi dây làm \"dòng sông\" trên sàn. Bé chạy đà, bật bằng một chân và tiếp đất bằng chân kia để vượt qua. Nới rộng \"dòng sông\" dần dần.",
+      "duration": "6–8 lần.",
+      "benefit": "Phát triển động tác bật bước dài, sức mạnh và khả năng ước lượng khoảng cách."
+    },
+    "3-4/25_star_jump": {
+      "title": "Nhảy \"ngôi sao\"",
+      "age": "3,5–4 tuổi",
+      "how": "Bé bật lên, trên không dang tay và chân sang hai bên (\"ngôi sao\"), rồi khép chân lại khi tiếp đất.",
+      "duration": "5–8 lần.",
+      "benefit": "Phát triển sự phối hợp tay chân cùng lúc và sức bền."
+    },
+    "3-4/05_gallop": {
+      "title": "\"Ngựa phi\"",
+      "age": "3–4 tuổi",
+      "how": "Một chân luôn ở phía trước, chân kia theo sau: \"mình phi như ngựa nào\". Sau đó đổi chân trước.",
+      "duration": "3–4 lượt dọc phòng.",
+      "benefit": "Phát triển nhịp điệu, sự phối hợp và sức bền."
+    },
+    "3-4/06_tree_balance": {
+      "title": "Tư thế \"cái cây\"",
+      "age": "3–4 tuổi",
+      "how": "Bé áp lòng bàn chân này vào bắp chân kia, dang hai tay sang ngang và đứng 3–5 giây. Đổi chân.",
+      "duration": "Mỗi chân 3 lần.",
+      "benefit": "Tăng thăng bằng, sự tập trung và làm khỏe cơ cổ chân."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Đi gót nối mũi trên vạch",
+      "age": "3,5–4 tuổi",
+      "how": "Dán một dải băng xuống sàn. Bé đi trên dải băng, mỗi bước đặt gót chân trước chạm vào mũi chân sau.",
+      "duration": "3–4 lượt.",
+      "benefit": "Phát triển thăng bằng tinh tế và khả năng kiểm soát cơ thể."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Cầu thăng bằng",
+      "age": "3–4 tuổi",
+      "how": "Bé tự dang tay đi trên một thanh cầu rộng cao 10 cm so với sàn. Bạn đi bên cạnh bé.",
+      "duration": "4–5 lượt.",
+      "benefit": "Phát triển thăng bằng, sự can đảm và tập trung.",
+      "caution": "Phía dưới phải có thảm mềm."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Xuống cầu thang đổi chân",
+      "age": "3,5–4 tuổi",
+      "how": "Bé vịn tay vịn và bước xuống, mỗi bậc chỉ đặt một chân.",
+      "duration": "2–3 lần.",
+      "benefit": "Phát triển sức mạnh chân, thăng bằng và khả năng đi xuống có kiểm soát.",
+      "caution": "Bạn đứng thấp hơn bé một bậc."
+    },
+    "3-4/10_scooter": {
+      "title": "Xe trượt scooter",
+      "age": "3–4 tuổi",
+      "how": "Trên chiếc scooter ba bánh, bé đặt một chân lên bàn đạp và dùng chân kia đẩy xuống đất. Dạy bé đổi chân.",
+      "duration": "10–15 phút.",
+      "benefit": "Phát triển thăng bằng, sức mạnh chân và khả năng điều khiển hướng đi.",
+      "caution": "Bắt buộc đội mũ bảo hiểm và đi giày kín mũi; chơi trên mặt phẳng, tránh xa đường xe chạy."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Xe thăng bằng",
+      "age": "3–4 tuổi",
+      "how": "Trên chiếc xe không có bàn đạp, bé ngồi và dùng chân đẩy xuống đất để đi. Khi xe có đà, bé thử nhấc chân lên và giữ thăng bằng.",
+      "duration": "10–15 phút.",
+      "benefit": "Phát triển thăng bằng, giúp bé chuyển sang xe đạp có bàn đạp dễ hơn.",
+      "caution": "Bắt buộc đội mũ bảo hiểm và đi giày kín mũi; yên xe phải ở độ cao để chân bé chạm hẳn xuống đất."
+    },
+    "3-4/17_tag": {
+      "title": "Đuổi bắt",
+      "age": "3–4 tuổi",
+      "how": "Đuổi theo bé và chạm nhẹ vào bé; sau đó đến lượt bé đuổi bạn. Thường xuyên đổi hướng.",
+      "duration": "5–10 phút, có nghỉ xen giữa.",
+      "benefit": "Phát triển tốc độ, sự nhanh nhẹn, sức bền và phản xạ."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Bắt bóng nảy",
+      "age": "3–4 tuổi",
+      "how": "Đập bóng xuống sàn trước mặt bé để bóng nảy lên một lần và đến tay bé. Bé bắt bóng bằng hai tay.",
+      "duration": "8–10 lần.",
+      "benefit": "Phát triển phối hợp tay và mắt, khả năng đoán trước đường đi của bóng."
+    },
+    "3-4/13_target_throw": {
+      "title": "Ném trúng đích",
+      "age": "3–4 tuổi",
+      "how": "Treo lên tường hoặc giá đỡ một tấm bia hình tròn nhiều màu. Từ khoảng cách 1,5–2 mét, bé ném bóng mềm vào bia.",
+      "duration": "8–10 lần ném.",
+      "benefit": "Phát triển độ chính xác khi ném, sức mạnh vai và sự tập trung."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Dẫn bóng qua cọc",
+      "age": "3,5–4 tuổi",
+      "how": "Xếp 3–4 chiếc cọc (hoặc chai) thành một hàng. Bé dùng chân chạm nhẹ để dẫn bóng chạy zíc zắc qua các cọc.",
+      "duration": "3–4 lượt.",
+      "benefit": "Phát triển phối hợp chân và mắt, khả năng kiểm soát bóng và đổi hướng."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Đập bóng rồi bắt",
+      "age": "3,5–4 tuổi",
+      "how": "Bé dùng hai tay đập một quả bóng cỡ vừa xuống sàn và bắt lại khi bóng nảy lên.",
+      "duration": "8–10 lần.",
+      "benefit": "Phát triển khả năng điều chỉnh lực tay, nhịp điệu và phối hợp tay và mắt."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Đánh bóng bay bằng đĩa giấy",
+      "age": "3–4 tuổi",
+      "how": "Bé cầm một chiếc đĩa giấy như cây vợt, đánh bóng bay lên và không để bóng rơi. Sau đó cùng chuyền bóng qua lại cho nhau.",
+      "duration": "5–10 phút.",
+      "benefit": "Phát triển kỹ năng đánh bằng dụng cụ, phối hợp tay và mắt và phản xạ.",
+      "caution": "Nhặt ngay các mảnh bóng bay bị vỡ."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Lộn xuôi có người giúp",
+      "age": "3,5–4 tuổi",
+      "how": "Trên tấm thảm dày, bé ngồi xổm, đặt hai tay xuống sàn, cúi cằm sát ngực và nhổm mông lên. Một tay bạn đỡ sau gáy bé, tay kia đẩy nhẹ mông để bé lăn qua trên lưng.",
+      "duration": "3–4 lần.",
+      "benefit": "Phát triển cảm nhận cơ thể, sự can đảm và cơ thân mình.",
+      "caution": "Trọng lượng không được dồn lên đỉnh đầu; cằm luôn áp sát ngực. Chỉ tập trên thảm mềm và có người giúp."
+    },
+    "3-4/21_crab_walk": {
+      "title": "\"Cua bò\"",
+      "age": "3,5–4 tuổi",
+      "how": "Bé ngồi, chống hai tay xuống sàn phía sau, hai chân đặt phía trước, nhổm mông lên và bò tới lui ở tư thế này.",
+      "duration": "2–3 lượt ngắn.",
+      "benefit": "Làm khỏe cơ tay, vai, mông và thân mình."
+    },
+    "3-4/22_bridge": {
+      "title": "\"Cây cầu\"",
+      "age": "3–4 tuổi",
+      "how": "Bé nằm ngửa, co gối, đặt bàn chân xuống sàn, nâng mông lên và giữ 3–5 giây. Bạn có thể cho một chiếc ô tô đồ chơi chạy qua bên dưới.",
+      "duration": "5–6 lần.",
+      "benefit": "Làm khỏe cơ mông, cơ lưng dưới và cơ sau đùi."
+    },
+    "3-4/23_superman": {
+      "title": "\"Siêu nhân\"",
+      "age": "3–4 tuổi",
+      "how": "Bé nằm sấp, duỗi hai tay ra trước, rồi nhấc nhẹ cả tay và chân khỏi sàn cùng lúc và \"bay\" trong 3 giây.",
+      "duration": "4–5 lần.",
+      "benefit": "Làm khỏe cơ lưng, hỗ trợ tư thế đúng."
+    },
+    "3-4/24_downward_dog": {
+      "title": "Tư thế \"chó úp mặt\"",
+      "age": "3–4 tuổi",
+      "how": "Bé chống tay và chân xuống sàn và nâng mông lên cao (\"ngọn núi\" hoặc \"vươn vai như chú chó\"). Giữ 5 giây.",
+      "duration": "3–4 lần.",
+      "benefit": "Làm khỏe tay và vai, giãn cơ phía sau chân."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Kéo co",
+      "age": "3–4 tuổi",
+      "how": "Bé cầm một đầu sợi dây mềm, bạn cầm đầu kia. Bé co gối, ngả người ra sau và kéo; bạn điều chỉnh lực của mình cho vừa với sức bé.",
+      "duration": "3–4 hiệp.",
+      "benefit": "Làm khỏe cơ tay, lưng, thân mình và chân.",
+      "caution": "Không buông dây đột ngột và không quấn dây vào tay."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Vỗ tay, dậm chân",
+      "age": "3–4 tuổi",
+      "how": "Vừa hát vừa vận động: \"nếu vui hãy vỗ tay\", \"dậm chân\", \"xoay vòng\", \"nhảy lên\". Lần lượt đổi động tác.",
+      "duration": "5 phút.",
+      "benefit": "Phát triển cảm nhận nhịp điệu, khả năng làm theo hướng dẫn và sự phối hợp."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Vẽ vòng bằng dải ruy băng",
+      "age": "3–4 tuổi",
+      "how": "Bé cầm một dải ruy băng dài buộc vào que và vẽ trên không những vòng tròn lớn, làn sóng và hình \"số tám\". Đổi tay.",
+      "duration": "3–5 phút.",
+      "benefit": "Phát triển độ linh hoạt của vai, khả năng kiểm soát cổ tay và sự phối hợp hai bên cơ thể."
+    },
+    "4-5/01_skipping": {
+      "title": "Vừa đi vừa nhảy chân sáo",
+      "age": "4,5–5 tuổi",
+      "how": "Làm mẫu nhịp \"bước rồi nhún\": bước một chân rồi nhảy nhẹ trên chính chân đó, sau đó đổi sang chân kia. Nắm tay nhau cùng làm.",
+      "duration": "3–4 lượt dọc phòng hoặc sân.",
+      "benefit": "Phát triển nhịp điệu, sự phối hợp luân phiên hai bên cơ thể và sự khéo léo."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Nhảy dây",
+      "age": "4,5–5 tuổi",
+      "how": "Đầu tiên dạy bé nhảy qua sợi dây đặt trên sàn, sau đó vung dây từ sau qua đầu ra phía trước rồi bước qua. Nhảy liên tục được sẽ đến dần dần.",
+      "duration": "5–10 lần thử.",
+      "benefit": "Phát triển nhịp điệu, phối hợp tay chân và sức bền.",
+      "caution": "Độ dài dây phải vừa với bé (khi bé giẫm lên giữa dây, tay cầm phải chạm tới nách)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Bật ngang qua vạch",
+      "age": "4–5 tuổi",
+      "how": "Dán một dải băng xuống sàn. Bé khép hai chân và bật liên tục từ bên này sang bên kia dải băng.",
+      "duration": "8–10 lần bật.",
+      "benefit": "Phát triển sự nhanh nhẹn theo chiều ngang, sức mạnh cổ chân và nhịp điệu."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Lò cò qua các vòng",
+      "age": "4–5 tuổi",
+      "how": "Xếp 4–5 chiếc vòng thành một hàng. Bé nhảy lò cò từ vòng này sang vòng kia; khi quay lại thì đổi chân.",
+      "duration": "Mỗi chân 2–3 lượt.",
+      "benefit": "Phát triển sức mạnh trên một chân, thăng bằng và độ chính xác."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Nhảy từ hộp xuống và tiếp đất nhẹ nhàng",
+      "age": "4–5 tuổi",
+      "how": "Từ một chiếc hộp chắc chắn cao ngang đầu gối, bé nhảy xuống tấm thảm dày và tiếp đất \"thật êm\" trên hai chân, co gối. Hai tay đưa ra trước.",
+      "duration": "5–6 lần.",
+      "benefit": "Phát triển kỹ thuật tiếp đất đúng, sức mạnh chân và sự can đảm.",
+      "caution": "Hộp không được trơn trượt; không tăng độ cao."
+    },
+    "4-5/06_bicycle": {
+      "title": "Xe đạp có bánh phụ",
+      "age": "4–5 tuổi",
+      "how": "Bé tự đạp xe, học cách rẽ và phanh. Khi bé giữ thăng bằng tốt hơn, có thể tháo bánh phụ.",
+      "duration": "15–20 phút.",
+      "benefit": "Phát triển sức mạnh chân, sức bền, thăng bằng và ý thức khi đi đường.",
+      "caution": "Bắt buộc đội mũ bảo hiểm và đi giày kín mũi; đạp xe trên mặt phẳng, tránh xa đường xe chạy."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Chạy con thoi",
+      "age": "4–5 tuổi",
+      "how": "Đặt một cái xô cách 4–5 mét và vài túi đậu. Bé chạy tới lấy một túi, chạy về bỏ vào xô và tiếp tục cho đến khi hết túi.",
+      "duration": "2–3 lượt.",
+      "benefit": "Phát triển tốc độ, khả năng đổi hướng nhanh, cúi xuống đứng lên và sức bền."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "Trò chơi \"Đóng băng\"",
+      "age": "4–5 tuổi",
+      "how": "Khi nhạc bật, bé nhảy múa hoặc chạy; khi nhạc dừng, bé đứng im như bức tượng và cố không cử động.",
+      "duration": "5–10 phút.",
+      "benefit": "Phát triển khả năng kiểm soát cơ thể, thăng bằng, sự chú ý và tính tự chủ."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "\"Đưa chân vào, đưa chân ra\"",
+      "age": "4–5 tuổi",
+      "how": "Đặt một chiếc vòng xuống sàn. Vừa hát, bé vừa lần lượt đưa một chân, một tay, cái đầu vào trong vòng rồi rút ra, sau đó xoay một vòng.",
+      "duration": "5 phút.",
+      "benefit": "Phát triển thăng bằng trên một chân, khái niệm phải trái và khả năng làm theo hướng dẫn."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Bắt bóng nhỏ bằng tay",
+      "age": "4–5 tuổi",
+      "how": "Từ khoảng cách 1,5–2 mét, nhẹ nhàng tung một quả bóng nhỏ mềm. Bé bắt chỉ bằng tay, không ôm bóng vào ngực.",
+      "duration": "10 lần.",
+      "benefit": "Phát triển phối hợp tay và mắt và sự khéo léo của ngón tay."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Tung lên rồi bắt",
+      "age": "4–5 tuổi",
+      "how": "Bé tự tung túi đậu hoặc bóng mềm lên cao và bắt bằng hai tay. Sau đó thêm một lần vỗ tay ở giữa.",
+      "duration": "10 lần.",
+      "benefit": "Phát triển khả năng điều chỉnh lực, dõi theo vật và phản xạ."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Đập bóng bằng tay",
+      "age": "4,5–5 tuổi",
+      "how": "Bé hơi co gối và dùng một tay đập bóng xuống sàn liên tục. Lúc đầu 2–3 lần, sau đó nhiều hơn. Đổi tay.",
+      "duration": "Mỗi tay 3–4 lần thử.",
+      "benefit": "Phát triển nhịp điệu, khả năng kiểm soát lực tay và phối hợp tay và mắt."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Sút bóng vào gôn",
+      "age": "4–5 tuổi",
+      "how": "Dựng một khung thành nhỏ (hoặc đặt hai đồ vật). Bé sút bóng vào gôn từ khoảng cách 2–3 mét; sau đó thử sút bóng đang lăn.",
+      "duration": "10 cú sút.",
+      "benefit": "Phát triển phối hợp chân và mắt, thăng bằng và độ chính xác khi sút."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Đánh bóng trên giá bằng gậy",
+      "age": "4–5 tuổi",
+      "how": "Đặt một quả bóng mềm lên một giá đỡ thấp. Bé đứng nghiêng, hai tay cầm một cây gậy nhựa nhẹ và đánh vào bóng.",
+      "duration": "8–10 cú đánh.",
+      "benefit": "Phát triển động tác xoay thân, phối hợp tay và mắt và kỹ năng đánh bằng dụng cụ.",
+      "caution": "Xung quanh không có trẻ khác; chỉ dùng bóng mềm và gậy nhựa."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Ném bóng vào rổ",
+      "age": "4–5 tuổi",
+      "how": "Bé dùng hai tay ném một quả bóng nhẹ vào chiếc rổ cao hơn bé một chút. Khi làm được, bé lùi lại một bước.",
+      "duration": "10 lần ném.",
+      "benefit": "Phát triển lực ném lên cao, độ chính xác và sự phối hợp chân tay."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Ném vòng",
+      "age": "4–5 tuổi",
+      "how": "Từ khoảng cách 1–1,5 mét, bé cố ném vòng lọt vào một chiếc cọc dựng đứng.",
+      "duration": "2–3 lượt.",
+      "benefit": "Phát triển độ chính xác tinh tế, khả năng kiểm soát cổ tay và tính kiên nhẫn."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "Tư thế \"máy bay\"",
+      "age": "4–5 tuổi",
+      "how": "Bé đứng một chân, nghiêng thân về phía trước, duỗi chân kia ra sau và dang tay như đôi cánh. Giữ 3–5 giây rồi đổi chân.",
+      "duration": "Mỗi chân 3 lần.",
+      "benefit": "Tăng thăng bằng, làm khỏe cơ thân mình và cơ mông."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Bước qua chướng ngại trên cầu thăng bằng",
+      "age": "4–5 tuổi",
+      "how": "Đặt một túi đậu lên cầu thăng bằng thấp. Bé đi trên cầu và bước qua túi đậu.",
+      "duration": "4–5 lượt.",
+      "benefit": "Phát triển thăng bằng khi di chuyển, sự tập trung và động tác nhấc cao chân.",
+      "caution": "Phía dưới phải có thảm mềm, bạn đi bên cạnh bé."
+    },
+    "4-5/19_stork_stand": {
+      "title": "Tư thế \"con cò\"",
+      "age": "4–5 tuổi",
+      "how": "Bé chống hai tay vào hông, đứng một chân, nhấc chân kia lên trước đầu gối. Cùng cố gắng đếm đến 8–10 giây.",
+      "duration": "Mỗi chân 2–3 lần.",
+      "benefit": "Phát triển thăng bằng tĩnh và sự tập trung."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Lắc vòng eo",
+      "age": "4,5–5 tuổi",
+      "how": "Bé đặt vòng sát eo, xoay vòng và cố giữ vòng quay bằng cách đẩy hông tới lui. Lúc đầu chỉ vài vòng là đủ.",
+      "duration": "5 phút.",
+      "benefit": "Phát triển cơ thân mình, nhịp điệu và sự phối hợp."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Tự lộn xuôi",
+      "age": "4–5 tuổi",
+      "how": "Trên tấm thảm dày, bé ngồi xổm, đặt hai tay xuống sàn, cúi cằm sát ngực, đạp chân lấy đà, lăn qua trên lưng cong tròn và kết thúc ở tư thế ngồi xổm.",
+      "duration": "3–5 lần.",
+      "benefit": "Phát triển cảm nhận cơ thể, sự nhanh nhẹn và cơ thân mình.",
+      "caution": "Trọng lượng không được dồn lên đỉnh đầu; cằm luôn áp sát ngực. Lúc đầu hãy dạy có người giúp."
+    },
+    "4-5/21_plank": {
+      "title": "Plank",
+      "age": "4–5 tuổi",
+      "how": "Bé chống trên hai khuỷu tay và các đầu ngón chân, cơ thể thành một đường thẳng từ đầu đến gót. Giữ 5–10 giây.",
+      "duration": "2–3 lần.",
+      "benefit": "Làm khỏe cơ bụng, cơ lưng và cơ vai.",
+      "caution": "Khi lưng bé võng xuống thì dừng lại."
+    },
+    "4-5/22_chair_squat": {
+      "title": "Ngồi xổm \"ghế tàng hình\"",
+      "age": "4–5 tuổi",
+      "how": "Bé đứng hai chân rộng bằng vai, duỗi hai tay ra trước, ngồi xuống như đang ngồi lên ghế rồi đứng lên. Gót chân luôn chạm sàn.",
+      "duration": "6–8 lần.",
+      "benefit": "Làm khỏe cơ chân và cơ mông."
+    },
+    "4-5/23_boat_pose": {
+      "title": "Tư thế \"con thuyền\"",
+      "age": "4–5 tuổi",
+      "how": "Bé ngồi, hơi ngả người ra sau, co gối và nhấc chân khỏi sàn, duỗi hai tay ra trước. Giữ thăng bằng 5 giây.",
+      "duration": "3–4 lần.",
+      "benefit": "Làm khỏe cơ bụng và tăng thăng bằng."
+    },
+    "4-5/24_cobra": {
+      "title": "Giãn cơ \"rắn hổ mang\"",
+      "age": "4–5 tuổi",
+      "how": "Bé nằm sấp, đặt hai tay dưới vai và nâng ngực lên; hông vẫn chạm sàn. Giữ 5 giây.",
+      "duration": "3–4 lần.",
+      "benefit": "Làm khỏe cơ lưng, giãn cơ bụng và ngực.",
+      "caution": "Không ép cong lưng bé."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Ngồi dạng chân, vươn người về trước",
+      "age": "4–5 tuổi",
+      "how": "Bé ngồi dạng rộng hai chân và vươn người về phía trước, trượt hai tay trên sàn. Giữ 10 giây, không nhún.",
+      "duration": "3 lần.",
+      "benefit": "Tăng độ dẻo của cơ đùi trong và cơ sau đùi."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Đu thang ngang",
+      "age": "4,5–5 tuổi",
+      "how": "Bé treo người trên chiếc thang ngang thấp và lần lượt chuyển từng tay sang thanh tiếp theo. Bạn giữ eo bé để đỡ một phần trọng lượng.",
+      "duration": "2–3 lần thử.",
+      "benefit": "Phát triển sức mạnh bàn tay, cánh tay, vai và lực nắm.",
+      "caution": "Phía dưới phải có bề mặt mềm; tay bé không được ướt."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Leo lưới dây",
+      "age": "4–5 tuổi",
+      "how": "Ở sân chơi hoặc ở nhà, trên tấm lưới thấp, bé bám tay vào phía trên, đặt chân luân phiên để leo lên và leo xuống theo cùng cách đó.",
+      "duration": "3–4 lần.",
+      "benefit": "Phát triển sức mạnh toàn thân, sự phối hợp và sự can đảm.",
+      "caution": "Phía dưới phải có bề mặt mềm; bạn đứng ngay bên cạnh."
+    }
+  }
+}

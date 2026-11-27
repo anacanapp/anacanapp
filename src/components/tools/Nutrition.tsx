@@ -2,7 +2,7 @@ import { useState, forwardRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, Utensils, Apple, Coffee, Droplets, Droplet,
-  Plus, Star, X, Check, Trash2, Heart } from
+  Plus, Star, X, Check, Trash2, Heart, ChevronRight } from
 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
@@ -17,9 +17,16 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import VitaminsTab from './VitaminsTab';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
+import { SafetyStrip } from './anacan/SafetyStrip';
 import { tr } from "@/lib/tr";
 import { NEW_LANGUAGE_CODES } from '@/lib/app-languages';
 import { useIsRtl, rtlX } from '@/lib/rtl';
+import { feature37Text } from '@/lib/feature37-i18n';
+import { offersBreastfeeding } from '@/lib/breastfeeding';
+import { useChildren } from '@/hooks/useChildren';
+import { PUSH_NAV_EVENT, type PushNavIntent } from '@/lib/pushNav';
+
+const openTool = (tool: string) => window.dispatchEvent(new CustomEvent<PushNavIntent>(PUSH_NAV_EVENT, { detail: { tool } }));
 
 interface NutritionProps {
   onBack: () => void;
@@ -86,7 +93,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
     }
   };
 
-  const { todayLog, loading: logsLoading, updateWaterIntake } = useDailyLogs();
+  const { waterToday, loading: logsLoading, updateWaterIntake } = useDailyLogs();
   const { loading: mealLoading, addMealLog, deleteMealLog, getTodayStats, getMealsByType } = useMealLogs();
   const { data: nutritionTips = [], isLoading: tipsLoading } = useNutritionTips();
   const { data: dbFoods = [], isLoading: foodsLoading } = useCommonFoods();
@@ -96,6 +103,8 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
   const { profile } = useAuth();
   const isMultiple = !!profile?.multiples_type && profile.multiples_type !== 'single';
   const babyCount = Math.max(1, Math.min(4, profile?.baby_count || 1));
+  const { selectedChild, getChildAge } = useChildren();
+  const childMonths = selectedChild ? getChildAge(selectedChild).months : null;
 
   // Dynamic data from database
   const { data: dbMealTypes = [] } = useMealTypes(lifeStage || 'flow');
@@ -123,7 +132,10 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
         let mealName = m.name;
         let mealTime = m.time_range || '';
 
-        // Fix for Nursing (it incorrectly comes as Nursing / Əlavə qida from db in some cases)
+        // Fallback for the nursing row, whose time_range (and on some copies name_az) was seeded with the
+        // snack category text "Əlavə qida". The data is fixed by
+        // supabase/migrations/20261108140000_nutrition_category_fix.sql; this patch only renders the same
+        // labels and is harmless after it is applied. Remove once the migration is live everywhere.
         if (m.meal_id === 'nursing') {
           mealName = language === 'en' ? 'Nursing' : language === 'ru' ? 'Грудное вскармливание' : language === 'tr' ? 'Emzirme' : language === 'kk' ? 'Емізу' : language === 'uz' ? 'Emizish' : language === 'ka' ? 'ძუძუთი კვება' : language === 'de' ? 'Stillen' : language === 'ar' ? 'رضاعة' : 'Əmizdirmə';
           mealTime = language === 'en' ? 'Anytime' : language === 'ru' ? 'В любое время' : language === 'tr' ? 'Her zaman' : language === 'kk' ? 'Кез келген уақытта' : language === 'uz' ? 'Istalgan vaqtda' : language === 'ka' ? 'ნებისმიერ დროს' : language === 'de' ? 'Jederzeit' : language === 'ar' ? 'في أي وقت' : 'İstənilən vaxt';
@@ -189,7 +201,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
     return { calories: fallback.calories + extraKcalForMultiples, water: fallback.water_glasses, description: fallback.description };
   }, [dbTargets, lifeStage, extraKcalForMultiples]);
 
-  const waterGlasses = todayLog?.water_intake || 0;
+  const waterGlasses = waterToday;
   const stats = getTodayStats();
   const todayCalories = stats.totalCalories;
 
@@ -280,6 +292,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
                       </div>
                       <motion.button
                         onClick={() => handleDeleteMeal(log.id)}
+                        aria-label={tr("common_sil", "Sil")}
                         className="w-7 h-7 rounded-full flex items-center justify-center"
                         style={{ background: 'var(--a-pink-1)' }}
                         whileTap={{ scale: 0.9 }}>
@@ -347,7 +360,7 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
                 
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="a-heading" style={{ margin: 0, fontSize: 16, color: 'var(--a-ink)' }}>{tr("nutrition_xususi_qida_elave_et_2a3838", "Xüsusi qida əlavə et")}</h2>
-                    <button className="a-icon-btn" onClick={() => setShowAddModal(false)} aria-label="Close">
+                    <button className="a-icon-btn" onClick={() => setShowAddModal(false)} aria-label={tr("common_close", "Bağla")}>
                       <X size={15} />
                     </button>
                   </div>
@@ -470,6 +483,20 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
                 </div>
                 <div className="a-list-card pb-4">
                   {mealTypes.map((meal, index) => {
+                  // The mother's own "nursing meal" stayed empty; the row now opens the baby's feeding log.
+                  if (meal.id === 'nursing') {
+                    if (!offersBreastfeeding(childMonths)) return null;
+                    return (
+                      <button key={meal.id} type="button" onClick={() => openTool('baby-tracker')}
+                        className="a-list-row w-full text-start" style={{ width: '100%', background: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: 'none', cursor: 'pointer' }}>
+                        <span className="a-list-icon" style={{ background: 'var(--a-grad-peach)', fontSize: 18 }}>🍼</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="a-list-title">{feature37Text('baby_feeding_title')}</p>
+                          <p className="a-list-sub">{feature37Text('baby_feeding_sub')}</p>
+                        </div>
+                        <span className="a-list-trail"><ChevronRight className="w-4 h-4 rtl:rotate-180" style={{ color: 'var(--a-ink-faint)' }} /></span>
+                      </button>);
+                  }
                   const mealLogs = getMealsByType(meal.id);
                   const mealCalories = stats.mealCalories[meal.id as keyof typeof stats.mealCalories] || 0;
 
@@ -628,6 +655,8 @@ const Nutrition = forwardRef<HTMLDivElement, NutritionProps>(({ onBack }, ref) =
             }
           </AnimatePresence>
         </div>
+
+        <SafetyStrip signs={tr('safety_nutrition_signs', 'Zəng edin: dayanmayan qusma, maye saxlaya bilməmək, çox az sidik, başgicəllənmə')} />
       </ToolPage>
     </div>);
 

@@ -94,7 +94,7 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
     // Check for mood logs
     const dayLog = logs.find((l) => l.log_date === dateStr);
     if (dayLog?.mood) {
-      events.push({ type: 'mood', label: tr("calendarscreen_ehval_qeyd_aa4f19", 'Əhval qeyd'), color: DOT.mood });
+      events.push({ type: 'mood', label: tr("calendarscreen_ehval_qeyd_aa4f19", 'Æhval qeyd'), color: DOT.mood });
     }
 
     // Cycle-based events for flow stage
@@ -172,14 +172,14 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div style={{ minWidth: 0 }}>
               {lifeStage === 'flow' && currentCycleDay &&
               <p className="a-eyebrow">{tr("calendarscreen_tsikl_gunu_51cdf3", "Tsikl g\xFCn\xFC:")} {currentCycleDay} / {cycleLength}</p>
               }
-              <p className="a3-tool-title">{tr("calendarscreen_teqvim_584bdd", "Təqvim")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("calendarscreen_teqvim_584bdd", "Təqvim")}</p>
             </div>
           </div>
           {selectedDate &&
@@ -219,10 +219,10 @@ const CalendarScreen = ({ onBack }: CalendarScreenProps) => {
           <div className="flex items-center justify-between mb-4">
             <motion.button
               onClick={() => navigateMonth('prev')}
-              className="a3-icon-btn"
+              className="a-icon-btn"
               whileTap={{ scale: 0.95 }}
-              aria-label={tr("calendarscreen_evvelki_ay", "Əvvəlki ay")}>
-              <ChevronLeft className="rtl:rotate-180" size={20} />
+              aria-label={tr("calendarscreen_evvelki_ay", "Ævvəlki ay")}>
+              <ChevronLeft className="rtl:rotate-180" size={16} />
             </motion.button>
             <h2 className="capitalize" style={{ fontSize: 16, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--a-ink)' }}>
               {format(currentMonth, 'MMMM yyyy', { locale: getCurrentDateLocale() })}

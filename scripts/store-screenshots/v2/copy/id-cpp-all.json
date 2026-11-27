@@ -1,0 +1,132 @@
+{
+ "lang": "id",
+ "badge": "Gratis · 25 bahasa",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Haid · Kehamilan · Ibu & Bayi",
+   "title": [
+    "dari haid",
+    "sampai si kecil"
+   ],
+   "hl": "satu aplikasi",
+   "sub": "Kalender haid, kehamilan minggu demi minggu, dan pelacak ibu & bayi di satu tempat",
+   "cta": "Unduh gratis",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Haid",
+   "title": [
+    "kenali siklusmu"
+   ],
+   "hl": "dengan tepat",
+   "sub": "Prediksi haid berikutnya, ovulasi, dan masa subur"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Kehamilan",
+   "title": [
+    "hari ini bayimu"
+   ],
+   "hl": "sebesar tomat",
+   "sub": "Pantau kehamilanmu minggu demi minggu: ukuran, berat, dan hari menuju persalinan",
+   "chips": [
+    [
+     "142",
+     "hari lagi"
+    ],
+    [
+     "19",
+     "minggu, 4 hari"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Ibu & Bayi",
+   "title": [
+    "hari-hari si kecil"
+   ],
+   "hl": "di satu tempat",
+   "sub": "Info harian, Pesan untuk Ibu, perkembangan, dan pengingat dokter",
+   "chips": [
+    [
+     "245",
+     "hari bersama"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "ada pertanyaan?"
+   ],
+   "hl": "jawabannya di sini",
+   "sub": "Asisten 24/7 untuk pertanyaan seputar haid, kehamilan, dan bayi",
+   "chips": [
+    [
+     "24/7",
+     "semua pertanyaan"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Komunitas",
+   "title": [
+    "46.000+ perempuan"
+   ],
+   "hl": "ada di sini",
+   "sub": "Bagikan pertanyaanmu dan dapatkan dukungan dari para ibu yang sejalan denganmu",
+   "chips": [
+    [
+     "46.000+",
+     "perempuan"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Kata para ibu",
+   "title": [
+    "para ibu"
+   ],
+   "hl": "suka Anacan",
+   "sub": "Ulasan asli pengguna, tanpa diedit",
+   "cta": "Unduh gratis",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "Rating App Store",
+    "stats": [
+     [
+      "46.000+",
+      "unduhan"
+     ],
+     [
+      "560+",
+      "ulasan bintang lima"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "Ulasan App Store"
+     ]
+    ]
+   }
+  }
+ ]
+}

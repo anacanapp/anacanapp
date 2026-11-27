@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Laste liikumisharjutused",
+    "tileDesc": "Piltidega liikumisharjutused 0–5-aastastele",
+    "title": "Laste liikumisharjutused",
+    "eyebrow": "Liikumine ja areng",
+    "ageFor": "Lapsele {name}",
+    "today": "Täna",
+    "doneCount": "{n} harjutust",
+    "weekHint": "Viimased 7 päeva: iga täpp on päev, mil harjutasite.",
+    "picksTitle": "Tänased harjutused",
+    "picksSub": "Iga päev kolm uut vanusele sobivat harjutust.",
+    "allTitle": "Kõik harjutused",
+    "count": "{n} harjutust",
+    "nowBadge": "Praegune vanus",
+    "search": "Otsi harjutust",
+    "all": "Kõik",
+    "favs": "Lemmikud",
+    "noFavs": "Puudutage südant, et lisada harjutusi lemmikutesse.",
+    "noResults": "Sobivat harjutust ei leitud.",
+    "rules": "Üldreeglid",
+    "safetyNote": "Need harjutused on üldine teave ega asenda arstlikku läbivaatust. Kui laps on sündinud enneaegsena, tal on terviseprobleeme või olete mures tema arengu pärast, pidage kõigepealt nõu lastearsti või laste füsioterapeudiga.",
+    "age": "Vanus",
+    "duration": "Kestus",
+    "how": "Kuidas teha",
+    "benefit": "Kasu",
+    "caution": "Tähelepanu",
+    "timer": "Stopper",
+    "start": "Alusta",
+    "pause": "Peata",
+    "reset": "Lähtesta",
+    "done": "Tehtud",
+    "doneToday": "Täna tehtud",
+    "prev": "Eelmine",
+    "next": "Järgmine",
+    "fav": "Lisa lemmikutesse",
+    "unfav": "Eemalda lemmikutest",
+    "close": "Sulge"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 aastat",
+      "months": "0–12 kuud",
+      "rules": [
+        "Tehke harjutusi siis, kui beebi on ärkvel, rahulik ega ole just söönud (vähemalt 30–40 minutit pärast toitmist).",
+        "Harjutage kõval, tasasel ja puhtal pinnal (põrandal vaiba või mati peal); ärge jätke beebit kunagi üksi kõrgesse kohta.",
+        "Liigutused peavad olema aeglased ja õrnad. Ärge kunagi kasutage jõudu ega tõmmake käsi ja jalgu.",
+        "Kui beebi nutab, on rahutu või väsinud, lõpetage kohe.",
+        "Vanusevahemikud on ligikaudsed; iga beebi areneb oma tempos.",
+        "Kui beebi on sündinud enneaegsena või tal on terviseprobleeme, pidage kõigepealt nõu lastearstiga."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 aastat",
+      "months": "12–24 kuud",
+      "rules": [
+        "Selles vanuses tähendab harjutamine mängu: ärge sundige last, näidake liigutust ise ette ja tehke seda koos.",
+        "Soovitatav on päevas vähemalt 30 minutit juhendatud liikumist ja 1 tund või rohkem vaba liikumismängu.",
+        "Tehke tuba ohutuks: ei mingeid teravaid nurki, libedaid vaipu ega ümberkukkuvat mööblit. Kõige parem on harjutada paljajalu või libisemisvastastes sokkides.",
+        "Trepil, liumäel, ronides ja hüpates olge alati käeulatuses.",
+        "Väikeste esemetega (pallid, klotsid) mängides jälgige suurust: ärge andke lapsele midagi, mis mahub tema suhu.",
+        "Vanusevahemikud on ligikaudsed. Kui laps ei kõnni 18 kuu vanuseks iseseisvalt, pöörduge lastearsti poole."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 aastat",
+      "months": "24–36 kuud",
+      "rules": [
+        "Selles vanuses on harjutamine mäng: näidake liigutust ise ette, tehke seda koos ning lisage laule ja jutte.",
+        "Soovitatav on päevas vähemalt 1 tund juhendatud liikumist ja 2 tundi või rohkem vaba liikumismängu.",
+        "Tehke tuba ja õu ohutuks: ei mingeid libedaid põrandaid, teravaid nurki ega ümberkukkuvaid esemeid.",
+        "Hüpates, ronides, rippudes ja liumäel olge käeulatuses; valige pehme pind.",
+        "Ärge väsitage last üle: lühikesed mängud, sagedased pausid ja vesi.",
+        "Vanusevahemikud on ligikaudsed; iga laps areneb oma tempos. Kui olete mures, pöörduge lastearsti poole."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 aastat",
+      "months": "36–48 kuud",
+      "rules": [
+        "Harjutamine on endiselt mäng: näidake liigutust ise ette, tehke seda koos ning lisage võistlusi ja jutte.",
+        "Soovitatav on päevas vähemalt 1 tund juhendatud liikumist ja 2 tundi või rohkem vaba liikumismängu, võimalikult palju õues.",
+        "Valige ohutu koht: libisemiskindel põrand, pehme matt ja ümberringi ei mingeid teravaid nurki.",
+        "Ratastega vahenditel (tõukeratas, jalgratas) pange lapsele alati kiiver pähe.",
+        "Olge lähedal selliste harjutuste juures nagu kukerpall, tasakaalupoom ja ronimine.",
+        "Ärge väsitage last üle: lühikesed mängud, sagedased pausid ja vesi.",
+        "Vanusevahemikud on ligikaudsed; iga laps areneb oma tempos. Kui olete mures, pöörduge lastearsti poole."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 aastat",
+      "months": "48–60 kuud",
+      "rules": [
+        "Harjutamine peab olema nagu mäng: näidake liigutust ise ette, tehke seda koos ning lisage väikesi võistlusi ja \"rekordeid\".",
+        "Soovitatav on päevas vähemalt 1 tund juhendatud liikumist ja 2 tundi või rohkem vaba liikumismängu, võimalikult palju õues.",
+        "Valige ohutu koht: libisemiskindel põrand, pehme matt ja ümberringi ei mingeid teravaid nurki.",
+        "Jalgrattal ja tõukerattal olgu lapsel alati kiiver ja kinnised jalanõud.",
+        "Olge lähedal kukerpalli, kõrgelt hüppamise, ronimise ja rippumise ajal.",
+        "Jõuharjutustes (plank, kükk) on tähtis kvaliteet, mitte kestus: kui asend läheb valeks, lõpetage.",
+        "Vanusevahemikud on ligikaudsed; iga laps areneb oma tempos. Kui olete mures, pöörduge lastearsti poole."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 kuud",
+    "3–6 ay": "3–6 kuud",
+    "6–9 ay": "6–9 kuud",
+    "9–12 ay": "9–12 kuud",
+    "12–15 ay": "12–15 kuud",
+    "15–18 ay": "15–18 kuud",
+    "18–24 ay": "18–24 kuud",
+    "Hoppanma və tarazlıq": "Hüppamine ja tasakaal",
+    "Yerimə, qaçış və dırmaşma": "Kõndimine, jooksmine ja ronimine",
+    "Topla oyunlar": "Pallimängud",
+    "Gimnastika və təqlid oyunları": "Võimlemine ja matkimismängud",
+    "Hoppanma": "Hüppamine",
+    "Tarazlıq": "Tasakaal",
+    "Təkərli vasitələr və qaçış": "Rattad ja jooksmine",
+    "Güc və gimnastika": "Jõud ja võimlemine",
+    "Ritm və koordinasiya": "Rütm ja koordinatsioon",
+    "Hoppanma və tullanma": "Hüpped ja kaugushüpped",
+    "Qaçış, velosiped və ritm oyunları": "Jooksmine, jalgratas ja rütmimängud"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Kõhuliasend",
+      "age": "alates sünnist",
+      "how": "Asetage beebi matile kõhuli, painutage käed küünarnukkidest ja pange need pea kõrvale. Asetage üks käsi õrnalt beebi seljale ja teine tuharatele. Rääkige temaga, et ta püüaks pead tõsta.",
+      "duration": "2–3 korda päevas, 1–3 minutit; pikendage aega järk-järgult.",
+      "benefit": "Tugevdab kaela-, õla- ja seljalihaseid ning aitab ennetada kuklaosa lamenemist.",
+      "caution": "Ainult siis, kui beebi on ärkvel ja järelevalve all. Magama pange beebi alati selili."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Kõhuli vanema rinnal",
+      "age": "0–2 kuud",
+      "how": "Võtke padjale toetudes poollamav asend. Asetage beebi kõhuli oma rinnale ning hoidke ühe käega tema selga ja teisega tuharaid. Rääkige temaga, et ta vaataks teie nägu.",
+      "duration": "Mitu korda päevas, 2–5 minutit.",
+      "benefit": "Kõige õrnem viis kõhuliasendiga harjumiseks; julgustab pead tõstma ja tugevdab omavahelist sidet.",
+      "caution": "Ärge tehke seda harjutust, kui olete ise unine."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Kõhuli süles",
+      "age": "0–3 kuud",
+      "how": "Istuge ja asetage beebi kõhuli risti üle oma reite. Üks käsi olgu tema seljal, teine tuharatel. Võite tema selga õrnalt silitada.",
+      "duration": "2–3 minutit.",
+      "benefit": "Treenib kaelalihaseid, aitab gaasidel väljuda ja rahustab beebit."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Mänguasja jälgimine silmadega",
+      "age": "0–3 kuud",
+      "how": "Beebi lamab selili. Hoidke eredat mänguasja tema näost 20–30 cm kaugusel ja liigutage seda aeglaselt paremale ja vasakule. Oodake, kuni beebi jälgib seda silmade ja peaga.",
+      "duration": "1–2 minutit, 4–5 korda kummalegi poole.",
+      "benefit": "Arendab nägemistähelepanu, silmade ja pea koostööd ning kaela pööramist mõlemale poole."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Sõrmest haaramine",
+      "age": "0–4 kuud",
+      "how": "Pange oma nimetissõrm beebi peopessa ja oodake, kuni ta selle pihku võtab. Liigutage sõrme veidi üles-alla. Korrake mõlema käega.",
+      "duration": "3–5 korda kummagi käega.",
+      "benefit": "Tugevdab haaramisrefleksi ja käelihaseid ning arendab puutetundlikkust.",
+      "caution": "Ärge tõstke beebit üles, kui ta teie sõrmedest kinni hoiab."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Põlved kõhule",
+      "age": "0–6 kuud",
+      "how": "Beebi lamab selili. Võtke kinni mõlemast säärest, painutage põlved koos aeglaselt kõhu poole, hoidke 3–5 sekundit ja laske lahti.",
+      "duration": "5–8 kordust.",
+      "benefit": "Leevendab gaase ja koolikuid ning parandab puusaliigeste liikuvust.",
+      "caution": "Ärge suruge; vastupanu tundes lõpetage."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "\"Jalgratas\"",
+      "age": "1–6 kuud",
+      "how": "Beebi lamab selili. Võtke kinni säärtest ja liigutage jalgu vaheldumisi nagu jalgrattasõidul: üks põlv kõhu poole, teine jalg ette.",
+      "duration": "10–15 ringi, vahepeal pausid.",
+      "benefit": "Treenib jala- ja kõhulihaseid, toetab soolte tööd ja õpetab vahelduvat liigutust."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Käte avamine ja ristamine",
+      "age": "1–6 kuud",
+      "how": "Beebi lamab selili. Pange oma pöidlad tema peopesadesse või hoidke õrnalt randmetest. Viige käed külgedele ja seejärel ristake need rinnal (nagu kallistaks ta ennast).",
+      "duration": "5–8 kordust.",
+      "benefit": "Avab rinna- ja õlalihaseid ning õpetab käsi keha keskjoonele tooma.",
+      "caution": "Ärge tõmmake käsi; avage neid ainult nii palju, kui beebi lubab."
+    },
+    "0-1/09_kicking": {
+      "title": "Peopessa tõukamine",
+      "age": "1–4 kuud",
+      "how": "Beebi lamab selili. Toetage peopesad vastu tema jalataldu ja avaldage kerget vastupanu; beebi hakkab jalgadega tõukama.",
+      "duration": "1–2 minutit.",
+      "benefit": "Tugevdab jalalihaseid ja valmistab ette tõukeliigutust (hilisemaks roomamiseks ja seismiseks)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Mäng külili",
+      "age": "1–4 kuud",
+      "how": "Asetage beebi külili ja pange tema selja taha rulli keeratud rätik. Mõlemad käed olgu ees; pange tema ette mänguasi. Seejärel pöörake ta teisele küljele.",
+      "duration": "2–3 minutit kummalgi küljel.",
+      "benefit": "Hõlbustab käte kokkuviimist, valmistab ette ümberpööramiseks ja hoiab ära pea pideva kaldumise ühele poole.",
+      "caution": "Ainult siis, kui beebi on ärkvel ja järelevalve all; ärge pange beebit selles asendis magama."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Kõhuliasend rätikurulliga",
+      "age": "2–4 kuud",
+      "how": "Pange rulli keeratud rätik beebi rinna alla (kaenlaaluste kõrgusele), käed olgu rullist eespool. Pange tema ette mänguasi, et ta tõstaks vaatamiseks pead.",
+      "duration": "3–5 minutit, mitu korda päevas.",
+      "benefit": "Lihtsustab pea tõstmist ja valmistab ette küünarnukkidele toetumiseks."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Istuma tõmbamine",
+      "age": "3–5 kuud (kui beebi juba hoiab pead)",
+      "how": "Beebi lamab selili. Andke talle oma pöidlad pihku, võtke randmetest kinni ja tõstke ta aeglaselt istuva asendi poole, seejärel laske sama aeglaselt tagasi pikali.",
+      "duration": "3–5 kordust.",
+      "benefit": "Tugevdab kõhu-, kaela- ja käelihaseid.",
+      "caution": "Kui pea vajub taha, lükake harjutus edasi. Ärge kunagi tõmmake kiiresti."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Mänguasja järele sirutamine",
+      "age": "3–5 kuud",
+      "how": "Beebi lamab selili. Hoidke mänguasja tema rinna kohal käeulatuses ja oodake, kuni ta sirutab käe ja haarab sellest. Viige mänguasja kord paremale, kord vasakule.",
+      "duration": "2–3 minutit.",
+      "benefit": "Arendab silma ja käe koostööd, õlalihaseid ja sihipärast haaramist."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Küünarnukkidelt sirutamine",
+      "age": "4–6 kuud",
+      "how": "Beebi on kõhuli ja toetub küünarnukkidele. Pange mänguasi veidi ette ja kõrvale, et ta sirutaks selle järele ühe käe. Võite kätega tema vaagnat kergelt paigal hoida.",
+      "duration": "3–5 minutit.",
+      "benefit": "Õpetab raskust ühelt käelt teisele kandma, tugevdab selga ja õlavöödet ning valmistab ette roomamiseks."
+    },
+    "0-1/15_rolling": {
+      "title": "Ümberpööramisel aitamine",
+      "age": "4–6 kuud",
+      "how": "Beebi lamab selili. Pange mänguasi kõrvale. Võtke ühe käega reiest ja teisega vaagnast ning viige pealmine jalg üle teisele poole; kere pöörab ise järele. Tehke mõlemale poole.",
+      "duration": "3–4 korda kummalegi poole.",
+      "benefit": "Arendab kerelihaseid ja keha pöörlemisliigutust ning õpetab iseseisvalt ümber pöörama.",
+      "caution": "Ärge pöörake beebit käest tõmmates."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Jalgadest haaramine",
+      "age": "4–6 kuud",
+      "how": "Beebi lamab selili. Painutage tema põlved ja tooge jalad käte lähedale, et ta neist kinni võtaks. Kui ta on haaranud, laske tal kergelt küljelt küljele õõtsuda.",
+      "duration": "1–2 minutit.",
+      "benefit": "Tugevdab kõhulihaseid, parandab kehataju ja puusade painduvust."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Istumine toega",
+      "age": "5–7 kuud",
+      "how": "Pange beebi matile istuma ja hoidke teda tagant vaagnast või alaseljast. Andke talle mänguasi kätte. Kui tasakaal paraneb, vähendage tuge.",
+      "duration": "3–5 minutit.",
+      "benefit": "Arendab kerelihaseid ja istumistasakaalu ning vabastab käed mänguks.",
+      "caution": "Kui selg muutub kumeraks ja ta väsib, pange ta pikali; ärge sundige teda patjade abil istuma."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Jalgadel vetrumine toega",
+      "age": "5–8 kuud",
+      "how": "Hoidke beebit kindlalt kaenlaaluste alt ümber kere ja pange tema jalad kõvale pinnale. Laske tal kanda osa oma raskusest jalgadel ja vetruda, painutades ja sirutades põlvi.",
+      "duration": "1–2 minutit.",
+      "benefit": "Tugevdab jalalihaseid ja valmistab ette seismiseks.",
+      "caution": "Hoidke suuremat osa raskusest ise; ärge jätke beebit oma jalgadele seisma."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Istudes mänguasja järele sirutamine",
+      "age": "6–8 kuud",
+      "how": "Beebi istub ise ja toetub ühe käega põrandale. Pange mänguasjad veidi kaugemale tema ette ja külgedele, et ta sirutuks, võtaks need ja ajaks end jälle sirgu. Pange tema ümber padjad.",
+      "duration": "5 minutit.",
+      "benefit": "Arendab istumistasakaalu, kere pööramist ja kukkumisel kätega toetamise reaktsiooni."
+    },
+    "0-1/20_peekaboo": {
+      "title": "Peitust (\"Kukuu!\")",
+      "age": "4–12 kuud",
+      "how": "Beebi istub. Hoidke õhukest riidelappi oma (või tema) näo ees, seejärel laske see alla ja öelge \"kukuu!\". Kui ta kasvab, laske tal lapp ise eest tõmmata.",
+      "duration": "Nii kaua, kui beebil huvi jagub.",
+      "benefit": "Arendab arusaamist, et esemed on olemas ka siis, kui neid ei näe, ning tähelepanu, suhtlemist ja naeru; julgustab käsi aktiivselt liigutama."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Plaksumäng",
+      "age": "7–12 kuud",
+      "how": "Istuge beebiga vastamisi. Laulu või loendamise saatel plaksutage oma peopesad vastu tema peopesi, seejärel näidake, kuidas ise käsi plaksutada.",
+      "duration": "2–3 minutit.",
+      "benefit": "Arendab kahe käe koostööd, rütmitunnet, matkimist ja suhtlemist."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Roomamisel aitamine",
+      "age": "7–9 kuud",
+      "how": "Beebi on kätel ja põlvedel, tema ees on mänguasi. Toetage peopesad vastu tema jalataldu, et ta saaks neist ära tõugata ja edasi liikuda.",
+      "duration": "3–5 minutit.",
+      "benefit": "Arendab roomamisliigutust, käte ja jalgade koostööd ning kerejõudu.",
+      "caution": "Ärge lükake beebit, pakkuge ainult tuge."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Üle takistuse roomamine",
+      "age": "8–10 kuud",
+      "how": "Pange matile madal padi või rulli keeratud tekk ja teisele poole mänguasi. Laske beebil takistusest üle ronida.",
+      "duration": "5 minutit.",
+      "benefit": "Arendab jõudu, tasakaalu ja liigutuste planeerimist ning valmistab ette ronimiseks."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Palli veeretamine",
+      "age": "8–12 kuud",
+      "how": "Beebi istub, jalad harkis. Veeretage pehme pall tema poole ja oodake, kuni ta selle kinni võtab ja tagasi lükkab.",
+      "duration": "5 minutit.",
+      "benefit": "Arendab istumistasakaalu, silma ja käe koostööd ning vaheldumisi mängimise oskust."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Kinni hoides püsti tõusmine",
+      "age": "8–10 kuud",
+      "how": "Pange mänguasi madalale ja stabiilsele diivanile. Beebi tõuseb põlvili, paneb ühe jala maha ja püüab püsti tõusta. Vajaduse korral toetage teda kergelt vaagnast.",
+      "duration": "3–5 katset.",
+      "benefit": "Tugevdab jala- ja tuharalihaseid ning õpetab iseseisvalt püsti tõusma.",
+      "caution": "Veenduge, et mööbel ei saa ümber kukkuda ja sellel pole teravaid nurki."
+    },
+    "0-1/26_cruising": {
+      "title": "Mööbli äärt mööda külgsammud",
+      "age": "9–11 kuud",
+      "how": "Beebi seisab, hoides diivanist kinni. Pange mänguasi temast veidi eemale, et ta jõuaks selleni külgsammudega. Tehke mõlemas suunas.",
+      "duration": "5 minutit.",
+      "benefit": "Õpetab raskust jalalt jalale kandma ja harjutab tasakaalu; otsene ettevalmistus kõndimiseks."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Kükitades mänguasja ülesvõtmine",
+      "age": "10–12 kuud",
+      "how": "Beebi seisab, hoides ühe käega diivanist kinni. Pange mänguasi tema jala kõrvale põrandale. Oodake, kuni ta kükitab, võtab selle üles ja tõuseb uuesti püsti.",
+      "duration": "5–6 kordust.",
+      "benefit": "Tugevdab jalalihaseid ja tasakaalu ning õpetab istumist ja tõusmist kontrollima."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Kõndimine toega",
+      "age": "10–12 kuud",
+      "how": "Seiske beebi taga ja hoidke teda ümber kere (rinna kõrgusel). Laske tal samme astuda; kui tasakaal paraneb, vähendage tuge.",
+      "duration": "3–5 minutit.",
+      "benefit": "Arendab sammumist ja tasakaalu.",
+      "caution": "Kerest hoidmine on õlgadele ohutum kui käte ülestõmbamine kõndimise ajal."
+    },
+    "0-1/29_push_walker": {
+      "title": "Lükatava käruga kõndimine",
+      "age": "11–12 kuud",
+      "how": "Andke beebile stabiilne ja raske lükatav käru. Las ta hoiab mõlema käega käepidemest ja astub edasi. Olge kõrval.",
+      "duration": "5–10 minutit.",
+      "benefit": "Annab julgust iseseisvalt kõndida ning harjutab sammu pikkust ja suuna hoidmist.",
+      "caution": "Käru ei tohi liiga kiiresti eest ära veereda; istmega käimistooli ei soovitata."
+    },
+    "1-2/01_first_steps": {
+      "title": "Esimesed iseseisvad sammud",
+      "age": "12–15 kuud",
+      "how": "Pange laps jalgadele seisma, laskuge ise 2–3 sammu kaugusel põlvili, avage käed ja kutsuge teda. Kui hästi läheb, suurendage vahemaad.",
+      "duration": "5–10 katset.",
+      "benefit": "Loob julgust ja tasakaalu iseseisvaks kõndimiseks."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Ühest käest kinni hoides kõndimine",
+      "age": "12–15 kuud",
+      "how": "Hoidke last ainult ühest käest ja kõndige tema tempos. Hoidke oma kätt tema õla kõrgusel, ärge tõmmake üles. Vahetage käsi.",
+      "duration": "5–10 minutit.",
+      "benefit": "Üleminek kahe käe toelt iseseisvale kõndimisele; tugevdab tasakaalu."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Põrandalt ilma toeta püsti tõusmine",
+      "age": "12–15 kuud",
+      "how": "Kui laps istub keset tuba, hoidke huvitavat mänguasja tema pea kõrgusel. Oodake, kuni ta tõuseb ise, toetades käed ja jalad põrandale ja tõstes tagumikku.",
+      "duration": "5–6 kordust.",
+      "benefit": "Tugevdab jala-, tuhara- ja kerelihaseid; õpetab tõusma ilma mööbli abita."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Kükitamine ilma toeta",
+      "age": "13–18 kuud",
+      "how": "Pange põrandale pall või mänguasi. Julgustage last ilma millestki kinni hoidmata kükitama, selle üles võtma ja uuesti püsti tõusma.",
+      "duration": "6–8 kordust.",
+      "benefit": "Arendab jalgade jõudu, tasakaalu ja liigutuste kontrolli."
+    },
+    "1-2/07_push_basket": {
+      "title": "Korvi lükkamine",
+      "age": "12–18 kuud",
+      "how": "Pange kergesse pesukorvi mõned mänguasjad. Laske lapsel lükata korvi mõlema käega mööda tuba.",
+      "duration": "5–10 minutit.",
+      "benefit": "Tugevdab jala- ja kerelihaseid ning muudab kõnnaku stabiilsemaks."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Madalale diivanile või padjale ronimine",
+      "age": "12–18 kuud",
+      "how": "Valige põlvekõrgune kindel padi või madal diivan. Laps toetab kõhu vastu ja ronib üles, tõstes ühe põlve peale. Hoidke käed valmis tema tagumiku taga. Õpetage ka alla tulema: kõhuli, jalad ees.",
+      "duration": "4–5 kordust.",
+      "benefit": "Arendab kogu keha jõudu ja liigutuste planeerimist.",
+      "caution": "Ärge jätke last üksi kõrgesse kohta."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Trepist üles ronimine",
+      "age": "12–18 kuud",
+      "how": "2–3 madalal trepiastmel paneb laps käed ülemisele astmele ja ronib üles. Seiske tema taga, käed tema tagumiku kõrval. Õpetage alla tulema selg ees, jalad ees.",
+      "duration": "3–4 korda üles ja alla.",
+      "benefit": "Arendab jalgade jõudu, koordinatsiooni ja ohutuid trepiharjumusi.",
+      "caution": "Ainult järelevalve all; muul ajal hoidke trepivärav suletuna."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Palli veeretamine",
+      "age": "12–18 kuud",
+      "how": "Istuge või kükitage vastamisi. Veeretage palli teineteisele; laps võtab selle mõlema käega kinni ja lükkab tagasi.",
+      "duration": "5 minutit.",
+      "benefit": "Arendab silma ja käe koostööd, vaheldumisi mängimist ja kere tasakaalu."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Klotsidest torn",
+      "age": "12–18 kuud",
+      "how": "Andke lapsele suured puuklotsid ja näidake, kuidas ehitada 2–4 klotsist torn. Kui see kukub ümber, ehitage uuesti.",
+      "duration": "5–10 minutit.",
+      "benefit": "Arendab peenmotoorikat, käte täpsust ja kannatlikkust."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Pallide kasti panemine",
+      "age": "12–18 kuud",
+      "how": "Laps on põlvili või istub, võtab pallid ükshaaval ja paneb need kasti. Seejärel tühjendage kast ja alustage uuesti.",
+      "duration": "5 minutit.",
+      "benefit": "Arendab haaramist ja lahtilaskmist, silma ja käe koostööd ning tasakaalu põlvedel."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Mänguasja kandes kõndimine",
+      "age": "15–18 kuud",
+      "how": "Andke lapsele suur ja kerge mänguasi ning paluge tal viia see toa teise otsa.",
+      "duration": "5 minutit.",
+      "benefit": "Õpetab tasakaalu hoidma, kui käed on hõivatud, ja tugevdab kerelihaseid."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Nööriga mänguasja järel vedamine",
+      "age": "15–20 kuud",
+      "how": "Andke lapsele lühikese nööriga ratastel mänguasi. Las ta veab seda kõndides enda järel ja pöörab end seda vaatama.",
+      "duration": "5–10 minutit.",
+      "benefit": "Õpetab kõndides pead ja keret pöörama ning tähelepanu jagama.",
+      "caution": "Nöör olgu lühike (umbes 30 cm); ärge jätke last nööriga üksi."
+    },
+    "1-2/10_tunnel": {
+      "title": "Tunnelist läbi roomamine",
+      "age": "12–24 kuud",
+      "how": "Tehke suurest papp-kastist tunnel, avades selle mõlemad otsad. Kutsuge last teisest otsast või pange sinna mänguasi.",
+      "duration": "5–10 minutit.",
+      "benefit": "Arendab õlgade ja kere jõudu ning ruumitaju."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Patjade rada",
+      "age": "15–20 kuud",
+      "how": "Laotage põrandale mõned lamedad padjad. Laps kõnnib neist üle, hoides ühest teie käest kinni.",
+      "duration": "3–5 läbimist.",
+      "benefit": "Tugevdab tasakaalu ebakindlal pinnal ja hüppeliigese ümbruse lihaseid."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Palli korvi viskamine",
+      "age": "15–24 kuud",
+      "how": "Pange korv lapsest 1 sammu kaugusele. Näidake, kuidas pehmet palli korvi visata; kui hästi läheb, suurendage vahemaad.",
+      "duration": "8–10 viset.",
+      "benefit": "Arendab viskeliigutust, silma ja käe koostööd ning õlgade jõudu."
+    },
+    "1-2/15_dance": {
+      "title": "Tantsimine muusika saatel",
+      "age": "12–24 kuud",
+      "how": "Pange mängima rütmiline muusika ja tantsige koos lapsega: vetruge põlvedes, plaksutage, keerutage.",
+      "duration": "5–10 minutit.",
+      "benefit": "Parandab rütmitunnet, tasakaalu ja vastupidavust ning tõstab tuju."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Mänguasjade koristamine",
+      "age": "15–24 kuud",
+      "how": "Puistake mänguasjad põrandale laiali. Laps kummardub või kükitab, korjab need ükshaaval üles ja paneb korvi.",
+      "duration": "Kuni kõik mänguasjad on korjatud.",
+      "benefit": "Korduv kummardumine ja tõusmine tugevdab jala- ja seljalihaseid; kujundab korraharjumust."
+    },
+    "1-2/24_ride_on": {
+      "title": "Tõukeautoga jalgadega edasi liikumine",
+      "age": "15–24 kuud",
+      "how": "Pange laps madalale pedaalideta tõukeautole istuma; tema jalad peavad täielikult maani ulatuma. Las ta tõukab end jalgadega edasi.",
+      "duration": "10 minutit.",
+      "benefit": "Arendab jalgade jõudu, keha mõlema poole koostööd ja suuna juhtimist."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Palli löömine jalaga",
+      "age": "18–24 kuud",
+      "how": "Pange kerge pall lapse jala ette ja näidake, kuidas seda lüüa. Alguses võite teda ühest käest hoida.",
+      "duration": "8–10 lööki.",
+      "benefit": "Arendab lühiajalist tasakaalu ühel jalal ning jala ja silma koostööd."
+    },
+    "1-2/16_bubbles": {
+      "title": "Seebimullide püüdmine",
+      "age": "18–24 kuud",
+      "how": "Puhuge seebimulle. Laps tõuseb varvastele, sirutab käsi ja jookseb, et mulle lõhkuda.",
+      "duration": "5–10 minutit.",
+      "benefit": "Harjutab varvastel seismist, üles sirutamist ning silma ja käe koostööd."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Käest kinni trepist üles",
+      "age": "18–24 kuud",
+      "how": "Laps kõnnib püstiasendis trepist üles, hoides ühest teie käest (või käsipuust). On täiesti normaalne, et ta paneb igale astmele kõigepealt ühe jala ja siis teise.",
+      "duration": "2–3 korda üles ja alla.",
+      "benefit": "Suurendab jalgade jõudu ja tasakaalu ühel jalal.",
+      "caution": "Alla tulles seiske alati lapsest üks aste allpool."
+    },
+    "1-2/21_jump": {
+      "title": "Paigal hüppamine",
+      "age": "20–24 kuud",
+      "how": "Näidake ise, kuidas hüpata: painutage põlvi ja tõuske kahe jalaga maast lahti. Alguses võite hoida last kätest või lasta tal hüpata madalalt padjalt alla.",
+      "duration": "5–8 hüpet.",
+      "benefit": "Tugevdab jalgade plahvatuslikku jõudu, luid ja koordinatsiooni.",
+      "caution": "Tehke seda pehmel pinnal; kahe jalaga hüppamine tuleb sageli välja alles umbes 2-aastaselt."
+    },
+    "1-2/22_run": {
+      "title": "Jooksmine",
+      "age": "18–24 kuud",
+      "how": "Mängige avaras takistusteta kohas kulli või kutsuge last kaugelt.",
+      "duration": "5–10 minutit lühikeste pausidega.",
+      "benefit": "Arendab vastupidavust, kiirust ning südant ja veresooni."
+    },
+    "1-2/23_balance_line": {
+      "title": "Mööda joont kõndimine",
+      "age": "20–24 kuud",
+      "how": "Kleepige põrandale lai värviline teip. Laps hoiab ühest teie käest kinni ja kõnnib, jalad teibil.",
+      "duration": "3–5 läbimist.",
+      "benefit": "Arendab tasakaalu ja kõndimist kitsal toel."
+    },
+    "1-2/25_bear_walk": {
+      "title": "\"Karukõnd\"",
+      "age": "18–24 kuud",
+      "how": "Näidake, kuidas liikuda edasi kätel ja jalgadel nii, et põlved ei puuduta maad ja tagumik on üleval. Kõndige koos \"nagu karud\".",
+      "duration": "2–3 korda üle toa.",
+      "benefit": "Tugevdab õla-, käe- ja kerelihaseid ning parandab koordinatsiooni."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Siruta üles, puuduta varbaid",
+      "age": "18–24 kuud",
+      "how": "Seiske lapsega vastamisi. Kõigepealt tõuske varvastele ja sirutage käed üles, seejärel kummarduge ja puudutage varbaid. Laulge juurde.",
+      "duration": "5–6 kordust.",
+      "benefit": "Arendab painduvust, tasakaalu ja liigutuste matkimist; õpetab kehaosi tundma."
+    },
+    "1-2/27_slide": {
+      "title": "Madal liumägi",
+      "age": "18–24 kuud",
+      "how": "Laps istub madala liumäe ülaosas ja laskub jalad ees alla. Hoidke teda kätega ümber kere, seejärel vähendage tuge.",
+      "duration": "5–6 korda.",
+      "benefit": "Arendab ronimist, istumistasakaalu ja julgust.",
+      "caution": "Ärge laskuge koos lapsega, kui ta istub teil süles; tema jalg võib kinni jääda ja ta võib viga saada."
+    },
+    "1-2/28_back_walk": {
+      "title": "Tagurpidi kõndimine",
+      "age": "18–24 kuud",
+      "how": "Laps astub tagurpidi, tõmmates käru või nööriga mänguasja enda poole. Alguses hoidke teda kätest ja kõndige koos tagurpidi.",
+      "duration": "3–4 läbimist.",
+      "benefit": "Õpetab tasakaalu, kehataju ja liikumissuuna muutmist.",
+      "caution": "Veenduge, et tema taga pole takistusi."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Kahe jalaga ette hüppamine",
+      "age": "24–30 kuud",
+      "how": "Kleepige põrandale värviline teip. Laps painutab põlvi ja hüppab kahe jalaga korraga üle teibi. Näidake kõigepealt ise ette.",
+      "duration": "6–8 hüpet.",
+      "benefit": "Arendab jalgade jõudu, mõlema jala koostööd ja pehmet maandumist."
+    },
+    "2-3/02_jump_down": {
+      "title": "Madalalt astmelt alla hüppamine",
+      "age": "24–30 kuud",
+      "how": "Laps hüppab ühest teie käest kinni hoides 10–15 cm kõrguselt kindlalt astmelt pehmele matile. Näidake, kuidas maanduda põlvi painutades.",
+      "duration": "5–6 korda.",
+      "benefit": "Arendab julgust, jalgade jõudu ja tasakaalu maandumisel.",
+      "caution": "Ärge suurendage kõrgust; aste ei tohi libiseda."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Ühel jalal seismine",
+      "age": "30–36 kuud",
+      "how": "Öelge: \"Seisa nagu toonekurg.\" Laps hoiab ühest teie käest kinni, tõstab ühe jala üles ja seisab nii 2–3 sekundit. Vahetage jalga ja proovige siis ilma toeta.",
+      "duration": "3–4 korda kummalgi jalal.",
+      "benefit": "Tugevdab tasakaalu ja hüppeliigese ümbruse lihaseid."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Varvastel kõndimine",
+      "age": "24–36 kuud",
+      "how": "Öelge: \"Kõnnime nagu vaikne kiisu\" ja kõndige varvastel mööda tuba.",
+      "duration": "2–3 läbimist.",
+      "benefit": "Tugevdab sääre tagumisi lihaseid, jalavõlvi ja tasakaalu.",
+      "caution": "Kui laps kõnnib pidevalt varvastel, rääkige sellest lastearstile."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Laual kõndimine",
+      "age": "24–36 kuud",
+      "how": "Pange põrandale lai ja madal laud. Laps kõnnib sellel, hoides ühest teie käest; kui hästi läheb, laske tugi lahti.",
+      "duration": "4–5 läbimist.",
+      "benefit": "Arendab tasakaalu, tähelepanu ja jalgade ühele joonele asetamist."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Kotike peas kõndimine",
+      "age": "30–36 kuud",
+      "how": "Pange lapse pähe väike riidest kotike (täidetud riisi või kikerhernestega). Laps kõnnib aeglaselt ja sirgelt, et see maha ei kukuks.",
+      "duration": "3–4 läbimist.",
+      "benefit": "Arendab rühti, tasakaalu ja tähelepanu."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Täpilt täpile hüppamine",
+      "age": "30–36 kuud",
+      "how": "Laotage põrandale värvilised ringid (kummitäpid, paber, padjad). Laps hüppab või astub pikkade sammudega ühelt teisele.",
+      "duration": "3–4 läbimist.",
+      "benefit": "Arendab hüppe täpsust, tasakaalu ja liigutuste planeerimist.",
+      "caution": "Ringid ei tohi libiseda."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Trepist üles jalgu vahetades",
+      "age": "30–36 kuud",
+      "how": "Laps hoiab käsipuust kinni ja astub trepist üles, pannes igale astmele ühe jala. Alla tulles on veel normaalne, et ta paneb igale astmele mõlemad jalad.",
+      "duration": "2–3 korda üles ja alla.",
+      "benefit": "Suurendab jalgade jõudu ja tasakaalu ühel jalal.",
+      "caution": "Alla tulles seiske lapsest üks aste allpool."
+    },
+    "2-3/14_marching": {
+      "title": "Marssimine",
+      "age": "24–36 kuud",
+      "how": "Pange mängima muusika ja korraldage \"paraad\": kõndige, põlved kõrgele tõstetud ja käed kõikumas. Vahepeal andke käsklusi nagu \"keerle\", \"hüppa\", \"seisa\".",
+      "duration": "5 minutit.",
+      "benefit": "Arendab koordinatsiooni, rütmitunnet ja juhiste järgimist."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Jookse ja peatu",
+      "age": "24–36 kuud",
+      "how": "Kui ütlete \"roheline tuli\", laps jookseb, \"punase tule\" peale tardub paigale. Võite tõmmata ka joone ja paluda tal selle ees peatuda.",
+      "duration": "5–10 minutit.",
+      "benefit": "Arendab kiirust, pidurdamist, kehakontrolli ja tähelepanu."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Käru vedamine",
+      "age": "24–36 kuud",
+      "how": "Laadige kärusse mänguasjad; laps veab seda käepidemest ja teeb sellega pöördeid.",
+      "duration": "5–10 minutit.",
+      "benefit": "Tugevdab kere- ja jalalihaseid ning õpetab suunda juhtima."
+    },
+    "2-3/07_tricycle": {
+      "title": "Kolmerattaline jalgratas",
+      "age": "30–36 kuud",
+      "how": "Pange laps kolmerattalisele istuma ja asetage tema jalad pedaalidele. Alguses lükake kergelt tagant, et ta tunneks pedaalide liikumist.",
+      "duration": "10–15 minutit.",
+      "benefit": "Arendab jalgade vahelduvat tööd, jõudu ja juhtimist.",
+      "caution": "Pange pähe kiiver; sõitke tasasel pinnal, teest eemal."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Laua alt läbi roomamine",
+      "age": "24–36 kuud",
+      "how": "Ehitage madalast lauast, toolidest või papp-kastist \"tunnel\". Laps painutab pea ja roomab sealt alt läbi.",
+      "duration": "4–5 läbimist.",
+      "benefit": "Arendab õlgade ja kere jõudu ning oma keha suuruse tunnetamist."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Ronimisredel",
+      "age": "24–36 kuud",
+      "how": "Madalal ronimisraamil või mänguväljakul ronib laps üles, hoides kätega kinni ja asetades jalgu pulk-pulgalt. Hoidke käed valmis tema tagumiku taga.",
+      "duration": "4–5 korda.",
+      "benefit": "Arendab kogu keha jõudu, haardejõudu ja julgust.",
+      "caution": "All olgu pehme pind; ärge jätke last üksi."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Iseseisvalt liumäest laskumine",
+      "age": "24–36 kuud",
+      "how": "Laps ronib ise redelist üles ja laskub istudes, jalad ees, alla. Oodake all.",
+      "duration": "6–8 korda.",
+      "benefit": "Arendab ronimist, istumistasakaalu ja iseseisvust.",
+      "caution": "Ärge lubage laskuda pea ees ega kõhuli."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Kangil rippumine",
+      "age": "30–36 kuud",
+      "how": "Laps võtab madalast kangist kahe käega kinni (jalad mõne sentimeetri kõrgusel maast) ja ripub 3–5 sekundit. Hoidke teda kätega vööst.",
+      "duration": "3–4 korda.",
+      "benefit": "Tugevdab käte ja õlgade jõudu ning haaret.",
+      "caution": "Ärge tõstke last kätest üles ega kiigutage teda; all olgu matt."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Ülalt viskamine",
+      "age": "24–36 kuud",
+      "how": "Seiske 1–2 meetri kaugusel. Laps viskab väikese pehme palli üle õla teile.",
+      "duration": "8–10 viset.",
+      "benefit": "Arendab viske tehnikat, õlgade jõudu ja sihtimist."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Palli püüdmine",
+      "age": "30–36 kuud",
+      "how": "Visake suur ja kerge pall 1 meetri kauguselt aeglaselt lapse rinna suunas. Laps sirutab käed ette ja püüab palli, surudes selle vastu rinda.",
+      "duration": "8–10 korda.",
+      "benefit": "Arendab silma ja käe koostööd ning reaktsiooni."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Hoojooksuga palli löömine",
+      "age": "24–36 kuud",
+      "how": "Tehke kahest koonusest või kastist \"värav\". Laps astub palli poole sammu või kaks ja lööb.",
+      "duration": "8–10 lööki.",
+      "benefit": "Arendab tasakaalu ühel jalal, jala ja silma koostööd ning jõudu."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Kotikese rõngasse viskamine",
+      "age": "24–36 kuud",
+      "how": "Pange põrandale rõngas või kauss. Laps viskab 1 sammu kauguselt kotikesi altkäe sinna sisse; kui hästi läheb, suurendage vahemaad.",
+      "duration": "8–10 viset.",
+      "benefit": "Õpetab täpselt sihtmärki viskama ja jõudu doseerima."
+    },
+    "2-3/27_bowling": {
+      "title": "Kodune keeglimäng",
+      "age": "24–36 kuud",
+      "how": "Seadke 6 tühja plastpudelit kolmnurka. Laps kükitab ja veeretab palli kahe käega, et need ümber lükata.",
+      "duration": "5–6 vooru.",
+      "benefit": "Arendab sihtimist, jõudu kükis ja oma järjekorra ootamist."
+    },
+    "2-3/24_balloon": {
+      "title": "Õhupalli õhus hoidmine",
+      "age": "24–36 kuud",
+      "how": "Visake õhupall õhku. Laps lööb seda käega nii, et see maha ei kukuks.",
+      "duration": "5–10 minutit.",
+      "benefit": "Arendab silma ja käe koostööd, üles sirutamist ja reaktsiooni.",
+      "caution": "Korjake lõhkenud õhupalli tükid kohe ära (lämbumisoht)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "\"Pea, õlad, põlved, varbad\"",
+      "age": "24–36 kuud",
+      "how": "Laulu saatel puudutage kätega järjest pead, õlgu, põlvi ja varbaid. Suurendage tasapisi tempot.",
+      "duration": "3–4 korda.",
+      "benefit": "Arendab painduvust, koordinatsiooni ja kehaosade tundmist."
+    },
+    "2-3/15_spin": {
+      "title": "Keerutamine",
+      "age": "24–36 kuud",
+      "how": "Laps sirutab käed külgedele ja keerleb aeglaselt paigal; seejärel teises suunas.",
+      "duration": "2–3 ringi kummaski suunas.",
+      "benefit": "Arendab tasakaalumeelt (vestibulaarsüsteemi) ja kehakontrolli.",
+      "caution": "Ümberringi ei tohi olla takistusi; kui pea hakkab ringi käima, peatugu laps."
+    },
+    "2-3/17_frog_jump": {
+      "title": "\"Konnahüpe\"",
+      "age": "30–36 kuud",
+      "how": "Laps kükitab sügavale, paneb käed põlvede vahele põrandale ja hüppab siis nagu konn ette.",
+      "duration": "5–6 hüpet.",
+      "benefit": "Suurendab jala- ja tuharalihaste jõudu ning puusade liikuvust."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "\"Käru\"",
+      "age": "30–36 kuud",
+      "how": "Laps paneb käed põrandale. Võtke tal reitest (põlvedest kõrgemalt) kinni ja tõstke jalad üles; laps astub kätel mõne \"sammu\".",
+      "duration": "3–5 sammu, 2–3 korda.",
+      "benefit": "Tugevdab käe-, õla- ja kerelihaseid.",
+      "caution": "Hoidke reitest, mitte pahkluudest; kui selg vajub nõgusaks või laps väsib, lõpetage."
+    },
+    "2-3/21_log_roll": {
+      "title": "Veeremine nagu palk",
+      "age": "24–36 kuud",
+      "how": "Laps lamab matil sirgelt, käed üle pea sirutatud, ja veereb külje pealt üle; seejärel teises suunas.",
+      "duration": "3–4 ringi kummaski suunas.",
+      "benefit": "Arendab kerelihaseid, kehataju ja tasakaalusüsteemi."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "\"Liblika\" venitus",
+      "age": "24–36 kuud",
+      "how": "Laps istub, jalatallad vastamisi, hoiab kätega jalgadest kinni ja liigutab põlvi kergelt üles-alla nagu \"tiibu\".",
+      "duration": "20–30 sekundit.",
+      "benefit": "Suurendab puusade painduvust ja rahustab pärast harjutusi.",
+      "caution": "Ärge suruge kätega põlvedele."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Ühel jalal hüppamine",
+      "age": "3,5–4 aastat",
+      "how": "Laps painutab ühe jala taha ja hüppab teisel jalal paigal või edasi. Alguses hoidke tal käest kinni. Vahetage jalga.",
+      "duration": "3–5 hüpet kummalgi jalal.",
+      "benefit": "Arendab jalgade jõudu, tasakaalu ja koordinatsiooni."
+    },
+    "3-4/02_long_jump": {
+      "title": "Paigalt kaugushüpe",
+      "age": "3–4 aastat",
+      "how": "Tõmmake maha joon. Laps painutab põlvi, hoogustab kätega ja hüppab kahe jalaga nii kaugele kui suudab. Märkige maandumiskoht ja püüdke koos \"rekordit\" parandada.",
+      "duration": "5–6 katset.",
+      "benefit": "Suurendab jalgade plahvatuslikku jõudu ning käte ja jalgade koostööd."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Üle takistuse hüppamine",
+      "age": "3–4 aastat",
+      "how": "Pange maha 10–15 cm kõrgune pehme takistus (vahtpulk, rulli keeratud rätik). Laps hüppab sellest kahe jalaga üle.",
+      "duration": "6–8 korda.",
+      "benefit": "Arendab hüppe kõrgust, julgust ja pehmet maandumist.",
+      "caution": "Takistus peab puudutamisel kergesti ümber kukkuma."
+    },
+    "3-4/04_hopscotch": {
+      "title": "Keksumäng",
+      "age": "3,5–4 aastat",
+      "how": "Joonistage kriidiga maha ruudud: üks ruut, siis kaks kõrvuti. Laps hüppab üksikusse ruutu ühe jalaga ja kahekordsesse kahe jalaga. Alguses võib ta kõik kahe jalaga teha.",
+      "duration": "4–5 läbimist.",
+      "benefit": "Õpetab tasakaalu, rütmi ja jala vahetamist."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Rõngast rõngasse hüppamine",
+      "age": "3–4 aastat",
+      "how": "Laotage maha 3–5 võimlemisrõngast. Laps hüppab kahe jalaga ühest järgmisse.",
+      "duration": "4–5 läbimist.",
+      "benefit": "Arendab järjestikust hüppamist, täpsust ja vastupidavust."
+    },
+    "3-4/19_leap_river": {
+      "title": "Üle \"jõe\" hüppamine",
+      "age": "3–4 aastat",
+      "how": "Tehke maha sinisest riidest või kahest nöörist \"jõgi\". Laps jookseb hoogu, tõukab ühe jalaga ja maandub teisele. Tehke \"jõgi\" järk-järgult laiemaks.",
+      "duration": "6–8 korda.",
+      "benefit": "Arendab pika sammuga hüpet, jõudu ja kauguse hindamist."
+    },
+    "3-4/25_star_jump": {
+      "title": "\"Tähehüpe\"",
+      "age": "3,5–4 aastat",
+      "how": "Laps hüppab üles ja sirutab õhus käed ja jalad külgedele (\"täht\"), seejärel maandub jalad koos.",
+      "duration": "5–8 korda.",
+      "benefit": "Arendab käte ja jalgade samaaegset tööd ning vastupidavust."
+    },
+    "3-4/05_gallop": {
+      "title": "\"Galopp\"",
+      "age": "3–4 aastat",
+      "how": "Üks jalg on alati ees, teine järgneb sellele: \"galopeerime nagu hobune\". Seejärel vahetage eesmist jalga.",
+      "duration": "3–4 korda üle toa.",
+      "benefit": "Arendab rütmi, koordinatsiooni ja vastupidavust."
+    },
+    "3-4/06_tree_balance": {
+      "title": "\"Puu\" asend",
+      "age": "3–4 aastat",
+      "how": "Laps toetab ühe jala talla vastu teise jala säärt, sirutab käed külgedele ja seisab nii 3–5 sekundit. Vahetage jalga.",
+      "duration": "3 korda kummalgi jalal.",
+      "benefit": "Tugevdab tasakaalu, tähelepanu ja hüppeliigese ümbruse lihaseid."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Mööda joont kand-varvas kõndimine",
+      "age": "3,5–4 aastat",
+      "how": "Kleepige põrandale teip. Laps kõnnib mööda teipi, puudutades iga sammuga eesmise jala kannaga tagumise jala varbaid.",
+      "duration": "3–4 läbimist.",
+      "benefit": "Arendab peent tasakaalu ja kehakontrolli."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Tasakaalupoom",
+      "age": "3–4 aastat",
+      "how": "Laps kõnnib iseseisvalt, käed laiali, mööda laia poomi, mis on maast 10 cm kõrgusel. Kõndige tema kõrval.",
+      "duration": "4–5 läbimist.",
+      "benefit": "Arendab tasakaalu, julgust ja tähelepanu.",
+      "caution": "All olgu pehme matt."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Trepist alla jalgu vahetades",
+      "age": "3,5–4 aastat",
+      "how": "Laps hoiab käsipuust kinni ja tuleb alla, pannes igale astmele ühe jala.",
+      "duration": "2–3 korda.",
+      "benefit": "Arendab jalgade jõudu, tasakaalu ja kontrollitud allatulekut.",
+      "caution": "Seiske ise üks aste allpool."
+    },
+    "3-4/10_scooter": {
+      "title": "Tõukeratas",
+      "age": "3–4 aastat",
+      "how": "Kolmerattalisel tõukerattal paneb laps ühe jala alusele ja tõukab teisega maast. Õpetage tal ka jalgu vahetama.",
+      "duration": "10–15 minutit.",
+      "benefit": "Arendab tasakaalu, jalgade jõudu ja suuna juhtimist.",
+      "caution": "Kiiver ja kinnised jalanõud on kohustuslikud; sõitke tasasel pinnal, teest eemal."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Jooksuratas",
+      "age": "3–4 aastat",
+      "how": "Laps istub pedaalideta rattal ja liigub edasi, tõugates jalgadega maast. Kui kiirus tuleb, püüab ta jalad üles tõsta ja tasakaalu hoida.",
+      "duration": "10–15 minutit.",
+      "benefit": "Arendab tasakaalu ja lihtsustab üleminekut pedaalidega jalgrattale.",
+      "caution": "Kiiver ja kinnised jalanõud on kohustuslikud; sadul olgu sellisel kõrgusel, et jalad ulatuvad täielikult maani."
+    },
+    "3-4/17_tag": {
+      "title": "Kull",
+      "age": "3–4 aastat",
+      "how": "Ajage last taga ja puudutage teda kergelt; seejärel ajab tema teid taga. Muutke tihti suunda.",
+      "duration": "5–10 minutit pausidega.",
+      "benefit": "Arendab kiirust, osavust, vastupidavust ja reaktsiooni."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Põrkava palli püüdmine",
+      "age": "3–4 aastat",
+      "how": "Põrgatage pall lapse ees vastu maad nii, et see põrkab korra ja jõuab tema kätesse. Laps püüab selle kahe käega.",
+      "duration": "8–10 korda.",
+      "benefit": "Arendab silma ja käe koostööd ning palli liikumise ettenägemist."
+    },
+    "3-4/13_target_throw": {
+      "title": "Märki viskamine",
+      "age": "3–4 aastat",
+      "how": "Riputage seinale või alusele värvilise ringi kujuline märklaud. Laps viskab pehme palli märki 1,5–2 meetri kauguselt.",
+      "duration": "8–10 viset.",
+      "benefit": "Arendab viske täpsust, õlgade jõudu ja tähelepanu."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Palli vedamine koonuste vahelt",
+      "age": "3,5–4 aastat",
+      "how": "Seadke 3–4 koonust (või pudelit) ritta. Laps lööb palli jalaga kergelt ja viib selle slaalomina koonuste vahelt läbi.",
+      "duration": "3–4 läbimist.",
+      "benefit": "Arendab jala ja silma koostööd, pallikontrolli ja suunamuutust."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Palli põrgatamine ja püüdmine",
+      "age": "3,5–4 aastat",
+      "how": "Laps põrgatab keskmise suurusega palli kahe käega vastu maad ja püüab selle, kui see üles põrkab.",
+      "duration": "8–10 korda.",
+      "benefit": "Arendab jõu doseerimist, rütmi ning silma ja käe koostööd."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Õhupallimäng taldrikuga",
+      "age": "3–4 aastat",
+      "how": "Laps hoiab paberist taldrikut nagu reketit, lööb õhupalli üles ega lase sel maha kukkuda. Seejärel andke palli teineteisele.",
+      "duration": "5–10 minutit.",
+      "benefit": "Arendab vahendiga löömise oskust, silma ja käe koostööd ning reaktsiooni.",
+      "caution": "Korjake lõhkenud õhupalli tükid kohe ära."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Kukerpall ettepoole abiga",
+      "age": "3,5–4 aastat",
+      "how": "Paksul matil kükitab laps, paneb käed maha, surub lõua vastu rinda ja tõstab tagumiku üles. Kaitske ühe käega tema kuklat ja aidake teisega tagumikku kergelt üle, et ta veereks üle selja.",
+      "duration": "3–4 korda.",
+      "benefit": "Arendab kehataju, julgust ja kerelihaseid.",
+      "caution": "Raskus ei tohi langeda pealaele; lõug olgu alati rinnal. Ainult pehmel matil ja abiga."
+    },
+    "3-4/21_crab_walk": {
+      "title": "\"Krabikõnd\"",
+      "age": "3,5–4 aastat",
+      "how": "Laps istub, paneb käed selja taha ja jalad ette põrandale, tõstab tagumiku üles ja liigub nii edasi-tagasi.",
+      "duration": "2–3 lühikest läbimist.",
+      "benefit": "Tugevdab käe-, õla-, tuhara- ja kerelihaseid."
+    },
+    "3-4/22_bridge": {
+      "title": "\"Sild\"",
+      "age": "3–4 aastat",
+      "how": "Laps lamab selili, painutab põlved, surub jalad vastu maad, tõstab tagumiku üles ja hoiab 3–5 sekundit. Võite sõita mänguautoga \"silla\" alt läbi.",
+      "duration": "5–6 kordust.",
+      "benefit": "Tugevdab tuhara-, selja- ja reie tagakülje lihaseid."
+    },
+    "3-4/23_superman": {
+      "title": "\"Superman\"",
+      "age": "3–4 aastat",
+      "how": "Laps lamab kõhuli, käed ette sirutatud, seejärel tõstab käed ja jalad korraga veidi maast üles ja \"lendab\" 3 sekundit.",
+      "duration": "4–5 kordust.",
+      "benefit": "Tugevdab seljalihaseid ja toetab õiget rühti."
+    },
+    "3-4/24_downward_dog": {
+      "title": "\"Allavaatav koer\"",
+      "age": "3–4 aastat",
+      "how": "Laps paneb käed ja jalad maha ning tõstab tagumiku kõrgele (\"mägi\" või \"sirutame end nagu koer\"). Hoidke 5 sekundit.",
+      "duration": "3–4 kordust.",
+      "benefit": "Tugevdab käsi ja õlgu ning venitab jalgade tagakülje lihaseid."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Köievedu",
+      "age": "3–4 aastat",
+      "how": "Laps hoiab pehme köie ühest otsast, teie teisest. Laps painutab põlvi, kallutab end taha ja tõmbab; kohandage oma jõudu tema jõuga.",
+      "duration": "3–4 vooru.",
+      "benefit": "Tugevdab käe-, selja-, kere- ja jalalihaseid.",
+      "caution": "Ärge laske köiest järsku lahti ja ärge keerake seda ümber käe."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Plaksuta käsi, trambi jalgu",
+      "age": "3–4 aastat",
+      "how": "Liikuge laulu saatel: \"Kui sul hea tuju on, siis plaksuta\", \"trambi jalgu\", \"keerle ringi\", \"hüppa\". Vahetage liigutusi järjest.",
+      "duration": "5 minutit.",
+      "benefit": "Arendab rütmitunnet, juhiste järgimist ja koordinatsiooni."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Lindiga ringid",
+      "age": "3–4 aastat",
+      "how": "Laps hoiab pulka, mille külge on seotud pikk lint, ja joonistab sellega õhku suuri ringe, laineid ja \"kaheksaid\". Vahetage kätt.",
+      "duration": "3–5 minutit.",
+      "benefit": "Arendab õlgade liikuvust, randme kontrolli ja keha mõlema poole koostööd."
+    },
+    "4-5/01_skipping": {
+      "title": "Hüpaku kõnd",
+      "age": "4,5–5 aastat",
+      "how": "Näidake rütmi \"samm, hüpe\": astuge ühe jalaga samm ja hüpake samal jalal, seejärel teise jalaga. Tehke seda koos, käest kinni hoides.",
+      "duration": "3–4 korda läbi toa või õue.",
+      "benefit": "Arendab rütmi, keha mõlema poole vahelduvat tööd ja koordinatsiooni."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Hüpitsaga hüppamine",
+      "age": "4,5–5 aastat",
+      "how": "Õpetage kõigepealt hüppama üle maas oleva hüpitsa, seejärel viskama hüpitsat üle pea ette ja sellest üle astuma. Järjestikused hüpped tulevad järk-järgult.",
+      "duration": "5–10 katset.",
+      "benefit": "Arendab rütmi, käte ja jalgade koostööd ning vastupidavust.",
+      "caution": "Hüpits olgu lapsele sobiva pikkusega (kui laps seisab hüpitsa keskel, peaksid käepidemed ulatuma kaenlaalusteni)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Külghüpped üle joone",
+      "age": "4–5 aastat",
+      "how": "Kleepige põrandale teip. Laps hüppab kahe jalaga korraga järjest teibi ühelt poolt teisele.",
+      "duration": "8–10 hüpet.",
+      "benefit": "Arendab külgsuunalist osavust, hüppeliigeste jõudu ja rütmi."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Ühel jalal rõngastest läbi hüppamine",
+      "age": "4–5 aastat",
+      "how": "Seadke 4–5 rõngast ritta. Laps hüppab ühel jalal rõngast rõngasse; tagasi tulles vahetab ta jalga.",
+      "duration": "2–3 läbimist kummalgi jalal.",
+      "benefit": "Arendab jõudu ühel jalal, tasakaalu ja täpsust."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Kastilt hüppamine ja pehme maandumine",
+      "age": "4–5 aastat",
+      "how": "Laps hüppab põlvekõrguselt kindlalt kastilt paksule matile ja maandub \"vaikselt\" kahele jalale, põlved painutatud. Käed ees.",
+      "duration": "5–6 korda.",
+      "benefit": "Arendab õiget maandumistehnikat, jalgade jõudu ja julgust.",
+      "caution": "Kast ei tohi libiseda; ärge suurendage kõrgust."
+    },
+    "4-5/06_bicycle": {
+      "title": "Abiratastega jalgratas",
+      "age": "4–5 aastat",
+      "how": "Laps sõidab pedaale vändates ning harjutab pöördeid ja pidurdamist. Kui tasakaal paraneb, võib abirattad ära võtta.",
+      "duration": "15–20 minutit.",
+      "benefit": "Arendab jalgade jõudu, vastupidavust, tasakaalu ja liiklustaju.",
+      "caution": "Kiiver ja kinnised jalanõud on kohustuslikud; sõitke tasasel pinnal, teest eemal."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Süstikjooks",
+      "age": "4–5 aastat",
+      "how": "Pange ämber ühte kohta ja mõned kotikesed 4–5 meetri kaugusele. Laps jookseb, võtab ühe kotikese, jookseb tagasi, viskab selle ämbrisse ja jätkab, kuni kõik on otsas.",
+      "duration": "2–3 vooru.",
+      "benefit": "Arendab kiirust, kiiret suunamuutust, kummardumist ja tõusmist ning vastupidavust."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "\"Kujud\"",
+      "age": "4–5 aastat",
+      "how": "Kui muusika mängib, laps tantsib või jookseb; kui muusika vaikib, tardub ta nagu kuju ja püüab mitte liikuda.",
+      "duration": "5–10 minutit.",
+      "benefit": "Arendab kehakontrolli, tasakaalu, tähelepanu ja enesevalitsust."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "\"Jalg sisse, jalg välja\"",
+      "age": "4–5 aastat",
+      "how": "Pange põrandale rõngas. Laulu saatel paneb laps järjest jala, käe ja pea rõngasse ja võtab välja, seejärel keerutab ringi.",
+      "duration": "5 minutit.",
+      "benefit": "Arendab tasakaalu ühel jalal, paremale ja vasakule mõistmist ning juhiste järgimist."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Väikese palli kätega püüdmine",
+      "age": "4–5 aastat",
+      "how": "Visake 1,5–2 meetri kauguselt aeglaselt väike pehme pall. Laps püüab selle ainult kätega, ilma vastu rinda surumata.",
+      "duration": "10 korda.",
+      "benefit": "Arendab silma ja käe koostööd ning sõrmede osavust."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Üles viskamine ja püüdmine",
+      "age": "4–5 aastat",
+      "how": "Laps viskab ise kotikese või pehme palli üles ja püüab selle kahe käega. Seejärel lisage vahele üks plaks.",
+      "duration": "10 korda.",
+      "benefit": "Arendab jõu doseerimist, pilguga jälgimist ja reaktsiooni."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Palli põrgatamine ühe käega",
+      "age": "4,5–5 aastat",
+      "how": "Laps painutab põlvi veidi ja põrgatab palli ühe käega järjest vastu maad. Alguses 2–3 korda, siis rohkem. Vahetage kätt.",
+      "duration": "3–4 katset kummagi käega.",
+      "benefit": "Arendab rütmi, käe jõu kontrolli ning silma ja käe koostööd."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Väravasse löömine",
+      "age": "4–5 aastat",
+      "how": "Pange üles väike värav (või kaks eset). Laps lööb palli 2–3 meetri kauguselt väravasse; seejärel proovige lüüa veerevat palli.",
+      "duration": "10 lööki.",
+      "benefit": "Arendab jala ja silma koostööd, tasakaalu ja löögi täpsust."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Alusel oleva palli löömine kurikaga",
+      "age": "4–5 aastat",
+      "how": "Pange pehme pall madalale alusele. Laps seisab külg ees, hoiab kerget plastkurikat kahe käega ja lööb palli.",
+      "duration": "8–10 lööki.",
+      "benefit": "Arendab kere pööret, silma ja käe koostööd ning vahendiga löömise oskust.",
+      "caution": "Läheduses ei tohi olla teisi lapsi; ainult pehme pall ja plastkurikas."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Palli korvi viskamine",
+      "age": "4–5 aastat",
+      "how": "Laps viskab kerge palli kahe käega korvi, mis on temast veidi kõrgemal. Kui see õnnestub, astub ta sammu tagasi.",
+      "duration": "10 viset.",
+      "benefit": "Arendab üles viskamise jõudu, täpsust ning jalgade ja käte koostööd."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Rõngaste viskamine",
+      "age": "4–5 aastat",
+      "how": "Laps püüab 1–1,5 meetri kauguselt visata rõngaid püstise pulga otsa.",
+      "duration": "2–3 vooru.",
+      "benefit": "Arendab peent täpsust, randme kontrolli ja kannatlikkust."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "\"Lennuki\" asend",
+      "age": "4–5 aastat",
+      "how": "Laps seisab ühel jalal, kallutab ülakeha ette, sirutab teise jala taha ja avab käed nagu tiivad. Hoidke 3–5 sekundit ja vahetage jalga.",
+      "duration": "3 korda kummalgi jalal.",
+      "benefit": "Tugevdab tasakaalu ning kere- ja tuharalihaseid."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Poomil takistusest üle astumine",
+      "age": "4–5 aastat",
+      "how": "Pange madalale tasakaalupoomile kotike. Laps kõnnib mööda poomi ja astub kotikesest üle.",
+      "duration": "4–5 läbimist.",
+      "benefit": "Arendab dünaamilist tasakaalu, tähelepanu ja jala kõrgele tõstmist.",
+      "caution": "All olgu pehme matt; kõndige kõrval."
+    },
+    "4-5/19_stork_stand": {
+      "title": "\"Toonekure\" asend",
+      "age": "4–5 aastat",
+      "how": "Laps paneb käed puusa, seisab ühel jalal ja tõstab teise jala põlve ette. Proovige lugeda 8–10 sekundini.",
+      "duration": "2–3 korda kummalgi jalal.",
+      "benefit": "Arendab staatilist tasakaalu ja tähelepanu."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Rõnga keerutamine vööl",
+      "age": "4,5–5 aastat",
+      "how": "Laps toetab rõnga vastu vööd, paneb selle pöörlema ja püüab seda üleval hoida, liigutades puusi ette-taha. Alguses piisab mõnest ringist.",
+      "duration": "5 minutit.",
+      "benefit": "Arendab kerelihaseid, rütmi ja koordinatsiooni."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Iseseisev kukerpall ettepoole",
+      "age": "4–5 aastat",
+      "how": "Paksul matil kükitab laps, paneb käed maha, surub lõua vastu rinda, tõukab jalgadega, veereb üle ümara selja ja tõuseb kükki.",
+      "duration": "3–5 korda.",
+      "benefit": "Arendab kehataju, osavust ja kerelihaseid.",
+      "caution": "Raskus ei tohi langeda pealaele; lõug alati rinnal. Õpetage alguses abiga."
+    },
+    "4-5/21_plank": {
+      "title": "Plank",
+      "age": "4–5 aastat",
+      "how": "Laps toetub küünarnukkidele ja varvastele, keha sirge joonena peast kandadeni. Hoidke 5–10 sekundit.",
+      "duration": "2–3 korda.",
+      "benefit": "Tugevdab kõhu-, selja- ja õlalihaseid.",
+      "caution": "Kui selg vajub nõgusaks, lõpetage."
+    },
+    "4-5/22_chair_squat": {
+      "title": "Kükk \"nähtamatule toolile\"",
+      "age": "4–5 aastat",
+      "how": "Laps seisab, jalad õlgade laiuselt, sirutab käed ette, laskub kükki nagu istuks toolile ja tõuseb uuesti. Kannad jäävad maha.",
+      "duration": "6–8 kordust.",
+      "benefit": "Tugevdab jala- ja tuharalihaseid."
+    },
+    "4-5/23_boat_pose": {
+      "title": "\"Paadi\" asend",
+      "age": "4–5 aastat",
+      "how": "Laps istub, kallutab end veidi taha, painutab põlved, tõstab jalad maast ja sirutab käed ette. Hoidke tasakaalu 5 sekundit.",
+      "duration": "3–4 kordust.",
+      "benefit": "Tugevdab kõhulihaseid ja tasakaalu."
+    },
+    "4-5/24_cobra": {
+      "title": "\"Kobra\" venitus",
+      "age": "4–5 aastat",
+      "how": "Laps lamab kõhuli, paneb käed õlgade alla ja tõstab rinna üles; vaagen jääb maha. Hoidke 5 sekundit.",
+      "duration": "3–4 kordust.",
+      "benefit": "Tugevdab seljalihaseid ning venitab kõhtu ja rinda.",
+      "caution": "Ärge painutage selga jõuga."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Harkistes ettepoole sirutamine",
+      "age": "4–5 aastat",
+      "how": "Laps istub, jalad laialt harkis, ja libistab käed mööda põrandat ette. Hoidke 10 sekundit ilma hoogu võtmata.",
+      "duration": "3 kordust.",
+      "benefit": "Suurendab reite sise- ja tagakülje lihaste painduvust."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Rõhtredelil rippudes edasi liikumine",
+      "age": "4,5–5 aastat",
+      "how": "Laps ripub madalal rõhtredelil ja viib käed vaheldumisi järgmisele pulgale. Hoidke teda vööst ja võtke osa tema raskusest enda kanda.",
+      "duration": "2–3 katset.",
+      "benefit": "Arendab käte, õlavarte ja õlgade jõudu ning haaret.",
+      "caution": "All olgu pehme pind; käed ei tohi olla märjad."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Ronimisvõrgul ronimine",
+      "age": "4–5 aastat",
+      "how": "Mänguväljakul või kodus madalal võrgul ronib laps üles, haarates kätega kõrgemalt ja asetades jalgu vaheldumisi, ning tuleb samamoodi alla.",
+      "duration": "3–4 korda.",
+      "benefit": "Arendab kogu keha jõudu, koordinatsiooni ja julgust.",
+      "caution": "All olgu pehme pind; seiske kõrval."
+    }
+  }
+}

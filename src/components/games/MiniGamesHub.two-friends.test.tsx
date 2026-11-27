@@ -21,7 +21,7 @@ vi.mock('./iki-dost/TwoFriends', () => ({ default: ({ onBack }: { onBack: () => 
 afterEach(cleanup);
 it('opens the localized Two Friends lazy game and returns to the existing hub', async () => {
   render(<MiniGamesHub onBack={vi.fn()} />);
-  expect(document.querySelectorAll('[data-game-id]')).toHaveLength(6);
+  expect(document.querySelectorAll('[data-game-id]')).toHaveLength(7);
   fireEvent.click(screen.getByRole('button', { name: /Two Friends/ }));
   fireEvent.click(await screen.findByRole('button', { name: 'Friends return' }));
   expect(await screen.findByRole('button', { name: /Two Friends/ })).toBeInTheDocument();

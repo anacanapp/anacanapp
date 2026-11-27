@@ -7,10 +7,16 @@ import { useAuth } from '@/hooks/useAuth';
 import { localizedCountryName } from '@/lib/app-languages';
 import { regionalText } from '@/lib/regional-i18n';
 import { regionalCountry, vaccineEligible, vaccineStatus, vaccineTiming } from '@/lib/vaccine-schedule';
+import { Capacitor } from '@capacitor/core';
+import {
+  cancelVaccineReminders, setVaccineRemindersEnabled, syncVaccineReminders, vaccineChildBase, vaccineDueDate, vaccineReminderSlots,
+  vaccineRemindersEnabled, vaccineSlotsKey, type VaccineReminderResult } from '@/lib/vaccine-reminders';
+import {
+  vaccineAgeGroups, vaccineAgeLabel, vaccineDisplayName, vaccineDoseLabel, vaccineReminderText, vaccineRouteLabel } from '@/lib/vaccine-labels';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft, Syringe, CheckCircle2, Clock, AlertTriangle, Ban,
-  Info, Globe, ExternalLink, X, Calendar as CalendarIcon, Sparkles, ChevronDown } from
+  Info, Globe, ExternalLink, X, Calendar as CalendarIcon, Sparkles, ChevronDown, Bell } from
 'lucide-react';
 import { useChildren } from '@/hooks/useChildren';
 import {
@@ -29,6 +35,7 @@ import {
 '@/components/ui/dropdown-menu';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { SafetyStrip } from './anacan/SafetyStrip';
 
 interface Props {
   onBack: () => void;
@@ -55,79 +62,6 @@ const formatVaccineDate = (iso: string) => {
   return d.toLocaleDateString(locale, { day: '2-digit', month: 'long', year: 'numeric', calendar: 'gregory' });
 };
 
-const translateVaccineLabel = (text: string | undefined | null, lang: string): string => {
-  if (!text) return '';
-  if (lang !== 'en') return text;
-
-  const dict: Record<string, string> = {
-    // Ages
-    "Doğulanda": "At birth",
-    "2 aylıq": "2 months",
-    "3 aylıq": "3 months",
-    "4 aylıq": "4 months",
-    "6 aylıq": "6 months",
-    "12 aylıq": "12 months",
-    "18 aylıq": "18 months",
-    "24 aylıq": "24 months",
-    "6 yaş": "6 years",
-    
-    // Doses
-    "1-ci doza": "1st dose",
-    "2-ci doza": "2nd dose",
-    "3-cü doza": "3rd dose",
-    "4-cü doza": "4th dose",
-    "Bustər": "Booster",
-    "Bustər (revaksinasiya)": "Booster (revaccination)",
-    "İkinci bustər": "Second booster",
-    "1-ci doza (doğulanda)": "1st dose (at birth)",
-
-    // Vaccine Names & Diseases (AZ)
-    "Hepatit B": "Hepatitis B",
-    "Vərəm (BCG)": "Tuberculosis (BCG)",
-    "Poliomielit (OPV)": "Poliomyelitis (OPV)",
-    "Poliomielit (İPV)": "Poliomyelitis (IPV)",
-    "GDT (Göyöskürək, difteriya, tetanoz)": "DTP (Pertussis, Diphtheria, Tetanus)",
-    "Hib (B tipli hemofil infeksiya)": "Hib (Haemophilus influenzae type B)",
-    "Pnevmokokk (Poliovalent)": "Pneumococcal (Polyvalent)",
-    "QPM (Qızılca, parotit, məxmərək)": "MMR (Measles, Mumps, Rubella)",
-    "Difteriya və tetanoz (DT)": "Diphtheria and Tetanus (DT)",
-    "Vərəm": "Tuberculosis",
-    "Poliomielit": "Poliomyelitis",
-    "Göyöskürək, difteriya, tetanoz": "Pertussis, Diphtheria, Tetanus",
-    "B tipli hemofil infeksiya": "Haemophilus influenzae type B",
-    "Pnevmokokk infeksiyaları": "Pneumococcal infections",
-    "Qızılca, parotit, məxmərək": "Measles, Mumps, Rubella",
-    "Əzələdaxili": "Intramuscular",
-    "Ağızdan (oral)": "Oral",
-    "Dərialtı": "Subcutaneous",
-    "Dəridaxili": "Intradermal"
-  };
-
-  // If there's an exact match
-  if (dict[text]) return dict[text];
-
-  // Try to replace parts of the string
-  let translated = text;
-  for (const [az, en] of Object.entries(dict)) {
-    if (translated.includes(az)) {
-      translated = translated.split(az).join(en);
-    }
-  }
-
-  return translated;
-};
-
-const groupByAge = (rows: VaccineScheduleRow[], lang: string) => {
-  const groups = new Map<string, {label: string;days: number;rows: VaccineScheduleRow[];}>();
-  rows.forEach((r) => {
-    const key = r.age_label || '';
-    const translatedKey = translateVaccineLabel(key, lang);
-    if (!groups.has(translatedKey)) groups.set(translatedKey, { label: translatedKey, days: r.recommended_age_days, rows: [] });
-    groups.get(translatedKey)!.rows.push(r);
-  });
-  return Array.from(groups.values()).sort((a, b) => a.days - b.days);
-};
-
 export default function VaccineCalendar({ onBack }: Props) {
   const { children, selectedChild, setSelectedChild, getChildAge, refetch: refetchChildren } = useChildren();
   const { user, profile } = useAuth();
@@ -142,8 +76,8 @@ export default function VaccineCalendar({ onBack }: Props) {
   const effectiveCountry = countryOverride && countryOverride.childId === selectedChild?.id ? countryOverride.code
     : regionalCountry(lang, selectedChild?.vaccine_country_code, profile?.country_code, storedCountry, selectedChild?.country_code);
 
-  const { data: schedule = [], isLoading: schedLoading, error: scheduleError, refetch: refetchSchedule } = useVaccineScheduleForCountry(effectiveCountry);
-  const { data: logs = [] } = useChildVaccinations(selectedChild?.id || null);
+  const { data: schedule = [], isLoading: schedLoading, error: scheduleError, refetch: refetchSchedule, isSuccess: scheduleReady } = useVaccineScheduleForCountry(effectiveCountry);
+  const { data: logs = [], isSuccess: logsReady } = useChildVaccinations(selectedChild?.id || null);
   const upsert = useUpsertChildVaccination();
   const del = useDeleteChildVaccination();
 
@@ -172,6 +106,37 @@ export default function VaccineCalendar({ onBack }: Props) {
   }, [schedule, logs, selectedChild]);
   const detailRow = rowsWithStatus.find(item => item.row.id === detailRowId)?.row || null;
 
+  // Local reminders (native only) for the selected child's upcoming and overdue doses; rescheduled when the
+  // plan, the child, the language or the switch changes. Waits until both the schedule and the child's logs
+  // are loaded, so done doses are never reminded about.
+  const remindersSupported = Capacitor.isNativePlatform();
+  const [remindersOn, setRemindersOn] = useState(vaccineRemindersEnabled);
+  const [reminderResult, setReminderResult] = useState<VaccineReminderResult | null>(null);
+  const reminderKey = useRef('');
+  useEffect(() => {
+    if (!remindersSupported || !selectedChild || !scheduleReady || !logsReady) return;
+    const childName = selectedChild.name;
+    const childIds = children.map((c) => c.id);
+    const baseId = remindersOn ? vaccineChildBase(selectedChild.id, childIds.includes(selectedChild.id) ? childIds : [...childIds, selectedChild.id]) : null;
+    const logMap = new Map(logs.map((l) => [l.vaccine_schedule_id, l]));
+    const doses = rowsWithStatus.map(({ row, status }) => ({ id: row.id, status, due: vaccineDueDate(row, selectedChild.birth_date, logMap) }));
+    const slots = remindersOn && baseId !== null ? vaccineReminderSlots(doses, new Date(), baseId) : [];
+    const key = vaccineSlotsKey(slots, `${remindersOn}:${lang}:${selectedChild.id}:${childName}`);
+    if (reminderKey.current === key) return;
+    reminderKey.current = key;
+    // Switched off: every child's block goes (the switch is per device, not per child).
+    if (!remindersOn) { void cancelVaccineReminders().then(setReminderResult); return; }
+    if (baseId === null) return;
+    const byId = new Map(rowsWithStatus.map(({ row }) => [row.id, row]));
+    void syncVaccineReminders(slots, (slot) => vaccineReminderText(slot.kind, childName, byId.get(slot.doseId), lang), { baseId })
+      .then(setReminderResult);
+  }, [remindersSupported, selectedChild, children, scheduleReady, logsReady, logs, rowsWithStatus, remindersOn, lang]);
+  const toggleReminders = () => {
+    const next = !remindersOn;
+    setVaccineRemindersEnabled(next);
+    setRemindersOn(next);
+  };
+
   const stats = useMemo(() => {
     const routine = rowsWithStatus.filter(x => !vaccineTiming(x.row) || vaccineTiming(x.row)?.kind === 'routine');
     const total = routine.length;
@@ -191,7 +156,7 @@ export default function VaccineCalendar({ onBack }: Props) {
   filter((x) => x.status === 'done').
   sort((a, b) => (b.log?.administered_at || '').localeCompare(a.log?.administered_at || ''));
 
-  const groupedAll = useMemo(() => groupByAge(rowsWithStatus.map(item => item.row), lang), [rowsWithStatus, lang]);
+  const groupedAll = useMemo(() => vaccineAgeGroups(rowsWithStatus, lang), [rowsWithStatus, lang]);
   const country = countries.find((c) => c.code === effectiveCountry);
 
   const handleChangeCountry = async (code: string) => {
@@ -242,13 +207,13 @@ export default function VaccineCalendar({ onBack }: Props) {
           </span>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1.5 flex-wrap">
-              <h4 className="a-list-title" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{translateVaccineLabel(row.vaccine.name, lang)}</h4>
+              <h4 className="a-list-title" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{vaccineDisplayName(row, lang)}</h4>
               {!vaccineTiming(row) && !row.vaccine.is_mandatory &&
               <span className="a-tag" style={{ cursor: 'default', padding: '3px 8px', fontSize: 9.5 }}>{tr("vaccinecalendar_konullu_6b1c0e", "k\xF6n\xFCll\xFC")}</span>
               }
             </div>
             <p className="a-list-sub">
-              {translateVaccineLabel(row.age_label, lang)} · {translateVaccineLabel(row.dose_label, lang)}
+              {vaccineAgeLabel(row, lang)} · {vaccineDoseLabel(row, lang)}
             </p>
             <div className="flex items-center justify-between" style={{ marginTop: 8 }}>
               {renderStatusBadge(status)}
@@ -375,6 +340,23 @@ export default function VaccineCalendar({ onBack }: Props) {
           }
         </div>
 
+        {remindersSupported &&
+        <div style={{ marginTop: 12 }}>
+            <button type="button" role="switch" aria-checked={remindersOn} className="a3-switch-row" data-testid="vaccine-reminders" onClick={toggleReminders}>
+              <Bell size={18} strokeWidth={2.2} aria-hidden="true" style={{ color: 'var(--a-peach-2)', flexShrink: 0 }} />
+              <span className="grow">
+                <span className="a3-switch-title" style={{ fontSize: 14 }}>{tr('sleepvax_vax_reminders_title', 'Peyvənd xatırlatmaları')}</span>
+                <span className="a-list-sub" style={{ margin: 0, whiteSpace: 'normal' }}>
+                  {remindersOn && reminderResult === 'denied'
+                    ? tr('sleepvax_vax_reminders_denied', 'Bildirişlər telefonun ayarlarında bağlıdır.')
+                    : tr('sleepvax_vax_reminders_sub', 'Doza tarixindən 3 gün əvvəl və həmin gün, saat 10:00-da')}
+                </span>
+              </span>
+              <span className="a3-switch" aria-hidden="true" />
+            </button>
+          </div>
+        }
+
         {/* Tabs */}
         <div className="a-tabs" style={{ display: 'flex', width: '100%', marginTop: 14 }}>
           {([
@@ -415,9 +397,9 @@ export default function VaccineCalendar({ onBack }: Props) {
           doneRows.map(renderCard))
           }
           {tab === 'all' && groupedAll.map((g) => {
-            const groupRows = rowsWithStatus.filter((x) => translateVaccineLabel(x.row.age_label, lang) === g.label);
+            const groupRows = g.items;
             return (
-              <div key={g.label} className="mt-4 first:mt-0">
+              <div key={g.days} className="mt-4 first:mt-0" data-testid="vaccine-age-group">
                 <div className="flex items-center gap-2 mb-2 px-1">
                   <span style={{ width: 6, height: 6, borderRadius: 999, background: 'var(--a-peach-2)', flexShrink: 0 }} />
                   <h3 className="a-today-info-eyebrow" style={{ margin: 0 }}>{g.label}</h3>
@@ -428,6 +410,8 @@ export default function VaccineCalendar({ onBack }: Props) {
 
           })}
         </div>
+
+        <SafetyStrip signs={tr('safety_vaccine_signs', 'Peyvənddən sonra zəng edin: nəfəs çətinliyi, üzdə şişkinlik, yüksək hərarət, qıcolma')} />
 
         {/* Source */}
         {country?.source_url &&
@@ -461,41 +445,41 @@ export default function VaccineCalendar({ onBack }: Props) {
                 <div className="flex items-center gap-3">
                   <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center"
-                  style={{ background: `${detailRow.vaccine.color_hex || '#F28155'}1a`, color: detailRow.vaccine.color_hex || '#F28155' }}>
+                  style={{ background: `${detailRow.vaccine.color_hex || '#FF5A5F'}1a`, color: detailRow.vaccine.color_hex || '#FF5A5F' }}>
                   
                     <Syringe className="w-6 h-6" />
                   </div>
                   <div className="flex-1 text-start">
-                    <SheetTitle className="text-base">{translateVaccineLabel(detailRow.vaccine.name, lang)}</SheetTitle>
-                    <p className="text-[11px] text-muted-foreground">{translateVaccineLabel(detailRow.age_label, lang)} • {translateVaccineLabel(detailRow.dose_label, lang)}</p>
+                    <SheetTitle className="text-base">{vaccineDisplayName(detailRow, lang)}</SheetTitle>
+                    <p className="text-[11px] text-muted-foreground">{vaccineAgeLabel(detailRow, lang)} • {vaccineDoseLabel(detailRow, lang)}</p>
                   </div>
                 </div>
               </SheetHeader>
 
               <div className="mt-4 space-y-3 text-sm">
                 {detailRow.vaccine.short_description &&
-              <p className="text-[13px] text-foreground leading-relaxed">{translateVaccineLabel(detailRow.vaccine.short_description, lang)}</p>
+              <p className="text-[13px] text-foreground leading-relaxed">{detailRow.vaccine.short_description}</p>
               }
                 {detailRow.vaccine.full_description &&
               <div style={{ background: 'var(--a-surface-soft)', borderRadius: 14, padding: 12 }}>
                     <p className="text-[12px] leading-relaxed whitespace-pre-line" style={{ color: 'var(--a-ink)' }}>
-                      {translateVaccineLabel(detailRow.vaccine.full_description, lang)}
+                      {detailRow.vaccine.full_description}
                     </p>
                   </div>
               }
                 {detailRow.vaccine.disease &&
-              <DetailRow label={tr("vaccinecalendar_qarsisi_alinan_xestelik_862a71", "Qarşısı alınan xəstəlik")} value={translateVaccineLabel(detailRow.vaccine.disease, lang)} />
+              <DetailRow label={tr("vaccinecalendar_qarsisi_alinan_xestelik_862a71", "Qarşısı alınan xəstəlik")} value={detailRow.vaccine.disease} />
               }
                 {detailRow.vaccine.route &&
-              <DetailRow label={tr("vaccinecalendar_vurma_usulu_689cd3", "Vurma üsulu")} value={translateVaccineLabel(detailRow.vaccine.route, lang)} />
+              <DetailRow label={tr("vaccinecalendar_vurma_usulu_689cd3", "Vurma üsulu")} value={vaccineRouteLabel(detailRow, lang)} />
               }
                 {detailRow.vaccine.side_effects &&
-              <DetailRow label={tr("vaccinecalendar_mumkun_yan_tesirler_fc6796", "Mümkün yan təsirlər")} value={translateVaccineLabel(detailRow.vaccine.side_effects, lang)} />
+              <DetailRow label={tr("vaccinecalendar_mumkun_yan_tesirler_fc6796", "Mümkün yan təsirlər")} value={detailRow.vaccine.side_effects} />
               }
                 {detailRow.vaccine.contraindications &&
-              <DetailRow label={tr("vaccinecalendar_eks_gosterisler_f34875", "Əks-göstərişlər")} value={translateVaccineLabel(detailRow.vaccine.contraindications, lang)} />
+              <DetailRow label={tr("vaccinecalendar_eks_gosterisler_f34875", "Əks-göstərişlər")} value={detailRow.vaccine.contraindications} />
               }
-                {detailRow.notes && <DetailRow label={tr("untranslated_qeyd_z0999u", "Qeyd")} value={translateVaccineLabel(detailRow.notes, lang)} />}
+                {detailRow.notes && <DetailRow label={tr("untranslated_qeyd_z0999u", "Qeyd")} value={detailRow.notes} />}
                 {vaccineTiming(detailRow)?.source_url && <a href={vaccineTiming(detailRow)!.source_url} target="_blank" rel="noopener noreferrer"
                   className="a-list-sub" style={{ display: 'inline-flex', gap: 6, alignItems: 'center', overflowWrap: 'anywhere' }}>
                   <ExternalLink size={12} />{regionalText('source', lang)}: {vaccineTiming(detailRow)!.source_label}
@@ -523,7 +507,7 @@ export default function VaccineCalendar({ onBack }: Props) {
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-full text-[color:var(--a-pink-ink)]"
+                className="w-full text-red-500"
                 onClick={async () => {
                   const log = logs.find((l) => l.vaccine_schedule_id === detailRow.id);
                   if (log && selectedChild) {
@@ -559,7 +543,7 @@ export default function VaccineCalendar({ onBack }: Props) {
             ...payload
           });
           if (actionScope.current !== scope) return;
-          toast({ title: tr("vaccinecalendar_yadda_saxlandi_f72ffd", "Yadda saxland\u0131"), description: actionRow.vaccine.name });
+          toast({ title: tr("vaccinecalendar_yadda_saxlandi_f72ffd", "Yadda saxland\u0131"), description: vaccineDisplayName(actionRow, lang) });
           setActionRow(null);
           setActionMode(null);
         }} />
@@ -573,12 +557,12 @@ function Header({ onBack }: {onBack: () => void;}) {
     <div className="a-shell">
       <header className="a-topbar">
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
-            <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+          <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
+            <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
           </motion.button>
           <div>
             <p className="a-eyebrow">{tr("vaccine_national_schedule", "Milli İmmunizasiya Qrafiki")}</p>
-            <p className="a3-tool-title">{tr("vaccinecalendar_peyvend_teqvimi_d84c87", "Peyv\u0259nd T\u0259qvimi")}</p>
+            <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("vaccinecalendar_peyvend_teqvimi_d84c87", "Peyv\u0259nd T\u0259qvimi")}</p>
           </div>
         </div>
         <Sparkles size={16} style={{ color: 'var(--a-peach-2)' }} />
@@ -633,7 +617,7 @@ function ActionDialog({
             {mode === 'done' ? tr("vaccinecalendar_peyvend_vuruldu_22c2e5", "Peyv\u0259nd vuruldu") : tr("vaccinecalendar_peyvendi_buraxildi_kimi_qeyd_e_64265a", "Peyv\u0259ndi burax\u0131ld\u0131 kimi qeyd et")}
           </DialogTitle>
         </DialogHeader>
-        {row && <p className="text-xs text-muted-foreground -mt-2">{translateVaccineLabel(row.vaccine.name, lang)} • {translateVaccineLabel(row.dose_label, getPersistedLanguage())}</p>}
+        {row && <p className="text-xs text-muted-foreground -mt-2">{vaccineDisplayName(row, lang)} • {vaccineDoseLabel(row, lang)}</p>}
         {mode === 'done' ?
           <div className="space-y-3 mt-2">
             <div>
@@ -653,7 +637,7 @@ function ActionDialog({
               <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} />
             </div>
             <Button
-            className="w-full rounded-full bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)]"
+            className="w-full bg-emerald-500 hover:bg-emerald-600"
             disabled={saving || !date || date > today}
             onClick={() => void submit({
               administered_at: date, is_skipped: false, skip_reason: null,

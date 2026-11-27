@@ -1,0 +1,1185 @@
+[
+{
+"name": "გიორგი",
+"gender": "boy",
+"popularity": 99,
+"origin": "ბერძნული",
+"meaning": "მიწის მუშაკი; საქართველოს მფარველი წმინდანის სახელი"
+},
+{
+"name": "ნინო",
+"gender": "girl",
+"popularity": 99,
+"origin": "ქართული",
+"meaning": "ქართველთა განმანათლებლის, წმინდა ნინოს სახელი"
+},
+{
+"name": "მარიამი",
+"gender": "girl",
+"popularity": 98,
+"origin": "ებრაული",
+"meaning": "ღვთისმშობლის სახელი; საყვარელი და სანატრელი"
+},
+{
+"name": "დავითი",
+"gender": "boy",
+"popularity": 97,
+"origin": "ებრაული",
+"meaning": "საყვარელი; დავით აღმაშენებლის სახელი"
+},
+{
+"name": "ანა",
+"gender": "girl",
+"popularity": 96,
+"origin": "ებრაული",
+"meaning": "მადლი, წყალობა"
+},
+{
+"name": "ლუკა",
+"gender": "boy",
+"popularity": 96,
+"origin": "ლათინური",
+"meaning": "ნათლის მომტანი"
+},
+{
+"name": "ელენე",
+"gender": "girl",
+"popularity": 95,
+"origin": "ბერძნული",
+"meaning": "ნათელი, მანათობელი"
+},
+{
+"name": "ნიკოლოზი",
+"gender": "boy",
+"popularity": 95,
+"origin": "ბერძნული",
+"meaning": "ხალხის გამარჯვება"
+},
+{
+"name": "ალექსანდრე",
+"gender": "boy",
+"popularity": 94,
+"origin": "ბერძნული",
+"meaning": "ხალხის დამცველი"
+},
+{
+"name": "თამარი",
+"gender": "girl",
+"popularity": 94,
+"origin": "ებრაული",
+"meaning": "ფინიკის პალმა; თამარ მეფის სახელი"
+},
+{
+"name": "ირაკლი",
+"gender": "boy",
+"popularity": 93,
+"origin": "ბერძნული",
+"meaning": "ჰერაკლეს სახელიდან , გმირი, ძლიერი"
+},
+{
+"name": "სალომე",
+"gender": "girl",
+"popularity": 93,
+"origin": "ებრაული",
+"meaning": "მშვიდობა, სიმშვიდე"
+},
+{
+"name": "ლევანი",
+"gender": "boy",
+"popularity": 92,
+"origin": "ბერძნული",
+"meaning": "ლომი"
+},
+{
+"name": "ლიზი",
+"gender": "girl",
+"popularity": 92,
+"origin": "ებრაული",
+"meaning": "ელისაბედის მოფერებითი ფორმა , ღმერთი ჩემი ფიცია"
+},
+{
+"name": "ბარბარე",
+"gender": "girl",
+"popularity": 91,
+"origin": "ბერძნული",
+"meaning": "წმინდა ბარბარეს სახელი; უცხო მიწიდან მოსული"
+},
+{
+"name": "სანდრო",
+"gender": "boy",
+"popularity": 91,
+"origin": "ქართული",
+"meaning": "ალექსანდრეს შემოკლებული ფორმა"
+},
+{
+"name": "ანდრია",
+"gender": "boy",
+"popularity": 90,
+"origin": "ბერძნული",
+"meaning": "მამაცი, ვაჟკაცი"
+},
+{
+"name": "ნატა",
+"gender": "girl",
+"popularity": 90,
+"origin": "ლათინური",
+"meaning": "ნატალიას შემოკლებული ფორმა , შობის დღეს დაბადებული"
+},
+{
+"name": "ანასტასია",
+"gender": "girl",
+"popularity": 89,
+"origin": "ბერძნული",
+"meaning": "აღდგომა, ხელახლა დაბადებული"
+},
+{
+"name": "ილია",
+"gender": "boy",
+"popularity": 89,
+"origin": "ებრაული",
+"meaning": "ჩემი ღმერთი უფალია; ილია ჭავჭავაძის სახელი"
+},
+{
+"name": "ბექა",
+"gender": "boy",
+"popularity": 88,
+"origin": "ქართული",
+"meaning": "ბექა ჯაყელის სახელი; მთავარი, ბატონი"
+},
+{
+"name": "ნია",
+"gender": "girl",
+"popularity": 88,
+"origin": "ქართული",
+"meaning": "თანამედროვე ქართული სახელი; მოფერებითი წარმოშობის"
+},
+{
+"name": "საბა",
+"gender": "boy",
+"popularity": 88,
+"origin": "არამეული",
+"meaning": "წმინდა საბა განწმენდილის სახელი"
+},
+{
+"name": "ქეთევანი",
+"gender": "girl",
+"popularity": 88,
+"origin": "ქართული",
+"meaning": "ქეთევან წმინდა დედოფლის სახელი; ერთგულების სიმბოლო"
+},
+{
+"name": "დემეტრე",
+"gender": "boy",
+"popularity": 87,
+"origin": "ბერძნული",
+"meaning": "მიწის ნაყოფიერების მფარველი; დემეტრე თავდადებულის სახელი"
+},
+{
+"name": "ნიკა",
+"gender": "boy",
+"popularity": 87,
+"origin": "ქართული",
+"meaning": "ნიკოლოზის მოფერებითი ფორმა; გამარჯვება"
+},
+{
+"name": "სოფიო",
+"gender": "girl",
+"popularity": 87,
+"origin": "ბერძნული",
+"meaning": "სიბრძნე"
+},
+{
+"name": "დანიელი",
+"gender": "boy",
+"popularity": 86,
+"origin": "ებრაული",
+"meaning": "ღმერთია ჩემი მსაჯული"
+},
+{
+"name": "ელისაბედი",
+"gender": "girl",
+"popularity": 86,
+"origin": "ებრაული",
+"meaning": "ღმერთი ჩემი ფიცია"
+},
+{
+"name": "თორნიკე",
+"gender": "boy",
+"popularity": 86,
+"origin": "ქართული",
+"meaning": "ძველი ქართული სახელი; თორნიკე ერისთავის სახელით ცნობილი"
+},
+{
+"name": "გაბრიელი",
+"gender": "boy",
+"popularity": 85,
+"origin": "ებრაული",
+"meaning": "ღმერთი ჩემი ძალაა; მთავარანგელოზის სახელი"
+},
+{
+"name": "ვახტანგი",
+"gender": "boy",
+"popularity": 85,
+"origin": "ქართული",
+"meaning": "ვახტანგ გორგასლის სახელი; მგლის ტანის მქონე , ძლიერი"
+},
+{
+"name": "თეკლა",
+"gender": "girl",
+"popularity": 85,
+"origin": "ბერძნული",
+"meaning": "ღვთის დიდება"
+},
+{
+"name": "ლაშა",
+"gender": "boy",
+"popularity": 85,
+"origin": "ქართული",
+"meaning": "ნათელი, მანათობელი; ლაშა-გიორგის სახელი"
+},
+{
+"name": "ხატია",
+"gender": "girl",
+"popularity": 85,
+"origin": "ქართული",
+"meaning": "ხატივით ლამაზი"
+},
+{
+"name": "გიგა",
+"gender": "boy",
+"popularity": 84,
+"origin": "ქართული",
+"meaning": "გიორგის მოფერებითი ფორმა"
+},
+{
+"name": "ლაზარე",
+"gender": "boy",
+"popularity": 84,
+"origin": "ებრაული",
+"meaning": "ღმერთი შემწეა"
+},
+{
+"name": "მია",
+"gender": "girl",
+"popularity": 84,
+"origin": "ებრაული",
+"meaning": "მარიამის შემოკლებული ფორმა"
+},
+{
+"name": "ნინი",
+"gender": "girl",
+"popularity": 84,
+"origin": "ქართული",
+"meaning": "ნინოს მოფერებითი ფორმა"
+},
+{
+"name": "დაჩი",
+"gender": "boy",
+"popularity": 83,
+"origin": "ქართული",
+"meaning": "ძველი ქართული სახელი; მეფე დაჩის სახელი"
+},
+{
+"name": "ემა",
+"gender": "girl",
+"popularity": 83,
+"origin": "გერმანული",
+"meaning": "მთლიანი, ყოვლისმომცველი"
+},
+{
+"name": "მათე",
+"gender": "boy",
+"popularity": 83,
+"origin": "ებრაული",
+"meaning": "ღვთის საჩუქარი"
+},
+{
+"name": "ნიცა",
+"gender": "girl",
+"popularity": 83,
+"origin": "ქართული",
+"meaning": "მოფერებითი წარმოშობის ქართული სახელი"
+},
+{
+"name": "ემილია",
+"gender": "girl",
+"popularity": 82,
+"origin": "ლათინური",
+"meaning": "გულმოდგინე, მონდომებული"
+},
+{
+"name": "თინათინი",
+"gender": "girl",
+"popularity": 82,
+"origin": "ქართული",
+"meaning": "მზის სხივის ანარეკლი; „ვეფხისტყაოსნის\" გმირი"
+},
+{
+"name": "მიხეილი",
+"gender": "boy",
+"popularity": 82,
+"origin": "ებრაული",
+"meaning": "ვინ არის როგორც ღმერთი; მთავარანგელოზ მიქაელის სახელი"
+},
+{
+"name": "შოთა",
+"gender": "boy",
+"popularity": 82,
+"origin": "ქართული",
+"meaning": "შოთა რუსთაველის სახელით უკვდავქმნილი ძველი ქართული სახელი"
+},
+{
+"name": "გაბრიელა",
+"gender": "girl",
+"popularity": 81,
+"origin": "ებრაული",
+"meaning": "ღმერთი ჩემი ძალაა"
+},
+{
+"name": "თაკო",
+"gender": "girl",
+"popularity": 81,
+"origin": "ქართული",
+"meaning": "თამარის მოფერებითი ფორმა"
+},
+{
+"name": "რატი",
+"gender": "boy",
+"popularity": 81,
+"origin": "ქართული",
+"meaning": "ძველი ქართული სახელი, ერისთავთა ტრადიციიდან"
+},
+{
+"name": "ვერონიკა",
+"gender": "girl",
+"popularity": 80,
+"origin": "ბერძნული",
+"meaning": "გამარჯვების მომტანი"
+},
+{
+"name": "ნოე",
+"gender": "boy",
+"popularity": 80,
+"origin": "ებრაული",
+"meaning": "სიმშვიდე, ნუგეში"
+},
+{
+"name": "ნუცა",
+"gender": "girl",
+"popularity": 80,
+"origin": "ქართული",
+"meaning": "ძველი ქართული მოფერებითი სახელი; საყვარელი"
+},
+{
+"name": "დეა",
+"gender": "girl",
+"popularity": 79,
+"origin": "ლათინური",
+"meaning": "ქალღმერთი"
+},
+{
+"name": "იოანე",
+"gender": "boy",
+"popularity": 79,
+"origin": "ებრაული",
+"meaning": "ღმერთი მოწყალეა"
+},
+{
+"name": "მაია",
+"gender": "girl",
+"popularity": 79,
+"origin": "ბერძნული",
+"meaning": "გაზაფხულის ქალღმერთი; მაისის თვე"
+},
+{
+"name": "ზურაბი",
+"gender": "boy",
+"popularity": 78,
+"origin": "სპარსული",
+"meaning": "ბრწყინვალე, ღირსეული"
+},
+{
+"name": "თეა",
+"gender": "girl",
+"popularity": 78,
+"origin": "ბერძნული",
+"meaning": "ქალღმერთი; ნათების ქალღმერთის სახელი"
+},
+{
+"name": "თედო",
+"gender": "boy",
+"popularity": 78,
+"origin": "ქართული",
+"meaning": "თევდორეს შემოკლებული ფორმა , ღვთის საჩუქარი"
+},
+{
+"name": "ნანა",
+"gender": "girl",
+"popularity": 78,
+"origin": "ქართული",
+"meaning": "ნანა დედოფლის სახელი; იავნანას სითბო"
+},
+{
+"name": "ნესტანი",
+"gender": "girl",
+"popularity": 78,
+"origin": "ქართული",
+"meaning": "„ვეფხისტყაოსნის\" გმირის, ნესტან-დარეჯანის სახელი"
+},
+{
+"name": "გვანცა",
+"gender": "girl",
+"popularity": 77,
+"origin": "ქართული",
+"meaning": "სვანური წარმოშობის სახელი; სიცოცხლით სავსე"
+},
+{
+"name": "გურამი",
+"gender": "boy",
+"popularity": 77,
+"origin": "ქართული",
+"meaning": "ძველი ქართული სახელი; სპარსული წარმოშობის"
+},
+{
+"name": "თეონა",
+"gender": "girl",
+"popularity": 77,
+"origin": "ბერძნული",
+"meaning": "ღვთის სიბრძნის მქონე"
+},
+{
+"name": "ლალი",
+"gender": "girl",
+"popularity": 77,
+"origin": "ქართული",
+"meaning": "ლალი , ძვირფასი ქვა"
+},
+{
+"name": "პაატა",
+"gender": "boy",
+"popularity": 77,
+"origin": "ქართული",
+"meaning": "უმცროსი, პატარა"
+},
+{
+"name": "აკაკი",
+"gender": "boy",
+"popularity": 76,
+"origin": "ბერძნული",
+"meaning": "უბოროტო, კეთილი; აკაკი წერეთლის სახელი"
+},
+{
+"name": "ანუკი",
+"gender": "girl",
+"popularity": 76,
+"origin": "ქართული",
+"meaning": "ანას მოფერებითი ფორმა"
+},
+{
+"name": "ეკატერინე",
+"gender": "girl",
+"popularity": 76,
+"origin": "ბერძნული",
+"meaning": "წმინდა, უმწიკვლო"
+},
+{
+"name": "ვანო",
+"gender": "boy",
+"popularity": 76,
+"origin": "ქართული",
+"meaning": "იოანეს (ივანეს) მოფერებითი ფორმა"
+},
+{
+"name": "თემური",
+"gender": "boy",
+"popularity": 76,
+"origin": "თურქული",
+"meaning": "რკინა; მტკიცე, შეუდრეკელი"
+},
+{
+"name": "ლიკა",
+"gender": "girl",
+"popularity": 76,
+"origin": "ქართული",
+"meaning": "თანამედროვე მოფერებითი სახელი"
+},
+{
+"name": "ამირანი",
+"gender": "boy",
+"popularity": 75,
+"origin": "ქართული",
+"meaning": "ქართული მითოსის გმირი; შეუპოვარი"
+},
+{
+"name": "ირინე",
+"gender": "girl",
+"popularity": 75,
+"origin": "ბერძნული",
+"meaning": "მშვიდობა"
+},
+{
+"name": "მეგი",
+"gender": "girl",
+"popularity": 75,
+"origin": "ბერძნული",
+"meaning": "მარგარიტას მოფერებითი ფორმა , მარგალიტი"
+},
+{
+"name": "ტიმოთე",
+"gender": "boy",
+"popularity": 75,
+"origin": "ბერძნული",
+"meaning": "ღვთის პატივისმცემელი"
+},
+{
+"name": "ზაზა",
+"gender": "boy",
+"popularity": 74,
+"origin": "ქართული",
+"meaning": "ძველი ქართული სახელი"
+},
+{
+"name": "იაკობი",
+"gender": "boy",
+"popularity": 74,
+"origin": "ებრაული",
+"meaning": "ქუსლზე მპყრობელი; შემცვლელი"
+},
+{
+"name": "მართა",
+"gender": "girl",
+"popularity": 74,
+"origin": "არამეული",
+"meaning": "დიასახლისი, ქალბატონი"
+},
+{
+"name": "გივი",
+"gender": "boy",
+"popularity": 73,
+"origin": "ქართული",
+"meaning": "„შაჰნამეს\" გმირის სახელიდან; მამაცი"
+},
+{
+"name": "მარიკა",
+"gender": "girl",
+"popularity": 45,
+"origin": "ებრაული",
+"meaning": "მარიამის ქართული კნინობითი ფორმა"
+},
+{
+"name": "ელისო",
+"gender": "girl",
+"popularity": 30,
+"origin": "ებრაული",
+"meaning": "ელისაბედის ქართული ფორმა: ღმერთი ჩემი ფიცია"
+},
+{
+"name": "ქეთი",
+"gender": "girl",
+"popularity": 40,
+"origin": "ბერძნული",
+"meaning": "ეკატერინეს კნინობითი ფორმა: წმინდა, სპეტაკი"
+},
+{
+"name": "თამთა",
+"gender": "girl",
+"popularity": 45,
+"origin": "ებრაული",
+"meaning": "თამარის ქართული ფორმა: ფინიკის პალმა"
+},
+{
+"name": "ლეილა",
+"gender": "girl",
+"popularity": 25,
+"origin": "არაბული",
+"meaning": "ღამე"
+},
+{
+"name": "მზია",
+"gender": "girl",
+"popularity": 25,
+"origin": "ქართული",
+"meaning": "მზე, მზიანი"
+},
+{
+"name": "ია",
+"gender": "girl",
+"popularity": 30,
+"origin": "ქართული",
+"meaning": "ია, გაზაფხულის ყვავილი"
+},
+{
+"name": "ვარდო",
+"gender": "girl",
+"popularity": 10,
+"origin": "ქართული",
+"meaning": "ვარდი"
+},
+{
+"name": "ქრისტინე",
+"gender": "girl",
+"popularity": 45,
+"origin": "ბერძნული",
+"meaning": "ქრისტიანი, ქრისტეს მიმდევარი"
+},
+{
+"name": "ვიქტორია",
+"gender": "girl",
+"popularity": 40,
+"origin": "ლათინური",
+"meaning": "გამარჯვება"
+},
+{
+"name": "ანი",
+"gender": "girl",
+"popularity": 45,
+"origin": "ებრაული",
+"meaning": "ანას ფორმა: მადლი, წყალობა"
+},
+{
+"name": "ლუიზა",
+"gender": "girl",
+"popularity": 15,
+"origin": "გერმანიკული",
+"meaning": "სახელოვანი მეომარი"
+},
+{
+"name": "ნატალია",
+"gender": "girl",
+"popularity": 30,
+"origin": "ლათინური",
+"meaning": "შობის დღე, ქრისტეს შობა"
+},
+{
+"name": "ირმა",
+"gender": "girl",
+"popularity": 15,
+"origin": "გერმანიკული",
+"meaning": "სრული, საყოველთაო"
+},
+{
+"name": "მანანა",
+"gender": "girl",
+"popularity": 15,
+"origin": "ებრაული",
+"meaning": "მანანა, ზეციური საზრდო"
+},
+{
+"name": "ეთერი",
+"gender": "girl",
+"popularity": 15,
+"origin": "ბერძნული",
+"meaning": "ეთერი, ზეცის სუფთა ჰაერი"
+},
+{
+"name": "ნაზი",
+"gender": "girl",
+"popularity": 15,
+"origin": "ქართული",
+"meaning": "ნაზი, სათუთი"
+},
+{
+"name": "ელზა",
+"gender": "girl",
+"popularity": 15,
+"origin": "ებრაული",
+"meaning": "ელისაბედის ფორმა: ღმერთი ჩემი ფიცია"
+},
+{
+"name": "ხათუნა",
+"gender": "girl",
+"popularity": 25,
+"origin": "თურქული",
+"meaning": "ქალბატონი, დიდგვაროვანი ქალი"
+},
+{
+"name": "ბაია",
+"gender": "girl",
+"popularity": 15,
+"origin": "ქართული",
+"meaning": "ბაია, ყვითელი მინდვრის ყვავილი"
+},
+{
+"name": "ნათელა",
+"gender": "girl",
+"popularity": 15,
+"origin": "ქართული",
+"meaning": "ნათელი, სინათლე"
+},
+{
+"name": "გულნარა",
+"gender": "girl",
+"popularity": 15,
+"origin": "სპარსული",
+"meaning": "ბროწეულის ყვავილი"
+},
+{
+"name": "ეკა",
+"gender": "girl",
+"popularity": 35,
+"origin": "ბერძნული",
+"meaning": "ეკატერინეს მოკლე ფორმა: წმინდა, სპეტაკი"
+},
+{
+"name": "ანანო",
+"gender": "girl",
+"popularity": 65,
+"origin": "ებრაული",
+"meaning": "ანას ქართული ფორმა: მადლი, წყალობა"
+},
+{
+"name": "მარინა",
+"gender": "girl",
+"popularity": 25,
+"origin": "ლათინური",
+"meaning": "ზღვისა, ზღვასთან დაკავშირებული"
+},
+{
+"name": "ნონა",
+"gender": "girl",
+"popularity": 20,
+"origin": "ლათინური",
+"meaning": "მეცხრე"
+},
+{
+"name": "შუშანიკი",
+"gender": "girl",
+"popularity": 15,
+"origin": "სპარსული",
+"meaning": "შროშანი"
+},
+{
+"name": "სუსანა",
+"gender": "girl",
+"popularity": 15,
+"origin": "ებრაული",
+"meaning": "შროშანი"
+},
+{
+"name": "ვალერია",
+"gender": "girl",
+"popularity": 30,
+"origin": "ლათინური",
+"meaning": "ძლიერი, ჯანმრთელი"
+},
+{
+"name": "იზაბელა",
+"gender": "girl",
+"popularity": 35,
+"origin": "ებრაული",
+"meaning": "ელისაბედის ფორმა: ღმერთი ჩემი ფიცია"
+},
+{
+"name": "ამელია",
+"gender": "girl",
+"popularity": 40,
+"origin": "გერმანიკული",
+"meaning": "შრომისმოყვარე"
+},
+{
+"name": "ოლივია",
+"gender": "girl",
+"popularity": 35,
+"origin": "ლათინური",
+"meaning": "ზეთისხილი"
+},
+{
+"name": "ნიკოლ",
+"gender": "girl",
+"popularity": 40,
+"origin": "ბერძნული",
+"meaning": "ხალხის გამარჯვება"
+},
+{
+"name": "მარგალიტა",
+"gender": "girl",
+"popularity": 10,
+"origin": "ბერძნული",
+"meaning": "მარგალიტი"
+},
+{
+"name": "დიანა",
+"gender": "girl",
+"popularity": 35,
+"origin": "ლათინური",
+"meaning": "ღვთაებრივი"
+},
+{
+"name": "ალისა",
+"gender": "girl",
+"popularity": 40,
+"origin": "გერმანიკული",
+"meaning": "კეთილშობილი"
+},
+{
+"name": "ლაურა",
+"gender": "girl",
+"popularity": 25,
+"origin": "ლათინური",
+"meaning": "დაფნა, დაფნის გვირგვინი"
+},
+{
+"name": "ზოია",
+"gender": "girl",
+"popularity": 10,
+"origin": "ბერძნული",
+"meaning": "სიცოცხლე"
+},
+{
+"name": "ევა",
+"gender": "girl",
+"popularity": 40,
+"origin": "ებრაული",
+"meaning": "სიცოცხლე, სიცოცხლის მომნიჭებელი"
+},
+{
+"name": "ლილი",
+"gender": "girl",
+"popularity": 40,
+"origin": "ლათინური",
+"meaning": "შროშანი"
+},
+{
+"name": "ალექსანდრა",
+"gender": "girl",
+"popularity": 40,
+"origin": "ბერძნული",
+"meaning": "ხალხის დამცველი"
+},
+{
+"name": "მედეა",
+"gender": "girl",
+"popularity": 20,
+"origin": "ბერძნული",
+"meaning": "გონიერი, ჩანაფიქრის მცოდნე"
+},
+{
+"name": "ფიქრია",
+"gender": "girl",
+"popularity": 5,
+"origin": "ქართული",
+"meaning": "ფიქრი, ოცნება"
+},
+{
+"name": "ერეკლე",
+"gender": "boy",
+"popularity": 45,
+"origin": "ბერძნული",
+"meaning": "ჰერაკლეს ქართული ფორმა: ჰერას დიდება"
+},
+{
+"name": "იოსები",
+"gender": "boy",
+"popularity": 25,
+"origin": "ებრაული",
+"meaning": "ღმერთი გაამრავლებს"
+},
+{
+"name": "კონსტანტინე",
+"gender": "boy",
+"popularity": 40,
+"origin": "ლათინური",
+"meaning": "მუდმივი, მტკიცე"
+},
+{
+"name": "ვლადიმერი",
+"gender": "boy",
+"popularity": 15,
+"origin": "სლავური",
+"meaning": "მსოფლიოს მფლობელი"
+},
+{
+"name": "პეტრე",
+"gender": "boy",
+"popularity": 40,
+"origin": "ბერძნული",
+"meaning": "კლდე, ქვა"
+},
+{
+"name": "პავლე",
+"gender": "boy",
+"popularity": 35,
+"origin": "ლათინური",
+"meaning": "პატარა, მცირე"
+},
+{
+"name": "როსტომი",
+"gender": "boy",
+"popularity": 15,
+"origin": "სპარსული",
+"meaning": "ძლიერი, მაღალი გმირი"
+},
+{
+"name": "სიმონი",
+"gender": "boy",
+"popularity": 25,
+"origin": "ებრაული",
+"meaning": "მსმენელი, ღმერთმა ისმინა"
+},
+{
+"name": "ბადრი",
+"gender": "boy",
+"popularity": 15,
+"origin": "არაბული",
+"meaning": "სავსე მთვარე"
+},
+{
+"name": "გელა",
+"gender": "boy",
+"popularity": 20,
+"origin": "ქართული",
+"meaning": "მგელი"
+},
+{
+"name": "დათო",
+"gender": "boy",
+"popularity": 45,
+"origin": "ებრაული",
+"meaning": "დავითის კნინობითი ფორმა: საყვარელი"
+},
+{
+"name": "ვაჟა",
+"gender": "boy",
+"popularity": 15,
+"origin": "ქართული",
+"meaning": "ვაჟი, ვაჟკაცი"
+},
+{
+"name": "ზვიადი",
+"gender": "boy",
+"popularity": 15,
+"origin": "ქართული",
+"meaning": "ამაყი, დიდებული"
+},
+{
+"name": "თენგიზი",
+"gender": "boy",
+"popularity": 20,
+"origin": "თურქული",
+"meaning": "ზღვა"
+},
+{
+"name": "იაგო",
+"gender": "boy",
+"popularity": 20,
+"origin": "ებრაული",
+"meaning": "იაკობის ფორმა: ქუსლზე მომკიდებელი"
+},
+{
+"name": "ოთო",
+"gender": "boy",
+"popularity": 25,
+"origin": "გერმანიკული",
+"meaning": "სიმდიდრე, ქონება"
+},
+{
+"name": "ბაგრატი",
+"gender": "boy",
+"popularity": 25,
+"origin": "სპარსული",
+"meaning": "ღმერთის მიერ ბოძებული"
+},
+{
+"name": "ვასილი",
+"gender": "boy",
+"popularity": 20,
+"origin": "ბერძნული",
+"meaning": "მეფური"
+},
+{
+"name": "სტეფანე",
+"gender": "boy",
+"popularity": 25,
+"origin": "ბერძნული",
+"meaning": "გვირგვინი"
+},
+{
+"name": "გრიგოლი",
+"gender": "boy",
+"popularity": 25,
+"origin": "ბერძნული",
+"meaning": "მღვიძარე, ფხიზელი"
+},
+{
+"name": "ომარი",
+"gender": "boy",
+"popularity": 15,
+"origin": "არაბული",
+"meaning": "სიცოცხლე, დღეგრძელი"
+},
+{
+"name": "ალექსი",
+"gender": "boy",
+"popularity": 40,
+"origin": "ბერძნული",
+"meaning": "დამცველი"
+},
+{
+"name": "თომა",
+"gender": "boy",
+"popularity": 30,
+"origin": "ებრაული",
+"meaning": "ტყუპი"
+},
+{
+"name": "იასონი",
+"gender": "boy",
+"popularity": 25,
+"origin": "ბერძნული",
+"meaning": "მკურნალი"
+},
+{
+"name": "მარკოზი",
+"gender": "boy",
+"popularity": 15,
+"origin": "ლათინური",
+"meaning": "მარსისადმი მიძღვნილი"
+},
+{
+"name": "ფილიპე",
+"gender": "boy",
+"popularity": 25,
+"origin": "ბერძნული",
+"meaning": "ცხენების მოყვარული"
+},
+{
+"name": "ედუარდი",
+"gender": "boy",
+"popularity": 15,
+"origin": "ინგლისური",
+"meaning": "სიმდიდრის მცველი"
+},
+{
+"name": "რობერტი",
+"gender": "boy",
+"popularity": 15,
+"origin": "გერმანიკული",
+"meaning": "ბრწყინვალე დიდება"
+},
+{
+"name": "სოლომონი",
+"gender": "boy",
+"popularity": 25,
+"origin": "ებრაული",
+"meaning": "მშვიდობა"
+},
+{
+"name": "ადამი",
+"gender": "boy",
+"popularity": 30,
+"origin": "ებრაული",
+"meaning": "ადამიანი, მიწისგან შექმნილი"
+},
+{
+"name": "ისააკი",
+"gender": "boy",
+"popularity": 15,
+"origin": "ებრაული",
+"meaning": "გაიცინებს"
+},
+{
+"name": "ილარიონი",
+"gender": "boy",
+"popularity": 10,
+"origin": "ბერძნული",
+"meaning": "მხიარული"
+},
+{
+"name": "რომანი",
+"gender": "boy",
+"popularity": 30,
+"origin": "ლათინური",
+"meaning": "რომაელი"
+},
+{
+"name": "ლეო",
+"gender": "boy",
+"popularity": 40,
+"origin": "ლათინური",
+"meaning": "ლომი"
+},
+{
+"name": "ივანე",
+"gender": "boy",
+"popularity": 35,
+"origin": "ებრაული",
+"meaning": "ღმერთი მოწყალეა"
+},
+{
+"name": "ვიქტორი",
+"gender": "boy",
+"popularity": 20,
+"origin": "ლათინური",
+"meaning": "გამარჯვებული"
+},
+{
+"name": "მაქსიმე",
+"gender": "boy",
+"popularity": 35,
+"origin": "ლათინური",
+"meaning": "უდიდესი"
+},
+{
+"name": "არსენი",
+"gender": "boy",
+"popularity": 30,
+"origin": "ბერძნული",
+"meaning": "მამაცი, ვაჟკაცი"
+},
+{
+"name": "თეოდორე",
+"gender": "boy",
+"popularity": 30,
+"origin": "ბერძნული",
+"meaning": "ღვთის ძღვენი"
+},
+{
+"name": "ნუკრი",
+"gender": "boy",
+"popularity": 10,
+"origin": "ქართული",
+"meaning": "ირმის ნუკრი"
+},
+{
+"name": "ბენიამინი",
+"gender": "boy",
+"popularity": 15,
+"origin": "ებრაული",
+"meaning": "მარჯვენის ძე"
+},
+{
+"name": "ზაქარია",
+"gender": "boy",
+"popularity": 25,
+"origin": "ებრაული",
+"meaning": "ღმერთს ახსოვს"
+},
+{
+"name": "იონა",
+"gender": "boy",
+"popularity": 20,
+"origin": "ებრაული",
+"meaning": "მტრედი"
+},
+{
+"name": "სამსონი",
+"gender": "boy",
+"popularity": 10,
+"origin": "ებრაული",
+"meaning": "მზის, მზიანი"
+},
+{
+"name": "ქრისტეფორე",
+"gender": "boy",
+"popularity": 10,
+"origin": "ბერძნული",
+"meaning": "ქრისტეს მატარებელი"
+},
+{
+"name": "საშა",
+"gender": "unisex",
+"popularity": 25,
+"origin": "ბერძნული",
+"meaning": "ალექსანდრეს მოკლე ფორმა: ხალხის დამცველი"
+}
+]

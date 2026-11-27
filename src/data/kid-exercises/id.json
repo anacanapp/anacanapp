@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Latihan anak",
+    "tileDesc": "Latihan gerak bergambar untuk usia 0–5 tahun",
+    "title": "Latihan anak",
+    "eyebrow": "Gerak dan tumbuh kembang",
+    "ageFor": "Untuk {name}",
+    "today": "Hari ini",
+    "doneCount": "{n} latihan",
+    "weekHint": "7 hari terakhir: setiap titik adalah hari ketika Anda berlatih bersama.",
+    "picksTitle": "Latihan hari ini",
+    "picksSub": "Setiap hari tiga latihan baru yang sesuai usia.",
+    "allTitle": "Semua latihan",
+    "count": "{n} latihan",
+    "nowBadge": "Usia sekarang",
+    "search": "Cari latihan",
+    "all": "Semua",
+    "favs": "Favorit",
+    "noFavs": "Ketuk ikon hati untuk menambahkan latihan ke favorit.",
+    "noResults": "Tidak ada latihan yang cocok.",
+    "rules": "Aturan umum",
+    "safetyNote": "Latihan ini berisi informasi umum dan tidak menggantikan pemeriksaan dokter. Jika anak lahir prematur, memiliki masalah kesehatan, atau Anda khawatir dengan tumbuh kembangnya, konsultasikan dulu dengan dokter anak atau fisioterapis anak.",
+    "age": "Usia",
+    "duration": "Durasi",
+    "how": "Cara melakukan",
+    "benefit": "Manfaat",
+    "caution": "Perhatian",
+    "timer": "Stopwatch",
+    "start": "Mulai",
+    "pause": "Jeda",
+    "reset": "Ulang",
+    "done": "Sudah",
+    "doneToday": "Sudah hari ini",
+    "prev": "Sebelumnya",
+    "next": "Berikutnya",
+    "fav": "Tambahkan ke favorit",
+    "unfav": "Hapus dari favorit",
+    "close": "Tutup"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 tahun",
+      "months": "0–12 bulan",
+      "rules": [
+        "Lakukan latihan saat bayi terjaga, tenang, dan tidak dalam keadaan kenyang (setidaknya 30–40 menit setelah menyusu atau makan).",
+        "Berlatihlah di permukaan yang keras, rata, dan bersih (karpet atau matras di lantai); jangan pernah meninggalkan bayi sendirian di tempat yang tinggi.",
+        "Gerakan harus pelan dan lembut. Jangan pernah memaksa dan jangan menarik lengan atau kakinya.",
+        "Jika bayi menangis, gelisah, atau lelah, segera hentikan.",
+        "Rentang usia hanya perkiraan; setiap bayi berkembang dengan kecepatannya sendiri.",
+        "Untuk bayi yang lahir prematur atau memiliki masalah kesehatan, konsultasikan dulu dengan dokter anak."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 tahun",
+      "months": "12–24 bulan",
+      "rules": [
+        "Di usia ini, latihan berarti bermain: jangan memaksa anak, contohkan gerakannya sendiri dan lakukan bersama.",
+        "Dianjurkan setiap hari setidaknya 30 menit aktivitas fisik yang dipandu dan 1 jam atau lebih bermain bebas sambil bergerak.",
+        "Buat ruangan aman: tidak ada sudut tajam, karpet licin, atau perabot yang bisa terguling. Lebih baik bertelanjang kaki atau memakai kaus kaki antiselip.",
+        "Saat di tangga, perosotan, memanjat, dan melompat, selalu berada dalam jangkauan tangan.",
+        "Saat bermain dengan benda kecil (bola, balok), perhatikan ukurannya: jangan berikan benda yang muat masuk ke mulut anak.",
+        "Rentang usia hanya perkiraan. Jika anak belum bisa berjalan sendiri pada usia 18 bulan, periksakan ke dokter anak."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 tahun",
+      "months": "24–36 bulan",
+      "rules": [
+        "Di usia ini, latihan adalah permainan: contohkan gerakannya sendiri, lakukan bersama, dan iringi dengan lagu dan cerita.",
+        "Dianjurkan setiap hari setidaknya 1 jam aktivitas fisik yang dipandu dan 2 jam atau lebih bermain bebas sambil bergerak.",
+        "Buat ruangan dan halaman aman: tidak ada lantai licin, sudut tajam, atau benda yang bisa terguling.",
+        "Saat anak melompat, memanjat, bergelantung, dan meluncur di perosotan, berada dalam jangkauan tangan; pilih permukaan yang empuk.",
+        "Jangan membuat anak terlalu lelah: permainan singkat, sering beristirahat, dan minum air.",
+        "Rentang usia hanya perkiraan; setiap anak berkembang dengan kecepatannya sendiri. Jika Anda khawatir, periksakan ke dokter anak."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 tahun",
+      "months": "36–48 bulan",
+      "rules": [
+        "Latihan tetap berupa permainan: contohkan gerakannya sendiri, lakukan bersama, tambahkan unsur lomba dan cerita.",
+        "Dianjurkan setiap hari setidaknya 1 jam aktivitas fisik yang dipandu dan 2 jam atau lebih bermain bebas sambil bergerak, sebisa mungkin di luar ruangan.",
+        "Pilih tempat yang aman: lantai tidak licin, matras empuk, dan tidak ada sudut tajam di sekitarnya.",
+        "Saat naik kendaraan beroda (skuter, sepeda), selalu pakaikan helm.",
+        "Dampingi anak saat latihan seperti guling depan, balok keseimbangan, dan memanjat.",
+        "Jangan membuat anak terlalu lelah: permainan singkat, sering beristirahat, dan minum air.",
+        "Rentang usia hanya perkiraan; setiap anak berkembang dengan kecepatannya sendiri. Jika Anda khawatir, periksakan ke dokter anak."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 tahun",
+      "months": "48–60 bulan",
+      "rules": [
+        "Latihan sebaiknya terasa seperti bermain: contohkan gerakannya sendiri, lakukan bersama, tambahkan lomba kecil dan “rekor”.",
+        "Dianjurkan setiap hari setidaknya 1 jam aktivitas fisik yang dipandu dan 2 jam atau lebih bermain bebas sambil bergerak, sebisa mungkin di luar ruangan.",
+        "Pilih tempat yang aman: lantai tidak licin, matras empuk, dan tidak ada sudut tajam di sekitarnya.",
+        "Saat bersepeda dan bermain skuter, selalu pakaikan helm dan sepatu tertutup.",
+        "Dampingi anak saat guling depan, melompat dari tempat tinggi, memanjat, dan bergelantung.",
+        "Dalam latihan kekuatan (plank, jongkok), yang penting adalah kualitas, bukan lamanya: hentikan begitu posisinya tidak lagi benar.",
+        "Rentang usia hanya perkiraan; setiap anak berkembang dengan kecepatannya sendiri. Jika Anda khawatir, periksakan ke dokter anak."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 bulan",
+    "3–6 ay": "3–6 bulan",
+    "6–9 ay": "6–9 bulan",
+    "9–12 ay": "9–12 bulan",
+    "12–15 ay": "12–15 bulan",
+    "15–18 ay": "15–18 bulan",
+    "18–24 ay": "18–24 bulan",
+    "Hoppanma və tarazlıq": "Melompat dan keseimbangan",
+    "Yerimə, qaçış və dırmaşma": "Berjalan, berlari, dan memanjat",
+    "Topla oyunlar": "Permainan bola",
+    "Gimnastika və təqlid oyunları": "Senam dan permainan meniru",
+    "Hoppanma": "Melompat",
+    "Tarazlıq": "Keseimbangan",
+    "Təkərli vasitələr və qaçış": "Kendaraan beroda dan berlari",
+    "Güc və gimnastika": "Kekuatan dan senam",
+    "Ritm və koordinasiya": "Irama dan koordinasi",
+    "Hoppanma və tullanma": "Melompat dan meloncat",
+    "Qaçış, velosiped və ritm oyunları": "Berlari, bersepeda, dan permainan irama"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Tengkurap",
+      "age": "sejak lahir",
+      "how": "Tengkurapkan bayi di atas matras, dengan siku ditekuk dan lengan diletakkan di samping kepalanya. Letakkan satu tangan Anda dengan lembut di punggungnya dan tangan lainnya di bokongnya. Ajak ia bicara agar berusaha mengangkat kepala.",
+      "duration": "2–3 kali sehari, 1–3 menit; tambah secara bertahap.",
+      "benefit": "Menguatkan otot leher, bahu, dan punggung, serta mencegah bagian belakang kepala menjadi peyang.",
+      "caution": "Hanya saat bayi terjaga dan dalam pengawasan. Untuk tidur, selalu baringkan bayi telentang."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Tengkurap di dada orang tua",
+      "age": "0–2 bulan",
+      "how": "Ambil posisi setengah berbaring dengan bersandar pada bantal. Letakkan bayi tengkurap di dada Anda, satu tangan menopang punggungnya dan tangan lainnya bokongnya. Ajak ia bicara agar menatap wajah Anda.",
+      "duration": "Beberapa kali sehari, 2–5 menit.",
+      "benefit": "Cara paling lembut untuk membiasakan bayi tengkurap; mendorongnya mengangkat kepala dan mempererat ikatan dengan Anda.",
+      "caution": "Jangan lakukan latihan ini jika Anda sendiri sedang mengantuk."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Tengkurap di pangkuan",
+      "age": "0–3 bulan",
+      "how": "Duduklah dan baringkan bayi tengkurap melintang di atas paha Anda. Satu tangan di punggungnya, tangan lainnya di bokongnya. Anda boleh mengusap punggungnya dengan lembut.",
+      "duration": "2–3 menit.",
+      "benefit": "Melatih otot leher, membantu mengeluarkan gas, dan menenangkan bayi."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Mengikuti mainan dengan mata",
+      "age": "0–3 bulan",
+      "how": "Bayi berbaring telentang. Pegang mainan berwarna cerah 20–30 cm dari wajahnya, lalu gerakkan perlahan ke kanan dan ke kiri. Beri ia waktu untuk mengikutinya dengan mata dan kepala.",
+      "duration": "1–2 menit, 4–5 kali ke setiap sisi.",
+      "benefit": "Mengembangkan perhatian visual, koordinasi mata-kepala, dan kemampuan menoleh ke kedua sisi."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Menggenggam jari",
+      "age": "0–4 bulan",
+      "how": "Letakkan jari telunjuk Anda di telapak tangan bayi dan tunggu sampai ia menggenggamnya. Gerakkan jari Anda sedikit ke atas dan ke bawah. Ulangi dengan tangan yang lain.",
+      "duration": "3–5 kali untuk setiap tangan.",
+      "benefit": "Memperkuat refleks menggenggam dan otot tangan, serta mengembangkan indra peraba.",
+      "caution": "Jangan mengangkat bayi dengan cara membiarkannya bergantung pada jari Anda."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Lutut ke perut",
+      "age": "0–6 bulan",
+      "how": "Bayi berbaring telentang. Pegang kedua betisnya, tekuk kedua lututnya bersamaan perlahan ke arah perut, tahan 3–5 detik, lalu lepaskan.",
+      "duration": "5–8 kali ulangan.",
+      "benefit": "Meredakan kembung dan kolik, serta meningkatkan kelenturan sendi panggul.",
+      "caution": "Jangan menekan; jika terasa ada tahanan, hentikan."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "“Bersepeda”",
+      "age": "1–6 bulan",
+      "how": "Bayi berbaring telentang. Pegang betisnya dan gerakkan kakinya bergantian seperti sedang mengayuh sepeda: satu lutut ke arah perut, kaki yang lain lurus ke depan.",
+      "duration": "10–15 putaran, dengan jeda.",
+      "benefit": "Melatih otot kaki dan perut, membantu kerja usus, dan mengajarkan koordinasi gerakan bergantian."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Membuka dan menutup lengan",
+      "age": "1–6 bulan",
+      "how": "Bayi berbaring telentang. Letakkan ibu jari Anda di telapak tangannya atau pegang pergelangan tangannya dengan lembut. Buka lengannya ke samping, lalu silangkan di dadanya (seperti sedang memeluk diri sendiri).",
+      "duration": "5–8 kali ulangan.",
+      "benefit": "Melemaskan otot dada dan bahu, serta mengajarkan membawa tangan ke garis tengah tubuh.",
+      "caution": "Jangan menarik lengannya; buka hanya sejauh yang dibiarkan oleh bayi."
+    },
+    "0-1/09_kicking": {
+      "title": "Menendang telapak tangan",
+      "age": "1–4 bulan",
+      "how": "Bayi berbaring telentang. Tempelkan telapak tangan Anda ke telapak kakinya dan berikan sedikit tahanan; bayi akan mendorong dengan kakinya.",
+      "duration": "1–2 menit.",
+      "benefit": "Menguatkan otot kaki dan menyiapkan gerakan mendorong (untuk merangkak dan berdiri nanti)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Bermain miring",
+      "age": "1–4 bulan",
+      "how": "Baringkan bayi miring, dengan handuk gulung di belakang punggungnya. Kedua tangannya berada di depan; letakkan mainan di hadapannya. Lalu miringkan ke sisi yang lain.",
+      "duration": "2–3 menit di setiap sisi.",
+      "benefit": "Memudahkan kedua tangan saling bertemu, menyiapkan bayi untuk berguling, dan mencegah kepala selalu miring ke satu sisi.",
+      "caution": "Hanya saat bayi terjaga dan dalam pengawasan; jangan biarkan bayi tidur dalam posisi ini."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Tengkurap dengan ganjalan handuk",
+      "age": "2–4 bulan",
+      "how": "Letakkan handuk gulung di bawah dada bayi (sejajar ketiak), dengan kedua lengannya di depan handuk. Letakkan mainan di depannya agar ia mengangkat kepala untuk melihatnya.",
+      "duration": "3–5 menit, beberapa kali sehari.",
+      "benefit": "Memudahkan bayi mengangkat kepala dan menyiapkannya bertumpu pada lengan bawah."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Menarik ke posisi duduk",
+      "age": "3–5 bulan (setelah bayi bisa menahan kepalanya)",
+      "how": "Bayi berbaring telentang. Biarkan ia menggenggam ibu jari Anda, pegang pergelangan tangannya, lalu angkat perlahan ke arah posisi duduk, kemudian baringkan kembali sama pelannya.",
+      "duration": "3–5 kali ulangan.",
+      "benefit": "Menguatkan otot perut, leher, dan lengan.",
+      "caution": "Jika kepalanya tertinggal ke belakang, tunda latihan ini. Jangan menarik dengan cepat."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Meraih mainan",
+      "age": "3–5 bulan",
+      "how": "Bayi berbaring telentang. Pegang mainan di atas dadanya, dalam jangkauan tangannya, dan tunggu sampai ia meraih dan memegangnya. Pindahkan mainan kadang ke kanan, kadang ke kiri.",
+      "duration": "2–3 menit.",
+      "benefit": "Mengembangkan koordinasi mata-tangan, otot bahu, dan kemampuan menggenggam dengan sengaja."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Meraih sambil bertumpu pada siku",
+      "age": "4–6 bulan",
+      "how": "Bayi tengkurap, bertumpu pada sikunya. Letakkan mainan sedikit di depan dan ke samping agar ia meraih dengan satu lengan. Anda boleh menahan panggulnya dengan ringan agar stabil.",
+      "duration": "3–5 menit.",
+      "benefit": "Mengajarkan memindahkan berat badan dari satu lengan ke lengan lain, menguatkan punggung dan otot bahu, serta menyiapkan untuk merangkak."
+    },
+    "0-1/15_rolling": {
+      "title": "Membantu berguling",
+      "age": "4–6 bulan",
+      "how": "Bayi berbaring telentang. Letakkan mainan di sampingnya. Dengan satu tangan di pahanya dan tangan lain di panggulnya, bawa kaki yang di atas ke sisi seberang; tubuhnya akan ikut berputar sendiri. Lakukan ke kedua arah.",
+      "duration": "3–4 kali ke setiap sisi.",
+      "benefit": "Mengembangkan otot batang tubuh dan gerakan memutar badan, serta mengajarkan berguling sendiri.",
+      "caution": "Jangan menggulingkan bayi dengan menarik lengannya."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Memegang kaki",
+      "age": "4–6 bulan",
+      "how": "Bayi berbaring telentang. Tekuk lututnya dan dekatkan kakinya ke tangannya agar ia memegangnya. Setelah memegang, biarkan ia bergoyang pelan ke kanan dan ke kiri.",
+      "duration": "1–2 menit.",
+      "benefit": "Menguatkan otot perut, meningkatkan kesadaran tubuh, dan kelenturan panggul."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Duduk dengan topangan",
+      "age": "5–7 bulan",
+      "how": "Dudukkan bayi di atas matras dan pegang dari belakang pada panggul atau pinggangnya. Berikan mainan di tangannya. Kurangi topangan seiring keseimbangannya membaik.",
+      "duration": "3–5 menit.",
+      "benefit": "Mengembangkan otot batang tubuh dan keseimbangan duduk, serta membebaskan tangannya untuk bermain.",
+      "caution": "Jika punggungnya membungkuk dan ia mulai lelah, baringkan kembali; jangan memaksanya duduk dengan diganjal bantal."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Memantul berdiri dengan topangan",
+      "age": "5–8 bulan",
+      "how": "Pegang bayi dengan mantap di bawah ketiak, pada batang tubuhnya, dan letakkan kakinya di permukaan yang keras. Biarkan ia menumpukan sebagian berat badannya ke kaki dan memantul dengan menekuk dan meluruskan lutut.",
+      "duration": "1–2 menit.",
+      "benefit": "Menguatkan otot kaki dan menyiapkan untuk berdiri.",
+      "caution": "Sebagian besar berat badannya tetap Anda yang tahan; jangan lepaskan bayi berdiri di atas kakinya sendiri."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Duduk dan meraih mainan",
+      "age": "6–8 bulan",
+      "how": "Bayi duduk sendiri dengan satu tangan bertumpu di lantai. Letakkan mainan di depan dan di sampingnya, agak jauh, agar ia meraih, mengambilnya, lalu kembali tegak. Letakkan bantal di sekelilingnya.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan keseimbangan duduk, putaran batang tubuh, dan refleks menahan dengan tangan saat akan jatuh."
+    },
+    "0-1/20_peekaboo": {
+      "title": "“Ciluk ba”",
+      "age": "4–12 bulan",
+      "how": "Bayi duduk. Pegang kain tipis di depan wajah Anda (atau wajahnya), lalu turunkan sambil berkata “Ba!”. Saat ia lebih besar, biarkan ia menarik kainnya sendiri.",
+      "duration": "Selama bayi masih tertarik.",
+      "benefit": "Mengembangkan pemahaman bahwa benda tetap ada meski tak terlihat, perhatian, komunikasi, dan tawa; mendorong gerakan lengan yang aktif."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Main tepuk tangan",
+      "age": "7–12 bulan",
+      "how": "Duduk berhadapan dengan bayi. Sambil bernyanyi atau berhitung, tepukkan telapak tangan Anda ke telapak tangannya, lalu tunjukkan cara bertepuk tangan sendiri.",
+      "duration": "2–3 menit.",
+      "benefit": "Mengembangkan kerja sama kedua tangan, rasa irama, kemampuan meniru, dan komunikasi."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Membantu merangkak",
+      "age": "7–9 bulan",
+      "how": "Bayi bertumpu pada tangan dan lutut, dengan mainan di depannya. Tempelkan telapak tangan Anda ke telapak kakinya agar ia bisa mendorong dan maju.",
+      "duration": "3–5 menit.",
+      "benefit": "Mengembangkan gerakan merangkak, koordinasi tangan-kaki, dan kekuatan batang tubuh.",
+      "caution": "Jangan mendorong bayi, cukup berikan tumpuan."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Merangkak melewati rintangan",
+      "age": "8–10 bulan",
+      "how": "Letakkan bantal rendah atau selimut gulung di atas matras, dan taruh mainan di sisi seberangnya. Biarkan bayi melewati rintangan itu.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan kekuatan, keseimbangan, dan perencanaan gerak, serta menyiapkan untuk memanjat."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Menggelindingkan bola",
+      "age": "8–12 bulan",
+      "how": "Bayi duduk dengan kaki terbuka. Gelindingkan bola lunak ke arahnya dan tunggu sampai ia menangkap dan mendorongnya kembali.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan keseimbangan duduk, koordinasi mata-tangan, dan kebiasaan bermain bergiliran."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Berdiri sambil berpegangan",
+      "age": "8–10 bulan",
+      "how": "Letakkan mainan di atas sofa yang rendah dan kokoh. Bayi akan berlutut, menapakkan satu kaki ke lantai, dan berusaha berdiri. Jika perlu, topang panggulnya dengan ringan.",
+      "duration": "3–5 kali percobaan.",
+      "benefit": "Menguatkan otot kaki dan bokong, serta mengajarkan berdiri sendiri.",
+      "caution": "Pastikan perabot tidak bisa terguling dan tidak bersudut tajam."
+    },
+    "0-1/26_cruising": {
+      "title": "Melangkah menyamping di sepanjang perabot",
+      "age": "9–11 bulan",
+      "how": "Bayi berdiri berpegangan pada sofa. Letakkan mainan agak jauh darinya agar ia meraihnya dengan langkah menyamping. Lakukan ke kedua arah.",
+      "duration": "5 menit.",
+      "benefit": "Mengajarkan memindahkan berat badan dari satu kaki ke kaki lain dan menjaga keseimbangan; ini persiapan langsung untuk berjalan."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Jongkok mengambil mainan",
+      "age": "10–12 bulan",
+      "how": "Bayi berdiri dengan satu tangan berpegangan pada sofa. Letakkan mainan di lantai, di dekat kakinya. Tunggu sampai ia berjongkok, mengambilnya, lalu berdiri lagi.",
+      "duration": "5–6 kali ulangan.",
+      "benefit": "Menguatkan otot kaki dan keseimbangan, serta mengajarkan kendali saat jongkok dan berdiri."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Berjalan dengan topangan",
+      "age": "10–12 bulan",
+      "how": "Berdirilah di belakang bayi dan pegang batang tubuhnya (setinggi dada). Biarkan ia melangkah; kurangi topangan seiring keseimbangannya membaik.",
+      "duration": "3–5 menit.",
+      "benefit": "Mengembangkan kemampuan melangkah dan keseimbangan.",
+      "caution": "Memegang batang tubuh lebih aman bagi bahunya daripada menuntunnya berjalan dengan menarik lengannya ke atas."
+    },
+    "0-1/29_push_walker": {
+      "title": "Berjalan sambil mendorong kereta",
+      "age": "11–12 bulan",
+      "how": "Berikan bayi mainan kereta dorong yang kokoh dan berat. Biarkan ia memegang pegangannya dengan kedua tangan dan melangkah maju. Tetaplah di dekatnya.",
+      "duration": "5–10 menit.",
+      "benefit": "Menumbuhkan rasa percaya diri untuk berjalan sendiri serta melatih panjang langkah dan arah.",
+      "caution": "Kereta dorong tidak boleh meluncur terlalu cepat; baby walker beroda dengan tempat duduk tidak dianjurkan."
+    },
+    "1-2/01_first_steps": {
+      "title": "Langkah pertama tanpa bantuan",
+      "age": "12–15 bulan",
+      "how": "Berdirikan anak, lalu berlututlah 2–3 langkah darinya, buka kedua lengan Anda, dan panggil dia. Tambah jaraknya sesuai kemampuannya.",
+      "duration": "5–10 kali percobaan.",
+      "benefit": "Menumbuhkan rasa percaya diri dan keseimbangan untuk berjalan sendiri."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Berjalan sambil dipegang satu tangan",
+      "age": "12–15 bulan",
+      "how": "Pegang hanya satu tangan anak dan berjalanlah mengikuti kecepatannya. Jaga tangan Anda setinggi bahunya, jangan menarik ke atas. Ganti tangan.",
+      "duration": "5–10 menit.",
+      "benefit": "Menjadi peralihan dari dituntun dua tangan ke berjalan sendiri; memperkuat keseimbangan."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Bangun dari lantai tanpa berpegangan",
+      "age": "12–15 bulan",
+      "how": "Saat anak duduk di tengah ruangan, pegang mainan yang menarik setinggi kepalanya. Tunggu sampai ia bangkit sendiri dengan menapakkan tangan dan kaki ke lantai lalu mengangkat bokongnya.",
+      "duration": "5–6 kali ulangan.",
+      "benefit": "Menguatkan otot kaki, bokong, dan batang tubuh; mengajarkan berdiri tanpa berpegangan pada perabot."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Jongkok tanpa berpegangan",
+      "age": "13–18 bulan",
+      "how": "Letakkan bola atau mainan di lantai. Dorong anak untuk berjongkok tanpa berpegangan pada apa pun, mengambilnya, lalu berdiri lagi.",
+      "duration": "6–8 kali ulangan.",
+      "benefit": "Mengembangkan kekuatan kaki, keseimbangan, dan kendali gerak."
+    },
+    "1-2/07_push_basket": {
+      "title": "Mendorong keranjang",
+      "age": "12–18 bulan",
+      "how": "Masukkan beberapa mainan ke keranjang pakaian yang ringan. Biarkan anak mendorong keranjang itu dengan kedua tangan menyusuri ruangan.",
+      "duration": "5–10 menit.",
+      "benefit": "Menguatkan otot kaki dan batang tubuh, serta membuat langkahnya lebih mantap."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Memanjat sofa rendah atau bantal",
+      "age": "12–18 bulan",
+      "how": "Pilih bantal yang padat atau sofa rendah setinggi lutut. Anak naik dengan menumpukan perut lalu mengangkat satu lututnya ke atas. Siapkan tangan Anda di belakang bokongnya. Ajarkan juga cara turun: tengkurap, kaki lebih dulu.",
+      "duration": "4–5 kali ulangan.",
+      "benefit": "Mengembangkan kekuatan seluruh tubuh dan perencanaan gerak.",
+      "caution": "Jangan tinggalkan anak sendirian di tempat tinggi."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Merangkak menaiki tangga",
+      "age": "12–18 bulan",
+      "how": "Pada 2–3 anak tangga yang rendah, anak meletakkan tangannya di anak tangga atas lalu naik. Anda berdiri di belakangnya, tangan di dekat bokongnya. Saat turun, ajarkan turun mundur dengan kaki lebih dulu.",
+      "duration": "3–4 kali naik-turun.",
+      "benefit": "Mengembangkan kekuatan kaki, koordinasi, dan kebiasaan aman di tangga.",
+      "caution": "Hanya dalam pengawasan; di luar waktu latihan, pagar pengaman tangga harus tertutup."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Menggelindingkan bola",
+      "age": "12–18 bulan",
+      "how": "Duduk atau berjongkok berhadapan. Gelindingkan bola satu sama lain; anak menangkapnya dengan kedua tangan lalu mendorongnya kembali.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan koordinasi mata-tangan, bermain bergiliran, dan keseimbangan batang tubuh."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Menara balok",
+      "age": "12–18 bulan",
+      "how": "Berikan anak balok kayu berukuran besar dan tunjukkan cara menyusun menara dari 2–4 balok. Jika roboh, susun lagi.",
+      "duration": "5–10 menit.",
+      "benefit": "Mengembangkan motorik halus, ketepatan tangan, dan kesabaran."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Memasukkan bola ke kotak",
+      "age": "12–18 bulan",
+      "how": "Sambil berlutut atau duduk, anak mengambil bola satu per satu dan memasukkannya ke kotak. Lalu kosongkan kotaknya dan mulai lagi.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan kemampuan memegang dan melepas, koordinasi mata-tangan, dan keseimbangan saat berlutut."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Berjalan sambil membawa mainan",
+      "age": "15–18 bulan",
+      "how": "Berikan anak mainan yang besar tetapi ringan, lalu minta ia membawanya ke ujung lain ruangan.",
+      "duration": "5 menit.",
+      "benefit": "Mengajarkan menjaga keseimbangan saat tangan sedang sibuk dan menguatkan otot batang tubuh."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Menarik mainan bertali",
+      "age": "15–20 bulan",
+      "how": "Berikan anak mainan beroda dengan tali pendek. Sambil berjalan, ia menarik mainan di belakangnya dan menoleh untuk melihatnya.",
+      "duration": "5–10 menit.",
+      "benefit": "Mengajarkan memutar kepala dan badan sambil berjalan, serta membagi perhatian.",
+      "caution": "Talinya harus pendek (sekitar 30 cm); jangan tinggalkan anak sendirian dengan tali."
+    },
+    "1-2/10_tunnel": {
+      "title": "Merangkak melewati terowongan",
+      "age": "12–24 bulan",
+      "how": "Buka kedua sisi kardus besar untuk membuat terowongan. Panggil anak dari ujung lainnya atau letakkan mainan di sana.",
+      "duration": "5–10 menit.",
+      "benefit": "Mengembangkan kekuatan bahu dan batang tubuh, serta pemahaman ruang."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Jalan bantal",
+      "age": "15–20 bulan",
+      "how": "Jajarkan beberapa bantal pipih di lantai. Anak berjalan di atasnya sambil memegang satu tangan Anda.",
+      "duration": "3–5 kali lintasan.",
+      "benefit": "Melatih keseimbangan di permukaan yang tidak stabil dan menguatkan otot pergelangan kaki."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Melempar bola ke keranjang",
+      "age": "15–24 bulan",
+      "how": "Letakkan keranjang 1 langkah dari anak. Tunjukkan cara melempar bola lunak ke dalamnya; tambah jaraknya sesuai kemampuannya.",
+      "duration": "8–10 lemparan.",
+      "benefit": "Mengembangkan gerakan melempar, koordinasi mata-tangan, dan kekuatan bahu."
+    },
+    "1-2/15_dance": {
+      "title": "Menari dengan musik",
+      "age": "12–24 bulan",
+      "how": "Putar musik berirama dan menarilah bersama anak: memantul dengan menekuk lutut, bertepuk tangan, berputar.",
+      "duration": "5–10 menit.",
+      "benefit": "Meningkatkan rasa irama, keseimbangan, dan daya tahan, serta membuat suasana hati ceria."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Membereskan mainan",
+      "age": "15–24 bulan",
+      "how": "Sebarkan mainan di lantai. Anak membungkuk atau berjongkok untuk mengambilnya satu per satu dan memasukkannya ke keranjang.",
+      "duration": "Sampai mainan habis.",
+      "benefit": "Gerakan membungkuk dan bangkit berulang kali menguatkan otot kaki dan punggung bawah; sekaligus membangun kebiasaan rapi."
+    },
+    "1-2/24_ride_on": {
+      "title": "Mendorong mobil-mobilan dengan kaki",
+      "age": "15–24 bulan",
+      "how": "Dudukkan anak di mainan beroda yang rendah tanpa pedal; kakinya harus bisa menapak penuh ke lantai. Ia maju dengan mendorong menggunakan kakinya.",
+      "duration": "10 menit.",
+      "benefit": "Mengembangkan kekuatan kaki, koordinasi kedua sisi tubuh, dan kemampuan mengarahkan."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Menendang bola",
+      "age": "18–24 bulan",
+      "how": "Letakkan bola ringan di depan kaki anak dan tunjukkan cara menendangnya. Awalnya Anda boleh memegang satu tangannya.",
+      "duration": "8–10 tendangan.",
+      "benefit": "Mengembangkan keseimbangan sesaat di satu kaki dan koordinasi mata-kaki."
+    },
+    "1-2/16_bubbles": {
+      "title": "Menangkap gelembung",
+      "age": "18–24 bulan",
+      "how": "Tiup gelembung sabun. Anak memecahkannya sambil berjinjit, menjangkau ke atas, dan berlari.",
+      "duration": "5–10 menit.",
+      "benefit": "Melatih berjinjit, meraih ke atas, dan koordinasi mata-tangan."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Naik tangga sambil dipegang",
+      "age": "18–24 bulan",
+      "how": "Dengan badan tegak, anak menaiki anak tangga sambil memegang satu tangan Anda (atau pegangan tangga). Wajar jika di setiap anak tangga ia menapakkan satu kaki dulu, lalu kaki yang lain.",
+      "duration": "2–3 kali naik-turun.",
+      "benefit": "Meningkatkan kekuatan kaki dan keseimbangan di satu kaki.",
+      "caution": "Saat turun, selalu berdirilah satu anak tangga di bawah anak."
+    },
+    "1-2/21_jump": {
+      "title": "Melompat di tempat",
+      "age": "20–24 bulan",
+      "how": "Contohkan sendiri cara melompat: tekuk lutut dan angkat badan dari lantai dengan kedua kaki. Awalnya Anda boleh memegang kedua tangannya atau membiarkannya melompat turun dari bantal yang rendah.",
+      "duration": "5–8 lompatan.",
+      "benefit": "Memperkuat daya ledak otot kaki, tulang, dan koordinasi.",
+      "caution": "Lakukan di permukaan yang empuk; melompat dengan dua kaki biasanya baru bisa menjelang usia 2 tahun."
+    },
+    "1-2/22_run": {
+      "title": "Berlari",
+      "age": "18–24 bulan",
+      "how": "Di tempat yang luas dan bebas rintangan, mainkan “Ayo tangkap aku” atau panggil anak dari kejauhan.",
+      "duration": "5–10 menit dengan jeda singkat.",
+      "benefit": "Mengembangkan daya tahan, kecepatan, dan sistem jantung serta pembuluh darah."
+    },
+    "1-2/23_balance_line": {
+      "title": "Berjalan di atas garis",
+      "age": "20–24 bulan",
+      "how": "Tempelkan selotip warna yang lebar di lantai. Sambil memegang satu tangan Anda, anak berjalan dengan menapakkan kakinya di atas selotip.",
+      "duration": "3–5 kali lintasan.",
+      "benefit": "Mengembangkan keseimbangan dan berjalan di atas tumpuan yang sempit."
+    },
+    "1-2/25_bear_walk": {
+      "title": "“Jalan beruang”",
+      "age": "18–24 bulan",
+      "how": "Tunjukkan cara maju dengan tangan dan kaki di lantai, lutut tidak menyentuh lantai, bokong di atas. Berjalanlah bersama “seperti beruang”.",
+      "duration": "2–3 kali menyeberangi ruangan.",
+      "benefit": "Menguatkan otot bahu, lengan, dan batang tubuh, serta meningkatkan koordinasi."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Raih ke atas, sentuh jari kaki",
+      "age": "18–24 bulan",
+      "how": "Berdiri berhadapan dengan anak. Mula-mula berjinjit dan rentangkan tangan ke atas, lalu membungkuk dan sentuh jari kaki. Iringi dengan lagu.",
+      "duration": "5–6 kali ulangan.",
+      "benefit": "Mengembangkan kelenturan, keseimbangan, dan kemampuan meniru gerakan; mengenalkan bagian-bagian tubuh."
+    },
+    "1-2/27_slide": {
+      "title": "Perosotan rendah",
+      "age": "18–24 bulan",
+      "how": "Anak duduk di puncak perosotan rendah dan meluncur dengan kaki di depan. Pegang batang tubuhnya dengan kedua tangan Anda, lalu kurangi topangan.",
+      "duration": "5–6 kali.",
+      "benefit": "Mengembangkan kemampuan memanjat, keseimbangan duduk, dan keberanian.",
+      "caution": "Jangan meluncur sambil memangku anak; kakinya bisa tersangkut dan cedera."
+    },
+    "1-2/28_back_walk": {
+      "title": "Berjalan mundur",
+      "age": "18–24 bulan",
+      "how": "Anak melangkah mundur sambil menarik kereta dorong atau mainan bertali ke arahnya. Awalnya pegang kedua tangannya dan berjalan mundur bersama.",
+      "duration": "3–4 kali lintasan.",
+      "benefit": "Mengembangkan keseimbangan, kesadaran tubuh, dan kemampuan mengubah arah gerak.",
+      "caution": "Pastikan tidak ada rintangan di belakangnya."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Melompat ke depan dengan dua kaki",
+      "age": "24–30 bulan",
+      "how": "Tempelkan selotip berwarna di lantai. Anak menekuk lutut dan melompati selotip dengan kedua kaki rapat. Contohkan dulu sendiri.",
+      "duration": "6–8 lompatan.",
+      "benefit": "Mengembangkan kekuatan kaki, kerja sama kedua kaki, dan mendarat dengan lembut."
+    },
+    "2-3/02_jump_down": {
+      "title": "Melompat dari anak tangga rendah",
+      "age": "24–30 bulan",
+      "how": "Dari pijakan kokoh setinggi 10–15 cm, anak melompat ke matras empuk sambil memegang satu tangan Anda. Tunjukkan cara mendarat dengan menekuk lutut.",
+      "duration": "5–6 kali.",
+      "benefit": "Mengembangkan keberanian, kekuatan kaki, dan keseimbangan saat mendarat.",
+      "caution": "Jangan menambah ketinggian; pijakan tidak boleh licin atau bergeser."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Berdiri dengan satu kaki",
+      "age": "30–36 bulan",
+      "how": "Katakan, “Ayo berdiri seperti bangau.” Sambil memegang satu tangan Anda, anak mengangkat satu kaki dan bertahan 2–3 detik. Ganti kaki, lalu coba tanpa berpegangan.",
+      "duration": "3–4 kali untuk setiap kaki.",
+      "benefit": "Memperkuat keseimbangan dan otot pergelangan kaki."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Berjalan berjinjit",
+      "age": "24–36 bulan",
+      "how": "Katakan, “Ayo berjalan seperti kucing yang diam-diam,” lalu berjalan berjinjit menyusuri ruangan.",
+      "duration": "2–3 kali lintasan.",
+      "benefit": "Menguatkan otot betis, lengkung telapak kaki, dan keseimbangan.",
+      "caution": "Jika anak selalu berjalan berjinjit, sampaikan hal ini kepada dokter anak."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Berjalan di atas papan",
+      "age": "24–36 bulan",
+      "how": "Letakkan papan yang lebar dan rendah di lantai. Anak berjalan di atasnya sambil memegang satu tangan Anda; lepaskan pegangan sesuai kemampuannya.",
+      "duration": "4–5 kali lintasan.",
+      "benefit": "Mengembangkan keseimbangan, fokus, dan kemampuan menapakkan kaki dalam satu garis."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Berjalan dengan kantong di kepala",
+      "age": "30–36 bulan",
+      "how": "Letakkan kantong kain kecil (berisi beras atau kacang) di atas kepala anak. Ia berjalan pelan dan tegak agar kantongnya tidak jatuh.",
+      "duration": "3–4 kali lintasan.",
+      "benefit": "Mengembangkan postur, keseimbangan, dan fokus."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Melompat dari lingkaran ke lingkaran",
+      "age": "30–36 bulan",
+      "how": "Jajarkan lingkaran berwarna di lantai (alas karet, kertas, bantal). Anak melompat dari satu lingkaran ke lingkaran berikutnya atau melangkah lebar.",
+      "duration": "3–4 kali lintasan.",
+      "benefit": "Mengembangkan ketepatan melompat, keseimbangan, dan perencanaan gerak.",
+      "caution": "Lingkaran tidak boleh licin atau bergeser."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Naik tangga dengan kaki bergantian",
+      "age": "30–36 bulan",
+      "how": "Sambil memegang pegangan tangga, anak naik dengan menapakkan satu kaki di setiap anak tangga. Saat turun, masih wajar jika ia menapakkan dua kaki di setiap anak tangga.",
+      "duration": "2–3 kali naik-turun.",
+      "benefit": "Meningkatkan kekuatan kaki dan keseimbangan di satu kaki.",
+      "caution": "Saat turun, berdirilah satu anak tangga di bawah anak."
+    },
+    "2-3/14_marching": {
+      "title": "Berbaris",
+      "age": "24–36 bulan",
+      "how": "Putar musik dan adakan “parade”: berjalan sambil mengangkat lutut tinggi-tinggi dan mengayunkan lengan. Sesekali beri aba-aba seperti “Berputar!”, “Lompat!”, “Berhenti!”.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan koordinasi, rasa irama, dan kemampuan mengikuti instruksi."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Lari dan berhenti",
+      "age": "24–36 bulan",
+      "how": "Saat Anda berkata “Lampu hijau”, anak berlari; saat Anda berkata “Lampu merah”, ia diam membeku di tempat. Anda juga bisa membuat garis dan memintanya berhenti tepat di depan garis itu.",
+      "duration": "5–10 menit.",
+      "benefit": "Mengembangkan kecepatan, kemampuan mengerem, kendali tubuh, dan perhatian."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Menarik gerobak",
+      "age": "24–36 bulan",
+      "how": "Isi gerobak mainan dengan mainan; anak menariknya pada pegangan dan membawanya melewati tikungan.",
+      "duration": "5–10 menit.",
+      "benefit": "Menguatkan otot batang tubuh dan kaki, serta mengajarkan mengarahkan."
+    },
+    "2-3/07_tricycle": {
+      "title": "Sepeda roda tiga",
+      "age": "30–36 bulan",
+      "how": "Dudukkan anak di sepeda roda tiga dan letakkan kakinya di pedal. Awalnya dorong pelan dari belakang agar ia merasakan gerakan pedal.",
+      "duration": "10–15 menit.",
+      "benefit": "Mengembangkan kerja kaki bergantian, kekuatan, dan kemampuan mengendalikan setang.",
+      "caution": "Pakaikan helm; bersepeda di permukaan datar, jauh dari jalan raya."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Merangkak di bawah meja",
+      "age": "24–36 bulan",
+      "how": "Buat “terowongan” dari meja rendah, kursi, atau kardus. Anak menundukkan kepala dan merangkak melewatinya.",
+      "duration": "4–5 kali lintasan.",
+      "benefit": "Mengembangkan kekuatan bahu dan batang tubuh, serta kesadaran akan ukuran tubuhnya."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Tangga panjat",
+      "age": "24–36 bulan",
+      "how": "Di segitiga panjat yang rendah atau di taman bermain, anak memanjat sambil berpegangan dengan tangan dan menapakkan kaki satu per satu di anak tangga. Siapkan tangan Anda di belakang bokongnya.",
+      "duration": "4–5 kali.",
+      "benefit": "Mengembangkan kekuatan seluruh tubuh, kekuatan genggaman, dan keberanian.",
+      "caution": "Pastikan ada permukaan empuk di bawahnya; jangan tinggalkan anak sendirian."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Meluncur sendiri di perosotan",
+      "age": "24–36 bulan",
+      "how": "Anak naik sendiri lewat tangga, lalu meluncur sambil duduk dengan kaki di depan. Tunggu dia di bawah.",
+      "duration": "6–8 kali.",
+      "benefit": "Mengembangkan kemampuan memanjat, keseimbangan duduk, dan kemandirian.",
+      "caution": "Jangan izinkan meluncur dengan kepala lebih dulu atau sambil tengkurap."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Bergelantung di palang",
+      "age": "30–36 bulan",
+      "how": "Anak berpegangan dengan kedua tangan pada palang rendah (kaki beberapa sentimeter dari lantai) dan bergelantung 3–5 detik. Pegang pinggangnya dengan tangan Anda.",
+      "duration": "3–4 kali.",
+      "benefit": "Memperkuat tangan, bahu, dan genggaman.",
+      "caution": "Jangan mengangkat anak dengan memegang tangannya dan jangan mengayunkannya; letakkan matras di bawahnya."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Melempar bola dari atas bahu",
+      "age": "24–36 bulan",
+      "how": "Berdirilah 1–2 meter darinya. Anak melempar bola kecil yang lunak kepada Anda dari atas bahunya.",
+      "duration": "8–10 lemparan.",
+      "benefit": "Mengembangkan teknik melempar, kekuatan bahu, dan kemampuan membidik."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Menangkap bola",
+      "age": "30–36 bulan",
+      "how": "Dari jarak 1 meter, lempar pelan bola besar yang ringan ke arah dada anak. Ia menjulurkan kedua lengannya ke depan dan menangkap bola dengan mendekapnya ke dada.",
+      "duration": "8–10 kali.",
+      "benefit": "Mengembangkan koordinasi mata-tangan dan reaksi."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Berlari lalu menendang bola",
+      "age": "24–36 bulan",
+      "how": "Buat “gawang” dari dua kerucut atau dua kotak. Anak mengambil satu-dua langkah ke arah bola lalu menendangnya.",
+      "duration": "8–10 tendangan.",
+      "benefit": "Mengembangkan keseimbangan di satu kaki, koordinasi mata-kaki, dan kekuatan."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Melempar kantong ke dalam simpai",
+      "age": "24–36 bulan",
+      "how": "Letakkan simpai atau baskom di lantai. Dari jarak 1 langkah, anak melempar kantong-kantong dari bawah agar masuk ke dalamnya; tambah jaraknya sesuai kemampuannya.",
+      "duration": "8–10 lemparan.",
+      "benefit": "Mengajarkan ketepatan membidik dan mengatur kekuatan."
+    },
+    "2-3/27_bowling": {
+      "title": "Boling di rumah",
+      "age": "24–36 bulan",
+      "how": "Susun 6 botol plastik kosong membentuk segitiga. Anak berjongkok dan menggelindingkan bola dengan kedua tangan untuk merobohkannya.",
+      "duration": "5–6 ronde.",
+      "benefit": "Mengembangkan kemampuan membidik, kekuatan saat jongkok, dan kesabaran menunggu giliran."
+    },
+    "2-3/24_balloon": {
+      "title": "Menjaga balon tetap di udara",
+      "age": "24–36 bulan",
+      "how": "Lempar balon ke udara. Anak memukulnya dengan tangan agar balon tidak jatuh ke lantai.",
+      "duration": "5–10 menit.",
+      "benefit": "Mengembangkan koordinasi mata-tangan, kemampuan meraih ke atas, dan reaksi.",
+      "caution": "Segera kumpulkan serpihan balon yang meletus (bahaya tersedak)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "“Kepala, pundak, lutut, kaki”",
+      "age": "24–36 bulan",
+      "how": "Sambil bernyanyi, sentuh bergantian kepala, pundak, lutut, dan jari kaki. Percepat sedikit demi sedikit.",
+      "duration": "3–4 kali.",
+      "benefit": "Mengembangkan kelenturan, koordinasi, dan pengenalan bagian tubuh."
+    },
+    "2-3/15_spin": {
+      "title": "Berputar",
+      "age": "24–36 bulan",
+      "how": "Dengan kedua lengan terentang ke samping, anak berputar pelan di tempat; lalu ke arah sebaliknya.",
+      "duration": "2–3 putaran ke setiap arah.",
+      "benefit": "Mengembangkan sistem keseimbangan (vestibular) dan kendali tubuh.",
+      "caution": "Pastikan tidak ada rintangan di sekitarnya; berhenti begitu ia merasa pusing."
+    },
+    "2-3/17_frog_jump": {
+      "title": "Lompat katak",
+      "age": "30–36 bulan",
+      "how": "Anak berjongkok dalam-dalam, meletakkan tangannya di lantai di antara lutut, lalu melompat ke depan seperti katak.",
+      "duration": "5–6 lompatan.",
+      "benefit": "Meningkatkan kekuatan otot kaki dan bokong, serta kelenturan panggul."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "“Gerobak dorong”",
+      "age": "30–36 bulan",
+      "how": "Anak meletakkan kedua tangannya di lantai. Pegang pahanya (di atas lutut) dan angkat kakinya; biarkan ia mengambil beberapa “langkah” dengan tangannya.",
+      "duration": "3–5 langkah, 2–3 kali.",
+      "benefit": "Menguatkan otot lengan, bahu, dan batang tubuh.",
+      "caution": "Pegang pahanya, bukan pergelangan kakinya; jika punggungnya melengkung turun atau ia lelah, hentikan."
+    },
+    "2-3/21_log_roll": {
+      "title": "Berguling seperti batang kayu",
+      "age": "24–36 bulan",
+      "how": "Anak berbaring lurus di atas matras, kedua lengan direntangkan di atas kepala, lalu berguling menyamping; kemudian ke arah sebaliknya.",
+      "duration": "3–4 putaran ke setiap arah.",
+      "benefit": "Mengembangkan otot batang tubuh, kesadaran tubuh, dan sistem keseimbangan."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "Peregangan kupu-kupu",
+      "age": "24–36 bulan",
+      "how": "Anak duduk dan menempelkan kedua telapak kakinya, memegang kakinya dengan tangan, lalu menggerakkan lututnya naik-turun perlahan seperti “sayap”.",
+      "duration": "20–30 detik.",
+      "benefit": "Meningkatkan kelenturan panggul dan membantu menenangkan setelah latihan.",
+      "caution": "Jangan menekan lututnya dengan tangan."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Melompat dengan satu kaki",
+      "age": "3,5–4 tahun",
+      "how": "Anak menekuk satu kakinya ke belakang dan melompat dengan kaki yang lain, di tempat atau maju ke depan. Awalnya pegang tangannya. Ganti kaki.",
+      "duration": "3–5 lompatan dengan setiap kaki.",
+      "benefit": "Mengembangkan kekuatan kaki, keseimbangan, dan koordinasi."
+    },
+    "3-4/02_long_jump": {
+      "title": "Lompat jauh tanpa awalan",
+      "age": "3–4 tahun",
+      "how": "Buat garis di lantai. Anak menekuk lutut, mengayunkan lengan, lalu melompat sejauh mungkin dengan dua kaki. Tandai tempat ia mendarat dan pecahkan “rekor”-nya.",
+      "duration": "5–6 kali percobaan.",
+      "benefit": "Meningkatkan daya ledak otot kaki dan koordinasi lengan-kaki."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Melompati rintangan",
+      "age": "3–4 tahun",
+      "how": "Pasang rintangan lunak setinggi 10–15 cm (tongkat busa, handuk gulung). Anak melompatinya dengan dua kaki.",
+      "duration": "6–8 kali.",
+      "benefit": "Mengembangkan tinggi lompatan, keberanian, dan mendarat dengan lembut.",
+      "caution": "Rintangan harus mudah jatuh jika tersangkut kaki."
+    },
+    "3-4/04_hopscotch": {
+      "title": "Main engklek",
+      "age": "3,5–4 tahun",
+      "how": "Gambar kotak-kotak di lantai dengan kapur: satu kotak, lalu dua kotak berdampingan. Anak melompat dengan satu kaki di kotak tunggal dan dengan dua kaki di kotak ganda. Awalnya ia boleh melompat dengan dua kaki di semua kotak.",
+      "duration": "4–5 kali lintasan.",
+      "benefit": "Melatih keseimbangan, irama, dan pergantian kaki."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Melompat dari simpai ke simpai",
+      "age": "3–4 tahun",
+      "how": "Jajarkan 3–5 simpai di lantai. Anak melompat dengan dua kaki dari satu simpai ke simpai berikutnya.",
+      "duration": "4–5 kali lintasan.",
+      "benefit": "Mengembangkan lompatan beruntun, ketepatan, dan daya tahan."
+    },
+    "3-4/19_leap_river": {
+      "title": "Melompati “sungai”",
+      "age": "3–4 tahun",
+      "how": "Buat “sungai” di lantai dengan kain biru atau dua utas tali. Anak berlari, menolak dengan satu kaki, dan mendarat dengan kaki yang lain di seberang. Lebarkan “sungai” sedikit demi sedikit.",
+      "duration": "6–8 kali.",
+      "benefit": "Mengembangkan lompatan dengan langkah lebar, kekuatan, dan kemampuan memperkirakan jarak."
+    },
+    "3-4/25_star_jump": {
+      "title": "Lompat bintang",
+      "age": "3,5–4 tahun",
+      "how": "Anak melompat dan di udara membuka lengan dan kakinya ke samping (“bintang”), lalu mendarat dengan kaki rapat.",
+      "duration": "5–8 kali.",
+      "benefit": "Mengembangkan kerja lengan dan kaki secara bersamaan, serta daya tahan."
+    },
+    "3-4/05_gallop": {
+      "title": "Berderap seperti kuda",
+      "age": "3–4 tahun",
+      "how": "Satu kaki selalu di depan, kaki yang lain mengikutinya: “Ayo berderap seperti kuda!”. Lalu ganti kaki yang di depan.",
+      "duration": "3–4 kali menyeberangi ruangan.",
+      "benefit": "Mengembangkan irama, koordinasi, dan daya tahan."
+    },
+    "3-4/06_tree_balance": {
+      "title": "Pose pohon",
+      "age": "3–4 tahun",
+      "how": "Anak menempelkan telapak satu kakinya ke betis kaki yang lain, merentangkan lengan ke samping, dan bertahan 3–5 detik. Ganti kaki.",
+      "duration": "3 kali untuk setiap kaki.",
+      "benefit": "Memperkuat keseimbangan, fokus, dan otot pergelangan kaki."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Berjalan tumit-ke-jari di atas garis",
+      "age": "3,5–4 tahun",
+      "how": "Tempelkan selotip di lantai. Anak berjalan di atas selotip dengan menempelkan tumit kaki depan ke jari kaki belakang di setiap langkah.",
+      "duration": "3–4 kali lintasan.",
+      "benefit": "Mengembangkan keseimbangan halus dan kendali tubuh."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Balok keseimbangan",
+      "age": "3–4 tahun",
+      "how": "Anak berjalan sendiri sambil merentangkan lengan di atas balok lebar setinggi 10 cm dari lantai. Berjalanlah di sampingnya.",
+      "duration": "4–5 kali lintasan.",
+      "benefit": "Mengembangkan keseimbangan, keberanian, dan fokus.",
+      "caution": "Pastikan ada matras empuk di bawahnya."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Turun tangga dengan kaki bergantian",
+      "age": "3,5–4 tahun",
+      "how": "Sambil memegang pegangan tangga, anak turun dengan menapakkan satu kaki di setiap anak tangga.",
+      "duration": "2–3 kali.",
+      "benefit": "Mengembangkan kekuatan kaki, keseimbangan, dan kemampuan turun dengan terkendali.",
+      "caution": "Berdirilah satu anak tangga di bawahnya."
+    },
+    "3-4/10_scooter": {
+      "title": "Skuter",
+      "age": "3–4 tahun",
+      "how": "Di skuter roda tiga, anak meletakkan satu kaki di papan pijakan dan mendorong lantai dengan kaki yang lain. Ajarkan cara berganti kaki.",
+      "duration": "10–15 menit.",
+      "benefit": "Mengembangkan keseimbangan, kekuatan kaki, dan kemampuan mengarahkan.",
+      "caution": "Helm dan sepatu tertutup wajib dipakai; bermainlah di permukaan datar, jauh dari jalan raya."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Sepeda keseimbangan",
+      "age": "3–4 tahun",
+      "how": "Duduk di sepeda tanpa pedal, anak maju dengan mendorong lantai menggunakan kakinya. Saat lajunya bertambah, ia mencoba mengangkat kaki dan menjaga keseimbangan.",
+      "duration": "10–15 menit.",
+      "benefit": "Mengembangkan keseimbangan dan memudahkan peralihan ke sepeda berpedal.",
+      "caution": "Helm dan sepatu tertutup wajib dipakai; atur sadel agar kakinya bisa menapak penuh ke tanah."
+    },
+    "3-4/17_tag": {
+      "title": "Main kejar-kejaran",
+      "age": "3–4 tahun",
+      "how": "Kejar anak dan sentuh dia dengan lembut; lalu gantian dia yang mengejar Anda. Sering-seringlah berganti arah.",
+      "duration": "5–10 menit dengan jeda.",
+      "benefit": "Mengembangkan kecepatan, kelincahan, daya tahan, dan reaksi."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Menangkap bola setelah memantul",
+      "age": "3–4 tahun",
+      "how": "Pantulkan bola ke lantai di depan anak agar setelah sekali memantul bola sampai ke tangannya. Anak menangkapnya dengan kedua tangan.",
+      "duration": "8–10 kali.",
+      "benefit": "Mengembangkan koordinasi mata-tangan dan kemampuan memperkirakan arah bola."
+    },
+    "3-4/13_target_throw": {
+      "title": "Melempar ke sasaran",
+      "age": "3–4 tahun",
+      "how": "Gantung sasaran bundar berwarna di dinding atau di penyangga. Anak melempar bola lunak ke sasaran dari jarak 1,5–2 meter.",
+      "duration": "8–10 lemparan.",
+      "benefit": "Mengembangkan ketepatan melempar, kekuatan bahu, dan fokus."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Menggiring bola di antara kerucut",
+      "age": "3,5–4 tahun",
+      "how": "Jajarkan 3–4 kerucut (atau botol) dalam satu baris. Anak menggiring bola dengan sentuhan kaki yang ringan, berkelok-kelok di antaranya.",
+      "duration": "3–4 kali lintasan.",
+      "benefit": "Mengembangkan koordinasi mata-kaki, kendali bola, dan perubahan arah."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Memantulkan dan menangkap bola",
+      "age": "3,5–4 tahun",
+      "how": "Anak memantulkan bola berukuran sedang ke lantai dengan kedua tangan dan menangkapnya saat memantul.",
+      "duration": "8–10 kali.",
+      "benefit": "Mengajarkan mengatur kekuatan tangan, serta mengembangkan irama dan koordinasi mata-tangan."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Main balon dengan piring",
+      "age": "3–4 tahun",
+      "how": "Anak memegang piring kertas seperti raket dan memukul balon ke atas agar tidak jatuh. Lalu saling oper balon.",
+      "duration": "5–10 menit.",
+      "benefit": "Mengembangkan kemampuan memukul dengan alat, koordinasi mata-tangan, dan reaksi.",
+      "caution": "Segera kumpulkan serpihan balon yang meletus."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Guling depan dengan bantuan",
+      "age": "3,5–4 tahun",
+      "how": "Di atas matras tebal, anak berjongkok, meletakkan tangan di lantai, menempelkan dagu ke dada, dan mengangkat bokongnya. Dengan satu tangan, lindungi tengkuknya; dengan tangan yang lain, dorong bokongnya pelan agar ia berguling di atas punggungnya.",
+      "duration": "3–4 kali.",
+      "benefit": "Mengembangkan kesadaran tubuh, keberanian, dan otot batang tubuh.",
+      "caution": "Berat badan tidak boleh bertumpu pada ubun-ubun; dagu harus selalu menempel di dada. Hanya di atas matras empuk dan dengan bantuan."
+    },
+    "3-4/21_crab_walk": {
+      "title": "Jalan kepiting",
+      "age": "3,5–4 tahun",
+      "how": "Anak duduk, meletakkan tangan di lantai di belakang tubuh dan kaki di depan, mengangkat bokongnya, lalu bergerak maju-mundur dalam posisi ini.",
+      "duration": "2–3 lintasan pendek.",
+      "benefit": "Menguatkan otot lengan, bahu, bokong, dan batang tubuh."
+    },
+    "3-4/22_bridge": {
+      "title": "Jembatan",
+      "age": "3–4 tahun",
+      "how": "Anak berbaring telentang, menekuk lutut, menapakkan kaki ke lantai, lalu mengangkat bokongnya dan menahan 3–5 detik. Anda bisa melewatkan mobil-mobilan di bawahnya.",
+      "duration": "5–6 kali ulangan.",
+      "benefit": "Menguatkan otot bokong, punggung bawah, dan paha belakang."
+    },
+    "3-4/23_superman": {
+      "title": "“Superman”",
+      "age": "3–4 tahun",
+      "how": "Anak berbaring tengkurap dan merentangkan lengan ke depan, lalu mengangkat lengan dan kakinya sedikit dari lantai secara bersamaan dan “terbang” selama 3 detik.",
+      "duration": "4–5 kali ulangan.",
+      "benefit": "Menguatkan otot punggung dan mendukung postur tubuh yang baik."
+    },
+    "3-4/24_downward_dog": {
+      "title": "Pose anjing menghadap ke bawah",
+      "age": "3–4 tahun",
+      "how": "Anak meletakkan tangan dan kakinya di lantai lalu mengangkat bokongnya ke atas (“gunung” atau “ayo menggeliat seperti anjing”). Tahan 5 detik.",
+      "duration": "3–4 kali ulangan.",
+      "benefit": "Menguatkan lengan dan bahu, serta meregangkan otot kaki bagian belakang."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Tarik tambang",
+      "age": "3–4 tahun",
+      "how": "Anak memegang satu ujung tali yang lembut, Anda memegang ujung lainnya. Anak menarik sambil menekuk lutut dan mencondongkan badan ke belakang; sesuaikan kekuatan Anda dengan kekuatannya.",
+      "duration": "3–4 ronde.",
+      "benefit": "Menguatkan otot lengan, punggung, batang tubuh, dan kaki.",
+      "caution": "Jangan melepas tali secara tiba-tiba dan jangan melilitkannya di tangan."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Tepuk tangan, hentak kaki",
+      "age": "3–4 tahun",
+      "how": "Bergeraklah mengikuti lagu: “Kalau kau senang hati, tepuk tangan”, “hentak kaki”, “berputar”, “melompat”. Ganti gerakannya bergiliran.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan rasa irama, kemampuan mengikuti instruksi, dan koordinasi."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Lingkaran dengan pita",
+      "age": "3–4 tahun",
+      "how": "Anak memegang tongkat kecil yang diikat pita panjang, lalu menggambar lingkaran besar, gelombang, dan “angka delapan” di udara. Ganti tangan.",
+      "duration": "3–5 menit.",
+      "benefit": "Mengembangkan kelenturan bahu, kendali pergelangan tangan, dan koordinasi kedua sisi tubuh."
+    },
+    "4-5/01_skipping": {
+      "title": "Berjalan sambil melompat-lompat kecil",
+      "age": "4,5–5 tahun",
+      "how": "Contohkan irama “langkah, lompat”: melangkah dengan satu kaki lalu melompat kecil dengan kaki yang sama, kemudian dengan kaki yang lain. Lakukan bersama sambil bergandengan tangan.",
+      "duration": "3–4 kali menyeberangi ruangan atau halaman.",
+      "benefit": "Mengembangkan irama, kerja bergantian kedua sisi tubuh, dan koordinasi."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Lompat tali",
+      "age": "4,5–5 tahun",
+      "how": "Mula-mula ajarkan melompati tali yang diletakkan di lantai, lalu mengayunkan tali dari atas kepala ke depan dan melangkahinya. Lompatan beruntun akan bisa sedikit demi sedikit.",
+      "duration": "5–10 kali percobaan.",
+      "benefit": "Mengembangkan irama, koordinasi lengan-kaki, dan daya tahan.",
+      "caution": "Panjang tali harus sesuai dengan anak (saat bagian tengah tali diinjak, pegangannya sampai ke ketiak)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Lompat menyamping melewati garis",
+      "age": "4–5 tahun",
+      "how": "Tempelkan selotip di lantai. Anak melompat dengan dua kaki rapat dari satu sisi selotip ke sisi lainnya secara beruntun.",
+      "duration": "8–10 lompatan.",
+      "benefit": "Mengembangkan kelincahan ke arah samping, kekuatan pergelangan kaki, dan irama."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Melompat satu kaki melewati simpai",
+      "age": "4–5 tahun",
+      "how": "Jajarkan 4–5 simpai dalam satu baris. Anak melompat dengan satu kaki dari simpai ke simpai; saat kembali, ia berganti kaki.",
+      "duration": "2–3 kali lintasan dengan setiap kaki.",
+      "benefit": "Mengembangkan kekuatan satu kaki, keseimbangan, dan ketepatan."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Melompat dari kotak dan mendarat lembut",
+      "age": "4–5 tahun",
+      "how": "Dari kotak kokoh setinggi lutut, anak melompat ke matras tebal dan mendarat “tanpa suara” dengan dua kaki sambil menekuk lutut. Lengan ke depan.",
+      "duration": "5–6 kali.",
+      "benefit": "Mengembangkan teknik mendarat yang benar, kekuatan kaki, dan keberanian.",
+      "caution": "Kotak tidak boleh bergeser atau licin; jangan menambah ketinggian."
+    },
+    "4-5/06_bicycle": {
+      "title": "Sepeda dengan roda bantu",
+      "age": "4–5 tahun",
+      "how": "Anak bersepeda dengan mengayuh pedal, belajar berbelok dan mengerem. Jika keseimbangannya sudah membaik, roda bantu boleh dilepas.",
+      "duration": "15–20 menit.",
+      "benefit": "Mengembangkan kekuatan kaki, daya tahan, keseimbangan, dan kepekaan di jalan.",
+      "caution": "Helm dan sepatu tertutup wajib dipakai; bersepeda di permukaan datar, jauh dari jalan raya."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Lari bolak-balik",
+      "age": "4–5 tahun",
+      "how": "Letakkan ember dan beberapa kantong kain dengan jarak 4–5 meter. Anak berlari mengambil satu kantong, berlari kembali untuk memasukkannya ke ember, dan terus begitu sampai kantongnya habis.",
+      "duration": "2–3 ronde.",
+      "benefit": "Mengembangkan kecepatan, kemampuan berganti arah dengan cepat, membungkuk dan bangkit, serta daya tahan."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "Main patung",
+      "age": "4–5 tahun",
+      "how": "Saat musik diputar, anak menari atau berlari; saat musik berhenti, ia membeku seperti patung dan berusaha tidak bergerak.",
+      "duration": "5–10 menit.",
+      "benefit": "Mengembangkan kendali tubuh, keseimbangan, perhatian, dan pengendalian diri."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "“Kaki masuk, kaki keluar”",
+      "age": "4–5 tahun",
+      "how": "Letakkan simpai di lantai. Sambil bernyanyi, anak bergantian memasukkan satu kaki, tangan, lalu kepala ke dalam simpai dan mengeluarkannya lagi, kemudian berputar.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan keseimbangan di satu kaki, pemahaman kanan-kiri, dan kemampuan mengikuti instruksi."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Menangkap bola kecil dengan tangan",
+      "age": "4–5 tahun",
+      "how": "Dari jarak 1,5–2 meter, lempar pelan bola kecil yang lunak. Anak menangkapnya hanya dengan tangan, tanpa mendekapnya ke dada.",
+      "duration": "10 kali.",
+      "benefit": "Mengembangkan koordinasi mata-tangan dan ketangkasan jari."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Melempar ke atas dan menangkap",
+      "age": "4–5 tahun",
+      "how": "Anak melempar sendiri kantong kain atau bola lunak ke atas dan menangkapnya dengan kedua tangan. Lalu tambahkan tepuk tangan sekali di antaranya.",
+      "duration": "10 kali.",
+      "benefit": "Mengembangkan kemampuan mengatur kekuatan, mengikuti gerak benda dengan mata, dan reaksi."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Memantulkan bola dengan tangan",
+      "age": "4,5–5 tahun",
+      "how": "Dengan lutut sedikit ditekuk, anak memantulkan bola ke lantai berulang kali dengan satu tangan. Mula-mula 2–3 kali, lalu lebih banyak. Ganti tangan.",
+      "duration": "3–4 kali percobaan dengan setiap tangan.",
+      "benefit": "Mengembangkan irama, kendali kekuatan tangan, dan koordinasi mata-tangan."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Menendang ke gawang",
+      "age": "4–5 tahun",
+      "how": "Pasang gawang kecil (atau letakkan dua benda). Anak menendang bola ke gawang dari jarak 2–3 meter; lalu coba menendang bola yang sedang menggelinding.",
+      "duration": "10 tendangan.",
+      "benefit": "Mengembangkan koordinasi mata-kaki, keseimbangan, dan ketepatan tendangan."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Memukul bola di atas penyangga",
+      "age": "4–5 tahun",
+      "how": "Letakkan bola lunak di atas penyangga yang rendah. Sambil berdiri menyamping, anak memegang tongkat plastik ringan dengan kedua tangan dan memukul bola.",
+      "duration": "8–10 pukulan.",
+      "benefit": "Mengembangkan putaran batang tubuh, koordinasi mata-tangan, dan kemampuan memukul dengan alat.",
+      "caution": "Tidak boleh ada anak lain di sekitarnya; hanya bola lunak dan tongkat plastik."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Memasukkan bola ke keranjang",
+      "age": "4–5 tahun",
+      "how": "Anak melempar bola ringan dengan kedua tangan ke keranjang yang sedikit lebih tinggi dari tubuhnya. Jika sudah berhasil, ia mundur satu langkah.",
+      "duration": "10 lemparan.",
+      "benefit": "Mengembangkan kekuatan melempar ke atas, ketepatan, dan koordinasi kaki-lengan."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Lempar gelang",
+      "age": "4–5 tahun",
+      "how": "Dari jarak 1–1,5 meter, anak berusaha memasukkan gelang-gelang ke tongkat yang berdiri tegak.",
+      "duration": "2–3 ronde.",
+      "benefit": "Mengembangkan ketepatan halus, kendali pergelangan tangan, dan kesabaran."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "Pose pesawat",
+      "age": "4–5 tahun",
+      "how": "Berdiri dengan satu kaki, anak mencondongkan badan ke depan, meluruskan kaki yang lain ke belakang, dan membentangkan lengan seperti sayap. Tahan 3–5 detik, lalu ganti kaki.",
+      "duration": "3 kali untuk setiap kaki.",
+      "benefit": "Memperkuat keseimbangan serta otot batang tubuh dan bokong."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Melangkahi rintangan di atas balok",
+      "age": "4–5 tahun",
+      "how": "Letakkan kantong kain di atas balok keseimbangan yang rendah. Anak berjalan di atas balok dan melangkahi kantong itu.",
+      "duration": "4–5 kali lintasan.",
+      "benefit": "Mengembangkan keseimbangan saat bergerak, fokus, dan kemampuan mengangkat kaki tinggi.",
+      "caution": "Pastikan ada matras empuk di bawahnya dan berjalanlah di sampingnya."
+    },
+    "4-5/19_stork_stand": {
+      "title": "Pose bangau",
+      "age": "4–5 tahun",
+      "how": "Dengan tangan di pinggang, anak berdiri dengan satu kaki dan mengangkat kaki yang lain ke depan lutut. Coba hitung sampai 8–10 detik.",
+      "duration": "2–3 kali untuk setiap kaki.",
+      "benefit": "Mengembangkan keseimbangan statis dan fokus."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Memutar simpai di pinggang",
+      "age": "4,5–5 tahun",
+      "how": "Anak menempelkan simpai ke pinggangnya, memutarnya, lalu berusaha menjaganya tetap berputar dengan menggerakkan pinggul maju-mundur. Awalnya beberapa putaran saja sudah cukup.",
+      "duration": "5 menit.",
+      "benefit": "Mengembangkan otot batang tubuh, irama, dan koordinasi."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Guling depan sendiri",
+      "age": "4–5 tahun",
+      "how": "Di atas matras tebal, anak berjongkok, meletakkan tangan di lantai, menempelkan dagu ke dada, menolak dengan kaki, berguling di atas punggung yang membulat, lalu bangkit ke posisi jongkok.",
+      "duration": "3–5 kali.",
+      "benefit": "Mengembangkan kesadaran tubuh, kelincahan, dan otot batang tubuh.",
+      "caution": "Berat badan tidak boleh bertumpu pada ubun-ubun; dagu harus selalu menempel di dada. Ajarkan dulu dengan bantuan."
+    },
+    "4-5/21_plank": {
+      "title": "Plank",
+      "age": "4–5 tahun",
+      "how": "Anak bertumpu pada siku dan ujung jari kaki, dengan tubuh membentuk garis lurus dari kepala sampai tumit. Tahan 5–10 detik.",
+      "duration": "2–3 kali.",
+      "benefit": "Menguatkan otot perut, punggung, dan bahu.",
+      "caution": "Hentikan begitu punggungnya melengkung turun."
+    },
+    "4-5/22_chair_squat": {
+      "title": "Jongkok “kursi tak terlihat”",
+      "age": "4–5 tahun",
+      "how": "Dengan kaki dibuka selebar bahu dan lengan lurus ke depan, anak berjongkok seolah duduk di kursi, lalu berdiri lagi. Tumit tetap menapak di lantai.",
+      "duration": "6–8 kali ulangan.",
+      "benefit": "Menguatkan otot kaki dan bokong."
+    },
+    "4-5/23_boat_pose": {
+      "title": "Pose perahu",
+      "age": "4–5 tahun",
+      "how": "Anak duduk dan sedikit bersandar ke belakang, menekuk lutut, mengangkat kaki dari lantai, dan meluruskan lengan ke depan. Jaga keseimbangan selama 5 detik.",
+      "duration": "3–4 kali ulangan.",
+      "benefit": "Menguatkan otot perut dan keseimbangan."
+    },
+    "4-5/24_cobra": {
+      "title": "Peregangan kobra",
+      "age": "4–5 tahun",
+      "how": "Anak berbaring tengkurap, meletakkan tangan di bawah bahu, lalu mengangkat dadanya; pinggul tetap di lantai. Tahan 5 detik.",
+      "duration": "3–4 kali ulangan.",
+      "benefit": "Menguatkan otot punggung serta meregangkan perut dan dada.",
+      "caution": "Jangan memaksa punggungnya melengkung."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Duduk kaki terbuka, meraih ke depan",
+      "age": "4–5 tahun",
+      "how": "Anak duduk dengan kaki terbuka lebar dan meraih ke depan sambil menggeser tangannya di lantai. Tahan 10 detik, tanpa menghentak-hentak.",
+      "duration": "3 kali ulangan.",
+      "benefit": "Meningkatkan kelenturan otot paha bagian dalam dan belakang."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Bergelantung maju di tangga horizontal",
+      "age": "4,5–5 tahun",
+      "how": "Sambil bergelantung di tangga horizontal yang rendah, anak memindahkan tangannya bergantian ke palang berikutnya. Pegang pinggangnya untuk menahan sebagian berat badannya.",
+      "duration": "2–3 kali percobaan.",
+      "benefit": "Mengembangkan kekuatan tangan, lengan, dan bahu, serta genggaman.",
+      "caution": "Pastikan ada permukaan empuk di bawahnya; tangannya tidak boleh basah."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Memanjat jaring tali",
+      "age": "4–5 tahun",
+      "how": "Di taman bermain atau di rumah, pada jaring yang rendah, anak berpegangan dengan tangan di bagian atas, menapakkan kaki bergantian untuk memanjat, lalu turun dengan cara yang sama.",
+      "duration": "3–4 kali.",
+      "benefit": "Mengembangkan kekuatan seluruh tubuh, koordinasi, dan keberanian.",
+      "caution": "Pastikan ada permukaan empuk di bawahnya; berdirilah di sampingnya."
+    }
+  }
+}

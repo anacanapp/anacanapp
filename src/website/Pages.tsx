@@ -1,22 +1,46 @@
 import { useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { Mail, MapPin, ShieldCheck } from 'lucide-react';
+import { SITE_PHONE, SITE_PHONE_HREF } from './components';
 import { useWebsite } from './context';
 import { Arrow, DownloadCard, FaqList, Intro, StoreLinks, ToolCards, SectionHeading } from './components';
 import { FeatureGrid, StageCards } from './Home';
 import { WEBSITE_ORIGIN, sitePath } from './routes';
 import type { WebsiteCopyKey } from './model';
+import { ToolPageLinks } from './tools/ToolLinks';
+import { CalcHubCards } from './CalcPages';
 
 export function ToolsPage() {
-  return <><Intro title="toolsTitle" description="toolsDescription" eyebrow="toolsEyebrow"/><ToolCards/><section className="site-section site-faq-section"><SectionHeading title="faq" description="faqDescription"/><FaqList keys={[5,4]}/></section><DownloadCard/></>;
+  return <><Intro title="toolsTitle" description="toolsDescription" eyebrow="toolsEyebrow"/><ToolCards/><CalcHubCards/><ToolPageLinks/><section className="site-section site-faq-section"><SectionHeading title="faq" description="faqDescription"/><FaqList keys={[5,4]}/></section><DownloadCard/></>;
 }
 export function FeaturesPage() {
   return <><Intro title="featuresTitle" description="featuresIntro" eyebrow="featureEyebrow"/><StageCards/><section className="site-section"><SectionHeading title="featureTitle" description="featureDescription"/><FeatureGrid/></section><DownloadCard/></>;
 }
+/** Editorial team / author page (E-E-A-T): who writes Anacan articles, which sources we rely on, how we check and update. */
+const EDITORIAL_SOURCES: Array<[string, string]> = [
+  ['World Health Organization (WHO)', 'https://www.who.int/'],
+  ['UNICEF', 'https://www.unicef.org/'],
+  ['American College of Obstetricians and Gynecologists (ACOG)', 'https://www.acog.org/'],
+  ['NHS (UK National Health Service)', 'https://www.nhs.uk/'],
+  ['Centers for Disease Control and Prevention (CDC)', 'https://www.cdc.gov/'],
+  ['American Academy of Pediatrics (AAP), HealthyChildren.org', 'https://www.healthychildren.org/'],
+  ['National Institute for Health and Care Excellence (NICE)', 'https://www.nice.org.uk/'],
+  ['Royal College of Obstetricians and Gynaecologists (RCOG)', 'https://www.rcog.org.uk/'],
+];
+export function EditorialPage() {
+  const {t}=useWebsite();
+  const sections=[['editorialWhoTitle','editorialWhoText'],['editorialSourcesTitle','editorialSourcesText'],['editorialProcessTitle','editorialProcessText'],
+    ['editorialMedicalTitle','editorialMedicalText'],['editorialCorrectionsTitle','editorialCorrectionsText'],['editorialIndependenceTitle','editorialIndependenceText']] as const;
+  return <><Intro title="editorialTitle" description="editorialIntro" eyebrow="author"/><div className="site-narrow site-prose site-editorial">
+    {sections.map(([title,text])=><section key={title} id={title.replace('editorial','').replace('Title','').toLowerCase()}><h2>{t(title)}</h2><p>{t(text)}</p></section>)}
+    <section id="sources"><h2>{t('editorialSourcesListTitle')}</h2><ul>{EDITORIAL_SOURCES.map(([name,url])=><li key={url}><a href={url} target="_blank" rel="noopener noreferrer">{name}</a></li>)}</ul></section>
+    <p><a className="site-text-link" href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a></p>
+  </div><DownloadCard/></>;
+}
 export function FaqPage() { return <><Intro title="faq" description="faqDescription"/><div className="site-narrow"><FaqList/></div><DownloadCard/></>; }
 export function DownloadPage() {
   const {t,route}=useWebsite();
-  return <><Intro title="downloadTitle" description="downloadDescription" eyebrow="downloadEyebrow"/><div className="site-download-page"><div className="site-download-app-icon"><img src="/brand-mark.png" width="112" height="112" alt="Anacan"/></div><StoreLinks/><p>{t('downloadNote')}</p><div className="site-qr-card"><QRCodeSVG value={WEBSITE_ORIGIN+sitePath(route.language,'download')} size={144} bgColor="#ffffff" fgColor="#333333" level="M" title={t('qrLabel')}/><div><h2>{t('qrLabel')}</h2><p>{t('qrDescription')}</p></div></div></div><section className="site-section"><SectionHeading title="stageTitle" description="stageDescription"/><StageCards/></section></>;
+  return <><Intro title="downloadTitle" description="downloadDescription" eyebrow="downloadEyebrow"/><div className="site-download-page"><div className="site-download-app-icon"><img src="/website/brand-glyph-coral.png" width="64" height="64" alt="Anacan"/></div><StoreLinks/><p>{t('downloadNote')}</p><div className="site-qr-card"><QRCodeSVG value={WEBSITE_ORIGIN+sitePath(route.language,'download')} size={144} bgColor="#ffffff" fgColor="#333333" level="M" title={t('qrLabel')}/><div><h2>{t('qrLabel')}</h2><p>{t('qrDescription')}</p></div></div></div><section className="site-section"><SectionHeading title="stageTitle" description="stageDescription"/><StageCards/></section></>;
 }
 export function ContactPage() {
   const {t}=useWebsite();
@@ -35,7 +59,7 @@ export function ContactPage() {
     <label htmlFor="contact-subject">{t('subject')}</label><input id="contact-subject" name="subject" maxLength={150} required/>
     <label htmlFor="contact-message">{t('message')}</label><textarea id="contact-message" name="message" rows={6} maxLength={3000} required/>
     <button type="submit" className="site-rainbow-button">{t('sendEmail')}<Arrow diagonal/></button><p className="site-input-help">{t('emailComposeNote')}</p><p role="status">{status}</p>
-  </form><div className="site-contact-info"><article><Mail size={24} strokeWidth={1.5}/><h2>{t('generalSupport')}</h2><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><p>{t('supportNote')}</p></article><article><ShieldCheck size={24} strokeWidth={1.5}/><h2>{t('privacySupport')}</h2><a href="mailto:privacy@anacan.az">privacy@anacan.az<Arrow diagonal/></a></article><article><MapPin size={24} strokeWidth={1.5}/><p>{t('contactLocation')}</p><div className="site-social-links"><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram<Arrow diagonal/></a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook<Arrow diagonal/></a></div></article></div></div></>;
+  </form><div className="site-contact-info"><article><Mail size={24} strokeWidth={1.5}/><h2>{t('generalSupport')}</h2><a href="mailto:info@anacan.az">info@anacan.az<Arrow diagonal/></a><a href={SITE_PHONE_HREF}>{SITE_PHONE}<Arrow diagonal/></a><p>{t('supportNote')}</p></article><article><ShieldCheck size={24} strokeWidth={1.5}/><h2>{t('privacySupport')}</h2><a href="mailto:privacy@anacan.az">privacy@anacan.az<Arrow diagonal/></a></article><article><MapPin size={24} strokeWidth={1.5}/><p>{t('contactLocation')}</p><div className="site-social-links"><a href="https://instagram.com/anacanapp" target="_blank" rel="noopener noreferrer">Instagram<Arrow diagonal/></a><a href="https://facebook.com/anacanapp" target="_blank" rel="noopener noreferrer">Facebook<Arrow diagonal/></a></div></article></div></div></>;
 }
 export function LegalPage({kind}:{kind:'privacy'|'terms'}) {
   const {t,legalContent,legalUpdated}=useWebsite();

@@ -1,4 +1,5 @@
 import type { CycleHistory } from '@/hooks/useCycleHistory';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 
 /**
  * Adaptiv tsikl proqnoz mühərriki.
@@ -33,8 +34,25 @@ export interface CyclePredictions extends AdaptiveCycleStats {
 }
 
 const MAX_CYCLES = 6;
-const MIN_VALID = 15; // qeyri-real qısa tsiklləri at
-const MAX_VALID = 60; // qeyri-real uzunları at
+/** Klinik norma: 21–35 gün. Bundan kənar tsikl anomaliyadır və proqnoza qatılmır. */
+export const NORMAL_CYCLE_MIN = 21;
+export const NORMAL_CYCLE_MAX = 35;
+const DEFAULT_CYCLE_LENGTH = 28;
+
+export const isAnomalousCycleLength = (length: number | null | undefined): boolean =>
+length != null && (length < NORMAL_CYCLE_MIN || length > NORMAL_CYCLE_MAX);
+
+/**
+ * Proqnozda istifadə olunan tsikl uzunluğu: ən azı 2 normal tsikl varsa onların
+ * çəkili ortalaması, yoxsa istifadəçinin normal aralıqdakı dəyəri, yoxsa 28.
+ * 53 günlük gecikmə kimi anomaliyalar "yeni norma" sayılmır.
+ */
+export function effectiveCycleLength(cycles: CycleHistory[], storedCycleLength?: number | null): number {
+  const stats = computeAdaptiveCycleStats(cycles, DEFAULT_CYCLE_LENGTH);
+  if (stats.basedOnCycles >= 2) return stats.predictedCycleLength;
+  if (storedCycleLength && !isAnomalousCycleLength(storedCycleLength)) return storedCycleLength;
+  return DEFAULT_CYCLE_LENGTH;
+}
 
 /**
  * Tamamlanmış tsikllərdən çəkili statistika.
@@ -45,9 +63,9 @@ cycles: CycleHistory[],
 fallbackCycleLength: number = 28,
 fallbackPeriodLength: number = 5)
 : AdaptiveCycleStats {
-  // Yalnız tamamlanmış (cycle_length dolu) və ağlabatan tsikllər, ən yenilər öndə
+  // Yalnız tamamlanmış və normal aralıqdakı tsikllər, ən yenilər öndə
   const completed = [...cycles].
-  filter((c) => c.cycle_length != null && c.cycle_length >= MIN_VALID && c.cycle_length <= MAX_VALID).
+  filter((c) => c.cycle_length != null && !isAnomalousCycleLength(c.cycle_length)).
   sort((a, b) => b.cycle_number - a.cycle_number).
   slice(0, MAX_CYCLES);
 
@@ -101,8 +119,7 @@ fallbackPeriodLength: number = 5)
   const stats = computeAdaptiveCycleStats(cycles, fallbackCycleLength, fallbackPeriodLength);
   const L = stats.predictedCycleLength;
 
-  const lpd = new Date(lastPeriodDate);
-  lpd.setHours(0, 0, 0, 0);
+  const lpd = atMidnight(lastPeriodDate);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -166,10 +183,9 @@ export interface RefinedOvulation {
 
 const DAY_MS = 86400000;
 
+/** Local midnight of a calendar date; a YYYY-MM-DD string is that local day, not UTC midnight. */
 function atMidnight(d: Date | string): Date {
-  const r = new Date(d);
-  r.setHours(0, 0, 0, 0);
-  return r;
+  return storedCalendarDate(d) ?? new Date(NaN);
 }
 
 function addDaysTo(base: Date, d: number): Date {
@@ -218,7 +234,7 @@ calendarOvulation: Date)
   // Ağlabatan pəncərə: tsiklin 6-cı günündən sonra gələn siqnallar
   // (period içi yanlış-pozitivləri kəsmək üçün)
   const plausible = (l: OvulationSignalLog) =>
-  (atMidnight(l.log_date).getTime() - cycleStart.getTime()) / DAY_MS >= 6;
+  Math.round((atMidnight(l.log_date).getTime() - cycleStart.getTime()) / DAY_MS) >= 6;
 
   // 1) peak OPK — ən güclü siqnal (ilk peak günü götürülür)
   const peak = cycleLogs.find((l) => l.ovulation_test === 'peak' && plausible(l));

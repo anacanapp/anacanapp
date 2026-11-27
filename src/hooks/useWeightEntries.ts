@@ -3,6 +3,8 @@ import { tr } from '@/lib/tr';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { useToast } from './use-toast';
+import { todayKey } from '@/lib/local-date';
+import { retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
 
 export interface WeightEntry {
   id: string;
@@ -42,37 +44,34 @@ export const useWeightEntries = () => {
   const addEntry = async (weight: number, notes?: string) => {
     if (!user) return null;
 
-    try {
-      const { data, error } = await supabase
-        .from('weight_entries')
-        .insert({
-          user_id: user.id,
-          weight,
-          notes: notes || null,
-        })
-        .select()
-        .single();
+    // Queued in the offline outbox first (client UUID id, idempotent replay): a dropped
+    // connection or a timeout keeps it and syncs later instead of losing the entry.
+    const outcome = await saveWithOutbox(user.id, 'weight_entries', {
+      user_id: user.id,
+      weight,
+      notes: notes || null,
+      entry_date: todayKey(),
+    });
 
-      if (error) throw error;
-
-      // Immediately update local state with the new entry
-      setEntries(prev => [data, ...prev]);
-
-      toast({
-        title: tr("useweightentries_ceki_yadda_saxlandi_f56b5a", "Çəki yadda saxlandı! ⚖️"),
-        description: `${weight} kg`,
-      });
-
-      return data;
-    } catch (error: any) {
-      console.error('Error adding weight entry:', error);
+    if (outcome.status === 'error') {
+      console.error('Error adding weight entry:', outcome.error);
       toast({
         title: tr("useweightentries_xeta_bas_verdi_f22fba", "Xəta baş verdi"),
-        description: error.message,
+        description: (outcome.error as { message?: string })?.message,
         variant: 'destructive',
       });
       return null;
     }
+
+    const saved = outcome.data as unknown as WeightEntry;
+    // Immediately update local state (optimistic while queued, confirmed when saved).
+    setEntries(prev => [saved, ...prev.filter(e => e.id !== saved.id)]);
+    toast({
+      title: tr("useweightentries_ceki_yadda_saxlandi_f56b5a", "Çəki yadda saxlandı! ⚖️"),
+      description: `${weight} kg`,
+    });
+    if (outcome.status === 'saved') void fetchEntries();
+    return saved;
   };
 
   const getStats = () => {
@@ -118,6 +117,19 @@ export const useWeightEntries = () => {
   useEffect(() => {
     fetchEntries();
   }, [user]);
+
+  // Offline outbox: flush queued weight entries (mount, online, app resume) and
+  // refetch once a background flush delivered them.
+  useEffect(() => {
+    if (!user?.id) return;
+    const uid = user.id;
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId === uid && event.sentTables.includes('weight_entries')) void fetchEntries();
+    });
+    const release = retainOutboxUser(uid);
+    return () => { unsubscribe(); release(); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]);
 
   const deleteEntry = async (entryId: string) => {
     if (!user) return;

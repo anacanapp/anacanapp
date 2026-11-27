@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Kelekatan: pelabuhan aman anak',
+    summary: 'Kelekatan yang aman tidak lahir dari pengasuhan yang sempurna, tapi dari pengasuhan yang “cukup baik”, peka, dan bisa diandalkan.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby menggambarkan kelekatan sebagai naluri anak untuk mencari kedekatan saat ada bahaya. Mary Ainsworth dalam pengamatannya melihat bahwa anak dengan orang tua yang peka dan bisa ditebak memakai orang tuanya sebagai “basis aman”: mereka menjelajah dengan nyaman, dan saat takut, mereka kembali untuk ditenangkan.',
+      'Kelekatan yang aman di tahun-tahun berikutnya dikaitkan dengan regulasi emosi, kemampuan berteman, dan rasa percaya diri yang lebih baik. Poin penting: untuk itu kamu tidak perlu menanggapi setiap tangisan dengan segera dan sempurna. Penelitian menunjukkan bahwa sebagian besar interaksi justru terdiri dari momen-momen yang “tidak nyambung”, dan yang utama adalah memperbaiki momen itu sesudahnya.',
+      'Kelekatan tidak dibangun sekali lalu selesai: di usia sekolah pun anak perlu tahu bahwa ia bisa kembali padamu di saat sulit. Hanya saja sekarang bentuknya lebih banyak berupa mendengarkan dan perasaan “aku ada di pihakmu” daripada pelukan.',
+    ],
+    tryToday: [
+      'Saat anak datang padamu (dengan gembira atau sedih), beri perhatian penuh beberapa detik: letakkan ponsel, tatap matanya.',
+      'Sebelum berpisah, buat ritual pamit yang singkat dan selalu sama: peluk, “sampai ketemu nanti sore”, lalu benar-benar pergi. Pergi diam-diam merusak rasa percaya.',
+      'Sekali sehari, ikut masuk ke minatnya: apa yang ia mainkan, apa yang ia ceritakan.',
+      'Perbaiki momen saat kamu kehilangan kesabaran: “Tadi pagi aku nggak sabaran. Yuk, kita mulai lagi.”',
+    ],
+    mistakes: [
+      'Membiarkan bayi menangis karena takut ia akan “bau tangan”. Di bulan-bulan pertama, menanggapi tangisan tidak mengurangi kemandirian, justru menambahnya.',
+      'Mengartikan kelekatan sebagai “tidak pernah berpisah dari anak”. Ikatan yang aman juga terbentuk dengan nenek, ayah, pengasuh, dan itu hal yang baik.',
+      'Berusaha menjadi sempurna. Anak tidak butuh orang tua ideal, tapi orang tua yang tulus dan mau memperbaiki.',
+    ],
+    byAge: {
+      '0-1': 'Tanggapi tangisannya, buat kontak mata, ajak bicara, bernyanyi. Di usia ini tidak ada istilah memanjakan.',
+      '1-3': 'Anak menjelajah lalu kembali. Duduk di taman dan bilang “aku di sini” sudah cukup.',
+      '3-6': 'Waktu bermain khusus 10–15 menit sehari memperkuat kelekatan.',
+      '6-12': 'Dengarkan tanpa menghakimi. Kalau kamu ada untuknya di masalah kecil, ia juga akan membawa masalah besarnya padamu.',
+    },
+    specialist: [
+      'Jika bayi menghindari kontak mata, sama sekali tidak tertarik padamu atau orang-orang yang dikenalnya, atau hampir tidak mungkin ditenangkan — hubungi dokter.',
+      'Jika anak lekat pada semua orang, bahkan orang asing, sama rata tanpa membedakan (terutama setelah tahun-tahun awal yang berat) — hubungi psikolog anak.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Saat bayi menangis: mitos “nanti jadi manja”',
+    summary: 'Tangisan adalah satu-satunya bahasa bayi. Menanggapinya tidak membuat manja, tapi membangun rasa percaya.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'American Academy of Pediatrics menyatakan dengan jelas: di bulan-bulan pertama, bayi tidak mungkin dimanja. Menanggapi tangisan dengan hangat menenangkan sistem stres bayi dan membangun keyakinan bahwa “dunia ini aman”.',
+      'Di saat yang sama, bayi sehat pun wajar banyak menangis di minggu-minggu pertama: tangisan mulai bertambah sekitar usia 2 minggu, memuncak di usia 6–8 minggu, dan berkurang di usia 3–4 bulan. Kadang tidak ditemukan penyebab apa pun. Ini bukan kegagalanmu.',
+      'Aturan keamanan terpenting: saat emosimu memuncak, jangan pernah mengguncang bayi. Mengguncang bisa menyebabkan cedera otak. Menidurkan bayi telentang di boksnya lalu keluar ruangan beberapa menit adalah langkah yang sepenuhnya benar.',
+    ],
+    tryToday: [
+      'Cek kebutuhan dasar: lapar, popok, panas-dingin, perlu sendawa, lelah.',
+      'Coba cara-cara menenangkan: membedong (pinggul tetap bebas bergerak), mengayun berirama, suara “sshh”, menggendong sambil berjalan, kontak kulit ke kulit.',
+      'Buat rencana bantuan untuk jam-jam rewel: bergantian dengan pasangan, nenek, atau tetangga.',
+      'Kalau kesabaranmu habis: letakkan bayi di tempat yang aman, tarik napas 5–10 menit, minum air, telepon seseorang, lalu kembali.',
+    ],
+    mistakes: [
+      'Membiarkan bayi yang masih sangat kecil sendirian dalam waktu lama dengan alasan “kalau dibiarkan menangis, nanti terbiasa”.',
+      'Mengaitkan tangisan yang banyak dengan “pengasuhanmu yang buruk”. Masa ini akan berlalu.',
+      'Malu meminta bantuan.',
+    ],
+    specialist: [
+      'Jika tangisan disertai demam (terutama pada bayi di bawah 3 bulan), muntah, diare, menolak menyusu/makan, lemas, atau tangisan melengking yang tidak biasa — segera hubungi dokter. Dalam kondisi serius, hubungi {emergency}.',
+      'Jika muncul pikiran untuk mengguncang atau menyakiti bayi, segera minta bantuan. Ini tidak menjadikanmu orang jahat, ini tanda bahwa kelelahanmu sudah di puncaknya.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 menit sehari: waktu khusus',
+    summary: 'Waktu bermain harian yang singkat dan dipimpin anak adalah salah satu alat paling ampuh untuk mengurangi masalah perilaku.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Tahap pertama PCIT (Parent-Child Interaction Therapy), salah satu program parenting yang paling banyak diteliti, justru didasarkan pada hal ini: 5–10 menit sehari bermain dengan anak sebagai pemimpin, sementara orang tua memuji, menggambarkan, dan meniru. Meta-analisis menunjukkan program ini menurunkan masalah perilaku secara nyata.',
+      'Alasannya sederhana: saat kebutuhan anak akan perhatian dipenuhi dengan cara positif, kebutuhan untuk “mendapatkan” perhatian lewat perilaku negatif berkurang.',
+    ],
+    tryToday: [
+      'Pasang timer: 10 menit. Ponsel di ruangan lain.',
+      'Anak memilih permainan, kamu mengikuti. Tanpa perintah, hujan pertanyaan, atau kritik.',
+      'Gambarkan apa yang ia lakukan: “Kamu taruh balok merah paling atas.” Tirukan dan puji: “Kamu menyusunnya hati-hati sekali!”',
+      'Saat selesai, katakan: “Seru banget main sama kamu. Besok lagi, ya.”',
+    ],
+    mistakes: [
+      'Membatalkan waktu khusus karena perilaku buruk. Ini bukan hukuman atau hadiah, tapi vitamin harian.',
+      'Mengubah permainan menjadi “pelajaran”: “Ini warna apa? Ada berapa balok?”',
+    ],
+    byAge: {
+      '1-3': '5 menit sudah cukup. Duduk di lantai, setinggi dia.',
+      '6-12': 'Beri nama: “waktu ibu-anak”. Bisa main kartu, masak bersama, atau jalan-jalan.',
+    },
+    specialist: [
+      'Jika waktu khusus dan cara-cara lain sama sekali tidak membawa perubahan dalam beberapa minggu, dan masalah perilakunya berat — hubungi tenaga profesional untuk PCIT atau program serupa.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Takut berpisah dan adaptasi di daycare/TK',
+    summary: 'Menangis saat berpisah adalah tanda kelekatan. Pamit yang singkat dan tulus, serta kepulangan yang bisa ditebak, memudahkan adaptasi.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Kecemasan berpisah biasanya mulai sekitar usia 8–10 bulan, memuncak di usia 15–18 bulan, dan umumnya melunak menjelang usia 3 tahun. Ini masa ketika anak belum sepenuhnya paham bahwa orang tuanya tidak “menghilang”.',
+      'Yang paling meningkatkan kecemasan anak adalah ketidakpastian. Pergi diam-diam memang mengurangi air mata sesaat, tapi dalam jangka panjang membuat anak makin lengket.',
+    ],
+    tryToday: [
+      'Buat ritual pamit yang singkat dan selalu sama: peluk, cium, “aku datang setelah makan siang”, lalu pergi.',
+      'Sebelum mulai daycare/TK, latih perpisahan singkat: 15 menit, lalu 1 jam.',
+      'Kaitkan kepulanganmu dengan kejadian yang dipahami anak: “Aku datang setelah tidur siang, setelah camilan.”',
+      'Satu “benda transisi” dari rumah — mainan kecil, fotomu — bisa menghiburnya.',
+    ],
+    mistakes: [
+      'Tidak bisa pergi lama-lama dari anak yang menangis, berkali-kali kembali dari pintu.',
+      'Menertawakan ketakutan anak atau bilang “kamu sudah besar, malu dong”.',
+    ],
+    specialist: [
+      'Jika takut berpisahnya jauh lebih kuat dari yang wajar untuk usianya, mengganggu tidur, makan, dan berangkat ke daycare/TK selama berminggu-minggu, atau muncul lagi di usia sekolah — hubungi psikolog anak.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Ritual tidur: tiga langkah yang sama setiap malam',
+    summary: 'Ritual sederhana yang diulang setiap malam membantu anak lebih cepat tertidur dan lebih jarang terbangun di malam hari.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Dalam sebuah penelitian acak terkontrol (Mindell dan rekan, 2009), ritual malam 3 langkah — mandi, pijat atau losion, kegiatan tenang (pelukan, lagu nina bobo) — hanya dalam dua minggu membuat anak lebih cepat tertidur, lebih jarang terbangun di malam hari, dan suasana hati para ibu membaik. Tinjauan-tinjauan berikutnya menunjukkan bahwa rutinitas malam juga berkaitan dengan perkembangan bahasa dan regulasi emosi.',
+      'Tidur yang dianjurkan sesuai usia (termasuk tidur siang): 4–12 bulan — 12–16 jam, 1–2 tahun — 11–14 jam, 3–5 tahun — 10–13 jam, 6–12 tahun — 9–12 jam. Kurang tidur pada anak sering tidak tampak sebagai lelah, tapi sebagai rewel dan hiperaktif.',
+      'Aturan tidur aman untuk bayi itu penting: telentang, di kasur yang padat dan rata, tanpa bantal dan selimut, idealnya sekamar dengan orang tua tapi di tempat tidurnya sendiri.',
+    ],
+    tryToday: [
+      'Mulai malam ini, buat ritual: misalnya mandi → piyama dan sikat gigi → buku dan lagu nina bobo. Setiap malam urutan yang sama, kira-kira di jam yang sama.',
+      'Satu jam sebelum ritual, matikan layar dan redupkan lampu.',
+      'Buat bersama jadwal ritual bergambar, dan biarkan anak “mencentang” sendiri setiap langkahnya.',
+      'Jangan sampai ritual lebih dari 20–30 menit. Makin panjang, makin anak berusaha memperpanjangnya.',
+    ],
+    mistakes: [
+      'Setiap malam jam berbeda dan urutan berbeda. Otak mencari petunjuk yang bisa ditebak.',
+      'Permainan yang heboh, layar, atau teriakan sebelum tidur.',
+      'Menganggap metode tidur tertentu “wajib”. Duduk di sampingnya, tidur bersama atau tidak, menjauh perlahan — pilih yang cocok untuk keluargamu. Tidak ada satu metode yang wajib untuk semua.',
+    ],
+    byAge: {
+      '0-1': 'Ritualnya singkat saja: mandi, menyusu/minum susu, lagu nina bobo. Kamu bisa mencoba menaruh bayi di tempat tidur saat mengantuk tapi masih terjaga, dan kalau tidak berhasil, jangan khawatir.',
+      '1-3': 'Beri pilihan: “Kita baca buku ini atau yang itu?” Jam tidur tidak dinegosiasikan, yang dipilih bukunya.',
+      '3-6': 'Mulai muncul pertanyaan-pertanyaan untuk “mengulur” waktu tidur. Masukkan momen “pertanyaan terakhir” atau “pelukan terakhir” ke dalam ritual.',
+      '6-12': 'Ponsel, tablet, dan TV jangan ada di kamar tidur. Rencanakan jam tidur bersama, sekaligus dengan PR dan olahraga.',
+    },
+    specialist: [
+      'Jika anak mendengkur saat tidur, napasnya berhenti, bernapas lewat mulut, dan di siang hari sangat mengantuk — hubungi dokter.',
+      'Jika masalah tidur berlangsung lebih dari beberapa minggu dan sangat mengganggu kehidupan sehari-hari keluarga.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Terbangun di malam hari dan ketakutan malam',
+    summary: 'Mimpi buruk dan teror malam adalah dua hal berbeda. Masing-masing butuh pendekatan yang berbeda.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Mimpi buruk terjadi di paruh kedua malam, pada fase tidur bermimpi. Anak terbangun, bilang ia takut, mengenalimu, dan butuh dihibur.',
+      'Teror malam (pavor nocturnus) biasanya terjadi 1–3 jam setelah tertidur, saat tidur dalam. Anak bisa berteriak dengan mata terbuka, tapi sebenarnya ia tidak bangun, tidak mengenalimu, dan paginya tidak ingat apa-apa. Ini sering terjadi di usia 3–7 tahun dan umumnya tidak berbahaya.',
+    ],
+    tryToday: [
+      'Setelah mimpi buruk: peluk, hibur singkat, nyalakan lampu sedikit. Jangan minta ia menceritakan mimpinya secara detail malam itu, bicarakan besok.',
+      'Saat teror malam: jangan coba membangunkan anak, cukup pastikan ia aman dan temani dengan tenang. Setelah episodenya lewat, ia akan lanjut tidur.',
+      'Kurang tidur memperparah teror malam: coba majukan jam tidur 20–30 menit.',
+      'Di siang hari, bicarakan ketakutannya lewat permainan: buat “buku monster” bersama dan jadikan monsternya lucu.',
+    ],
+    mistakes: [
+      'Mengguncang anak untuk membangunkannya saat teror malam.',
+      'Mengejek ketakutannya: “Monster itu nggak ada, jangan konyol.”',
+    ],
+    specialist: [
+      'Jika episode sangat sering terjadi (beberapa kali seminggu), berlangsung lebih dari 30 menit, ada gerakan tidak biasa (kejang berirama, mengompol), atau menyebabkan kantuk di siang hari — hubungi dokter.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Pilih-pilih makanan: siapa bertanggung jawab atas apa?',
+    summary: 'Orang tua menentukan apa, kapan, dan di mana makan; anak menentukan berapa banyak dan mau makan atau tidak. Pembagian ini mengakhiri perang di meja makan.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Enggan mencoba makanan baru (neofobia) sangat umum di usia 2–6 tahun dan masuk akal secara evolusi: ini melindungi anak kecil dari makanan yang asing dan berpotensi berbahaya. Biasanya ini hanya fase sementara.',
+      'Penelitian menunjukkan bahwa memaksa anak makan, bilang “satu suap lagi”, dan memberi hadiah permen justru berdampak sebaliknya: membuat anak makin tidak suka makanan itu dan melemahkan kemampuannya mendengar sinyal lapar-kenyang. Sebaliknya, menawarkan berulang kali tanpa tekanan — sering kali 10–15 kali — meningkatkan penerimaan.',
+      'Model “pembagian tanggung jawab” dari ahli gizi Ellyn Satter menjadikan temuan ini aturan praktis: orang tua memilih menu, waktu, dan tempat, sementara anak memilih seberapa banyak ia makan.',
+    ],
+    tryToday: [
+      'Di setiap makan, sediakan setidaknya satu makanan “aman” yang disukai anak, dan di sebelahnya sepotong kecil makanan baru.',
+      'Taruh makanan baru tanpa komentar. Kalau tidak dimakan pun, jangan bilang apa-apa. Besok dan lusa, coba lagi.',
+      'Makan bersama keluarga, tanpa layar. Anak perlu melihatmu makan dengan lahap.',
+      'Libatkan anak di dapur: biarkan ia mencuci sayur, mengaduk salad. Yang ia siapkan sendiri lebih mau ia cicipi.',
+      'Tetapkan jam makan dan camilan, tanpa “ngemil terus” di antaranya.',
+    ],
+    mistakes: [
+      'Memaksa, menyogok (“makan brokolinya, nanti dapat cokelat”), atau menghukum.',
+      'Setiap kali makan menyiapkan “menu restoran” terpisah untuk anak.',
+      'Menuntut piring harus bersih. Anak perlu belajar mendengar rasa kenyangnya.',
+    ],
+    byAge: {
+      '1-3': 'Finger food, porsi kecil, izinkan makan sendiri. Berantakan adalah bagian dari belajar.',
+      '3-6': '“Aturan mencicipi”: mencicipi tidak wajib, tapi melihat, mencium, dan menyentuh makanan baru bisa jadi permainan.',
+      '6-12': 'Libatkan dalam merencanakan menu: seminggu sekali biarkan ia memilih sayur baru.',
+    },
+    specialist: [
+      'Jika berat badan anak turun, tertinggal dari kurva tumbuh, jenis makanan yang mau ia makan sangat sedikit (misalnya kurang dari 15), atau saat makan ia muntah, tersedak, atau merasa sakit — hubungi dokter.',
+      'Jika ada panik hebat saat menghadapi makanan, muntah, atau penolakan total terhadap tekstur tertentu — ahli terapi makan bisa membantu.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Waktu layar: rencana cerdas sesuai usia',
+    summary: 'Di usia dini, layar tidak bisa menggantikan interaksi nyata. Seiring anak tumbuh, tujuannya bukan larangan, tapi rencana keluarga yang disusun bersama.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Anak kecil belajar sangat sedikit dari layar dibandingkan dari manusia sungguhan: bahasa dan keterampilan sosial dibangun lewat interaksi tatap muka “lempar dan tangkap”. Bahkan TV yang menyala di latar belakang mengurangi obrolan orang tua dengan anak.',
+      'WHO (2019): layar tidak dianjurkan untuk anak di bawah 1 tahun; di usia 2–4 tahun tidak lebih dari 1 jam sehari, dan makin sedikit makin baik. American Academy of Pediatrics (2016): hindari layar sampai usia 18 bulan (kecuali video call), di usia 2–5 tahun maksimal 1 jam sehari dengan konten berkualitas dan sebisa mungkin ditonton bersama orang tua; setelah usia 6 tahun, aturan tetap yang tidak mengganggu tidur, gerak, dan interaksi.',
+      'Layar sebelum tidur menunda waktu terlelap. Layar saat makan melemahkan kemampuan anak mendengar sinyal kenyang.',
+    ],
+    tryToday: [
+      'Tetapkan zona bebas layar: meja makan dan kamar tidur.',
+      'Matikan layar satu jam sebelum tidur.',
+      'Beri tahu sebelumnya kapan waktu layar berakhir dan pakai timer: “Kalau timernya bunyi, tabletnya istirahat.”',
+      'Sesekali tonton bersama dan ngobrol: “Menurutmu, kenapa dia melakukan itu?” Ini mengubah layar menjadi interaksi.',
+      'Perhatikan juga ponselmu sendiri: matikan notifikasi saat anak ada di dekatmu.',
+    ],
+    mistakes: [
+      'Menjadikan layar alat utama untuk menghentikan tantrum. Anak tidak belajar menenangkan diri.',
+      'Hanya membuat aturan untuk anak. Anak meniru kebiasaan layar orang tuanya.',
+      'Menganggap semua layar “buruk”. Video call, konten edukatif yang ditonton bersama, dan aplikasi kreatif itu berbeda.',
+    ],
+    byAge: {
+      '0-1': 'Tanpa layar, kecuali video call. “Layar” terbaik untuk bayi adalah wajahmu.',
+      '1-3': 'Sampai usia 2 tahun, sesedikit mungkin. Kalau menonton, singkat, bertempo lambat, dan di sampingmu.',
+      '3-6': 'Maksimal 1 jam sehari, konten berkualitas tanpa iklan. Tidak saat makan dan tidak sebelum tidur.',
+      '6-12': 'Tulis rencana media keluarga bersama: belajar, tidur, olahraga, teman didahulukan. Patuhi batas usia untuk akun media sosial.',
+    },
+    specialist: [
+      'Jika anak menjadi sangat agresif saat layar diambil, tidak tertarik pada hal lain, dan tidur serta sekolahnya sangat terganggu — hubungi psikolog anak.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Siap toilet training: tanpa terburu-buru',
+    summary: 'Langkah terpenting toilet training adalah menunggu tanda-tanda kesiapan. Kebanyakan anak siap di usia 2–3 tahun.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Pada tahun 1960-an, dokter anak Berry Brazelton mengusulkan pendekatan “berpusat pada anak”: mulai saat anak menunjukkan tanda siap, tanpa tekanan dan tanpa hukuman. Pendekatan ini sampai sekarang masih menjadi dasar rekomendasi American Academy of Pediatrics.',
+      'Tanda-tanda siap: tetap kering 2 jam atau lebih, merasa tidak nyaman saat popok basah, memahami instruksi sederhana, bisa menaikkan dan menurunkan celana, tertarik pada toilet. Kering di malam hari datang lebih belakangan: mengompol di malam hari sampai usia 5–6 tahun itu normal.',
+    ],
+    tryToday: [
+      'Cek tanda-tanda kesiapan. Kalau belum ada, tunggu, itu normal.',
+      'Biarkan anak memilih pispot atau dudukan toiletnya sendiri. Awalnya biarkan ia duduk dengan berpakaian sambil membaca buku.',
+      'Setelah makan dan tidur, adakan “waktu toilet” singkat, dan ucapkan terima kasih apa pun hasilnya.',
+      'Sambut “kecelakaan” dengan tenang: “Nggak apa-apa. Yuk, kita bersihkan bareng.”',
+    ],
+    mistakes: [
+      'Menghukum, mempermalukan, membandingkan dengan anak lain. Ini bisa menyebabkan sembelit dan takut ke toilet.',
+      'Memulai saat ada perubahan besar (adik baru, pindah rumah, mulai daycare/TK).',
+      'Memaksa duduk lama-lama.',
+    ],
+    byAge: {
+      '1-3': 'Main “toilet-toiletan” dengan boneka, bacakan buku. Jangan buru-buru memulai.',
+      '3-6': '“Kecelakaan” itu normal, terutama saat asyik bermain. Popok malam masih boleh dipakai.',
+    },
+    specialist: [
+      'Buang air besar yang sakit atau sangat jarang (sembelit), nyeri atau perih saat buang air kecil, sering “kecelakaan” di siang hari setelah usia 4 tahun.',
+      'Jika setelah lama kering ia kembali mengompol di siang atau malam hari — hubungi dokter.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Pagi yang terburu-buru: berangkat tanpa teriakan',
+    summary: 'Sebagian besar konflik pagi terselesaikan di malam sebelumnya. Persiapan, rencana bergambar, dan sedikit waktu cadangan bekerja ajaib.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Di momen terburu-buru dan tegang, fungsi eksekutif orang tua maupun anak — merencanakan, mengingat, bersabar — melemah. Karena itu aturan pagi lebih berhasil lewat jadwal yang terlihat mata daripada lewat kata-kata.',
+      'Rutinitas yang memberi anak rasa kendali (langkah-langkah yang ia centang sendiri) meningkatkan kerja sama dan mengurangi kebutuhan untuk mengingatkan berulang kali.',
+    ],
+    tryToday: [
+      'Siapkan baju, tas, dan sepatu sejak malam. Biarkan anak memilih bajunya sendiri.',
+      'Buat kartu bergambar untuk langkah-langkah pagi: bangun → toilet → pakai baju → sarapan → sikat gigi → sepatu.',
+      'Sisihkan waktu cadangan 15 menit: tulis jam berangkat lebih awal untuk dirimu sendiri.',
+      'Pagi hari tanpa layar, setidaknya sampai semua siap.',
+    ],
+    mistakes: [
+      'Mengulang hal yang sama puluhan kali. Katakan sekali, lalu tunjuk kartunya.',
+      'Melakukan semuanya untuk anak karena “begini lebih cepat”.',
+    ],
+    specialist: [
+      'Jika setiap pagi anak mengeluh sakit perut atau sakit kepala, atau terus-menerus menolak berangkat ke daycare/TK atau sekolah — bicarakan dengan dokter atau psikolog.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '“Lempar dan tangkap”: rahasia bahasa dan otak',
+    summary: 'Anak “melempar” sinyal — tatapan, suara, gerakan — dan kamu “mengembalikannya”. Permainan sederhana ini membangun arsitektur otak.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Center on the Developing Child di Universitas Harvard menyamakan interaksi timbal balik ini dengan permainan tenis: bayi bersuara, menatap, menunjuk; orang dewasa menanggapi. Saat “lempar-tangkap” ini diulang-ulang, jalur saraf untuk bahasa, perhatian, dan keterampilan sosial menguat. Sementara dibiarkan tanpa tanggapan menimbulkan stres.',
+      'Sebuah penelitian menarik (Romeo dan rekan, 2018) menunjukkan bahwa aktivitas area bahasa di otak anak lebih baik dijelaskan oleh jumlah giliran bicara dalam percakapan, bukan sekadar jumlah kata yang ia dengar. Jadi yang penting bukan banyak bicara, tapi bicara dengannya.',
+    ],
+    tryToday: [
+      'Ikuti ke mana perhatian anak tertuju dan namai dengan kata-kata: “Iya, anjing! Anjing besar warna cokelat.”',
+      'Tunggu jawabannya: diam 5 detik setelah bertanya memberi anak waktu untuk mengambil gilirannya.',
+      'Tirukan suara bayi dan kembangkan sedikit: ia bilang “ba”, kamu bilang “ba-ba-bola!”',
+      'Ceritakan kegiatan sehari-hari seperti “komentator olahraga”: “Aku cuci kentangnya, sekarang aku potong…”',
+    ],
+    mistakes: [
+      'Menjadikan bicara sebagai “pelajaran”: “Bilang: apel! Ayo bilang apel!” Tekanan justru mengurangi bicara.',
+      'Langsung mengoreksi kata-kata anak. Sebagai gantinya, cukup ulangi bentuk yang benar: “Bobeka? Iya, boneka merah yang lembut.”',
+      'Melihat ponsel saat bersama anak. Setiap notifikasi adalah “bola yang tidak dikembalikan”.',
+    ],
+    byAge: {
+      '0-1': 'Tatap muka, tersenyum, bernyanyi, tanggapi suara-suara bayi.',
+      '1-3': 'Namai benda yang ditunjuk anak, ajukan pertanyaan sederhana, kembangkan satu katanya menjadi dua kata.',
+      '3-6': 'Telusuri pertanyaan “kenapa?” bersama, ajukan pertanyaan terbuka: “Menurutmu, habis ini apa yang terjadi?”',
+    },
+    specialist: [
+      'Jika di usia 12 bulan sama sekali belum ada gerakan isyarat (melambai, menunjuk), di usia 16–18 bulan belum ada satu kata pun, atau di usia 2 tahun belum ada ungkapan dua kata — hubungi dokter atau terapis wicara.',
+      'Jika di usia berapa pun ia kehilangan kata-kata yang sebelumnya sudah diucapkan — jangan menunggu, hubungi dokter.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Kekuatan bermain: kenapa bermain bukan “buang waktu”',
+    summary: 'Bermain bebas memperkuat fungsi eksekutif, kreativitas, dan ketahanan anak terhadap stres.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Laporan American Academy of Pediatrics tahun 2018 (“The Power of Play”) menyebut bermain bukan sebagai “kemewahan”, tapi kebutuhan bagi perkembangan anak. Saat bermain, anak merencanakan, memegang aturan, bernegosiasi dengan orang lain, dan belajar menahan kecewa.',
+      'Permainan peran (“toko-tokoan”, “dokter-dokteran”) terutama melatih fungsi eksekutif: anak harus tetap dalam perannya, mengingat aturan, dan menahan keinginannya sendiri.',
+    ],
+    tryToday: [
+      'Sisihkan setidaknya satu jam sehari untuk bermain bebas tanpa struktur (bisa dibagi-bagi, tergantung usia).',
+      'Pilih mainan sederhana yang terbuka: balok, kardus, cat, kostum. Sedikit mainan berarti lebih banyak kreativitas.',
+      'Seminggu sekali bermain bebas di luar ruangan: pohon, pasir, air, ranting.',
+      'Sesekali ikut bermain dengan peran yang “terbalik”: kamu jadi pembeli, ia jadi penjual.',
+    ],
+    mistakes: [
+      'Mengisi setiap menit dengan les dan kegiatan. Rasa bosan adalah awal kreativitas.',
+      'Selalu menang atau selalu kalah saat bermain. Anak perlu belajar keduanya.',
+    ],
+    specialist: [
+      'Jika setelah usia 2–3 tahun anak sama sekali tidak tertarik pada permainan peran, permainannya sangat berulang dan tidak berubah, atau tidak tertarik bermain dengan anak lain — hubungi dokter untuk pemeriksaan perkembangan.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Membaca bersama: sejak hari pertama',
+    summary: 'Membaca buku bersama sejak bayi adalah salah satu kebiasaan paling sederhana dan paling ampuh untuk bahasa, perhatian, dan kelekatan.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'American Academy of Pediatrics (2014) menyarankan dokter anak agar di setiap pemeriksaan menganjurkan orang tua membacakan buku sejak bayi. Membaca bersama menambah kosakata, kemampuan mendengarkan, dan keberhasilan membaca di kemudian hari.',
+      'Manfaat terbesar datang dari “membaca dialogis”: orang tua bertanya, mengembangkan jawaban anak, dan membicarakan gambar-gambarnya. Jadi buku pun adalah alat untuk “lempar dan tangkap”.',
+    ],
+    tryToday: [
+      '10–15 menit sehari membaca buku bersama, idealnya sebagai bagian dari ritual tidur.',
+      'Di setiap halaman ajukan satu pertanyaan: “Menurutmu, kucingnya mau ngapain sekarang?”',
+      'Kalau anak minta buku yang sama 20 kali — bacakan. Pengulangan adalah salah satu cara belajar.',
+      'Di usia sekolah, bacalah bergantian: satu halaman kamu, satu halaman dia.',
+    ],
+    mistakes: [
+      'Menyajikan membaca sebagai pelajaran wajib.',
+      'Berhenti membacakan dengan suara keras saat anak mulai bisa membaca sendiri. Membaca dengan suara keras tetap bermanfaat sampai usia 10–12 tahun.',
+    ],
+    specialist: [
+      'Jika di usia sekolah membaca terasa jauh lebih sulit dibanding teman sebayanya, ia sering tertukar huruf, atau tidak ada kemajuan meski sudah berusaha — konsultasikan dengan guru dan tenaga profesional (terapis wicara, psikolog).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

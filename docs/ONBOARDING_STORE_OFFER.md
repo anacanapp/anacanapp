@@ -102,3 +102,12 @@ Mağaza konfiqurasiyasının SDK-ya yayılması vaxt ala bilər; RevenueCat Appl
 - [Apple subscription pricing](https://developer.apple.com/help/app-store-connect/manage-subscriptions/manage-pricing-for-auto-renewable-subscriptions/)
 - [Google subscriptions and offers](https://support.google.com/googleplay/android-developer/answer/12154973?hl=en)
 - [RevenueCat offer selection and eligibility](https://www.revenuecat.com/docs/subscription-guidance/subscription-offers)
+
+## 2026-11-10: store-driven campaign prices
+
+From the next native build, the app no longer requires the exact $19.99 / $29.99 USD pair. Any annual
+introductory offer (iOS Pay up front, 1 year) or Google `yearly-plan:onboarding-first-year` first phase priced below the
+renewal is shown and bought exactly as the store reports it. A one-day campaign (e.g. 11.11 at $11.11) is then a store
+change only: edit the iOS introductory offer (start/end dates) and the Google offer phase price, then restore them.
+Builds 49/50 still enforce the old pair: changing the store offer there hides the discount (Android buys $29.99) and
+iOS refuses the purchase for eligible users, so do not run store campaigns until the new build is the majority.

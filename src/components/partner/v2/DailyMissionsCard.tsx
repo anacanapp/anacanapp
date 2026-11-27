@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ChevronDown, ChevronUp, Zap } from 'lucide-react';
 import { usePartnerMissions } from '@/hooks/usePartnerMissions';
+import type { MissionStageInput } from '@/data/partner-missions';
 import LevelUpCelebration from '@/components/partner/LevelUpCelebration';
 import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
 import { tr } from '@/lib/tr';
 
 /**
- * "Bu gün necə kömək edim?" — günlük 3 qayğı tapşırığı.
+ * "Bu gün necə kömək edim?" — ananın mərhələsinə uyğun günlük 3 tapşırıq.
  * Tam siyahı (7) açıla bilir. Səviyyə irəliləyişi + level-up konfetti.
  */
 
@@ -26,8 +27,8 @@ const CAT_TINT: Record<string, {bg: string;ink: string;}> = {
   surprise: { bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)' }
 };
 
-const DailyMissionsCard = () => {
-  const { missions, loading, toggleMission, level, levelProgress, pointsToNextLevel, totalPoints } = usePartnerMissions();
+const DailyMissionsCard = (stage: MissionStageInput) => {
+  const { missions, loading, toggleMission, level, levelProgress, pointsToNextLevel, totalPoints } = usePartnerMissions(stage);
   const { toast } = useToast();
   const [expanded, setExpanded] = useState(false);
   const [celebrateLevel, setCelebrateLevel] = useState<number | null>(null);

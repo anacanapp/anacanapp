@@ -95,8 +95,9 @@ export const useTimerStore = create<TimerState>()(
       },
       
       clearAllTimers: () => {
-        get().activeTimers.forEach((t) => stopNativeTimer(t.id));
-        clearAllTimerNotifications();
+        const timers = get().activeTimers;
+        timers.forEach((t) => stopNativeTimer(t.id));
+        void clearAllTimerNotifications(timers.map((t) => t.id));
         set({ activeTimers: [] });
       },
     }),

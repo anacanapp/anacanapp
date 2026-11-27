@@ -1,0 +1,16 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261108140000_nutrition_category_fix.sql",
+  "runtime": "google-nutrition",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data-only, no new relation, no trigger change; meal_types must already be guarded (the migration asserts guarded_relations + anacan_gcp_writer_guard and refuses otherwise)",
+  "preserve": [
+    "cron0, no timer added",
+    "8 enabled business timers",
+    "Source sealed; no Source writer reopened",
+    "meal_types schema, RLS policies and grants unchanged"
+  ],
+  "relations": [
+    { "relation": "public.meal_types", "change": "rows updated", "cdc": true, "writer_guard": true, "private": false, "pii": false,
+      "note": "meal_id='nursing' only: time_range 'Əlavə qida' -> 'İstənilən vaxt' and name_az 'Əlavə qida' -> 'Əmizdirmə', each only while the bad text is present (idempotent); the CDC triggers capture the row update" }
+  ]
+}

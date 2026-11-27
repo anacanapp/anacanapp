@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "De första 8 veckorna",
+    "subtitle": "Så stöttar du henne efter förlossningen",
+    "home_card": "Efter förlossningen · vecka {n}/8",
+    "open": "Öppna",
+    "week": "Vecka {n}",
+    "tab_week": "Den här veckan",
+    "tab_blues": "Babyblues",
+    "tab_signs": "Varningstecken",
+    "tab_support": "Stötta henne",
+    "her_body": "Hennes kropp",
+    "her_mind": "Hennes känslor",
+    "you_do": "Det här kan du göra",
+    "you_say": "Det här kan du säga",
+    "avoid": "Undvik detta",
+    "send": "Skicka",
+    "sent": "Skickat 💌",
+    "phrases_title": "Skicka några ord till henne",
+    "phrases_sub": "Skickas som ett meddelande med ett tryck.",
+    "tasks_title": "Det här fixar jag i dag",
+    "tasks_sub": "Skicka till henne vad du tar hand om, så att hon vet att det är ordnat.",
+    "tasks_send": "Skicka min lista till henne",
+    "tasks_message": "I dag tar jag hand om: {list} 💪 Du vilar.",
+    "signs_title": "Kolla tecknen",
+    "signs_sub": "Bocka för det du har märkt på sistone. Det här är ingen diagnos.",
+    "signs_none": "Inga varningstecken är förbockade just nu. Fortsätt stötta henne.",
+    "signs_some": "Om tecknen håller i sig mer än 2 veckor, gå till läkare tillsammans.",
+    "signs_urgent": "Du har bockat för ett akut tecken. Lämna henne inte ensam och ring 112 nu.",
+    "mood_low_title": "Hon har mått dåligt på sistone",
+    "mood_low_body": "Hon har registrerat nedstämdhet {n} av de senaste 7 dagarna. Ge henne extra tid i dag och fråga hur hon mår.",
+    "mood_low_long": "Om det håller i sig mer än 2 veckor, prata med en läkare tillsammans.",
+    "disclaimer": "Den här informationen ersätter inte medicinsk rådgivning."
+  },
+  "weeks": [
+    {
+      "title": "De första dagarna hemma",
+      "body": "Efter förlossningen kommer blödningar (avslag), och stygn eller kejsarsnittssåret gör ont. Mjölken rinner till runt dag 3–5, och brösten kan svullna och ömma.",
+      "mind": "Runt dag 3–5 sjunker hormonerna kraftigt. Att gråta utan anledning, oroa sig och känna sig otillräcklig är normalt: det är babyblues.",
+      "do": ["Håll besöken till ett minimum den här veckan och var den som tar emot vid dörren", "Kom med vatten och något att äta vid varje amning", "Ta över blöjbyten, påklädning och bad av bebisen", "Sköt hushållet, maten och handlingen helt och hållet"],
+      "say": ["Du är en underbar mamma. Vi håller fortfarande på att lära känna varandra", "Om du behöver gråta, gråt. Jag är här"],
+      "avoid": "Säg inte ”Alla får barn, vad är grejen?”. Förminska inte hennes känslor."
+    },
+    {
+      "title": "Sömnbristen växer",
+      "body": "Blödningen börjar avta. Amningen kan fortfarande göra ont; vid sprickor, en hård knöl eller rodnad, kontakta läkare eller en amningsrådgivare.",
+      "mind": "Babyblues brukar gå över inom 2 veckor. Om nedstämdhet, hopplöshet eller ointresse fortsätter längre än så kan det vara förlossningsdepression. Var uppmärksam.",
+      "do": ["Gör ett nattschema så att hon får sova minst 4–5 timmar i sträck", "Ta med bebisen ut på promenad så att hon får vara ensam hemma", "Hitta en amningsrådgivare för frågor om amningen", "Fråga ”Hur mår du?” varje dag, och lyssna"],
+      "say": ["Jag tar natten, du sover", "Säg vad du behöver, vi löser allt tillsammans"],
+      "avoid": "Bestäm inte åt henne och ös inte på med råd. Lyssna först."
+    },
+    {
+      "title": "En tillväxtspurt",
+      "body": "Bebisen kan vilja äta väldigt ofta (klusteramning). Det betyder inte att mjölken inte räcker: bebisen växer.",
+      "mind": "Att amma hela tiden tar på krafterna och får henne att känna att hon inte hinner med någonting. Låt henne inte känna sig ensam.",
+      "do": ["Sitt med henne under kvällsamningarna: ta med vatten, mat och fjärrkontrollen", "Låt bebisen rapa efter amningen och söv den", "Planera tvätt och städning själv", "Laga eller beställ hennes favoritmat"],
+      "say": ["Du får vår bebis att växa. Det är tungt jobb och du klarar det", "Jag är här, du är inte ensam"],
+      "avoid": "Säg inte ”Ska den äta igen?” eller ”Du kanske inte har tillräckligt med mjölk”. Det knäcker hennes självförtroende."
+    },
+    {
+      "title": "En månad har gått",
+      "body": "Stygnen har oftast läkt, men det är fortfarande för tidigt att lyfta tungt, särskilt efter kejsarsnitt.",
+      "mind": "Tröttheten har byggts upp. Hon kan känna sig långt från sitt gamla liv, som att hon ”bara är mamma” nu.",
+      "do": ["Ge henne 1–2 timmar bara för sig själv: en dusch, en promenad, vänner", "Planera en liten överraskning: blommor, hennes favoritgodis, en lapp", "Organisera själv mat och hjälp från familj och vänner", "Gör ett album med bebisens första bilder tillsammans"],
+      "say": ["Vad kan jag göra i dag för att göra det lite lättare för dig?", "Jag älskar dig så mycket. Sedan du blev mamma beundrar jag dig ännu mer"],
+      "avoid": "Prata inte om hennes utseende eller vikt."
+    },
+    {
+      "title": "En rutin tar form",
+      "body": "Blödningen bör vara mycket lätt nu. Om den plötsligt blir kraftigare, eller om hon får feber eller illaluktande flytningar, kontakta läkare.",
+      "mind": "En rutin håller på att formas, men samma saker varje dag kan slita på henne. Om nedstämdheten håller i sig mer än 2 veckor är det dags för professionellt stöd.",
+      "do": ["Ta över en kvällsrutin varje dag: badet eller nattningen", "Planera en kort familjeutflykt i helgen", "Fråga vad som är tyngst just nu och lös en sak", "Håll koll på din egen trötthet och prata med henne om den"],
+      "say": ["Vila i kväll, jag nattar bebisen", "Vi är ett lag"],
+      "avoid": "Sammanfatta inte hennes dag med ”du var ju hemma hela dagen”."
+    },
+    {
+      "title": "Mest gråt och efterkontroll",
+      "body": "Efterkontrollen brukar ske ungefär nu. Bebisar gråter som mest vid 6–8 veckor; sedan avtar det.",
+      "mind": "Att inte kunna trösta bebisen är utmattande. När frustrationen växer är det okej att lägga bebisen säkert i sängen och andas några minuter. Skaka aldrig en bebis.",
+      "do": ["Gå på efterkontrollen tillsammans och skriv ner frågor i förväg", "Turas om att gå runt med bebisen när den gråter", "Säg ”Jag tar över nu” och ge henne en paus", "Uppmuntra henne att också berätta för läkaren hur hon mår"],
+      "say": ["Gråten är inte ditt fel; bebisar är så här", "Vi turas om, ta en paus du"],
+      "avoid": "Stressa inte fram närhet och sex. Hon säger till när hon är redo."
+    },
+    {
+      "title": "Att hitta sig själv igen",
+      "body": "Kroppen återhämtar sig fortfarande. Om läkaren har gett klartecken hjälper lugna promenader och andningsövningar.",
+      "mind": "Hon lär känna sig själv på nytt och kan oroa sig för kroppen, jobbet eller vännerna. Ditt stöd ger henne styrka.",
+      "do": ["Ge henne en helt ”fri timme” varje vecka", "Planera en kort promenad eller ett kafébesök tillsammans", "Fortsätt dela rättvist på nattpassen", "Säg tack högt"],
+      "say": ["Du är fortfarande du, och jag väljer dig varje dag", "Du har gjort ett enormt jobb den här månaden"],
+      "avoid": "Jämför inte: säg inte ”Hon och hon kom tillbaka snabbt”."
+    },
+    {
+      "title": "Två månader: en ny familj",
+      "body": "Många mammor känner sig starkare nu. Om smärta, blödning eller utmattning fortfarande är kraftiga, berätta det för läkaren.",
+      "mind": "Humöret bör bli bättre. Om nedstämdhet, oro eller känslan av avstånd till bebisen fortsätter, prata med en läkare tillsammans. Det finns hjälp och det går att behandla.",
+      "do": ["Se tillbaka på de här två månaderna tillsammans: vad gick bra, vad ska ändras", "Gör om fördelningen av hushållssysslorna tillsammans", "Ha ett litet ”två månader”-firande", "Kolla ditt eget mående också: pappor kan också få förlossningsdepression"],
+      "say": ["Att vara förälder med dig är min största lycka", "Vad ska vi göra annorlunda nästa månad?"],
+      "avoid": "Dra inte plötsligt ner på ditt stöd för att ”allt är bra nu”."
+    }
+  ],
+  "blues": {
+    "title": "Vad är babyblues?",
+    "intro": "Ungefär 50–80% av kvinnor får babyblues efter förlossningen. Orsakerna är det kraftiga hormonfallet, sömnbrist och det nya ansvaret.",
+    "facts": ["Det börjar oftast 2–5 dagar efter förlossningen", "Att gråta utan anledning, irritation, oro och trötthet är vanligt", "Det går oftast över av sig självt inom 2 veckor", "Bästa medicinen: sömn, mat, stöd och förståelse"],
+    "help_title": "Det här kan du göra",
+    "help": ["Lyssna på henne; försök inte ”fixa” hennes känslor", "Skydda hennes sömn: lägg upp nattpass", "Ta över sysslorna och besöken", "Beröm henne varje dag och visa att du finns där"],
+    "ppd_title": "Förlossningsdepression är något annat",
+    "ppd_intro": "Det drabbar ungefär 10–15% av kvinnor och kan börja när som helst under första året efter förlossningen. Det är ingen svaghet, och det går att behandla.",
+    "ppd_signs": ["Nedstämdhet eller tomhet som varar mer än 2 veckor", "Hon har tappat intresset för saker hon tidigare tyckte om", "Hon kan inte sova ens när bebisen sover", "Hon känner sig värdelös eller skyldig", "Hon känner sig distanserad från bebisen", "Hennes aptit har förändrats kraftigt"],
+    "ppd_action": "Om du ser de här tecknen, uppmuntra henne att söka läkare (barnmorskemottagningen, vårdcentralen eller en psykolog) och följ med henne.",
+    "urgent_title": "Sök hjälp direkt",
+    "urgent_signs": ["Tankar på att skada sig själv eller bebisen", "Hon ser eller hör saker som inte finns", "Förvirring, extrema humörsvängningar, ingen sömn på flera dagar"],
+    "urgent_action": "I dessa fall ska du inte lämna henne ensam, och ring 112 direkt.",
+    "self_title": "Du är också viktig",
+    "self": ["Pappor kan också få förlossningsdepression (ungefär 10%)", "Ta korta tupplurar och hoppa inte över måltider", "Prata om dina känslor med henne eller en vän", "Att be om hjälp är en styrka"]
+  },
+  "phrases": ["Du är en fantastisk mamma 💛", "Vad du än behöver i dag, så finns jag här", "Lägg dig en stund, jag tar hand om bebisen", "Jag älskar dig så mycket, du är inte ensam", "Du är trött och det är helt normalt. Vi klarar det tillsammans", "Vad kan jag ta med till dig? Te, mat eller bara en kram?", "Jag tar natten, sov gott", "Tack för allt du gjort i dag"],
+  "tasks": ["En nattmatning", "Blöjbyten", "Bebisens bad", "Matlagning", "Disken", "Tvätten", "Matinköp", "Besöken", "En promenad med bebisen", "Apoteket"]
+}

@@ -50,12 +50,19 @@ backend, native or deployment work. Their detailed continuity rules still apply.
   website gateway overlay, persisted Google credentials and8 enabled timers. New
   native bundles use verified managed admission offline, retain maintenance pins,
   tombstones and refresh-before-use. Never fall back to shadow/Source after cutover.
-- Preserve all21 languages and real-store pricing, eligibility, restore/pending
+- Preserve all 25 app languages (ky/et, tk/uk added; website and brand portal stay 21, see
+  `docs/LOCALIZATION_25.md`) and real-store pricing, eligibility, restore/pending
   and one-time offers. Compact onboarding contract: `docs/ONBOARDING_COMPACT.md`.
 - Word Garden starts Azerbaijani-only; follow `docs/WORD_GARDEN.md`. Each new
   language needs its own lexicon/copy and language+revision+mode progress. Never
   translate puzzle words or substitute another language's dictionary. Preserve
   deterministic generation, bounded saves and one-time hint/bonus/win rewards.
+- QayğıCash cashback is live for AZ (`docs/QAYGICASH.md`): keep the qaygicash-premium and cake-checkout catalog
+  routes and ENABLED_FUNCTIONS entries on functions deploys; in-app cakes are Epoint card only; Premium-with-bonus stays off until the owner enables it.
+- Partner stores (`docs/SHOP_PARTNERS.md`): partner data only via server-scoped `shop_partner_*` RPCs; partner products stay
+  is_active=false and reach the app through `shop_storefront_v1`. Olivia is `admin_only` until the owner sets it live.
+  Partner-site sales tracking (`docs/PARTNER_TRACKING_SDK.md`): `shop_partner_conversion_v1` stays service_role-only behind the
+  `partner-conversion` function; store only the sha256 of partner `sk_` secrets.
 - Source Auth-hook binding/IP enforcement and RevenueCat v2 metrics permission
   remain operator dependencies; require live proof before claiming activation.
 - Keep private inputs, signing material, sessions and ignored migration helpers

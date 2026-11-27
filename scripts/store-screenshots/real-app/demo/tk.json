@@ -1,0 +1,34 @@
+{
+  "country": "TM",
+  "locale": "tk-TM",
+  "names": {
+    "mother": "Aýna",
+    "baby": "Leýli",
+    "cycle": "Maýsa",
+    "partner": "Merdan"
+  },
+  "appointments": [
+    "Ultrases barlagy",
+    "Şäher dogluş merkezi",
+    "Gan barlagy",
+    "Çaga lukmanynyň gözegçiligi"
+  ],
+  "authors": [
+    "Ogulgerek Annaýewa",
+    "Jemile Nurymowa",
+    "Bägül Orazowa"
+  ],
+  "posts": [
+    "Şu gün bäbegimiň ilkinji tepgilerini duýdum! 🥹 Bu duýgyny söz bilen beýan edip bilemok. Siz haçan duýdyňyz? #göwrelilik",
+    "Bäbegim ýatmadyk gijesi sagat 3-de Anacan.AI bilen gürleşmek maňa gaty kömek etdi. Täze ejelere maslahat berýärin 💛",
+    "24-nji hepdämizde, dogluş jaýyna äkitjek sumkamy ýygnap başladym. Siziň sanawyňyzda näme bar? 🧳"
+  ],
+  "ai_question": "Ýürek bulanmasyna näme kömek edýär?",
+  "ai_answer": [
+    "Ýürek bulanmasyny ýeňilleşdirmegiň üç ýönekeý ýoly:\n\n",
+    "1. **Zenjebil çaýy** — irden ilki bilen bir käse.\n",
+    "2. **Az-azdan we ýygy-ýygydan iýiň** — aşgazanyňyzy boş goýmaň.\n",
+    "3. **Ýönekeý kreker** — düşekden turmazdan öň.\n\n",
+    "Gün dowamynda suw içiň 💧 Gusmak güýçlense, lukmanyňyz bilen habarlaşyň."
+  ]
+}

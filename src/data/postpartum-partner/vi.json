@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "8 tuần đầu tiên",
+    "subtitle": "Cách hỗ trợ cô ấy sau khi sinh",
+    "home_card": "Sau sinh · tuần {n}/8",
+    "open": "Mở",
+    "week": "Tuần {n}",
+    "tab_week": "Tuần này",
+    "tab_blues": "Baby blues",
+    "tab_signs": "Dấu hiệu cảnh báo",
+    "tab_support": "Hỗ trợ cô ấy",
+    "her_body": "Cơ thể cô ấy",
+    "her_mind": "Cảm xúc của cô ấy",
+    "you_do": "Bạn có thể làm gì",
+    "you_say": "Bạn có thể nói gì",
+    "avoid": "Tránh điều này",
+    "send": "Gửi",
+    "sent": "Đã gửi 💌",
+    "phrases_title": "Gửi cô ấy vài lời",
+    "phrases_sub": "Gửi thành tin nhắn chỉ với một chạm.",
+    "tasks_title": "Hôm nay để anh lo",
+    "tasks_sub": "Gửi cho cô ấy những việc bạn đảm nhận để cô ấy yên tâm.",
+    "tasks_send": "Gửi danh sách cho cô ấy",
+    "tasks_message": "Hôm nay anh lo: {list} 💪 Em cứ nghỉ ngơi nhé.",
+    "signs_title": "Kiểm tra các dấu hiệu",
+    "signs_sub": "Đánh dấu những gì bạn nhận thấy gần đây. Đây không phải là chẩn đoán.",
+    "signs_none": "Hiện chưa đánh dấu dấu hiệu cảnh báo nào. Hãy tiếp tục hỗ trợ cô ấy.",
+    "signs_some": "Nếu các dấu hiệu này kéo dài hơn 2 tuần, hãy cùng cô ấy đi khám bác sĩ.",
+    "signs_urgent": "Bạn đã đánh dấu một dấu hiệu khẩn cấp. Đừng để cô ấy một mình và gọi cấp cứu (115) ngay.",
+    "mood_low_title": "Gần đây tâm trạng cô ấy không tốt",
+    "mood_low_body": "Cô ấy ghi nhận tâm trạng buồn trong {n} ngày của 7 ngày qua. Hôm nay hãy dành thêm thời gian cho cô ấy và hỏi cô ấy cảm thấy thế nào.",
+    "mood_low_long": "Nếu tình trạng này kéo dài hơn 2 tuần, hãy cùng nhau nói chuyện với bác sĩ.",
+    "disclaimer": "Thông tin này không thay thế lời khuyên y tế."
+  },
+  "weeks": [
+    {
+      "title": "Những ngày đầu ở nhà",
+      "body": "Sau sinh sẽ ra máu (sản dịch), vết khâu hoặc vết mổ lấy thai sẽ đau. Sữa về vào khoảng ngày 3–5, ngực có thể căng và đau.",
+      "mind": "Khoảng ngày 3–5 hormone giảm mạnh. Khóc không lý do, lo lắng và cảm thấy mình không đủ tốt là bình thường: đó là baby blues (buồn bã sau sinh).",
+      "do": ["Tuần này hạn chế khách thăm tối đa và chính bạn là người ra tiếp ở cửa", "Mang nước và đồ ăn nhẹ cho cô ấy mỗi cữ bú", "Đảm nhận việc thay tã, mặc đồ và tắm cho bé", "Lo trọn việc nhà, nấu ăn và đi chợ"],
+      "say": ["Em là một người mẹ tuyệt vời. Mình vẫn đang làm quen với nhau mà", "Nếu em muốn khóc thì cứ khóc. Anh ở đây"],
+      "avoid": "Đừng nói \"Ai chẳng sinh con, có gì to tát đâu?\". Đừng xem nhẹ cảm xúc của cô ấy."
+    },
+    {
+      "title": "Thiếu ngủ chồng chất",
+      "body": "Sản dịch bắt đầu giảm. Cho con bú vẫn có thể đau; nếu núm vú bị nứt, có cục cứng hoặc vùng đỏ, hãy đi khám bác sĩ hoặc gặp chuyên gia tư vấn sữa mẹ.",
+      "mind": "Baby blues thường hết trong vòng 2 tuần. Nếu buồn bã, tuyệt vọng hoặc mất hứng thú kéo dài hơn thế, đó có thể là trầm cảm sau sinh. Hãy để ý kỹ.",
+      "do": ["Lập kế hoạch trực đêm để cô ấy ngủ liền ít nhất 4–5 tiếng", "Đưa bé đi dạo để cô ấy có không gian riêng ở nhà", "Tìm chuyên gia tư vấn sữa mẹ cho các thắc mắc về cho bú", "Mỗi ngày hỏi \"Em thấy thế nào?\" và lắng nghe"],
+      "say": ["Đêm nay để anh lo, em ngủ đi", "Em cần gì cứ nói, mình cùng nhau giải quyết hết"],
+      "avoid": "Đừng quyết định thay cô ấy hay dồn dập khuyên bảo. Hãy lắng nghe trước."
+    },
+    {
+      "title": "Giai đoạn tăng trưởng vượt bậc",
+      "body": "Bé có thể đòi bú rất thường xuyên (bú cụm). Điều đó không có nghĩa là thiếu sữa: bé đang lớn.",
+      "mind": "Cho bú liên tục khiến cô ấy kiệt sức và cảm thấy không theo kịp việc gì. Đừng để cô ấy cảm thấy cô đơn.",
+      "do": ["Ngồi cùng cô ấy trong các cữ bú buổi tối: mang nước, đồ ăn và điều khiển TV", "Vỗ ợ hơi cho bé sau khi bú và ru bé ngủ", "Tự lên kế hoạch giặt giũ và dọn dẹp", "Nấu hoặc đặt món cô ấy thích"],
+      "say": ["Em đang nuôi con mình lớn lên. Việc đó vất vả lắm và em đang làm được", "Anh ở đây, em không một mình đâu"],
+      "avoid": "Đừng nói \"Lại bú nữa à?\" hay \"Chắc em không đủ sữa\". Những câu đó làm cô ấy mất tự tin."
+    },
+    {
+      "title": "Tròn một tháng",
+      "body": "Vết khâu thường đã lành, nhưng vẫn còn quá sớm để mang vác nặng, nhất là sau sinh mổ.",
+      "mind": "Mệt mỏi đã tích tụ. Cô ấy có thể cảm thấy xa rời cuộc sống trước đây, như thể giờ mình \"chỉ là mẹ\".",
+      "do": ["Dành cho cô ấy 1–2 tiếng chỉ cho riêng mình: tắm, đi dạo, gặp bạn bè", "Chuẩn bị một bất ngờ nhỏ: hoa, món ngon cô ấy thích, một mẩu thư", "Tự sắp xếp bữa ăn và sự giúp đỡ từ gia đình, bạn bè", "Cùng nhau làm album những bức ảnh đầu đời của bé"],
+      "say": ["Hôm nay anh có thể làm gì để em nhẹ nhàng hơn một chút?", "Anh yêu em nhiều lắm. Từ khi em làm mẹ, anh càng ngưỡng mộ em hơn"],
+      "avoid": "Đừng nói về ngoại hình hay cân nặng của cô ấy."
+    },
+    {
+      "title": "Nếp sinh hoạt hình thành",
+      "body": "Lúc này sản dịch nên rất ít. Nếu đột nhiên ra nhiều hơn, hoặc có sốt hay mùi hôi, hãy đi khám bác sĩ.",
+      "mind": "Nếp sinh hoạt đang hình thành, nhưng ngày nào cũng lặp lại những việc giống nhau có thể khiến cô ấy mệt mỏi. Nếu buồn bã kéo dài hơn 2 tuần, đã đến lúc cần hỗ trợ chuyên môn.",
+      "do": ["Mỗi ngày đảm nhận một việc buổi tối: tắm cho bé hoặc ru bé ngủ", "Lên kế hoạch một chuyến đi chơi ngắn cả nhà vào cuối tuần", "Hỏi cô ấy điều gì đang khó nhất và giải quyết một việc", "Để ý cả sự mệt mỏi của chính bạn và nói chuyện với cô ấy về điều đó"],
+      "say": ["Tối nay em nghỉ đi, anh ru con ngủ", "Mình là một đội"],
+      "avoid": "Đừng tóm gọn ngày của cô ấy bằng câu \"em ở nhà cả ngày mà\"."
+    },
+    {
+      "title": "Đỉnh điểm quấy khóc và tái khám",
+      "body": "Tái khám sau sinh thường diễn ra vào khoảng thời gian này. Bé khóc nhiều nhất lúc 6–8 tuần tuổi; sau đó sẽ giảm dần.",
+      "mind": "Không dỗ được bé rất mệt mỏi. Khi bực bội dâng lên, hoàn toàn ổn nếu đặt bé an toàn vào nôi và hít thở vài phút. Tuyệt đối không bao giờ lắc bé.",
+      "do": ["Cùng đi tái khám và ghi câu hỏi ra trước", "Thay phiên nhau bế bé đi lại khi bé quấy khóc", "Nói \"Giờ để anh lo\" và cho cô ấy nghỉ một lát", "Khuyến khích cô ấy kể với bác sĩ cả về cảm xúc của mình"],
+      "say": ["Con khóc không phải lỗi của em; em bé là vậy mà", "Mình thay phiên nhé, em nghỉ chút đi"],
+      "avoid": "Đừng vội vàng chuyện gần gũi. Cô ấy sẽ cho bạn biết khi sẵn sàng."
+    },
+    {
+      "title": "Tìm lại chính mình",
+      "body": "Cơ thể cô ấy vẫn đang hồi phục. Nếu bác sĩ đã cho phép, đi bộ nhẹ nhàng và tập thở sẽ có ích.",
+      "mind": "Cô ấy đang làm quen lại với chính mình và có thể lo lắng về cơ thể, công việc hay bạn bè. Sự hỗ trợ của bạn tiếp thêm sức mạnh cho cô ấy.",
+      "do": ["Mỗi tuần dành cho cô ấy một \"giờ tự do\" trọn vẹn", "Lên kế hoạch cùng nhau đi dạo ngắn hoặc ra quán cà phê", "Tiếp tục chia đều các ca trực đêm", "Nói lời cảm ơn thành tiếng"],
+      "say": ["Em vẫn là em, và mỗi ngày anh đều chọn em", "Tháng này em đã làm được một việc rất lớn"],
+      "avoid": "Đừng so sánh: đừng nói \"Người này người kia lấy lại vóc dáng nhanh lắm\"."
+    },
+    {
+      "title": "Hai tháng: một gia đình mới",
+      "body": "Nhiều mẹ cảm thấy khỏe hơn vào lúc này. Nếu đau, ra máu hoặc kiệt sức vẫn còn nặng, hãy báo bác sĩ.",
+      "mind": "Tâm trạng cô ấy nên đang khá lên. Nếu buồn bã, lo âu hoặc cảm giác xa cách với bé vẫn tiếp diễn, hãy cùng nhau nói chuyện với bác sĩ. Luôn có sự giúp đỡ và tình trạng này điều trị được.",
+      "do": ["Cùng nhìn lại hai tháng qua: điều gì ổn, điều gì cần thay đổi", "Cùng sắp xếp lại cách chia việc nhà", "Tổ chức một buổi mừng \"hai tháng\" nho nhỏ", "Kiểm tra cả tâm trạng của bạn: bố cũng có thể bị trầm cảm sau sinh"],
+      "say": ["Được làm cha mẹ cùng em là hạnh phúc lớn nhất của anh", "Tháng tới mình làm gì khác đi nhé?"],
+      "avoid": "Đừng đột ngột giảm hỗ trợ vì \"giờ mọi thứ ổn rồi\"."
+    }
+  ],
+  "blues": {
+    "title": "Baby blues là gì?",
+    "intro": "Khoảng 50–80% phụ nữ trải qua baby blues (buồn bã sau sinh) sau khi sinh. Nguyên nhân là hormone giảm mạnh, thiếu ngủ và trách nhiệm mới.",
+    "facts": ["Thường bắt đầu 2–5 ngày sau sinh", "Khóc không lý do, dễ cáu, lo lắng và mệt mỏi là thường gặp", "Thường tự hết trong vòng 2 tuần", "Liều thuốc tốt nhất: giấc ngủ, ăn uống, sự hỗ trợ và thấu hiểu"],
+    "help_title": "Bạn có thể làm gì",
+    "help": ["Lắng nghe cô ấy; đừng cố \"sửa\" cảm xúc của cô ấy", "Bảo vệ giấc ngủ của cô ấy: sắp xếp ca trực đêm", "Đảm nhận việc nhà và việc tiếp khách", "Khen ngợi cô ấy mỗi ngày và cho thấy bạn luôn ở bên"],
+    "ppd_title": "Trầm cảm sau sinh thì khác",
+    "ppd_intro": "Bệnh gặp ở khoảng 10–15% phụ nữ và có thể bắt đầu bất cứ lúc nào trong năm đầu sau sinh. Đó không phải là sự yếu đuối, và có thể điều trị được.",
+    "ppd_signs": ["Buồn bã hoặc trống rỗng kéo dài hơn 2 tuần", "Cô ấy mất hứng thú với những điều từng yêu thích", "Cô ấy không ngủ được ngay cả khi bé ngủ", "Cô ấy cảm thấy mình vô dụng hoặc có lỗi", "Cô ấy cảm thấy xa cách với bé", "Cảm giác thèm ăn của cô ấy thay đổi rõ rệt"],
+    "ppd_action": "Nếu thấy những dấu hiệu này, hãy động viên cô ấy đi khám bác sĩ (bác sĩ sản phụ khoa, bác sĩ gia đình hoặc chuyên gia tâm lý) và đi cùng cô ấy.",
+    "urgent_title": "Tìm trợ giúp ngay lập tức",
+    "urgent_signs": ["Ý nghĩ làm hại bản thân hoặc em bé", "Nhìn thấy hoặc nghe thấy những thứ không có thật", "Lú lẫn, tâm trạng thay đổi thất thường dữ dội, mất ngủ nhiều ngày liền"],
+    "urgent_action": "Trong những trường hợp này, đừng để cô ấy một mình và gọi cấp cứu (115) ngay lập tức.",
+    "self_title": "Bạn cũng quan trọng",
+    "self": ["Bố cũng có thể bị trầm cảm sau sinh (khoảng 10%)", "Tranh thủ chợp mắt và đừng bỏ bữa", "Chia sẻ cảm xúc của bạn với cô ấy hoặc một người bạn", "Nhờ giúp đỡ là một sức mạnh"]
+  },
+  "phrases": ["Em là một người mẹ tuyệt vời 💛", "Hôm nay em cần gì, anh luôn ở đây", "Em nằm nghỉ một chút đi, anh trông con cho", "Anh yêu em nhiều lắm, em không một mình đâu", "Em mệt là hoàn toàn bình thường. Mình sẽ cùng nhau vượt qua", "Anh mang gì cho em nhé? Trà, đồ ăn, hay chỉ một cái ôm?", "Đêm nay để anh lo, em ngủ ngon nhé", "Cảm ơn em vì tất cả những gì em đã làm hôm nay"],
+  "tasks": ["Một cữ bú đêm", "Thay tã", "Tắm cho bé", "Nấu ăn", "Rửa bát", "Giặt đồ", "Đi chợ", "Tiếp khách", "Đưa bé đi dạo", "Đi nhà thuốc"]
+}

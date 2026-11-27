@@ -28,5 +28,6 @@ class MainViewController: CAPBridgeViewController {
         bridge?.registerPluginInstance(HealthCyclePlugin())
         bridge?.registerPluginInstance(HealthVitalsPlugin())
         bridge?.registerPluginInstance(ScreenshotGuardPlugin())
+        bridge?.registerPluginInstance(AnacanWidgetsPlugin())
     }
 }

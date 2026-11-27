@@ -1,0 +1,153 @@
+{
+  "lang": "az",
+  "badge": "Pulsuz · 23 dil",
+  "slides": [
+    {
+      "key": "hero",
+      "shot": null,
+      "eyebrow": "Hamiləlik · Körpə · Dövr",
+      "title": [
+        "analığın",
+        "hər günü"
+      ],
+      "hl": "bir tətbiqdə",
+      "sub": "Hamiləlikdən körpənin ilk addımına qədər yanındayıq",
+      "cta": "Pulsuz yüklə",
+      "ctaSub": "iOS və Android"
+    },
+    {
+      "key": "pregnancy",
+      "shot": "hero",
+      "eyebrow": "Hamiləlik təqvimi",
+      "title": [
+        "körpən bu gün"
+      ],
+      "hl": "manqo boyda",
+      "sub": "Hər həftə ölçü, inkişaf və sənə özəl tövsiyələr",
+      "chips": [
+        [
+          "142",
+          "gün qaldı"
+        ],
+        [
+          "19",
+          "həftə, 4 gün"
+        ]
+      ]
+    },
+    {
+      "key": "ai",
+      "shot": "ai",
+      "eyebrow": "Anacan.AI",
+      "title": [
+        "gecə saat 3-də"
+      ],
+      "hl": "cavab var",
+      "sub": "Hamiləlik və körpə sualların üçün 7/24 köməkçi",
+      "chips": [
+        [
+          "7/24",
+          "hər sual"
+        ],
+        [
+          "AI",
+          "sənə uyğun cavab"
+        ]
+      ]
+    },
+    {
+      "key": "flow",
+      "shot": "flow",
+      "eyebrow": "Dövr izləmə",
+      "title": [
+        "dövrünü"
+      ],
+      "hl": "dəqiq bil",
+      "sub": "Menstruasiya, ovulyasiya və məhsuldar günlərin proqnozu",
+      "chips": [
+        [
+          "28",
+          "günlük dövr"
+        ],
+        [
+          "5",
+          "gün period"
+        ]
+      ]
+    },
+    {
+      "key": "mommy",
+      "shot": "mommy",
+      "eyebrow": "Körpə izləyici",
+      "title": [
+        "körpənin hər günü"
+      ],
+      "hl": "bir yerdə",
+      "sub": "Yuxu, qidalanma, inkişaf və həkim xatırlatmaları",
+      "chips": [
+        [
+          "245",
+          "gün birlikdə"
+        ],
+        [
+          "8 ay",
+          "2 gün"
+        ]
+      ]
+    },
+    {
+      "key": "cry",
+      "shot": "tools",
+      "eyebrow": "Ağlama analizi",
+      "title": [
+        "körpə niyə"
+      ],
+      "hl": "ağlayır?",
+      "sub": "Ağlamanı bir neçə saniyə yaz, AI ehtimal olunan səbəbi göstərsin",
+      "chips": [
+        [
+          "10 san",
+          "səs yazısı"
+        ]
+      ]
+    },
+    {
+      "key": "partner",
+      "shot": "partner",
+      "eyebrow": "Partnyor rejimi",
+      "title": [
+        "ata da"
+      ],
+      "hl": "komandada",
+      "sub": "Həyat yoldaşın da izləyir, kömək edir, yanında olur",
+      "chips": [
+        [
+          "19",
+          "həftə birlikdə"
+        ]
+      ]
+    },
+    {
+      "key": "community",
+      "shot": "community",
+      "eyebrow": "Analar icması",
+      "title": [
+        "tək deyilsən,"
+      ],
+      "hl": "analar burada",
+      "sub": "Sual ver, təcrübəni bölüş, dəstək al"
+    },
+    {
+      "key": "tools",
+      "shot": "toolsGrid",
+      "eyebrow": "Alətlər",
+      "title": [
+        "hər ehtiyaca"
+      ],
+      "hl": "bir alət",
+      "sub": "Təpik sayğacı, sancı taymeri, peyvənd təqvimi və daha çoxu",
+      "cta": "Pulsuz yüklə",
+      "ctaSub": "iOS və Android"
+    }
+  ]
+}

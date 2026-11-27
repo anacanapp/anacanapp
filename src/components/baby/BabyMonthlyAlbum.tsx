@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import { Camera, X, Loader2, ShoppingBag, Trash2, RefreshCw, Sparkles } from 'lucide-react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
@@ -12,6 +13,8 @@ import { ToolPage, ToolHeader } from '@/components/tools/anacan/ToolKit';
 import { tr } from "@/lib/tr";
 import { getOrdinal } from "@/lib/utils";
 import { useUserStore } from "@/store/userStore";
+import { compressImageForUpload } from '@/lib/image-compress';
+import { replaceStoragePhoto, type AlbumStorageClient } from '@/lib/album-photo-replace';
 
 interface BabyMonthlyAlbumProps {
   onBack: () => void;
@@ -80,22 +83,38 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || !user || !uploadMonth) return;
+    e.target.value = '';
+    const replacing = replacingPhoto;
     setUploading(true);
     try {
-      // If replacing, delete old photo first
-      if (replacingPhoto) {
-        await supabase.storage.from('baby-album').remove([`${user.id}/${replacingPhoto.name}`]);
-        setReplacingPhoto(null);
-      }
-      const ext = file.name.split('.').pop();
+      const upload = await compressImageForUpload(file);
+      const ext = upload.name.split('.').pop();
       const path = `${user.id}/month-${uploadMonth}-${Date.now()}.${ext}`;
-      const { error } = await supabase.storage.from('baby-album').upload(path, file);
-      if (error) throw error;
+      if (replacing) {
+        // Upload new first, delete old only after success: a failed upload keeps the original.
+        await replaceStoragePhoto(supabase as unknown as AlbumStorageClient, {
+          bucket: 'baby-album',
+          oldPath: `${user.id}/${replacing.name}`,
+          newPath: path,
+          file: upload
+        });
+      } else {
+        const { error } = await supabase.storage.from('baby-album').upload(path, upload);
+        if (error) throw error;
+      }
       toast({ title: tr("babymonthlyalbum_sekil_yuklendi_0c2f85", 'Şəkil yükləndi!') });
       queryClient.invalidateQueries({ queryKey: ['baby-album-photos'] });
     } catch (err) {
-      toast({ title: tr("babymonthlyalbum_xeta_3cdbb6", 'Xəta'), description: tr("babymonthlyalbum_sekil_yuklene_bilmedi_3c275f", 'Şəkil yüklənə bilmədi'), variant: 'destructive' });
+      console.error('Upload error:', err);
+      toast({
+        title: tr("babymonthlyalbum_xeta_3cdbb6", 'Xəta'),
+        description: replacing ?
+        tr('firstaid_album_replace_failed', 'Şəkil dəyişdirilmədi. Əvvəlki şəkil saxlanıldı.') :
+        tr("babymonthlyalbum_sekil_yuklene_bilmedi_3c275f", 'Şəkil yüklənə bilmədi'),
+        variant: 'destructive'
+      });
     } finally {
+      setReplacingPhoto(null);
       setUploading(false);
       setUploadMonth(null);
       setViewingPhoto(null);
@@ -134,7 +153,8 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
 
       <div className="grid grid-cols-3 gap-3">
         {monthLabels.map(({ month, label, emoji }) => {
-          const photo = photos.find((p) => p.month === month);
+          // Newest upload wins if an old object was left behind by a failed delete.
+          const photo = photos.filter((p) => p.month === month).pop();
           return (
             <motion.button
               key={month}
@@ -245,7 +265,8 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
       <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleUpload} />
 
       {/* Photo Viewer Modal */}
-      <AnimatePresence>
+      {/* Portal: ToolPage's .a-shell (z-index 1) kept this overlay under the bottom nav. */}
+      {createPortal(<AnimatePresence>
         {viewingPhoto &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -289,10 +310,11 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
             </div>
           </motion.div>
         }
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
 
       {/* Action Sheet */}
-      <AnimatePresence>
+      {/* Portal: ToolPage's .a-shell (z-index 1) kept this overlay under the bottom nav. */}
+      {createPortal(<AnimatePresence>
         {showActionSheet &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -306,7 +328,7 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
             animate={{ y: 0 }}
             exit={{ y: 300 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="w-full max-w-md rounded-t-[26px] overflow-hidden"
+            className="w-full max-w-md max-h-[90dvh] overflow-y-auto rounded-t-[26px]"
             style={{ background: 'var(--a-surface)' }}
             onClick={(e) => e.stopPropagation()}>
             
@@ -369,7 +391,7 @@ const BabyMonthlyAlbum = ({ onBack }: BabyMonthlyAlbumProps) => {
             </motion.div>
           </motion.div>
         }
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
 
       {uploading &&
       <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">

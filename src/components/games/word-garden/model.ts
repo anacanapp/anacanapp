@@ -1,6 +1,12 @@
 export const WORD_GARDEN_ID = 'word-garden';
 export const LEVEL_PAGE_SIZE = 20;
 export const HINT_COST = 25;
+// Revisions dealt from one shared sequence (kept byte-for-byte reproducible).
+// Later revisions mix a per-player seed into generation so different players
+// receive different words while each player's level N stays reproducible.
+export const WORD_GARDEN_UNSEEDED_REVISIONS: ReadonlySet<string> = new Set(['az-202610-v1', 'az-202610-v2']);
+export const isSeededGardenRevision = (revision: string) => !WORD_GARDEN_UNSEEDED_REVISIONS.has(revision);
+export const isGardenPlayerSeed = (value: unknown): value is number => Number.isSafeInteger(value) && Number(value) >= 0 && Number(value) <= 0xFFFFFFFF;
 export type WordGardenMode = 'calm' | 'timed';
 export type WordTier = 'common' | 'standard' | 'bonus';
 export type GardenTheme = 'garden' | 'lake' | 'night';
@@ -33,6 +39,8 @@ export interface GardenProgress {
 export interface GardenProfile {
   schema: 'anacan-word-garden-profile-v1'; language: string; revision: string; mode: WordGardenMode;
   progress: GardenProgress; round: GardenRound | null;
+  /** Per-player uint32 created once for seeded revisions; one number, so saves stay bounded. */
+  seed?: number;
 }
 export interface LevelProfile { rackLength: number; targetWords: number; difficulty: WordGardenLevel['difficulty'] }
 export function getGardenLevelProfile(level: number): LevelProfile {

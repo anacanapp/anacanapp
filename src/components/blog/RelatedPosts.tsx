@@ -89,6 +89,10 @@ const RelatedPosts = ({ currentPost, allPosts, onSelectPost }: RelatedPostsProps
           <img
             src={post.cover_image_url}
             alt={post.title}
+            loading="lazy"
+            decoding="async"
+            width={56}
+            height={56}
             className="w-14 h-14 rounded-xl object-cover shrink-0" /> :
 
 

@@ -70,3 +70,13 @@ scripts/i18n/ka-translate.log
 **/xcshareddata/swiftpm/configuration/
 **/test-results/
 **/playwright-report/
+scripts/store-screenshots/out/
+scripts/store-screenshots/out-android/
+scripts/store-screenshots/shots/
+scripts/store-screenshots/real-app/scenarios/
+
+# Gradle output of local native plugin packages
+packages/*/android/build/
+scripts/store-screenshots/v2/out*/
+scripts/store-screenshots/v2/out-android/
+scripts/store-screenshots/v2/.render-*.html

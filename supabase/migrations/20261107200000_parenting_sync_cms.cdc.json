@@ -1,0 +1,22 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261107200000_parenting_sync_cms.sql",
+  "runtime": "google-parenting",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the two new relations are registered in guarded_relations with the three standard triggers (the migration refuses without the guard catalog and verifies 2 relations / 6 triggers)",
+  "preserve": [
+    "cron0, no timer added: Tərbiyə programme reminders are local notifications on the phone",
+    "8 enabled business timers",
+    "app_settings.parenting_tool and the public allowlist RPC unchanged (20261107170000_parenting_tool.sql)"
+  ],
+  "relations": [
+    { "relation": "public.parenting_state", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["user_id"],
+      "note": "one row per account: Tərbiyə state jsonb (age band, programme progress/pause, quiz results, bookmarks, tombstones), updated_at; RLS own row only; device-first merge in the app" },
+    { "relation": "public.parenting_content_overrides", "change": "created", "cdc": true, "writer_guard": true, "private": false, "pii": false, "primary_key": ["id"],
+      "note": "editor overrides of the bundled Tərbiyə content per language/item_type/item_id (patch jsonb, draft jsonb, published); anon+authenticated read published rows' public columns only; writes only via admin RPCs" }
+  ],
+  "functions": [
+    { "name": "public.admin_parenting_overrides_v1(text)", "security": "definer", "grant": ["authenticated"], "note": "has_role(auth.uid(), 'admin') or ADMIN_REQUIRED; lists a language's rows incl. drafts" },
+    { "name": "public.admin_parenting_override_save_v1(text, text, text, jsonb, text)", "security": "definer", "grant": ["authenticated"], "note": "admin only; draft | publish | unpublish" },
+    { "name": "public.admin_parenting_override_revert_v1(text, text, text)", "security": "definer", "grant": ["authenticated"], "note": "admin only; deletes the override row (back to bundled)" }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "menu": "意见反馈",
+  "title": "你觉得 Anacan 怎么样？",
+  "subtitle": "你的意见能帮助我们为每一位妈妈打造更好的应用。",
+  "stars": [
+    "很差",
+    "差",
+    "一般",
+    "好",
+    "非常好"
+  ],
+  "low_title": "哪些地方让你不满意？",
+  "low_sub": "选几项吧——每一条我们都会认真阅读。",
+  "high_title": "你最喜欢什么？",
+  "high_sub": "选出来，我们会把它做得更好。",
+  "low_reasons": {
+    "crash": "应用闪退 / 卡死",
+    "bug": "有功能不正常",
+    "slow": "运行缓慢",
+    "missing": "缺少需要的功能",
+    "content": "信息不准确",
+    "ads": "广告太多",
+    "price": "Premium 太贵",
+    "hard": "不好用",
+    "other": "其他"
+  },
+  "high_reasons": {
+    "tracking": "记录工具",
+    "content": "每日资讯",
+    "ai": "AI 助手",
+    "community": "社区",
+    "partner": "伴侣模式",
+    "design": "设计",
+    "other": "其他"
+  },
+  "message_low": "发生了什么？我们该改进什么？",
+  "message_high": "还有什么想补充的吗？（选填）",
+  "send": "发送",
+  "sending": "正在发送...",
+  "thanks_low": "谢谢你。我们的团队会认真阅读并努力解决 💛",
+  "thanks_high": "非常感谢！这对我们的团队是很大的鼓励 💛",
+  "close": "关闭",
+  "later": "稍后",
+  "error": "发送失败。请检查网络后重试。",
+  "subject": "应用反馈"
+}

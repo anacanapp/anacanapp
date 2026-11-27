@@ -22,6 +22,27 @@ interface UserForNotification {
   last_period_date: string | null;
   daily_push_enabled: boolean;
   language: string;
+  timezone: string;
+}
+
+/**
+ * The user's local calendar day (YYYY-MM-DD) in their stored IANA zone (user_preferences.timezone),
+ * fallback Asia/Baku — same rule as public._anacan_local_day. "Today" for pregnancy-day content must be
+ * the user's local day, not the server's (UTC) day, or the morning push shows the wrong day near midnight.
+ */
+function localCalendarDay(timeZone: string | null | undefined): string {
+  const fmt = (tz: string) =>
+    new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  const tz = (typeof timeZone === 'string' && timeZone.length > 0 && timeZone.length <= 64) ? timeZone : 'Asia/Baku';
+  try { return fmt(tz); } catch { return fmt('Asia/Baku'); }
+}
+
+/** Whole-day difference between two YYYY-MM-DD calendar days (exact: both anchored at UTC midnight). */
+function calendarDayDiff(fromYmd: string, toYmd: string): number | null {
+  const a = fromYmd.slice(0, 10).split('-').map(Number);
+  const b = toYmd.slice(0, 10).split('-').map(Number);
+  if (a.length !== 3 || b.length !== 3 || a.some(Number.isNaN) || b.some(Number.isNaN)) return null;
+  return Math.round((Date.UTC(b[0], b[1] - 1, b[2]) - Date.UTC(a[0], a[1] - 1, a[2])) / 86_400_000);
 }
 
 interface ScheduledNotification {
@@ -300,10 +321,14 @@ Deno.serve(async (req) => {
     // Page the profile population, including disabled users, so every offset is
     // stable. Fetch only this chunk's private rows instead of the whole database
     // and its high-volume event send log on every recursive invocation.
-    let profileQuery = supabase.from('profiles').select('user_id, life_stage, role, due_date, last_period_date').order('user_id');
+    let profileQuery = supabase.from('profiles').select('user_id, life_stage, role, due_date, last_period_date, linked_partner_id, loss_recovery_active').order('user_id');
     if (body.userId) profileQuery = profileQuery.eq('user_id', body.userId);
     const { data: profiles, error: profileError } = await profileQuery.range(chunkOffset, chunkOffset + CHUNK_SIZE - 1);
     if (profileError) throw new Error('notification_profiles_unavailable');
+    // Pregnancy loss recovery (Duzelis72): no daily content for her, nor for her linked partner.
+    const { data: lossProfiles, error: lossError } = await supabase.from('profiles').select('id').eq('loss_recovery_active', true);
+    if (lossError) throw new Error('notification_profiles_unavailable');
+    const lossProfileIds = new Set((lossProfiles || []).map((p: any) => p.id));
     const userIds = (profiles || []).map((profile: any) => profile.user_id);
     if (!userIds.length) {
       await finishRunLog(supabase, runId, { status: 'success', eligible_count: 0, sent_count: 0 });
@@ -318,7 +343,7 @@ Deno.serve(async (req) => {
     });
 
     const preferences = await fetchAllPaged<any>(() => {
-      let q = supabase.from('user_preferences').select('user_id, push_enabled, daily_push_enabled, language').in('user_id', userIds).order('user_id');
+      let q = supabase.from('user_preferences').select('user_id, push_enabled, daily_push_enabled, language, timezone').in('user_id', userIds).order('user_id');
       return q;
     });
 
@@ -364,11 +389,16 @@ Deno.serve(async (req) => {
     // Build user map
     const userMap = new Map<string, UserForNotification>();
     profiles?.forEach((p: any) => {
+      if (p.loss_recovery_active || (p.linked_partner_id && lossProfileIds.has(p.linked_partner_id))) {
+        skippedCount++; bumpReason(reasons, 'loss_recovery');
+        return;
+      }
       userMap.set(p.user_id, {
         user_id: p.user_id, life_stage: p.life_stage || 'flow', role: p.role || 'user',
         due_date: p.due_date, last_period_date: p.last_period_date,
         daily_push_enabled: true,
         language: 'az',
+        timezone: 'Asia/Baku',
       });
     });
 
@@ -377,16 +407,17 @@ Deno.serve(async (req) => {
       if (user) {
         user.daily_push_enabled = pref.push_enabled !== false && pref.daily_push_enabled !== false;
         if (pref.language) user.language = pref.language;
+        if (pref.timezone) user.timezone = pref.timezone;
       }
     });
 
-    const calculatePregnancyDay = (lastPeriodDate: string | null): number | null => {
+    const calculatePregnancyDay = (lastPeriodDate: string | null, timeZone: string): number | null => {
       if (!lastPeriodDate) return null;
-      const lmp = new Date(lastPeriodDate);
-      const today = new Date();
-      lmp.setHours(0, 0, 0, 0);
-      today.setHours(0, 0, 0, 0);
-      const diffDays = Math.floor((today.getTime() - lmp.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+      // "Today" in the user's local zone, so the day count (and the content it selects) matches what the
+      // user sees in the app; the server's own (UTC) midnight could be a day behind near local midnight.
+      const diff = calendarDayDiff(lastPeriodDate, localCalendarDay(timeZone));
+      if (diff === null) return null;
+      const diffDays = diff + 1;
       return (diffDays >= 1 && diffDays <= 280) ? diffDays : null;
     };
 
@@ -406,7 +437,7 @@ Deno.serve(async (req) => {
       const notificationsToSend: Array<{ title: string; body: string; id: string; type: string; sourceType?: string; day?: number }> = [];
 
       if (user.life_stage === 'bump' && user.last_period_date) {
-        const pregnancyDay = calculatePregnancyDay(user.last_period_date);
+        const pregnancyDay = calculatePregnancyDay(user.last_period_date, user.timezone);
         if (pregnancyDay !== null) {
           const dayNotifications = pregnancyNotifsByDay.get(pregnancyDay) || [];
           for (const dn of dayNotifications) {

@@ -1,0 +1,132 @@
+{
+ "lang": "nl",
+ "badge": "Gratis · 25 talen",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Menstruatie · Zwangerschap · Moederschap",
+   "title": [
+    "van menstruatie",
+    "tot baby"
+   ],
+   "hl": "één app",
+   "sub": "Menstruatiekalender, zwangerschap week voor week en mama-en-babytracker op één plek",
+   "cta": "Gratis downloaden",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Menstruatie",
+   "title": [
+    "ken je cyclus"
+   ],
+   "hl": "tot op de dag",
+   "sub": "Je volgende menstruatie, eisprong en vruchtbare dagen voorspeld"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Zwangerschap",
+   "title": [
+    "je baby is vandaag"
+   ],
+   "hl": "zo groot als een tomaat",
+   "sub": "Volg je zwangerschap week voor week: grootte, gewicht en dagen te gaan",
+   "chips": [
+    [
+     "142",
+     "dagen te gaan"
+    ],
+    [
+     "19",
+     "weken, 4 dagen"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Moederschap",
+   "title": [
+    "elke dag van je baby"
+   ],
+   "hl": "op één plek",
+   "sub": "Dagelijkse info, een berichtje voor mama, ontwikkeling en doktersherinneringen",
+   "chips": [
+    [
+     "245",
+     "dagen samen"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "een vraag?"
+   ],
+   "hl": "hier is het antwoord",
+   "sub": "Een 24/7-assistent voor vragen over menstruatie, zwangerschap en je baby",
+   "chips": [
+    [
+     "24/7",
+     "elke vraag"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Community",
+   "title": [
+    "46.000+ vrouwen"
+   ],
+   "hl": "zijn hier",
+   "sub": "Deel je vraag en krijg steun van mama’s die hetzelfde meemaken",
+   "chips": [
+    [
+     "46.000+",
+     "vrouwen"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Wat mama’s zeggen",
+   "title": [
+    "mama’s"
+   ],
+   "hl": "houden van Anacan",
+   "sub": "Echte reviews, onbewerkt",
+   "cta": "Gratis downloaden",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "App Store-beoordeling",
+    "stats": [
+     [
+      "46.000+",
+      "downloads"
+     ],
+     [
+      "560+",
+      "vijfsterrenreviews"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Store-review"
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1556 @@
+[
+{
+"name": "Adán",
+"gender": "boy",
+"popularity": 30,
+"origin": "Hebreo",
+"meaning": "Hombre hecho de tierra roja"
+},
+{
+"name": "Adela",
+"gender": "girl",
+"popularity": 20,
+"origin": "Germánico",
+"meaning": "De noble linaje"
+},
+{
+"name": "Adriana",
+"gender": "girl",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "Natural de Adria, ciudad junto al mar Adriático"
+},
+{
+"name": "Agustín",
+"gender": "boy",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "Venerable, majestuoso"
+},
+{
+"name": "Alberto",
+"gender": "boy",
+"popularity": 30,
+"origin": "Germánico",
+"meaning": "Noble y brillante"
+},
+{
+"name": "Alejandra",
+"gender": "girl",
+"popularity": 50,
+"origin": "Griego",
+"meaning": "Protectora de los hombres"
+},
+{
+"name": "Alejandro",
+"gender": "boy",
+"popularity": 75,
+"origin": "Griego",
+"meaning": "Protector de los hombres"
+},
+{
+"name": "Alfonso",
+"gender": "boy",
+"popularity": 25,
+"origin": "Germánico",
+"meaning": "Noble preparado para el combate"
+},
+{
+"name": "Alfredo",
+"gender": "boy",
+"popularity": 20,
+"origin": "Germánico",
+"meaning": "Consejo de los elfos"
+},
+{
+"name": "Alicia",
+"gender": "girl",
+"popularity": 40,
+"origin": "Germánico",
+"meaning": "De noble linaje"
+},
+{
+"name": "Amalia",
+"gender": "girl",
+"popularity": 40,
+"origin": "Germánico",
+"meaning": "Trabajadora, laboriosa"
+},
+{
+"name": "Ana",
+"gender": "girl",
+"popularity": 55,
+"origin": "Hebreo",
+"meaning": "Gracia, favor de Dios"
+},
+{
+"name": "Ana Luisa",
+"gender": "girl",
+"popularity": 15,
+"origin": "Hebreo y germánico",
+"meaning": "Gracia de Dios y guerrera ilustre"
+},
+{
+"name": "Ana María",
+"gender": "girl",
+"popularity": 25,
+"origin": "Hebreo",
+"meaning": "Une Ana, gracia, y María, la amada de Dios"
+},
+{
+"name": "Andrea",
+"gender": "girl",
+"popularity": 60,
+"origin": "Griego",
+"meaning": "Valiente, viril"
+},
+{
+"name": "Andrés",
+"gender": "boy",
+"popularity": 55,
+"origin": "Griego",
+"meaning": "Valiente, viril"
+},
+{
+"name": "Anita",
+"gender": "girl",
+"popularity": 15,
+"origin": "Hebreo",
+"meaning": "Diminutivo de Ana: gracia, favor de Dios"
+},
+{
+"name": "Antonia",
+"gender": "girl",
+"popularity": 50,
+"origin": "Latín",
+"meaning": "De la familia romana Antonia; valiosa"
+},
+{
+"name": "Antonio",
+"gender": "boy",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "De la familia romana Antonia; valioso"
+},
+{
+"name": "Ariadna",
+"gender": "girl",
+"popularity": 50,
+"origin": "Griego",
+"meaning": "Muy pura, muy santa"
+},
+{
+"name": "Armando",
+"gender": "boy",
+"popularity": 25,
+"origin": "Germánico",
+"meaning": "Hombre del ejército, guerrero"
+},
+{
+"name": "Arturo",
+"gender": "boy",
+"popularity": 40,
+"origin": "Celta",
+"meaning": "Oso, fuerte como un oso"
+},
+{
+"name": "Barbara",
+"gender": "girl",
+"popularity": 20,
+"origin": "Griego",
+"meaning": "Extranjera"
+},
+{
+"name": "Beatriz",
+"gender": "girl",
+"popularity": 35,
+"origin": "Latín",
+"meaning": "La que hace feliz, portadora de dicha"
+},
+{
+"name": "Benito",
+"gender": "boy",
+"popularity": 15,
+"origin": "Latín",
+"meaning": "Bendito"
+},
+{
+"name": "Benjamín",
+"gender": "boy",
+"popularity": 70,
+"origin": "Hebreo",
+"meaning": "Hijo de la mano derecha"
+},
+{
+"name": "Bernardo",
+"gender": "boy",
+"popularity": 25,
+"origin": "Germánico",
+"meaning": "Fuerte como un oso"
+},
+{
+"name": "Berta",
+"gender": "girl",
+"popularity": 20,
+"origin": "Germánico",
+"meaning": "Brillante, ilustre"
+},
+{
+"name": "Blanca",
+"gender": "girl",
+"popularity": 35,
+"origin": "Germánico",
+"meaning": "Blanca, pura"
+},
+{
+"name": "Caridad",
+"gender": "girl",
+"popularity": 10,
+"origin": "Latín",
+"meaning": "Amor al prójimo, caridad"
+},
+{
+"name": "Carla",
+"gender": "girl",
+"popularity": 60,
+"origin": "Germánico",
+"meaning": "Mujer libre, fuerte"
+},
+{
+"name": "Carles",
+"gender": "boy",
+"popularity": 25,
+"origin": "Germánico",
+"meaning": "Hombre libre, fuerte (forma catalana de Carlos)"
+},
+{
+"name": "Carlos",
+"gender": "boy",
+"popularity": 55,
+"origin": "Germánico",
+"meaning": "Hombre libre, fuerte"
+},
+{
+"name": "Carlota",
+"gender": "girl",
+"popularity": 55,
+"origin": "Germánico",
+"meaning": "Mujer libre, fuerte"
+},
+{
+"name": "Carmen",
+"gender": "girl",
+"popularity": 35,
+"origin": "Hebreo",
+"meaning": "Jardín, viñedo de Dios"
+},
+{
+"name": "Carolina",
+"gender": "girl",
+"popularity": 45,
+"origin": "Germánico",
+"meaning": "Mujer libre, fuerte"
+},
+{
+"name": "Catalina",
+"gender": "girl",
+"popularity": 60,
+"origin": "Griego",
+"meaning": "Pura, limpia"
+},
+{
+"name": "Cecilia",
+"gender": "girl",
+"popularity": 35,
+"origin": "Latín",
+"meaning": "De la familia romana Cecilia; ciega"
+},
+{
+"name": "César",
+"gender": "boy",
+"popularity": 35,
+"origin": "Latín",
+"meaning": "Título romano; de cabellera larga, según la tradición"
+},
+{
+"name": "Clara",
+"gender": "girl",
+"popularity": 60,
+"origin": "Latín",
+"meaning": "Clara, luminosa, ilustre"
+},
+{
+"name": "Claudia",
+"gender": "girl",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "De la familia romana Claudia; que cojea"
+},
+{
+"name": "Claudio",
+"gender": "boy",
+"popularity": 25,
+"origin": "Latín",
+"meaning": "De la familia romana Claudia; que cojea"
+},
+{
+"name": "Clemente",
+"gender": "boy",
+"popularity": 15,
+"origin": "Latín",
+"meaning": "Bondadoso, compasivo"
+},
+{
+"name": "Concepción",
+"gender": "girl",
+"popularity": 10,
+"origin": "Latín",
+"meaning": "Alude a la Inmaculada Concepción de María"
+},
+{
+"name": "Conchita",
+"gender": "girl",
+"popularity": 5,
+"origin": "Latín",
+"meaning": "Diminutivo de Concepción"
+},
+{
+"name": "Cristián",
+"gender": "boy",
+"popularity": 45,
+"origin": "Griego",
+"meaning": "Seguidor de Cristo"
+},
+{
+"name": "Cristina",
+"gender": "girl",
+"popularity": 35,
+"origin": "Griego",
+"meaning": "Seguidora de Cristo"
+},
+{
+"name": "Cristóbal",
+"gender": "boy",
+"popularity": 25,
+"origin": "Griego",
+"meaning": "El que lleva a Cristo"
+},
+{
+"name": "Daniel",
+"gender": "boy",
+"popularity": 65,
+"origin": "Hebreo",
+"meaning": "Dios es mi juez"
+},
+{
+"name": "Daniela",
+"gender": "girl",
+"popularity": 65,
+"origin": "Hebreo",
+"meaning": "Dios es mi juez"
+},
+{
+"name": "David",
+"gender": "boy",
+"popularity": 55,
+"origin": "Hebreo",
+"meaning": "Amado"
+},
+{
+"name": "Débora",
+"gender": "girl",
+"popularity": 20,
+"origin": "Hebreo",
+"meaning": "Abeja"
+},
+{
+"name": "Diana",
+"gender": "girl",
+"popularity": 40,
+"origin": "Latín",
+"meaning": "Divina, luminosa; diosa romana de la caza"
+},
+{
+"name": "Diego",
+"gender": "boy",
+"popularity": 70,
+"origin": "Hebreo",
+"meaning": "Forma derivada de Santiago; el que sostiene el talón"
+},
+{
+"name": "Dolores",
+"gender": "girl",
+"popularity": 15,
+"origin": "Latín",
+"meaning": "Alude a la Virgen de los Dolores"
+},
+{
+"name": "Dorotea",
+"gender": "girl",
+"popularity": 10,
+"origin": "Griego",
+"meaning": "Regalo de Dios"
+},
+{
+"name": "Eduardo",
+"gender": "boy",
+"popularity": 35,
+"origin": "Germánico",
+"meaning": "Guardián de la riqueza"
+},
+{
+"name": "Elena",
+"gender": "girl",
+"popularity": 60,
+"origin": "Griego",
+"meaning": "Antorcha, la resplandeciente"
+},
+{
+"name": "Elisa",
+"gender": "girl",
+"popularity": 40,
+"origin": "Hebreo",
+"meaning": "Dios es mi juramento"
+},
+{
+"name": "Eloisa",
+"gender": "girl",
+"popularity": 15,
+"origin": "Germánico",
+"meaning": "Famosa en la batalla"
+},
+{
+"name": "Elsa",
+"gender": "girl",
+"popularity": 30,
+"origin": "Hebreo",
+"meaning": "Dios es mi juramento"
+},
+{
+"name": "Emilia",
+"gender": "girl",
+"popularity": 75,
+"origin": "Latín",
+"meaning": "De la familia romana Emilia; rival, esforzada"
+},
+{
+"name": "Emilio",
+"gender": "boy",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "De la familia romana Emilia; rival, esforzado"
+},
+{
+"name": "Enrique",
+"gender": "boy",
+"popularity": 30,
+"origin": "Germánico",
+"meaning": "Señor de su casa"
+},
+{
+"name": "Ernesto",
+"gender": "boy",
+"popularity": 20,
+"origin": "Germánico",
+"meaning": "Serio, firme, decidido"
+},
+{
+"name": "Esperanza",
+"gender": "girl",
+"popularity": 20,
+"origin": "Latín",
+"meaning": "Esperanza"
+},
+{
+"name": "Esteban",
+"gender": "boy",
+"popularity": 40,
+"origin": "Griego",
+"meaning": "Corona, el coronado"
+},
+{
+"name": "Estela",
+"gender": "girl",
+"popularity": 25,
+"origin": "Latín",
+"meaning": "Estrella"
+},
+{
+"name": "Ester",
+"gender": "girl",
+"popularity": 25,
+"origin": "Persa",
+"meaning": "Estrella"
+},
+{
+"name": "Eva",
+"gender": "girl",
+"popularity": 55,
+"origin": "Hebreo",
+"meaning": "Fuente de vida"
+},
+{
+"name": "Federico",
+"gender": "boy",
+"popularity": 30,
+"origin": "Germánico",
+"meaning": "Señor de la paz"
+},
+{
+"name": "Felipe",
+"gender": "boy",
+"popularity": 55,
+"origin": "Griego",
+"meaning": "Amigo de los caballos"
+},
+{
+"name": "Fernando",
+"gender": "boy",
+"popularity": 40,
+"origin": "Germánico",
+"meaning": "Valiente en la paz, según la tradición"
+},
+{
+"name": "Florencia",
+"gender": "girl",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "Floreciente, en flor"
+},
+{
+"name": "Francisca",
+"gender": "girl",
+"popularity": 30,
+"origin": "Latín",
+"meaning": "Francesa, libre"
+},
+{
+"name": "Francisco",
+"gender": "boy",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "Francés, libre"
+},
+{
+"name": "Gabriel",
+"gender": "boy",
+"popularity": 70,
+"origin": "Hebreo",
+"meaning": "Fuerza de Dios"
+},
+{
+"name": "Gabriela",
+"gender": "girl",
+"popularity": 55,
+"origin": "Hebreo",
+"meaning": "Fuerza de Dios"
+},
+{
+"name": "Gerardo",
+"gender": "boy",
+"popularity": 25,
+"origin": "Germánico",
+"meaning": "Fuerte con la lanza"
+},
+{
+"name": "Germán",
+"gender": "boy",
+"popularity": 30,
+"origin": "Latín",
+"meaning": "Hermano"
+},
+{
+"name": "Gilberto",
+"gender": "boy",
+"popularity": 15,
+"origin": "Germánico",
+"meaning": "Brillante por su linaje"
+},
+{
+"name": "Gloria",
+"gender": "girl",
+"popularity": 20,
+"origin": "Latín",
+"meaning": "Gloria, fama"
+},
+{
+"name": "Gonzalo",
+"gender": "boy",
+"popularity": 45,
+"origin": "Germánico",
+"meaning": "Dispuesto para la batalla"
+},
+{
+"name": "Graciela",
+"gender": "girl",
+"popularity": 15,
+"origin": "Latín",
+"meaning": "Graciosa, llena de gracia"
+},
+{
+"name": "Gregorio",
+"gender": "boy",
+"popularity": 20,
+"origin": "Griego",
+"meaning": "El que vigila, despierto"
+},
+{
+"name": "Guadalupe",
+"gender": "girl",
+"popularity": 35,
+"origin": "Árabe",
+"meaning": "Río de lobos, según la tradición; advocación mariana"
+},
+{
+"name": "Guillermina",
+"gender": "girl",
+"popularity": 10,
+"origin": "Germánico",
+"meaning": "Protectora decidida"
+},
+{
+"name": "Guillermo",
+"gender": "boy",
+"popularity": 40,
+"origin": "Germánico",
+"meaning": "Protector decidido"
+},
+{
+"name": "Gustavo",
+"gender": "boy",
+"popularity": 25,
+"origin": "Germánico",
+"meaning": "Báculo de los godos"
+},
+{
+"name": "Hermenegildo",
+"gender": "boy",
+"popularity": 5,
+"origin": "Germánico",
+"meaning": "Ofrenda grande, sacrificio"
+},
+{
+"name": "Hernán",
+"gender": "boy",
+"popularity": 25,
+"origin": "Germánico",
+"meaning": "Valiente en la paz; forma antigua de Fernando"
+},
+{
+"name": "Homero",
+"gender": "boy",
+"popularity": 10,
+"origin": "Griego",
+"meaning": "Rehén, prenda"
+},
+{
+"name": "Horacio",
+"gender": "boy",
+"popularity": 20,
+"origin": "Latín",
+"meaning": "De la familia romana Horacia"
+},
+{
+"name": "Hugo",
+"gender": "boy",
+"popularity": 85,
+"origin": "Germánico",
+"meaning": "Inteligente, de espíritu claro"
+},
+{
+"name": "Ignacio",
+"gender": "boy",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "Ardiente, de fuego"
+},
+{
+"name": "Inés",
+"gender": "girl",
+"popularity": 45,
+"origin": "Griego",
+"meaning": "Pura, casta"
+},
+{
+"name": "Irene",
+"gender": "girl",
+"popularity": 45,
+"origin": "Griego",
+"meaning": "Paz"
+},
+{
+"name": "Isabel",
+"gender": "girl",
+"popularity": 55,
+"origin": "Hebreo",
+"meaning": "Dios es mi juramento"
+},
+{
+"name": "Isabela",
+"gender": "girl",
+"popularity": 65,
+"origin": "Hebreo",
+"meaning": "Dios es mi juramento"
+},
+{
+"name": "Iván",
+"gender": "boy",
+"popularity": 40,
+"origin": "Hebreo",
+"meaning": "Dios es misericordioso"
+},
+{
+"name": "Jacobo",
+"gender": "boy",
+"popularity": 25,
+"origin": "Hebreo",
+"meaning": "El que sostiene el talón"
+},
+{
+"name": "Jaime",
+"gender": "boy",
+"popularity": 40,
+"origin": "Hebreo",
+"meaning": "El que sostiene el talón"
+},
+{
+"name": "Javier",
+"gender": "boy",
+"popularity": 40,
+"origin": "Vasco",
+"meaning": "Casa nueva"
+},
+{
+"name": "Jennifer",
+"gender": "girl",
+"popularity": 20,
+"origin": "Galés",
+"meaning": "Blanca, pura, como un espíritu"
+},
+{
+"name": "Jerónimo",
+"gender": "boy",
+"popularity": 25,
+"origin": "Griego",
+"meaning": "Nombre sagrado"
+},
+{
+"name": "Jesús",
+"gender": "boy",
+"popularity": 40,
+"origin": "Hebreo",
+"meaning": "Dios salva"
+},
+{
+"name": "Joaquín",
+"gender": "boy",
+"popularity": 60,
+"origin": "Hebreo",
+"meaning": "Dios establecerá"
+},
+{
+"name": "Jordi",
+"gender": "boy",
+"popularity": 30,
+"origin": "Griego",
+"meaning": "Agricultor, el que trabaja la tierra (forma catalana de Jorge)"
+},
+{
+"name": "Jorge",
+"gender": "boy",
+"popularity": 40,
+"origin": "Griego",
+"meaning": "Agricultor, el que trabaja la tierra"
+},
+{
+"name": "Jorge Luis",
+"gender": "boy",
+"popularity": 10,
+"origin": "Griego y germánico",
+"meaning": "Agricultor y guerrero ilustre"
+},
+{
+"name": "José",
+"gender": "boy",
+"popularity": 60,
+"origin": "Hebreo",
+"meaning": "Dios añadirá"
+},
+{
+"name": "José Eduardo",
+"gender": "boy",
+"popularity": 10,
+"origin": "Hebreo y germánico",
+"meaning": "Dios añadirá y guardián de la riqueza"
+},
+{
+"name": "José Emilio",
+"gender": "boy",
+"popularity": 10,
+"origin": "Hebreo y latín",
+"meaning": "Dios añadirá y rival esforzado"
+},
+{
+"name": "Josefina",
+"gender": "girl",
+"popularity": 40,
+"origin": "Hebreo",
+"meaning": "Dios añadirá"
+},
+{
+"name": "José Luis",
+"gender": "boy",
+"popularity": 20,
+"origin": "Hebreo y germánico",
+"meaning": "Dios añadirá y guerrero ilustre"
+},
+{
+"name": "José María",
+"gender": "boy",
+"popularity": 20,
+"origin": "Hebreo",
+"meaning": "Une José, Dios añadirá, y María, la amada de Dios"
+},
+{
+"name": "Josep",
+"gender": "boy",
+"popularity": 20,
+"origin": "Hebreo",
+"meaning": "Dios añadirá (forma catalana de José)"
+},
+{
+"name": "Juan",
+"gender": "boy",
+"popularity": 55,
+"origin": "Hebreo",
+"meaning": "Dios es misericordioso"
+},
+{
+"name": "Juana",
+"gender": "girl",
+"popularity": 30,
+"origin": "Hebreo",
+"meaning": "Dios es misericordiosa"
+},
+{
+"name": "Juan Carlos",
+"gender": "boy",
+"popularity": 15,
+"origin": "Hebreo y germánico",
+"meaning": "Dios es misericordioso y hombre libre"
+},
+{
+"name": "Juan Ramón",
+"gender": "boy",
+"popularity": 10,
+"origin": "Hebreo y germánico",
+"meaning": "Dios es misericordioso y protector sabio"
+},
+{
+"name": "Julia",
+"gender": "girl",
+"popularity": 70,
+"origin": "Latín",
+"meaning": "De la familia romana Julia"
+},
+{
+"name": "Julio",
+"gender": "boy",
+"popularity": 30,
+"origin": "Latín",
+"meaning": "De la familia romana Julia"
+},
+{
+"name": "Julio César",
+"gender": "boy",
+"popularity": 10,
+"origin": "Latín",
+"meaning": "Une Julio y César, nombres de la Roma clásica"
+},
+{
+"name": "Laura",
+"gender": "girl",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "Laurel, victoriosa"
+},
+{
+"name": "Leticia",
+"gender": "girl",
+"popularity": 25,
+"origin": "Latín",
+"meaning": "Alegría"
+},
+{
+"name": "Lilia",
+"gender": "girl",
+"popularity": 15,
+"origin": "Latín",
+"meaning": "Lirio"
+},
+{
+"name": "Lola",
+"gender": "girl",
+"popularity": 60,
+"origin": "Latín",
+"meaning": "Diminutivo de Dolores"
+},
+{
+"name": "Lorena",
+"gender": "girl",
+"popularity": 25,
+"origin": "Francés",
+"meaning": "De la región de Lorena"
+},
+{
+"name": "Lorenzo",
+"gender": "boy",
+"popularity": 50,
+"origin": "Latín",
+"meaning": "Natural de Laurento; coronado de laurel"
+},
+{
+"name": "Lourdes",
+"gender": "girl",
+"popularity": 20,
+"origin": "Francés",
+"meaning": "Alude a la Virgen de Lourdes"
+},
+{
+"name": "Lucas",
+"gender": "boy",
+"popularity": 85,
+"origin": "Griego",
+"meaning": "Natural de Lucania; luminoso"
+},
+{
+"name": "Lucía",
+"gender": "girl",
+"popularity": 85,
+"origin": "Latín",
+"meaning": "La que nace con la luz"
+},
+{
+"name": "Luis",
+"gender": "boy",
+"popularity": 45,
+"origin": "Germánico",
+"meaning": "Guerrero ilustre"
+},
+{
+"name": "Luisa",
+"gender": "girl",
+"popularity": 30,
+"origin": "Germánico",
+"meaning": "Guerrera ilustre"
+},
+{
+"name": "Luz",
+"gender": "girl",
+"popularity": 35,
+"origin": "Latín",
+"meaning": "Luz; alude a la Virgen de la Luz"
+},
+{
+"name": "Magdalena",
+"gender": "girl",
+"popularity": 25,
+"origin": "Hebreo",
+"meaning": "Natural de Magdala, torre"
+},
+{
+"name": "Sofía",
+"gender": "girl",
+"popularity": 85,
+"origin": "Griego",
+"meaning": "Sabiduría"
+},
+{
+"name": "Martina",
+"gender": "girl",
+"popularity": 85,
+"origin": "Latín",
+"meaning": "Consagrada a Marte"
+},
+{
+"name": "Valentina",
+"gender": "girl",
+"popularity": 85,
+"origin": "Latín",
+"meaning": "Valiente, fuerte, sana"
+},
+{
+"name": "Paula",
+"gender": "girl",
+"popularity": 65,
+"origin": "Latín",
+"meaning": "Pequeña, humilde"
+},
+{
+"name": "Olivia",
+"gender": "girl",
+"popularity": 80,
+"origin": "Latín",
+"meaning": "Olivo, símbolo de paz"
+},
+{
+"name": "Alba",
+"gender": "girl",
+"popularity": 65,
+"origin": "Latín",
+"meaning": "Amanecer, blanca"
+},
+{
+"name": "Mía",
+"gender": "girl",
+"popularity": 80,
+"origin": "Italiano",
+"meaning": "Mía, querida"
+},
+{
+"name": "Noa",
+"gender": "girl",
+"popularity": 70,
+"origin": "Hebreo",
+"meaning": "Movimiento"
+},
+{
+"name": "Aitana",
+"gender": "girl",
+"popularity": 70,
+"origin": "Vasco",
+"meaning": "Gloria"
+},
+{
+"name": "Valeria",
+"gender": "girl",
+"popularity": 75,
+"origin": "Latín",
+"meaning": "Fuerte, sana, valerosa"
+},
+{
+"name": "Chloe",
+"gender": "girl",
+"popularity": 45,
+"origin": "Griego",
+"meaning": "Brote verde"
+},
+{
+"name": "Sara",
+"gender": "girl",
+"popularity": 60,
+"origin": "Hebreo",
+"meaning": "Princesa"
+},
+{
+"name": "Mariana",
+"gender": "girl",
+"popularity": 60,
+"origin": "Latín",
+"meaning": "De la familia romana Mario; relativa a María"
+},
+{
+"name": "Regina",
+"gender": "girl",
+"popularity": 50,
+"origin": "Latín",
+"meaning": "Reina"
+},
+{
+"name": "Renata",
+"gender": "girl",
+"popularity": 65,
+"origin": "Latín",
+"meaning": "Renacida"
+},
+{
+"name": "Camila",
+"gender": "girl",
+"popularity": 80,
+"origin": "Latín",
+"meaning": "Servidora en los ritos religiosos"
+},
+{
+"name": "Victoria",
+"gender": "girl",
+"popularity": 70,
+"origin": "Latín",
+"meaning": "Victoria"
+},
+{
+"name": "Isidora",
+"gender": "girl",
+"popularity": 45,
+"origin": "Griego",
+"meaning": "Regalo de Isis"
+},
+{
+"name": "Agustina",
+"gender": "girl",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "Venerable, majestuosa"
+},
+{
+"name": "Antonella",
+"gender": "girl",
+"popularity": 50,
+"origin": "Italiano",
+"meaning": "Diminutivo de Antonia; valiosa"
+},
+{
+"name": "Luciana",
+"gender": "girl",
+"popularity": 65,
+"origin": "Latín",
+"meaning": "Luminosa, que nace con la luz"
+},
+{
+"name": "Abril",
+"gender": "girl",
+"popularity": 65,
+"origin": "Latín",
+"meaning": "Abrir; mes de la primavera"
+},
+{
+"name": "Romina",
+"gender": "girl",
+"popularity": 40,
+"origin": "Latín",
+"meaning": "Natural de Roma"
+},
+{
+"name": "Zoe",
+"gender": "girl",
+"popularity": 70,
+"origin": "Griego",
+"meaning": "Vida"
+},
+{
+"name": "Nora",
+"gender": "girl",
+"popularity": 60,
+"origin": "Griego",
+"meaning": "Luz, antorcha (forma de Eleonora)"
+},
+{
+"name": "Ainhoa",
+"gender": "girl",
+"popularity": 50,
+"origin": "Vasco",
+"meaning": "Advocación mariana del pueblo navarro de Ainhoa"
+},
+{
+"name": "Nerea",
+"gender": "girl",
+"popularity": 50,
+"origin": "Griego",
+"meaning": "Ninfa del mar"
+},
+{
+"name": "Mateo",
+"gender": "boy",
+"popularity": 90,
+"origin": "Hebreo",
+"meaning": "Regalo de Dios"
+},
+{
+"name": "Leo",
+"gender": "boy",
+"popularity": 85,
+"origin": "Latín",
+"meaning": "León"
+},
+{
+"name": "Martín",
+"gender": "boy",
+"popularity": 85,
+"origin": "Latín",
+"meaning": "Consagrado a Marte"
+},
+{
+"name": "Pablo",
+"gender": "boy",
+"popularity": 70,
+"origin": "Latín",
+"meaning": "Pequeño, humilde"
+},
+{
+"name": "Manuel",
+"gender": "boy",
+"popularity": 55,
+"origin": "Hebreo",
+"meaning": "Dios con nosotros"
+},
+{
+"name": "Adrián",
+"gender": "boy",
+"popularity": 60,
+"origin": "Latín",
+"meaning": "Natural de Adria, junto al mar Adriático"
+},
+{
+"name": "Mario",
+"gender": "boy",
+"popularity": 50,
+"origin": "Latín",
+"meaning": "Varonil; de la familia romana Mario"
+},
+{
+"name": "Enzo",
+"gender": "boy",
+"popularity": 65,
+"origin": "Italiano",
+"meaning": "Señor de su casa (forma de Enrique)"
+},
+{
+"name": "Marco",
+"gender": "boy",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "Consagrado a Marte"
+},
+{
+"name": "Thiago",
+"gender": "boy",
+"popularity": 80,
+"origin": "Hebreo",
+"meaning": "Forma de Santiago; el que sostiene el talón"
+},
+{
+"name": "Santiago",
+"gender": "boy",
+"popularity": 85,
+"origin": "Hebreo",
+"meaning": "San Jacobo; el que sostiene el talón"
+},
+{
+"name": "Sebastián",
+"gender": "boy",
+"popularity": 80,
+"origin": "Griego",
+"meaning": "Venerable, digno de respeto"
+},
+{
+"name": "Matías",
+"gender": "boy",
+"popularity": 80,
+"origin": "Hebreo",
+"meaning": "Regalo de Dios"
+},
+{
+"name": "Nicolás",
+"gender": "boy",
+"popularity": 70,
+"origin": "Griego",
+"meaning": "Victoria del pueblo"
+},
+{
+"name": "Samuel",
+"gender": "boy",
+"popularity": 65,
+"origin": "Hebreo",
+"meaning": "Escuchado por Dios"
+},
+{
+"name": "Liam",
+"gender": "boy",
+"popularity": 70,
+"origin": "Irlandés",
+"meaning": "Protector decidido (forma de Guillermo)"
+},
+{
+"name": "Emiliano",
+"gender": "boy",
+"popularity": 70,
+"origin": "Latín",
+"meaning": "De la familia de Emilio; esforzado"
+},
+{
+"name": "Bruno",
+"gender": "boy",
+"popularity": 75,
+"origin": "Germánico",
+"meaning": "Moreno, de piel oscura"
+},
+{
+"name": "Izan",
+"gender": "boy",
+"popularity": 60,
+"origin": "Hebreo",
+"meaning": "Firme, fuerte (forma de Ethan)"
+},
+{
+"name": "Marcos",
+"gender": "boy",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "Consagrado a Marte"
+},
+{
+"name": "Rodrigo",
+"gender": "boy",
+"popularity": 50,
+"origin": "Germánico",
+"meaning": "Rico en gloria"
+},
+{
+"name": "Héctor",
+"gender": "boy",
+"popularity": 35,
+"origin": "Griego",
+"meaning": "El que sostiene, firme"
+},
+{
+"name": "Iker",
+"gender": "boy",
+"popularity": 55,
+"origin": "Vasco",
+"meaning": "Visitación"
+},
+{
+"name": "Rafael",
+"gender": "boy",
+"popularity": 50,
+"origin": "Hebreo",
+"meaning": "Dios sana"
+},
+{
+"name": "Tomás",
+"gender": "boy",
+"popularity": 65,
+"origin": "Arameo",
+"meaning": "Gemelo"
+},
+{
+"name": "Vicente",
+"gender": "boy",
+"popularity": 50,
+"origin": "Latín",
+"meaning": "Vencedor"
+},
+{
+"name": "Ian",
+"gender": "boy",
+"popularity": 50,
+"origin": "Escocés",
+"meaning": "Dios es misericordioso (forma de Juan)"
+},
+{
+"name": "Benicio",
+"gender": "boy",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "Bienhechor, benévolo"
+},
+{
+"name": "Valentín",
+"gender": "boy",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "Valiente, fuerte, sano"
+},
+{
+"name": "Maximiliano",
+"gender": "boy",
+"popularity": 60,
+"origin": "Latín",
+"meaning": "El más grande"
+},
+{
+"name": "Eric",
+"gender": "boy",
+"popularity": 45,
+"origin": "Nórdico",
+"meaning": "Gobernante eterno"
+},
+{
+"name": "Pedro",
+"gender": "boy",
+"popularity": 50,
+"origin": "Griego",
+"meaning": "Piedra, roca"
+},
+{
+"name": "Gael",
+"gender": "boy",
+"popularity": 70,
+"origin": "Celta",
+"meaning": "Gaélico, de origen celta"
+},
+{
+"name": "Dylan",
+"gender": "boy",
+"popularity": 55,
+"origin": "Galés",
+"meaning": "Hijo del mar"
+},
+{
+"name": "Miguel",
+"gender": "boy",
+"popularity": 55,
+"origin": "Hebreo",
+"meaning": "¿Quién como Dios?"
+},
+{
+"name": "Ángel",
+"gender": "boy",
+"popularity": 50,
+"origin": "Griego",
+"meaning": "Mensajero"
+},
+{
+"name": "Alonso",
+"gender": "boy",
+"popularity": 50,
+"origin": "Germánico",
+"meaning": "Noble preparado para el combate (forma de Alfonso)"
+},
+{
+"name": "Rubén",
+"gender": "boy",
+"popularity": 35,
+"origin": "Hebreo",
+"meaning": "Ved, un hijo"
+},
+{
+"name": "Marc",
+"gender": "boy",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "Consagrado a Marte (forma catalana de Marcos)"
+},
+{
+"name": "Pol",
+"gender": "boy",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "Pequeño, humilde (forma catalana de Pablo)"
+},
+{
+"name": "Unai",
+"gender": "boy",
+"popularity": 45,
+"origin": "Vasco",
+"meaning": "Pastor de vacas"
+},
+{
+"name": "Fabián",
+"gender": "boy",
+"popularity": 40,
+"origin": "Latín",
+"meaning": "De la familia romana Fabia; cultivador de habas"
+},
+{
+"name": "Joel",
+"gender": "boy",
+"popularity": 45,
+"origin": "Hebreo",
+"meaning": "Yahvé es Dios"
+},
+{
+"name": "Simón",
+"gender": "boy",
+"popularity": 50,
+"origin": "Hebreo",
+"meaning": "El que escucha"
+},
+{
+"name": "Julián",
+"gender": "boy",
+"popularity": 55,
+"origin": "Latín",
+"meaning": "De la familia romana Julia"
+},
+{
+"name": "Noah",
+"gender": "boy",
+"popularity": 60,
+"origin": "Hebreo",
+"meaning": "Descanso, consuelo"
+},
+{
+"name": "Elías",
+"gender": "boy",
+"popularity": 60,
+"origin": "Hebreo",
+"meaning": "Yahvé es mi Dios"
+},
+{
+"name": "Ariel",
+"gender": "unisex",
+"popularity": 40,
+"origin": "Hebreo",
+"meaning": "León de Dios"
+},
+{
+"name": "Alex",
+"gender": "unisex",
+"popularity": 45,
+"origin": "Griego",
+"meaning": "Protector, forma breve de Alejandro y Alejandra"
+},
+{
+"name": "Emma",
+"gender": "girl",
+"popularity": 75,
+"origin": "Germánico",
+"meaning": "Grande, universal"
+},
+{
+"name": "Ana Paula",
+"gender": "girl",
+"popularity": 15,
+"origin": "Hebreo y latín",
+"meaning": "Gracia de Dios y pequeña humilde"
+},
+{
+"name": "Ainara",
+"gender": "girl",
+"popularity": 45,
+"origin": "Vasco",
+"meaning": "Golondrina"
+},
+{
+"name": "Maite",
+"gender": "girl",
+"popularity": 30,
+"origin": "Vasco",
+"meaning": "Amada, querida"
+},
+{
+"name": "Rocío",
+"gender": "girl",
+"popularity": 30,
+"origin": "Latín",
+"meaning": "Rocío; advocación mariana"
+},
+{
+"name": "Candela",
+"gender": "girl",
+"popularity": 50,
+"origin": "Latín",
+"meaning": "Vela, luz; advocación de la Candelaria"
+},
+{
+"name": "Celia",
+"gender": "girl",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "De la familia romana Celia; celestial"
+},
+{
+"name": "Marina",
+"gender": "girl",
+"popularity": 45,
+"origin": "Latín",
+"meaning": "Del mar"
+},
+{
+"name": "Ángela",
+"gender": "girl",
+"popularity": 40,
+"origin": "Griego",
+"meaning": "Mensajera"
+}
+]

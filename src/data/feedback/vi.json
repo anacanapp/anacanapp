@@ -1,0 +1,46 @@
+{
+  "menu": "Gửi góp ý",
+  "title": "Bạn thấy Anacan thế nào?",
+  "subtitle": "Góp ý của bạn giúp ứng dụng tốt hơn cho mọi người mẹ.",
+  "stars": [
+    "Rất tệ",
+    "Tệ",
+    "Bình thường",
+    "Tốt",
+    "Tuyệt vời"
+  ],
+  "low_title": "Bạn không thích điều gì?",
+  "low_sub": "Chọn vài mục — chúng tôi đọc từng góp ý.",
+  "high_title": "Bạn thích điều gì nhất?",
+  "high_sub": "Hãy chọn để chúng tôi làm tốt hơn nữa.",
+  "low_reasons": {
+    "crash": "Ứng dụng bị văng / treo",
+    "bug": "Có gì đó không hoạt động",
+    "slow": "Chạy chậm",
+    "missing": "Thiếu tính năng cần thiết",
+    "content": "Thông tin chưa chính xác",
+    "ads": "Quá nhiều quảng cáo",
+    "price": "Premium đắt",
+    "hard": "Khó sử dụng",
+    "other": "Khác"
+  },
+  "high_reasons": {
+    "tracking": "Công cụ theo dõi",
+    "content": "Thông tin hằng ngày",
+    "ai": "Trợ lý AI",
+    "community": "Cộng đồng",
+    "partner": "Chế độ bạn đời",
+    "design": "Thiết kế",
+    "other": "Khác"
+  },
+  "message_low": "Đã xảy ra chuyện gì? Chúng tôi nên thay đổi gì?",
+  "message_high": "Bạn muốn bổ sung gì không? (không bắt buộc)",
+  "send": "Gửi",
+  "sending": "Đang gửi...",
+  "thanks_low": "Cảm ơn bạn. Đội ngũ của chúng tôi sẽ đọc và cố gắng khắc phục 💛",
+  "thanks_high": "Cảm ơn bạn rất nhiều! Đây là động lực lớn cho đội ngũ chúng tôi 💛",
+  "close": "Đóng",
+  "later": "Để sau",
+  "error": "Không gửi được. Hãy kiểm tra kết nối internet và thử lại.",
+  "subject": "Góp ý về ứng dụng"
+}

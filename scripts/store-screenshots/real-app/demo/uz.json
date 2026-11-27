@@ -1,0 +1,34 @@
+{
+  "country": "UZ",
+  "locale": "uz-UZ",
+  "names": {
+    "mother": "Madina",
+    "baby": "Mohira",
+    "cycle": "Nilufar",
+    "partner": "Jasur"
+  },
+  "appointments": [
+    "UZI tekshiruvi",
+    "Shahar tugʻruqxonasi",
+    "Qon tahlili",
+    "Pediatr koʻrigi"
+  ],
+  "authors": [
+    "Dilnoza Karimova",
+    "Shahnoza Rahimova",
+    "Gulnora Aliyeva"
+  ],
+  "posts": [
+    "Bugun ilk marta tepkilarini his qildim! 🥹 Bu hissni soʻz bilan ifodalay olmayman. Sizlarda nechanchi haftada boʻlgan? #homiladorlik",
+    "Tungi soat 3 da chaqalogʻim uxlamaganda Anacan.AI bilan gaplashish juda yordam berdi. Yangi onalarga tavsiya qilaman 💛",
+    "24-haftadamiz, tugʻruqxona sumkasini yigʻishni boshladim. Roʻyxatingizda nimalar bor? 🧳"
+  ],
+  "ai_question": "Koʻngil aynishiga nima yordam beradi?",
+  "ai_answer": [
+    "Koʻngil aynishiga qarshi 3 oddiy usul:\n\n",
+    "1. **Zanjabil choyi** — ertalab nahorga bir piyola.\n",
+    "2. **Oz-ozdan, tez-tez ovqatlaning** — oshqozonni boʻsh qoldirmang.\n",
+    "3. **Toʻshakdan turmasdan** bir nechta quruq pechenye yeng.\n\n",
+    "Kun davomida koʻp suv iching 💧 Qusish kuchaysa, shifokorga murojaat qiling."
+  ]
+}

@@ -794,6 +794,7 @@ const FairyTaleGenerator = ({ onBack }: FairyTaleGeneratorProps) => {
                 {/* Close button */}
                 <button
                   onClick={() => setSelectedTale(null)}
+                  aria-label={tr("common_close", "Bağla")}
                   className="absolute top-3 end-3 z-30 w-8 h-8 rounded-full flex items-center justify-center transition-colors"
                   style={{ background: 'rgba(255,255,255,0.35)' }}>
 
@@ -828,6 +829,8 @@ const FairyTaleGenerator = ({ onBack }: FairyTaleGeneratorProps) => {
                   <button
                     className="a-icon-btn"
                     style={{ width: 40, height: 40 }}
+                    aria-label={tr("a11y_favorite", "Sevimlilərə əlavə et")}
+                    aria-pressed={!!selectedTale.is_favorite}
                     onClick={() => {
                       toggleFavorite.mutate({ id: selectedTale.id, isFavorite: !selectedTale.is_favorite });
                       setSelectedTale({ ...selectedTale, is_favorite: !selectedTale.is_favorite });
@@ -840,6 +843,7 @@ const FairyTaleGenerator = ({ onBack }: FairyTaleGeneratorProps) => {
                   <button
                     className="a-icon-btn"
                     style={{ width: 40, height: 40 }}
+                    aria-label={tr("common_sil", "Sil")}
                     onClick={() => {
                       deleteTale.mutate(selectedTale.id);
                       setSelectedTale(null);

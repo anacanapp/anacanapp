@@ -1,0 +1,12 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261123090000_mercan_cume_campaign.sql",
+  "runtime": "google-mercan-cume-campaign",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data only, checks the app_settings and banners guards",
+  "relations": [
+    { "relation": "public.app_settings", "change": "web_premium_campaign set to mercan-2026; web_premium_campaign_before_mercan and dodo_campaign rows", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "campaign prices and window; already guarded" },
+    { "relation": "public.banners", "change": "105 Mərcan Cümə image banners added; /books banners start after the campaign", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "promo creatives; already guarded" }
+  ]
+}

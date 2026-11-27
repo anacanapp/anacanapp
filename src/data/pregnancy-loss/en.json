@@ -1,0 +1,357 @@
+{
+  "ui": {
+    "section_title": "My pregnancy",
+    "dates_row": "Pregnancy dates",
+    "dates_sub": "Due date and weeks",
+    "birth_row": "My baby was born",
+    "birth_sub": "Switch to mom mode",
+    "entry_title": "My pregnancy has ended",
+    "entry_sub": "A quiet, short step",
+    "entry_note": "If your pregnancy has ended, Anacan stops pregnancy notifications right away and supports you through recovery.",
+    "sheet_title": "We are so sorry",
+    "sheet_body": "This is not your fault. Anacan will be by your side through this time.",
+    "sheet_stop": "Baby messages and pregnancy notifications will stop right away",
+    "sheet_keep": "Your album and chats are not deleted, just hidden",
+    "sheet_guide": "An 8-week recovery guide will open",
+    "sheet_date": "When did it happen?",
+    "sheet_date_sub": "Recovery weeks are counted from this date",
+    "sheet_partner": "Let my partner know",
+    "sheet_partner_sub": "We'll send them a gentle message and show them how to support you",
+    "sheet_continue": "Continue",
+    "sheet_back": "Go back",
+    "sheet_error": "Something went wrong. Check your internet connection and try again.",
+    "partner_message": "I really need your support these days 🤍 A guide has opened for you in Anacan.",
+    "home_hello": "Hi, {name}",
+    "home_title": "Be gentle with yourself today",
+    "home_week": "Recovery · week {n}/8",
+    "home_done": "8 weeks are behind you",
+    "home_done_body": "Recovery moves at a different pace for everyone. When you're ready, the options below will be waiting. There's no rush.",
+    "home_open_week": "See this week",
+    "mood_title": "How are you today?",
+    "moods": [
+      "Very hard",
+      "Sad",
+      "Empty",
+      "Calm",
+      "A bit better"
+    ],
+    "mood_reply": [
+      "Today is very hard, and that's understandable. Don't push yourself to do anything. If you want, write to someone or talk to Anacan.AI.",
+      "Grief is love continuing. If you feel like crying, cry. These feelings will soften little by little.",
+      "Feeling empty is very common after a loss. Do one small thing today: drink some water, take a short walk, eat something.",
+      "Calm days happen too. Let yourself enjoy it, without feeling guilty.",
+      "Feeling better doesn't mean forgetting. Let yourself savor this moment."
+    ],
+    "mood_saved": "Saved",
+    "warn_title": "See a doctor right away if you have:",
+    "warn_body": "heavy bleeding, a temperature above 38°C, severe pain, foul-smelling discharge or dizziness.",
+    "check_title": "Body check",
+    "check_sub": "Any worrying signs? Check in a minute",
+    "talk_title": "Want to talk?",
+    "talk_sub": "Anacan.AI listens without judging you",
+    "epds_title": "Check your mood",
+    "epds_sub": "Short questionnaire (EPDS), 2 minutes",
+    "diary_title": "Write my feelings",
+    "diary_sub": "Mood diary",
+    "memories_title": "My memories",
+    "memories_sub": "Album, chat and letter — only yours",
+    "ready_title": "When you're ready",
+    "ready_sub": "No rush. These options will always be here.",
+    "ready_cycle": "Track my cycle",
+    "ready_cycle_sub": "Period and ovulation calendar",
+    "ready_pregnant": "I'm pregnant again",
+    "ready_pregnant_sub": "Start a new pregnancy",
+    "ready_stay": "I'm staying in recovery for now",
+    "ready_stay_sub": "Nothing changes",
+    "ready_confirm_cycle": "Recovery mode will close and the period calendar will open. The recovery guide stays available in My memories.",
+    "ready_confirm_pregnant": "Recovery mode will close. In the next step you'll enter the dates of your new pregnancy.",
+    "ready_yes": "Yes, continue",
+    "ready_no": "Not yet",
+    "guide_title": "Recovery guide",
+    "guide_sub": "8 weeks, step by step",
+    "week": "Week {n}",
+    "tab_week": "This week",
+    "tab_signs": "Signs",
+    "tab_faq": "Questions",
+    "your_body": "Your body",
+    "your_mind": "Your feelings",
+    "for_you": "For you this week",
+    "signs_title": "Body check",
+    "signs_sub": "Choose what you've noticed in the last few days. This is not a diagnosis.",
+    "signs_none": "No warning signs selected. Keep resting and taking care of yourself.",
+    "signs_some": "Talk to your doctor about these signs in the next few days. No need to wait.",
+    "signs_urgent": "You selected an urgent sign. Don't stay alone: call emergency services (112) right away or ask someone close to come.",
+    "signs_urgent_group": "Urgent",
+    "signs_soon_group": "See a doctor in the next few days",
+    "call": "Call",
+    "faq_title": "Frequently asked questions",
+    "disclaimer": "This information does not replace medical advice. Recovery is different for everyone and depends on the week the loss happened.",
+    "mem_intro": "These memories are only yours. No one else sees them. You can look at, keep or delete them whenever you want.",
+    "mem_album": "Pregnancy album",
+    "mem_album_sub": "View or delete photos",
+    "mem_chat": "Chat with baby",
+    "mem_chat_sub": "{n} days",
+    "mem_chat_empty": "No chat",
+    "mem_chat_delete": "Delete chat",
+    "mem_chat_delete_confirm": "The chat will be permanently deleted from this device. Are you sure?",
+    "mem_deleted": "Deleted",
+    "mem_letter": "A letter to them",
+    "mem_letter_sub": "Write what you want to say. It's saved only on this device.",
+    "mem_letter_placeholder": "My dear...",
+    "mem_save": "Save",
+    "mem_saved": "Saved 🤍",
+    "mem_guide": "Recovery guide",
+    "mem_guide_sub": "The 8-week guide is always open here",
+    "back": "Back",
+    "p_card_title": "Be by her side these days",
+    "p_card_sub": "Recovery · week {n}/8 · open the guide",
+    "p_title": "Be by her side",
+    "p_sub": "Support guide after a loss",
+    "p_hero_label": "Recovery period",
+    "p_tab_now": "Now",
+    "p_tab_say": "What to say",
+    "p_tab_you": "Your feelings",
+    "p_tab_signs": "Signs",
+    "p_phase": "Weeks {a}–{b}",
+    "p_intro_title": "Be by her side 🤍",
+    "p_intro_body": "This loss is hard for both of you. You have every right to grieve too. What matters most to her isn't finding the right words, it's you being there.",
+    "p_what_do": "What you can do",
+    "p_say_title": "You can say",
+    "p_avoid_title": "Try not to say",
+    "p_send": "Send",
+    "p_sent": "Sent 🤍",
+    "p_phrases_title": "Write her a few words",
+    "p_phrases_sub": "Sent as a message with one tap.",
+    "p_tasks_title": "Today I've got this",
+    "p_tasks_sub": "Send her what you've chosen so she knows what's on you.",
+    "p_tasks_send": "Send my choices to her",
+    "p_tasks_message": "Today I'm taking care of these: {list} 🤍 You rest.",
+    "p_mood_low_title": "The last few days have been very hard for her",
+    "p_mood_low_body": "In the last 7 days she marked her mood as low on {n} days. Spend more time with her today and ask how she's feeling.",
+    "p_mood_low_long": "If this lasts more than 2 weeks, talk to a doctor or psychologist together.",
+    "p_signs_sub": "Choose what you've noticed in her. This is not a diagnosis.",
+    "p_hidden_note": "Pregnancy missions, the birth plan and night shifts are temporarily hidden."
+  },
+  "weeks": [
+    {
+      "title": "The first days",
+      "body": "Bleeding and period-like cramps are normal this week. Use pads, not tampons. If the loss happened later in pregnancy, your breasts may produce milk: a snug bra and cold compresses help.",
+      "mind": "Shock, sadness, anger, emptiness or feeling nothing at all — all of it is normal. The question “Why?” will come up a lot. This is not your fault.",
+      "todo": [
+        "Rest and leave the housework to others",
+        "Keep an eye on your temperature and bleeding",
+        "Tell someone close how you're doing"
+      ]
+    },
+    {
+      "title": "Your body is healing",
+      "body": "Bleeding usually eases, sometimes lasting 1–2 weeks. Drink plenty of water and eat iron-rich food (meat, lentils, spinach). Avoid pools, baths and sex until the bleeding stops.",
+      "mind": "People around you are going back to life while you are still hurting. That gap can feel lonely. You don't need to hide your feelings.",
+      "todo": [
+        "A short walk every day — only if you feel like it",
+        "Schedule the follow-up visit your doctor mentioned",
+        "Let your partner answer the questions that feel too heavy"
+      ]
+    },
+    {
+      "title": "Grief comes in waves",
+      "body": "Tiredness may still linger. If the bleeding has stopped, gentle movement and a sleep routine help bring your strength back. A pregnancy test may stay positive for a few weeks, and that's normal.",
+      "mind": "A hard day can follow a good one. Grief isn't a straight line. Seeing pregnant women and babies can be difficult — it's okay to protect yourself.",
+      "todo": [
+        "Temporarily mute social media accounts that drain you",
+        "Talk about this with your partner",
+        "Do something small and kind for yourself"
+      ]
+    },
+    {
+      "title": "Rhythm returns",
+      "body": "For many women, the body returns to its usual rhythm around these weeks. Your next period usually comes 4–6 weeks after the loss and may be a little different the first time.",
+      "mind": "Getting back to daily life both helps and tires you. Don't rush back to work; if you can, lighten your load.",
+      "todo": [
+        "Decide for yourself who at work you tell and how much",
+        "Note your mood once a day",
+        "If you need to, take the mood questionnaire (EPDS)"
+      ]
+    },
+    {
+      "title": "Small steps",
+      "body": "Your energy is slowly coming back. Eat a balanced diet and talk to your doctor about taking folic acid. If you haven't had a follow-up visit yet, schedule it now.",
+      "mind": "Dates — your due date, certain weeks — can feel heavy. Make a calm plan for those days ahead of time.",
+      "todo": [
+        "Make a plan for the hard dates",
+        "Meet up with a friend",
+        "Choose gentle movement for your body: yoga, a walk"
+      ]
+    },
+    {
+      "title": "Remembering the love",
+      "body": "Your body has mostly recovered. If your period hasn't come yet, talk to your doctor.",
+      "mind": "Some families hold a small ritual of remembrance: writing a letter, planting a tree, lighting a candle. Only if you want to.",
+      "todo": [
+        "Write a letter to them in My memories",
+        "Note what has been helping you",
+        "Spend time together with your partner"
+      ]
+    },
+    {
+      "title": "Coming back to yourself",
+      "body": "Sleep, food and movement are the foundation of recovery. If you're thinking about a new pregnancy, decide together with your doctor when you're ready.",
+      "mind": "Even as grief eases, it may not disappear completely. That means you haven't forgotten. If grief gets in the way of daily life for more than 2 weeks, talk to a specialist.",
+      "todo": [
+        "Retake the mood questionnaire",
+        "Make one small plan for the future",
+        "Give yourself credit: you've made it this far"
+      ]
+    },
+    {
+      "title": "The road ahead",
+      "body": "8 weeks are behind you. Your body has recovered, but there's no time limit on your feelings.",
+      "mind": "When you're ready, you can start tracking your cycle or move on to new plans. If you're not ready, that's okay too. Anacan won't rush you.",
+      "todo": [
+        "Look at your options when you're ready",
+        "Thank the people who supported you",
+        "Come back to this guide whenever you need it"
+      ]
+    }
+  ],
+  "signs": {
+    "urgent": [
+      "Heavy bleeding: soaking a pad completely within an hour",
+      "Temperature above 38°C or chills",
+      "Severe or worsening abdominal pain",
+      "Foul-smelling discharge",
+      "Dizziness, fainting",
+      "Thoughts of harming yourself"
+    ],
+    "soon": [
+      "Bleeding lasts more than 2 weeks",
+      "My period still hasn't come after 8 weeks",
+      "Sadness or emptiness has been getting in the way of my daily life for more than 2 weeks",
+      "My sleep and appetite are completely disrupted",
+      "Nothing brings me joy"
+    ]
+  },
+  "faq": [
+    {
+      "q": "Is this my fault?",
+      "a": "No. Most early losses happen because of chromosomal differences in the baby, and no activity, stress, food or work causes them."
+    },
+    {
+      "q": "How common is this?",
+      "a": "About 10–20% of confirmed pregnancies end in loss. You are not alone; people just rarely talk about it."
+    },
+    {
+      "q": "When should I see a doctor?",
+      "a": "Right away if you have urgent signs. Otherwise, go to the follow-up visit your doctor scheduled and write down your questions beforehand."
+    },
+    {
+      "q": "When will my period come?",
+      "a": "Usually after 4–6 weeks. The first period may be heavier or lighter than usual. If 8 weeks have passed and it still hasn't come, see a doctor."
+    },
+    {
+      "q": "Will this happen in my next pregnancy too?",
+      "a": "After one loss, most women go on to have a healthy pregnancy. If there have been repeated losses, your doctor may suggest additional tests."
+    },
+    {
+      "q": "When can we try again?",
+      "a": "It depends on how ready you feel, physically and emotionally. Decide on the timing together with your doctor; there's no need to rush."
+    },
+    {
+      "q": "When will these feelings pass?",
+      "a": "There's no timetable for this. Grief softens as time goes by. If it gets in the way of daily life for more than 2 weeks, talking to a psychologist helps."
+    }
+  ],
+  "partner": {
+    "phases": [
+      {
+        "title": "The first days: be there",
+        "body": "Her body is healing through bleeding and pain, and her feelings are in shock. Don't search for the right words — being there is enough.",
+        "do": [
+          "Take over the housework and meals completely",
+          "Tell the relatives yourself so she doesn't have to explain",
+          "Go to the doctor's appointment together",
+          "Keep an eye on her temperature and bleeding"
+        ]
+      },
+      {
+        "title": "Weeks 3–4: the world moves on, she hasn't yet",
+        "body": "Everyone is going back to life, and you may feel it's already behind you. For her, grief keeps coming in waves.",
+        "do": [
+          "Ask “How are you today?” every day and listen to the answer",
+          "Shield her from pregnant acquaintances and baby news",
+          "Take short walks together",
+          "Don't try to “fix” her feelings"
+        ]
+      },
+      {
+        "title": "Weeks 5–6: hard dates",
+        "body": "The due date or certain weeks may feel heavy for her. Know them in advance and be by her side.",
+        "do": [
+          "Mark the hard dates in your calendar",
+          "If she wants to do something in remembrance, support her",
+          "Suggest calm plans to spend time together",
+          "Talk about your own grief too"
+        ]
+      },
+      {
+        "title": "Weeks 7–8: moving forward together",
+        "body": "Her body is recovering, but the feelings may still continue. Discuss future plans at her pace.",
+        "do": [
+          "Don't bring up a new pregnancy until she does",
+          "Prepare your questions for the doctor together",
+          "Plan small joys",
+          "If needed, help her find a psychologist"
+        ]
+      }
+    ],
+    "say": [
+      "I'm here.",
+      "Whatever you need, I'll do it.",
+      "I'm sad too.",
+      "This is not your fault.",
+      "If you want to cry, cry. I'm right here.",
+      "We will both never forget them."
+    ],
+    "avoid": [
+      "“You can try again.”",
+      "“At least it happened early.”",
+      "“Everything happens for a reason.”",
+      "Sentences that start with “At least…”",
+      "“You should be over it by now.”",
+      "“Don't cry.”"
+    ],
+    "tasks": [
+      "I'm cooking",
+      "I'm tidying the house",
+      "I'm doing the shopping",
+      "I'm answering the relatives",
+      "I'm scheduling the doctor's appointment",
+      "I'm handling calls and messages",
+      "Let's go for a walk together this evening",
+      "I'm making you a warm cup of tea"
+    ],
+    "phrases": [
+      "I love you so much. I'm here 🤍",
+      "How are you today? Tell me whatever you need.",
+      "This is not your fault.",
+      "I remember them too.",
+      "Don't do anything tonight, I've got it all.",
+      "I'm proud of you, you're so strong."
+    ],
+    "you_title": "You're grieving too",
+    "you_body": "Men often go through this loss in silence and hide their feelings because they think “I have to be strong.” But you have every right to grieve too. Grieving together brings you closer.",
+    "you_tips": [
+      "Share your feelings with her too: “I'm sad too”",
+      "Talk to a friend you trust",
+      "Don't forget sleep, food and movement",
+      "If it gets hard, reach out to a psychologist",
+      "Don't drown your grief in alcohol or by escaping into work"
+    ]
+  },
+  "chips": [
+    "🤍 I'm here",
+    "🤗 How are you?",
+    "🍵 Shall I bring tea?",
+    "🛒 Need anything?"
+  ]
+}

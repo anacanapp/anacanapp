@@ -1,0 +1,108 @@
+/* Cakes store — "Vitrin" design (A). Uses the app's --a-* tokens, so light and dark both work. */
+.ck { background: var(--a-bg); color: var(--a-ink); min-height: 100%; }
+.ck-pad { padding-inline: 18px; }
+.ck-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: calc(env(safe-area-inset-top, 0px) + 14px) 18px 10px; }
+.ck-eyebrow { font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--a-coral-text); margin: 0; }
+.ck-title { font-size: 25px; font-weight: 900; line-height: 1.15; margin: 2px 0 0; color: var(--a-ink); }
+.ck-iconbtn { position: relative; width: 44px; height: 44px; border-radius: 14px; border: 0; background: var(--a-surface); color: var(--a-ink); display: grid; place-items: center; box-shadow: var(--a-lift-shadow); cursor: pointer; flex-shrink: 0; }
+.ck-iconbtn.glass { background: color-mix(in srgb, var(--a-surface) 90%, transparent); backdrop-filter: blur(8px); }
+.ck-badge { position: absolute; top: -4px; inset-inline-end: -4px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--a-coral); color: var(--a-on-coral); font-size: 10.5px; font-weight: 900; display: grid; place-items: center; }
+
+.ck-hero { position: relative; display: block; width: 100%; height: 230px; border: 0; padding: 0; border-radius: 26px; overflow: hidden; cursor: pointer; text-align: start; background: var(--a-surface-soft); }
+.ck-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ck-hero-shade { position: absolute; inset: auto 0 0 0; padding: 16px; display: flex; flex-direction: column; gap: 4px; color: #fff; background: linear-gradient(transparent, rgba(40, 15, 10, .74)); }
+.ck-hero-pill { align-self: flex-start; font-size: 11px; font-weight: 900; background: var(--a-coral); color: #fff; border-radius: 999px; padding: 3px 9px; }
+.ck-hero-title { font-size: 20px; font-weight: 900; line-height: 1.2; }
+.ck-hero-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; }
+.ck-hero-cta { font-weight: 900; background: #fff; color: #c4262e; border-radius: 999px; padding: 7px 14px; white-space: nowrap; }
+
+.ck-chips { display: flex; gap: 8px; overflow-x: auto; padding: 14px 18px 2px; scrollbar-width: none; }
+.ck-chips::-webkit-scrollbar { display: none; }
+.ck-chip { flex-shrink: 0; white-space: nowrap; font: inherit; font-size: 13px; font-weight: 800; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--a-line); background: var(--a-surface); color: var(--a-ink); cursor: pointer; }
+.ck-chip.on { background: var(--a-deep); border-color: var(--a-deep); color: var(--a-on-deep); }
+.ck-chip.sm { font-size: 12px; padding: 6px 11px; }
+
+.ck-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding: 20px 18px 10px; }
+.ck-head h3 { margin: 0; font-size: 17px; font-weight: 900; color: var(--a-ink); }
+.ck-head p { margin: 2px 0 0; font-size: 12.5px; color: var(--a-ink-soft); }
+.ck-link { flex-shrink: 0; font: inherit; font-size: 13px; font-weight: 800; color: var(--a-coral-text); background: none; border: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 2px; }
+
+.ck-rail { display: flex; gap: 12px; overflow-x: auto; padding: 0 18px 6px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.ck-rail::-webkit-scrollbar { display: none; }
+.ck-rail .ck-card { width: 152px; flex-shrink: 0; scroll-snap-align: start; }
+.ck-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 4px 18px 0; }
+
+.ck-card { position: relative; background: var(--a-surface); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 24px -18px rgba(0, 0, 0, .45); display: flex; flex-direction: column; }
+.ck-card-open { display: block; padding: 0; border: 0; background: none; cursor: pointer; text-align: start; color: inherit; font: inherit; }
+.ck-card-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: var(--a-surface-soft); }
+.ck-card-tag { position: absolute; top: 8px; inset-inline-start: 8px; font-size: 10px; font-weight: 900; padding: 3px 8px; border-radius: 999px; background: color-mix(in srgb, var(--a-surface) 92%, transparent); color: var(--a-coral-text); }
+.ck-card-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.ck-card-name { margin: 0; font-size: 13.5px; font-weight: 800; line-height: 1.25; color: var(--a-ink); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ck-card-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+.ck-price { font-size: 15px; font-weight: 900; color: var(--a-coral-text); }
+.ck-add { width: 34px; height: 34px; border-radius: 11px; border: 0; background: var(--a-coral); color: var(--a-on-coral); display: grid; place-items: center; cursor: pointer; }
+
+.ck-promo { margin: 18px 18px 0; display: flex; gap: 12px; align-items: center; width: calc(100% - 36px); border: 0; text-align: start; font: inherit; color: var(--a-ink); border-radius: 22px; background: var(--a-coral-soft); padding: 10px 14px 10px 10px; cursor: pointer; }
+.ck-promo img { width: 64px; height: 64px; border-radius: 14px; object-fit: cover; flex-shrink: 0; }
+.ck-promo b { display: block; font-size: 14.5px; font-weight: 900; }
+.ck-promo span { display: block; font-size: 12.5px; color: var(--a-ink-soft); margin-top: 2px; }
+.ck-note { display: flex; gap: 8px; align-items: center; padding: 18px 18px 0; font-size: 12px; color: var(--a-ink-soft); }
+.ck-empty { margin: 24px 18px; padding: 32px 18px; border-radius: 22px; background: var(--a-surface); text-align: center; color: var(--a-ink-soft); font-size: 14px; }
+
+/* Cake page */
+.ck-gallery { position: relative; width: 100%; aspect-ratio: 1 / 1; max-height: 62vh; overflow: hidden; background: var(--a-surface-soft); }
+.ck-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ck-gallery-top { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 12px); inset-inline: 16px; display: flex; justify-content: space-between; }
+.ck-dots { position: absolute; bottom: 34px; inset-inline: 0; display: flex; justify-content: center; gap: 6px; }
+.ck-dot { width: 6px; height: 6px; border-radius: 3px; border: 0; padding: 0; background: rgba(255, 255, 255, .6); cursor: pointer; }
+.ck-dot.on { width: 18px; background: #fff; }
+.ck-sheet { position: relative; margin-top: -24px; background: var(--a-surface); border-radius: 26px 26px 0 0; padding: 20px 18px 190px; display: flex; flex-direction: column; gap: 16px; min-height: 40vh; }
+.ck-kicker { font-size: 12px; font-weight: 800; color: var(--a-coral-text); }
+.ck-name { margin: 4px 0 0; font-size: 21px; font-weight: 900; line-height: 1.2; color: var(--a-ink); }
+.ck-bigprice { font-size: 22px; font-weight: 900; color: var(--a-coral-text); white-space: nowrap; }
+.ck-desc { margin: 0; font-size: 14px; line-height: 1.5; color: var(--a-ink-soft); }
+.ck-specs { display: flex; gap: 8px; }
+.ck-spec { flex: 1; text-align: center; font-size: 12px; color: var(--a-ink-soft); background: var(--a-surface-soft); border-radius: 14px; padding: 9px 4px; }
+.ck-spec b { display: block; font-size: 14px; color: var(--a-ink); }
+.ck-label { font-size: 14px; font-weight: 900; color: var(--a-ink); margin: 0 0 8px; display: block; }
+.ck-input { width: 100%; box-sizing: border-box; height: 48px; border-radius: 14px; border: 1px solid var(--a-line-strong, var(--a-line)); background: var(--a-surface); color: var(--a-ink); padding: 0 14px; font: inherit; font-size: 15px; }
+.ck-input:focus-visible { outline: 2px solid var(--a-coral); outline-offset: 1px; }
+textarea.ck-input { height: auto; min-height: 84px; padding: 12px 14px; resize: none; }
+.ck-upsell { display: flex; gap: 12px; align-items: center; border-radius: 18px; padding: 10px; border: 1.5px solid var(--a-line); background: var(--a-surface); cursor: pointer; text-align: start; font: inherit; color: var(--a-ink); width: 100%; }
+.ck-upsell.on { border-color: var(--a-coral); background: var(--a-coral-soft); }
+.ck-upsell img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+.ck-check { width: 22px; height: 22px; border-radius: 7px; border: 2px solid var(--a-line-strong, #d8c9c3); display: grid; place-items: center; flex-shrink: 0; color: #fff; }
+.ck-upsell.on .ck-check { background: var(--a-coral); border-color: var(--a-coral); }
+.ck-bar { position: fixed; inset-inline: 0; bottom: calc(72px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: flex; gap: 10px; align-items: center; padding: 10px max(18px, env(safe-area-inset-right, 0px)) 10px max(18px, env(safe-area-inset-left, 0px)); background: color-mix(in srgb, var(--a-surface) 94%, transparent); backdrop-filter: blur(12px); border-top: 1px solid var(--a-line); }
+.ck-stepper { display: flex; align-items: center; gap: 4px; border: 1px solid var(--a-line); border-radius: 16px; height: 52px; padding: 0 4px; }
+.ck-stepper button { width: 36px; height: 44px; border: 0; background: none; color: var(--a-ink); display: grid; place-items: center; cursor: pointer; }
+.ck-stepper span { min-width: 18px; text-align: center; font-weight: 900; }
+.ck-cta { flex: 1; height: 52px; border-radius: 16px; border: 0; background: var(--a-coral); color: var(--a-on-coral); font: inherit; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; box-shadow: var(--a-coral-shadow); }
+.ck-cta:disabled { opacity: .6; cursor: default; }
+
+/* Cart & checkout */
+.ck-row { display: flex; gap: 12px; align-items: center; background: var(--a-surface); border-radius: 20px; padding: 10px; }
+.ck-row img { width: 60px; height: 60px; border-radius: 14px; object-fit: cover; flex-shrink: 0; }
+.ck-row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.ck-row-main b { font-size: 14px; font-weight: 800; color: var(--a-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ck-row-main span { font-size: 12px; color: var(--a-ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ck-days { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.ck-days::-webkit-scrollbar { display: none; }
+.ck-day { flex-shrink: 0; width: 62px; text-align: center; border-radius: 16px; border: 1px solid var(--a-line); background: var(--a-surface); color: var(--a-ink); padding: 8px 0; font: inherit; font-size: 11.5px; cursor: pointer; }
+.ck-day b { display: block; font-size: 17px; font-weight: 900; }
+.ck-day.on { background: var(--a-deep); border-color: var(--a-deep); color: var(--a-on-deep); }
+.ck-seg { display: flex; background: var(--a-surface); border-radius: 16px; padding: 4px; gap: 4px; }
+.ck-seg button { flex: 1; border: 0; background: none; border-radius: 12px; padding: 10px 0; font: inherit; font-size: 13px; font-weight: 800; color: var(--a-ink); cursor: pointer; }
+.ck-seg button.on { background: var(--a-coral); color: var(--a-on-coral); }
+.ck-box { background: var(--a-surface); border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.ck-line { display: flex; justify-content: space-between; gap: 10px; }
+.ck-line span:first-child { color: var(--a-ink-soft); }
+.ck-total { display: flex; justify-content: space-between; font-weight: 900; font-size: 16px; border-top: 1px dashed var(--a-line-strong, var(--a-line)); padding-top: 8px; }
+.ck-pay { display: grid; gap: 8px; }
+.ck-pay button { display: flex; gap: 12px; align-items: center; text-align: start; border-radius: 16px; border: 1.5px solid var(--a-line); background: var(--a-surface); padding: 12px; font: inherit; color: var(--a-ink); cursor: pointer; }
+.ck-pay button.on { border-color: var(--a-coral); background: var(--a-coral-soft); }
+.ck-pay b { display: block; font-size: 14px; }
+.ck-pay small { display: block; font-size: 12px; color: var(--a-ink-soft); }
+.ck-radio { width: 18px; height: 18px; border-radius: 9px; border: 2px solid var(--a-line-strong, #d8c9c3); box-sizing: border-box; flex-shrink: 0; }
+.ck-pay button.on .ck-radio { border: 5px solid var(--a-coral); }
+.ck-fine { text-align: center; font-size: 12px; color: var(--a-ink-soft); margin: 0; }

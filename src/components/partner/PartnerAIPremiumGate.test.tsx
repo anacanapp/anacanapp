@@ -1,14 +1,18 @@
 import { useEffect } from 'react';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import PartnerAIPremiumGate from './PartnerAIPremiumGate';
 
 const state = vi.hoisted(() => ({ isPremium: false, loading: false, stopped: vi.fn() }));
 vi.mock('@/hooks/useSubscription', () => ({ useSubscription: () => state }));
 vi.mock('@/lib/tr', () => ({ tr: (_key: string, fallback: string) => fallback }));
-vi.mock('@/components/AIChatScreen', () => ({ default: function Chat() {
+vi.mock('@/hooks/usePartnerData', () => ({ usePartnerData: () => ({
+  partnerProfile: { name: 'Fixture', life_stage: 'flow', last_period_date: '2026-10-01', cycle_length: 28 },
+  sharing: { share_cycle: false }, getPregnancyWeek: () => 0,
+}) }));
+vi.mock('@/components/AIChatScreen', () => ({ default: function Chat({ partner }: any) {
   useEffect(() => state.stopped, []);
-  return <div>Paid partner chat</div>;
+  return <div data-stage={partner?.lifeStage} data-lmp={String(partner?.lastPeriodDate)}>Paid partner chat</div>;
 } }));
 vi.mock('@/components/PremiumModal', () => ({ PremiumModal: ({ isOpen, onClose }: any) => isOpen
   ? <div role="dialog"><button onClick={onClose}>Standard Premium paywall</button></div> : null }));
@@ -34,4 +38,51 @@ it('stops an open partner chat and opens the standard paywall when its household
   fireEvent.click(screen.getByRole('button', { name: 'Standard Premium paywall' }));
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   expect(screen.queryByText('Paid partner chat')).not.toBeInTheDocument();
+});
+
+it('gives Ata AI the woman\'s stage but not unshared cycle dates', async () => {
+  state.isPremium = true;
+  render(<PartnerAIPremiumGate />);
+  const chat = await screen.findByText('Paid partner chat');
+  expect(chat).toHaveAttribute('data-stage', 'flow');
+  expect(chat).toHaveAttribute('data-lmp', 'null');
+});
+
+it('woman\'s Anacan.AI: a free user gets the paywall on entry and never the chat', () => {
+  render(<PartnerAIPremiumGate self><div>Own chat</div></PartnerAIPremiumGate>);
+  expect(screen.queryByText('Own chat')).not.toBeInTheDocument();
+  expect(screen.getByRole('dialog')).toHaveTextContent('Standard Premium paywall');
+  fireEvent.click(screen.getByRole('button', { name: 'Standard Premium paywall' }));
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  expect(screen.queryByText('Own chat')).not.toBeInTheDocument();
+});
+
+it('woman\'s Anacan.AI: a Premium user goes straight to the chat', () => {
+  state.isPremium = true;
+  render(<PartnerAIPremiumGate self><div>Own chat</div></PartnerAIPremiumGate>);
+  expect(screen.getByText('Own chat')).toBeInTheDocument();
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+});
+
+it('shows a retry state instead of a spinner or paywall when the Premium check failed', async () => {
+  const refetch = vi.fn().mockResolvedValue(undefined);
+  Object.assign(state, { entitlementReady: false, entitlementError: true, refetch });
+  try {
+    render(<PartnerAIPremiumGate self />);
+    expect(screen.getByRole('alert')).toHaveTextContent('Premium statusu yoxlanmadı');
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Yenidən cəhd et' }));
+    expect(refetch).toHaveBeenCalledOnce();
+  } finally { Object.assign(state, { entitlementReady: undefined, entitlementError: undefined, refetch: undefined }); }
+});
+
+it('stops spinning after a bounded wait and offers a retry', async () => {
+  vi.useFakeTimers();
+  state.loading = true;
+  try {
+    render(<PartnerAIPremiumGate self />);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    await act(async () => { await vi.advanceTimersByTimeAsync(15_001); });
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+  } finally { vi.useRealTimers(); }
 });

@@ -1,6 +1,7 @@
 import { Capacitor } from '@capacitor/core';
 import { isAzureBackend } from '@/integrations/supabase/backend-config';
-import { optionHasTrial, validatePaidPurchase, type PaidPurchaseRequest } from './onboarding-billing';
+import { isoPeriod, optionHasTrial, validatePaidPurchase, type PaidPurchaseRequest } from './onboarding-billing';
+import { classifyPurchaseError, googleSubscriptionId, premiumSourceKind, storePurchaseBlock, type PurchaseErrorCode, type StoreEntitlementInfo } from './purchase-errors';
 
 // Source/store builds retain RevenueCat. Azure activation is an explicit preview
 // opt-in paired with the reviewed server contract; anonymous SDK setup stays off.
@@ -28,7 +29,7 @@ async function currentAzureIdentity(): Promise<boolean> {
 
 // Bundle marker — cihazda hansı web bundle-ın işlədiyini yoxlamaq üçün.
 // RevenueCat Debug səhifəsində görünür. Hər kritik fix-də artırılır.
-export const RC_BUILD_MARKER = '2026-09-22-paid-onboarding-v3';
+export const RC_BUILD_MARKER = '2026-11-25-purchase-recovery-v4';
 
 // ── Versiyalı offering strategiyası ──────────────────────────────
 // Bu build offerings.all-dan aşağıdakı paket dəstini seçir. Qiymət və trial
@@ -70,6 +71,16 @@ export const RC_PRODUCTS = {
   LIFETIME: 'lifetime',
 } as const;
 
+/** Native-bridge calls (RevenueCat SDK) are not covered by the supabase fetch timeout.
+ * A hung store/plugin call must never keep the paywall spinner up forever, so every
+ * bridge call that the paywall waits on is raced against this budget. */
+export const RC_NATIVE_TIMEOUT_MS = 15_000;
+export function withNativeTimeout<T>(promise: Promise<T>, ms = RC_NATIVE_TIMEOUT_MS, label = 'RC_NATIVE_TIMEOUT'): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  return Promise.race([promise, new Promise<T>((_, reject) => { timer = setTimeout(() => reject(new Error(label)), ms); })])
+    .finally(() => { if (timer !== undefined) clearTimeout(timer); });
+}
+
 export const isNativePlatform = (): boolean => Capacitor.isNativePlatform();
 
 export const hasRevenueCatPlugin = (): boolean =>
@@ -94,6 +105,16 @@ export const getPlatform = (): 'ios' | 'android' | 'web' => {
 };
 
 /**
+ * Apple Ads attribution (AdServices). iOS only: RevenueCat fetches the AdServices attribution token after configure and
+ * resolves campaign / ad group / keyword for the subscriber, so Apple Ads installs can be tied to trials and purchases.
+ * AdServices is Apple's own attribution, works without the ATT prompt and sends no device identifiers.
+ */
+async function enableAppleAdsAttribution(Purchases: { enableAdServicesAttributionTokenCollection: () => Promise<void> }): Promise<void> {
+  if (Capacitor.getPlatform() !== 'ios') return;
+  try { await Purchases.enableAdServicesAttributionTokenCollection(); } catch { /* older native plugin: skip */ }
+}
+
+/**
  * Initialize RevenueCat SDK. Call once at app startup on native platforms.
  */
 export async function initRevenueCat(appUserID?: string): Promise<void> {
@@ -109,6 +130,7 @@ export async function initRevenueCat(appUserID?: string): Promise<void> {
         await Purchases.setLogLevel({ level: LOG_LEVEL.WARN });
         await Purchases.configure({ apiKey: getApiKey(), appUserID });
         azureConfigured = true;
+        await enableAppleAdsAttribution(Purchases);
       } else await Purchases.logIn({ appUserID });
       if (epoch === azureEpoch) azureUserId = appUserID;
     });
@@ -125,6 +147,7 @@ export async function initRevenueCat(appUserID?: string): Promise<void> {
       apiKey: getApiKey(),
       appUserID: appUserID || undefined,
     });
+    await enableAppleAdsAttribution(Purchases);
 
     console.log('[RevenueCat] SDK configured successfully on', Capacitor.getPlatform());
   } catch (err) {
@@ -176,6 +199,8 @@ export async function checkEntitlement(): Promise<{
   willRenew: boolean;
   /** RevenueCat periodType: 'TRIAL' | 'INTRO' | 'NORMAL' (NORMAL = real ödənişli) */
   periodType: string | null;
+  /** RevenueCat entitlement store (APP_STORE, PLAY_STORE, PROMOTIONAL, ...). */
+  store?: string | null;
 }> {
   if (!REVENUECAT_ENABLED || !hasRevenueCatPlugin() || !await currentAzureIdentity()) {
     return { isPro: false, expiresAt: null, productId: null, willRenew: false, periodType: null };
@@ -193,6 +218,7 @@ export async function checkEntitlement(): Promise<{
         productId: entitlement.productIdentifier || null,
         willRenew: entitlement.willRenew ?? false,
         periodType: (entitlement as any).periodType || null,
+        store: (entitlement as { store?: string }).store || null,
       };
     }
 
@@ -211,7 +237,8 @@ export async function getOfferings() {
 
   try {
     const { Purchases } = await import('@revenuecat/purchases-capacitor');
-    const result = await Purchases.getOfferings();
+    // A hung bridge call returns null (treated as "offerings failed") instead of spinning forever.
+    const result = await withNativeTimeout(Purchases.getOfferings(), RC_NATIVE_TIMEOUT_MS, 'RC_OFFERINGS_TIMEOUT');
     // Workaround: TS types say PurchasesOfferings directly, but runtime wraps in { offerings }
     const offerings = ('offerings' in result) ? (result as any).offerings : result;
     return offerings;
@@ -252,18 +279,41 @@ export function findFreeTrialOption(pkg: any): any | null {
   return null;
 }
 
+interface EntitlementLike { store?: string; productIdentifier?: string; productPlanIdentifier?: string | null; willRenew?: boolean; expirationDate?: string | null }
+function activeStoreEntitlementFrom(customerInfo: unknown): StoreEntitlementInfo | null {
+  const info = customerInfo as { entitlements?: { active?: Record<string, EntitlementLike | undefined> } } | null | undefined;
+  const entitlement = info?.entitlements?.active?.[REVENUECAT_CONFIG.ENTITLEMENT_ID];
+  if (!entitlement) return null;
+  return { store: entitlement.store || null, productIdentifier: entitlement.productIdentifier || null,
+    productPlanIdentifier: entitlement.productPlanIdentifier || null, willRenew: !!entitlement.willRenew,
+    expirationDate: entitlement.expirationDate || null };
+}
+
+export interface PremiumPurchaseContext { ownPremium: boolean; householdPremium: boolean }
+
+// PRORATION_MODE values (purchases-typescript-internal): numeric literals keep the
+// lazy SDK import the only runtime dependency.
+const PRORATION_IMMEDIATE_WITH_TIME_PRORATION = 1;
+const PRORATION_DEFERRED = 6;
+
 /**
  * Paid purchases only. Android selects the explicit paid option/base plan;
  * failed offers never fall back to a different price. Existing trial entitlements
  * remain valid; this policy only controls new purchase requests.
+ *
+ * A purchase that would duplicate an active Premium from another source (anacan.az /
+ * promotional / household / the other platform's store) is refused. An Android user
+ * with an active Play subscription changes plan through googleProductChangeInfo, so
+ * Google replaces the old subscription instead of billing both.
  */
-export async function purchasePackage(packageToPurchase: any, selection?: PaidPurchaseRequest, expectedUserId?: string): Promise<{
+export async function purchasePackage(packageToPurchase: any, selection?: PaidPurchaseRequest, expectedUserId?: string,
+  premium?: PremiumPurchaseContext): Promise<{
   success: boolean;
   customerInfo?: any;
-  error?: string;
+  error?: PurchaseErrorCode;
 }> {
   if (!REVENUECAT_ENABLED || !hasRevenueCatPlugin() || !await currentAzureIdentity()) {
-    return { success: false, error: 'RevenueCat is disabled or not on native platform' };
+    return { success: false, error: 'BILLING_UNAVAILABLE' };
   }
 
   try {
@@ -274,55 +324,83 @@ export async function purchasePackage(packageToPurchase: any, selection?: PaidPu
     }
 
     const platform = Capacitor.getPlatform();
+    let current: StoreEntitlementInfo | null | undefined;
+    try { current = activeStoreEntitlementFrom((await Purchases.getCustomerInfo())?.customerInfo); } catch { current = undefined; }
+    const kind = premiumSourceKind({ platform: getPlatform(), ownPremium: !!premium?.ownPremium, householdPremium: !!premium?.householdPremium, storeEntitlement: current });
+    const blocked = storePurchaseBlock(kind);
+    if (blocked) return { success: false, error: blocked };
+
     const selectedOption = selection ? validatePaidPurchase(packageToPurchase, selection, platform) : null;
     if (platform === 'android' && Array.isArray(packageToPurchase?.product?.subscriptionOptions)) {
       const option = selectedOption ?? packageToPurchase.product.subscriptionOptions.find((item: any) => item.isBasePlan && !optionHasTrial(item));
       if (!option) return { success: false, error: 'PURCHASE_OPTION_UNAVAILABLE' };
-      const result = await Purchases.purchaseSubscriptionOption({ subscriptionOption: option });
+      let googleProductChangeInfo: { oldProductIdentifier: string; prorationMode: number } | undefined;
+      if (kind === 'store_same' && current?.productIdentifier) {
+        const oldProduct = googleSubscriptionId(current.productIdentifier)!;
+        const [newProduct, newBasePlan] = String(packageToPurchase.product.identifier || '').split(':');
+        const oldBasePlan = current.productPlanIdentifier || current.productIdentifier.split(':')[1] || null;
+        if (oldProduct === newProduct && (!newBasePlan || !oldBasePlan || oldBasePlan === newBasePlan)) {
+          return { success: false, error: 'ALREADY_OWNED' };
+        }
+        const toAnnual = ['P1Y', 'P12M'].includes(isoPeriod(option?.fullPricePhase?.billingPeriod) || '');
+        googleProductChangeInfo = { oldProductIdentifier: oldProduct, prorationMode: toAnnual ? PRORATION_IMMEDIATE_WITH_TIME_PRORATION : PRORATION_DEFERRED };
+      }
+      type ChangeInfo = NonNullable<Parameters<typeof Purchases.purchaseSubscriptionOption>[0]['googleProductChangeInfo']>;
+      const result = await Purchases.purchaseSubscriptionOption(googleProductChangeInfo
+        ? { subscriptionOption: option, googleProductChangeInfo: googleProductChangeInfo as unknown as ChangeInfo }
+        : { subscriptionOption: option });
       customerInfo = result.customerInfo;
     } else {
       const intro = packageToPurchase?.product?.introPrice;
       if (platform === 'ios' && intro) {
         const eligibility = await getIntroEligibility([packageToPurchase.product.identifier]);
         const status = eligibility[packageToPurchase.product.identifier];
-        if (selection?.paidIntro ? status !== 2 || Number(intro.price) <= 0 : status !== 1) {
-          return { success: false, error: 'PURCHASE_OPTION_UNAVAILABLE' };
-        }
+        const paidIntro = Number(intro.price) > 0;
+        // A free trial is never started implicitly. A paid introductory price is
+        // allowed when eligible, or when eligibility is unknown and the user was shown
+        // both prices ("first year X, otherwise Y").
+        const allowed = !paidIntro ? status === 1
+          : selection?.paidIntro ? status === 2 || !!selection.introUncertain
+          : status === 1 || !!selection?.introUncertain;
+        if (!allowed) return { success: false, error: 'PURCHASE_OPTION_UNAVAILABLE' };
       }
       if (platform === 'android' && optionHasTrial(packageToPurchase?.product?.defaultOption)) return { success: false, error: 'PURCHASE_OPTION_UNAVAILABLE' };
       const result = await Purchases.purchasePackage({ aPackage: packageToPurchase });
       customerInfo = result.customerInfo;
     }
 
-    const isPro = !!customerInfo.entitlements.active[REVENUECAT_CONFIG.ENTITLEMENT_ID];
-    return { success: isPro, customerInfo };
+    const isPro = !!customerInfo?.entitlements?.active?.[REVENUECAT_CONFIG.ENTITLEMENT_ID];
+    // A finished store call without the entitlement (deferred / Ask to Buy) is pending, not failed.
+    return isPro ? { success: true, customerInfo } : { success: false, customerInfo, error: 'PURCHASE_PENDING' };
   } catch (err: any) {
-    if (err?.code === 1 || err?.message?.includes('cancel') || err?.userCancelled) {
-      return { success: false, error: 'USER_CANCELLED' };
-    }
-    console.error('RevenueCat purchase error:', err);
-    return { success: false, error: err?.message || 'Purchase failed' };
+    const code = classifyPurchaseError(err);
+    if (code !== 'USER_CANCELLED' && code !== 'PURCHASE_PENDING') console.error('RevenueCat purchase error:', code, err?.code ?? '');
+    return { success: false, error: code };
   }
 }
 
 /**
  * Restore purchases
  */
+export type RestoreFailure = 'none' | 'network' | 'account' | 'error';
 export async function restorePurchases(expectedUserId?: string): Promise<{
   success: boolean;
   customerInfo?: any;
+  /** Why nothing was restored: nothing to restore vs. a network/store/account problem. */
+  reason?: RestoreFailure;
 }> {
   if (!REVENUECAT_ENABLED || !hasRevenueCatPlugin() || !await currentAzureIdentity()) return { success: false };
 
   try {
     const { Purchases } = await import('@revenuecat/purchases-capacitor');
-    if (expectedUserId && (await Purchases.getAppUserID()).appUserID !== expectedUserId) return { success: false };
+    if (expectedUserId && (await Purchases.getAppUserID()).appUserID !== expectedUserId) return { success: false, reason: 'account' };
     const { customerInfo } = await Purchases.restorePurchases();
     const isPro = !!customerInfo.entitlements.active[REVENUECAT_CONFIG.ENTITLEMENT_ID];
-    return { success: isPro, customerInfo };
+    return isPro ? { success: true, customerInfo } : { success: false, customerInfo, reason: 'none' };
   } catch (err) {
-    console.error('RevenueCat restore error:', err);
-    return { success: false };
+    const code = classifyPurchaseError(err);
+    console.error('RevenueCat restore error:', code);
+    return { success: false, reason: code === 'STORE_NETWORK' ? 'network' : code === 'RECEIPT_IN_USE' || code === 'REVENUECAT_ACCOUNT_MISMATCH' ? 'account' : 'error' };
   }
 }
 
@@ -366,13 +444,29 @@ export async function presentPaywall(): Promise<{
 /**
  * Present RevenueCat Customer Center
  */
-export async function presentCustomerCenter(): Promise<void> {
-  if (!canUseNativePaywallUI() || !await currentAzureIdentity()) return;
+export async function presentCustomerCenter(): Promise<boolean> {
+  if (!canUseNativePaywallUI() || !await currentAzureIdentity()) return false;
 
   try {
     const { RevenueCatUI } = await import('@revenuecat/purchases-capacitor-ui');
     await RevenueCatUI.presentCustomerCenter();
+    return true;
   } catch (err) {
     console.error('RevenueCat Customer Center error:', err);
+    return false;
   }
+}
+
+export const APPLE_SUBSCRIPTIONS_URL = 'https://apps.apple.com/account/subscriptions';
+export const ANDROID_PACKAGE = 'com.atlasoon.anacan';
+/** Store subscription management page (cancel, resume, change plan) for the given store. */
+export function storeSubscriptionsUrl(store: 'ios' | 'android', productIdentifier?: string | null): string {
+  if (store === 'ios') return APPLE_SUBSCRIPTIONS_URL;
+  const sku = googleSubscriptionId(productIdentifier);
+  return sku
+    ? `https://play.google.com/store/account/subscriptions?sku=${encodeURIComponent(sku)}&package=${ANDROID_PACKAGE}`
+    : `https://play.google.com/store/account/subscriptions?package=${ANDROID_PACKAGE}`;
+}
+export function openStoreSubscriptions(store: 'ios' | 'android', productIdentifier?: string | null): void {
+  window.open(storeSubscriptionsUrl(store, productIdentifier), '_system');
 }

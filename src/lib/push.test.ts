@@ -86,3 +86,121 @@ describe('invokeSendPush Azure contract guard', () => {
     expect(mocks.invoke).not.toHaveBeenCalled();
   });
 });
+
+describe('invokeSendPush group fan-out contract', () => {
+  const groupId = '55555555-5555-4555-8555-555555555555';
+  const fanoutData = {
+    type: 'group_message_fanout', context: 'group_message_fanout', groupId, messageId, interactionId: messageId,
+  } satisfies PushEventData;
+  const httpError = (body: unknown) => Object.assign(new Error('Edge Function returned a non-2xx status code'), {
+    context: { json: async () => body },
+  });
+
+  it('forwards the fan-out payload addressed to the sender', async () => {
+    mocks.invoke.mockResolvedValue({ data: { ok: true, sent: 3, skipped: { no_device_tokens: 1 } }, error: null });
+    await expect(invokeSendPush({ userId: senderId, title: 'T', body: 'B', kind: 'group_message_fanout', data: fanoutData }))
+      .resolves.toMatchObject({ ok: true, sent: 3, skippedCounts: { no_device_tokens: 1 } });
+    expect(mocks.invoke).toHaveBeenCalledExactlyOnceWith('send-push-notification', {
+      body: { userId: senderId, title: 'T', body: 'B', data: fanoutData }
+    });
+    expect(mocks.reportPushFailure).not.toHaveBeenCalled();
+  });
+
+  it('does not report a fan-out that reached nobody for expected reasons', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mocks.invoke.mockResolvedValue({ data: { ok: true, sent: 0, skipped: { preferences_disabled: 2, not_member: 1 } }, error: null });
+    await expect(invokeSendPush({ userId: senderId, title: 'T', body: 'B', kind: 'group_message_fanout', data: fanoutData }))
+      .resolves.toMatchObject({ ok: true, sent: 0 });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(mocks.reportPushFailure).not.toHaveBeenCalled();
+  });
+
+  it('reports a fan-out the server flags as incomplete', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mocks.invoke.mockResolvedValue({ data: { ok: false, sent: 1, skipped: { deadline: 4 } }, error: null });
+    await expect(invokeSendPush({ userId: senderId, title: 'T', body: 'B', kind: 'group_message_fanout', data: fanoutData }))
+      .resolves.toMatchObject({ ok: false, sent: 1, skippedCounts: { deadline: 4 } });
+    await vi.waitFor(() => expect(mocks.reportPushFailure).toHaveBeenCalledWith('group_message_fanout', 'fanout incomplete', expect.anything()));
+  });
+
+  it('returns unsupported_context_or_type from an older server without reporting it', async () => {
+    mocks.invoke.mockResolvedValue({ data: null, error: httpError({ error: 'unsupported_context_or_type' }) });
+    await expect(invokeSendPush({ userId: senderId, title: 'T', body: 'B', kind: 'group_message_fanout', data: fanoutData }))
+      .resolves.toMatchObject({ ok: false, sent: 0, serverError: 'unsupported_context_or_type' });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(mocks.reportPushFailure).not.toHaveBeenCalled();
+  });
+
+  it('still reports other invoke errors with the server code', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    mocks.invoke.mockResolvedValue({ data: null, error: httpError({ error: 'no_verified_interaction' }) });
+    await expect(invokeSendPush({ userId: senderId, title: 'T', body: 'B', kind: 'group_message_fanout', data: fanoutData }))
+      .resolves.toMatchObject({ ok: false, serverError: 'no_verified_interaction' });
+    await vi.waitFor(() => expect(mocks.reportPushFailure).toHaveBeenCalledWith('group_message_fanout',
+      'invoke error: Edge Function returned a non-2xx status code', { error: 'no_verified_interaction' }));
+  });
+
+  it('treats a not_member skip as an expected outcome', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mocks.invoke.mockResolvedValue({ data: { success: true, sent: 0, skipped: 'not_member' }, error: null });
+    await expect(invokeSendPush({ userId: targetId, title: 'T', body: 'B', kind: 'group_message', data: {
+      type: 'group_message', context: 'group_message', groupId, messageId, interactionId: messageId,
+    } })).resolves.toMatchObject({ ok: false, sent: 0, skipped: 'not_member' });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(mocks.reportPushFailure).not.toHaveBeenCalled();
+  });
+
+  it('blocks a fan-out whose messageId and interactionId differ', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const result = await invokeSendPush({ userId: senderId, title: 'T', body: 'B', data: {
+      ...fanoutData, interactionId: '44444444-4444-4444-8444-444444444444'
+    } });
+    expect(result).toMatchObject({ ok: false, error: expect.any(Error) });
+    expect(mocks.invoke).not.toHaveBeenCalled();
+  });
+});
+
+describe('invokeSendPush expected outcomes and diagnostics', () => {
+  const postId = '66666666-6666-4666-8666-666666666666';
+  const likeId = '77777777-7777-4777-8777-777777777777';
+  const like = { userId: targetId, title: 'T', body: 'B', kind: 'community_like', data: {
+    type: 'community_like', context: 'community_post', postId, groupId: null, interactionId: likeId,
+  } satisfies PushEventData };
+
+  it('matches the server list of expected skips', async () => {
+    const { EXPECTED_PUSH_SKIPS } = await import('./push');
+    const { EXPECTED_SKIPS } = await import('../../supabase/functions/_shared/interaction-push');
+    expect([...EXPECTED_PUSH_SKIPS].sort()).toEqual([...EXPECTED_SKIPS].sort());
+  });
+
+  it.each(['no_device_tokens', 'preferences_disabled', 'duplicate', 'device_tokens_rejected', 'interaction_gone'])(
+    'does not report %s', async (skipped) => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      mocks.invoke.mockResolvedValue({ data: { success: true, sent: 0, skipped }, error: null });
+      await expect(invokeSendPush(like)).resolves.toMatchObject({ ok: false, sent: 0, skipped });
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      expect(mocks.reportPushFailure).not.toHaveBeenCalled();
+    });
+
+  it('reports status and whether the push function answered a non-2xx', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const headers = new Headers();
+    mocks.invoke.mockResolvedValue({ data: null, error: Object.assign(new Error('Edge Function returned a non-2xx status code'), {
+      context: { status: 403, headers, json: async () => ({ error: 'forbidden' }) },
+    }) });
+    await invokeSendPush(like);
+    await vi.waitFor(() => expect(mocks.reportPushFailure).toHaveBeenCalledWith('community_like',
+      'invoke error: Edge Function returned a non-2xx status code', { error: 'forbidden', status: 403, runtime: 'none' }));
+  });
+
+  it('names the function runtime when the push function itself answered', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const headers = new Headers({ 'X-Anacan-Push-Runtime': 'communications-v2' });
+    mocks.invoke.mockResolvedValue({ data: null, error: Object.assign(new Error('Edge Function returned a non-2xx status code'), {
+      context: { status: 502, headers, json: async () => ({ error: 'fcm_failed' }) },
+    }) });
+    await invokeSendPush(like);
+    await vi.waitFor(() => expect(mocks.reportPushFailure).toHaveBeenCalledWith('community_like',
+      'invoke error: Edge Function returned a non-2xx status code', { error: 'fcm_failed', status: 502, runtime: 'communications-v2' }));
+  });
+});

@@ -1,0 +1,160 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261125120000_content_az_review_fixes.sql",
+  "runtime": "google-content-az-review-fixes",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data only, value-guarded and verified",
+  "relations": [
+    {
+      "relation": "public.baby_daily_info",
+      "change": "86 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.development_tips",
+      "change": "2 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.epds_questions",
+      "change": "1 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.exercise_daily_tips",
+      "change": "2 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.exercises",
+      "change": "2 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.faqs",
+      "change": "1 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.first_aid_steps",
+      "change": "4 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.flow_insights",
+      "change": "1 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.mental_health_resources",
+      "change": "1 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.mommy_daily_messages",
+      "change": "32 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.mommy_day_notifications",
+      "change": "74 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.play_activities",
+      "change": "2 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.pregnancy_daily_content",
+      "change": "62 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.pregnancy_day_notifications",
+      "change": "11 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.safety_items",
+      "change": "1 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.scheduled_notifications",
+      "change": "1 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.teething_care_tips",
+      "change": "2 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.vaccines",
+      "change": "2 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    },
+    {
+      "relation": "public.weekly_tips",
+      "change": "2 Azerbaijani cells corrected",
+      "cdc": true,
+      "writer_guard": true,
+      "pii": false,
+      "note": "already guarded"
+    }
+  ]
+}

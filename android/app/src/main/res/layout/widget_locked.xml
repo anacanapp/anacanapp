@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wl_root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:gravity="center" android:padding="16dp"
+    android:background="@drawable/widget_bg_coral">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👑" android:textSize="28sp" />
+    <TextView android:id="@+id/wl_title" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="6dp" android:gravity="center" android:textColor="#FFFFFFFF" android:textSize="16sp" android:textStyle="bold" />
+    <TextView android:id="@+id/wl_body" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" android:gravity="center" android:textColor="#E6FFFFFF" android:textSize="12sp" android:maxLines="3" />
+</LinearLayout>

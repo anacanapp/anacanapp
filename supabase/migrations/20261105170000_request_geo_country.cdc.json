@@ -1,0 +1,7 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261105170000_request_geo_country.sql",
+  "runtime": "google-geo-language",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; function only, no new or changed relation",
+  "relations": []
+}

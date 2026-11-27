@@ -45,8 +45,8 @@ export default function RegionalMaternityCalculator({ country, countries, onCoun
       <Select value={country} onValueChange={onCountryChange}><SelectTrigger aria-label={localizedCountryName(country, language)}><SelectValue /></SelectTrigger><SelectContent>{options.map(code => <SelectItem key={code} value={code}>{localizedCountryName(code, language)}</SelectItem>)}</SelectContent></Select>
       <p className="a-list-sub">{t('normal_scope')}</p>
       <form className="a-card space-y-4" onSubmit={calculate}>
-        <label className="block space-y-1 text-sm font-semibold"><span>{t('due_date')}</span><input className="a-input w-full" type="date" required value={dueDate} onChange={event => { setDueDate(event.target.value); setStartDate(''); reset(); }} /></label>
-        {['ID','VN','PT','PL','NL','SE'].includes(country) && <label className="block space-y-1 text-sm font-semibold"><span>{t('start_date')}</span><input className="a-input w-full" type="date" value={startDate} onChange={event => { setStartDate(event.target.value); reset(); }} /></label>}
+        <label className="block space-y-1 text-sm font-semibold"><span>{t('due_date')}</span><input className="a-input a-date-input" type="date" required value={dueDate} onChange={event => { setDueDate(event.target.value); setStartDate(''); reset(); }} /></label>
+        {['ID','VN','PT','PL','NL','SE'].includes(country) && <label className="block space-y-1 text-sm font-semibold"><span>{t('start_date')}</span><input className="a-input a-date-input" type="date" value={startDate} onChange={event => { setStartDate(event.target.value); reset(); }} /></label>}
         {numberField(t('babies'), babies, value => { setBabies(Number(value)); setIncomeDays(''); setMinimumDays(''); }, country === 'SE' ? 4 : 5)}
         {['FR','IN'].includes(country) && numberField(t('existing_children'), existing, value => setExisting(Number(value)), 20)}
         {['ES','SE'].includes(country) && toggle(t('sole_parent'), sole, value => { setSole(value); setIncomeDays(''); setMinimumDays(''); })}

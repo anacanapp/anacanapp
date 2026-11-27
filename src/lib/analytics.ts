@@ -5,6 +5,7 @@
 
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '@/integrations/supabase/client';
+import { isAnalyticsAllowed, isAttributionAllowed } from './privacyConsent';
 
 // Firebase Analytics for web
 let firebaseAnalytics: any = null;
@@ -97,6 +98,31 @@ export type AnalyticsEvent =
   | 'baby_growth_logged'
   | 'place_viewed'
   | 'product_viewed'
+  | 'books_store_viewed'
+  | 'book_viewed'
+  | 'book_added_to_cart'
+  | 'book_removed_from_cart'
+  | 'books_collection_added'
+  | 'books_checkout_started'
+  | 'books_checkout_unavailable'
+  | 'books_purchase_confirmed'
+  | 'book_downloaded'
+  | 'books_reco_clicked'
+  | 'play_together_opened'
+  | 'play_game_viewed'
+  | 'play_game_done'
+  | 'play_book_clicked'
+  | 'kid_exercises_opened'
+  | 'kid_exercise_viewed'
+  | 'kid_exercise_done'
+  | 'qc_wallet_view'
+  | 'qc_redeem_toggle'
+  | 'qc_redeem_commit'
+  | 'qc_premium_redeem'
+  | 'recap_opened'
+  | 'recap_completed'
+  | 'recap_exported'
+  | 'recap_shared'
   | 'custom_event';
 
 export interface AnalyticsParams {
@@ -121,6 +147,9 @@ const EVENT_CATEGORIES: Record<string, string> = {
   white_noise_played: 'tools', horoscope_viewed: 'tools',
   recipe_viewed: 'content', name_searched: 'tools',
   place_viewed: 'content', product_viewed: 'content',
+  books_store_viewed: 'commerce', book_viewed: 'commerce', book_added_to_cart: 'commerce', book_removed_from_cart: 'commerce', books_collection_added: 'commerce', books_checkout_started: 'commerce', books_checkout_unavailable: 'commerce', books_purchase_confirmed: 'commerce', book_downloaded: 'commerce', books_reco_clicked: 'commerce',
+  qc_wallet_view: 'commerce', qc_redeem_toggle: 'commerce', qc_redeem_commit: 'commerce', qc_premium_redeem: 'commerce',
+  recap_opened: 'recap', recap_completed: 'recap', recap_exported: 'recap', recap_shared: 'recap',
   shopping_item_added: 'tools', appointment_created: 'tools',
   partner_linked: 'social',
   screen_view: 'navigation', page_view: 'navigation',
@@ -158,10 +187,21 @@ const trackInternal = async (eventName: string, params?: AnalyticsParams) => {
  * Log an analytics event - triple tracks to Firebase + internal DB + Mixpanel
  */
 export const logEvent = async (eventName: AnalyticsEvent, params?: AnalyticsParams): Promise<void> => {
+  // Both channels are opt-in (Məxfilik → Razılıq): analytics feeds Firebase/internal stats,
+  // attribution feeds Meta App Events. Without consent nothing is recorded.
+  const analytics = isAnalyticsAllowed(), attribution = isAttributionAllowed();
+  if (attribution) {
+    import('@/lib/facebook-events').then(({ logFacebookEvent }) => {
+      logFacebookEvent(eventName, params as Record<string, any>);
+    }).catch(() => {});
+    import('@/lib/tiktok-events').then(({ logTikTokEvent }) => {
+      void logTikTokEvent(eventName, params as Record<string, unknown>);
+    }).catch(() => {});
+  }
+  if (!analytics) return;
   // Internal usage reporting is independent of optional third-party SDK errors.
   void trackInternal(eventName, params);
   try {
-    // Firebase tracking
     if (Capacitor.isNativePlatform()) {
       const { FirebaseAnalytics } = await import('@capacitor-firebase/analytics');
       await FirebaseAnalytics.logEvent({
@@ -175,18 +215,11 @@ export const logEvent = async (eventName: AnalyticsEvent, params?: AnalyticsPara
       }
     }
 
-    // Mixpanel tracking (non-blocking)
+    // Mixpanel tracking (non-blocking; currently a no-op)
     import('@/lib/mixpanel').then(({ trackMixpanelEvent }) => {
       trackMixpanelEvent(eventName, params as Record<string, any>);
     }).catch(() => {});
 
-    // Facebook / Meta App Events tracking (non-blocking, native-only)
-    import('@/lib/facebook-events').then(({ logFacebookEvent }) => {
-      logFacebookEvent(eventName, params as Record<string, any>);
-    }).catch(() => {});
-
-    // Internal DB tracking (non-blocking)
-    
     if (import.meta.env.DEV) {
       console.log(`📊 Analytics: ${eventName}`, params);
     }
@@ -199,6 +232,7 @@ export const logEvent = async (eventName: AnalyticsEvent, params?: AnalyticsPara
  * Set user ID for analytics
  */
 export const setUserId = async (userId: string | null): Promise<void> => {
+  if (userId && !isAnalyticsAllowed()) return;
   try {
     if (Capacitor.isNativePlatform()) {
       const { FirebaseAnalytics } = await import('@capacitor-firebase/analytics');
@@ -218,6 +252,7 @@ export const setUserId = async (userId: string | null): Promise<void> => {
  * Set user properties
  */
 export const setUserProperties = async (properties: Record<string, string>): Promise<void> => {
+  if (!isAnalyticsAllowed()) return;
   try {
     if (Capacitor.isNativePlatform()) {
       const { FirebaseAnalytics } = await import('@capacitor-firebase/analytics');
@@ -242,6 +277,7 @@ export const setUserProperties = async (properties: Record<string, string>): Pro
  * screen_view eventi Mixpanel/internal DB üçün saxlanılır.
  */
 export const logScreenView = async (screenName: string, screenClass?: string): Promise<void> => {
+  if (!isAnalyticsAllowed()) return;
   void import('./customerio').then(({ customerIo }) => customerIo.screen(screenName, screenClass)).catch(() => {});
   if (Capacitor.isNativePlatform()) {
     try {
@@ -274,7 +310,11 @@ export const analytics = {
   
   // Tool events
   logToolOpened: (toolId: string, toolName?: string) => logEvent('tool_opened', { tool_id: toolId, tool_name: toolName }),
-  logToolUsed: (toolId: string, action: string) => logEvent('tool_used', { tool_id: toolId, action }),
+  /** One 'session' per tool visit with the time spent (seconds, capped at 1 h) — real usage, not just opens. */
+  logToolSession: (toolId: string, seconds: number) =>
+    logEvent('tool_used', { tool_id: toolId, action: 'session', duration_s: Math.min(3600, Math.max(0, Math.round(seconds))) }),
+  logToolUsed: (toolId: string, action: string, itemId?: string) =>
+    logEvent('tool_used', itemId ? { tool_id: toolId, action, item_id: itemId } : { tool_id: toolId, action }),
   
   // Blog events
   logBlogRead: (postId: string, category: string) => logEvent('blog_read', { post_id: postId, category }),
@@ -292,12 +332,12 @@ export const analytics = {
   // Health tracking events
   logWaterIntake: (glasses: number) => logEvent('water_logged', { glasses }),
   logSymptom: (symptoms: string[]) => logEvent('symptom_logged', { symptom_count: symptoms.length }),
-  logWeight: (weight: number) => logEvent('weight_logged', { weight }),
-  logKickCount: (count: number) => logEvent('kick_counted', { count }),
-  logContraction: (durationSec: number) => logEvent('contraction_timed', { duration_sec: durationSec }),
-  logMeal: (mealType: string, calories: number) => logEvent('meal_logged', { meal_type: mealType, calories }),
+  logWeight: (_weight: number) => logEvent('weight_logged'), // values stay on the device/server, never in analytics
+  logKickCount: (_count: number) => logEvent('kick_counted'),
+  logContraction: (_durationSec: number) => logEvent('contraction_timed'),
+  logMeal: (mealType: string, _calories: number) => logEvent('meal_logged', { meal_type: mealType }),
   logExercise: (exerciseId: string, durationMin: number) => logEvent('exercise_completed', { exercise_id: exerciseId, duration_min: durationMin }),
-  logMood: (moodValue: number) => logEvent('mood_logged', { mood_value: moodValue }),
+  logMood: (_moodValue: number) => logEvent('mood_logged'),
   logBabyGrowth: () => logEvent('baby_growth_logged'),
   
   // Feature events
@@ -311,7 +351,7 @@ export const analytics = {
   logWhiteNoisePlayed: (soundId: string) => logEvent('white_noise_played', { sound_id: soundId }),
   logHoroscopeViewed: () => logEvent('horoscope_viewed'),
   logRecipeViewed: (recipeId: string) => logEvent('recipe_viewed', { recipe_id: recipeId }),
-  logNameSearched: (query: string) => logEvent('name_searched', { query }),
+  logNameSearched: (_query: string) => logEvent('name_searched'),
   logPlaceViewed: (placeId: string) => logEvent('place_viewed', { place_id: placeId }),
   logProductViewed: (productId: string) => logEvent('product_viewed', { product_id: productId }),
   

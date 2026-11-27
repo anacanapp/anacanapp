@@ -15,8 +15,10 @@ import {
 '@/lib/fetalGrowth';
 import { formatDateAz } from '@/lib/date-utils';
 import { tr } from '@/lib/tr';
+import { trimesterOrdinal, weekOrdinal } from '@/lib/count-plural';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
+import { todayKey } from '@/lib/local-date';
 
 interface FetalGrowthTrackerProps {
   onBack: () => void;
@@ -35,11 +37,13 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
 
   const { profile } = useAuth();
   const getPregnancyData = useUserStore((s) => s.getPregnancyData);
+  const lifeStage = useUserStore((s) => s.lifeStage);
   const { scans, loading, addScan, deleteScan } = useFetalGrowthScans();
 
   const pregData = getPregnancyData();
-  const currentWeek = pregData?.currentWeek || 20;
-  const trimester = pregData?.trimester || 2;
+  // Today's week only for a known pregnancy; never an invented default (was "|| 20").
+  const currentWeek = lifeStage === 'bump' && pregData?.currentWeek && pregData.currentWeek > 0 ? pregData.currentWeek : null;
+  const trimester = currentWeek ? (pregData?.trimester || (currentWeek <= 12 ? 1 : currentWeek <= 26 ? 2 : 3)) : null;
   const lmpDate = pregData?.lastPeriodDate ? new Date(pregData.lastPeriodDate) : null;
 
   const babyCount = Math.max(1, Math.min(4, profile?.baby_count || 1));
@@ -48,21 +52,18 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState<string>('A');
-  const [scanDate, setScanDate] = useState(new Date().toISOString().split('T')[0]);
+  const [scanDate, setScanDate] = useState(todayKey);
   const [efwInput, setEfwInput] = useState('');
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
 
   // Hər USM qeydinin bu tarixdəki hamiləlik həftəsi (bugün deyil — həmin skan tarixi)
   const scansWithWeek = useMemo(() => {
-    return scans.map((s) => ({
-      ...s,
-      week: lmpDate ? getPregnancyWeekAtDate(lmpDate, s.scan_date) : currentWeek,
-      percentile: estimatePercentileForWeight(
-        lmpDate ? getPregnancyWeekAtDate(lmpDate, s.scan_date) : currentWeek,
-        s.efw_grams
-      )
-    }));
-  }, [scans, lmpDate, currentWeek]);
+    // Without a last period date the scan week is unknown: no week, no percentile (nothing invented).
+    return scans.map((s) => {
+      const week: number | null = lmpDate ? getPregnancyWeekAtDate(lmpDate, s.scan_date) : null;
+      return { ...s, week, percentile: week != null ? estimatePercentileForWeight(week, s.efw_grams) : null };
+    });
+  }, [scans, lmpDate]);
 
   // Hər körpənin son (ən son tarixli) qeydi
   const latestByBaby = useMemo(() => {
@@ -123,15 +124,16 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
     <ToolPage>
       <ToolHeader
         onBack={onBack}
-        eyebrow={<>{currentWeek}. {tr("weighttracker_ai_prompt_week", "həftə")} · {trimester}. {tr("weighttracker_trimestr_soz", "trimestr")}</>}
+        eyebrow={currentWeek && trimester ? <>{weekOrdinal(currentWeek)} · {trimesterOrdinal(trimester)}</> : undefined}
         title={tr("fetalgrowth_title", "Fetal Böyümə İzləyicisi")}
         actions={
         <motion.button
           onClick={() => {
             setSelectedLabel('A');
-            setScanDate(new Date().toISOString().split('T')[0]);
+            setScanDate(todayKey());
             setShowAddForm(true);
           }}
+          aria-label={tr("a11y_add", "Əlavə et")}
           className="a-icon-btn"
           style={{ background: 'var(--a-peach-2)', color: '#fff', border: 'none' }}
           whileTap={{ scale: 0.9 }}>
@@ -148,7 +150,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
           <span className="a-trio-icon" style={{ background: 'var(--a-grad-peach)', color: 'var(--a-accent-ink)' }}>
             <TrendingUp size={17} strokeWidth={2} />
           </span>
-          <p className="a-trio-value" style={{ fontSize: 17 }}>{currentWeek}</p>
+          <p className="a-trio-value" style={{ fontSize: 17 }}>{currentWeek ?? '–'}</p>
           <p className="a-trio-label">{tr("fetalgrowth_current_week", "Cari həftə")}</p>
         </motion.div>
         <motion.div className="a-trio-item" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
@@ -171,7 +173,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
       {babyLabels.map((label, idx) => {
         const latest = latestByBaby[label];
         if (!latest) return null;
-        const tone = percentileTone(latest.percentile);
+        const tone = latest.percentile != null ? percentileTone(latest.percentile) : 'ok';
         const style = toneStyle(tone);
         return (
           <motion.div
@@ -195,12 +197,13 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
                 </p>
                 <p className="a-heading" style={{ margin: '2px 0 0', fontSize: 19, color: 'var(--a-ink)' }}>{latest.efw_grams} q</p>
                 <p className="a-list-sub">
-                  {latest.week}. {tr("weighttracker_ai_prompt_week", "həftə")} · {formatDateAz(latest.scan_date)}
+                  {latest.week != null ? <>{weekOrdinal(latest.week)} · </> : null}{formatDateAz(latest.scan_date)}
                 </p>
               </div>
+              {latest.percentile != null &&
               <span className="a-rank-tag" style={{ marginInlineStart: 'auto', background: style.grad, color: style.ink }}>
                 {latest.percentile}p
-              </span>
+              </span>}
             </div>
           </motion.div>);
 
@@ -270,7 +273,7 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
               
               <Tooltip
                 contentStyle={{ borderRadius: 12, border: '1px solid var(--a-line)', fontSize: 11, background: 'var(--a-surface)' }}
-                labelFormatter={(w) => `${w}. ${tr("weighttracker_ai_prompt_week", "həftə")}`}
+                labelFormatter={(w) => weekOrdinal(Number(w))}
                 formatter={(value: any, name: string) => {
                   if (name === 'normalBand') return [`${value[0]}–${value[1]} q`, tr("fetalgrowth_normal_range", "Normal aralıq (P10–P90)")];
                   if (name === 'p50') return [`${value} q`, tr("fetalgrowth_median_label", "Median (P50)")];
@@ -284,11 +287,12 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
               
               <Area dataKey="normalBand" stroke="none" fill="#63bd8b" fillOpacity={0.15} isAnimationActive={false} />
               
+              {currentWeek != null &&
               <ReferenceLine
                 x={currentWeek}
                 stroke="var(--a-ink-faint)"
                 strokeDasharray="4 4"
-                label={{ value: tr("weighttracker_indi_ref", "indi"), position: 'top', fontSize: 10, fill: 'var(--a-ink-soft)' }} />
+                label={{ value: tr("weighttracker_indi_ref", "indi"), position: 'top', fontSize: 10, fill: 'var(--a-ink-soft)' }} />}
               
               <Line dataKey="p97" stroke="#e4a3b8" strokeWidth={1} dot={false} isAnimationActive={false} strokeDasharray="4 3" />
               <Line dataKey="p50" stroke="#63bd8b" strokeWidth={1.5} dot={false} isAnimationActive={false} strokeDasharray="2 2" />
@@ -341,15 +345,16 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
                   {isMultiple ? scan.baby_label : <Baby size={17} strokeWidth={2} />}
                 </span>
                 <div>
-                  <p className="a-list-title" style={{ fontSize: 14.5 }}>{scan.efw_grams} q · {scan.percentile}p</p>
+                  <p className="a-list-title" style={{ fontSize: 14.5 }}>{scan.efw_grams} q{scan.percentile != null ? ` · ${scan.percentile}p` : ''}</p>
                   <p className="a-list-sub">
-                    {scan.week}. {tr("weighttracker_ai_prompt_week", "həftə")} · {formatDateAz(scan.scan_date)}
+                    {scan.week != null ? <>{weekOrdinal(scan.week)} · </> : null}{formatDateAz(scan.scan_date)}
                   </p>
                 </div>
                 <span className="a-list-trail">
                   <button
                 className="a-icon-btn"
                 style={{ width: 30, height: 30 }}
+                aria-label={tr("common_sil", "Sil")}
                 onClick={() => setDeleteConfirmId(scan.id)}>
                 
                     <Trash2 size={13} strokeWidth={2} />
@@ -477,8 +482,8 @@ const FetalGrowthTracker = ({ onBack }: FetalGrowthTrackerProps) => {
                   type="date"
                   value={scanDate}
                   onChange={(e) => setScanDate(e.target.value)}
-                  max={new Date().toISOString().split('T')[0]}
-                  className="a-input w-full" />
+                  max={todayKey()}
+                  className="a-input a-date-input" />
                 
                 </div>
 

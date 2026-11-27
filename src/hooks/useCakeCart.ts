@@ -6,11 +6,17 @@ export interface CakeCartItem {
   cake: Cake;
   quantity: number;
   customFields: Record<string, string>;
+  /** Add-ons chosen on the cake page (e.g. the photo box), per cake. Older saved carts have none. */
+  extraPrice?: number;
 }
+
+/** Price of one cake in the cart, add-ons included. */
+export const cakeUnitPrice = (item: CakeCartItem) => Number(item.cake.price) + (Number(item.extraPrice) || 0);
+const sumPrice = (items: CakeCartItem[]) => items.reduce((sum, i) => sum + cakeUnitPrice(i) * i.quantity, 0);
 
 interface CakeCartState {
   items: CakeCartItem[];
-  addToCart: (cake: Cake, quantity: number, customFields: Record<string, string>) => void;
+  addToCart: (cake: Cake, quantity: number, customFields: Record<string, string>, extraPrice?: number) => void;
   removeItem: (index: number) => void;
   updateQuantity: (index: number, quantity: number) => void;
   clearCart: () => void;
@@ -25,12 +31,12 @@ export const useCakeCart = create<CakeCartState>()(
       totalItems: 0,
       totalPrice: 0,
 
-      addToCart: (cake, quantity, customFields) => {
-        const items = [...get().items, { cake, quantity, customFields }];
+      addToCart: (cake, quantity, customFields, extraPrice = 0) => {
+        const items = [...get().items, { cake, quantity, customFields, extraPrice }];
         set({
           items,
           totalItems: items.reduce((sum, i) => sum + i.quantity, 0),
-          totalPrice: items.reduce((sum, i) => sum + i.cake.price * i.quantity, 0),
+          totalPrice: sumPrice(items),
         });
       },
 
@@ -39,7 +45,7 @@ export const useCakeCart = create<CakeCartState>()(
         set({
           items,
           totalItems: items.reduce((sum, i) => sum + i.quantity, 0),
-          totalPrice: items.reduce((sum, i) => sum + i.cake.price * i.quantity, 0),
+          totalPrice: sumPrice(items),
         });
       },
 
@@ -50,7 +56,7 @@ export const useCakeCart = create<CakeCartState>()(
         set({
           items,
           totalItems: items.reduce((sum, i) => sum + i.quantity, 0),
-          totalPrice: items.reduce((sum, i) => sum + i.cake.price * i.quantity, 0),
+          totalPrice: sumPrice(items),
         });
       },
 

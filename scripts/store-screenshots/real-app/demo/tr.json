@@ -1,0 +1,34 @@
+{
+  "country": "TR",
+  "locale": "tr-TR",
+  "names": {
+    "mother": "Elif",
+    "baby": "Defne",
+    "cycle": "Zeynep",
+    "partner": "Emre"
+  },
+  "appointments": [
+    "Ultrason kontrolü",
+    "Şehir Doğumevi",
+    "Kan tahlili",
+    "Çocuk doktoru kontrolü"
+  ],
+  "authors": [
+    "Ayşe Yılmaz",
+    "Merve Demir",
+    "Selin Kaya"
+  ],
+  "posts": [
+    "Bugün ilk tekmeleri hissettim! 🥹 Bu duyguyu kelimelerle anlatamam. Sizde ilk kaçıncı haftada oldu? #hamilelik",
+    "Gece 3’te bebeğim uyumazken Anacan.AI ile konuşmak çok iyi geldi. Yeni annelere tavsiye ederim 💛",
+    "24. haftadayız, hastane çantasını hazırlamaya başladım. Sizin listenizde neler var? 🧳"
+  ],
+  "ai_question": "Bulantıya ne iyi gelir?",
+  "ai_answer": [
+    "Bulantıya karşı 3 basit yöntem:\n\n",
+    "1. **Zencefil çayı** — sabah aç karnına bir fincan.\n",
+    "2. **Az az, sık sık yiyin** — mideyi boş bırakmayın.\n",
+    "3. **Yataktan kalkmadan** birkaç kuru kraker yiyin.\n\n",
+    "Gün boyu bol su için 💧 Kusma artarsa doktorunuza başvurun."
+  ]
+}

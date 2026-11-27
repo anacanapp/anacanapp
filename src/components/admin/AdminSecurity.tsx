@@ -23,6 +23,7 @@ import {
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { fetchAllRows } from '@/lib/supabaseFetchAll';
+import { UserPicker } from './kit/UserPicker';
 import { useAuth } from '@/hooks/useAuth';
 import { followupText } from '@/lib/followup-i18n';
 import { useQueryClient } from '@tanstack/react-query';
@@ -85,10 +86,16 @@ const AdminSecurity = () => {
       // DÜZƏLİŞ: limitsiz idi — profiles 1000-i keçəndə admin "Admin/Moderator
       // təyin et" seçicisində YALNIZ ilk 1000 istifadəçini görürdü, bundan
       // sonrakılara rol vermək MÜMKÜN DEYİLDİ.
-      const data = await fetchAllRows((from, to) =>
-        supabase.from('profiles').select('user_id, name, email').range(from, to)
-      );
-      setProfiles(data);
+      // Admin redesign: only the profiles of role holders are read (≤200 ids per request) instead of every
+      // profile; the "Rol təyin et" picker searches the server (UserPicker) so every user is still reachable.
+      const { data: roleRows } = await supabase.from('user_roles').select('user_id').in('role', ['admin', 'moderator']).limit(1000);
+      const ids = [...new Set((roleRows ?? []).map((row) => row.user_id))];
+      const data: any[] = [];
+      for (let i = 0; i < ids.length; i += 200) {
+        const { data: chunk } = await supabase.from('profiles').select('user_id, name, email').in('user_id', ids.slice(i, i + 200));
+        data.push(...(chunk ?? []));
+      }
+      setProfiles((previous) => [...data, ...previous.filter((item) => !data.some((row) => row.user_id === item.user_id))]);
     } catch (error) {
       console.error('Error fetching profiles:', error);
     }
@@ -200,18 +207,10 @@ const AdminSecurity = () => {
             <div className="space-y-4 mt-4">
               <div>
                 <label className="text-sm font-medium mb-2 block">{tr("adminsecurity_istifadeci_b6bdd6", "İstifadəçi")}</label>
-                <Select value={selectedUserId} onValueChange={setSelectedUserId}>
-                  <SelectTrigger>
-                    <SelectValue placeholder={tr("adminsecurity_istifadeci_secin_3e7045", "İstifadəçi seçin")} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {profiles.map((profile) =>
-                    <SelectItem key={profile.user_id} value={profile.user_id}>
-                        {profile.name} ({profile.email})
-                      </SelectItem>
-                    )}
-                  </SelectContent>
-                </Select>
+                <UserPicker value={selectedUserId} placeholder={tr("adminsecurity_istifadeci_secin_3e7045", "İstifadəçi seçin")} onChange={(user) => {
+                  setSelectedUserId(user.user_id);
+                  setProfiles((previous) => previous.some((item) => item.user_id === user.user_id) ? previous : [...previous, user]);
+                }} />
               </div>
               <div>
                 <label className="text-sm font-medium mb-2 block">Rol</label>

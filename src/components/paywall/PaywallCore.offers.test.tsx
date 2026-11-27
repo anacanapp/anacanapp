@@ -3,11 +3,15 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import PaywallCore from './PaywallCore';
 
 const mocks = vi.hoisted(() => ({ intro: 19.99, purchase: vi.fn(), legacyPurchase: vi.fn(), restore: vi.fn(), toast: vi.fn() }));
+vi.mock('@/components/paywall/EpointPayOption', () => ({ default: () => null }));
 vi.mock('@/store/userStore', () => ({ useUserStore: (selector: any) => selector({ language: 'en' }) }));
 vi.mock('@/lib/revenuecat', () => ({ isNativePlatform: () => true, getPlatform: () => 'ios' }));
+vi.mock('@/components/premium/SponsorEntry', () => ({ default: () => null }));
+vi.mock('@/components/qaygicash/QaygiCashPremium', () => ({ QcPremiumEarnLine: () => null, QaygiCashPremiumOption: () => null }));
 vi.mock('@/lib/tr', () => ({ tr: (_key: string, fallback: string) => fallback }));
 vi.mock('@/lib/analytics', () => ({ analytics: { logPaywallClicked: vi.fn() } }));
 vi.mock('@/hooks/use-toast', () => ({ useToast: () => ({ toast: mocks.toast }) }));
+vi.mock('@/hooks/usePremiumEntitlement', () => ({ usePremiumEntitlement: () => ({ ownPremium: false, householdPremium: false }) }));
 vi.mock('@/hooks/usePremiumConfig', () => ({ usePremiumConfig: () => ({ features: [] }) }));
 vi.mock('@/hooks/usePaywallConfig', () => ({ usePaywallConfig: () => ({ yearly_label: 'Yearly', monthly_label: 'Monthly', yearly_suffix: '/month',
   monthly_suffix: '/month', yearly_total_suffix: '/year', savings_badge: '{percent}% saved', purchasing_text: 'Processing',
@@ -25,7 +29,9 @@ beforeEach(() => { vi.clearAllMocks(); mocks.intro = 19.99; mocks.purchase.mockR
 afterEach(cleanup);
 it('shows the 29.99 to 19.99 annual offer and buys the displayed paid intro instead of the base plan', async () => {
   const done = vi.fn(); render(<PaywallCore onPurchased={done} />);
-  expect(screen.getByText('Go Premium to remove ads')).toBeInTheDocument();
+  expect(screen.getByText('Mərhələnizə uyğun bütün alətlər bir yerdə')).toBeInTheDocument();
+  expect(screen.getByTestId('paywall-social-proof')).toHaveTextContent(/46.000\+ yükləmə/);
+  expect(screen.queryByText(/pulsuz sına|free trial|10[,.\s]?000/i)).toBeNull();
   expect(document.querySelector('del')).toHaveTextContent('$29.99');
   expect(screen.getByText('33% saved')).toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Get Premium' }));
@@ -35,8 +41,10 @@ it('shows the 29.99 to 19.99 annual offer and buys the displayed paid intro inst
 });
 it('blocks an automatic free trial while leaving the paid monthly option usable', async () => {
   mocks.intro = 0; render(<PaywallCore onPurchased={() => {}} />);
-  expect(screen.getByRole('button', { name: 'Get Premium' })).toBeDisabled();
-  fireEvent.click(screen.getByRole('button', { name: /Monthly/ }));
+  // The unbuyable yearly default falls back to the available monthly plan instead of a disabled CTA.
+  await waitFor(() => expect(screen.getByRole('button', { name: /Monthly/ })).toHaveAttribute('aria-pressed', 'true'));
+  expect(screen.getByRole('button', { name: /Yearly/ })).toHaveAttribute('aria-pressed', 'false');
+  expect(screen.getByRole('button', { name: 'Get Premium' })).toBeEnabled();
   fireEvent.click(screen.getByRole('button', { name: 'Get Premium' }));
   await waitFor(() => expect(mocks.purchase).toHaveBeenCalledOnce());
   expect(mocks.purchase.mock.calls[0][1]).toMatchObject({ productId: 'com.atlasoon.anacan.premium.monthly', price: 3.99 });

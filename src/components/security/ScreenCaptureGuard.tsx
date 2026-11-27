@@ -38,7 +38,9 @@ export default function ScreenCaptureGuard() {
       if (wait <= 0) frame = requestAnimationFrame(update);
       else throttle = setTimeout(() => { throttle = undefined; if (alive && !frame) frame = requestAnimationFrame(update); }, wait);
     };
-    const flash = () => { if (allowed) return; setBlack(true); clearTimeout(timer); timer = setTimeout(() => { if (alive) setBlack(captured && !allowed); }, 1400); };
+    // Native screenshots are already blanked by the secure surface (iOS) or refused (Android FLAG_SECURE),
+    // so a native screenshot event must not cover the live screen. Only desktop PrintScreen gets a brief cover.
+    const flash = () => { if (allowed || native) return; setBlack(true); clearTimeout(timer); timer = setTimeout(() => { if (alive) setBlack(captured && !allowed); }, 1400); };
     const key = (event: KeyboardEvent) => { if (event.key === 'PrintScreen') flash(); };
     const observer = new MutationObserver(schedule);
     observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-main-dashboard','role','aria-modal','data-state','hidden'] });
@@ -53,5 +55,6 @@ export default function ScreenCaptureGuard() {
     }
     return () => { alive = false; observer.disconnect(); cancelAnimationFrame(frame); clearTimeout(timer); clearTimeout(throttle); handles.forEach(handle => void handle.remove()); document.removeEventListener('keydown', key, true); delete document.documentElement.dataset.captureAllowed; };
   }, []);
-  return black ? createPortal(<div data-capture-curtain aria-hidden="true" style={{ position:'fixed', inset:0, background:'#000', opacity:1, zIndex:2147483647, pointerEvents:'auto' }} />, document.body) : null;
+  // Branded, fully opaque cover (never a black screen): app background with the coral mark.
+  return black ? createPortal(<div data-capture-curtain aria-hidden="true" style={{ position:'fixed', inset:0, background:'#FAF7F4', opacity:1, zIndex:2147483647, pointerEvents:'auto', display:'flex', alignItems:'center', justifyContent:'center' }}><img src="/brand-mark-coral.png" alt="" width={112} height={118} style={{ objectFit:'contain' }} /></div>, document.body) : null;
 }

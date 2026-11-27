@@ -1,0 +1,357 @@
+{
+  "ui": {
+    "section_title": "Hamileliğim",
+    "dates_row": "Hamilelik tarihleri",
+    "dates_sub": "Doğum tarihi ve haftalar",
+    "birth_row": "Bebeğim doğdu",
+    "birth_sub": "Anne moduna geç",
+    "entry_title": "Hamileliğim devam etmiyor",
+    "entry_sub": "Sakin, kısa bir adım",
+    "entry_note": "Hamileliğin devam etmiyorsa Anacan bildirimleri hemen durdurur ve iyileşme sürecinde sana destek olur.",
+    "sheet_title": "Çok üzgünüz",
+    "sheet_body": "Bu senin suçun değil. Anacan bu süreçte yanında olacak.",
+    "sheet_stop": "Bebek mesajları ve hamilelik bildirimleri hemen duracak",
+    "sheet_keep": "Albüm ve yazışmalar silinmez, sadece gizlenir",
+    "sheet_guide": "8 haftalık iyileşme rehberi açılacak",
+    "sheet_date": "Ne zaman oldu?",
+    "sheet_date_sub": "İyileşme haftaları bu tarihten itibaren hesaplanır",
+    "sheet_partner": "Partnerime haber ver",
+    "sheet_partner_sub": "Ona nazik bir mesaj gidecek ve sana nasıl destek olabileceğini göstereceğiz",
+    "sheet_continue": "Devam et",
+    "sheet_back": "Geri dön",
+    "sheet_error": "Olmadı. İnternet bağlantını kontrol et ve tekrar dene.",
+    "partner_message": "Bu günlerde desteğine çok ihtiyacım var 🤍 Anacan'da senin için bir rehber açıldı.",
+    "home_hello": "Merhaba, {name}",
+    "home_title": "Bugün kendine karşı şefkatli ol",
+    "home_week": "İyileşme · hafta {n}/8",
+    "home_done": "8 hafta geride kaldı",
+    "home_done_body": "İyileşme herkeste farklı hızda ilerler. Hazır olduğunda aşağıdaki seçenekler seni bekliyor, acele etme.",
+    "home_open_week": "Bu haftaya bak",
+    "mood_title": "Bugün nasılsın?",
+    "moods": [
+      "Çok zor",
+      "Üzgün",
+      "Boşlukta",
+      "Sakin",
+      "Biraz daha iyi"
+    ],
+    "mood_reply": [
+      "Bugün çok zor ve bu çok anlaşılır. Kendini hiçbir şeye zorlama. İstersen birine yaz ya da Anacan.AI ile konuş.",
+      "Yas, sevginin devamıdır. Ağlamak istiyorsan ağla. Bu duygular zamanla yumuşayacak.",
+      "Kayıptan sonra boşluk hissi çok yaygındır. Bugün küçük bir şey yap: su iç, biraz yürü, bir şeyler ye.",
+      "Sakin günler de olur. Tadını çıkar ve suçluluk duyma.",
+      "Daha iyi hissetmek unutmak demek değildir. Bu anın tadını çıkar."
+    ],
+    "mood_saved": "Kaydedildi",
+    "warn_title": "Şu durumlarda hemen doktora başvur:",
+    "warn_body": "yoğun kanama, 38°C'nin üzerinde ateş, şiddetli ağrı, kötü kokulu akıntı veya baş dönmesi varsa.",
+    "check_title": "Beden kontrolü",
+    "check_sub": "Endişelendiren bir belirti mi var? Bir dakikada kontrol et",
+    "talk_title": "Konuşmak ister misin?",
+    "talk_sub": "Anacan.AI seni yargılamadan dinler",
+    "epds_title": "Ruh halini kontrol et",
+    "epds_sub": "Kısa anket (EPDS), 2 dakika",
+    "diary_title": "Duygularımı yazayım",
+    "diary_sub": "Ruh hali günlüğü",
+    "memories_title": "Anılarım",
+    "memories_sub": "Albüm, yazışma ve mektup — sadece senin",
+    "ready_title": "Hazır olduğunda",
+    "ready_sub": "Acele etme. Bu seçenekler hep burada olacak.",
+    "ready_cycle": "Döngümü takip et",
+    "ready_cycle_sub": "Adet ve yumurtlama takvimi",
+    "ready_pregnant": "Yeniden hamileyim",
+    "ready_pregnant_sub": "Yeni hamilelik başlat",
+    "ready_stay": "Şimdilik iyileşme sürecinde kalıyorum",
+    "ready_stay_sub": "Hiçbir şey değişmez",
+    "ready_confirm_cycle": "İyileşme modu kapanacak ve adet takvimi açılacak. İyileşme rehberi Anılarım bölümünde açık kalır.",
+    "ready_confirm_pregnant": "İyileşme modu kapanacak. Bir sonraki adımda yeni hamileliğinin tarihlerini gireceksin.",
+    "ready_yes": "Evet, devam et",
+    "ready_no": "Henüz değil",
+    "guide_title": "İyileşme rehberi",
+    "guide_sub": "8 hafta, adım adım",
+    "week": "Hafta {n}",
+    "tab_week": "Bu hafta",
+    "tab_signs": "Belirtiler",
+    "tab_faq": "Sorular",
+    "your_body": "Bedenin",
+    "your_mind": "Duyguların",
+    "for_you": "Bu hafta kendin için",
+    "signs_title": "Beden kontrolü",
+    "signs_sub": "Son günlerde hissettiklerini seç. Bu bir teşhis değildir.",
+    "signs_none": "Endişe verici bir belirti seçilmedi. Dinlenmeye ve kendine iyi bakmaya devam et.",
+    "signs_some": "Bu belirtileri önümüzdeki günlerde doktorunla konuş. Beklemene gerek yok.",
+    "signs_urgent": "Acil bir belirti seçtin. Yalnız kalma: hemen acil yardımı (112) ara ya da yakınlarından birini çağır.",
+    "signs_urgent_group": "Acil",
+    "signs_soon_group": "Önümüzdeki günlerde doktora",
+    "call": "Ara",
+    "faq_title": "Sıkça sorulan sorular",
+    "disclaimer": "Bu bilgiler doktor tavsiyesinin yerini tutmaz. İyileşme herkeste farklıdır ve kaybın hangi haftada olduğuna bağlıdır.",
+    "mem_intro": "Bu anılar sadece senin. Kimse göremez. İstediğin zaman bakabilir, saklayabilir ya da silebilirsin.",
+    "mem_album": "Hamilelik albümü",
+    "mem_album_sub": "Fotoğraflara bak veya sil",
+    "mem_chat": "Bebekle yazışma",
+    "mem_chat_sub": "{n} gün",
+    "mem_chat_empty": "Yazışma yok",
+    "mem_chat_delete": "Yazışmayı sil",
+    "mem_chat_delete_confirm": "Yazışma bu cihazdan kalıcı olarak silinecek. Emin misin?",
+    "mem_deleted": "Silindi",
+    "mem_letter": "Ona mektup",
+    "mem_letter_sub": "Söylemek istediklerini yaz. Sadece bu cihazda saklanır.",
+    "mem_letter_placeholder": "Canım...",
+    "mem_save": "Kaydet",
+    "mem_saved": "Kaydedildi 🤍",
+    "mem_guide": "İyileşme rehberi",
+    "mem_guide_sub": "8 haftalık rehber her zaman burada açık",
+    "back": "Geri",
+    "p_card_title": "Bu günlerde onun yanında ol",
+    "p_card_sub": "İyileşme · hafta {n}/8 · rehberi aç",
+    "p_title": "Onun yanında ol",
+    "p_sub": "Kayıptan sonra destek rehberi",
+    "p_hero_label": "İyileşme süreci",
+    "p_tab_now": "Şimdi",
+    "p_tab_say": "Ne desem",
+    "p_tab_you": "Senin duyguların",
+    "p_tab_signs": "Belirtiler",
+    "p_phase": "Hafta {a}–{b}",
+    "p_intro_title": "Onun yanında ol 🤍",
+    "p_intro_body": "Bu kayıp ikiniz için de ağır. Senin de yas tutmaya hakkın var. Onun için en önemlisi doğru sözler değil, yanında olmandır.",
+    "p_what_do": "Neler yapabilirsin",
+    "p_say_title": "Söyleyebileceklerin",
+    "p_avoid_title": "Söylemekten kaçın",
+    "p_send": "Gönder",
+    "p_sent": "Gönderildi 🤍",
+    "p_phrases_title": "Ona birkaç söz yaz",
+    "p_phrases_sub": "Tek dokunuşla mesaj olarak gönderilir.",
+    "p_tasks_title": "Bugün bunlar bende",
+    "p_tasks_sub": "Seçtiklerini ona gönder ki nelerin sende olduğunu bilsin.",
+    "p_tasks_send": "Seçtiklerimi ona gönder",
+    "p_tasks_message": "Bugün bunları ben yapıyorum: {list} 🤍 Sen dinlen.",
+    "p_mood_low_title": "Son günler onun için çok zor",
+    "p_mood_low_body": "Son 7 günde {n} gün ruh halini düşük olarak işaretledi. Bugün ona daha çok vakit ayır ve nasıl hissettiğini sor.",
+    "p_mood_low_long": "Bu 2 haftadan uzun sürerse birlikte bir doktor ya da psikologla konuşun.",
+    "p_signs_sub": "Onda fark ettiklerini seç. Bu bir teşhis değildir.",
+    "p_hidden_note": "Hamilelik görevleri, doğum planı ve gece nöbeti geçici olarak gizlendi."
+  },
+  "weeks": [
+    {
+      "title": "İlk günler",
+      "body": "Bu hafta kanama ve adet sancısına benzer kramplar normaldir. Tampon değil, hijyenik ped kullan. Kayıp ileri haftalarda olduysa göğüslerine süt gelebilir: sıkı bir sütyen ve soğuk kompres işe yarar.",
+      "mind": "Şok, hüzün, öfke, boşluk ya da hiçbir şey hissetmemek — hepsi normal. “Neden?” sorusu çok aklına gelecek. Bu senin suçun değil.",
+      "todo": [
+        "Dinlen, ev işlerini başkalarına bırak",
+        "Ateşini ve kanamanı takip et",
+        "Yakın birine nasıl olduğunu anlat"
+      ]
+    },
+    {
+      "title": "Beden iyileşiyor",
+      "body": "Kanama genellikle azalır, bazen 1–2 hafta sürer. Bol su iç, demirden zengin besinler ye (et, mercimek, ıspanak). Kanama bitene kadar havuz, küvet banyosu ve cinsel ilişkiden kaçın.",
+      "mind": "Etrafındakiler hayata dönüyor, sen ise hâlâ acı çekiyorsun. Bu fark yalnızlık hissi yaratabilir. Duygularını saklamana gerek yok.",
+      "todo": [
+        "Her gün kısa bir yürüyüş — sadece istersen",
+        "Doktorunun söylediği kontrol randevusunu planla",
+        "Sana ağır gelen soruları partnerin yanıtlasın"
+      ]
+    },
+    {
+      "title": "Yas dalga dalga gelir",
+      "body": "Yorgunluk hâlâ sürebilir. Kanama bittiyse hafif hareket ve düzenli uyku gücünü geri getirir. Hamilelik testi birkaç hafta pozitif kalabilir, bu normaldir.",
+      "mind": "İyi bir günün ardından zor bir gün gelebilir. Yas düz bir çizgi değildir. Hamile kadınları ve bebekleri görmek zor olabilir — kendini korumanda sakınca yok.",
+      "todo": [
+        "Seni yoran sosyal medya hesaplarını geçici olarak sessize al",
+        "Partnerinle bu konuda konuşun",
+        "Kendine küçük bir iyilik yap"
+      ]
+    },
+    {
+      "title": "Ritim geri geliyor",
+      "body": "Birçok kadında beden bu haftalarda eski ritmine döner. Bir sonraki adet genellikle kayıptan 4–6 hafta sonra gelir ve ilk seferde biraz farklı olabilir.",
+      "mind": "Günlük işlere dönmek hem iyi gelir hem yorar. İşe dönmek için acele etme, mümkünse yükünü hafiflet.",
+      "todo": [
+        "İşte kime ne kadar anlatacağına kendin karar ver",
+        "Günde bir kez ruh halini kaydet",
+        "İhtiyaç duyarsan ruh hali anketini (EPDS) yap"
+      ]
+    },
+    {
+      "title": "Küçük adımlar",
+      "body": "Enerjin yavaş yavaş geri geliyor. Dengeli beslen, folik asit kullanımını doktorunla konuş. Kontrol randevun olmadıysa şimdi planla.",
+      "mind": "Tarihler — beklenen doğum günü, belirli haftalar — ağır gelebilir. Bu günler için önceden sakin bir plan yap.",
+      "todo": [
+        "Zor tarihler için bir plan yap",
+        "Bir arkadaşınla buluş",
+        "Bedenin için yumuşak bir hareket seç: yoga, yürüyüş"
+      ]
+    },
+    {
+      "title": "Sevgiyi anmak",
+      "body": "Bedenin büyük ölçüde iyileşti. Adetin hâlâ gelmediyse doktorunla konuş.",
+      "mind": "Bazı aileler anı için küçük bir tören yapar: mektup yazar, ağaç diker, mum yakar. Bu yalnızca sen istersen.",
+      "todo": [
+        "Anılarım bölümünde ona bir mektup yaz",
+        "Sana neyin iyi geldiğini not et",
+        "Partnerinle birlikte vakit geçirin"
+      ]
+    },
+    {
+      "title": "Kendine dönüş",
+      "body": "Uyku, beslenme ve hareket düzeni iyileşmenin temelidir. Yeni bir hamilelik düşünüyorsan, ne zaman hazır olduğuna doktorunla birlikte karar verin.",
+      "mind": "Yas hafiflese de tamamen geçmeyebilir. Bu, onu unutmadığın anlamına gelir. Hüzün 2 haftadan uzun süre günlük hayatını engelliyorsa bir uzmanla konuş.",
+      "todo": [
+        "Ruh hali anketini tekrar yap",
+        "Gelecek için küçük bir plan yap",
+        "Kendini takdir et: buraya kadar geldin"
+      ]
+    },
+    {
+      "title": "Yolun devamı",
+      "body": "8 hafta geride kaldı. Bedenin iyileşti ama duyguların için bir süre sınırı yok.",
+      "mind": "Hazır olduğunda döngünü takip etmeye ya da yeni planlara geçebilirsin. Hazır değilsen bu da normal. Anacan seni acele ettirmeyecek.",
+      "todo": [
+        "Hazır olduğunda seçeneklerine bak",
+        "Sana destek olanlara teşekkür et",
+        "İhtiyaç duyduğunda bu rehbere geri dön"
+      ]
+    }
+  ],
+  "signs": {
+    "urgent": [
+      "Yoğun kanama: bir saatte ped tamamen doluyor",
+      "38°C'nin üzerinde ateş veya titreme",
+      "Şiddetli ya da artan karın ağrısı",
+      "Kötü kokulu akıntı",
+      "Baş dönmesi, bayılma",
+      "Kendine zarar verme düşünceleri"
+    ],
+    "soon": [
+      "Kanama 2 haftadan uzun sürüyor",
+      "8 hafta geçti, adetim hâlâ gelmedi",
+      "Hüzün ya da boşluk 2 haftadan uzun süredir günlük hayatımı engelliyor",
+      "Uykum ve iştahım tamamen bozuldu",
+      "Hiçbir şey beni sevindirmiyor"
+    ]
+  },
+  "faq": [
+    {
+      "q": "Bu benim suçum mu?",
+      "a": "Hayır. Erken kayıpların çoğu bebekteki kromozom farklılıklarından kaynaklanır; hiçbir hareket, stres, yiyecek ya da iş buna neden olmaz."
+    },
+    {
+      "q": "Bu ne kadar sık olur?",
+      "a": "Doğrulanmış hamileliklerin yaklaşık %10–20'si kayıpla sonuçlanır. Yalnız değilsin, sadece bu konu az konuşuluyor."
+    },
+    {
+      "q": "Ne zaman doktora gitmeliyim?",
+      "a": "Acil belirtiler varsa hemen. Diğer durumlarda doktorunun verdiği kontrol randevusuna git ve sorularını önceden yaz."
+    },
+    {
+      "q": "Adetim ne zaman gelecek?",
+      "a": "Genellikle 4–6 hafta sonra. İlk adet her zamankinden daha yoğun ya da daha az olabilir. 8 hafta geçtiği hâlde gelmediyse doktora başvur."
+    },
+    {
+      "q": "Bir sonraki hamilelikte de böyle mi olacak?",
+      "a": "Bir kayıptan sonra kadınların çoğu daha sonra sağlıklı bir hamilelik geçirir. Tekrarlayan kayıplar olduysa doktor ek tetkikler önerebilir."
+    },
+    {
+      "q": "Ne zaman yeniden deneyebiliriz?",
+      "a": "Bu, fiziksel ve duygusal olarak ne kadar hazır olduğunuza bağlı. Zamanlamaya doktorunla birlikte karar verin; acele etmeye gerek yok."
+    },
+    {
+      "q": "Duygularım ne zaman geçecek?",
+      "a": "Bunun bir takvimi yok. Zaman geçtikçe yas yumuşar. 2 haftadan uzun süre günlük hayatını engelliyorsa bir psikologla konuşmak iyi gelir."
+    }
+  ],
+  "partner": {
+    "phases": [
+      {
+        "title": "İlk günler: yanında ol",
+        "body": "Bedeni kanama ve ağrıyla iyileşiyor, duyguları ise şokta. Doğru sözü arama — yanında olmak yeterli.",
+        "do": [
+          "Ev işlerini ve yemeği tamamen üstlen",
+          "Akrabalara sen haber ver, o açıklama yapmak zorunda kalmasın",
+          "Doktor randevusuna birlikte gidin",
+          "Ateşine ve kanamasına dikkat et"
+        ]
+      },
+      {
+        "title": "Hafta 3–4: dünya devam ediyor, o henüz değil",
+        "body": "Herkes hayata dönüyor ve sana da artık geçmiş gibi gelebilir. Onun içinse yas dalga dalga geliyor.",
+        "do": [
+          "Her gün “Bugün nasılsın?” diye sor ve cevabı dinle",
+          "Onu hamile tanıdıklardan ve bebek haberlerinden koru",
+          "Birlikte kısa yürüyüşler yapın",
+          "Duygularını “düzeltmeye” çalışma"
+        ]
+      },
+      {
+        "title": "Hafta 5–6: zor tarihler",
+        "body": "Beklenen doğum tarihi ya da belirli haftalar ona ağır gelebilir. Bunları önceden bil ve yanında ol.",
+        "do": [
+          "Zor tarihleri takvimine işaretle",
+          "Anısına bir şey yapmak isterse destek ol",
+          "Birlikte vakit geçirmek için sakin planlar öner",
+          "Kendi yasından da bahset"
+        ]
+      },
+      {
+        "title": "Hafta 7–8: birlikte ileriye",
+        "body": "Beden iyileşiyor ama duygular hâlâ sürebilir. Gelecek planlarını onun hızında konuşun.",
+        "do": [
+          "O açmadıkça yeni hamilelik konusunu açma",
+          "Doktora soracağınız soruları birlikte hazırlayın",
+          "Küçük mutluluklar planla",
+          "Gerekirse psikolog bulmasına yardım et"
+        ]
+      }
+    ],
+    "say": [
+      "Ben buradayım.",
+      "Neye ihtiyacın varsa yaparım.",
+      "Ben de çok üzgünüm.",
+      "Bu senin suçun değil.",
+      "Ağlamak istiyorsan ağla. Yanındayım.",
+      "Onu ikimiz de asla unutmayacağız."
+    ],
+    "avoid": [
+      "“Yine olur.”",
+      "“İyi ki erken oldu.”",
+      "“Her şeyin bir sebebi var.”",
+      "“Hiç değilse…” ile başlayan cümleler",
+      "“Artık geçmesi lazım.”",
+      "“Ağlama.”"
+    ],
+    "tasks": [
+      "Yemeği ben yapıyorum",
+      "Evi ben topluyorum",
+      "Alışverişi ben yapıyorum",
+      "Akrabalara ben cevap veriyorum",
+      "Doktor randevusunu ben ayarlıyorum",
+      "Telefonlara ve mesajlara ben bakıyorum",
+      "Akşam birlikte yürüyelim",
+      "Sana sıcak bir çay demliyorum"
+    ],
+    "phrases": [
+      "Seni çok seviyorum. Buradayım 🤍",
+      "Bugün nasılsın? Neye ihtiyacın varsa söyle.",
+      "Bu senin suçun değil.",
+      "Ben de onu hatırlıyorum.",
+      "Bu akşam hiçbir şey yapma, her şey bende.",
+      "Seninle gurur duyuyorum, çok güçlüsün."
+    ],
+    "you_title": "Senin de yasın var",
+    "you_body": "Erkekler bu kaybı çoğu zaman sessizce yaşar ve “güçlü olmalıyım” diye duygularını saklar. Ama senin de yas tutmaya hakkın var. Birlikte yas tutmak sizi birbirinize yaklaştırır.",
+    "you_tips": [
+      "Duygularını ona da söyle: “Ben de üzgünüm”",
+      "Güvendiğin bir arkadaşınla konuş",
+      "Uykuyu, yemeği ve hareketi ihmal etme",
+      "Zorlanırsan bir psikologdan destek iste",
+      "Yasını alkolle ya da işe kaçarak bastırma"
+    ]
+  },
+  "chips": [
+    "🤍 Yanındayım",
+    "🤗 Nasılsın?",
+    "🍵 Çay getireyim mi?",
+    "🛒 Bir şey lazım mı?"
+  ]
+}

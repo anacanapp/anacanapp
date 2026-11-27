@@ -20,7 +20,7 @@
     },
     "LocalNotifications": {
       "smallIcon": "ic_stat_icon",
-      "iconColor": "#F97316"
+      "iconColor": "#FF5A5F"
     },
     "Camera": {
       "permissionText": "Tətbiq nəcis skaneri və şəkil yükləmək üçün kameraya ehtiyac duyur"
@@ -43,7 +43,9 @@
   "android": {
     "includePlugins": [
       "@anacan/customerio-data-in",
+      "@anacan/tiktok-events",
       "@capacitor-community/admob",
+      "@capacitor-community/in-app-review",
       "@capacitor-firebase/analytics",
       "@capacitor-firebase/authentication",
       "@capacitor-firebase/messaging",

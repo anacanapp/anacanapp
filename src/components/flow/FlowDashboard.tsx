@@ -1,19 +1,19 @@
-import { useState, type ReactNode } from 'react';
-import { Ring } from '@/components/anacan/Ring';
-import { Mascot } from '@/components/anacan/Mascot';
-import { rd } from '@/lib/redesign-i18n';
+import { useState } from 'react';
 import { tr } from '@/lib/tr';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Droplets, Heart, Sparkles, Calendar as  Moon, Flame, Apple, Dumbbell, Brain, CircleDot } from 'lucide-react';
+import { Droplets, Heart, Sparkles, AlertCircle, Plus, Calendar as CalendarIcon, Beaker, Pill, Droplet, Moon, Activity, Baby, Sparkle, Wind, CheckCircle2, XCircle, ArrowRight, TrendingUp, Flame, Apple, Dumbbell, Brain, CircleDot } from 'lucide-react';
+import { getTranslatedTip } from '@/lib/tip-translations';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import { usePhaseTips, PHASE_INFO, CATEGORY_INFO, MenstrualPhase, TipCategory } from '@/hooks/usePhaseTips';
-import { format, differenceInDays, differenceInCalendarDays, eachDayOfInterval, parseISO, startOfDay } from 'date-fns';
+import { format, differenceInDays, differenceInCalendarDays, eachDayOfInterval, parseISO, startOfDay, subDays } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 import { Calendar } from '@/components/ui/calendar';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { Button } from '@/components/ui/button';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -37,19 +37,22 @@ import SymptomPatternReport from './SymptomPatternReport';
 import DailyStoryCards from './DailyStoryCards';
 
 import WaterWidget from '@/components/dashboard/WaterWidget';
+import { PartnerHomeCard } from '@/components/partner-shop/PartnerShop';
 import { getPhaseInfoForDate, getNextPeriodDate, getFertileWindow } from '@/lib/cycle-utils';
-import { useCycleHistory } from '@/hooks/useCycleHistory';
+import { useCycleHistory, useEffectiveCycleLength } from '@/hooks/useCycleHistory';
 import { computeAdaptiveCycleStats, refineOvulation } from '@/lib/cycle-predictions';
 import { useFlowDailyLogs } from '@/hooks/useFlowDailyLogs';
 import PremiumGate from '@/components/premium/PremiumGate';
 import { usePeriodDayLogs, useRecordPeriodDays } from '@/hooks/usePeriodDayLogs';
 import { hasPeriodFlow } from '@/lib/period-flow';
-export interface FlowHeroContext { nextPeriodDate: Date; ovulationDate: Date; fertileStart: Date }
-
-const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => ReactNode } = {}) => {
-  const { getCycleData, cycleLength, periodLength, language } = useUserStore(
-    useShallow((s) => ({ getCycleData: s.getCycleData, cycleLength: s.cycleLength, periodLength: s.periodLength, language: s.language }))
+import UpcomingAppointments from '@/components/home/UpcomingAppointments';
+import { FlowGoalSection } from '@/components/ttc/TtcSection';
+const FlowDashboard = () => {
+  const { getCycleData, periodLength, language } = useUserStore(
+    useShallow((s) => ({ getCycleData: s.getCycleData, periodLength: s.periodLength, language: s.language }))
   );
+  // Anomal tsikllər (21–35 gündən kənar) proqnozu dəyişmir.
+  const cycleLength = useEffectiveCycleLength();
   const cycleData = getCycleData();
 
   // Adaptiv proqnoz statistikası (cycle_history-dən öyrənir)
@@ -61,14 +64,28 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
   const [showPeriodEndConfirm, setShowPeriodEndConfirm] = useState(false);
   const [markingPeriod, setMarkingPeriod] = useState(false);
   const [periodStartDates, setPeriodStartDates] = useState<Date[]>([new Date()]);
+  // Days already recorded when the dialog opened: shown selected, and unselecting one clears it.
+  const [initialPeriodKeys, setInitialPeriodKeys] = useState<string[]>([]);
   const [periodEndDate, setPeriodEndDate] = useState<Date>(new Date());
   const recordPeriod = useRecordPeriodDays();
   const { data: periodDays = [] } = usePeriodDayLogs();
 
+  const openPeriodDialog = () => {
+    const since = format(subDays(new Date(), 89), 'yyyy-MM-dd');
+    const logged = periodDays.filter((log) => log.log_date >= since && hasPeriodFlow(log.flow_intensity)).map((log) => log.log_date);
+    setInitialPeriodKeys(logged);
+    setPeriodStartDates(logged.length ? logged.map((d) => parseISO(d)) : [new Date()]);
+    setShowPeriodConfirm(true);
+  };
+
   const handleMarkPeriodStarted = async () => {
     setMarkingPeriod(true);
     try {
-      await recordPeriod.mutateAsync({ dates: periodStartDates, flow: 'unspecified', preserveExisting: true });
+      const selected = new Set(periodStartDates.map((d) => format(d, 'yyyy-MM-dd')));
+      const added = [...selected].filter((d) => !initialPeriodKeys.includes(d));
+      const removed = initialPeriodKeys.filter((d) => !selected.has(d));
+      if (removed.length) await recordPeriod.mutateAsync({ dates: removed, flow: 'clear' });
+      if (added.length) await recordPeriod.mutateAsync({ dates: added, flow: 'unspecified', preserveExisting: true });
       toast.success(tr('flow_days_saved', 'Period günləri qeyd edildi'), {
         description: tr('flow_selected_day_count', '{count} gün seçilib').replace('{count}', String(periodStartDates.length)),
       });
@@ -134,10 +151,10 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
   const labelFertileWindow = getDynamicLabel(upcomingLabels?.flow_label_fertile_window, "Reproduktiv Dövr", "flowdashboard_reproduktiv_dovr_80642c", "Fertile Window");
   const labelOvulationDay = getDynamicLabel(upcomingLabels?.flow_label_ovulation_day, "Ovulyasiya Günü", "flowdashboard_ovulyasiya_gunu_811e84", "Ovulation Day");
 
-  // Get last period date
-  const lastPeriodDate = cycleData?.lastPeriodDate ?
-  (typeof cycleData.lastPeriodDate === 'string' ? parseISO(cycleData.lastPeriodDate) : new Date(cycleData.lastPeriodDate)) :
-  new Date();
+  // Get last period date. Guard: a null/invalid stored date must not yield an
+  // Invalid Date that then throws in every downstream format()/date calc and
+  // crashes the whole period dashboard. Fall back to today.
+  const lastPeriodDate = storedCalendarDate(cycleData?.lastPeriodDate) ?? new Date();
 
   // Calculate current phase using accurate utility
   const today = new Date();
@@ -186,16 +203,6 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
   };
 
 
-  const isInRange = (d: Date, from: Date, to: Date) => startOfDay(d) >= startOfDay(from) && startOfDay(d) <= startOfDay(to);
-  const isFertileToday = isInRange(today, fertileStart, fertileEnd);
-  // Seven days centred on today, tinted by predicted phase.
-  const weekStrip = Array.from({ length: 7 }, (_, i) => {
-    const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i - 3);
-    const phase = getPhaseInfoForDate(date, lastPeriodDate, cycleLength, periodLength).phase;
-    const kind = phase === 'menstrual' ? 'period' : isInRange(date, fertileStart, fertileEnd) ? 'fertile' : 'none';
-    return { key: i, date, today: i === 3, kind };
-  });
-
   const categories: (TipCategory | 'all')[] = ['all', 'nutrition', 'exercise', 'selfcare', 'mood'];
 
   const categoryIcons: Record<string, any> = {
@@ -220,45 +227,77 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
       {/* Period delay banner (auto-shows if late) */}
       <PeriodDelayBanner />
 
-      {/* Hero — cycle ring, companion and the week around today */}
+      {/* Goal: track the cycle or get pregnant (fertile ring, LH / BBT log, checklist) */}
+      <FlowGoalSection lastPeriodDate={lastPeriodDate} cycleLength={cycleLength || 28} periodLength={periodLength || 5}
+        ovulation={refinedOvulation.ovulationDate} ovulationConfirmed={refinedOvulation.confirmed} />
+
+      {/* Daily Story Cards — phase-personalized */}
+      <DailyStoryCards />
+
+      {/* Calendar: upcoming appointments, add / edit in a sheet, server push reminders */}
+      <UpcomingAppointments />
+
+      {/* Currently — phase status card (anacan-demo PeriodStatus) */}
       <section className="a-section">
-        <div className="a3-hero" aria-label={rd('f_cycle')}>
-          <div className="a3-hero-top">
-            <span className="a3-chip ac">{PHASE_INFO[currentPhase].emoji} {PHASE_INFO[currentPhase].labelAz}</span>
-            <span className="a3-chip a3-num">{rd('f_cycle_days', { n: cycleLength })}</span>
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="a-card a-fade-in">
+          
+          <div className="a-card-head">
+            <h3 className="a-card-title a-heading">{tr("flowdashboard_hal_hazirda_b78349", "Hal-hazırda")}</h3>
+            <span
+              className="a-tag"
+              style={{
+                cursor: 'default',
+                border: 'none',
+                background: `${PHASE_INFO[currentPhase].color}22`,
+                color: PHASE_INFO[currentPhase].color,
+                fontWeight: 700
+              }}>
+              
+              {PHASE_INFO[currentPhase].emoji} {PHASE_INFO[currentPhase].labelAz}
+            </span>
           </div>
-          <div className="a3-hero-main">
-            <Ring value={Math.min(100, currentDay / (cycleLength || 28) * 100)}>
-              <b className="a3-num">{currentDay}</b>
-              <span>{tr("flowdashboard_tsikl_gunu_b9e250", "Tsikl günü")}</span>
-            </Ring>
-            <span className="a3-art" aria-hidden="true"><Mascot stage="flow" pose="mode" width={120} bob /></span>
-            <div className="a3-hero-txt">
-              <p className="a3-hero-line">{currentPhase === 'menstrual' ? rd('f_period_tip') : rd('f_to_period', { n: Math.max(0, daysUntilPeriod) })}</p>
-              <p className="a3-meta">{isFertileToday ? rd('f_fertile') : rd('f_low')}</p>
+
+          <div className="a-ring-hero">
+            <div
+              className="a-ring"
+              style={{
+                '--pct': Math.min(100, Math.round(currentDay / (cycleLength || 28) * 100)),
+                background: `conic-gradient(${PHASE_INFO[currentPhase].color} calc(var(--pct) * 1%), var(--a-line) 0)`
+              } as React.CSSProperties}>
+              
+              <div className="a-ring-inner">
+                <b>{currentDay}</b>
+                <span>{tr("flowdashboard_tsikl_gunu_b9e250", "Tsikl günü")}</span>
+              </div>
+            </div>
+            <div className="a-trio" style={{ gridTemplateColumns: 'repeat(3, 1fr)', flex: 1, gap: 6 }}>
+              <div className="a-trio-item" style={{ padding: '10px 4px', border: 'none', boxShadow: 'none', background: 'var(--a-surface-soft)' }}>
+                <p className="a-trio-value">{daysUntilPeriod > 0 ? daysUntilPeriod : 0}</p>
+                <p className="a-trio-label">{tr("flowdashboard_gun_qaldi_993281", "gün qaldı")}</p>
+              </div>
+              <div className="a-trio-item" style={{ padding: '10px 4px', border: 'none', boxShadow: 'none', background: 'var(--a-surface-soft)' }}>
+                <p className="a-trio-value">{cycleLength}</p>
+                <p className="a-trio-label">{tr("flowdashboard_gun_tsikl_bb0ab6", "gün tsikl")}</p>
+              </div>
+              <div className="a-trio-item" style={{ padding: '10px 4px', border: 'none', boxShadow: 'none', background: 'var(--a-surface-soft)' }}>
+                <p className="a-trio-value">{periodLength}</p>
+                <p className="a-trio-label">{tr("flowdashboard_gun_period_957849", "gün period")}</p>
+              </div>
             </div>
           </div>
-          <div className="a3-days" role="list">
-            {weekStrip.map((d) =>
-            <span key={d.key} role="listitem" className={`a3-day${d.today ? ' on' : ''}`} data-kind={d.kind}>
-                <small>{format(d.date, 'EEEEEE', { locale: getCurrentDateLocale() })}</small>
-                <b className="a3-num">{format(d.date, 'd')}</b>
-                <i aria-hidden="true" />
-              </span>
-            )}
-          </div>
-          <div className="a3-stats a3-num">
-            <div><b>{daysUntilPeriod > 0 ? daysUntilPeriod : 0}</b><span>{tr("flowdashboard_gun_qaldi_993281", "gün qaldı")}</span></div>
-            <div><b>{cycleLength}</b><span>{tr("flowdashboard_gun_tsikl_bb0ab6", "gün tsikl")}</span></div>
-            <div><b>{periodLength}</b><span>{tr("flowdashboard_gun_period_957849", "gün period")}</span></div>
-          </div>
-          <div className="a-inline-bar">
+
+          {/* Phase Progress */}
+          <div className="a-inline-bar" style={{ marginTop: 16 }}>
             <motion.div
               className="a-inline-bar-fill"
               style={{ background: PHASE_INFO[currentPhase].color }}
               initial={{ width: 0 }}
               animate={{ width: `${getPhaseProgress()}%` }}
               transition={{ duration: 0.8 }} />
+            
           </div>
 
           {/* Adaptiv proqnoz etibarı */}
@@ -282,7 +321,7 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
           {/* Period Action Buttons */}
           <div className="mt-4 flex gap-2">
             <motion.button
-              onClick={() => { setPeriodStartDates([new Date()]); setShowPeriodConfirm(true); }}
+              onClick={openPeriodDialog}
               className="a-cta-btn"
               style={{ flex: 1, justifyContent: 'center', background: 'var(--a-ink)', color: 'var(--a-bg)', height: 46 }}
               whileTap={{ scale: 0.97 }}>
@@ -301,13 +340,11 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
               </motion.button>
             }
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {afterHero?.({ nextPeriodDate, ovulationDate: refinedOvulation.ovulationDate ?? fertileWindowData.ovulationDate, fertileStart })}
-
-      {/* Daily Story Cards — phase-personalized */}
-      <DailyStoryCards />
+      {/* Partner store promo: pads before the predicted period (admin-only while the partner is not live) */}
+      <PartnerHomeCard lifeStage="flow" daysUntilPeriod={daysUntilPeriod} />
 
       {/* Interactive Period Calendar (Apple Health style) */}
       <div className="a-section">
@@ -612,10 +649,7 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
       </motion.div>
 
       {/* Period Start Confirmation Dialog */}
-      <AlertDialog open={showPeriodConfirm} onOpenChange={(open) => {
-        setShowPeriodConfirm(open);
-        if (open) setPeriodStartDates([new Date()]);
-      }}>
+      <AlertDialog open={showPeriodConfirm} onOpenChange={setShowPeriodConfirm}>
         <AlertDialogContent className="max-w-sm">
           <AlertDialogHeader>
             <AlertDialogTitle>{tr('flow_record_days', 'Period günlərini qeyd et')}</AlertDialogTitle>
@@ -640,8 +674,8 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
             <AlertDialogCancel disabled={markingPeriod}>{tr("flowdashboard_legv_et_b5e49c", "Ləğv et")}</AlertDialogCancel>
             <AlertDialogAction
               onClick={(event) => { event.preventDefault(); void handleMarkPeriodStarted(); }}
-              disabled={markingPeriod || periodStartDates.length === 0}
-              className="bg-[color:var(--a-coral-strong)] text-[color:var(--a-on-coral)]">
+              disabled={markingPeriod || (periodStartDates.length === 0 && initialPeriodKeys.length === 0)}
+              className="bg-red-500 hover:bg-red-600">
               
               {markingPeriod ? tr("untranslated_qeyd_edilir_df7cba", "Qeyd edilir...") : tr("flow_qeyd_et", 'Qeyd et')}
             </AlertDialogAction>
@@ -682,7 +716,7 @@ const FlowDashboard = ({ afterHero }: { afterHero?: (ctx: FlowHeroContext) => Re
             <AlertDialogAction
               onClick={(event) => { event.preventDefault(); void handleMarkPeriodEnded(); }}
               disabled={markingPeriod}
-              className="bg-[color:var(--a-coral-strong)]">
+              className="bg-green-600 hover:bg-green-700">
               
               {markingPeriod ? tr("untranslated_qeyd_edilir_df7cba", "Qeyd edilir...") : tr("flow_qeyd_et", 'Qeyd et')}
             </AlertDialogAction>

@@ -3,7 +3,8 @@ import { APP_LANGUAGES, APP_LANGUAGE_CODES, NEW_LANGUAGE_CODES, appLanguageLocal
 import { startupText } from './startup-i18n';
 import { detectLang } from './langDetect';
 import { defaultFeedLanguages } from '@/hooks/useFeedLanguages';
-import { createContentTranslationCache, type ContentBundle } from './content-i18n';
+import { createContentPackLoader, createMemoryStore } from './content-packs';
+import { buildLanguagePacks } from '../../scripts/i18n/content-packs.mjs';
 import { contentTranslationKey } from '../../scripts/i18n/content-translation-core.mjs';
 import { formatCountUnit } from './count-format';
 import { getOrdinal } from './utils';
@@ -13,8 +14,9 @@ import { getOrdinal } from './utils';
 beforeEach(() => { localStorage.clear(); setCachedAppLanguage(null); });
 describe('twenty-one-language selection', () => {
   it('keeps bundled choices offline and recognizes inactive legacy-list rows without losing tool restrictions', () => {
-    expect(APP_LANGUAGE_CODES).toHaveLength(21);
-    expect(new Set(APP_LANGUAGE_CODES).size).toBe(21);
+    expect(APP_LANGUAGE_CODES).toHaveLength(25);
+    expect(new Set(APP_LANGUAGE_CODES).size).toBe(25);
+    expect(APP_LANGUAGE_CODES.slice(-4)).toEqual(['ky', 'et', 'tk', 'uk']);
     expect(resolveAppLanguages().map(item => item.code)).toEqual(APP_LANGUAGE_CODES);
     const result = resolveAppLanguages([
       { code: 'en', name: 'English', native_name: 'English', disabled_tools: ['cakes'] },
@@ -26,9 +28,10 @@ describe('twenty-one-language selection', () => {
     expect(result.some(item => item.code === 'tr')).toBe(true); expect(result.some(item => item.code === 'ru')).toBe(true);
     expect(result.some(item => item.code === 'pt')).toBe(true); expect(result.some(item => item.code === 'unsupported')).toBe(false);
     expect(result.find(item => item.code === 'fr')?.disabled_tools).toEqual(['cakes']);
+    expect(result.find(item => item.code === 'ky')?.disabled_tools).toEqual(['cakes']);
   });
   it.each([['zh-CN','zh'], ['zh_Hans','zh'], ['id-ID','id'], ['fr-FR','fr'], ['es-ES','es'], ['pt-PT','pt'],
-    ['vi-VN','vi'], ['hi-IN','hi'], ['ja-JP','ja'], ['ko-KR','ko'], ['pl-PL','pl'], ['nl-NL','nl'], ['sv-SE','sv']])('normalizes %s without assigning an account country', (input, expected) => {
+    ['vi-VN','vi'], ['hi-IN','hi'], ['ja-JP','ja'], ['ko-KR','ko'], ['pl-PL','pl'], ['nl-NL','nl'], ['sv-SE','sv'], ['ky-KG','ky'], ['et-EE','et'], ['tk-TM','tk'], ['uk-UA','uk']])('normalizes %s without assigning an account country', (input, expected) => {
     localStorage.setItem('anacan-user-store', JSON.stringify({ state: { language: input, countryCode: 'AZ' } }));
     expect(normalizeAppLanguage(input)).toBe(expected); expect(readAppLanguage()).toBe(expected);
     expect(JSON.parse(localStorage.getItem('anacan-user-store')!).state.countryCode).toBe('AZ');
@@ -84,27 +87,30 @@ describe('new-language count grammar', () => {
   });
 });
 
-describe('source-bound public content bundles', () => {
+describe('source-bound public content packs', () => {
   const row = { id: 'public-fixture', description: 'Source text: 3 mg', description_en: 'Source text: 3 mg' };
   const key = contentTranslationKey(row, 'description')!;
-  const fixture = (): ContentBundle => ({ schema: 'anacan-content-translations-v1', language: 'fr', sourceHash: 'a'.repeat(64), values: { [key]: 'Texte source : 3 mg' } });
-  it('coalesces offline loads, translates exact public rows and refuses an edited source', async () => {
-    const loader = vi.fn(async () => fixture());
-    const cache = createContentTranslationCache({ '../../scripts/i18n/content/fr.json': loader });
-    await Promise.all([cache.ensure('fr'), cache.ensure('fr-FR')]);
-    expect(loader).toHaveBeenCalledTimes(1);
+  const files = buildLanguagePacks({ schema: 'anacan-content-translations-v1', language: 'fr', sourceHash: 'a'.repeat(64), values: { [key]: 'Texte source : 3 mg' } }).files;
+  const loader = () => {
+    const fetchPack = vi.fn(async (url: string) => files.find(file => url.endsWith(`/content-packs/${file.path}`))?.text ?? Promise.reject(new Error('404')));
+    const sha256Hex = async (text: string) => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)))).map(byte => byte.toString(16).padStart(2, '0')).join('');
+    return { fetchPack, cache: createContentPackLoader({ baseUrl: '', languages: NEW_LANGUAGE_CODES, fetchPack, store: createMemoryStore(), sha256Hex }) };
+  };
+  it('coalesces loads, translates exact public rows and refuses an edited source', async () => {
+    const { fetchPack, cache } = loader();
+    await Promise.all([cache.prepare('fr'), cache.prepare('fr')]);
+    cache.lookup(row, 'description', 'fr'); cache.lookup(row, 'description', 'fr'); await cache.settled('fr');
+    expect(fetchPack).toHaveBeenCalledTimes(2); // manifest + one shard
     expect(cache.lookup(row, 'description', 'fr')).toBe('Texte source : 3 mg');
     expect(cache.lookup({ ...row, description: 'Source text: 30 mg' }, 'description', 'fr')).toBeUndefined();
     expect(cache.lookup({ ...row, id: 'another-row' }, 'description', 'fr')).toBeUndefined();
     expect(cache.lookup({ ...row, description_en: 'Edited' }, 'description', 'fr')).toBeUndefined();
     expect(row.description).toBe('Source text: 3 mg');
   });
-  it('rejects mismatched bundles and allows a clean retry', async () => {
-    const loader = vi.fn().mockResolvedValueOnce({ ...fixture(), language: 'es' }).mockResolvedValueOnce(fixture());
-    const cache = createContentTranslationCache({ '../../scripts/i18n/content/fr.json': loader });
-    await expect(cache.ensure('fr')).rejects.toThrow('BUNDLED_CONTENT_LANGUAGE_INVALID');
-    await cache.ensure('fr'); expect(cache.lookup(row, 'description', 'fr')).toBeTruthy();
-    await expect(cache.ensure('zh')).rejects.toThrow('BUNDLED_CONTENT_LANGUAGE_MISSING');
-    await expect(cache.ensure('az')).resolves.toBeUndefined();
+  it('ignores languages without packs and missing languages on the server', async () => {
+    const { cache } = loader();
+    await expect(cache.prepare('az')).resolves.toBeUndefined();
+    await expect(cache.prepare('zh')).resolves.toBeUndefined();
+    expect(cache.lookup(row, 'description', 'zh')).toBeUndefined();
   });
 });

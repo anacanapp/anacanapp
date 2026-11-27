@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { useFlowReminders, useSaveFlowReminder, useToggleReminder } from '@/hooks/useFlowReminders';
-import { LocalNotifications } from '@capacitor/local-notifications';
+import { setLocalNotifications } from '@/lib/local-notification-scheduler';
 import { Capacitor } from '@capacitor/core';
 import { useUserStore } from '@/store/userStore';
 
@@ -42,21 +42,17 @@ const PillReminderCard = () => {
   const scheduleNative = async (enabled: boolean, t: string, ttl: string) => {
     if (!Capacitor.isNativePlatform()) return;
     try {
-      await LocalNotifications.cancel({ notifications: [{ id: PILL_NOTIFICATION_ID }] });
-      if (!enabled) return;
       const [h, m] = t.split(':').map(Number);
-      const now = new Date();
       const at = new Date();
       at.setHours(h, m, 0, 0);
-      if (at <= now) at.setDate(at.getDate() + 1);
-      await LocalNotifications.schedule({
-        notifications: [{
-          id: PILL_NOTIFICATION_ID,
-          title: ttl || tr("pillremindercard_hebinizi_qebul_edin_03c5be", "H\u0259binizi q\u0259bul edin"),
-          body: tr("pillremindercard_gundelik_hebinizi_qebul_etmek__064f3f", "\uD83D\uDC8A G\xFCnd\u0259lik h\u0259binizi q\u0259bul etm\u0259k vaxt\u0131d\u0131r"),
-          schedule: { at, repeats: true, every: 'day' }
-        }]
-      });
+      // Daily, through the central scheduler; turning the switch on is the user's own request, so it may ask.
+      await setLocalNotifications('flow-pill', enabled ? [{
+        id: PILL_NOTIFICATION_ID,
+        title: ttl || tr("pillremindercard_hebinizi_qebul_edin_03c5be", "H\u0259binizi q\u0259bul edin"),
+        body: tr("pillremindercard_gundelik_hebinizi_qebul_etmek__064f3f", "\uD83D\uDC8A G\xFCnd\u0259lik h\u0259binizi q\u0259bul etm\u0259k vaxt\u0131d\u0131r"),
+        at,
+        repeat: 'day'
+      }] : [], { ask: true, cancelIds: [PILL_NOTIFICATION_ID] });
     } catch (e) {
       console.warn('Pill reminder schedule failed', e);
     }
@@ -122,7 +118,7 @@ const PillReminderCard = () => {
               </div>
               <div>
                 <label className="a-stat-tile-label" style={{ display: 'block', marginBottom: 4 }}>{tr("untranslated_vaxt_8etncj", "Vaxt")}</label>
-                <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="a-input" style={{ width: '100%' }} />
+                <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="a-input a-date-input" />
               </div>
               <div className="flex gap-2">
                 <button onClick={handleSave} disabled={save.isPending} className="a-btn-solid" style={{ flex: 1, justifyContent: 'center' }}>{tr("untranslated_yadda_saxla_bpdu9v", "Yadda saxla")}</button>

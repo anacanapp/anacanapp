@@ -2,8 +2,9 @@ import { useMemo } from 'react';
 import { tr } from '@/lib/tr';
 import { motion } from 'framer-motion';
 import { TrendingUp, Smile, Zap, Heart } from 'lucide-react';
-import { format, subDays, parseISO } from 'date-fns';
+import { format, subDays } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { useFlowMoodChart } from '@/hooks/useFlowDailyLogs';
 
@@ -55,10 +56,12 @@ const FlowMoodChart = () => {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
+      // Guard: an invalid date must not throw and crash the chart tooltip.
+      const tooltipDate = storedCalendarDate(data.date);
       return (
         <div className="rounded-lg p-3" style={{ background: 'var(--a-surface)', border: '1px solid var(--a-line-strong)', boxShadow: 'var(--a-card-shadow)' }}>
           <p className="text-sm font-medium text-foreground mb-2">
-            {format(parseISO(data.date), 'd MMMM', { locale: getCurrentDateLocale() })}
+            {tooltipDate ? format(tooltipDate, 'd MMMM', { locale: getCurrentDateLocale() }) : ''}
           </p>
           {data.mood &&
           <p className="text-xs text-muted-foreground">

@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { formatFetalWeight } from '@/lib/fetal-size-copy';
 import { motion } from 'framer-motion';
 import { Ruler, Weight, ChevronDown, ChevronUp } from 'lucide-react';
 import { tr } from '@/lib/tr';
+
+/** "19. hefte — …"; languages whose label is an ordinal suffix ("-й тиждень", "-я неделя") attach it to the number. */
+const weekHeading = (week: number, label: string) => label.startsWith('-') ? `${week}${label}` : `${week}. ${label}`;
 
 /**
  * Bump: "Bu həftə körpəniz" — partnyor üçün həftəlik inkişaf kartı.
@@ -51,7 +55,7 @@ const PartnerWeekInfoCard = ({ currentWeek, weekData, dayContent, language, isMu
         </div>
         <div className="flex-1 min-w-0">
           <h3 style={{ fontSize: 14.5, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--a-ink)' }}>
-            {currentWeek}. {isMultiple ? tr('partnerv2_hefte_korpeleriniz', 'həftə — körpələriniz') : tr('partnerv2_hefte_korpeniz', 'həftə — körpəniz')}
+            {weekHeading(currentWeek, isMultiple ? tr('partnerv2_hefte_korpeleriniz', 'həftə — körpələriniz') : tr('partnerv2_hefte_korpeniz', 'həftə — körpəniz'))}
           </h3>
           {weekData?.fruit &&
           <p style={{ fontSize: 11.5, color: 'var(--a-ink-soft)' }}>
@@ -75,7 +79,7 @@ const PartnerWeekInfoCard = ({ currentWeek, weekData, dayContent, language, isMu
           {weekData.weightG > 0 &&
         <span className="inline-flex items-center gap-1.5"
         style={{ background: 'var(--a-green-1)', color: 'var(--a-green-ink)', borderRadius: 999, padding: '5px 12px', fontSize: 11.5, fontWeight: 700 }}>
-              <Weight size={12} /> {weekData.weightG >= 1000 ? `${(weekData.weightG / 1000).toFixed(1)} kq` : `${weekData.weightG} q`}
+              <Weight size={12} /> {weekData.weightG >= 1000 ? `${(weekData.weightG / 1000).toFixed(1)} kq` : `${formatFetalWeight(weekData.weightG)} q`}
             </span>
         }
         </div>

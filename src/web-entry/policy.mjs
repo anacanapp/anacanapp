@@ -6,7 +6,7 @@ export const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=co
 export const ADMIN_WEB_QUERY = 'web';
 export const ADMIN_WEB_VALUE = 'admin';
 export const APP_PACKAGE = 'com.atlasoon.anacan';
-const languages = ['az','en','tr','ru','de','ar','ka','kk','uz','zh','id','fr','es','pt','vi','hi','ja','ko','pl','nl','sv'];
+const languages = ['az','en','tr','ru','de','ar','ka','kk','uz','zh','id','fr','es','pt','vi','hi','ja','ko','pl','nl','sv','ky','et','tk','uk'];
 const modules = ['sleep','feeding','diaper','babyGrowth','hospitalBag','calendar'];
 const legalNames = new Set(['terms','terms-of-use','terms-of-service','terms_and_conditions','terms-and-conditions','terms_of_service','conditions',
   'privacy','privacy-policy','privacy_policy','privacy-policy.html','terms.html','cookie-policy','cookies','disclaimer',
@@ -48,7 +48,9 @@ export function entryDecision(input, { native = false } = {}) {
   // Existing public account-recovery/provider handshakes must finish before
   // returning to the app; these are not consumer dashboard bypasses.
   if (/^\/auth(?:\/|$)/.test(url.pathname) || url.pathname === '/reset-password'
-    || /^\/p\/v\/[^/]+\/?$/.test(url.pathname) || /^\/payment\/(?:success|error)\/?$/.test(url.pathname)) return 'system';
+    || /^\/p\/v\/[^/]+\/?$/.test(url.pathname) || /^\/payment\/(?:success|error)\/?$/.test(url.pathname)
+    // QR gift landing (docs/PROMO_QR.md): shows the code and the store links instead of launching straight to a store.
+    || /^\/h\/[A-Za-z0-9-]{3,32}\/?$/.test(url.pathname)) return 'system';
   if (/^\/brands(?:\/|$)/.test(url.pathname)) return 'brand';
   if (/^\/admin(?:\/|$)/.test(url.pathname)) return 'admin';
   if (/^\/moderator(?:\/|$)/.test(url.pathname)) return 'moderator';

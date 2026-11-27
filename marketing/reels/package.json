@@ -1,0 +1,22 @@
+{
+  "name": "anacan-reels",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/nunito": "5.3.0",
+    "@lottiefiles/dotlottie-web": "0.83.0",
+    "@remotion/cli": "4.0.542",
+    "animejs": "4.5.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}

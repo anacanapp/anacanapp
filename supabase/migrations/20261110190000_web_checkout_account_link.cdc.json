@@ -1,0 +1,12 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261110190000_web_checkout_account_link.sql",
+  "runtime": "google-web-checkout-account-link",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; adds one nullable column to an already enrolled relation and checks its three triggers",
+  "relations": [
+    { "relation": "public.web_checkouts", "change": "column added (user_id uuid, nullable) + partial index", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "set only by dodo-checkout from a verified Anacan session; already guarded since Duzelis73" },
+    { "relation": "public.web_subscriptions", "change": "rows written", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "user_id set by web_subscription_link_checkout_v1 (service role, dodo-webhook); schema unchanged" }
+  ]
+}

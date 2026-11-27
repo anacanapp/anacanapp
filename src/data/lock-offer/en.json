@@ -1,0 +1,13 @@
+{
+  "title": "Protect your data",
+  "subtitle": "Your pregnancy, health and baby notes are private. Make sure only you can open the app.",
+  "bio_ios": "Face ID",
+  "bio_android": "Fingerprint or face unlock",
+  "bio_line": "Opens with a glance or a touch",
+  "pin_title": "4-digit PIN",
+  "pin_line": "Backup: you can always unlock with your PIN",
+  "settings_title": "Turn it off anytime",
+  "settings_line": "You can turn it off or change your PIN in {where}",
+  "enable": "Turn on protection",
+  "later": "Not now"
+}

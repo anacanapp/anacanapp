@@ -1,0 +1,32 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261106150000_qaygicash.sql",
+  "runtime": "google-qaygicash",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls the new relations and checks their three triggers",
+  "relations": [
+    { "relation": "public.cashback_programs", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "QayğıCash programme per country (AZ/AZN live): hold, expiry, limits, redeem channels, premium_redeem switch and prices" },
+    { "relation": "public.cashback_rules", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "rate per channel (0 or 50-500 bp, own products only); fixed AZN base for store Premium" },
+    { "relation": "public.cashback_wallets", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "one wallet per user: country, currency, debt, cohort" },
+    { "relation": "public.cashback_lots", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "earned bonus lots (source order/transaction, rate, base, remaining, available_at, expires_at)" },
+    { "relation": "public.cashback_redemptions", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "bonus reserved/committed/released per order (aptek, cake, book, premium)" },
+    { "relation": "public.cashback_ledger", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "append-only movement log (UPDATE/DELETE refused by trigger)" },
+    { "relation": "public.cashback_admin_log", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "admin changes to programmes, rules, products and manual adjustments" },
+    { "relation": "public.orders", "change": "altered", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "cashback_used column; qc_orders_status trigger (delivered: commit + earn, cancelled: release + reverse); place_aptek_order gains p_cashback" },
+    { "relation": "public.cake_orders", "change": "altered", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "cashback_used column; qc_cake_status trigger" },
+    { "relation": "public.book_orders", "change": "altered", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "cashback_used column (amount stays the charged amount); qc_book_status trigger" },
+    { "relation": "public.products", "change": "altered", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "cashback_own flag (Anacan-brand products earn own_shop rate)" },
+    { "relation": "public.web_subscriptions", "change": "trigger added", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "qc_web_premium trigger: linked Epoint pass earns premium_yearly/monthly" }
+  ]
+}

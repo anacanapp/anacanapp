@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import { Drawer } from 'vaul';
 import { ChevronLeft, X } from 'lucide-react';
 import { rd } from '@/lib/redesign-i18n';
+import { useDrawerPointerGuard } from '@/lib/drawer-pointer-guard';
+import { useOverlayBackHandler } from '@/hooks/useOverlayBackHandler';
 
 interface SheetProps {
   open: boolean;
@@ -23,11 +25,14 @@ interface SheetProps {
  * behind recedes (vaul `shouldScaleBackground`, needs `[vaul-drawer-wrapper]`).
  */
 export function Sheet({ open, onClose, title, children, footer, actions, onBack, full = true, bodyRef }: SheetProps) {
+  const contentRef = useDrawerPointerGuard<HTMLDivElement>();
+  // Android back: step back inside the sheet when it has a back chevron, else close it.
+  useOverlayBackHandler(open, onBack || onClose);
   return (
     <Drawer.Root open={open} onOpenChange={(next) => { if (!next) onClose(); }} shouldScaleBackground>
       <Drawer.Portal>
         <Drawer.Overlay className="a3-sheet-overlay" />
-        <Drawer.Content className={`a3-sheet a-scope${full ? ' full' : ''}`} aria-describedby={undefined}>
+        <Drawer.Content ref={contentRef} className={`a3-sheet a-scope${full ? ' full' : ''}`} aria-describedby={undefined}>
           <div className="a3-grabber" aria-hidden="true" />
           <div className="a3-sheet-head">
             <button type="button" className="a3-icon-btn solid" onClick={onBack || onClose} aria-label={onBack ? rd('back') : rd('close')}>

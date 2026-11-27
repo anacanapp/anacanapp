@@ -5,11 +5,21 @@ import SplashScreen, { needsBrandSplash } from '@/components/SplashScreen';
 import StartupScreen from '@/components/StartupScreen';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import AppIntroduction from '@/components/AppIntroduction';
+import { TOUR_PREVIEW_EVENT, type TourNav } from '@/lib/onboardingTour';
 import InitialLanguageScreen from '@/components/InitialLanguageScreen';
 import AuthScreen from '@/components/AuthScreen';
+import { fetchEmailVerificationState } from '@/lib/email-verification';
 import BottomNav from '@/components/BottomNav';
 import AppRatingPrompt from '@/components/AppRatingPrompt';
+import { noteFirstOpen, shouldAutoPromptFeedback } from '@/lib/app-feedback';
+import { markPromptShown, promptShownToday } from '@/lib/prompt-day';
+import { markLockOfferSeen, shouldOfferLock } from '@/lib/lock-offer';
+import LockOfferSheet from '@/components/security/LockOfferSheet';
+import AppLockSetupSheet from '@/components/security/AppLockSetupSheet';
+import FeedbackSheet from '@/components/FeedbackSheet';
 import FloatingTimerWidget from '@/components/FloatingTimerWidget';
+import HomeWidgetSync from '@/components/HomeWidgetSync';
+import { Capacitor } from '@capacitor/core';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
 import { isNative } from '@/lib/native';
@@ -18,14 +28,17 @@ import { useAppSetting } from '@/hooks/useAppSettings';
 import { useDeviceToken } from '@/hooks/useDeviceToken';
 import { usePendingTimerStops } from '@/hooks/usePendingTimerStops';
 import { useForceUpdate } from '@/hooks/useForceUpdate';
+import { useAppUpdate } from '@/hooks/useAppUpdate';
 import { useActiveBlock } from '@/hooks/useUserBlock';
 import BlockedScreen from '@/components/BlockedScreen';
 import CountryGate from '@/components/CountryGate';
 import { useSwipeNavigation } from '@/hooks/useSwipeNavigation';
 import { resetAppScrollPosition } from '@/lib/scroll';
 import { initDeeplinkListener, ParsedDeeplink } from '@/lib/deeplink';
+import { setPendingWidgetAction } from '@/lib/widget-actions';
 import { pushBackHandler } from '@/lib/backButton';
-import { PUSH_NAV_EVENT, consumePendingPushNav, type PushNavIntent } from '@/lib/pushNav';
+import { PUSH_NAV_EVENT, consumePendingPushNav, navigateFromPush, type PushNavIntent } from '@/lib/pushNav';
+import { attachNotificationTapHandler } from '@/lib/notification-taps';
 import { isCakesAvailable } from '@/lib/freemium';
 import type { CommunityDeepLinkTarget } from '@/components/community/CommunityScreen';
 import { AdSurface } from '@/components/ads/AdExperienceProvider';
@@ -36,29 +49,37 @@ import { BLOG_MODULE_EVENT, consumeBlogModule, isBlogModule, rememberBlogModule,
 import type { BlogModule } from '@/lib/blog-editorial';
 import { normalizeAppLanguage, isAppLanguage } from '@/lib/app-languages';
 import BlogLinkHost from '@/components/blog/BlogLinkHost';
+import { useConsentGate } from '@/hooks/useConsentGate';
+import { useVaccineRemindersAtStart } from '@/hooks/useVaccineRemindersAtStart';
+import { isKvkkUser } from '@/lib/consentGate';
+import { openParentingDeeplink } from '@/lib/parenting-nav';
 
 // PremiumOnboarding.PENDING_FUNNEL_KEY ilə sinxron saxlanmalıdır
 // (lazy chunk-u pozmamaq üçün static import edilmir)
 const PENDING_FUNNEL_KEY = 'anacan_pending_funnel';
 
 // Lazy load heavy screens
+const OnboardingTourHost = lazy(() => import('@/components/onboarding/OnboardingTourHost'));
 const PremiumOnboarding = lazy(() => import('@/components/onboarding/PremiumOnboarding'));
+const EmailVerificationScreen = lazy(() => import('@/components/EmailVerificationScreen'));
 const Dashboard = lazy(() => import('@/components/Dashboard'));
 const ToolsHub = lazy(() => import('@/components/ToolsHub'));
 const DoctorReportScreen = lazy(() => import('@/components/DoctorReportScreen'));
 const AIChatScreen = lazy(() => import('@/components/AIChatScreen'));
 const PartnerAIPremiumGate = lazy(() => import('@/components/partner/PartnerAIPremiumGate'));
-const PartnerChatScreen = lazy(() => import('@/components/partner/PartnerChatScreen'));
 const ShopScreen = lazy(() => import('@/components/ShopScreen'));
-const AptekScreen = lazy(() => import('@/components/aptek/AptekScreen'));
 const CakesScreen = lazy(() => import('@/components/CakesScreen'));
 const ProfileScreen = lazy(() => import('@/components/ProfileScreen'));
 const PartnerProfileScreen = lazy(() => import('@/components/PartnerProfileScreen'));
 const NotificationsScreen = lazy(() => import('@/components/NotificationsScreen'));
 const SettingsScreen = lazy(() => import('@/components/SettingsScreen'));
 const HealthSyncScreen = lazy(() => import('@/components/HealthSyncScreen'));
+const IllnessScreen = lazy(() => import('@/components/illness/IllnessScreen'));
+const RecoveryScreen = lazy(() => import('@/components/recovery/RecoveryScreen'));
+const WidgetSettingsScreen = lazy(() => import('@/components/WidgetSettingsScreen'));
 const ReferralScreen = lazy(() => import('@/components/ReferralScreen'));
 const CalendarScreen = lazy(() => import('@/components/CalendarScreen'));
+const AptekScreen = lazy(() => import('@/components/aptek/AptekScreen'));
 const AdminPanel = lazy(() => import('@/components/AdminPanel'));
 const ModeratorPanel = lazy(() => import('@/components/moderation/ModeratorPanel'));
 const MyModerationDecisions = lazy(() => import('@/components/moderation/MyModerationDecisions'));
@@ -79,10 +100,6 @@ const NameVotingScreen = lazy(() => import('@/components/partner/NameVotingScree
 const PartnerHospitalBagScreen = lazy(() => import('@/components/partner/PartnerHospitalBagScreen'));
 const DailySummaryScreen = lazy(() => import('@/components/partner/DailySummaryScreen'));
 // ── Partner Module 2.0 ──
-// Loaded on demand: the search sheet (and its drawer library) and the Aptek top-bar pieces.
-const GlobalSearch = lazy(() => import('@/components/home/GlobalSearch').then((m) => ({ default: m.GlobalSearch })));
-const AptekSearchResults = lazy(() => import('@/components/aptek/AptekEntry').then((m) => ({ default: m.AptekSearchResults })));
-const AptekCartButton = lazy(() => import('@/components/aptek/AptekEntry').then((m) => ({ default: m.AptekCartButton })));
 const PartnerHomeScreen = lazy(() => import('@/components/partner/v2/PartnerHomeScreen'));
 const PartnerTogetherScreen = lazy(() => import('@/components/partner/v2/PartnerTogetherScreen'));
 const PartnerShoppingScreen = lazy(() => import('@/components/partner/v2/PartnerShoppingScreen'));
@@ -90,14 +107,31 @@ const PartnerAppointmentsScreen = lazy(() => import('@/components/partner/v2/Par
 const PartnerBabyDayScreen = lazy(() => import('@/components/partner/v2/PartnerBabyDayScreen'));
 const PartnerWeeklyStatsScreen = lazy(() => import('@/components/partner/v2/PartnerWeeklyStatsScreen'));
 const PartnerSurprisesScreen = lazy(() => import('@/components/partner/v2/PartnerSurprisesScreen'));
+const PartnerParentingScreen = lazy(() => import('@/components/tools/parenting/PartnerParentingScreen'));
+const PremiumToolBoundary = lazy(() => import('@/components/premium/PremiumToolBoundary'));
 const HospitalRunScreen = lazy(() => import('@/components/partner/v2/HospitalRunScreen'));
 const LiveContractionsScreen = lazy(() => import('@/components/partner/v2/LiveContractionsScreen'));
 const PartnerSharingScreen = lazy(() => import('@/components/partner/v2/PartnerSharingScreen'));
+const NightShiftScreen = lazy(() => import('@/components/partner/v2/NightShiftScreen'));
+const BirthPlanScreen = lazy(() => import('@/components/partner/v2/BirthPlanScreen'));
+const PartnerNotificationsScreen = lazy(() => import('@/components/partner/v2/PartnerNotificationsScreen'));
+const BabyChatScreen = lazy(() => import('@/components/baby-chat/BabyChatScreen'));
+const PostpartumSupportScreen = lazy(() => import('@/components/partner/v2/PostpartumSupportScreen'));
+const RecoveryGuideScreen = lazy(() => import('@/components/pregnancy-loss/RecoveryGuideScreen'));
+const LossMemoriesScreen = lazy(() => import('@/components/pregnancy-loss/LossMemoriesScreen'));
+const PartnerLossSupportScreen = lazy(() => import('@/components/pregnancy-loss/PartnerLossSupportScreen'));
 const AlertReceiver = lazy(() => import('@/components/partner/v2/AlertReceiver'));
 const PartnersScreen = lazy(() => import('@/components/partners/PartnersScreen'));
 const AdPreferencesScreen = lazy(() => import('@/components/ads/AdPreferencesScreen'));
+const BookStoreScreen = lazy(() => import('@/components/books/BookStoreScreen'));
+const QaygiCashScreen = lazy(() => import('@/components/qaygicash/QaygiCashScreen'));
+const RecapScreen = lazy(() => import('@/components/recap/RecapScreen'));
 // Module scope: a lazy() created during render is a new component type every render.
 const ForceUpdateScreen = lazy(() => import('@/components/ForceUpdateScreen'));
+const AppUpdateSheet = lazy(() => import('@/components/appUpdate/AppUpdateSheet'));
+const AppUpdateBanner = lazy(() => import('@/components/appUpdate/AppUpdateBanner'));
+const ConsentGateScreen = lazy(() => import('@/components/consent/ConsentGateScreen'));
+const AiConsentGate = lazy(() => import('@/components/consent/AiConsentGate'));
 
 const suspenseFallback = <StartupScreen />;
 
@@ -127,6 +161,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   // Scroll yaddaşı: alt-ekrana keçəndə cari tabın pozisiyası saxlanır,
   // GERİ qayıdanda (activeScreen → null) bərpa olunur.
   const activeTabRef = useRef('home');
+  // Set after handleDeeplink is defined; the push-nav effect uses it for in-app links from pushes.
+  const handleDeeplinkRef = useRef<((parsed: ParsedDeeplink) => void) | null>(null);
   const setActiveScreen = useCallback((s: string | null) => {
     if (s) saveScroll(`tab:${activeTabRef.current}`);
     _setActiveScreen(s);
@@ -158,7 +194,34 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       countryCode: s.countryCode,
     }))
   );
-  const { isAdmin, loading, profile, user, profileLoaded } = useAuth();
+  const { isAdmin, loading, profile, user, profileLoaded, signOut } = useAuth();
+  // Legal documents v2.0 consent gate (docs/CONSENT_GATE.md): never blocks on network errors.
+  const consentBackend = getBackendConfig().url;
+  const consentGate = useConsentGate(isAuthenticated ? user?.id : null, consentBackend);
+  // Türkiye (profile country TR or app language tr): KVKK Açık Rıza wording on the gate and the AI consent.
+  const consentKvkk = isKvkkUser((profile as any)?.country_code || countryCode, language);
+  const [autoFeedback, setAutoFeedback] = useState(false);
+  // First Home visit after onboarding: offer Face ID / fingerprint + PIN once (native, lock not on yet).
+  const [lockOffer, setLockOffer] = useState(false);
+  const [lockSetup, setLockSetup] = useState(false);
+  // In-app onboarding tour on screen: the other first-run sheets wait for it.
+  const [tourActive, setTourActive] = useState(false);
+  useEffect(() => {
+    if (tourActive || !user?.id || activeTab !== 'home' || activeScreen || activeTool || !shouldOfferLock() || promptShownToday()) return;
+    const id = window.setTimeout(() => {markLockOfferSeen();markPromptShown();setLockOffer(true);}, 1500);
+    return () => window.clearTimeout(id);
+  }, [user?.id, activeTab, activeScreen, activeTool, tourActive]);
+  // In-app feedback form (team only, never a store link): once, from day 14, after 20 s on Home.
+  useEffect(() => {noteFirstOpen();}, []);
+  useEffect(() => {
+    if (tourActive || !user?.id || activeTab !== 'home' || activeScreen || activeTool) return;
+    const id = window.setTimeout(() => {
+      const lossRecovery = !!(profile as { loss_recovery_active?: boolean } | null)?.loss_recovery_active;
+      const accountCreatedAt = (user as { created_at?: string }).created_at ?? null;
+      if (Capacitor.isNativePlatform() && shouldAutoPromptFeedback({ accountCreatedAt, lossRecovery })) {markPromptShown();setAutoFeedback(true);}
+    }, 20_000);
+    return () => window.clearTimeout(id);
+  }, [user?.id, activeTab, activeScreen, activeTool, tourActive]);
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get('blog_language');
     if (!isAppLanguage(requested || '') || requested === language) return;
@@ -218,6 +281,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     else if (screen === 'ad_preferences') setActiveScreen('ad-preferences');
   }, [isAdmin, profileLoaded, setActiveScreen]);
   const { forceUpdate, updateRequired, isLoading: forceUpdateLoading } = useForceUpdate();
+  // Update centre (rules per platform, version and language): force screen, soft sheet or home banner.
+  const appUpdate = useAppUpdate((profile as { country_code?: string | null } | null)?.country_code);
   // Moderasiya: tam blok (block_type='full') → tətbiq əvəzinə blok ekranı
   const { data: activeBlock } = useActiveBlock();
   // Premium onboarding (funnel ilə) — app_settings ilə idarə olunur; setting yoxdursa AKTİVDİR
@@ -295,6 +360,12 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         }
         return;
       }
+      if (intent.deeplink) { handleDeeplinkRef.current?.(intent.deeplink); return; }
+      if (intent.tool) {
+        setActiveTab('tools');
+        setActiveTool(intent.tool);
+        return;
+      }
       if (intent.screen) {setActiveScreen(intent.screen);return;}
       if (intent.tab) {
         setActiveTab(intent.tab);
@@ -330,7 +401,7 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       if (activeTool) {setActiveTool(null);setToolsResetKey((k) => k + 1);return true;}
       if (activeTab !== 'home') {setActiveTab('home');return true;}
       return false; // kök: backButton.ts "yenidən bas" göstərəcək
-    });
+    }, 'root'); // ən alt qat: açıq dialoq/sheet və ekran daxili naviqasiya əvvəl
   }, [showAdmin, viewingUserId, showMotherChat, activeScreen, activeTool, activeTab]);
 
   useEffect(() => {
@@ -345,11 +416,16 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
 
   // Initialize push notification token registration for native apps
   useDeviceToken();
+  // Push and on-device reminder taps: the listeners are registered at boot (main.tsx → notification-taps.ts)
+  // and queue the tap until this router attaches; navigateFromPush waits for auth/profile before applying it.
+  useEffect(() => attachNotificationTapHandler((data) => navigateFromPush(data)), []);
 
   // Kilid ekranı widget-indən (iOS Live Activity / Android bildiriş) dayandırılan
   // yuxu/əmizdirmə taymerlərini baby_logs-a yaz — HƏMİŞƏ aktiv host (sub-ekranlar
   // açıq olanda da), auth/uşaq siyahısı hazır olmayana qədər təhlükəsiz gözləyir.
   usePendingTimerStops();
+  // Vaccine reminders for all children: once a day on the phone, never prompts for permission.
+  useVaccineRemindersAtStart({ userId: isAuthenticated ? user?.id : null, ready: profileLoaded, language, profileCountry: profile?.country_code, storedCountry: countryCode });
 
   // ─── Deeplink handler ───
   const handleDeeplink = useCallback((parsed: ParsedDeeplink) => {
@@ -368,8 +444,16 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         setActiveScreen(null);
         break;
       case 'tool':
+        // Tərbiyə item links (shared by the mother, e.g. /parenting/sos/<id>) open that item; partner app included.
+        if (parsed.params.tool_id === 'parenting' && openParentingDeeplink(parsed, { partner: useUserStore.getState().role === 'partner' })) break;
+        setPendingWidgetAction(parsed.params.widget_action);
         setActiveTab('tools');
-        setActiveTool(parsed.params.tool_id);
+        setActiveTool((current) => {
+          const id = parsed.params.tool_id;
+          // A widget action for the already open tool remounts it so the tool picks the action up.
+          if (current === id && parsed.params.widget_action) { window.setTimeout(() => setActiveTool(id), 0); return null; }
+          return id;
+        });
         setToolOpenedFromDashboard(false);
         break;
       case 'screen':
@@ -394,6 +478,19 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     const cleanup = initDeeplinkListener(handleDeeplink);
     return cleanup;
   }, [handleDeeplink]);
+  // Admin "Turu sınaqla": leave the admin panel and go home; OnboardingTourHost starts the preview once unblocked.
+  useEffect(() => {
+    const onPreview = () => { setShowAdmin(false); setActiveScreen(null); setActiveTab('home'); };
+    window.addEventListener(TOUR_PREVIEW_EVENT, onPreview);
+    return () => window.removeEventListener(TOUR_PREVIEW_EVENT, onPreview);
+  }, [setActiveScreen]);
+  // In-app deeplinks (banners): same routing as external links, no app reload.
+  useEffect(() => {
+    const onAppDeeplink = (event: Event) => { const parsed = (event as CustomEvent<ParsedDeeplink>).detail; if (parsed) handleDeeplink(parsed); };
+    window.addEventListener('anacan:deeplink', onAppDeeplink);
+    return () => window.removeEventListener('anacan:deeplink', onAppDeeplink);
+  }, [handleDeeplink]);
+  handleDeeplinkRef.current = handleDeeplink;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -405,6 +502,58 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     }, 1500);
     return () => clearTimeout(timer);
   }, [hasSeenIntro]);
+
+  // The baby's daily notifications are scheduled on the device while pregnant; once the stage changes
+  // (birth, loss, or another device), cancel whatever is still pending here.
+  useEffect(() => {
+    if (!lifeStage || lifeStage === 'bump') return;
+    void import('@/lib/baby-chat-notifications').then((m) => m.cancelBabyChatNotifications()).catch(() => {});
+  }, [lifeStage]);
+
+  // E-mail code for new e-mail/password accounts (Duzelis74). "Not required" is remembered per account so later
+  // launches never wait; a slow or failed check never blocks (4 s, then the app continues).
+  const [emailGate, setEmailGate] = useState<{ userId: string; required: boolean; email: string | null } | null>(null);
+  useEffect(() => {
+    if (!isAuthenticated || !user?.id) { setEmailGate(null); return; }
+    const userId = user.id;
+    // The code comes before onboarding, so an onboarded account is never asked (and never queried).
+    if (isOnboarded) { setEmailGate({ userId, required: false, email: null }); return; }
+    const cacheKey = `anacan_email_verified_v1:${userId}`;
+    let cached = false;
+    try { cached = localStorage.getItem(cacheKey) === '1'; } catch { /* ignore */ }
+    if (cached) { setEmailGate({ userId, required: false, email: null }); return; }
+    let alive = true;
+    const timer = window.setTimeout(() => { if (alive) setEmailGate((g) => g?.userId === userId ? g : { userId, required: false, email: null }); }, 4000);
+    void fetchEmailVerificationState().then((state) => {
+      if (!alive) return;
+      window.clearTimeout(timer);
+      if (state.answered && !state.required) { try { localStorage.setItem(cacheKey, '1'); } catch { /* ignore */ } }
+      setEmailGate({ userId, required: state.required, email: state.email });
+    });
+    return () => { alive = false; window.clearTimeout(timer); };
+  }, [isAuthenticated, user?.id, isOnboarded]);
+
+  // Screen navigation from sub-screens; 'home' closes the screen and opens the home tab.
+  const navigateScreen = (screen: string) => {
+    if (screen === 'home') { setActiveScreen(null); setActiveTab('home'); }
+    else setActiveScreen(screen);
+  };
+
+  // In-app onboarding tour moves the real app between screens: a tool opens through a fresh Tools hub
+  // (initialTool is read on mount), a tab shows its root screen.
+  const tourNavigate = useCallback((nav: TourNav) => {
+    setActiveScreen(null);
+    setShowMotherChat(false);
+    if (nav.tool) {
+      setActiveTool(nav.tool);
+      setToolOpenedFromDashboard(false);
+      setToolsResetKey((k) => k + 1);
+      setActiveTab('tools');
+      return;
+    }
+    if (nav.tab === 'tools') { setActiveTool(null); setToolOpenedFromDashboard(false); setToolsResetKey((k) => k + 1); }
+    setActiveTab(nav.tab);
+  }, []);
 
   // Handle tool navigation from Dashboard
   const handleNavigateToTool = (tool: string) => {
@@ -423,8 +572,6 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       setActiveTool(null);
     }
   };
-
-  const [showSearch, setShowSearch] = useState(false);
 
   // Handle tab change - reset tool state when clicking Tools tab
   const handleTabChange = (tab: string) => {
@@ -544,7 +691,9 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         case 'ai':
           return (
             <motion.div key="partner-ai" variants={pageVariants} initial="initial" animate="animate" exit="exit" className="h-full">
-              <PartnerAIPremiumGate />
+              <Suspense fallback={suspenseFallback}><AiConsentGate userId={user?.id} backend={consentBackend} kvkk={consentKvkk} onDecline={() => setActiveTab('home')}>
+                <PartnerAIPremiumGate />
+              </AiConsentGate></Suspense>
             </motion.div>
           );
         case 'profile':
@@ -563,7 +712,8 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
         return (
           <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <AdSurface id="home_banner" />
-            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={setActiveScreen} onOpenAI={() => handleTabChange('ai')} onOpenProfile={() => handleTabChange('profile')} onSearch={() => setShowSearch(true)} topbarExtra={<Suspense fallback={null}><AptekCartButton onOpen={setActiveScreen} /></Suspense>} />
+            {appUpdate.showBanner && appUpdate.decision && <div className="px-4 pt-2"><Suspense fallback={null}><AppUpdateBanner decision={appUpdate.decision} onUpdate={appUpdate.openStore} /></Suspense></div>}
+            <Dashboard onOpenChat={() => setShowMotherChat(true)} onNavigateToTool={handleNavigateToTool} onNavigate={navigateScreen} onOpenAssistant={() => setActiveTab('ai')} />
           </motion.div>
         );
       case 'tools':
@@ -597,14 +747,19 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       case 'ai':
         return (
           <motion.div key="ai" variants={pageVariants} initial="initial" animate="animate" exit="exit" className="h-full">
-            <AIChatScreen />
+            {/* Anacan.AI is Premium only: the paywall comes first, the AI consent only for Premium users. */}
+            <Suspense fallback={suspenseFallback}><PartnerAIPremiumGate self>
+              <AiConsentGate userId={user?.id} backend={consentBackend} kvkk={consentKvkk} onDecline={() => setActiveTab('home')}>
+                <AIChatScreen />
+              </AiConsentGate>
+            </PartnerAIPremiumGate></Suspense>
           </motion.div>
         );
       // Blog is now accessed via Tools, remove from nav tabs
       case 'profile':
         return (
           <motion.div key="profile" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-            <ProfileScreen onNavigate={setActiveScreen} />
+            <ProfileScreen onNavigate={navigateScreen} />
           </motion.div>
         );
       default:
@@ -651,7 +806,18 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     return <StartupScreen />;
   }
 
-  // Force Update check
+  // Update centre: a forced rule blocks the app (texts in the user's language).
+  if (appUpdate.forceRequired && appUpdate.decision) {
+    const d = appUpdate.decision;
+    return (
+      <Suspense fallback={suspenseFallback}><ErrorBoundary key="app-update-force">
+        <ForceUpdateScreen title={d.title} message={d.body} buttonLabel={d.button} currentVersion={appUpdate.currentVersion}
+          androidUrl={d.store_url} iosUrl={d.store_url} />
+      </ErrorBoundary></Suspense>
+    );
+  }
+
+  // Legacy force_update (manual admin switch; also what builds before the update centre read)
   if (!forceUpdateLoading && updateRequired && forceUpdate) {
     return (
       <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}>
@@ -675,6 +841,30 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   // Community bloku isə yalnız CommunityScreen-i bağlayır (orada idarə olunur).
   if (activeBlock?.block_type === 'full') {
     return <BlockedScreen block={activeBlock} />;
+  }
+
+  // New e-mail/password accounts confirm their e-mail before onboarding and the Premium offer.
+  // Only a not-yet-onboarded (new) account waits for the check; everyone else continues at once.
+  if (user && !isOnboarded && emailGate?.userId !== user.id) return suspenseFallback;
+  if (user && emailGate?.required && emailGate.email) {
+    return <Suspense fallback={suspenseFallback}><ErrorBoundary key={`email:${user.id}`}>
+      <EmailVerificationScreen email={emailGate.email} onVerified={() => {
+        try { localStorage.setItem(`anacan_email_verified_v1:${user.id}`, '1'); } catch { /* ignore */ }
+        setEmailGate({ userId: user.id, required: false, email: null });
+      }} />
+    </ErrorBoundary></Suspense>;
+  }
+
+  // Consent gate (Terms + Privacy Policy, health data, 16+, optional marketing) before onboarding and the
+  // dashboard, for new and existing users. Skipped when disabled, already accepted or the server is unreachable.
+  if (user && !(showAdmin && isAdmin)) {
+    if (consentGate.status === 'loading') return suspenseFallback;
+    if (consentGate.status === 'show' && consentGate.consent?.gate.version) {
+      return <Suspense fallback={suspenseFallback}><ErrorBoundary key={`consent:${user.id}`}>
+        <ConsentGateScreen userId={user.id} backend={consentBackend} version={consentGate.consent.gate.version} kvkk={consentKvkk}
+          onAccepted={consentGate.markAccepted} onSignOut={() => { void signOut(); }} />
+      </ErrorBoundary></Suspense>;
+    }
   }
 
   // MƏCBURİ ölkə seçimi: profili olan amma country_code-u boş olan hər kəsə
@@ -751,13 +941,23 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'notifications') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NotificationsScreen onBack={() => setActiveScreen(null)} onNavigateToModeration={() => setActiveScreen('moderation-history')} onNavigateToCommunity={(target) => { setActiveScreen(null); setActiveTab('community'); if (target) setCommunityDeepLink(target); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'settings') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><SettingsScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'ad-preferences') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><AdPreferencesScreen onBack={() => setActiveScreen('settings')} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'widgets') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><WidgetSettingsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  // Printable books: Azerbaijani-language catalogue for now (other languages get their own books later); admins see it in any language.
+  if ((activeScreen === 'books' || activeScreen === 'my-books') && (isAdmin || normalizeAppLanguage(language) === 'az')) return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BookStoreScreen initialTab={activeScreen === 'my-books' ? 'mine' : 'store'} onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'illness') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><IllnessScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if ((activeScreen === 'recovery' || activeScreen === 'recovery/kegel') && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecoveryScreen onBack={() => setActiveScreen(null)} initialTab={activeScreen === 'recovery/kegel' ? 'kegel' : 'week'} onNavigateToTool={(tool) => { setActiveScreen(null); handleNavigateToTool(tool); }} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'health-sync') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HealthSyncScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  // QayğıCash bonus wallet; the screen itself shows nothing when the programme is off for this account.
+  if (activeScreen === 'qaygicash') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><QaygiCashScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  // Anacan Recap 2026 player; the screen shows nothing to play unless the server says available.
+  if (activeScreen === 'recap') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecapScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'referral') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ReferralScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'doctor-report') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><DoctorReportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'calendar') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><CalendarScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'aptek' || activeScreen?.startsWith('aptek/')) return <Suspense fallback={suspenseFallback}><ErrorBoundary key="aptek"><AptekScreen onBack={() => setActiveScreen(null)} initialScreen={activeScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'edit-profile') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ProfileEditScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'help') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HelpScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
-  if (activeScreen === 'privacy') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PrivacyScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'privacy') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PrivacyScreen onBack={() => setActiveScreen(null)} onOpenAdSettings={() => setActiveScreen('ad-preferences')} onOpenLegal={(doc) => setActiveScreen(`legal/${doc}`)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-privacy') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerPrivacyScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'appearance') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><AppearanceScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'billing') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BillingScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
@@ -769,7 +969,6 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     const initialSlug = activeScreen?.startsWith('blog/') ? activeScreen.replace('blog/', '') : undefined;
     return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BlogScreen onBack={() => setActiveScreen(null)} initialSlug={initialSlug} lifeStage={lifeStage} /></ErrorBoundary></Suspense>;
   }
-  if (activeScreen === 'aptek' || activeScreen?.startsWith('aptek/')) return <Suspense fallback={suspenseFallback}><ErrorBoundary key="aptek"><AptekScreen onBack={() => setActiveScreen(null)} initialScreen={activeScreen} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'shop' && isAdmin) return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><ShopScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'name-voting' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NameVotingScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-hospital-bag' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerHospitalBagScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
@@ -780,9 +979,18 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
   if (activeScreen === 'partner-baby-day' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerBabyDayScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-weekly-stats' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerWeeklyStatsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partner-surprises' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSurprisesScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'partner-parenting' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PremiumToolBoundary onClose={() => setActiveScreen(null)}><PartnerParentingScreen onBack={() => setActiveScreen(null)} /></PremiumToolBoundary></ErrorBoundary></Suspense>;
   if (activeScreen === 'hospital-run' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><HospitalRunScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} onOpenContractions={() => setActiveScreen('live-contractions')} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'live-contractions' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><LiveContractionsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
-  if (activeScreen === 'partner-sharing' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSharingScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'partner-sharing' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerSharingScreen onBack={() => setActiveScreen(null)} onNavigate={setActiveScreen} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'night-shift') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><NightShiftScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'postpartum-support' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PostpartumSupportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if ((activeScreen === 'loss-guide' || activeScreen === 'loss-guide/signs') && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><RecoveryGuideScreen onBack={() => setActiveScreen(null)} initialTab={activeScreen === 'loss-guide/signs' ? 'signs' : 'week'} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'loss-memories' && role !== 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><LossMemoriesScreen onBack={() => setActiveScreen(null)} onNavigate={navigateScreen} onOpenTool={(tool) => { setActiveScreen(null); handleNavigateToTool(tool); }} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'partner-loss-support' && role === 'partner') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerLossSupportScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'baby-chat' && role !== 'partner' && lifeStage === 'bump') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BabyChatScreen onBack={() => setActiveScreen(null)} onOpenAssistant={() => { setActiveScreen(null); setActiveTab('ai'); }} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'partner-notifications') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnerNotificationsScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
+  if (activeScreen === 'birth-plan') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><BirthPlanScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   if (activeScreen === 'partners') return <Suspense fallback={suspenseFallback}><ErrorBoundary key={String(activeScreen)}><PartnersScreen onBack={() => setActiveScreen(null)} /></ErrorBoundary></Suspense>;
   return null;
   })();
@@ -814,17 +1022,16 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
     <div
       className={`fixed inset-0 flex flex-col overflow-hidden ${isAnacanRedesignHome ? '' : 'bg-background'}`}
       data-app-viewport
-      vaul-drawer-wrapper=""
       data-main-dashboard={activeTab === 'home' && !blogOverlayOpen ? 'true' : undefined}
       style={isAnacanRedesignHome ? { background: 'var(--a-bg)' } : undefined}
     >
-      {showSearch && <Suspense fallback={null}>
-        <GlobalSearch open onClose={() => setShowSearch(false)} onOpenTool={handleNavigateToTool} onAskAI={() => handleTabChange('ai')}
-          extra={(q, close) => <Suspense fallback={null}><AptekSearchResults query={q} close={close} onOpen={setActiveScreen} /></Suspense>} />
-      </Suspense>}
-
       {/* App Rating Prompt */}
       <AppRatingPrompt />
+
+      {/* Update centre: soft update sheet (once per its frequency; "Later" leaves a home banner) */}
+      {appUpdate.showSheet && appUpdate.decision &&
+        <Suspense fallback={null}><AppUpdateSheet decision={appUpdate.decision} currentVersion={appUpdate.currentVersion}
+          onUpdate={() => { appUpdate.later(); appUpdate.openStore(); }} onLater={appUpdate.later} /></Suspense>}
       
       {/* SOS / Doğuş siqnalı qəbuledicisi — bağlı olan HƏR İKİ tərəf üçün */}
       {profile?.linked_partner_id &&
@@ -863,7 +1070,16 @@ const IndexContent = ({ blogOverlayOpen }: { blogOverlayOpen: boolean }) => {
       
       {/* Floating timer widget - above bottom nav */}
       <FloatingTimerWidget />
+      <FeedbackSheet open={autoFeedback} auto onClose={() => setAutoFeedback(false)} />
+      <LockOfferSheet open={lockOffer} onClose={() => setLockOffer(false)} onEnable={() => {setLockOffer(false);window.setTimeout(() => setLockSetup(true), 350);}} />
+      <AppLockSetupSheet open={lockSetup} preferBio onClose={() => setLockSetup(false)} />
+      {Capacitor.isNativePlatform() && (lifeStage === 'bump' || lifeStage === 'mommy') && <HomeWidgetSync />}
       
+      {role !== 'partner' &&
+        <Suspense fallback={null}>
+          <OnboardingTourHost blocked={lockOffer || lockSetup || autoFeedback || showAdmin || blogOverlayOpen} onNavigate={tourNavigate} onRunningChange={setTourActive} />
+        </Suspense>}
+
       {/* Bottom navigation with safe area */}
       <BottomNav activeTab={activeTab} onTabChange={handleTabChange} isPartner={role === 'partner'} />
     </div>

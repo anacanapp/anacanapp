@@ -1,0 +1,14 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261112180000_content_safety_size_fixes.sql",
+  "runtime": "google-content-safety-size-fixes",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data only, md5-guarded and verified",
+  "relations": [
+    { "relation": "public.pregnancy_daily_content", "change": "baby size/fruit sentences and medical fixes (az + translations)", "cdc": true, "writer_guard": true, "pii": false, "note": "already guarded" },
+    { "relation": "public.pregnancy_day_notifications", "change": "fruit/size in 5 titles and 1 body", "cdc": true, "writer_guard": true, "pii": false, "note": "already guarded" },
+    { "relation": "public.mommy_daily_messages", "change": "fever under 3 months: see a doctor", "cdc": true, "writer_guard": true, "pii": false, "note": "already guarded" },
+    { "relation": "public.blog_posts", "change": "NSAIDs in pregnancy", "cdc": true, "writer_guard": true, "pii": false, "note": "already guarded" },
+    { "relation": "public.trimester_tips", "change": "folic acid mg -> mcg", "cdc": true, "writer_guard": true, "pii": false, "note": "already guarded" },
+    { "relation": "public.baby_daily_info", "change": "fluoride, toddler calcium, walnuts", "cdc": true, "writer_guard": true, "pii": false, "note": "already guarded" }
+  ]
+}

@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
-import { ArrowLeft } from 'lucide-react';
-import { rd } from '@/lib/redesign-i18n';
+import { ReactNode, createContext, useContext } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowLeft, ChevronRight, Lock } from 'lucide-react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { tr } from "@/lib/tr";
 
 /**
  * Anacan redesign — shared tool-screen primitives.
@@ -43,19 +44,63 @@ interface ToolHeaderProps {
   actions?: ReactNode;
 }
 
+/**
+ * Merged tools (src/lib/merged-tools.ts): a host tool shows its sections as a small tab bar under the header, and the
+ * sleep pair shows a one-line intro with a link to its companion. Provided by ToolsHub; tools need no changes.
+ */
+export interface ToolSectionsValue {
+  sections?: { id: string; label: string; locked?: boolean }[];
+  active?: string;
+  onSelect?: (id: string) => void;
+  intro?: string;
+  link?: { label: string; onOpen: () => void };
+}
+export const ToolSectionsContext = createContext<ToolSectionsValue | null>(null);
+
+export function ToolSectionsBar() {
+  const ctx = useContext(ToolSectionsContext);
+  if (!ctx) return null;
+  const tabs = ctx.sections && ctx.sections.length > 1 ? ctx.sections : null;
+  if (!tabs && !ctx.intro && !ctx.link) return null;
+  return (
+    <div className="a-tool-sections">
+      {tabs && <div className="a-tool-tabs" role="tablist">
+        {tabs.map((t) => (
+          <button key={t.id} type="button" role="tab" aria-selected={ctx.active === t.id}
+            className={`a-tool-tab${ctx.active === t.id ? ' on' : ''}`} onClick={() => ctx.onSelect?.(t.id)}>
+            {t.label}{t.locked && <Lock size={10} strokeWidth={2.6} aria-hidden style={{ marginInlineStart: 4, opacity: 0.7 }} />}
+          </button>
+        ))}
+      </div>}
+      {(ctx.intro || ctx.link) && <div className="a-tool-intro">
+        {ctx.intro && <span className="a-tool-intro-text">{ctx.intro}</span>}
+        {ctx.link && <button type="button" className="a-tool-intro-link" onClick={ctx.link.onOpen}>
+          {ctx.link.label}<ChevronRight className="rtl:rotate-180" size={13} strokeWidth={2.6} aria-hidden /></button>}
+      </div>}
+    </div>
+  );
+}
+
 export const ToolHeader = ({ title, eyebrow, onBack, actions }: ToolHeaderProps) => (
-  <header className="a3-topbar a3-tool-head">
-    {onBack && (
-      <button type="button" onClick={onBack} className="a3-icon-btn" aria-label={rd('back')}>
-        <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
-      </button>
-    )}
-    <div className="a3-grow" style={{ minWidth: 0 }}>
-      {eyebrow && <p className="a3-eyebrow" style={{ margin: 0 }}>{eyebrow}</p>}
-      <h1 className="a3-tool-title">{title}</h1>
+  <>
+  <header className="a-topbar">
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
+      {onBack && (
+        <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
+          <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
+        </motion.button>
+      )}
+      <div style={{ minWidth: 0 }}>
+        {eyebrow && <p className="a-eyebrow">{eyebrow}</p>}
+        <p className="a-wordmark" style={{ fontSize: 16 }}>
+          {title}
+        </p>
+      </div>
     </div>
     {actions && <div className="a-topbar-actions">{actions}</div>}
   </header>
+  <ToolSectionsBar />
+  </>
 );
 
 interface ToolEmptyProps {

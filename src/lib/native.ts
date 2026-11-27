@@ -81,11 +81,9 @@ export const pushNotifications = {
       // Try Firebase Messaging first (returns proper FCM token on both platforms)
       const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
 
-      let permStatus = await FirebaseMessaging.checkPermissions();
-
-      if (permStatus.receive === 'prompt') {
-        permStatus = await FirebaseMessaging.requestPermissions();
-      }
+      // Never prompts here: this runs at cold start, before onboarding. The onboarding notifications step
+      // (or a feature the user turns on) asks after explaining why; already-granted devices continue silently.
+      const permStatus = await FirebaseMessaging.checkPermissions();
 
       if (permStatus.receive !== 'granted') {
         console.log('Push notification permission not granted');
@@ -101,10 +99,7 @@ export const pushNotifications = {
       try {
         const { PushNotifications: CapPush } = await import('@capacitor/push-notifications');
 
-        let permStatus = await CapPush.checkPermissions();
-        if (permStatus.receive === 'prompt') {
-          permStatus = await CapPush.requestPermissions();
-        }
+        const permStatus = await CapPush.checkPermissions();
         if (permStatus.receive !== 'granted') {
           console.log('Push notification permission not granted');
           return;
@@ -152,6 +147,7 @@ export const pushNotifications = {
 
 // Single stable id for the daily water reminder
 const WATER_NOTIFICATION_ID = 101;
+const WATER_IDS = [WATER_NOTIFICATION_ID, 108, 110, 112, 114, 116, 118, 120];
 
 // Local Notifications
 export const localNotifications = {
@@ -165,81 +161,49 @@ export const localNotifications = {
     return await LocalNotifications.requestPermissions();
   },
 
-  schedule: async (notifications: {
-    id: number;
-    title: string;
-    body: string;
-    schedule?: {at?: Date;on?: {hour: number;minute: number;};repeats?: boolean;};
-  }[]) => {
-    if (!isNative) {
-      console.log('Local notification scheduled (web mode):', notifications);
-      return;
-    }
-
-    const permStatus = await LocalNotifications.requestPermissions();
-    if (permStatus.display !== 'granted') {
-      console.log('Local notification permission not granted');
-      return;
-    }
-
-    await LocalNotifications.schedule({
-      notifications: notifications.map((n) => ({
-        ...n,
-        sound: undefined,
-        attachments: undefined,
-        actionTypeId: '',
-        extra: null
-      }))
-    });
-  },
+  // Every reminder goes through the central scheduler (iOS 64-pending limit, see
+  // local-notification-scheduler.ts). Scheduling never prompts for permission by itself.
 
   // Cancel every pending water reminder (current id + the legacy every-2-hours ids 108..120)
   cancelWaterReminders: async () => {
     if (!isNative) return;
-    try {
-      const waterIds = [WATER_NOTIFICATION_ID, 108, 110, 112, 114, 116, 118, 120];
-      const pending = await LocalNotifications.getPending();
-      const toCancel = pending.notifications.filter((n) => waterIds.includes(n.id));
-      if (toCancel.length > 0) {
-        await LocalNotifications.cancel({ notifications: toCancel.map((n) => ({ id: n.id })) });
-      }
-    } catch (e) {
-      console.warn('cancelWaterReminders failed:', e);
-    }
+    const { setLocalNotifications } = await import('@/lib/local-notification-scheduler');
+    await setLocalNotifications('water', [], { cancelIds: WATER_IDS });
   },
 
   // Schedule the water reminder — exactly ONE notification per day at 10:00
-  // (repeats daily). Any legacy every-2-hours reminders are cancelled first.
-  scheduleWaterReminder: async () => {
-    await localNotifications.cancelWaterReminders();
-
-    await localNotifications.schedule([{
+  // (repeats daily). Any legacy every-2-hours reminders are cancelled.
+  scheduleWaterReminder: async (opts: { ask?: boolean } = {}) => {
+    if (!isNative) return;
+    const { setLocalNotifications } = await import('@/lib/local-notification-scheduler');
+    const at = new Date();
+    at.setHours(10, 0, 0, 0);
+    await setLocalNotifications('water', [{
       id: WATER_NOTIFICATION_ID,
       title: tr("notifications_water_daily_title", "Su vaxtı! 💧"),
       body: tr("notifications_water_daily_body", "Gündə ən azı 8 stəkan su içməyi unutmayın."),
-      schedule: { on: { hour: 10, minute: 0 }, repeats: true }
-    }]);
+      at,
+      repeat: 'day'
+    }], { cancelIds: WATER_IDS, ask: opts.ask });
   },
 
-  // Schedule pill reminder
-  schedulePillReminder: async (time: Date) => {
-    await localNotifications.schedule([{
+  // Daily vitamin reminder at the given local time (id 200).
+  schedulePillReminder: async (time: Date, opts: { ask?: boolean } = {}) => {
+    if (!isNative) return;
+    const { setLocalNotifications } = await import('@/lib/local-notification-scheduler');
+    await setLocalNotifications('vitamin', [{
       id: 200,
       title: tr("native_vitamin_vaxti_9bfc40", "Vitamin vaxtı! 💊"),
       body: tr("native_gundelik_vitaminlerinizi_qebul_6a3811", "G\xFCnd\u0259lik vitaminl\u0259rinizi q\u0259bul etm\u0259yi unutmay\u0131n."),
-      schedule: { at: time }
-    }]);
+      at: time,
+      repeat: 'day'
+    }], { ask: opts.ask });
   },
 
   cancelAll: async () => {
     if (!isNative) return;
-
-    const pending = await LocalNotifications.getPending();
-    if (pending.notifications.length > 0) {
-      await LocalNotifications.cancel({
-        notifications: pending.notifications.map((n) => ({ id: n.id }))
-      });
-    }
+    const { resetLocalNotifications } = await import('@/lib/local-notification-scheduler');
+    await resetLocalNotifications();
   }
 };
 
@@ -488,6 +452,9 @@ export const initializeNativeFeatures = async () => {
   if (waterEnabled) {
     await localNotifications.scheduleWaterReminder();
   }
+  // Re-plan the nearest pending reminders now and on every return to the foreground.
+  const { installLocalNotificationReplanner } = await import('@/lib/local-notification-scheduler');
+  installLocalNotificationReplanner();
 
   console.log('Native features initialized');
 };

@@ -1,0 +1,46 @@
+{
+  "menu": "Podziel się opinią",
+  "title": "Jak oceniasz Anacan?",
+  "subtitle": "Twoja opinia pomaga nam ulepszać aplikację dla każdej mamy.",
+  "stars": [
+    "Bardzo źle",
+    "Źle",
+    "Przeciętnie",
+    "Dobrze",
+    "Świetnie"
+  ],
+  "low_title": "Co ci się nie spodobało?",
+  "low_sub": "Wybierz kilka — czytamy każdą odpowiedź.",
+  "high_title": "Co lubisz najbardziej?",
+  "high_sub": "Wybierz, abyśmy mogli to jeszcze ulepszyć.",
+  "low_reasons": {
+    "crash": "Zamyka się / zawiesza",
+    "bug": "Coś nie działa",
+    "slow": "Działa wolno",
+    "missing": "Brakuje funkcji",
+    "content": "Nieścisłe informacje",
+    "ads": "Za dużo reklam",
+    "price": "Premium jest drogie",
+    "hard": "Trudna w obsłudze",
+    "other": "Inne"
+  },
+  "high_reasons": {
+    "tracking": "Śledzenie",
+    "content": "Codzienne informacje",
+    "ai": "Asystent AI",
+    "community": "Społeczność",
+    "partner": "Tryb partnera",
+    "design": "Wygląd",
+    "other": "Inne"
+  },
+  "message_low": "Co się stało? Co powinniśmy zmienić?",
+  "message_high": "Chcesz coś dodać? (opcjonalnie)",
+  "send": "Wyślij",
+  "sending": "Wysyłanie...",
+  "thanks_low": "Dziękujemy. Nasz zespół to przeczyta i postara się to naprawić 💛",
+  "thanks_high": "Bardzo dziękujemy! To dla naszego zespołu ogromna motywacja 💛",
+  "close": "Zamknij",
+  "later": "Później",
+  "error": "Nie udało się wysłać. Sprawdź połączenie z internetem i spróbuj ponownie.",
+  "subject": "Opinia o aplikacji"
+}

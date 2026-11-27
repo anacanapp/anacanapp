@@ -13,6 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BridgeActivity {
+
+    /**
+     * Play vitals (v45): BridgeActivity.onSaveInstanceState calls bridge.saveInstanceState() and crashes
+     * with a NullPointerException when Android stops the activity before the Capacitor bridge exists
+     * (or after RenderProcessRecovery dropped it). The framework state is already saved by then, so a
+     * missing bridge only means there is no web state to save.
+     */
+    @Override
+    public void onSaveInstanceState(android.os.Bundle outState) {
+        try {
+            super.onSaveInstanceState(outState);
+        } catch (NullPointerException error) {
+            if (getBridge() != null) throw error;
+        }
+    }
     private static final String TAG = "MainActivity";
     private static final String DISABLED_PLUGIN_CLASS = "com.dabchy.plugins.facebookevents.FacebookEventsPlugin";
     // Process-wide: survives recreate() so a renderer that keeps dying cannot loop.
@@ -21,8 +36,12 @@ public class MainActivity extends BridgeActivity {
     @Override
     protected void load() {
         disableProblematicAndroidPlugins();
-        // Health Connect: menstruation writes only.
+        // Health Connect writes: period records (HealthCycle) and weight / blood pressure /
+        // blood glucose (HealthVitals). Steps and exercise reads come from capacitor-health.
         registerPlugin(HealthCyclePlugin.class);
+        registerPlugin(HealthVitalsPlugin.class);
+        // Home-screen widgets bridge (journey + feeding/sleep widgets).
+        registerPlugin(AnacanWidgetsPlugin.class);
         // Lokal plugin: Facebook App Events (köhnə plugin crash-lərinə görə
         // söndürülüb — bu minimal versiya load()-da heç nə etmir)
         registerPlugin(FbEventsPlugin.class);

@@ -30,8 +30,25 @@ const AMBULANCE: Record<string, string> = {
 
 for (const c of EU_112) AMBULANCE[c] = AMBULANCE[c] || '112';
 
-/** Ölkə koduna görə təcili tibbi yardım nömrəsi (default 112, AZ default 103). */
+/** Ölkə məlum deyilsə: 112 GSM şəbəkələrində (AZ, GB, US daxil) yönləndirilir. */
+export const FALLBACK_EMERGENCY_NUMBER = '112';
+
+/** Ölkə koduna görə təcili tibbi yardım nömrəsi (ölkə məlum deyilsə 112). */
 export function getEmergencyNumber(countryCode?: string | null): string {
-  if (!countryCode) return '103'; // köhnə hesablar (ölkə seçilməyib) — AZ bazarı
-  return AMBULANCE[countryCode.toUpperCase()] || '112';
+  if (typeof countryCode !== 'string' || !/^[a-z]{2}$/i.test(countryCode.trim())) return FALLBACK_EMERGENCY_NUMBER;
+  return AMBULANCE[countryCode.trim().toUpperCase()] || FALLBACK_EMERGENCY_NUMBER;
+}
+
+/** i18n/content placeholder for the emergency number, e.g. "call {emergency}". */
+export const EMERGENCY_PLACEHOLDER = '{emergency}';
+
+/**
+ * Fills {emergency} with the user's country number. Copy written before the
+ * placeholder (localStorage cache / DB overlay) still carries Azerbaijan's
+ * literal 103; that standalone token is swapped too so it never reaches
+ * users of other countries.
+ */
+export function fillEmergencyNumber(text: string, emergencyNumber: string): string {
+  if (text.includes(EMERGENCY_PLACEHOLDER)) return text.split(EMERGENCY_PLACEHOLDER).join(emergencyNumber);
+  return text.replace(/(^|[^\d+])103(?!\d)/g, (_match, before: string) => before + emergencyNumber);
 }

@@ -60,7 +60,8 @@ export async function sendFCMv1(
   deviceToken: string,
   title: string,
   body: string,
-  data?: Record<string, string>
+  data?: Record<string, string>,
+  validateOnly = false,
 ): Promise<{ success: boolean; error?: string; unregistered?: boolean; errorCode?: string; httpStatus?: number }> {
   const fcmUrl = `https://fcm.googleapis.com/v1/projects/${projectId}/messages:send`;
 
@@ -96,7 +97,8 @@ export async function sendFCMv1(
       Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ message }),
+    // validate_only: FCM checks the token and payload but delivers nothing (diagnostics).
+    body: JSON.stringify(validateOnly ? { validate_only: true, message } : { message }),
   });
 
   if (res.ok) {

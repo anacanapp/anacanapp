@@ -1,11 +1,10 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
 
 // baby-insight: Yuxu / Qidalanma / Bez göstəricilərinin körpənin yaşına görə
 // Independently requested care sections in all21 languages; no diagnosis.
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { callGeminiSmart } from "../_shared/vertex-ai.ts";
-import { checkAndConsumeServerSide, limitExceededResponse } from "../_shared/usage-limit.ts";
+import { checkDailyLimit, limitExceededResponse, recordDailyUsage } from "../_shared/usage-limit.ts";
 import { EXPANDED_LANGUAGE_NAMES } from '../_shared/languages.ts';
 import { serverCopy } from '../_shared/localized-copy.ts';
 
@@ -148,7 +147,7 @@ Deno.serve(async (req) => {
     if (numbers.some(value => typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > 10000) || stats.localHour > 23) {
       return new Response(JSON.stringify({ success: false, error: 'INVALID_INSIGHT_DATA' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
-    const usage = await checkAndConsumeServerSide(user.id, 'baby_insight');
+    const usage = await checkDailyLimit(user.id, 'baby_insight');
     if (!usage.allowed) return limitExceededResponse(corsHeaders, usage.limit);
 
     const langConf = LANG_CONF[language] ?? LANG_CONF.az;
@@ -209,6 +208,7 @@ IMPORTANT: Write ALL "note" text values ONLY in ${langConf.outLang} (correct spe
     }
 
     let insight: Partial<Insight> | null = null;
+    let aiInsight = false;
     if (geminiResponse && geminiResponse.ok) {
       const g = await geminiResponse.json();
       const textContent = g?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
@@ -220,6 +220,7 @@ IMPORTANT: Write ALL "note" text values ONLY in ${langConf.outLang} (correct spe
             s && typeof s.note === 'string' && !!s.note.trim() && ['normal', 'low', 'high', 'watch'].includes(s.status);
           if (sections.every(key => ok(parsed[key]))) {
             insight = Object.fromEntries(sections.map(key => [key, { status: parsed[key].status, note: String(parsed[key].note).slice(0, 200) }]));
+            aiInsight = true;
           }
         } catch { /* fallback aşağıda */ }
       }
@@ -230,6 +231,9 @@ IMPORTANT: Write ALL "note" text values ONLY in ${langConf.outLang} (correct spe
       insight = serverCopy('babyFallback', language, FALLBACK[language] ?? FALLBACK.az);
     }
 
+    if (aiInsight && Number.isFinite(usage.limit)) {
+      await recordDailyUsage(user.id, 'baby_insight').catch((e) => console.error('usage record failed:', e));
+    }
     return new Response(JSON.stringify({ success: true, insight }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });

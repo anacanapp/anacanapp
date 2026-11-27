@@ -2,6 +2,7 @@
 // Returns Supabase-compatible tokens (idToken + optional nonce) that we exchange
 // via supabase.auth.signInWithIdToken().
 
+import { registerPlugin, type PluginListenerHandle } from "@capacitor/core";
 import { supabase } from "@/integrations/supabase/client";
 
 export const isNative = (): boolean => {
@@ -50,10 +51,18 @@ export async function signInWithGoogleNative() {
     await FirebaseAuthentication.signOut();
   } catch {}
 
-  const result = await FirebaseAuthentication.signInWithGoogle();
+  // Errors from the native picker step are tagged so the caller can classify them
+  // (cancel / old-device unavailable → browser fallback) without confusing them
+  // with backend (signInWithIdToken) errors below.
+  let result: Awaited<ReturnType<typeof FirebaseAuthentication.signInWithGoogle>>;
+  try {
+    result = await FirebaseAuthentication.signInWithGoogle();
+  } catch (error) {
+    throw new GoogleNativePickerError(error);
+  }
   const idToken = result?.credential?.idToken;
   if (!idToken) {
-    throw new Error("Google Sign-In returned no idToken");
+    throw new GoogleNativePickerError(new Error("Google Sign-In returned no idToken"));
   }
 
   const { data, error } = await supabase.auth.signInWithIdToken({
@@ -67,6 +76,101 @@ export async function signInWithGoogleNative() {
   await applyProviderNameIfDefault(data?.user?.id, result?.user?.displayName);
 
   return data;
+}
+
+/** Failure of the native Google account picker (not of the backend exchange). */
+export class GoogleNativePickerError extends Error {
+  readonly cause: unknown;
+  readonly code: string;
+  constructor(cause: unknown) {
+    const record = (cause ?? {}) as { message?: unknown; code?: unknown };
+    super(typeof record.message === "string" ? record.message : String(cause));
+    this.name = "GoogleNativePickerError";
+    this.cause = cause;
+    this.code = record.code == null ? "" : String(record.code);
+  }
+}
+
+// ── Browser OAuth fallback (old Android phones) ─────────────────────────────
+// When Credential Manager / Play Services cannot show the Google picker, the
+// regular Supabase OAuth flow runs in the system browser and returns to the app
+// through the already-registered custom scheme (AndroidManifest:
+// com.atlasoon.anacan). The backend's redirect allow-list must contain
+// NATIVE_OAUTH_REDIRECT for the return hop to reach the app.
+export const NATIVE_OAUTH_REDIRECT = "com.atlasoon.anacan://auth-callback";
+
+interface BrowserPlugin {
+  open(options: { url: string; presentationStyle?: "fullscreen" | "popover" }): Promise<void>;
+  close(): Promise<void>;
+}
+// Resolves to @capacitor/browser when a build includes it; otherwise the system browser is used.
+const Browser = registerPlugin<BrowserPlugin>("Browser");
+
+export function isNativeOAuthCallback(url: string | undefined | null): boolean {
+  return typeof url === "string" && url.startsWith(NATIVE_OAUTH_REDIRECT);
+}
+
+/** Parses tokens (implicit flow) or a code (PKCE) from the callback URL. Never logs them. */
+export function parseNativeOAuthCallback(url: string): { accessToken?: string; refreshToken?: string; code?: string; error?: string } {
+  const out: { accessToken?: string; refreshToken?: string; code?: string; error?: string } = {};
+  try {
+    const parsed = new URL(url);
+    const params = new URLSearchParams(parsed.search);
+    new URLSearchParams(parsed.hash.replace(/^#/, "")).forEach((value, key) => params.set(key, value));
+    out.accessToken = params.get("access_token") || undefined;
+    out.refreshToken = params.get("refresh_token") || undefined;
+    out.code = params.get("code") || undefined;
+    out.error = params.get("error_description") || params.get("error") || undefined;
+  } catch {
+    out.error = "invalid_callback";
+  }
+  return out;
+}
+
+/** Completes the browser OAuth hop. Returns true when a session was stored. */
+export async function completeNativeOAuthCallback(url: string): Promise<boolean> {
+  if (!isNativeOAuthCallback(url)) return false;
+  const { accessToken, refreshToken, code } = parseNativeOAuthCallback(url);
+  try { await Browser.close(); } catch { /* system browser or already closed */ }
+  if (accessToken && refreshToken) {
+    const { error } = await supabase.auth.setSession({ access_token: accessToken, refresh_token: refreshToken });
+    return !error;
+  }
+  if (code) {
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    return !error;
+  }
+  return false;
+}
+
+let callbackListener: Promise<PluginListenerHandle> | null = null;
+async function ensureNativeOAuthCallbackListener(): Promise<void> {
+  if (callbackListener) return;
+  const { App } = await import("@capacitor/app");
+  callbackListener = App.addListener("appUrlOpen", (event) => {
+    if (isNativeOAuthCallback(event.url)) void completeNativeOAuthCallback(event.url).catch(() => {});
+  });
+}
+
+/** Starts Google OAuth in the system browser; the session arrives via the app link. */
+export async function signInWithGoogleBrowserFallback(): Promise<void> {
+  await ensureNativeOAuthCallbackListener();
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: { redirectTo: NATIVE_OAUTH_REDIRECT, skipBrowserRedirect: true, queryParams: { prompt: "select_account" } },
+  });
+  if (error) throw error;
+  const url = data?.url;
+  if (!url) throw new Error("Google OAuth URL unavailable");
+  const cap = (window as any)?.Capacitor;
+  if (cap?.isPluginAvailable?.("Browser")) {
+    try {
+      await Browser.open({ url, presentationStyle: "fullscreen" });
+      return;
+    } catch { /* fall through to the system browser */ }
+  }
+  // Google blocks OAuth inside embedded WebViews: open it outside the app.
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 /**

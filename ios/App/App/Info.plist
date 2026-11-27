@@ -39,6 +39,22 @@
 		<string>ar</string>
 		<string>uz</string>
 		<string>ka</string>
+		<string>zh-Hans</string>
+		<string>id</string>
+		<string>fr</string>
+		<string>es</string>
+		<string>pt-PT</string>
+		<string>vi</string>
+		<string>hi</string>
+		<string>ja</string>
+		<string>ko</string>
+		<string>pl</string>
+		<string>nl</string>
+		<string>sv</string>
+		<string>ky</string>
+		<string>et</string>
+		<string>tk</string>
+		<string>uk</string>
 	</array>
 
 	<!-- ===== Storyboards / Launch ===== -->
@@ -190,7 +206,18 @@
 	<key>FacebookDisplayName</key>
 	<string>Anacan</string>
 	<key>FacebookAutoLogAppEventsEnabled</key>
-	<true/>
+	<false/>
+	<!-- Opt-in consent (src/lib/privacyConsent.ts): nothing is collected until the person agrees. -->
+	<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_ANALYTICS_STORAGE</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_STORAGE</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_USER_DATA</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS</key>
+	<false/>
 	<key>FacebookAdvertiserIDCollectionEnabled</key>
 	<true/>
 	<key>NSUserTrackingUsageDescription</key>

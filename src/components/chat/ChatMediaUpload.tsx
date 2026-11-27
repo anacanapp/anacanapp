@@ -5,9 +5,11 @@ import { supabase } from '@/integrations/supabase/client';
 import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
 import { createAudioRecorder, getAudioErrorToast, openMicrophone, releaseAudioRecording } from '@/lib/audioRecording';
+import { compressImageForUpload } from '@/lib/image-compress';
 
 interface ChatMediaUploadProps {
-  onUpload: (type: 'image' | 'audio', url: string) => void;
+  /** Receives the chat-media storage object path (private bucket; sign at render). */
+  onUpload: (type: 'image' | 'audio', path: string) => void;
   disabled?: boolean;
 }
 
@@ -55,7 +57,8 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
     await uploadFile(file, 'image');
   };
 
-  const uploadFile = async (file: Blob, type: 'image' | 'audio', signal?: AbortSignal) => {
+  const uploadFile = async (original: Blob, type: 'image' | 'audio', signal?: AbortSignal) => {
+    const file = type === 'image' ? await compressImageForUpload(original) : original;
     if (!mountedRef.current || signal?.aborted) return;
     setUploading(true);
     void hapticFeedback.light().catch(() => {});
@@ -80,6 +83,7 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
         const fileType = file.type || '';
         if (fileType.includes('png')) ext = 'png';
         else if (fileType.includes('gif')) ext = 'gif';
+        else if (fileType.includes('webp')) ext = 'webp';
         contentType = fileType || 'image/jpeg';
       }
 
@@ -103,11 +107,9 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
         return;
       }
 
-      const { data: { publicUrl } } = supabase.storage
-        .from('chat-media')
-        .getPublicUrl(data.path);
-
-      onUpload(type, publicUrl);
+      // chat-media is private: hand back the storage object path. The receiver
+      // signs it at render time (see src/lib/chat-media.ts). No public URL.
+      onUpload(type, data.path);
     } catch (error) {
       console.error('Upload error:', error);
     } finally {
@@ -223,7 +225,7 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
     return (
       <div className="flex items-center gap-2 px-2">
         <motion.div
-          className="w-3 h-3 rounded-full bg-[color:var(--a-pink-2)]"
+          className="w-3 h-3 rounded-full bg-red-500"
           animate={{ opacity: [1, 0.3, 1] }}
           transition={{ duration: 1, repeat: Infinity }}
         />
@@ -239,7 +241,7 @@ const ChatMediaUpload = ({ onUpload, disabled }: ChatMediaUploadProps) => {
         </motion.button>
         <motion.button
           onClick={stopRecording}
-          className="w-8 h-8 rounded-full bg-[color:var(--a-pink-2)] flex items-center justify-center"
+          className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center"
           whileTap={{ scale: 0.9 }}
         >
           <Square className="w-3 h-3 text-white fill-white" />

@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anacan veb funnel prototipləri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Six clickable web funnel prototypes for Anacan Premium (2026-11-24). Prices are the live web prices:
+   yearly 50.98 ₼ (= $29.99), monthly 6.78 ₼ (= $3.99); Mərcan Cümə 16.99 / 3.39 ₼. Brand: coral #ff5a5f, peach,
+   Plus Jakarta Sans for display, Inter for UI, characters Ritm, Tumurcuq and Qucaq. */
+:root{--coral:#ff5a5f;--coral-d:#d93a42;--peach:#ffe5dc;--cream:#fff8f4;--blush:#fff0eb;--ink:#2a1f20;--muted:#6e625d;--line:#2a1f2014;
+--ritm:#e8434b;--tum:#8f52cf;--qucaq:#23966f;--ritm-bg:#ffe9e8;--tum-bg:#f3eafc;--qucaq-bg:#e3f5ee;--ok:#16794a;
+--d:'Plus Jakarta Sans',system-ui,sans-serif;--u:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:#f6efe9;color:var(--ink);font:400 15px/1.5 var(--u)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+h1,h2,h3,p{margin:0}
+.app{display:grid;grid-template-columns:270px 420px minmax(0,1fr);gap:28px;max-width:1360px;margin:0 auto;padding:28px 24px;min-height:100vh}
+@media(max-width:1100px){.app{grid-template-columns:1fr;max-width:460px}.side{order:0}.notes{order:2}}
+.brand{display:flex;align-items:center;gap:10px;font:800 22px/1 var(--d);letter-spacing:-.03em;margin-bottom:6px}.brand img{width:28px}
+.side small{color:var(--muted)}
+.nav{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+.nav button{display:flex;gap:12px;align-items:flex-start;text-align:left;padding:14px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line)}
+.nav button[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--coral);background:#fff}
+.nav .n{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--blush);color:var(--coral-d);font:800 14px var(--d)}
+.nav b{display:block;font:700 15px/1.25 var(--d)}.nav span{font-size:12.5px;color:var(--muted)}
+.nav .sys .n{background:var(--ink);color:#fff}
+/* phone */
+.phone{position:sticky;top:20px;align-self:start;width:400px;max-width:100%;height:820px;border-radius:46px;background:#111;padding:12px;box-shadow:0 30px 60px -30px #00000066}
+.scr{position:relative;height:100%;border-radius:36px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.bar{display:flex;align-items:center;gap:10px;padding:16px 18px 10px}
+.bar .back{width:34px;height:34px;border-radius:50%;background:var(--blush);color:var(--coral-d);font-weight:700}
+.prog{flex:1;height:6px;border-radius:6px;background:var(--line);overflow:hidden}.prog i{display:block;height:100%;background:var(--coral);transition:width .3s}
+.bar .x{width:34px;height:34px;border-radius:50%;background:#f3ecea;font-weight:700}
+.body{flex:1;overflow-y:auto;padding:6px 22px 22px;display:flex;flex-direction:column;gap:14px}
+.foot{padding:12px 22px 22px}
+.cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border-radius:999px;background:var(--coral);color:#fff;font:700 16px var(--d);box-shadow:0 10px 20px -12px #d93a42aa}
+.cta[disabled]{opacity:.4;cursor:not-allowed}
+.cta.ghost{background:#fff;color:var(--coral-d);box-shadow:inset 0 0 0 1.5px var(--coral)}
+.link{display:block;margin:10px auto 0;color:var(--muted);font-size:13.5px;text-decoration:underline;text-underline-offset:4px}
+.eyebrow{font:700 11.5px var(--u);letter-spacing:.08em;text-transform:uppercase;color:var(--coral-d)}
+.h{font:800 26px/1.15 var(--d);letter-spacing:-.02em}.h em{font-style:normal;color:var(--coral-d)}
+.sub{color:var(--muted);font-size:14.5px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px 16px;border-radius:18px;background:var(--cream);box-shadow:inset 0 0 0 1.5px var(--line);font:600 15px var(--u)}
+.opt .e{font-size:22px;width:28px;text-align:center}.opt[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--coral);background:#fff}
+.opt .ck{margin-left:auto;width:22px;height:22px;border-radius:7px;box-shadow:inset 0 0 0 2px #2a1f2033}.opt[aria-pressed=true] .ck{background:var(--coral);box-shadow:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid2 .opt{flex-direction:column;align-items:flex-start;gap:6px;min-height:96px}
+.likert{display:flex;gap:8px}.likert button{flex:1;height:54px;border-radius:16px;background:var(--cream);box-shadow:inset 0 0 0 1.5px var(--line);font:800 18px var(--d)}
+.likert button[aria-pressed=true]{background:var(--coral);color:#fff;box-shadow:none}
+.lk{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.hero{border-radius:28px;padding:22px;color:#fff;background:linear-gradient(160deg,#ff6a63,var(--coral) 50%,#f2484f);position:relative;overflow:hidden}
+.hero h2{font:800 30px/1.08 var(--d);letter-spacing:-.03em}.hero p{opacity:.95;margin-top:8px}
+.trio{display:flex;justify-content:center;align-items:flex-end;margin-top:12px}.trio img{width:96px}.trio img:nth-child(2){width:116px;margin:0 -14px;z-index:1}
+.proof{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;background:var(--cream);font-size:13.5px}
+.proof b{font:800 18px var(--d)}
+.card{padding:16px;border-radius:20px;background:var(--cream);box-shadow:inset 0 0 0 1px var(--line)}
+.card.w{background:#fff;box-shadow:0 1px 2px #0000000d,0 10px 24px -14px #c9333b33}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{padding:5px 11px;border-radius:999px;background:var(--blush);color:var(--coral-d);font:600 12.5px var(--u)}
+.list{display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none}.list li{display:flex;gap:10px;font-size:14.5px}.list li:before{content:"✓";flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--qucaq-bg);color:var(--qucaq);font-weight:800;font-size:12px}
+.lock li:before{content:"🔒";background:var(--blush)}
+.plans{display:flex;flex-direction:column;gap:10px}
+.plan{position:relative;display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:16px;border-radius:20px;background:var(--cream);box-shadow:inset 0 0 0 1.5px var(--line)}
+.plan[aria-pressed=true]{background:#fff;box-shadow:inset 0 0 0 2.5px var(--coral)}
+.plan .rd{flex:none;width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 2px #2a1f2033}.plan[aria-pressed=true] .rd{box-shadow:inset 0 0 0 7px var(--coral)}
+.plan b{display:block;font:800 16px var(--d)}.plan small{color:var(--muted);font-size:12.5px}
+.plan .pd{margin-left:auto;text-align:right}.plan .pd b{font:800 20px var(--d)}.plan .pd s{color:var(--muted);font-size:12.5px}
+.badge{position:absolute;top:-10px;left:16px;padding:3px 10px;border-radius:999px;background:var(--coral);color:#fff;font:700 11px var(--u);letter-spacing:.03em}
+.timer{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-radius:16px;background:var(--qucaq-bg);color:#0f5a40;font:600 13.5px var(--u)}
+.timer b{font:800 20px var(--d);font-variant-numeric:tabular-nums}
+.bf{background:var(--ink)}
+.cd{display:flex;gap:6px}.cd div{flex:1;padding:8px 4px;border-radius:12px;background:#fff;color:var(--coral-d);text-align:center;font:800 20px var(--d)}.cd small{display:block;font:600 10px var(--u);color:var(--muted)}
+.loader .row{display:flex;justify-content:space-between;font:600 13.5px var(--u);margin-bottom:6px}.loader .bar2{height:8px;border-radius:8px;background:var(--line);overflow:hidden;margin-bottom:14px}.loader .bar2 i{display:block;height:100%;background:var(--coral);width:0}
+.modal{position:absolute;inset:0;background:#2a1f2066;display:grid;place-items:center;padding:24px;z-index:5}
+.modal .box{background:#fff;border-radius:24px;padding:20px;width:100%;text-align:center;display:flex;flex-direction:column;gap:12px}
+.rv{padding:14px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:13.5px}.rv .st{color:#f5a524;letter-spacing:2px}.rv small{color:var(--muted)}
+.input{width:100%;min-height:52px;padding:0 16px;border-radius:16px;border:1.5px solid #2a1f2026;background:var(--cream);font:500 16px var(--u)}
+.consent{display:flex;gap:10px;font-size:12.5px;color:var(--muted);align-items:flex-start}.consent input{accent-color:var(--coral);width:18px;height:18px;margin-top:2px}
+.tl{display:flex;flex-direction:column;gap:0}.tl div{display:flex;gap:12px;padding-bottom:16px;position:relative}.tl div:not(:last-child):after{content:"";position:absolute;left:15px;top:32px;bottom:0;width:2px;background:var(--peach)}
+.tl i{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--coral);color:#fff;font-style:normal;font-size:15px}.tl b{display:block;font:700 15px var(--d)}.tl span{font-size:13.5px;color:var(--muted)}
+.blur{filter:blur(4px);user-select:none}
+.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat div{padding:14px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}.stat b{display:block;font:800 24px var(--d);color:var(--coral-d)}.stat span{font-size:12.5px;color:var(--muted)}
+.ad{border-radius:22px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}.ad .top{display:flex;gap:8px;align-items:center;padding:10px 12px;font-size:13px}.ad .top img{width:28px;border-radius:50%;background:var(--blush);padding:3px}
+.ad .vis{background:linear-gradient(160deg,#ff6a63,var(--coral));color:#fff;padding:22px;min-height:240px;display:flex;flex-direction:column;justify-content:space-between}
+.ad .vis h3{font:800 26px/1.1 var(--d)}.ad .cap{padding:10px 12px;font-size:13.5px}.ad .btnrow{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--cream);font:600 13px var(--u)}
+.mail{border-radius:20px;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}.mail .mh{padding:12px 14px;background:var(--cream);font-size:12.5px;color:var(--muted)}.mail .mh b{color:var(--ink)}.mail .mb{padding:16px 14px;display:flex;flex-direction:column;gap:10px}
+.gift{border-radius:24px;padding:20px;background:linear-gradient(150deg,var(--peach),#fff);box-shadow:inset 0 0 0 1px var(--line);text-align:center}
+.center{text-align:center;align-items:center}
+.fine{font-size:11.5px;color:var(--muted)}
+/* notes */
+.notes{display:flex;flex-direction:column;gap:14px}
+.ncard{background:#fff;border-radius:22px;padding:20px 22px;box-shadow:0 1px 2px #0000000a}
+.ncard h2{font:800 22px/1.2 var(--d);letter-spacing:-.02em}.ncard h3{font:700 13px var(--u);letter-spacing:.06em;text-transform:uppercase;color:var(--coral-d);margin-bottom:6px}
+.ncard p,.ncard li{font-size:14.5px}.ncard ul{margin:6px 0 0;padding-left:18px}
+.steps{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.steps button{padding:6px 10px;border-radius:999px;background:var(--cream);font:600 12px var(--u);box-shadow:inset 0 0 0 1px var(--line)}.steps button[aria-current=true]{background:var(--coral);color:#fff;box-shadow:none}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:14px}.kv b{color:var(--muted);font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:8px 6px;border-top:1px solid var(--line);vertical-align:top}th{font-weight:700;background:var(--cream)}
+.sysview{grid-column:2 / 4}@media(max-width:1100px){.sysview{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><img src="img/brand-glyph-coral.png" alt="">anacan</div>
+    <small>Veb funnel prototipləri · Premium satışı üçün · 24.11.2026</small>
+    <div class="nav" id="nav"></div>
+  </aside>
+  <div class="phone" id="phoneWrap"><div class="scr" id="scr"></div></div>
+  <section class="notes" id="notes"></section>
+</div>
+<script>
+'use strict';
+const P = { y: 50.98, m: 6.78, by: 16.99, bm: 3.39 }; // AZN: web regular (= $29.99 / $3.99) and Mərcan Cümə
+const az = (n) => n.toFixed(2).replace('.', ',') + ' ₼';
+const perDay = (y) => (y / 365).toFixed(2).replace('.', ',') + ' ₼';
+const IMG = (n) => `img/${n}.webp`;
+const REVIEWS = [
+  ['Bugünə qədər istifadə etdiyim hamiləlik tətbiqləri içində ən gözəl tətbiqdir, Azərbaycanda yaradılması isə qürurvericidir ❤️', 'App Store'],
+  ['Çox bəyəndim. Tövsiyə edirəm. Analar və hamilələr üçün belə bir platformanın olması əladır.', 'Google Play · Yaqut N.'],
+];
+
+/* ---------------- funnels ---------------- */
+const F = [
+{ id: 'quiz', name: 'Şəxsi plan quiz-i', short: 'Reklam → 12 sual → plan → paywall', tag: 'Əsas funnel · bütün il',
+  goal: 'Soyuq trafiki (Meta, TikTok) Premium-a çevirmək. Deepstash, Noom və Flo-nun quiz funnel-i Anacan üçün.',
+  steps: [
+  { t: 'hero', title: 'Hər mərhələ üçün <em>şəxsi plan</em>', sub: '2 dəqiqəlik sual-cavab. Sənin vəziyyətinə uyğun həftəlik plan hazırlayırıq.', proof: true, cta: 'Planımı hazırla',
+    n: { why: 'Söz verilən nəticə ("şəxsi plan") tətbiqdən daha cəlbedicidir. Deepstash girişdə tətbiqi yox, "growth plan"ı satır.', metric: 'Başlayanlar / landing (hədəf ≥ 55%)', ref: 'Deepstash growth-plan, Noom' } },
+  { t: 'single', key: 'stage', q: 'Hazırda hansı mərhələdəsən?', opts: [['🌸', 'Dövrümü izləyirəm'], ['💞', 'Hamilə olmaq istəyirəm'], ['🤰', 'Hamiləyəm'], ['👶', 'Körpəm var (0–3 yaş)']],
+    n: { why: 'Ən vacib seqmentləşdirmə. Sonrakı suallar, plan və paywall mətni bu cavaba görə dəyişir.', metric: 'Seçim paylanması → reklam auditoriyası', ref: 'Flo "Are you pregnant?", Stardust "Choose your journey"' } },
+  { t: 'single', key: 'when', q: (a) => a.stage === 'Hamiləyəm' ? 'Neçənci həftədəsən?' : a.stage === 'Körpəm var (0–3 yaş)' ? 'Körpən neçə aylıqdır?' : 'Neçə yaşın var?',
+    opts: (a) => a.stage === 'Hamiləyəm' ? [['1️⃣', '1–12 həftə'], ['2️⃣', '13–27 həftə'], ['3️⃣', '28–40 həftə']] : a.stage === 'Körpəm var (0–3 yaş)' ? [['🍼', '0–3 ay'], ['🧸', '4–6 ay'], ['🥣', '7–12 ay'], ['👣', '1–3 yaş']] : [['', '18–24'], ['', '25–34'], ['', '35–44'], ['', '45+']],
+    n: { why: 'Rəqəmli cavab sonda "sənin 24-cü həftən" kimi konkret plan göstərməyə imkan verir: personalizasiya hissi satışın əsasıdır.', metric: 'Addım tamamlama (hər sual ≥ 92%)', ref: 'Noom, Flo' } },
+  { t: 'multi', key: 'worry', q: 'Səni ən çox nə narahat edir?', sub: 'Bir neçəsini seç', grid: true,
+    opts: [['😴', 'Yuxu'], ['🍎', 'Qidalanma'], ['📈', 'İnkişaf normaldırmı?'], ['🩺', 'Həkimə nə soruşum?'], ['😟', 'Əhval, stress'], ['👨‍👩‍👧', 'Ailənin dəstəyi']],
+    n: { why: 'Ağrı nöqtələri paywall-da "sənin planına daxildir" siyahısına çevrilir. Çoxseçimli sual daha çox məlumat və daha çox "investisiya" verir.', metric: 'Orta seçim sayı', ref: 'Deepstash "topics", Flo "What can we help you do?"' } },
+  { t: 'info', img: 'tumurcuq-value', title: 'Tək deyilsən', text: '46 000-dən çox ailə artıq Anacan-dan istifadə edir. Planında sənin seçdiyin mövzular birinci gəlir.',
+    n: { why: 'Sualların arasında "sosial sübut" ekranı yorğunluğu azaldır və inam yaradır. Rəqəm təqdimatdakı real rəqəmdir.', metric: 'Bu ekrandan sonra çıxış (≤ 3%)', ref: 'Noom interstitial-ları, Life Reset' } },
+  { t: 'likert', key: 'info', q: 'İnternetdəki məsləhətlər bir-birinə zidd olur və bu məni yorur.',
+    n: { why: 'Razılaşma sualı problemi istifadəçinin öz sözü ilə təsdiq etdirir. Sonra həll "etibarlı tək mənbə" kimi təqdim olunur.', metric: 'Orta bal', ref: 'Deepstash likert sualları' } },
+  { t: 'likert', key: 'time', q: 'Özümə vaxt ayırmağa çətinliklə imkan tapıram.',
+    n: { why: 'Gündə 5 dəqiqəlik plan təklifini əsaslandırır.', metric: 'Orta bal', ref: 'Deepstash' } },
+  { t: 'single', key: 'partner', q: 'Həyat yoldaşın da prosesdə iştirak etsin?', opts: [['👫', 'Bəli, birlikdə izləyək'], ['🙂', 'Hələlik yox']],
+    n: { why: 'Partnyor rejimi Anacan-ın unikal üstünlüyüdür. "Bəli" deyənlərə paywall-da "2 nəfər, 1 abunəlik" dəyəri göstərilir.', metric: '"Bəli" payı', ref: 'Flo Friends Plan, Stardust "Following my partner"' } },
+  { t: 'single', key: 'minutes', q: 'Gündə nə qədər vaxt ayıra bilərsən?', opts: [['🤙', '5 dəqiqə'], ['👌', '10 dəqiqə'], ['🤘', '15 dəqiqə']],
+    n: { why: 'Kiçik öhdəlik ("gündə 5 dəqiqə") böyük qərarı (abunəlik) asanlaşdırır.', metric: '-', ref: 'Deepstash "daily learning goal"' } },
+  { t: 'loader', title: 'Planın hazırlanır…', bars: ['Mərhələn', 'Narahatlıqların', 'Həftəlik tövsiyələr'], modal: { q: 'Davam etmək üçün: bildirişlərlə xatırlatma istəyirsən?', opts: ['Xeyr', 'Bəli'] },
+    n: { why: 'Gözləmə ekranı "zəhmət çəkilib" hissi yaradır. Ortada çıxan sual (Deepstash-də "Do you self-reflect?") istifadəçini aktiv saxlayır və kiçik "bəli"lər zənciri qurur.', metric: 'Loader-dən sonra davam (≥ 95%)', ref: 'Deepstash, Noom "Cross-checking…"' } },
+  { t: 'plan', n: { why: 'Ən güclü ekran: cavablardan qurulmuş plan. İstifadəçi artıq "öz planına" sahib olduğunu hiss edir (endowment effect).', metric: 'Plan → e-poçt (≥ 70%)', ref: 'Deepstash "Your growth plan is ready", Life Reset "Based on your answers"' } },
+  { t: 'email', n: { why: 'E-poçt satışdan əvvəl alınır: alış olmasa belə, Customer.io ilə 7 günlük ardıcıllıq göndərmək olur. Hesab tətbiqdəki hesabla eynidir.', metric: 'E-poçt alınma (≥ 60%), sonra e-poçtdan satış', ref: 'Deepstash email gate' } },
+  { t: 'paywall', mode: 'quiz', n: { why: 'Plan 15 dəqiqə "saxlanılır" (Noom), illik plan əvvəlcədən seçilib və gündəlik qiymətlə göstərilir (gündə 0,14 ₼). Cavablar "planına daxildir" siyahısına çevrilir. Real rəylər, istənilən vaxt ləğv.', metric: 'Paywall → ödəniş (hədəf 6–10%), illik payı', ref: 'Noom 15:00 timer, Flo plan seçimi, Deepstash "Total per day"' } },
+  { t: 'checkout', n: { why: 'Ödəniş eyni səhifədə: Epoint (AZN, saxlanılan kart) və ya Dodo (USD). Razılıq qutusu mövcud qaydadır (premium-autorenew-v1).', metric: 'checkout_start → purchase_confirmed', ref: 'Mövcud Mərcan checkout' } },
+  { t: 'success', n: { why: 'Satışdan dərhal sonra tətbiqə yönləndirmə və partnyoru dəvət. Partnyor dəvəti pulsuz yeni istifadəçi gətirir.', metric: 'Tətbiqi açma (24 saat ərzində ≥ 80%)', ref: 'Mövcud app keçid səhifəsi' } },
+  ] },
+{ id: 'bf', name: 'Mərcan Cümə funnel-i', short: 'Reklam → təklif → 1 sual → ödəniş → paylaş', tag: 'Kampaniya · 23–30 noyabr',
+  goal: 'Hazırkı Mərcan səhifəsinə daha çox satış: təklifdən əvvəl kiçik personalizasiya, "kimin üçün" seçimi, çıxış təklifi və satışdan sonra paylaşma.',
+  steps: [
+  { t: 'ad', n: { why: 'Reklam və səhifə eyni dili danışır: eyni rəng, eyni rəqəm (−67%), eyni personaj. "Scent" itmir.', metric: 'CTR (≥ 1,5%), CPC', ref: 'Meta Reels reklamı' } },
+  { t: 'bfhero', n: { why: 'Geri sayım, köhnə və yeni qiymət, gündəlik qiymət (gündə 4,7 qəpik). Bir əsas düymə.', metric: 'Landing → növbəti addım (≥ 45%)', ref: 'Deepstash "Black Friday Sale!" banneri, mövcud Mərcan səhifəsi' } },
+  { t: 'single', key: 'who', q: 'Premium-u kimin üçün alırsan?', opts: [['🙋‍♀️', 'Özüm üçün'], ['🎁', 'Hədiyyə: həyat yoldaşım və ya dostum üçün']],
+    n: { why: 'Hədiyyə seçimi yeni bir alıcı qrupu açır (ata, ailə). Hədiyyə yolunda e-poçt alıcının deyil, alanın e-poçtu olur.', metric: 'Hədiyyə payı', ref: 'Flo Friends Plan' } },
+  { t: 'single', key: 'stage', q: 'Hansı mərhələ üçün?', opts: [['🌸', 'Dövr'], ['🤰', 'Hamiləlik'], ['👶', 'Körpə']],
+    n: { why: 'Bir sual kifayətdir: təklif ekranında uyğun personaj və 3 əsas fayda göstərilir.', metric: '-', ref: 'Stardust' } },
+  { t: 'paywall', mode: 'bf', n: { why: 'İllik əvvəlcədən seçilib, aylıq ikinci seçimdir. "Endirim hər yenilənmədə qalır" sözü əsas etirazı aradan qaldırır (bu, mövcud qaydadır).', metric: 'Ödənişə keçid (≥ 25%)', ref: 'Mövcud Mərcan səhifəsi' } },
+  { t: 'checkout', n: { why: 'Mövcud 3 addımlı ödəniş (plan, hesab, ödəniş). Yarımçıq ödəniş qalarsa web-premium-nudge 15 dəqiqədən sonra xatırladır.', metric: 'Ödəniş tamamlama (≥ 60%)', ref: 'Mövcud funksiya' } },
+  { t: 'share', n: { why: 'Satışdan dərhal sonra "dostuna da göndər": eyni endirimlə link. Ən ucuz yeni satış budur.', metric: 'Paylaşma payı, paylaşılan linkdən satış', ref: 'Referral ənənəsi' } },
+  ] },
+{ id: 'tool', name: 'Pulsuz alət → Premium', short: 'SEO / blog → kalkulyator → nəticə → plan', tag: 'Orqanik trafik',
+  goal: 'Google-dan gələn trafiki satışa çevirmək. Pulsuz nəticə dərhal verilir, dərin şəxsi plan isə Premium-dadır.',
+  steps: [
+  { t: 'tool', n: { why: 'İnsanlar "doğuş tarixi hesabla" axtarır. Saytda kalkulyatorlar artıq var; onlara satış addımı əlavə olunur.', metric: 'Hesablama sayı', ref: 'anacan.az kalkulyatorları, Lifesum "Find your plan"' } },
+  { t: 'toolresult', n: { why: 'Əsas nəticə pulsuzdur (etibar yaradır). Altında bulanıq "həftəlik şəxsi plan" var: maraq boşluğu (curiosity gap).', metric: 'Nəticə → "Planı aç" kliki (≥ 20%)', ref: 'Freemium blur pattern' } },
+  { t: 'email', soft: true, n: { why: 'Nəticəni e-poçta göndər: ödəniş etməsə də, 40 həftəlik e-poçt seriyası ilə sonra satmaq olur.', metric: 'E-poçt alınma (≥ 35%)', ref: 'Lead magnet' } },
+  { t: 'paywall', mode: 'soft', n: { why: 'Yumşaq paywall: 1 həftəlik plan nümunəsi açıq, qalanı Premium. Yalnız illik və aylıq, sadə.', metric: 'Ödəniş (hədəf 2–4%)', ref: 'Alma, Lifesum' } },
+  { t: 'checkout', n: { why: '-', metric: '-', ref: '-' } },
+  { t: 'success', n: { why: '-', metric: '-', ref: '-' } },
+  ] },
+{ id: 'gift', name: 'Hədiyyə funnel-i (Ata üçün)', short: '"Ona ən faydalı hədiyyə" → kart → WhatsApp', tag: 'Yeni alıcı: ata və ailə',
+  goal: 'Ödəyən şəxs ata, nənə və ya dost olur. Alıcı tətbiqi özü tapmayıb, hədiyyə ilə gəlir. Mövcud QR / promo kod sistemi istifadə olunur.',
+  steps: [
+  { t: 'gifthero', n: { why: 'Ataya reklam mətni: "Ona sözlə yox, dəstəklə kömək et". Kişi auditoriyası üçün ayrıca kreativ.', metric: 'Landing → davam', ref: 'Flo Friends Plan, hədiyyə kartları' } },
+  { t: 'single', key: 'rstage', q: 'Kim üçün?', opts: [['🤰', 'Hamilə həyat yoldaşım'], ['👶', 'Yeni ana olan həyat yoldaşım'], ['💐', 'Qızım, bacım və ya dostum']],
+    n: { why: 'Kart mətni və hədiyyə ekranı buna görə hazırlanır.', metric: '-', ref: '-' } },
+  { t: 'giftmsg', n: { why: 'Şəxsi qeyd hədiyyəni emosional edir və paylaşma ehtimalını artırır.', metric: 'Mesaj yazanların payı', ref: '-' } },
+  { t: 'paywall', mode: 'gift', n: { why: 'Hədiyyə birdəfəlik ödənişdir (avtomatik yenilənmir): 1 il Premium. Ödənişdən sonra promo kod (mövcud promo-redeem funksiyası) yaranır.', metric: 'Ödəniş', ref: 'Mövcud QR promo sistemi' } },
+  { t: 'checkout', gift: true, n: { why: '-', metric: '-', ref: '-' } },
+  { t: 'giftcard', n: { why: 'WhatsApp ilə göndər: alan şəxs linki açır, tətbiqi yükləyir, Premium aktiv olur (/h/:code yolu artıq var).', metric: 'Kodun aktivləşdirilməsi (≥ 85%)', ref: 'Mövcud /h/:code' } },
+  ] },
+{ id: 'trial', name: '7 günlük pulsuz sınaq', short: 'Qısa quiz → sınaq izahı → 0 ₼ bu gün', tag: 'Test: kart tələb edən sınaq',
+  goal: 'Qərar riskini sıfıra endirmək. Sınaq sonu xatırlatma ilə dürüst sınaq: "5-ci gün xəbər veririk". Backend dəyişikliyi tələb edir (aşağıda).',
+  steps: [
+  { t: 'single', key: 'stage', q: 'Anacan-ı nə üçün istifadə edəcəksən?', opts: [['🌸', 'Dövr'], ['🤰', 'Hamiləlik'], ['👶', 'Körpə']], n: { why: 'Qısa giriş: 3 sual, sonra sınaq.', metric: '-', ref: 'Alma' } },
+  { t: 'multi', key: 'want', q: 'Premium-da nəyi birinci sınayacaqsan?', grid: true, opts: [['🍼', 'Yuxu və qidalanma izləmə'], ['📈', 'Böyümə qrafikləri'], ['🥣', 'Əlavə qida bələdçisi'], ['📄', 'Həkim üçün PDF'], ['🤖', 'Anacan AI'], ['🔕', 'Reklamsız']],
+    n: { why: 'Sınaq zamanı "ilk dəfə nəyi açacağını" seçir: e-poçt seriyası bu seçimlə başlayır.', metric: '-', ref: '-' } },
+  { t: 'trial', n: { why: 'Sınaq qrafiki: bu gün → 5-ci gün xatırlatma → 7-ci gün ödəniş. "İndi ödəniş yoxdur" düymənin altında. Dürüstlük ləğvləri azaldır və etibarı artırır.', metric: 'Sınağa başlama (≥ 15%), sınaqdan ödənişə (≥ 45%)', ref: '5 Minute Journal "How your free trial works", Stardust, Flo toggle' } },
+  { t: 'checkout', trial: true, n: { why: 'Kart saxlanılır, bu gün 0 ₼. Epoint-də kartı ödənişsiz saxlamaq (və ya 0,01 ₼ yoxlama) üçün bank ilə razılaşma lazımdır; Dodo-da trial_period_days var.', metric: '-', ref: 'Dodo subscriptions' } },
+  { t: 'success', n: { why: '-', metric: '-', ref: '-' } },
+  ] },
+{ id: 'winback', name: 'Pulsuz istifadəçiyə satış', short: 'E-poçt / push → şəxsi xülasə → 48 saat təklif', tag: 'Mövcud 46 000+ yükləmə',
+  goal: 'Artıq tətbiqdə olan pulsuz istifadəçilərə vebdən satış (mağaza komissiyası yoxdur). Mərhələ dəyişən anda yazırıq: "Körpən 6 aylıq oldu".',
+  steps: [
+  { t: 'mail', n: { why: 'Ən yaxşı vaxt: mərhələ dəyişəndə (yeni ay, yeni trimestr). Mesaj körpənin yaşı ilə şəxsidir. Customer.io və push seqmentləri artıq var.', metric: 'Açılma (≥ 35%), klik (≥ 6%)', ref: 'Mövcud push seqmentləri, Customer.io' } },
+  { t: 'recap', n: { why: 'İstifadəçinin öz rəqəmləri (qeydlər, günlər) "bu qədər investisiya etmisən" hissi verir. Recap 2026 məntiqi.', metric: 'Xülasə → təklif (≥ 40%)', ref: 'Anacan Recap 2026' } },
+  { t: 'paywall', mode: 'winback', n: { why: 'Növbəti mərhələnin bağlı alətləri + 48 saatlıq şəxsi endirim (bir dəfə, hesab üçün). Mövcud web_premium_campaign mexanizmi hesab səviyyəsində genişləndirilməlidir.', metric: 'Ödəniş (hədəf 3–5%)', ref: 'Win-back pattern' } },
+  { t: 'checkout', n: { why: 'Artıq daxil olub (e-poçtdakı link hesabı tanıyır), yalnız ödəniş qalır.', metric: '-', ref: '-' } },
+  { t: 'success', n: { why: '-', metric: '-', ref: '-' } },
+  ] },
+];
+
+/* ---------------- state ---------------- */
+let fi = 0, si = 0, ans = {}, plan = 'y', timerEnd = 0, tick = null;
+const scr = document.getElementById('scr');
+function go(d) { si = Math.max(0, Math.min(F[fi].steps.length - 1, si + d)); render(); }
+function setF(i) { fi = i; si = 0; ans = {}; plan = 'y'; renderNav(); render(); }
+function val(v) { return typeof v === 'function' ? v(ans) : v; }
+
+function renderNav() {
+  const nav = document.getElementById('nav');
+  nav.innerHTML = F.map((f, i) => `<button aria-pressed="${i === fi}" data-f="${i}"><span class="n">${i + 1}</span><span><b>${f.name}</b><span>${f.short}</span></span></button>`).join('')
+    + `<button class="sys" aria-pressed="${fi === -1}" data-f="-1"><span class="n">∑</span><span><b>Satış sistemi</b><span>Metriklər, testlər, e-poçt, plan</span></span></button>`;
+  nav.querySelectorAll('button').forEach((b) => b.onclick = () => { const i = +b.dataset.f; if (i === -1) { fi = -1; renderNav(); renderSystem(); } else setF(i); });
+}
+
+function topBar(opts = {}) {
+  const n = F[fi].steps.length, pct = Math.round((si + 1) / n * 100);
+  return `<div class="bar">${si ? '<button class="back" data-back>←</button>' : '<span style="width:34px"></span>'}<div class="prog"><i style="width:${pct}%"></i></div>${opts.close ? '<button class="x" data-close>✕</button>' : '<span style="width:34px"></span>'}</div>`;
+}
+function screen(body, foot = '', o = {}) { scr.innerHTML = topBar(o) + `<div class="body">${body}</div>` + (foot ? `<div class="foot">${foot}</div>` : ''); wire(); }
+function wire() {
+  scr.querySelectorAll('[data-back]').forEach((b) => b.onclick = () => go(-1));
+  scr.querySelectorAll('[data-next]').forEach((b) => b.onclick = () => go(1));
+  scr.querySelectorAll('[data-close]').forEach((b) => b.onclick = () => downsell());
+}
+
+function stageImg() { const s = ans.stage || 'Hamiləyəm'; return /Hamil|🤰/.test(s) ? 'tumurcuq' : /Körpə|👶/.test(s) ? 'qucaq' : 'ritm'; }
+function stageName() { return ans.stage || 'Hamiləyəm'; }
+function planLabel() { const s = stageName(); const w = ans.when || ''; return /Hamil/.test(s) ? `Hamiləlik · ${w || '13–27 həftə'}` : /Körpə/.test(s) ? `Körpə · ${w || '4–6 ay'}` : /istəyirəm/.test(s) ? 'Hamiləliyə hazırlıq' : 'Dövr və sağlamlıq'; }
+
+function render() {
+  if (fi === -1) return renderSystem();
+  clearInterval(tick);
+  const s = F[fi].steps[si];
+  renderNotes();
+  const R = {
+    hero: () => screen(`<div class="hero"><span class="eyebrow" style="color:#fff">Anacan · 2 dəqiqə</span><h2 style="margin-top:6px">${s.title.replace('<em>', '<span style="color:#ffe1d6">').replace('</em>', '</span>')}</h2><p>${s.sub}</p><div class="trio"><img src="${IMG('ritm-success')}"><img src="${IMG('tumurcuq-success')}"><img src="${IMG('qucaq-success')}"></div></div>
+      <div class="proof"><b>4.84 ★</b> App Store · 560+ beşulduzlu rəy</div><div class="proof"><b>46 000+</b> yükləmə · 25 dil</div>`, `<button class="cta" data-next>${s.cta}</button><p class="fine" style="text-align:center;margin-top:8px">Davam etməklə İstifadə şərtləri və Məxfilik siyasəti ilə razılaşırsan</p>`),
+    single: () => {
+      const opts = val(s.opts);
+      screen(`<h1 class="h">${val(s.q)}</h1>${s.sub ? `<p class="sub">${s.sub}</p>` : ''}${opts.map((o) => `<button class="opt" data-o="${o[1]}">${o[0] ? `<span class="e">${o[0]}</span>` : ''}${o[1]}</button>`).join('')}`);
+      scr.querySelectorAll('[data-o]').forEach((b) => b.onclick = () => { ans[s.key] = b.dataset.o; b.setAttribute('aria-pressed', 'true'); setTimeout(() => go(1), 250); });
+    },
+    multi: () => {
+      const sel = new Set(ans[s.key] || []);
+      screen(`<h1 class="h">${s.q}</h1><p class="sub">${s.sub || ''}</p><div class="${s.grid ? 'grid2' : ''}" style="display:${s.grid ? 'grid' : 'flex'};flex-direction:column;gap:10px">${s.opts.map((o) => `<button class="opt" data-o="${o[1]}" aria-pressed="${sel.has(o[1])}"><span class="e">${o[0]}</span>${o[1]}${s.grid ? '' : '<span class="ck"></span>'}</button>`).join('')}</div>`,
+        `<button class="cta" data-next ${sel.size ? '' : 'disabled'}>Davam et</button>`);
+      scr.querySelectorAll('[data-o]').forEach((b) => b.onclick = () => { const v = b.dataset.o; sel.has(v) ? sel.delete(v) : sel.add(v); ans[s.key] = [...sel]; b.setAttribute('aria-pressed', String(sel.has(v))); scr.querySelector('.cta').disabled = !sel.size; });
+    },
+    likert: () => {
+      screen(`<span class="eyebrow">Nə dərəcədə razısan?</span><h1 class="h" style="font-size:23px">“${s.q}”</h1><div class="likert">${[1, 2, 3, 4, 5].map((n) => `<button data-l="${n}">${n}</button>`).join('')}</div><div class="lk"><span>Razı deyiləm</span><span>Tam razıyam</span></div>`);
+      scr.querySelectorAll('[data-l]').forEach((b) => b.onclick = () => { ans[s.key] = +b.dataset.l; b.setAttribute('aria-pressed', 'true'); setTimeout(() => go(1), 250); });
+    },
+    info: () => screen(`<div style="text-align:center"><img src="${IMG(s.img)}" style="width:170px;margin:10px auto"></div><h1 class="h" style="text-align:center">${s.title}</h1><p class="sub" style="text-align:center">${s.text}</p>${rev(0)}`, `<button class="cta" data-next>Davam et</button>`),
+    loader: () => {
+      screen(`<h1 class="h" style="text-align:center;margin-top:10px">${s.title}</h1><div class="loader card w">${s.bars.map((b, i) => `<div class="row"><span>${b}</span><span data-p="${i}">0%</span></div><div class="bar2"><i data-b="${i}"></i></div>`).join('')}</div>${rev(1)}`);
+      let k = 0, p = 0, asked = false;
+      tick = setInterval(() => {
+        if (!asked && k === 1 && p >= 45) { asked = true; clearInterval(tick); modal(s.modal.q, s.modal.opts, () => { tick = setInterval(step, 45); }); return; }
+        step();
+      }, 45);
+      function step() { p += 2; const b = scr.querySelector(`[data-b="${k}"]`), t = scr.querySelector(`[data-p="${k}"]`); if (!b) return clearInterval(tick); b.style.width = Math.min(p, 100) + '%'; t.textContent = Math.min(p, 100) + '%'; if (p >= 100) { k++; p = 0; if (k >= s.bars.length) { clearInterval(tick); setTimeout(() => go(1), 400); } } }
+    },
+    plan: () => {
+      const w = ans.worry && ans.worry.length ? ans.worry : ['Yuxu', 'Qidalanma'];
+      screen(`<span class="eyebrow">Planın hazırdır</span><h1 class="h">Sənin <em>şəxsi planın</em></h1>
+        <div class="card w" style="display:flex;gap:12px;align-items:center"><img src="${IMG(stageImg() + '-welcome')}" style="width:74px"><div><b style="font:800 18px var(--d)">${planLabel()}</b><div class="sub">Gündə ${ans.minutes || '5 dəqiqə'} · ${ans.partner === 'Bəli, birlikdə izləyək' ? 'partnyor ilə' : 'fərdi'}</div></div></div>
+        <div class="card"><b>Fokusun</b><div class="chips" style="margin-top:8px">${w.map((x) => `<span class="chip">${x}</span>`).join('')}</div></div>
+        <div class="card"><b>İlk 4 həftə</b><ul class="list" style="margin-top:10px"><li>Hər gün bu mərhələyə uyğun qısa tövsiyə</li><li>${w[0]} üzrə addım-addım bələdçi</li><li>Həkim görüşü üçün sual siyahısı və PDF hesabat</li>${ans.partner === 'Bəli, birlikdə izləyək' ? '<li>Həyat yoldaşın üçün ayrıca görünüş</li>' : ''}</ul></div>`, `<button class="cta" data-next>Planımı saxla</button>`);
+    },
+    email: () => screen(`<h1 class="h">${s.soft ? 'Nəticəni e-poçtuna göndərək?' : 'Planını saxlamaq üçün <em>hesab yarat</em>'}</h1><p class="sub">${s.soft ? 'Həftəlik yeniləmələri də göndərəcəyik. İstənilən vaxt dayandırmaq olar.' : 'Tətbiqdəki eyni hesab. Planın həm vebdə, həm tətbiqdə açılacaq.'}</p>
+      <input class="input" placeholder="E-poçt ünvanın" value="ana@nümunə.az"><button class="cta ghost" style="min-height:48px">Google ilə davam et</button><button class="cta ghost" style="min-height:48px">Apple ilə davam et</button><p class="fine">Spam göndərmirik. Məlumatların EU serverlərində saxlanılır və satılmır.</p>`,
+      `<button class="cta" data-next>Davam et</button>${s.soft ? '<button class="link" data-next>İndi yox</button>' : ''}`),
+    paywall: () => paywall(s.mode),
+    checkout: () => screen(`<h1 class="h">${s.trial ? 'Sınağı başlat' : s.gift ? 'Hədiyyəni ödə' : 'Ödəniş'}</h1>${summary(s)}
+      <div class="card"><div style="display:flex;justify-content:space-between"><b>Kart</b><span class="sub">Epoint · AZN</span></div><input class="input" style="margin-top:10px" placeholder="Kart nömrəsi" value="4169 •••• •••• 1234"></div>
+      <label class="consent"><input type="checkbox" checked><span>${s.gift ? 'Birdəfəlik ödəniş, avtomatik yenilənmir.' : 'Abunəlik avtomatik yenilənir. İstənilən vaxt hesab səhifəsindən ləğv edə bilərəm.'} İstifadə şərtləri ilə razıyam.</span></label>`,
+      `<button class="cta" data-next>${s.trial ? 'Bu gün 0 ₼ · Sınağı başlat' : 'Ödə · ' + az(price())}</button><p class="fine" style="text-align:center;margin-top:8px">🔒 Təhlükəsiz ödəniş · Kart məlumatı Anacan-da saxlanmır</p>`),
+    success: () => screen(`<div class="center" style="display:flex;flex-direction:column;gap:12px;margin-top:20px"><img src="${IMG('qucaq-success')}" style="width:170px"><h1 class="h">Premium aktivdir 🎉</h1><p class="sub">Anacan tətbiqini aç, eyni hesabla daxil ol. Planın səni gözləyir.</p></div>
+      <div class="card"><b>Həyat yoldaşını dəvət et</b><p class="sub">Partnyor rejimi Premium-a daxildir. Linki göndər, o da qoşulsun.</p></div>`, `<button class="cta">Tətbiqi aç</button><button class="link">Həyat yoldaşına link göndər</button>`),
+    ad: () => screen(`<span class="eyebrow">Instagram Reels reklamı</span><div class="ad"><div class="top"><img src="img/brand-glyph-coral.png"><b>anacan.app</b><span class="sub">· Sponsorlu</span></div>
+      <div class="vis"><span class="chip" style="align-self:flex-start;background:#ffffff33;color:#fff">Bu cümə qara deyil, mərcandır</span><h3>Mərcan Cümə<br>İllik Premium −67%</h3><div class="trio" style="margin:0"><img src="${IMG('ritm-success')}" style="width:80px"><img src="${IMG('tumurcuq-success')}" style="width:96px"><img src="${IMG('qucaq-success')}" style="width:80px"></div></div>
+      <div class="btnrow"><span>anacan.az</span><span style="color:var(--coral-d)">Ətraflı →</span></div><div class="cap"><b>anacan.app</b> Bütün il Premium cəmi 16,99 ₼. 30 noyabra qədər. 🧡</div></div>`, `<button class="cta" data-next>Reklama klik</button>`),
+    bfhero: () => { screen(`<div class="hero"><span class="chip" style="background:#ffffff33;color:#fff">Mərcan Cümə · 30 noyabra qədər</span><h2 style="margin-top:10px">Bütün il Premium<br>cəmi ${az(P.by)}</h2><p>Gündə ${perDay(P.by)}. Köhnə qiymət <s>${az(P.y)}</s>.</p><div class="cd" style="margin-top:14px" id="cd"></div></div>
+      <ul class="list"><li>Hər mərhələ üçün gündəlik tövsiyələr</li><li>30+ alət: yuxu, qidalanma, böyümə, peyvənd</li><li>Partnyor rejimi və reklamsız istifadə</li><li>Endirimli qiymət hər yenilənmədə qalır</li></ul>${rev(0)}`, `<button class="cta" data-next>Təklifi götür</button>`); countdown(); },
+    tool: () => screen(`<span class="eyebrow">anacan.az · Pulsuz kalkulyator</span><h1 class="h">Doğuş tarixini <em>hesabla</em></h1><p class="sub">Son menstruasiyanın ilk günü</p><input class="input" type="date" value="2026-06-02"><div class="card"><p class="sub">Nəticə dərhal, qeydiyyatsız.</p></div>`, `<button class="cta" data-next>Hesabla</button>`),
+    toolresult: () => screen(`<div class="hero" style="padding:18px"><span class="eyebrow" style="color:#fff">Təxmini doğuş tarixi</span><h2 style="margin-top:6px">9 mart 2027</h2><p>Hazırda <b>25-ci həftə</b> · körpə bir qarğıdalı boyundadır 🌽</p></div>
+      <div class="card"><b>Bu həftə nə dəyişir?</b><p class="sub">Körpə səslərə reaksiya verir. Sən də bəzən sinə yanması hiss edə bilərsən.</p></div>
+      <div class="card" style="position:relative"><b>Sənin 25–40-cı həftə planın</b><ul class="list blur" style="margin-top:10px"><li>Həkim görüşləri təqvimi və suallar</li><li>Xəstəxana çantası siyahısı</li><li>Qidalanma və çəki tövsiyələri</li></ul><div style="position:absolute;inset:40px 0 0;display:grid;place-items:center"><span class="chip" style="background:var(--coral);color:#fff">🔒 Premium</span></div></div>`,
+      `<button class="cta" data-next>Şəxsi planımı aç</button>`),
+    gifthero: () => screen(`<div class="gift"><img src="${IMG('qucaq-success')}" style="width:150px;margin:0 auto"><h1 class="h" style="margin-top:6px">Ona ən faydalı <em>hədiyyə</em></h1><p class="sub" style="margin-top:6px">1 il Anacan Premium: hamiləlik və körpə üçün gündəlik bələdçi, partnyor rejimi ilə sən də yanında ol.</p></div>
+      <ul class="list"><li>WhatsApp ilə dərhal göndər</li><li>Şəxsi qeydinlə hədiyyə kartı</li><li>Avtomatik yenilənmir, birdəfəlik ödəniş</li></ul>`, `<button class="cta" data-next>Hədiyyə hazırla</button>`),
+    giftmsg: () => screen(`<h1 class="h">Kartına qeyd yaz</h1><textarea class="input" style="min-height:120px;padding:14px">Hər gün yanındayam. Bu da kiçik köməkçimiz olsun ❤️</textarea><input class="input" placeholder="Onun adı" value="Leyla">`, `<button class="cta" data-next>Davam et</button>`),
+    giftcard: () => screen(`<div class="gift"><span class="eyebrow">Hədiyyə kartı</span><h1 class="h" style="margin-top:6px">Leyla, sənə 1 il<br>Anacan Premium 🎁</h1><p class="sub" style="margin:8px 0">“Hər gün yanındayam. Bu da kiçik köməkçimiz olsun ❤️”</p><span class="chip">Kod: ANA-7Q4K</span></div><p class="sub">Leyla linki açanda tətbiq yüklənir və Premium avtomatik aktiv olur.</p>`, `<button class="cta">WhatsApp ilə göndər</button><button class="link">Linki kopyala</button>`),
+    trial: () => { plan = 'y'; screen(`<h1 class="h">7 gün <em>pulsuz</em> sına</h1><div class="tl"><div><i>🔓</i><p><b>Bu gün</b><span>Bütün Premium alətləri açılır</span></p></div><div><i>🔔</i><p><b>5-ci gün</b><span>Sınağın bitəcəyini e-poçt və push ilə xatırladırıq</span></p></div><div><i>⭐</i><p><b>7-ci gün</b><span>İllik plan başlayır: ${az(P.y)}. Ondan əvvəl ləğv etsən, heç nə ödəmirsən</span></p></div></div>
+      <div class="plans">${planBtn('y', 'İllik', `${az(P.y)} · 7 gün pulsuz`, perDay(P.y) + ' / gün', 'Ən sərfəli')}${planBtn('m', 'Aylıq', `${az(P.m)} / ay · sınaqsız`, '')}</div>`, `<button class="cta" data-next>7 gün pulsuz başla</button><p class="fine" style="text-align:center;margin-top:8px">Bu gün ödəniş yoxdur</p>`); wirePlans(); },
+    mail: () => screen(`<span class="eyebrow">E-poçt / push</span><div class="mail"><div class="mh"><b>Anacan</b> · bu gün<br>Mövzu: <b>Lily bu gün 6 aylıqdır 🎉</b></div><div class="mb"><img src="${IMG('qucaq-welcome')}" style="width:120px;margin:0 auto"><b style="font:800 20px var(--d)">Lily 6 aylıq oldu!</b><p class="sub">Əlavə qida, ilk dişlər və yeni yuxu rejimi başlayır. 6–12 ay planını sənin üçün hazırlamışıq.</p><button class="cta" data-next style="min-height:46px">6 aylıq planıma bax</button></div></div>`),
+    recap: () => screen(`<span class="eyebrow">Sənin 6 ayın</span><h1 class="h">Lily ilə <em>182 gün</em></h1><div class="stat"><div><b>214</b><span>qidalanma qeydi</span></div><div><b>96</b><span>yuxu qeydi</span></div><div><b>+3,1 kq</b><span>çəki artımı</span></div><div><b>4</b><span>peyvənd vaxtında</span></div></div><div class="card"><b>6–12 ayda nə gəlir</b><ul class="list lock" style="margin-top:10px"><li>Əlavə qida bələdçisi (ay-ay)</li><li>Diş təqvimi və yuxu proqnozu</li><li>Böyümə faiz qrafikləri</li></ul></div>`, `<button class="cta" data-next>Davam et</button>`),
+    share: () => screen(`<div class="center" style="display:flex;flex-direction:column;gap:10px;margin-top:10px"><img src="${IMG('ritm-success')}" style="width:150px"><h1 class="h">Premium aktivdir 🎉</h1><p class="sub">Dostların da Mərcan Cümə qiymətini qaçırmasın.</p></div>
+      <div class="card w"><b>Dostuna göndər: o da −67% alsın</b><p class="sub">Link 30 noyabra qədər işləyir.</p><div class="chips" style="margin-top:8px"><span class="chip">WhatsApp</span><span class="chip">Instagram</span><span class="chip">Linki kopyala</span></div></div>`, `<button class="cta">Tətbiqi aç</button>`),
+  };
+  (R[s.t] || (() => screen('<p>—</p>')))();
+}
+
+function price() { const m = F[fi].steps[si].mode || (F[fi].id === 'bf' ? 'bf' : ''); if (F[fi].id === 'bf') return plan === 'y' ? P.by : P.bm; if (F[fi].id === 'winback') return plan === 'y' ? 30.59 : P.m; return plan === 'y' ? P.y : P.m; }
+function summary(s) {
+  if (s.trial) return `<div class="card"><div style="display:flex;justify-content:space-between"><span>İllik Premium · 7 gün pulsuz</span><b>0 ₼</b></div><p class="fine">7-ci gün: ${az(P.y)}, 5-ci gün xatırladırıq</p></div>`;
+  return `<div class="card"><div style="display:flex;justify-content:space-between"><span>${s.gift ? 'Hədiyyə · 1 il Premium' : plan === 'y' ? 'İllik Premium' : 'Aylıq Premium'}</span><b>${az(price())}</b></div></div>`;
+}
+function planBtn(id, name, smallTxt, right, badge) { return `<button class="plan" data-plan="${id}" aria-pressed="${plan === id}">${badge ? `<span class="badge">${badge}</span>` : ''}<span class="rd"></span><span><b>${name}</b><small>${smallTxt}</small></span><span class="pd"><b>${right}</b></span></button>`; }
+function wirePlans() { scr.querySelectorAll('[data-plan]').forEach((b) => b.onclick = () => { plan = b.dataset.plan; scr.querySelectorAll('[data-plan]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.plan === plan))); }); }
+function rev(i) { const r = REVIEWS[i % REVIEWS.length]; return `<div class="rv"><span class="st">★★★★★</span><p style="margin:4px 0">${r[0]}</p><small>${r[1]}</small></div>`; }
+
+function paywall(mode) {
+  const w = ans.worry && ans.worry.length ? ans.worry : ['Yuxu', 'Qidalanma'];
+  if (mode === 'quiz') {
+    screen(`<div class="timer"><span>Planın 15 dəqiqə saxlanılır</span><b id="tm">15:00</b></div><h1 class="h">${planLabel()}: <em>planın hazırdır</em></h1>
+      <div class="chips">${w.map((x) => `<span class="chip">${x}</span>`).join('')}<span class="chip">Gündə ${ans.minutes || '5 dəqiqə'}</span></div>
+      <div class="plans">${planBtn('y', 'İllik', `${az(P.y)} · ildə bir dəfə`, perDay(P.y) + '<br><small>gündə</small>', 'Ən sərfəli · −37%')}${planBtn('m', 'Aylıq', `${az(P.m)} / ay`, (P.m / 30).toFixed(2).replace('.', ',') + ' ₼<br><small>gündə</small>')}</div>
+      <div class="card"><b>Planına daxildir</b><ul class="list" style="margin-top:10px">${w.slice(0, 3).map((x) => `<li>${x}: addım-addım bələdçi</li>`).join('')}<li>30+ alət, Anacan AI və reklamsız</li>${ans.partner === 'Bəli, birlikdə izləyək' ? '<li>Partnyor rejimi: 2 nəfər, 1 abunəlik</li>' : ''}</ul></div>
+      ${rev(0)}${rev(1)}<div class="card"><b>İstənilən vaxt ləğv et</b><p class="sub">Hesab səhifəndən bir kliklə. Növbəti ödəniş tutulmur.</p></div>`,
+      `<button class="cta" data-next>Planımı aç</button><p class="fine" style="text-align:center;margin-top:8px">Avtomatik yenilənir · istənilən vaxt ləğv</p>`, { close: true });
+    timerEnd = Date.now() + 15 * 60e3; tick = setInterval(() => { const l = Math.max(0, timerEnd - Date.now()); const e = document.getElementById('tm'); if (e) e.textContent = String(Math.floor(l / 6e4)).padStart(2, '0') + ':' + String(Math.floor(l / 1e3) % 60).padStart(2, '0'); }, 1000);
+  } else if (mode === 'bf') {
+    const img = stageImg();
+    screen(`<div class="hero" style="padding:18px"><div style="display:flex;gap:10px;align-items:center"><img src="${IMG(img + '-success')}" style="width:80px"><div><span class="chip" style="background:#ffffff33;color:#fff">${ans.who === 'Özüm üçün' ? 'Sənin üçün' : 'Hədiyyə'} · ${ans.stage || 'Hamiləlik'}</span><h2 style="font-size:24px;margin-top:6px">Mərcan Cümə qiyməti</h2></div></div><div class="cd" style="margin-top:12px" id="cd"></div></div>
+      <div class="plans">${planBtn('y', 'İllik', `<s>${az(P.y)}</s> · gündə ${perDay(P.by)}`, az(P.by), '−67% · Ən sərfəli')}${planBtn('m', 'Aylıq', `<s>${az(P.m)}</s> · hər ay`, az(P.bm), '−50%')}</div>
+      <div class="card"><b>Endirim hər yenilənmədə qalır</b><p class="sub">Ləğv edənə qədər bu qiymətlə davam edir.</p></div>${rev(1)}`, `<button class="cta" data-next>Davam et · ${az(price())}</button>`, { close: true });
+    wirePlans(); countdown(); scr.querySelectorAll('[data-plan]').forEach((b) => b.addEventListener('click', () => { scr.querySelector('.foot .cta').textContent = 'Davam et · ' + az(price()); }));
+    return;
+  } else if (mode === 'soft') {
+    screen(`<h1 class="h">25–40-cı həftə: <em>tam planın</em></h1><div class="card w"><b>1-ci həftə nümunəsi açıqdır</b><p class="sub">Həkim görüşü üçün 5 sual · qidalanma tövsiyəsi · gündəlik məşq</p></div><div class="card"><ul class="list lock"><li>Qalan 15 həftənin planı</li><li>Xəstəxana çantası və doğuş planı</li><li>Həkim üçün PDF hesabat</li></ul></div>
+      <div class="plans">${planBtn('y', 'İllik', `${az(P.y)} · gündə ${perDay(P.y)}`, az(P.y), 'Ən sərfəli')}${planBtn('m', 'Aylıq', '', az(P.m))}</div>`, `<button class="cta" data-next>Planı aç</button><button class="link" data-close>Sonra</button>`);
+  } else if (mode === 'gift') {
+    plan = 'y';
+    screen(`<h1 class="h">Hədiyyə: <em>1 il Premium</em></h1><div class="gift" style="text-align:left"><b>Leyla üçün</b><p class="sub">${ans.rstage || 'Hamilə həyat yoldaşım'} · şəxsi qeyd ilə</p></div><div class="plans">${planBtn('y', '1 il Premium', 'Birdəfəlik · avtomatik yenilənmir', az(P.y), 'Hədiyyə')}</div><ul class="list"><li>Partnyor rejimi: sən də hər yenilikdən xəbərdar olursan</li><li>Kod 12 ay ərzində aktivləşdirilə bilər</li></ul>`, `<button class="cta" data-next>Ödə · ${az(P.y)}</button>`);
+  } else if (mode === 'winback') {
+    screen(`<div class="timer" style="background:var(--blush);color:var(--coral-d)"><span>Yalnız sənin üçün · 48 saat</span><b id="tm">47:59</b></div><h1 class="h">6–12 ay planını <em>−40%</em> ilə aç</h1>
+      <div class="plans">${planBtn('y', 'İllik', `<s>${az(P.y)}</s> · gündə ${perDay(30.59)}`, az(30.59), '−40% · 48 saat')}${planBtn('m', 'Aylıq', 'endirimsiz', az(P.m))}</div>
+      <div class="card"><ul class="list"><li>Əlavə qida bələdçisi və reseptlər</li><li>Böyümə faiz qrafikləri, diş təqvimi</li><li>Reklamsız, partnyor rejimi</li></ul></div>`, `<button class="cta" data-next>Davam et</button>`, { close: true });
+    timerEnd = Date.now() + 48 * 3600e3; tick = setInterval(() => { const l = Math.max(0, timerEnd - Date.now()); const e = document.getElementById('tm'); if (e) e.textContent = String(Math.floor(l / 36e5)).padStart(2, '0') + ':' + String(Math.floor(l / 6e4) % 60).padStart(2, '0'); }, 1000);
+  }
+  wirePlans();
+}
+function countdown() { const end = Date.parse('2026-11-30T19:59:59Z'); const f = () => { const l = Math.max(0, end - Date.now()), el = document.getElementById('cd'); if (!el) return; const d = [Math.floor(l / 864e5), Math.floor(l / 36e5) % 24, Math.floor(l / 6e4) % 60, Math.floor(l / 1e3) % 60]; el.innerHTML = d.map((v, i) => `<div>${String(v).padStart(2, '0')}<small>${['GÜN', 'SAAT', 'DƏQ', 'SAN'][i]}</small></div>`).join(''); }; f(); clearInterval(tick); tick = setInterval(f, 1000); }
+function modal(q, opts, done) { const m = document.createElement('div'); m.className = 'modal'; m.innerHTML = `<div class="box"><span class="fine">Davam etmək üçün</span><b style="font:800 18px var(--d)">${q.replace('Davam etmək üçün: ', '')}</b><div style="display:flex;gap:10px">${opts.map((o) => `<button class="cta ghost" style="min-height:46px">${o}</button>`).join('')}</div></div>`; scr.appendChild(m); m.querySelectorAll('button').forEach((b) => b.onclick = () => { m.remove(); done(); }); }
+function downsell() {
+  const id = F[fi].id;
+  const txt = id === 'bf' ? ['Getmə! Aylıqla başla', `Bu ay cəmi ${az(P.bm)}. Endirim hər ay qalır.`, 'Aylıqla başla'] : id === 'winback' ? ['Təklif 48 saat qüvvədədir', 'Sonra yenidən göndərmirik. Fikrini dəyişsən, e-poçtdakı link işləyir.', 'Təklifə qayıt'] : ['Gözlə, sənə xüsusi təklif', `İlk ay cəmi ${az(P.m / 2)} (−50%). Yalnız bu ekranda.`, 'Təklifi götür'];
+  const m = document.createElement('div'); m.className = 'modal'; m.innerHTML = `<div class="box"><img src="${IMG('tumurcuq-welcome')}" style="width:96px;margin:0 auto"><b style="font:800 20px var(--d)">${txt[0]}</b><p class="sub">${txt[1]}</p><button class="cta">${txt[2]}</button><button class="link">Xeyr, təşəkkür</button></div>`;
+  scr.appendChild(m); m.querySelector('.cta').onclick = () => { m.remove(); if (id === 'bf') plan = 'm'; go(1); }; m.querySelector('.link').onclick = () => m.remove();
+  setNote({ why: 'Paywall bağlananda bir dəfə daha ucuz giriş təklifi (downsell). Deepstash kodunda "Claim bonus offer", "Secret Offer!" kimi eyni məntiq var. Yalnız bir dəfə göstərilir.', metric: 'Downsell qəbulu (≥ 8% bağlayanlardan)', ref: 'Deepstash "Secret Offer!", Flo toggle' }, 'Çıxış təklifi (downsell)');
+}
+
+/* ---------------- notes ---------------- */
+function setNote(n, title) { const box = document.getElementById('stepnote'); if (box) box.innerHTML = noteHtml(n, title); }
+function noteHtml(n, title) { return `<h3>${title}</h3><div class="kv"><b>Niyə işləyir</b><span>${n.why}</span><b>Metrik</b><span>${n.metric}</span><b>Mənbə</b><span>${n.ref}</span></div>`; }
+function renderNotes() {
+  const f = F[fi], s = f.steps[si];
+  document.getElementById('notes').innerHTML = `<div class="ncard"><span class="chip">${f.tag}</span><h2 style="margin-top:8px">${fi + 1}. ${f.name}</h2><p style="margin-top:6px">${f.goal}</p>
+    <div class="steps">${f.steps.map((x, i) => `<button data-s="${i}" aria-current="${i === si}">${i + 1}. ${label(x)}</button>`).join('')}</div></div>
+    <div class="ncard" id="stepnote">${noteHtml(s.n, `Addım ${si + 1}: ${label(s)}`)}</div>
+    ${extra(f.id)}`;
+  document.querySelectorAll('[data-s]').forEach((b) => b.onclick = () => { si = +b.dataset.s; render(); });
+}
+function label(x) { return ({ hero: 'Giriş', single: 'Sual', multi: 'Çoxseçim', likert: 'Razılıq', info: 'Sosial sübut', loader: 'Plan hazırlanır', plan: 'Şəxsi plan', email: 'Hesab / e-poçt', paywall: 'Paywall', checkout: 'Ödəniş', success: 'Uğur', ad: 'Reklam', bfhero: 'Landing', share: 'Paylaş', tool: 'Kalkulyator', toolresult: 'Nəticə', gifthero: 'Landing', giftmsg: 'Qeyd', giftcard: 'Hədiyyə kartı', trial: 'Sınaq', mail: 'E-poçt', recap: 'Xülasə' })[x.t] || x.t; }
+function extra(id) {
+  const E = {
+    quiz: ['Gözlənilən nəticə', 'Quiz funnel-ləri adətən birbaşa paywall-dan daha yaxşı çevirir, çünki ödəniş anında istifadəçi artıq 12 cavab "investisiya" edib. Real fərqi ilk A/B testdə ölçəcəyik. Hədəf: reklam klikindən ödənişə 2–4%.', ['Quiz cavabları hesabın profilinə yazılır: tətbiq açılanda onboarding yenidən soruşmur.', 'Paywall bağlananda downsell (✕ düyməsini sınayın).', 'Satış olmasa: e-poçt seriyası (Sistem bölməsində).']],
+    bf: ['Hazırkı səhifəyə nə əlavə olunur', 'Mövcud Mərcan səhifəsi birbaşa təklifdir. Bu funnel üç şey əlavə edir: "kimin üçün" seçimi (hədiyyə), mərhələyə görə personaj və fayda, satışdan sonra paylaşma.', ['✕ basanda aylıq plan downsell-i.', 'Yarımçıq ödənişə 15 dəqiqə sonra e-poçt (artıq var).', 'Son 24 saat: "Son gün" push və e-poçt.']],
+    tool: ['Hansı alətlərlə', 'Saytdakı kalkulyatorlar, uşaq adları, blog məqalələri. Hər birinin sonunda eyni məntiq: pulsuz nəticə → bulanıq şəxsi plan → e-poçt → yumşaq paywall.', ['Doğuş tarixi → 40 həftə planı', 'Körpə yaşı → ay-ay inkişaf planı', 'Uşaq adları → ad kartı + hamiləlik planı']],
+    gift: ['Texniki əsas', 'Mövcud QR promo sistemi (promo_campaigns, /h/:code, promo-redeem) hədiyyə kodları üçün istifadə olunur. Ödənişdən sonra bir istifadəlik kod yaradılır.', ['Hədiyyə birdəfəlikdir, MRR deyil, amma ilin sonunda yenilənmə təklifi ilə abunəyə çevrilir.', 'Kampaniyalar: 8 Mart, Ana günü, doğum günü, "körpə gəldi".']],
+    trial: ['Nə lazımdır', 'Hazırda nə Epoint, nə Dodo checkout-da sınaq yoxdur. Dodo-da subscription trial_period_days var. Epoint üçün kartı ödənişsiz saxlamaq (card binding) bank ilə yoxlanmalıdır.', ['Əvvəl yalnız Dodo (xarici bazar) ilə A/B test.', '5-ci gün xatırlatma məcburidir: dürüstlük və ləğv/geri ödəniş riskini azaldır.']],
+    winback: ['Seqmentlər', 'Pulsuz istifadəçilər mərhələ dəyişəndə: hamiləlik trimestri, körpənin yeni ayı, 1 yaş. Push seqmentləri və Customer.io artıq var.', ['Endirim hər hesaba bir dəfə: web_premium_campaign hesab səviyyəsində (yeni sahə lazımdır).', 'Vebdən satış: mağaza komissiyası yoxdur.', 'Tətbiqin içində vebə link vermək Apple qaydalarına görə qadağandır: bu funnel yalnız e-poçt və push-dan gedir.']],
+  }[id];
+  return E ? `<div class="ncard"><h3>${E[0]}</h3><p>${E[1]}</p><ul>${E[2].map((x) => `<li>${x}</li>`).join('')}</ul></div>` : '';
+}
+
+/* ---------------- system ---------------- */
+function renderSystem() {
+  clearInterval(tick);
+  scr.innerHTML = `<div class="body" style="padding-top:22px"><span class="eyebrow">Satış sistemi</span><h1 class="h">Trafik → funnel → <em>MRR</em></h1>
+    <div class="card w"><b>Meta / TikTok reklamı</b><p class="sub">→ 1. Quiz (əsas) · 2. Kampaniya</p></div><div class="card w"><b>Google / blog</b><p class="sub">→ 3. Pulsuz alət</p></div><div class="card w"><b>Atalar, ailə</b><p class="sub">→ 4. Hədiyyə</p></div><div class="card w"><b>Xarici bazar</b><p class="sub">→ 5. Sınaq (Dodo)</p></div><div class="card w"><b>Pulsuz istifadəçilər</b><p class="sub">→ 6. Win-back (e-poçt, push)</p></div>
+    <div class="card"><b>Hamısı eyni sonluğa gəlir</b><p class="sub">Eyni hesab · eyni ödəniş (Epoint / Dodo) · eyni Premium · eyni e-poçt seriyası</p></div></div>`;
+  document.getElementById('notes').innerHTML = `
+  <div class="ncard"><h2>Satış sistemi</h2><p style="margin-top:6px">Məqsəd: veb funnel-lərdən gələn Premium satışını hər ay ölçülə bilən şəkildə artırmaq. Hər funnel eyni infrastruktur üzərində işləyir: hesab, Epoint/Dodo, web_premium_campaign, Customer.io, push seqmentləri.</p></div>
+  <div class="ncard"><h3>1. Hər addımda ölçülən metriklər</h3><table><tr><th>Addım</th><th>Hadisə (analytics)</th><th>Hədəf</th></tr>
+    <tr><td>Landing</td><td>funnel_view</td><td>-</td></tr><tr><td>Quiz başladı</td><td>funnel_start</td><td>≥ 55%</td></tr><tr><td>Hər sual</td><td>funnel_step (step, answer)</td><td>≥ 92% hər addım</td></tr><tr><td>Plan göstərildi</td><td>plan_view</td><td>≥ 75% başlayanlardan</td></tr><tr><td>E-poçt / hesab</td><td>lead</td><td>≥ 60%</td></tr><tr><td>Paywall</td><td>paywall_view (variant)</td><td>-</td></tr><tr><td>Ödənişə keçid</td><td>checkout_start (mövcud)</td><td>≥ 20% paywall-dan</td></tr><tr><td>Alış</td><td>purchase_confirmed (mövcud)</td><td>6–10% paywall-dan</td></tr></table>
+    <p class="fine" style="margin-top:8px">Hər hadisədə: funnel_id, variant, utm_source/campaign, lang, provider. Meta Pixel + Conversions API saytda yoxdur: reklam optimizasiyası üçün əlavə olunmalıdır (razılıq bannerindən sonra).</p></div>
+  <div class="ncard"><h3>2. A/B test sırası (hər biri 2 həftə)</h3><ol style="margin:6px 0 0;padding-left:18px"><li>Quiz uzunluğu: 8 sual vs 14 sual</li><li>Paywall: gündəlik qiymət vs illik qiymət önə</li><li>15 dəqiqəlik "plan saxlanılır" taymeri: var / yox</li><li>Downsell: ilk ay −50% vs aylıq plan</li><li>Sınaq (yalnız Dodo): 7 gün sınaq vs birbaşa ödəniş</li><li>Sosial sübut: rəylər vs rəqəmlər (46 000+)</li></ol><p class="fine">Qayda: hər dəfə bir dəyişiklik, ən azı 300 paywall baxışı, qalib həmişə əsas versiya olur.</p></div>
+  <div class="ncard"><h3>3. Satış olmayanda: e-poçt seriyası (Customer.io)</h3><table><tr><th>Vaxt</th><th>Mesaj</th></tr><tr><td>15 dəq</td><td>Yarımçıq ödəniş: "Planın səni gözləyir" (web-premium-nudge, artıq var)</td></tr><tr><td>1-ci gün</td><td>Planın 1-ci həftəsi pulsuz (dəyər, satış yox)</td></tr><tr><td>3-cü gün</td><td>Real rəy + "ən çox açılan 3 alət"</td></tr><tr><td>5-ci gün</td><td>48 saatlıq şəxsi təklif (bir dəfə)</td></tr><tr><td>7-ci gün</td><td>Son xatırlatma, sonra yalnız həftəlik məzmun</td></tr></table></div>
+  <div class="ncard"><h3>4. Qiymət qaydaları</h3><ul><li>İllik plan həmişə əvvəlcədən seçilir və gündəlik qiymətlə göstərilir: gündə 0,14 ₼.</li><li>Endirim yalnız tarixli kampaniyada (Mərcan Cümə, 8 Mart, Ana günü) və ya şəxsi, bir dəfəlik təklifdə.</li><li>"Endirim hər yenilənmədə qalır" qaydası saxlanılır: ən güclü etiraz cavabıdır.</li><li>Saxta taymer yoxdur: 15 dəqiqə bitəndə plan həqiqətən qiymətə qayıdır və ya taymer göstərilmir.</li></ul></div>
+  <div class="ncard"><h3>5. Kampaniya təqvimi</h3><table><tr><th>Tarix</th><th>Kampaniya</th><th>Funnel</th></tr><tr><td>23–30 noyabr</td><td>Mərcan Cümə</td><td>2</td></tr><tr><td>20–31 dekabr</td><td>Yeni il + Recap 2026</td><td>6 (Recap ilə)</td></tr><tr><td>1–8 mart</td><td>8 Mart: "Ona hədiyyə et"</td><td>4</td></tr><tr><td>May</td><td>Ana günü</td><td>4 + 2</td></tr><tr><td>Hər həftə</td><td>Mərhələ dəyişən istifadəçilər</td><td>6</td></tr><tr><td>Daimi</td><td>Reklam + SEO</td><td>1 + 3</td></tr></table></div>
+  <div class="ncard"><h3>6. Tətbiq planı (prioritet)</h3><table><tr><th>#</th><th>İş</th><th>Asılılıq</th></tr><tr><td>1</td><td>Analytics hadisələri + Meta Pixel/CAPI + UTM-lərin hesaba yazılması</td><td>Yox</td></tr><tr><td>2</td><td>Funnel 1 (quiz) — /website/premium/plan/, cavablar profilə</td><td>Mövcud hesab, Epoint/Dodo</td></tr><tr><td>3</td><td>Paywall komponenti (bütün funnel-lər üçün bir), downsell</td><td>web_premium_campaign</td></tr><tr><td>4</td><td>E-poçt seriyası (5 mesaj)</td><td>Customer.io</td></tr><tr><td>5</td><td>Funnel 6 (win-back) + hesab səviyyəsində təklif</td><td>Yeni sahə: şəxsi endirim</td></tr><tr><td>6</td><td>Funnel 4 (hədiyyə)</td><td>Promo kod sistemi</td></tr><tr><td>7</td><td>Funnel 3 (alətlər) — sayt komponenti</td><td>Sayt build/deploy</td></tr><tr><td>8</td><td>Funnel 5 (sınaq) — əvvəl Dodo</td><td>Dodo trial, Epoint yoxlaması</td></tr></table></div>`;
+}
+
+renderNav(); render();
+</script>
+</body>
+</html>

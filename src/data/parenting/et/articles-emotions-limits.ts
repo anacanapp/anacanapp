@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Jonnihoog: mis toimub ajus?',
+    summary: 'Jonnihoog ei ole halva kasvatuse tagajärg. See on hetk, mil suur tunne võtab võimust veel väikese „pidurisüsteemi“ üle.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Aju sügavamates kihtides asuv emotsioonisüsteem on tugev juba sünnist: see tunnetab ohtu, pettumust ja viha hetkega. Otsmikusagara koor, mis neid tundeid ohjeldab ja ütleb „oota, on ka teine võimalus“, küpseb aga umbes 20. eluaastani. 2–4-aastasel on see vahe kõige suurem. Seepärast ei kuule laps sind jonnihoo ajal ega allu loogikale: aju „mõtlev“ osa on ajutiselt välja lülitunud.',
+      'Laps ei suuda sel hetkel ise rahuneda, vaid „laenab“ rahu sinu kehast ja häälest. Teadlased nimetavad seda kaasregulatsiooniks. Mida rahulikumaks vanem jääb, seda kiiremini naaseb lapse stressisüsteem normaalsesse olekusse, ja korduvalt kogetuna õpib laps selle rahunemistee endale selgeks. Karjumine ja karistamine aga suurendavad stressihormoonide taset ja pikendavad jonnihoogu.',
+      'Jonnihood tekivad sageli samadel hetkedel: väsimus, nälg, üleminekud (mängult koju, mänguväljakult lahkumine), vastus „ei“. Kui neid hetki ette näha, saab ära hoida üle poole jonnihoogudest.',
+    ],
+    tryToday: [
+      'Rahusta kõigepealt ennast: hinga sügavalt sisse, lase õlad lõdvaks, tõmba hääl madalamaks. Kui sina pole rahulik, ei suuda ka tema rahuneda.',
+      'Räägi vähe. Üks-kaks lühikest lauset piisab: „Sa oled väga vihane. Ma olen siin.“',
+      'Hoia turvalisust: kui ta lööb, hoia tema kätt pehmelt kinni ja pane kõrvale esemed, millega ta võiks endale haiget teha.',
+      'Kui ta on rahunenud, võta ta kaissu ja alles siis räägi lühidalt: „Sa said väga vihaseks, sest mäng sai läbi. Järgmine kord võid öelda „aita mind“.“',
+      'Pane sel nädalal kirja, millal jonnihood juhtuvad. Suure tõenäosusega langevad need kokku väsimuse ja näljaga.',
+    ],
+    mistakes: [
+      'Jonnihoo ajal pikalt selgitamine või manitsemine. Aju pole veel kuulamisrežiimis: kõigepealt rahunemine, siis jutt.',
+      'Jonnihoo lõpetamiseks soovitu andmine. See tähendab järgmisel korral veel tugevamat jonnihoogu. Näita tundele empaatiat, aga jää oma otsuse juurde.',
+      'Lapse häbistamine: „Häbi sul, kõik vaatavad sind.“ Häbi ei õpeta tunnetega toime tulema, vaid ainult neid peitma.',
+      'Jonnihoo pidamine „manipuleerimiseks“. Väikese lapse puhul on see peamiselt oskamatus, mitte kavalus.',
+    ],
+    byAge: {
+      '1-3': 'Sõnavara on väike, nii et nimeta tunne ise ja näita lihtsat alternatiivi: „Sa oled vihane. Trambi jalgu, niimoodi!“ Tähelepanu kõrvalejuhtimine töötab selles eas väga hästi.',
+      '3-6': 'Koostage rahulikul hetkel „vihaplaan“: hingamine, padja pigistamine, rahunurka minek. Riputage see piltidena seinale ja kui jonnihoog algab, lihtsalt näita sellele.',
+    },
+    specialist: [
+      'Kui jonnihood kestavad regulaarselt üle 25 minuti või neid on rohkem kui viis päevas.',
+      'Kui laps vigastab jonnihoo ajal end tõsiselt (lööb pead, hammustab) või jääb hinge kinni pidades teadvusetuks — näita teda arstile.',
+      'Kui pärast 4.–5. eluaastat jonnihood vähenemise asemel sagenevad või on muresid ka kõne, une või suhtlemisega.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Emotsioonide juhendamine: tunnete nimetamine',
+    summary: 'Tunnete märkamine ja nimetamine tugevdab lapse enesekontrolli. See ei tähenda, et kõik on lubatud.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Psühholoog John Gottman jälgis 1990. aastatel peresid ja leidis, et vanemad reageerivad lapse tunnetele neljal eri viisil: tunnet eitades („Ära nuta, see pole ju midagi“), karistades, kõike lubades ja „emotsioonitreenerina“. Treener-vanem võtab tunnet tõsiselt, nimetab selle ja otsib koos lapsega lahendust, kuid seab käitumisele piirid.',
+      'Emotsioonitreenerist vanemate lapsed suutsid järgnevatel aastatel paremini tähelepanu hoida, neil oli sõpradega vähem konflikte ja nad tulid stressist kiiremini välja. Hilisemad programmid (näiteks „Tuning in to Kids“) näitasid, et seda oskust saab õppida iga vanem.',
+      'Ajuuuringud näitavad ka midagi huvitavat: tundele nime andmine („ma olen vihane“, „mul on hirm“) vähendab emotsioonikeskuse aktiivsust. Nii et „nimeta tunne ja taltsuta see“ pole lihtsalt ilus ütlus.',
+    ],
+    tryToday: [
+      'Ütle täna kolm korda lapse tunne justkui tema eest välja: „Paistab, et sa oled väga pettunud.“ Ära karda eksida, ta parandab sind.',
+      'Luba tunne, sea käitumisele piir: „Vihane võib olla. Lüüa ei tohi.“',
+      'Raamatut lugedes vaadake tegelaste nägusid: „Mis sa arvad, mida ta praegu tunneb?“',
+      'Räägi rahulikult ka oma tunnetest: „Olen natuke väsinud, nii et joon vaikselt teed.“ Laps jäljendab kõige rohkem just sind.',
+    ],
+    mistakes: [
+      'Ütlemine „ära nuta“, „siin pole midagi karta“, „see on tühiasi“. Tunne ei kao, laps lihtsalt õpib seda sulle mitte näitama.',
+      'Empaatia mõistmine kui „ei“ tühistamine. Võib täiesti öelda: „Ma saan aru, sa väga tahtsid. Vastus on ikkagi ei.“',
+      'Tunnetest rääkimine ainult rasketel hetkedel. Parim harjutus toimub rahulikel hetkedel, mängu ja raamatute kaudu.',
+    ],
+    byAge: {
+      '1-3': 'Lihtsad sõnad: rõõm, viha, kurbus, hirm. Jäljendage koos peegli ees näoilmeid.',
+      '3-6': 'Joonistage tunnete „termomeeter“: roheline — olen rahulik, kollane — hakkan närvi minema, punane — plahvatan. Laps näitab värvi.',
+      '6-12': 'Õpetage peenemaid sõnu: pettumus, häbi, armukadedus, ärevus. Küsige, kus kehas tunne asub.',
+    },
+    specialist: [
+      'Kui laps ei näita pikka aega peaaegu mingeid tundeid või iga pisiasi lööb ta tundideks rööpast välja.',
+      'Kui kurbus, hirm või viha kestab üle kahe nädala ja mõjutab und, söömist, kooli ja sõprussuhteid — pöördu lapsepsühholoogi poole.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Rahunurk ja hingamismängud',
+    summary: 'Last saab õpetada rahunema, kuid mitte karistusnurgaga, vaid mõnusa koha ja mängudega.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Eneseregulatsiooni oskus kujuneb esmalt koos vanemaga ja seejärel järk-järgult iseseisvalt. Mida rohkem kordi on laps rahunenud koos rahuliku täiskasvanuga, seda paremini ta selle tee selgeks õpib.',
+      'Aeglane sügav hingamine (eriti pikk väljahingamine) aeglustab südamelööke ja lülitab keha „ohurežiimi“ välja. Lapsed õpivad seda paremini mängu kui juhiste kaudu.',
+    ],
+    tryToday: [
+      'Tehke koos lapsega koju väike „mõnus nurk“: padi, pehme mänguasi, paar raamatut, tundekaardid. See ei ole karistuskoht, vaid koht, kuhu võib minna igal ajal.',
+      'Mäng „Lill ja küünal“: nuusuta lille (hinga nina kaudu sisse), puhu küünal ära (hinga suu kaudu aeglaselt välja). Viis korda.',
+      'Harjutage koos rahulikul ajal: „Milline on meie keha, kui oleme vihased? Hingame rahulikul ajal, et see meil vajadusel meeles oleks.“',
+      'Väikese lapsega minge nurka koos: „Lähme koos mõnusasse nurka.“',
+    ],
+    mistakes: [
+      'Nurga kasutamine karistusena: „Mine nurka seisma!“ Siis hakkab laps sinna minekut vältima.',
+      'Hingamisharjutuse õpetamine esimest korda jonnihoo keskel. Oskus õpitakse rahulikul ajal.',
+      'Rahunemise ootamine „kohe“. Suure tunde vaibumine võib võtta 10–20 minutit.',
+    ],
+    byAge: {
+      '3-6': 'Väga hästi töötab mäng, kus pannakse mänguasi kõhule ja „kiigutatakse mänguasja hingamisega“.',
+      '6-12': 'Laps kirjutab oma rahunemisnimekirja: muusika, joonistamine, jalutuskäik, vee joomine. Ise valitud viisi kasutab ta meelsamini.',
+    },
+    specialist: [
+      'Kui laps ei suuda peaaegu kunagi rahuneda või käitub vihahoos ohtlikult — pöördu lapsepsühholoogi poole.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Koolilapse suured tunded',
+    summary: 'Viha, häbi, armukadedus, pettumus: kooliealisel muutuvad tunded keerulisemaks ja laps vajab abi nende mõistmisel.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Kooliealine laps oskab juba oma tundeid peita, seepärast plahvatavad suured tunded sageli kodus, kõige turvalisema inimese — sinu juures. Pärast kooli närvilisus on sageli päev otsa „end koos hoidmise“ väsimus.',
+      'Selles eas algab sotsiaalne võrdlemine. Häbi ja tunne „ma olen halb“ võivad välja paista vihana. Mida paremini laps oskab oma tunnet nimetada, seda lihtsam on sellega toime tulla.',
+    ],
+    tryToday: [
+      'Ära külva teda kohe pärast kooli küsimustega üle. Kõigepealt vahepala, vaikus või kallistus, jutt hiljem.',
+      'Harjutage koos „tunne + vajadus“ lauset: „Ma tunnen …, sest … . Mul on vaja … .“',
+      'Räägi sarnane lugu oma lapsepõlvest: „Ka mina häbenesin 9-aastaselt nii…“',
+      'Analüüsige pärast plahvatust süüdistamata: „Mis juhtus? Mida sa kehas tundsid? Mis aitaks järgmisel korral?“',
+    ],
+    mistakes: [
+      'Tunde pisendamine: „Selle pärast ei tasu nutta.“ Tema jaoks on see suur asi.',
+      'Kohe lahenduse pakkumine. Mõnikord tahab laps lihtsalt, et teda kuulataks.',
+      'Tüdrukute viha ja poiste kurbuse pidamine „sobimatuks“ tundeks. Iga tunne on iga lapse jaoks normaalne.',
+    ],
+    specialist: [
+      'Üle kahe nädala kestev kurbus, huvi kadumine, une ja söögiisu muutused, kooliskäimisest keeldumine.',
+      'Enesevigastamine või surmast rääkimine: pöördu kohe spetsialisti poole, ohu korral {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Virisemine ja kapriisitsemine',
+    summary: 'Virisemine käib närvidele, kuid sageli on see väsimuse või tähelepanuvajaduse signaal.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Laps õpib kiiresti, milline käitumine toimib. Kui virisemine toob lõpuks soovitu, jätkab ta seda. Tähelepanu — isegi negatiivne — tugevdab käitumist.',
+      'Samas on virisemine sageli nälja, väsimuse või pikalt tähelepanuta jäämise märk. Põhjusele reageerimine vähendab käitumist kiiresti.',
+    ],
+    tryToday: [
+      'Mängige rahulikul hetkel „tugeva hääle“ mängu: öelge sama palve virisedes ja tavalise häälega ning naerge koos.',
+      'Kui ta viriseb, ütle rahulikult: „Ma kuulen sind tavalise häälega paremini.“ Kui ta ütleb tavalise häälega, vasta kohe ja innukalt.',
+      'Astu päeva jooksul ise esimene samm: sage lühike põhjuseta tähelepanu — silmside, kallistus, „ma näen sind“.',
+    ],
+    mistakes: [
+      'Kõigepealt „ei“ ütlemine ja virisemise venides „no hea küll, võta“. See õpetab virisemist kõige tugevamini.',
+      'Virisemise üle irvitamine või lapse häbistamine tema järele ahvides.',
+    ],
+    specialist: [
+      'Kui laps näib virisemise kõrval sageli väsinud ja kahvatu või tema söögiisu on vähenenud — pöördu arsti poole, et kontrollida meditsiinilisi põhjuseid.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Positiivne distsipliin: piirid ja soojus koos',
+    summary: 'Parimaid tulemusi ei saavuta ei ranged ega kõike lubavad vanemad, vaid need, kes on nii soojad kui ka selged.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '1960. aastatel kirjeldas psühholoog Diana Baumrind kasvatusstiile kahe mõõtme kaudu: soojus (armastus, tähelepanu, reageerimine) ja nõudlikkus/struktuur (selged ootused, piirid). „Autoritatiivne“ stiil, kus mõlemad on kõrged, seostus parimate tulemustega: iseseisvamad, enesekindlamad ja vähemate käitumisprobleemidega lapsed.',
+      'Järgmistel aastakümnetel kinnitasid seda tulemust sadu uuringuid koondavad metaanalüüsid: soe suhe ja selgitustega seatud piirid seostuvad väiksema agressiivsuse ja reeglitest mittehoolimisega, karm kontroll ja karistused aga vastupidi — suuremate käitumisprobleemidega.',
+      'Ameerika Pediaatria Akadeemia (2018) ja WHO (2022) soovitavad vanematele sama teed: hea suhte loomine, hea käitumise märkamine ja tugevdamine, selged ootused ja rahulikud tagajärjed. Kehalist karistamist ja alandavaid sõnu ei soovitata.',
+    ],
+    tryToday: [
+      'Ütle üks reegel positiivses sõnastuses: mitte „ära jookse“, vaid „toas me kõnnime“.',
+      'Ütle ootus ette ära: „Poes hoiad mul käest kinni ja kärusse paneme ainult nimekirjas olevad asjad.“',
+      'Märka täna viis korda head käitumist ja nimeta see täpselt: „Riputasid koti ise konksu otsa, aitäh!“ Käitumine, millele tähelepanu läheb, kasvab.',
+      'Sea piir rahulikult, lühidalt ja sõbraliku häälega ning tegutse siis. Ilma korduvate hoiatusteta.',
+    ],
+    mistakes: [
+      'Armastuse ja piiride vastandamine. „Ma armastan sind ja seepärast ma ei luba“ — mõlemad saavad olla koos.',
+      'Sama reegli rakendamine ühel päeval ja unustamine järgmisel. Järjepidevus on olulisem kui rangus.',
+      'Reageerimine ainult vigadele. Kui laps saab tähelepanu ainult probleemse käitumisega, hakkab ta seda kordama.',
+    ],
+    byAge: {
+      '1-3': 'Rohkem keskkond kui sõnad: pane ohtlikud asjad käeulatusest välja ja hoia „ei“ ainult oluliste asjade jaoks.',
+      '3-6': 'Piisab 3–4 lihtsast pere reeglist. Joonistage need piltidena ja riputage nähtavale kohale.',
+      '6-12': 'Arutage reeglid koos läbi ja leppige tagajärjed eelnevalt kokku. Kui laps on osa reeglist ise kirja pannud, järgib ta seda meelsamini.',
+    },
+    specialist: [
+      'Kui kõigist pingutustest hoolimata segavad käitumisprobleemid kuude kaupa pereelu, lasteaeda või kooli — lapsepsühholoog või vanemlusprogrammid (näiteks PCIT, Triple P) on väga tõhusad.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Miks löömine ei toimi ja mis toimib',
+    summary: 'Laks võib tuua hetkelise kuuletumise, kuid pikas plaanis halvendab see käitumist. Teaduslikud tõendid on selles küsimuses väga selged.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      '2016. aastal koondasid Gershoff ja Grogan-Kaylor 75 uuringut, mis hõlmasid üle 160 000 lapse. Tulemus: laksu andmine (löömine) ei seostu ühegi positiivse pikaajalise tulemusega, vaid vastupidi — suurema agressiivsuse, antisotsiaalse käitumise, vaimse tervise probleemide ja kehvema suhtega vanemaga. See seos ilmneb ka „kerge“ ja „armastusega“ löömise puhul.',
+      'Põhjus on lihtne: löömine ei õpeta lapsele, mida ta peaks tegema, vaid ainult kartma. Lisaks näitab see, et probleeme lahendatakse jõuga. Karjumine, ähvardamine ja alandamine mõjuvad sarnaselt: uuringutes on karm sõnaline distsipliin seostatud hilisemate suuremate käitumisprobleemide ja depressiivsete sümptomitega.',
+      'Ameerika Pediaatria Akadeemia (2018) ja WHO ei soovita kehalist karistamist ega alandavaid sõnu. Selle asemel töötavad: soe suhe, selged reeglid, hea käitumise tugevdamine, loogilised tagajärjed ja rahunemisaeg.',
+    ],
+    tryToday: [
+      'Vali endale „stoppsignaal“: kui viha tõuseb, pane käsi taskusse või astu samm tagasi ja loe kümneni.',
+      'Peata ohtlik käitumine füüsiliselt, kuid kahjutult: hoia kätt kinni, võta laps sülle, võta ese ära.',
+      'Õpeta, mida järgmine kord teha: „Kui vend võtab mänguasja ära, võid öelda „anna tagasi!“ või tulla minu juurde.“',
+      'Kui oled juba löönud: palu vabandust, võta oma käitumise eest vastutus ja ütle oma plaan. See õpetab ka lapsele, kuidas veast välja tulla.',
+    ],
+    mistakes: [
+      'Mõte „mind ka peksti ja minust sai normaalne inimene“. Paljud on sellest hoolimata hästi üles kasvanud, kuid uuringud näitavad, et keskmiselt risk suureneb.',
+      'Löömise hoidmine „viimaseks abinõuks“. Viimane abinõu on paus rahunemiseks ja abi palumine.',
+      'Kehalise karistuse asendamine mõne teise alandava võttega (häbistamine, ähvardamine, armastuse äravõtmine).',
+    ],
+    byAge: {
+      '1-3': 'Selles eas on kõige tõhusamad tähelepanu kõrvalejuhtimine, keskkonna muutmine ja lapse rahulik eemaldamine ohtlikust kohast.',
+      '3-6': 'Hästi töötavad loogiline tagajärg ja „time-in“ (rahunemine sinu kõrval).',
+      '6-12': 'Mõne eelisõiguse lühiajaline piiramine (näiteks ekraaniaeg) ja probleemi koos lahendamine.',
+    },
+    specialist: [
+      'Kui tunned, et vihahoos ei suuda end ohjeldada ja võid lapsele haiget teha — see on tugev põhjus abi küsida. Psühholoog või vanemlusprogramm võib olukorda muuta.',
+      'Kui laps või sina oled ohus või kodus esineb vägivalda, helista kohe numbril {emergency}.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Tagajärg ja karistus: mis vahe on?',
+    summary: 'Karistuse eesmärk on haiget teha, tagajärje eesmärk õpetada. Parim tagajärg on käitumisega seotud, lugupidav ja ette teada.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Käitumispsühholoogia näitab, et käitumist muudab kõige enam see, mis sellele järgneb. Karistused (löömine, alandamine, pikk millestki ilmajätmine) tekitavad aga hirmu ja solvumist ning laps hakkab mõtlema, „kuidas mitte vahele jääda“.',
+      'Loogiline tagajärg on käitumisega otseselt seotud, lühike ja õpetlik: joonistas värvidega seinale — peseme koos puhtaks; rikkus jalgrattareeglit — täna jalgratast ei ole. Loomulikud tagajärjed (läks jopeta välja — hakkas külm) on ohutuse korral kõige tugevam õpetaja.',
+    ],
+    tryToday: [
+      '„3 R“ kontroll: kas tagajärg on käitumisega seotud (Related), lugupidav (Respectful) ja mõistlik (Reasonable)?',
+      'Ütle tagajärg ette: „Kui sa mänguasju ära ei korista, puhkavad need homme kastis.“ Seejärel tegutse rahulikult.',
+      'Hoia tagajärg lühike: üks päev piisab. Kuu aega kestev keeld ei õpeta rohkem, vaid ainult solvab.',
+      'Pärast tagajärge „puhas leht“: ei mingit moraalilugemist, alustame uuesti.',
+    ],
+    mistakes: [
+      'Vihahoos tagajärje väljamõtlemine: „Terve aasta pole jalgratast!“ Hiljem on seda võimatu täita ja sõna kaotab kaalu.',
+      'Käitumisega mitteseotud karistus: kodutöö jäi tegemata — ei lähe sünnipäevale.',
+      'Tagajärje rakendamine irooniaga või sõnadega „näed nüüd?“.',
+    ],
+    byAge: {
+      '3-6': 'Tagajärg peab tulema kohe ja olema väga lühike. Tunde hiljem ei seosta laps seda enam oma käitumisega.',
+      '6-12': 'Määrake tagajärjed koos. Laps järgib meelsamini reeglit, mida ta õiglaseks peab.',
+    },
+    specialist: [
+      'Kui ükski tagajärg ei toimi ja käitumine on ohtlik või perele kurnav — pea nõu vanemlusprogrammide ja lapsepsühholoogiga.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Kuidas rääkida karjumata',
+    summary: 'Karjumine toob hetkelist kergendust, kuid laps harjub valju häälega ja kuuleb vähem. Rahulik ja lähedal rääkimine on tugevam.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Uuringutes on regulaarset karjumist, sõimamist ja alandavate sõnadega distsiplineerimist seostatud hilisemate suuremate käitumisprobleemide ja depressiivsete sümptomitega isegi siis, kui suhe on üldiselt soe. Üks põhjusi: karjumine lülitab sisse lapse stressisüsteemi ja kuulamise asemel läheb ta kaitsesse.',
+      'Hea uudis: vanema eneseregulatsioon on õpitav oskus. Karjumine on sageli vanema väsimuse, nälja ja ülekoormuse signaal, mitte märk sellest, et oled „halb vanem“.',
+    ],
+    tryToday: [
+      'Eemalt karjumise asemel mine lähemale, laskudes lapse kõrgusele, loo silmside, ütle tema nimi ja räägi lühikese lausega.',
+      'Kui tahad häält tõsta, tee vastupidi: sosista. Lapsed kuulavad sosinat uudishimuga.',
+      'Pane päeva jooksul kirja hetked, mil karjusid. Mis kellaajal kõige sagedamini? Tee selleks ajaks plaan (näiteks vahepala, asjade eelnev ettevalmistamine).',
+      'Kui karjusid, paranda: „Ma karjusin, see polnud õige. Ma läksin närvi, aga ma poleks tohtinud häält tõsta.“',
+    ],
+    mistakes: [
+      'Enda süüdistamine iga eksimuse järel. See tekitab järgmisel korral veel rohkem pinget. Eesmärk ei ole täiuslikkus, vaid sagedus ja parandamine.',
+      'Ütlemine „sa sunnid mind karjuma“. Oma tunnete eest vastutame meie ise.',
+    ],
+    specialist: [
+      'Kui viha ja ärrituvus väljuvad kontrolli alt peaaegu iga päev või nendega kaasneb unetus, kurbus või lootusetus — räägi arsti või psühholoogiga. Vanema depressiooni ja ärevust saab ravida.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out või time-in?',
+    summary: 'Lühike rahunemispaus võib toimida, kuid väikeste laste puhul ei ole oluline eraldamine, vaid lähedus, mis aitab rahuneda.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Klassikalist „time-out’i“ (paariminutiline rahulik paus) on uuritud mõnes vanemlusprogrammis ja on näidatud, et õigesti rakendatuna (lühike, rahulik, alandamata, sooja suhte taustal) ei ole see kahjulik. Kuid see ei tähenda lapse tuppa lukustamist ega hirmutamist.',
+      '„Time-in“ tähendab, et laps rahuneb sinu kõrval. Väikestele lastele sobib see paremini, sest nad vajavad veel kaasregulatsiooni. Mõlemal juhul pole eesmärk karistus, vaid rahunemine ja „uuesti alustamine“.',
+    ],
+    tryToday: [
+      'Reegel: umbes üks minut iga eluaasta kohta, kõige rohkem 5 minutit.',
+      'Koht olgu rahulik, kuid mitte hirmutav. Ära kunagi lukusta last pimedasse tuppa.',
+      'Time-in’i jaoks: „Tule istu minu kõrvale. Hingame koos.“',
+      'Pärast pausi lühike „alustame uuesti“, ilma moraalilugemiseta.',
+    ],
+    mistakes: [
+      'Time-out’i kasutamine pikalt, tihti ja ähvardustega.',
+      'Pausi sidumine alandamisega: „Mine, ära tule mulle silma alla.“',
+    ],
+    specialist: [
+      'Kui laps tunneb igal pausil kohutavat hirmu või paanikat või lahkuminekuhetked raputavad teda ülemäära — räägi spetsialistiga.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Pere reeglid: vähe, selgelt, järjepidevalt',
+    summary: 'Lapsed katsetavad piire, sest tahavad teada, kas need on paigas. Kindel piir annab turvatunde.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Etteaimatav keskkond rahustab lapse stressisüsteemi. Uuringutes seostatakse selgeid reegleid ja päevakava parema une, väiksemate käitumisprobleemide ja tugevama enesekontrolliga.',
+      'Kõige paremini toimivad reeglid, mida on vähe (3–5), mis on sõnastatud positiivselt ja mida mõlemad vanemad rakendavad ühtmoodi.',
+    ],
+    tryToday: [
+      'Pidage perekoosolek: igaüks pakub ühe reegli ja koos valite 3–5 põhireeglit.',
+      'Kirjutage reeglid positiivselt: „Pehmed käed“, „Kui keegi räägib, siis kuulame“, „Pärast sööki taldrik kööki“.',
+      'Leppige reeglite kõrval kokku ka tagajärjed.',
+      'Ka täiskasvanud järgivad reegleid. Laps vaatab rohkem eeskuju kui sõnu.',
+    ],
+    mistakes: [
+      'Iga uue probleemi jaoks uue reegli väljamõtlemine. Liiga palju reegleid on sama hea kui ükski reegel.',
+      'Emal üks reegel, isal või vanaemal teine. Täiskasvanud peavad kõigepealt omavahel kokku leppima.',
+    ],
+    specialist: [
+      'Kui peres on reeglite üle pidevad ja teravad konfliktid, võib aidata perenõustaja.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: '„Ei!“ ütlev laps: kuidas jonnakusega toime tulla',
+    summary: '„Ei“ periood on lapse avastus „ma olen eraldi inimene“. Toimib mitte sellega võitlemine, vaid talle valikute andmine.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Teisel eluaastal avastab laps, et tal on oma tahe. Autonoomiavajadus on üks põhilisi psühholoogilisi vajadusi: mida rohkem saab laps kontrollitunnet, seda valmim on ta koostööks.',
+      'Uuringud näitavad, et „kontrolliv“ keelekasutus („pane kohe riidesse!“) suurendab vastupanu, valik ja selgitus aga koostööd.',
+    ],
+    tryToday: [
+      'Anna kaks sobivat valikut: „Kas kõigepealt hambapesu või pidžaama?“',
+      'Küsimuse asemel väitlause: „Nüüd on riietumise aeg“, mitte „Kas paneme riidesse?“.',
+      'Muuda see mänguks: „Vaatame, kes saab sokid kiiremini jalga — sina või mõmmi?“',
+      'Loobu ebaolulistest lahingutest: kui särk on pahupidi, ei kuku maailm kokku.',
+    ],
+    mistakes: [
+      'Iga „ei“ muutmine võimuvõitluseks.',
+      'Valiku andmine ja siis lapse valiku mitte aktsepteerimine.',
+    ],
+    specialist: [
+      'Kui laps ei reageeri peaaegu ühelegi palvele, ei reageeri oma nimele või tal on raskusi suhtlemisega — pöördu arsti poole arengu hindamiseks.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

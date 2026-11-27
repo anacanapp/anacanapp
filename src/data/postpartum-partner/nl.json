@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "De eerste 8 weken",
+    "subtitle": "Zo steun je haar na de bevalling",
+    "home_card": "Na de bevalling · week {n}/8",
+    "open": "Openen",
+    "week": "Week {n}",
+    "tab_week": "Deze week",
+    "tab_blues": "Babyblues",
+    "tab_signs": "Waarschuwingssignalen",
+    "tab_support": "Steun haar",
+    "her_body": "Haar lichaam",
+    "her_mind": "Haar gevoel",
+    "you_do": "Wat jij kunt doen",
+    "you_say": "Wat jij kunt zeggen",
+    "avoid": "Vermijd dit",
+    "send": "Versturen",
+    "sent": "Verstuurd 💌",
+    "phrases_title": "Stuur haar een paar woorden",
+    "phrases_sub": "Met één tik als bericht verstuurd.",
+    "tasks_title": "Vandaag regel ik dit",
+    "tasks_sub": "Stuur haar wat jij op je neemt, zodat ze weet dat het geregeld is.",
+    "tasks_send": "Stuur haar mijn lijstje",
+    "tasks_message": "Vandaag regel ik: {list} 💪 Jij rust uit.",
+    "signs_title": "Check de signalen",
+    "signs_sub": "Vink aan wat je de laatste tijd hebt gemerkt. Dit is geen diagnose.",
+    "signs_none": "Er zijn nu geen waarschuwingssignalen aangevinkt. Blijf haar steunen.",
+    "signs_some": "Als deze signalen langer dan 2 weken aanhouden, ga dan samen naar een arts.",
+    "signs_urgent": "Je hebt een dringend signaal aangevinkt. Laat haar niet alleen en bel nu het alarmnummer (112).",
+    "mood_low_title": "Haar stemming is de laatste tijd somber",
+    "mood_low_body": "Ze gaf op {n} van de afgelopen 7 dagen een sombere stemming aan. Geef haar vandaag extra tijd en vraag hoe het met haar gaat.",
+    "mood_low_long": "Als dit langer dan 2 weken duurt, praat er dan samen met een arts over.",
+    "disclaimer": "Deze informatie vervangt geen medisch advies."
+  },
+  "weeks": [
+    {
+      "title": "De eerste dagen thuis",
+      "body": "Na de bevalling is er bloedverlies (kraamvloed), en hechtingen of een keizersnedewond doen pijn. Rond dag 3–5 komt de melk op; haar borsten kunnen dan opzwellen en pijn doen.",
+      "mind": "Rond dag 3–5 dalen de hormonen sterk. Huilen zonder reden, piekeren en het gevoel tekort te schieten zijn normaal: dit is de babyblues.",
+      "do": ["Houd het bezoek deze week tot een minimum en sta zelf aan de deur", "Breng bij elke voeding water en een snack", "Neem luiers, aankleden en het badje van de baby over", "Regel het huishouden, de maaltijden en de boodschappen helemaal zelf"],
+      "say": ["Je bent een geweldige moeder. We leren elkaar nog kennen", "Als je moet huilen, huil dan. Ik ben er"],
+      "avoid": "Zeg niet: “Iedereen krijgt kinderen, wat is nou het probleem?” Bagatelliseer haar gevoelens niet."
+    },
+    {
+      "title": "Het slaaptekort loopt op",
+      "body": "Het bloedverlies begint af te nemen. Borstvoeding kan nog pijn doen; bij kloofjes, een harde knobbel of roodheid ga je naar een arts of een lactatiekundige.",
+      "mind": "De babyblues is meestal na 2 weken over. Gaan somberheid, hopeloosheid of verlies van interesse daarna door, dan kan het een postnatale depressie zijn. Let goed op.",
+      "do": ["Maak een nachtrooster zodat zij minstens 4–5 uur achter elkaar slaapt", "Ga met de baby wandelen zodat zij het huis voor zichzelf heeft", "Zoek een lactatiekundige voor vragen over voeden", "Vraag elke dag “Hoe voel je je?” en luister"],
+      "say": ["Vannacht neem ik het over, slaap jij maar", "Zeg wat je nodig hebt; we lossen alles samen op"],
+      "avoid": "Beslis niet voor haar en overlaad haar niet met advies. Luister eerst."
+    },
+    {
+      "title": "Een groeisprong",
+      "body": "De baby wil misschien heel vaak drinken (clustervoeden). Dat betekent niet dat er te weinig melk is: de baby groeit.",
+      "mind": "Het onophoudelijke voeden put haar uit en geeft haar het gevoel dat ze niets meer bijbeent. Laat haar zich niet alleen voelen.",
+      "do": ["Zit bij haar tijdens de avondvoedingen: breng water, eten en de afstandsbediening", "Laat de baby na het voeden een boertje doen en leg hem te slapen", "Plan zelf de was en het schoonmaken", "Kook of bestel haar lievelingseten"],
+      "say": ["Jij laat onze baby groeien. Het is zwaar werk en je doet het", "Ik ben er, je staat er niet alleen voor"],
+      "avoid": "Zeg niet “Alweer drinken?” of “Misschien heb je niet genoeg melk”. Dat ondermijnt haar zelfvertrouwen."
+    },
+    {
+      "title": "Een maand verder",
+      "body": "De hechtingen zijn meestal genezen, maar zwaar tillen is nog te vroeg, vooral na een keizersnede.",
+      "mind": "De vermoeidheid stapelt zich op. Ze kan zich ver van haar oude leven voelen, alsof ze nu “alleen nog moeder” is.",
+      "do": ["Geef haar 1–2 uur helemaal voor zichzelf: douchen, wandelen, vriendinnen zien", "Plan een kleine verrassing: bloemen, haar favoriete lekkernij, een briefje", "Organiseer zelf maaltijden en hulp van familie en vrienden", "Maak samen een album van de eerste foto’s van de baby"],
+      "say": ["Wat kan ik vandaag doen om het je wat lichter te maken?", "Ik hou zo veel van je. Sinds je moeder bent, bewonder ik je nog meer"],
+      "avoid": "Praat niet over haar uiterlijk of haar gewicht."
+    },
+    {
+      "title": "Er ontstaat een ritme",
+      "body": "Het bloedverlies zou nu heel licht moeten zijn. Wordt het plotseling meer, of is er koorts of een vieze geur, ga dan naar een arts.",
+      "mind": "Er ontstaat een ritme, maar elke dag hetzelfde doen kan haar uitputten. Houdt de somberheid langer dan 2 weken aan, dan is het tijd voor professionele hulp.",
+      "do": ["Neem elke dag één avondritueel over: het badje of het naar bed brengen", "Plan in het weekend een kort uitje met het gezin", "Vraag wat nu het zwaarst is en los één ding op", "Let ook op je eigen vermoeidheid en praat er met haar over"],
+      "say": ["Rust vanavond lekker uit, ik breng de baby naar bed", "We zijn een team"],
+      "avoid": "Vat haar dag niet samen met “je was toch de hele dag thuis”."
+    },
+    {
+      "title": "Huilpiek en nacontrole",
+      "body": "De nacontrole na de bevalling is meestal rond deze tijd. Baby’s huilen het meest rond 6–8 weken; daarna neemt het af.",
+      "mind": "Een baby die je niet kunt troosten is uitputtend. Als de frustratie oploopt, mag je de baby veilig in het bedje leggen en een paar minuten op adem komen. Schud een baby nooit door elkaar.",
+      "do": ["Ga samen naar de nacontrole en schrijf vooraf je vragen op", "Loop om de beurt met de baby rond tijdens huilbuien", "Zeg “Ik neem het nu over” en geef haar even rust", "Moedig haar aan om de arts ook te vertellen hoe ze zich voelt"],
+      "say": ["Het huilen is niet jouw schuld; zo zijn baby’s", "Laten we elkaar afwisselen, neem jij even pauze"],
+      "avoid": "Haast geen intimiteit. Ze zegt het zelf wel als ze er klaar voor is."
+    },
+    {
+      "title": "Zichzelf terugvinden",
+      "body": "Haar lichaam herstelt nog. Als de arts het goedvindt, helpen rustige wandelingen en ademhalingsoefeningen.",
+      "mind": "Ze leert zichzelf opnieuw kennen en kan zich zorgen maken over haar lichaam, werk of vriendschappen. Jouw steun geeft haar kracht.",
+      "do": ["Geef haar elke week één helemaal “vrij uur”", "Plan samen een korte wandeling of een bezoekje aan een café", "Blijf de nachtdiensten eerlijk verdelen", "Spreek je dank hardop uit"],
+      "say": ["Je bent nog steeds jij, en ik kies elke dag voor jou", "Je hebt deze maand enorm veel gedaan"],
+      "avoid": "Vergelijk niet: zeg niet “Die en die was zo weer de oude”."
+    },
+    {
+      "title": "Twee maanden: een nieuw gezin",
+      "body": "Veel moeders voelen zich nu sterker. Zijn pijn, bloedverlies of uitputting nog heftig, vertel het dan aan de arts.",
+      "mind": "Haar stemming zou beter moeten worden. Blijven somberheid, angst of een gevoel van afstand tot de baby aanhouden, bespreek het dan samen met een arts. Er is hulp en het is te behandelen.",
+      "do": ["Kijk samen terug op deze twee maanden: wat ging goed, wat moet anders", "Verdeel samen de huishoudelijke taken opnieuw", "Vier samen een klein feestje: “twee maanden”", "Let ook op je eigen stemming: ook vaders kunnen een postnatale depressie krijgen"],
+      "say": ["Samen met jou ouder zijn is mijn grootste geluk", "Wat zullen we volgende maand anders doen?"],
+      "avoid": "Bouw je steun niet ineens af omdat “alles nu goed gaat”."
+    }
+  ],
+  "blues": {
+    "title": "Wat is de babyblues?",
+    "intro": "Ongeveer 50–80% van de vrouwen krijgt na de bevalling de babyblues (ook wel kraamtranen genoemd). De oorzaken zijn de sterke daling van hormonen, slaapgebrek en de nieuwe verantwoordelijkheid.",
+    "facts": ["Begint meestal 2–5 dagen na de bevalling", "Huilen zonder reden, prikkelbaarheid, piekeren en vermoeidheid komen veel voor", "Gaat meestal binnen 2 weken vanzelf over", "Het beste medicijn: slaap, eten, steun en begrip"],
+    "help_title": "Wat jij kunt doen",
+    "help": ["Luister naar haar; probeer haar gevoelens niet te “repareren”", "Bescherm haar slaap: maak een nachtrooster", "Neem het huishouden en het bezoek over", "Prijs haar elke dag en laat zien dat je er bent"],
+    "ppd_title": "Een postnatale depressie is iets anders",
+    "ppd_intro": "Het treft ongeveer 10–15% van de vrouwen en kan op elk moment in het eerste jaar na de bevalling beginnen. Het is geen zwakte, en het is te behandelen.",
+    "ppd_signs": ["Somberheid of leegte die langer dan 2 weken aanhoudt", "Ze heeft geen interesse meer in dingen waar ze vroeger van genoot", "Ze kan niet slapen, zelfs niet als de baby slaapt", "Ze voelt zich waardeloos of schuldig", "Ze voelt afstand tot de baby", "Haar eetlust is sterk veranderd"],
+    "ppd_action": "Zie je deze signalen, moedig haar dan aan om naar een arts te gaan (haar gynaecoloog, huisarts of een psycholoog) en ga met haar mee.",
+    "urgent_title": "Zoek direct hulp",
+    "urgent_signs": ["Gedachten om zichzelf of de baby iets aan te doen", "Dingen zien of horen die er niet zijn", "Verwardheid, extreme stemmingswisselingen, dagenlang niet slapen"],
+    "urgent_action": "Laat haar in deze gevallen niet alleen en bel direct het alarmnummer (112).",
+    "self_title": "Jij telt ook",
+    "self": ["Ook vaders kunnen een postnatale depressie krijgen (ongeveer 10%)", "Doe korte dutjes en sla geen maaltijden over", "Praat over je gevoelens met haar of met een vriend", "Om hulp vragen is een teken van kracht"]
+  },
+  "phrases": ["Je bent een fantastische moeder 💛", "Wat je vandaag ook nodig hebt, ik ben er", "Ga even liggen, ik zorg voor de baby", "Ik hou zo veel van je, je staat er niet alleen voor", "Je bent moe en dat is heel normaal. Samen komen we er wel", "Wat kan ik je brengen? Thee, iets te eten, of gewoon een knuffel?", "Vannacht neem ik het over, slaap lekker", "Dank je voor alles wat je vandaag hebt gedaan"],
+  "tasks": ["Eén nachtvoeding", "Luiers", "Het badje van de baby", "Koken", "De afwas", "De was", "Boodschappen", "Bezoek", "Wandelen met de baby", "De apotheek"]
+}

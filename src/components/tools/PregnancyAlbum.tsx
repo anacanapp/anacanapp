@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import {
   ImagePlus, Camera, Trash2, RefreshCw,
   X, Edit, Save, Heart, ShoppingBag } from
@@ -16,6 +17,9 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 import { tr } from "@/lib/tr";
+import { weekOrdinal } from '@/lib/count-plural';
+import { compressImageForUpload } from '@/lib/image-compress';
+import { replaceRecordPhoto, storagePathFromUrl, type AlbumDbClient } from '@/lib/album-photo-replace';
 
 interface PregnancyAlbumProps {
   onBack: () => void;
@@ -27,6 +31,8 @@ interface AlbumPhoto {
   week_number: number;
   month_number: number;
   photo_url: string;
+  /** Object path in the pregnancy-album bucket (photo_url is replaced by a signed URL). */
+  storage_path: string;
   caption: string | null;
   photo_date: string;
   created_at: string;
@@ -63,6 +69,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
 
   const { user } = useAuth();
   const getPregnancyData = useUserStore((s) => s.getPregnancyData);
+  const lifeStage = useUserStore((s) => s.lifeStage);
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -76,9 +83,11 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
   const [showActionSheet, setShowActionSheet] = useState<AlbumPhoto | null>(null);
   const [replacingPhotoId, setReplacingPhotoId] = useState<string | null>(null);
 
-  const pregData = getPregnancyData();
-  const currentWeek = pregData?.currentWeek || 1;
-  const currentMonth = getMonthFromWeek(currentWeek);
+  // Week only for a known pregnancy (never "|| 1"). After birth every month of the album is in the past;
+  // with no known week the album opens on month 1 without a "current week" card.
+  const pregData = lifeStage === 'bump' ? getPregnancyData() : null;
+  const currentWeek = pregData?.currentWeek && pregData.currentWeek > 0 ? pregData.currentWeek : null;
+  const currentMonth = currentWeek ? getMonthFromWeek(currentWeek) : lifeStage === 'mommy' ? 9 : 1;
 
   const { data: photos = [], isLoading } = useQuery({
     queryKey: ['pregnancy-album-photos', user?.id],
@@ -91,23 +100,21 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
       order('month_number', { ascending: true });
       if (error) throw error;
       
-      const paths = data.map(p => {
-        const urlParts = p.photo_url.split('/pregnancy-album/');
-        return urlParts.length > 1 ? decodeURIComponent(urlParts[1]) : p.photo_url;
-      });
-      
+      const paths = data.map((p) => storagePathFromUrl(p.photo_url, 'pregnancy-album'));
+      const photos = data.map((p, i) => ({ ...p, storage_path: paths[i] })) as AlbumPhoto[];
+
       if (paths.length > 0) {
         const { data: signedUrls } = await supabase.storage.from('pregnancy-album').createSignedUrls(paths, 3600);
         if (signedUrls) {
-          data.forEach((p, i) => {
+          photos.forEach((p, i) => {
             if (signedUrls[i]?.signedUrl) {
               p.photo_url = signedUrls[i].signedUrl;
             }
           });
         }
       }
-      
-      return data as AlbumPhoto[];
+
+      return photos;
     },
     enabled: !!user?.id
   });
@@ -118,27 +125,34 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
 
       const monthToUpload = selectedMonth || currentMonth;
 
-      // If replacing, delete old photo first
-      if (replacePhoto) {
-        const oldPath = replacePhoto.photo_url.split('/pregnancy-album/')[1];
-        if (oldPath) {
-          await supabase.storage.from('pregnancy-album').remove([decodeURIComponent(oldPath)]);
-        }
-        await supabase.from('pregnancy_album_photos').delete().eq('id', replacePhoto.id);
-      }
-
-      const fileExt = file.name.split('.').pop();
+      const upload = await compressImageForUpload(file);
+      const fileExt = upload.name.split('.').pop();
       const fileName = `${user.id}/${monthToUpload}-${Date.now()}.${fileExt}`;
-
-      const { error: uploadError } = await supabase.storage.
-      from('pregnancy-album').
-      upload(fileName, file);
-
-      if (uploadError) throw uploadError;
 
       const { data: { publicUrl } } = supabase.storage.
       from('pregnancy-album').
       getPublicUrl(fileName);
+
+      // Replace safely: upload new -> point the row at it -> delete old object.
+      // On failure the original photo stays.
+      if (replacePhoto) {
+        await replaceRecordPhoto(supabase as unknown as AlbumDbClient, {
+          bucket: 'pregnancy-album',
+          table: 'pregnancy_album_photos',
+          recordId: replacePhoto.id,
+          oldPath: replacePhoto.storage_path || null,
+          newPath: fileName,
+          newUrl: publicUrl,
+          file: upload
+        });
+        return;
+      }
+
+      const { error: uploadError } = await supabase.storage.
+      from('pregnancy-album').
+      upload(fileName, upload);
+
+      if (uploadError) throw uploadError;
 
       const weekForMonth = monthLabels.find((m) => m.month === monthToUpload);
       const weekNumber = parseInt(weekForMonth?.weeks.split('-')[0] || '1');
@@ -163,10 +177,16 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
       setViewingPhoto(null);
       toast({ title: tr("pregnancyalbum_sekil_elave_edildi_a2085a", 'Şəkil əlavə edildi'), description: tr("pregnancyalbum_hamilelik_albomuna_sekil_elave_edildi_bf00fa", 'Hamiləlik albomuna şəkil əlavə edildi') });
     },
-    onError: (error) => {
+    onError: (error, variables) => {
       console.error('Upload error:', error);
       setReplacingPhotoId(null);
-      toast({ title: tr("pregnancyalbum_xeta_3cdbb6", 'Xəta'), description: tr("pregnancyalbum_sekil_yuklene_bilmedi_3c275f", 'Şəkil yüklənə bilmədi'), variant: 'destructive' });
+      toast({
+        title: tr("pregnancyalbum_xeta_3cdbb6", 'Xəta'),
+        description: variables.replacePhoto ?
+        tr('firstaid_album_replace_failed', 'Şəkil dəyişdirilmədi. Əvvəlki şəkil saxlanıldı.') :
+        tr("pregnancyalbum_sekil_yuklene_bilmedi_3c275f", 'Şəkil yüklənə bilmədi'),
+        variant: 'destructive'
+      });
     },
     onSettled: () => {
       setUploading(false);
@@ -175,9 +195,8 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
 
   const deletePhotoMutation = useMutation({
     mutationFn: async (photo: AlbumPhoto) => {
-      const path = photo.photo_url.split('/pregnancy-album/')[1];
-      if (path) {
-        await supabase.storage.from('pregnancy-album').remove([decodeURIComponent(path)]);
+      if (photo.storage_path) {
+        await supabase.storage.from('pregnancy-album').remove([photo.storage_path]);
       }
       const { error } = await supabase.
       from('pregnancy_album_photos').
@@ -268,7 +287,8 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
         eyebrow={tr("pregnancyalbum_her_ay_xatire_c5bdee", "Hər ay xatirə")}
         title={tr("pregnancyalbum_hamilelik_albomu_6f1559", "Hamiləlik Albomu")} />
 
-      {/* Current Progress */}
+      {/* Current Progress: only while pregnant with a known week */}
+      {currentWeek != null &&
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -279,7 +299,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
           <div>
             <p className="text-xs font-semibold" style={{ margin: 0, color: 'var(--a-alert-ink)', opacity: 0.75 }}>{tr("pregnancyalbum_hal_hazirda_b78349", "Hal-hazırda")}</p>
             <p className="a-heading" style={{ margin: 0, fontSize: 20, color: 'var(--a-alert-ink)' }}>{monthLabels[currentMonth - 1]?.label || `${currentMonth}-ci ay`}</p>
-            <p className="text-xs font-semibold" style={{ margin: 0, color: 'var(--a-alert-ink)', opacity: 0.75 }}>{currentWeek}{tr("pregnancyalbum_hefte_459cfe", ". h\u0259ft\u0259")}</p>
+            <p className="text-xs font-semibold" style={{ margin: 0, color: 'var(--a-alert-ink)', opacity: 0.75 }}>{weekOrdinal(currentWeek)}</p>
           </div>
           <div className="text-4xl">{monthLabels[currentMonth - 1]?.emoji}</div>
         </div>
@@ -295,6 +315,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
           <span className="text-xs font-bold" style={{ color: 'var(--a-alert-ink)' }}>{Math.round(currentMonth / 9 * 100)}%</span>
         </div>
       </motion.div>
+      }
 
       {/* Album Grid */}
       <div className="a-section-head">
@@ -469,7 +490,8 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
 
 
       {/* Action Sheet - appears when tapping a photo */}
-      <AnimatePresence>
+      {/* Portal: ToolPage's .a-shell (z-index 1) kept this overlay under the bottom nav. */}
+      {createPortal(<AnimatePresence>
         {showActionSheet &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -555,10 +577,11 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
             </motion.div>
           </motion.div>
         }
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
 
       {/* Photo Viewer Modal */}
-      <AnimatePresence>
+      {/* Portal: ToolPage's .a-shell (z-index 1) kept this overlay under the bottom nav. */}
+      {createPortal(<AnimatePresence>
         {viewingPhoto &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -572,6 +595,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
                 setViewingPhoto(null);
                 setEditingCaption(false);
               }}
+              aria-label={tr("common_close", "Bağla")}
               className="w-10 h-10 rounded-full flex items-center justify-center text-white"
               style={{ background: 'rgba(255,255,255,0.15)', border: 'none', cursor: 'pointer' }}>
               
@@ -587,6 +611,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
                 <button
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white"
                 style={{ background: 'rgba(255,255,255,0.15)', border: 'none', cursor: 'pointer' }}
+                aria-label={tr("a11y_replace_photo", "Şəkli dəyiş")}
                 onClick={() => handleReplace(viewingPhoto)}>
                 
                   <RefreshCw className="w-5 h-5" />
@@ -594,6 +619,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
                 <button
                 className="w-10 h-10 rounded-full flex items-center justify-center"
                 style={{ background: 'rgba(255,255,255,0.15)', border: 'none', cursor: 'pointer', color: 'var(--a-pink-2)' }}
+                aria-label={tr("common_sil", "Sil")}
                 onClick={() => handleDelete(viewingPhoto)}>
                 
                   <Trash2 className="w-5 h-5" />
@@ -623,6 +649,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
                   <button
                 className="a-cta-btn"
                 style={{ width: 42, height: 42, padding: 0, justifyContent: 'center' }}
+                aria-label={tr("common_saxla", "Saxla")}
                 onClick={() => updateCaptionMutation.mutate({ id: viewingPhoto.id, newCaption: caption })}>
                 
                     <Save className="w-4 h-4" />
@@ -650,7 +677,7 @@ const PregnancyAlbum = ({ onBack }: PregnancyAlbumProps) => {
             </div>
           </motion.div>
         }
-      </AnimatePresence>
+      </AnimatePresence>, document.body)}
 
       {/* Uploading Overlay */}
       {uploading &&

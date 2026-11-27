@@ -7,10 +7,12 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/PremiumModal';
-import { takePhoto, pickFromGallery, readImageFileAsDataUrl } from '@/lib/permissions';
+import { takePhoto, pickFromGallery, readImageFileAsDataUrl, isCameraPermissionError } from '@/lib/permissions';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { tr, getPersistedLanguage } from "@/lib/tr";
 import MedicalDisclaimer from '@/components/MedicalDisclaimer';
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
 
 interface PoopScannerProps {
@@ -48,6 +50,7 @@ const concernStyles: Record<string, {grad: string;soft: string;solid: string;ink
 
 const PoopScanner = ({ onBack }: PoopScannerProps) => {
   useScreenAnalytics('PoopScanner', 'Tools');
+  const emergency = useEmergencyNumber();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysis, setAnalysis] = useState<PoopAnalysis | null>(null);
@@ -113,7 +116,7 @@ const PoopScanner = ({ onBack }: PoopScannerProps) => {
       console.error('Camera capture error:', error);
       const errorMsg = error.message?.toLowerCase() || '';
 
-      if (errorMsg.includes('permission') || errorMsg.includes('denied')) {
+      if (isCameraPermissionError(error) || errorMsg.includes('permission') || errorMsg.includes('denied')) {
         toast({
           title: tr("poopscanner_kamera_icazesi_lazimdir_a300cc", 'Kamera icazəsi lazımdır'),
           description: tr("poopscanner_tetbiq_parametrlerinden_kamera_icazesini_7a6f09", 'Tətbiq parametrlərindən kamera icazəsini aktivləşdirin'),
@@ -140,7 +143,7 @@ const PoopScanner = ({ onBack }: PoopScannerProps) => {
       console.error('Gallery pick error:', error);
       const errorMsg = error.message?.toLowerCase() || '';
 
-      if (errorMsg.includes('permission') || errorMsg.includes('denied')) {
+      if (isCameraPermissionError(error) || errorMsg.includes('permission') || errorMsg.includes('denied')) {
         toast({
           title: tr("poopscanner_sekil_icazesi_lazimdir_ce5b8c", 'Şəkil icazəsi lazımdır'),
           description: tr("poopscanner_tetbiq_parametrlerinden_foto_kitabxanasi_f9ffae", 'Tətbiq parametrlərindən foto kitabxanası icazəsini aktivləşdirin'),
@@ -243,7 +246,7 @@ const PoopScanner = ({ onBack }: PoopScannerProps) => {
         eyebrow={tr("poopscanner_ai_ile_korpe_necisini_analiz_edin_06fb84", "AI ilə körpə nəcisini analiz edin")}
         title={tr("poopscanner_necis_skaneri_dadd90", "Nəcis Skaneri")}
         actions={
-        <button className="a-icon-btn" onClick={() => setShowHistory(!showHistory)} aria-label="History">
+        <button className="a-icon-btn" onClick={() => setShowHistory(!showHistory)} aria-label={tr("a11y_history", "Tarixçə")} aria-pressed={showHistory}>
             <History size={16} strokeWidth={2} />
           </button>
         } />
@@ -450,10 +453,10 @@ const PoopScanner = ({ onBack }: PoopScannerProps) => {
                   <button
                     className="a-cta-btn w-full mt-3"
                     style={{ justifyContent: 'center', height: 44, background: 'var(--a-pink-2)' }}
-                    onClick={() => window.open('tel:103', '_blank')}>
+                    onClick={() => window.open(`tel:${emergency}`, '_blank')}>
                     
                           <Phone size={15} strokeWidth={2.2} />
-                          {tr("poopscanner_tecili_yardim_103_176a98", "T\u0259cili yard\u0131m - 103")}
+                          {fillEmergencyNumber(tr("poopscanner_tecili_yardim_103_176a98", "T\u0259cili yard\u0131m - {emergency}"), emergency)}
                         </button>
                   }
                     </div>

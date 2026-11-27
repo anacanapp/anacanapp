@@ -1,0 +1,124 @@
+{
+ "next_title": "Järgmine uinak",
+ "next_sub": "Prognoos põhineb vanusel ja viimase 7 päeva unel",
+ "awake": "Ärvel",
+ "woke_at": "Ärkas kell {time}",
+ "window_label": "Uneaken",
+ "best_time": "Parim aeg",
+ "bedtime_best": "Parim aeg magamaminekuks",
+ "in_min": "{min} pärast",
+ "now_open": "Uneaken on avatud – pane laps nüüd magama",
+ "overtired": "Võib olla üleväsinud – proovi last kohe rahustada kuskil vaikses kohas",
+ "range_age": "{range} selles vanuses",
+ "personal": "Õpitud {n} uinaku põhjal",
+ "unknown_title": "Viimane ärkamisaeg teadmata",
+ "unknown_desc": "Märgi uni või vali hommikune ärkamisaeg – prognoos ilmub kohe.",
+ "cues_title": "Märkad väsimuse märke?",
+ "cues": {
+  "yawn": "🥱 Haigutamine",
+  "stare": "👀 Tühja pilguga vaatamine",
+  "rub_eyes": "✋ Silmade hõõrumine",
+  "fussy": "😣 Jonnakus",
+  "ears": "👂 Kõrvadest sikutamine"
+ },
+ "cues_applied": "{n} märki – nihutasime prognoosi {min} min varasemaks",
+ "start_sleep": "Uni algas",
+ "plan_title": "Tänane uneplaan",
+ "plan_sub": "{naps} uinakut · magamaminek {time}",
+ "done": "Valmis",
+ "predicted": "Prognoositud",
+ "night": "Öö",
+ "now": "Nüüd",
+ "nap_n": "Uinak {n}",
+ "nap_done": "{time} · {dur}",
+ "nap_predicted": "~{time} · prognoositud {dur}",
+ "nap_now": "Käimas · alates {time}",
+ "bedtime": "Magamaminek · {time}",
+ "bedtime_sub": "Alusta rutiini kell {time}",
+ "regress_title": "Uneregressioon",
+ "regress_in": "Algab {days} päeva pärast",
+ "regress_active": "Toimub praegu",
+ "regress_range": "~ {from} – {to}",
+ "regressions": {
+  "m4": {
+   "name": "4. kuu regressioon",
+   "expect": [
+    "Sagedane öine ärkamine",
+    "Lühemad päevased uinakud (30–45 min)",
+    "Miks: unetsüklid muutuvad täiskasvanu omade sarnaseks"
+   ],
+   "prep": [
+    "Loo järjepidev magamaminekurutiin",
+    "Harjuta lapse voodisse panemist unise, kuid ärkvel olekuna",
+    "Jaga öiseid vahetusi partneriga"
+   ]
+  },
+  "m8": {
+   "name": "8–10 kuu regressioon",
+   "expect": [
+    "Voodis püsti tõusmine või istumine",
+    "Lahkumisärevus",
+    "Päevaste uinakute vastustamine"
+   ],
+   "prep": [
+    "Harjuta uusi oskusi päeva jooksul palju",
+    "Lühike ja rahulik hüvastijäturituaal",
+    "Ole järjepidev – see möödub 1–2 nädalaga"
+   ]
+  },
+  "m12": {
+   "name": "12 kuud: 2 uinakult 1-le",
+   "expect": [
+    "Teisest uinakust keeldumine",
+    "Õhtul vara väsimine"
+   ],
+   "prep": [
+    "Ära kiirusta üleminekuga – see juhtub 15–18 kuu vanuselt",
+    "Vajadusel nihuta magamaminek varasemaks"
+   ]
+  },
+  "m18": {
+   "name": "18 kuu regressioon",
+   "expect": [
+    "„Ei“-faas, une vastustamine",
+    "Hammaste tulek (purihambad)"
+   ],
+   "prep": [
+    "Paku valikuid: „kas see või too pidžaama?“",
+    "Hoia piirid rahulikuna"
+   ]
+  },
+  "m24": {
+   "name": "2-aastase regressioon",
+   "expect": [
+    "Hirmud, õudusunenäod",
+    "Päevasest uinakust loobumine"
+   ],
+   "prep": [
+    "Öölamp, kaisuloom",
+    "Hoia vaikne puhkeaeg"
+   ]
+  }
+ },
+ "expect_title": "Mida oodata",
+ "prep_title": "Ettevalmistusplaan",
+ "later_title": "Tulemas",
+ "alerts_title": "Unemärguanded",
+ "alerts_sub": "Meeldetuletused selles telefonis",
+ "alert_lead": "Enne uneakent",
+ "alert_lead_min": "{n} min",
+ "alert_long": "Pikk päevane uinak",
+ "alert_long_sub": "Kui uinak kestab üle 2 tunni",
+ "alert_regress": "Regressioonihoiatused",
+ "alert_regress_sub": "1 nädal enne algust",
+ "alert_quiet": "Öine vaikus",
+ "alert_quiet_sub": "Ei mingeid märguandeid 22:00 – 07:00",
+ "notif_nap_title": "{name} on {min} minuti pärast unine",
+ "notif_nap_body": "Uneaken {from}–{to}. Hämarda tuled ja loo rahulik õhkkond.",
+ "notif_long_title": "{name} on maganud 2 tundi",
+ "notif_long_body": "Kaalu õrna äratamist, et kaitsta öist und.",
+ "notif_regress_title": "{name}: {regression} on lähenemas",
+ "notif_regress_body": "See võib alata nädala pärast. Tutvu ettevalmistusplaaniga.",
+ "baby": "Beebi",
+ "learning": "Prognoos õpib sinu beebi viimase 7 päeva une põhjal – mida rohkem märgid, seda täpsemaks see muutub."
+}

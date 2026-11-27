@@ -8,6 +8,7 @@ import OnboardingJourney from './OnboardingJourney';
 
 const mocks = vi.hoisted(() => ({ native: false, premium: false, profile: {} as any, save: vi.fn(), claim: vi.fn(), complete: vi.fn(), refresh: vi.fn(),
   update: vi.fn(), purchase: vi.fn(), restore: vi.fn(), permission: vi.fn(), purchaseStatus: 'idle', actor: '11111111-1111-4111-8111-111111111111', backend: 'https://api.anacan.az' }));
+vi.mock('@/components/paywall/EpointPayOption', () => ({ default: () => null }));
 vi.mock('@/hooks/useAuth', () => ({ useAuth: () => ({ user: { id: mocks.actor }, profile: mocks.profile, refreshProfile: mocks.refresh, updateProfile: mocks.update }) }));
 vi.mock('@/hooks/useAppSettings', () => ({ useLifeStageEnabled: () => true }));
 vi.mock('@/components/ads/AdExperienceProvider', () => ({ useAdSafetyBlock: () => {} }));
@@ -92,7 +93,7 @@ describe('complete localized journeys', () => {
     await travel(stage);
     expect(mocks.save).toHaveBeenCalledTimes(1);
     expect(mocks.save.mock.calls[0][0]).toMatchObject({ actor: mocks.actor, backend: mocks.backend, stage,
-      answers: { sleep: 'rested', supportLevel: 'supported', duration: 'months', budget: 'value' } });
+      answers: { sleep: 'rested', supportLevel: 'supported' } });
     expect(mocks.save.mock.calls[0][1]).toBe(language);
     expect(document.querySelector('.onboarding')).toHaveAttribute('dir', language === 'ar' ? 'rtl' : 'ltr');
     expect(screen.getByText(onboardingText(language, 'mobile_purchase'))).toBeInTheDocument();
@@ -108,16 +109,16 @@ it.each([
   { stage: 'mommy' as const,
     plan: ['Yuxu rejimi izləmə', 'Qidalanma izləmə', 'İnkişaf mərhələləri', 'Ağlama analizi', 'Hava və geyim'],
     support: ['Anacan AI', 'Həkim PDF', 'Partnyor hesabı', 'Bəyaz səslər və ağıllı nağıllar', 'Peyvənd təqvimi', 'Sağlam reseptlər', 'Diş çıxarma izləyicisi', 'Mental sağlamlıq və məşqlər', 'Reklamsız təcrübə'],
-    mental: 'Mental sağlamlıq və məşqlər' },
+    lead: ['Qidalanma, yuxu və bez qeydləri', 'ÜST boy-çəki əyriləri'] },
   { stage: 'bump' as const,
     plan: ['Fetal böyümə izləyici', 'Qidalanmaya nəzarət', 'Təhlükəsizlik sorğusu', 'Təpik və sancı ölçən', 'Çəki, qan təzyiqi və şəkəri izləyicisi'],
     support: ['Anacan AI', 'Həkim PDF', 'Partnyor hesabı', 'Sağlam reseptlər', 'Xəstəxana çantası və ortaq alış-veriş', 'Hamiləlik albomu, vitamin izləyici', 'Mental sağlamlıq və idman', 'Reklamsız təcrübə'],
-    mental: 'Mental sağlamlıq və idman' },
+    lead: ['Təpik və sancı ölçən', 'Çəki, qan təzyiqi və şəkəri izləyicisi'] },
   { stage: 'flow' as const,
     plan: ['Əhval gündəliyi', 'Qidalanmaya nəzarət', 'Vitamin izləyicisi', 'Sağlam reseptlər', 'Mental sağlamlıq və idman'],
     support: ['Anacan AI', 'Həkim PDF', 'Partnyor hesabı', 'Sağlam reseptlər', 'Qidalanmaya nəzarət', 'Vitamin izləyicisi', 'Mental sağlamlıq və idman', 'Reklamsız təcrübə'],
-    mental: 'Mental sağlamlıq və idman' },
-])('$stage shows the requested benefits through results, support, Premium and monthly offer', async ({ stage, plan, support, mental }) => {
+    lead: ['Fazalara görə simptom analizi', 'Tsikl statistikası və trendlər'] },
+])('$stage shows the requested benefits through results, support, Premium and monthly offer', async ({ stage, plan, support, lead }) => {
   mocks.native = true;
   render(<OnboardingJourney />); await travel(stage, 'results');
   const benefits = () => within(screen.getByTestId('onboarding-benefits')).getAllByRole('listitem').map(item => item.textContent);
@@ -126,7 +127,7 @@ it.each([
   expect(step()).toBe('features'); expect(benefits()).toEqual(support);
   await click(document.querySelector('.onb-footer .onb-primary'));
   expect(step()).toBe('paywall');
-  const premium = ['Anacan AI', 'Həkim PDF', 'Partnyor hesabı', mental, 'Reklamsız təcrübə'];
+  const premium = [...lead, 'Gündəlik limitsiz Anacan AI', 'Həkim PDF', 'Reklamsız təcrübə'];
   expect(benefits()).toEqual(premium);
   expect(screen.getByText(onboardingText('az', 'charged_today', { price: '$19.99' }))).toBeInTheDocument();
   expect(screen.getByText(onboardingText('az', 'renewal_year', { price: '$29.99' }))).toBeInTheDocument();

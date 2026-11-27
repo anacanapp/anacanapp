@@ -32,7 +32,7 @@ const getNotificationMessages = (): Record<NotificationType, {title: string;getB
   },
   contraction_511: {
     title: tr("usepartnernotifications_5_1_1_qaydasi_976061", "⚠️ 5-1-1 Qaydası!"),
-    getBody: () => tr("usepartnernotifications_sancilar_5_deq_araliginda_ve_1_da0619", "Sanc\u0131lar 5 d\u0259q aral\u0131\u011F\u0131nda v\u0259 1 d\u0259q davam edir. X\u0259st\u0259xanaya getm\u0259 vaxt\u0131 ola bil\u0259r!")
+    getBody: () => tr("usepartnernotifications_sancilar_5_deq_araliginda_ve_1_da0619", "Sancılar 5 dəqiqədən bir gəlir, hər biri 1 dəqiqə çəkir və bu 1 saatdır davam edir. Xəstəxanaya getmə vaxtı ola bilər!")
   },
   kick_session: {
     title: tr("usepartnernotifications_korpe_tepik_atdi_628b12", "Körpə təpik atdı! 👶"),

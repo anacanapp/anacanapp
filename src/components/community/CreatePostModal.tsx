@@ -18,6 +18,7 @@ import BlogAttachmentPicker from './BlogAttachmentPicker';
 import { blogCommand } from '@/lib/community-blog';
 import { useMyModerationStatus } from '@/hooks/useModerator';
 import RestrictionNote from '@/components/moderation/RestrictionNote';
+import { compressImageForUpload } from '@/lib/image-compress';
 
 interface CreatePostModalProps {
   isOpen: boolean;
@@ -164,7 +165,8 @@ const CreatePostModal = ({ isOpen, onClose, groupId, groups }: CreatePostModalPr
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) throw new Error('Not authenticated');
     const urls: string[] = [];
-    for (const file of mediaFiles) {
+    for (const original of mediaFiles) {
+      const file = await compressImageForUpload(original);
       const fileExt = file.name.split('.').pop() || 'jpg';
       const fileName = `${user.id}/${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
       const { error } = await supabase.storage.from('community-media').upload(fileName, file, { cacheControl: '3600', upsert: false });
@@ -268,7 +270,7 @@ const CreatePostModal = ({ isOpen, onClose, groupId, groups }: CreatePostModalPr
                     {suggestions.map((suggestion, index) =>
                 <button key={`${suggestion.type}-${suggestion.value}-${index}`} onClick={() => applySuggestion(suggestion)}
                 className="w-full px-4 py-2.5 flex items-center gap-3 hover:bg-muted/50 transition-colors text-start">
-                        <div className="w-7 h-7 rounded-full bg-primary/8 flex items-center justify-center overflow-hidden">
+                        <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
                           {suggestion.type === 'user' && suggestion.avatar ?
                     <img src={suggestion.avatar} alt="" className="w-full h-full object-cover" /> :
                     suggestion.type === 'user' ?
@@ -332,8 +334,8 @@ const CreatePostModal = ({ isOpen, onClose, groupId, groups }: CreatePostModalPr
                   <Image className="w-4 h-4 text-primary" />
                 </button>
                 <button onClick={() => videoInputRef.current?.click()} disabled={mediaFiles.length >= 4 || isUploading}
-              className="w-9 h-9 rounded-full bg-[color:var(--a-blue-1)] flex items-center justify-center disabled:opacity-40 transition-colors active:bg-[color:var(--a-blue-1)]">
-                  <Video className="w-4 h-4 text-[color:var(--a-blue-ink)]" />
+              className="w-9 h-9 rounded-full bg-blue-500/15 flex items-center justify-center disabled:opacity-40 transition-colors active:bg-blue-500/25">
+                  <Video className="w-4 h-4 text-blue-500" />
                 </button>
                 {mediaFiles.length > 0 && <span className="text-[10px] text-muted-foreground/60 font-medium ms-auto">{mediaFiles.length}/4</span>}
               </div>

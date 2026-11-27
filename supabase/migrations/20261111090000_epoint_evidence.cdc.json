@@ -1,0 +1,14 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261111090000_epoint_evidence.sql",
+  "runtime": "google-epoint-evidence",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls book_download_events and checks its three triggers",
+  "relations": [
+    { "relation": "public.book_download_events", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "one row per PDF hand-out (order, book, user, channel, IP, user agent); service role only; compliance evidence" },
+    { "relation": "public.book_orders", "change": "columns added (consent_at, consent_version)", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "buyer consent to immediate digital delivery and terms; already guarded" },
+    { "relation": "public.web_premium_subscriptions", "change": "columns added (consent_at, consent_version)", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "auto-renew and saved-card consent; already guarded" }
+  ]
+}

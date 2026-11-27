@@ -1,0 +1,17 @@
+/* Every mini-game screen (also in the browser, not only body.native-app): no text
+   selection, copy/look-up callout, tap flash, image drag or rubber-band bounce.
+   Play surfaces keep their own touch-action:none; menus and level lists still scroll.
+   Selector list mirrors GAME_SCREEN_SELECTOR in src/lib/touch-guards.ts. */
+:is(.cg-screen, .tf-screen, .wg-screen, .colorsort-screen, [data-game-phase]),
+:is(.cg-screen, .tf-screen, .wg-screen, .colorsort-screen, [data-game-phase]) * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+:is(.cg-screen, .tf-screen, .wg-screen, .colorsort-screen, [data-game-phase]) {
+  overscroll-behavior: none;
+}
+:is(.cg-screen, .tf-screen, .wg-screen, .colorsort-screen, [data-game-phase]) :is(img, svg, canvas, button) {
+  -webkit-user-drag: none;
+}

@@ -344,3 +344,20 @@ describe('CryTranslator recording completion', () => {
     expect(audioContext.close).toHaveBeenCalledOnce();
   });
 });
+
+describe('CryTranslator safety copy', () => {
+  it('always shows the red-flag line with a call link to the emergency number', () => {
+    render(<CryTranslator onBack={vi.fn()} />);
+    expect(screen.getByText('clinical_cry_red_flags')).toBeInTheDocument();
+    expect(screen.getByRole('link').getAttribute('href')).toMatch(/^tel:\d+$/);
+  });
+
+  it('shows a qualitative hint instead of the uncalibrated confidence percentage', async () => {
+    render(<CryTranslator onBack={vi.fn()} />);
+    await clickMic();
+    await finishRecording();
+    expect(screen.getByText('clinical_cry_possible_reason')).toBeInTheDocument();
+    expect(screen.queryByText(/80/)).toBeNull();
+    expect(screen.queryByText(/crytranslator_eminlik/)).toBeNull();
+  });
+});

@@ -18,8 +18,9 @@ istədiyi kimidir; hər Premium/coffee səhifəsində beş imkan göstərilir.
 - Kiçik addımlar: Anacan AI; Həkim PDF; Partnyor hesabı; Bəyaz səslər və
   ağıllı nağıllar; Peyvənd təqvimi; Sağlam reseptlər; Diş çıxarma izləyicisi;
   Mental sağlamlıq və məşqlər; Reklamsız təcrübə.
-- Premium və Bir fincan: Anacan AI; Həkim PDF; Partnyor hesabı;
-  Mental sağlamlıq və məşqlər; Reklamsız təcrübə.
+- Premium və Bir fincan (2026-11-25, mərhələyə uyğun): Qidalanma, yuxu və bez
+  qeydləri; ÜST boy-çəki əyriləri; Gündəlik limitsiz Anacan AI; Həkim PDF;
+  Reklamsız təcrübə.
 
 ### Hamilə
 
@@ -28,8 +29,9 @@ istədiyi kimidir; hər Premium/coffee səhifəsində beş imkan göstərilir.
 - Kiçik addımlar: Anacan AI; Həkim PDF; Partnyor hesabı; Sağlam reseptlər;
   Xəstəxana çantası və ortaq alış-veriş; Hamiləlik albomu, vitamin izləyici;
   Mental sağlamlıq və idman; Reklamsız təcrübə.
-- Premium və Bir fincan: Anacan AI; Həkim PDF; Partnyor hesabı;
-  Mental sağlamlıq və idman; Reklamsız təcrübə.
+- Premium və Bir fincan (2026-11-25, mərhələyə uyğun): Təpik və sancı ölçən;
+  Çəki, qan təzyiqi və şəkəri izləyicisi; Gündəlik limitsiz Anacan AI; Həkim PDF;
+  Reklamsız təcrübə.
 
 ### Period
 
@@ -38,8 +40,13 @@ istədiyi kimidir; hər Premium/coffee səhifəsində beş imkan göstərilir.
 - Kiçik addımlar: Anacan AI; Həkim PDF; Partnyor hesabı; Sağlam reseptlər;
   Qidalanmaya nəzarət; Vitamin izləyicisi; Mental sağlamlıq və idman;
   Reklamsız təcrübə.
-- Premium və Bir fincan: Anacan AI; Həkim PDF; Partnyor hesabı;
-  Mental sağlamlıq və idman; Reklamsız təcrübə.
+- Premium və Bir fincan (2026-11-25, mərhələyə uyğun): Fazalara görə simptom
+  analizi; Tsikl statistikası və trendlər; Gündəlik limitsiz Anacan AI; Həkim PDF;
+  Reklamsız təcrübə.
+
+Premium siyahıları yalnız kodda həqiqətən Premium olan imkanları göstərir (pulsuz
+istifadəçinin gündə 10 AI sualı var; həftəlik hamiləlik izləmə və period proqnozu pulsuzdur).
+Eyni qayda tətbiqdaxili paywall-a da aiddir: `src/lib/paywall-stage-copy.ts`.
 
 ## UI və davranış
 

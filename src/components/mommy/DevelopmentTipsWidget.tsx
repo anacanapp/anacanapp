@@ -9,7 +9,8 @@ import { useChildren } from '@/hooks/useChildren';
  * Development recommendations — redesigned to the anacan-demo teaser card
  * (single tip row + pager dots). Data source (development_tips) unchanged.
  */
-const DevelopmentTipsWidget = () => {
+/** `embedded`: one compact tip row (age label, tip, next) inside the development card on the home. */
+const DevelopmentTipsWidget = ({ embedded = false }: { embedded?: boolean }) => {
   const { selectedChild, getChildAge } = useChildren();
   const childAge = selectedChild ? getChildAge(selectedChild) : null;
   // PREMATURE DƏSTƏYİ: inkişaf tövsiyələri korreksiya olunmuş yaşla seçilir
@@ -42,6 +43,8 @@ const DevelopmentTipsWidget = () => {
     if (tips.length > 0) setCurrentIndex((prev) => (prev - 1 + tips.length) % tips.length);
   };
 
+  if (embedded && (isLoading || tips.length === 0)) return null;
+
   if (isLoading) {
     return (
       <div className="a-card a-fade-in">
@@ -63,6 +66,27 @@ const DevelopmentTipsWidget = () => {
   }
 
   const currentTip = tips[currentIndex];
+
+  if (embedded) {
+    return (
+      <div className="a-dev-tip">
+        <span className="a-list-icon" style={{ background: 'var(--a-peach-1)', fontSize: 18 }}>{currentTip.emoji}</span>
+        <div style={{ minWidth: 0, flex: 1 }}>
+          <p className="a-dev-tip-head">
+            <span>{tr("developmenttipswidget_inkisaf_tovsiyeleri_9f473e", "İnkişaf Tövsiyələri")} · {getAgeLabel()}</span>
+            {tips.length > 1 && <span><bdi>{currentIndex + 1}/{tips.length}</bdi></span>}
+          </p>
+          <p className="a-list-title">{currentTip.title}</p>
+          <p className="a-dev-tip-text">{currentTip.content}</p>
+        </div>
+        {tips.length > 1 &&
+          <button type="button" className="a-icon-btn" style={{ width: 30, height: 30, flexShrink: 0 }} onClick={handleNext} aria-label={tr("common_next", "Növbəti")}>
+            <ChevronRight className="rtl:rotate-180" size={15} />
+          </button>
+        }
+      </div>
+    );
+  }
 
   return (
     <div className="a-card a-fade-in">

@@ -1,0 +1,309 @@
+{
+  "ui": {
+    "title": "Bé yêu của mẹ",
+    "typing": "đang soạn tin…",
+    "placeholder": "Viết tin nhắn…",
+    "week": "Tuần {n}",
+    "size": "to bằng {fruit}",
+    "today": "Hôm nay",
+    "card_new": "Bé đã nhắn tin cho mẹ 💬",
+    "card_wait": "Hôm nay bé chưa nhắn… sắp rồi 👀",
+    "card_cta": "Trả lời",
+    "share_title": "Chia sẻ đoạn chat này",
+    "share_sub": "Dưới dạng ảnh hoặc video từng tin nhắn. Cho bạn bè cùng xem nhé 💛",
+    "share_photo": "Ảnh",
+    "share_video": "Video",
+    "share_making": "Đang tạo video…",
+    "share_text": "Bé nhà mình chưa chào đời mà đã nhắn tin cho mẹ rồi 💛 Anacan",
+    "share_error": "Không chia sẻ được. Vui lòng thử lại.",
+    "hook": "Bé nhà mình chưa chào đời… mà đã nhắn tin cho mẹ.",
+    "end_line1": "Bé nhắn tin cho mẹ",
+    "end_line2": "mỗi ngày.",
+    "notif_title": "Bé yêu 💛",
+    "about": "Chỉ cho vui thôi: Anacan viết tin nhắn phù hợp với tuần tuổi của bé.",
+    "share_ready_video": "Video của mẹ đã sẵn sàng 🎉",
+    "share_ready_photo": "Ảnh của mẹ đã sẵn sàng 🎉",
+    "share_now": "Chia sẻ",
+    "save": "Lưu",
+    "care_text": "Mẹ hãy chia sẻ điều này với bác sĩ nữa nhé. Câu hỏi nào của mẹ cũng quan trọng 💛",
+    "care_cta": "Hỏi Anacan.AI"
+  },
+  "openers": [
+    "Mẹ ơi! Đoán xem 🖐",
+    "Mẹ ơi, mẹ thức chưa? 👀",
+    "Suỵt… mẹ ơi! 🤫",
+    "Mẹ ơi, con kể mẹ nghe chuyện này nhé? 💛",
+    "Chào mẹ! 👋"
+  ],
+  "notifications": [
+    "Mẹ ơi! Đoán xem 🖐",
+    "Con viết cho mẹ một điều nè 💬",
+    "Suỵt… mẹ ơi, nhìn nè! 👀",
+    "Mẹ không tin nổi hôm nay con muốn kể gì đâu! 💛"
+  ],
+  "replies": {
+    "love": [
+      "Con cũng yêu mẹ lắm 💛",
+      "Con chưa được nhìn thấy mẹ, nhưng con đã yêu mẹ nhiều lắm rồi 🥰",
+      "Con mới chỉ to bằng {fruit} thôi, nhưng tim con đầy ắp mẹ 💛"
+    ],
+    "how": [
+      "Tuyệt lắm! Trong này ấm áp dễ chịu ghê 😌",
+      "Con khỏe mẹ ạ. Hôm nay con lớn thêm một chút rồi 🌱",
+      "Vui lắm! Con đang nghe nhịp tim của mẹ 💓"
+    ],
+    "size": [
+      "Bây giờ con to khoảng bằng {fruit} 😄",
+      "Con đã dài {cm} cm rồi! Đang lớn nè 📏",
+      "Con đang ở tuần {week} và mỗi ngày lại lớn thêm một chút 🌱"
+    ],
+    "kick_early": [
+      "Con đã ngọ nguậy rồi, nhưng con còn bé xíu nên mẹ chưa cảm thấy đâu 🤭",
+      "Con đang lộn nhào nho nhỏ trong này 🤸 Mẹ sẽ sớm cảm thấy thôi!"
+    ],
+    "kick": [
+      "Mẹ thấy không? Con đó 🦶",
+      "Hôm nay con nhảy múa đó, mẹ có thấy không? 💃",
+      "Cú đạp đó là con chào mẹ đó 👋🦶"
+    ],
+    "hear_early": [
+      "Tai con vẫn đang chuẩn bị, nhưng con sẽ sớm nghe thấy mẹ 👂",
+      "Để con lớn thêm chút nữa, rồi con sẽ nghe được giọng mẹ 🥰"
+    ],
+    "hear": [
+      "Con nghe thấy mẹ rồi! Mẹ nói chuyện với con nữa đi 🥰",
+      "Giọng mẹ là bản nhạc con thích nhất 🎶",
+      "Mẹ hát cho con nghe đi, con nghe nè 🎵"
+    ],
+    "food": [
+      "Mẹ ăn gì là con cũng được nếm một chút 😋",
+      "Hôm nay mình ăn trái cây nhé? 🍎",
+      "Ưm, ngon quá! Thêm chút nữa nha? 😄"
+    ],
+    "sleep": [
+      "Con cũng buồn ngủ rồi 😴 Mình cùng nghỉ nhé",
+      "Mẹ nằm xuống là con cũng thư giãn theo 😌",
+      "Xin lỗi mẹ nếu con nhảy múa ban đêm nha 🙈"
+    ],
+    "dad": [
+      "Mẹ gửi lời chào bố giúp con nhé! 👋",
+      "Con nhận ra cả giọng bố nữa 😊",
+      "Con thích lắm khi bố nói chuyện với bụng mẹ 🥰"
+    ],
+    "meet": [
+      "Còn {weeks_left} tuần nữa là mình gặp nhau rồi! 🤗",
+      "Con cũng muốn gặp mẹ! Để con lớn thêm chút nữa nhé 🌱",
+      "Chẳng bao lâu nữa là mình gặp nhau rồi 💛"
+    ],
+    "meet_soon": [
+      "Sắp rồi mẹ ơi! Con cũng đang chuẩn bị đây 🤗",
+      "Sắp được nằm trong vòng tay mẹ rồi 💛"
+    ],
+    "name": [
+      "Mẹ sẽ đặt tên con là gì? 😊 Chọn một cái tên thật xinh nhé!",
+      "Tên nào mẹ gọi cũng nghe dễ thương hết 💛"
+    ],
+    "hello": [
+      "Chào mẹ! 👋",
+      "Chào mẹ ơiii! Con đợi mẹ mãi 💛"
+    ],
+    "thanks": [
+      "Không có gì đâu mẹ! 😊",
+      "Cảm ơn mẹ đã mang con theo khắp nơi 💛"
+    ],
+    "generic": [
+      "Mẹ là tuyệt nhất 💛",
+      "Con đang nghe nè 👂😊",
+      "Hmm… chuyện đó để con lớn hơn rồi hỏi nha 😄",
+      "Con còn bé, nhưng con thích điều đó lắm 😄",
+      "Mẹ nhắn cho con nữa đi! 🥰"
+    ],
+    "care": [
+      "Con yêu mẹ nhiều lắm 💛",
+      "Con luôn ở bên mẹ 🤗"
+    ]
+  },
+  "keywords": {
+    "thanks": [
+      "cảm ơn",
+      "cam on",
+      "cám ơn",
+      "cảm ơn con",
+      "thanks",
+      "tks"
+    ],
+    "love": [
+      "yêu",
+      "yeu",
+      "thương",
+      "thuong",
+      "cưng",
+      "cung",
+      "hôn",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "tên",
+      "ten",
+      "đặt tên",
+      "dat ten",
+      "gọi con",
+      "goi con"
+    ],
+    "dad": [
+      "bố",
+      "bo",
+      "ba",
+      "cha",
+      "bố con",
+      "ba con"
+    ],
+    "kick": [
+      "đạp",
+      "dap",
+      "đá",
+      "cử động",
+      "cu dong",
+      "nhảy",
+      "nhay",
+      "múa",
+      "lộn nhào"
+    ],
+    "hear": [
+      "nghe",
+      "giọng",
+      "giong",
+      "nhạc",
+      "nhac",
+      "hát",
+      "hat",
+      "nói chuyện",
+      "noi chuyen"
+    ],
+    "size": [
+      "to bằng",
+      "to bang",
+      "nhỏ",
+      "nho",
+      "lớn",
+      "lon",
+      "cm",
+      "nặng",
+      "nang",
+      "kích thước",
+      "kich thuoc"
+    ],
+    "food": [
+      "ăn",
+      "an gi",
+      "an com",
+      "đói",
+      "doi",
+      "món",
+      "trái cây",
+      "trai cay",
+      "sô cô la",
+      "sữa",
+      "sua"
+    ],
+    "sleep": [
+      "ngủ",
+      "ngu",
+      "đêm",
+      "dem",
+      "mệt",
+      "met",
+      "giường",
+      "nghỉ"
+    ],
+    "meet": [
+      "gặp",
+      "gap",
+      "khi nào",
+      "khi nao",
+      "chờ",
+      "đợi",
+      "doi con",
+      "chào đời",
+      "chao doi",
+      "sinh"
+    ],
+    "how": [
+      "thế nào",
+      "the nao",
+      "sao rồi",
+      "sao roi",
+      "khỏe không",
+      "khoe khong",
+      "làm gì",
+      "lam gi"
+    ],
+    "hello": [
+      "chào",
+      "chao",
+      "hi",
+      "hello",
+      "xin chào",
+      "chào buổi sáng"
+    ]
+  },
+  "weekly": {
+    "4": "Mẹ ơi, con mới chỉ bằng hạt anh túc thôi, nhưng con có kế hoạch lớn lắm 🌱",
+    "5": "Tim con bắt đầu đập rồi! Thình thịch… mẹ nghe thấy không? 💓",
+    "6": "Tuần này mũi con đang thành hình 👃 Chắc chắn con sẽ mê mùi của mẹ!",
+    "7": "Tay con trông như mái chèo tí hon 🤲 Con chưa vỗ tay được đâu",
+    "8": "Ngón tay con đang mọc 🖐 Con bắt đầu đếm: 1, 2, 3… đếm lại nhé?",
+    "9": "Giờ con có cơ bắp tí hon rồi 💪 Con đang tập luyện bí mật",
+    "10": "Móng tay con bắt đầu mọc 💅 Chuyện làm móng để sau nhé",
+    "11": "Con học được cách nấc rồi! Hức! 😅",
+    "12": "Hôm nay con mút ngón cái 👍 Ngon ghê!",
+    "13": "Con có dấu vân tay rồi ☝️ Con là duy nhất đó!",
+    "14": "Con đang tập làm mặt: nhăn mặt, mỉm cười… 😄",
+    "15": "Con cảm nhận được ánh sáng ☀️ Con sẽ thích những ngày nắng lắm!",
+    "16": "Mắt con đang chuyển động chầm chậm 👀 Vẫn nhắm, nhưng háo hức lắm",
+    "17": "Con đang tích chút mỡ cho đôi má 😊 Để mẹ thơm!",
+    "18": "Tai con sẵn sàng rồi 👂 Chuẩn bị nghe giọng mẹ đây",
+    "19": "Con đang học lộn nhào 🤸 Mẹ thấy không?",
+    "20": "Mình đi được nửa chặng rồi! 🎉 Hôm nay con tự vỗ tay cho mình",
+    "21": "Cú đạp của con mạnh hơn rồi 🦶 Nghĩa là “chào mẹ” đó!",
+    "22": "Lông mày con mọc rồi 🤨 Giờ con biểu cảm hơn nhé",
+    "23": "Con đang nghe nhạc 🎶 Con mê bài hát của mẹ lắm",
+    "24": "Con đang tập thở 🌬 Vẫn ở dưới nước, nhưng con là cao thủ!",
+    "25": "Tóc con đang mọc 💇 Màu tóc sẽ là bất ngờ nhé!",
+    "26": "Con mở mắt được rồi! 👀 Trong này cái gì cũng màu hồng",
+    "27": "Con đang mơ 💭 Chắc là mơ về mẹ",
+    "28": "Con chớp mắt được rồi 😉 Con đang nháy mắt với mẹ đó",
+    "29": "Chỗ hơi chật rồi, nhưng con vẫn nhảy múa 💃",
+    "30": "Con thông minh hơn mỗi ngày 🧠 Giống mẹ đó!",
+    "31": "Con quay đầu được rồi ↔️ Con nhìn về phía giọng mẹ",
+    "32": "Móng tay con dài tới đầu ngón rồi 💅 Sắp sẵn sàng!",
+    "33": "Con khỏe hơn mỗi ngày 💪 Chuẩn bị cho những cái ôm",
+    "34": "Má con đang phúng phính 😊 Sẵn sàng cho mẹ thơm",
+    "35": "Trong này ấm cúng ghê 🙈 Con cần chỗ để duỗi chân thôi",
+    "36": "Con gần xong rồi! Chỉ còn vài nét hoàn thiện ✨",
+    "37": "Mắt con, tai con, tim con: tất cả đều đang chờ mẹ 💛",
+    "38": "Con mơ được nằm trong vòng tay mẹ 🤗 Sắp rồi",
+    "39": "Mẹ soạn túi đồ chưa? 😄 Con sẵn sàng rồi",
+    "40": "Có thể hôm nay, có thể ngày mai 😄 Con sẽ làm mẹ bất ngờ!",
+    "41": "Trong này dễ chịu quá, con ở thêm chút nữa được không? 🙈💛"
+  },
+  "daily": [
+    "Hôm nay con to bằng {fruit} rồi! Con đang lớn 🌱",
+    "Nhịp tim mẹ là bài hát ru của con 💓",
+    "Trong này ấm áp dễ chịu lắm, mẹ đừng lo nhé 😌",
+    "Hôm nay mẹ nghỉ ngơi chút nha, con cũng nghỉ 😴",
+    "Mẹ nhớ uống nước nhé, con cũng thích lắm 💧",
+    "Hôm nay mình ăn gì hả mẹ? 😋",
+    "Mẹ cười lên nào! Mẹ cười là con cũng thấy thư thái 😊",
+    "Mẹ chào bố giúp con nhé! 👋",
+    "Con bé xíu thôi, nhưng con yêu mẹ nhiều lắm 💛",
+    "Hôm nay con lớn thêm chút xíu, mẹ có thấy không? 📏",
+    "Mỗi ngày con lại yêu mẹ thêm một chút 🥰",
+    "Mẹ kể chuyện cho con nghe nhé? 📖",
+    "Hôm nay mẹ xinh quá đi! ✨",
+    "Con đang chờ mẹ, và mẹ cũng đang chờ con 🤗"
+  ]
+}

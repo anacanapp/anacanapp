@@ -40,7 +40,18 @@ const AdminForceUpdate = () => {
       select('*').
       eq('key', 'force_update').
       maybeSingle();
-      return data ? data.value as unknown as ForceUpdateConfig : defaultConfig;
+      // The value may arrive as a JSON string; spreading a string later saved it character by character
+      // ({"0":"{",...}), which lost min_version and cut the Android link. Always work on a parsed object.
+      const raw = data?.value as unknown;
+      let parsed: unknown = raw;
+      if (typeof raw === 'string') { try { parsed = JSON.parse(raw); } catch { parsed = null; } }
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return defaultConfig;
+      const obj = parsed as Record<string, unknown>;
+      return {
+        ...defaultConfig,
+        ...Object.fromEntries(Object.entries(obj).filter(([k]) => k in defaultConfig)),
+        enabled: obj.enabled === true,
+      } as ForceUpdateConfig;
     }
   });
 

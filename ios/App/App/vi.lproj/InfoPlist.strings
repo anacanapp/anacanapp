@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan cần quyền truy cập camera để chụp ảnh hồ sơ, tạo album thai kỳ và sử dụng tính năng quét phân.";
+"NSPhotoLibraryUsageDescription" = "Anacan truy cập ảnh của bạn để dùng làm ảnh hồ sơ và album thai kỳ.";
+"NSPhotoLibraryAddUsageDescription" = "Cần có sự cho phép của bạn để lưu ảnh em bé được tạo và kỷ niệm trong album vào thư viện ảnh.";
+"NSMicrophoneUsageDescription" = "Micrô được dùng để phân tích tiếng khóc của bé và ghi chú bằng giọng nói.";
+"NSLocationWhenInUseUsageDescription" = "Cần vị trí của bạn để gợi ý trang phục phù hợp với thời tiết và hiển thị các địa điểm thân thiện với mẹ ở gần bạn.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Cần vị trí của bạn để gợi ý trang phục phù hợp với thời tiết và hiển thị các địa điểm thân thiện với mẹ ở gần bạn.";
+"NSFaceIDUsageDescription" = "Face ID được dùng để đăng nhập vào ứng dụng một cách an toàn.";
+"NSContactsUsageDescription" = "Truy cập danh bạ để mời bạn đời của bạn.";
+"NSCalendarsUsageDescription" = "Cần có sự cho phép của bạn để thêm lịch hẹn khám bác sĩ và lời nhắc vào lịch.";
+"NSMotionUsageDescription" = "Cảm biến chuyển động được dùng để theo dõi hoạt động hằng ngày và số bước chân.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan có thể dùng Bluetooth để kết nối với các thiết bị thông minh (ví dụ: máy theo dõi em bé).";
+"NSLocalNetworkUsageDescription" = "Ứng dụng cần sự cho phép của bạn để kết nối với các thiết bị trong mạng cục bộ.";
+"NSUserTrackingUsageDescription" = "Sự cho phép của bạn giúp chúng tôi đo lường hiệu quả quảng cáo và hiển thị nội dung phù hợp hơn với bạn. Dữ liệu cá nhân của bạn không được chia sẻ với bên thứ ba.";

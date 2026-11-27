@@ -1,0 +1,20 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261113150000_premium_lifecycle_pushes.sql",
+  "runtime": "google-web-premium",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the new relation is registered in guarded_relations with the three standard triggers (the migration refuses without the guard catalog and verifies 1 relation / 3 triggers)",
+  "preserve": [
+    "subscriptions / web_premium_* tables unchanged",
+    "no new timer: web-premium-renew {\"mode\":\"nudge\"} (15-minute anacan-web-premium-nudge) and its daily run send these pushes"
+  ],
+  "relations": [
+    { "relation": "public.premium_lifecycle_pushes", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "one row per lifecycle push (user_id, kind store_expiring|web_renewal_failed|web_expired, ref = period end or charge id, unique per user+kind+ref, push_sent, created_at, sent_at); RLS on, no client grants" }
+  ],
+  "functions": [
+    { "name": "public.web_premium_checkout_nudges_due_v1(integer)", "change": "replaced", "security": "definer", "grant": ["service_role"], "note": "claims from web_premium_offer_v1 (campaign or standard price); returns kind" },
+    { "name": "public.premium_store_expiring_due_v1(integer)", "security": "definer", "grant": ["service_role"], "note": "store Premium, auto-renew off, ends in 24-72 h, 10:00-20:00 user local time, not web subscribers/admins, once per period end (20-day guard); claims rows" },
+    { "name": "public.premium_web_push_claim_v1(uuid, text, text)", "security": "definer", "grant": ["service_role"], "note": "once-per-charge claim for web renewal failed / expired pushes" },
+    { "name": "public.premium_lifecycle_push_sent_v1(uuid, integer)", "security": "definer", "grant": ["service_role"], "note": "records delivery" }
+  ]
+}

@@ -12,9 +12,11 @@ import { hasNativeAdmob, NativeAdmobAdapter, removeNativeAdmobBanner, type Nativ
 import { readAdLedger, writeAdLedger } from '@/lib/ads/storage';
 import { DemoBanner, DemoFullscreen } from './DemoAd';
 import { toast } from 'sonner';
+import { tr } from '@/lib/tr';
 import { useTimerStore } from '@/store/timerStore';
 import { useWhiteNoiseStore } from '@/store/whiteNoiseStore';
 import { advanceAdCadence, consumeAdCadence, type AdCadence } from '@/lib/ads/cadence';
+import { usePrivacyConsent } from '@/lib/privacyConsent';
 
 interface AdSurface { token: string; id: AdPlacementId; startedAt: number }
 export interface AdPreview { enabled: boolean; platform: AdPlatform; premium: boolean; fast: boolean }
@@ -40,6 +42,12 @@ const AdContext = createContext<AdExperience>({ configuration: null, preview: no
 export const useAdExperience = () => useContext(AdContext);
 
 const LAYOUT_THROTTLE_MS = 150;
+/** Ad config: slow foreground poll (30 min) plus a re-read on focus/resume/reconnect once 60s stale.
+ * The fail-closed freshness guard follows the poll (poll + 5 min margin): a config that has not
+ * been confirmed for longer than that (or an errored read) still stops new ads. */
+const ADMOB_CONFIG_POLL_MS = 30 * 60_000;
+const ADMOB_CONFIG_STALE_MS = 60_000;
+const ADMOB_CONFIG_FRESH_MS = ADMOB_CONFIG_POLL_MS + 5 * 60_000;
 
 function layoutState() {
   const input = document.activeElement;
@@ -79,6 +87,11 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
     viewportHeight: typeof window === 'undefined' ? 800 : window.innerHeight,
     anchors: {} as Record<string, { top: number; height: number; visible: boolean }>, foreground: true, online: true }));
   const [consent, setConsent] = useState<NativeConsent>({ canRequestAds: false, privacyOptionsRequired: false });
+  // Personalised ads need the person's own opt-in (Məxfilik → Razılıq) on top of UMP and the admin NPA switch.
+  const personalizedAdsAllowed = usePrivacyConsent().ads;
+  const personalizedRef = useRef(personalizedAdsAllowed);
+  personalizedRef.current = personalizedAdsAllowed;
+  const npaFor = (value: AdsConfiguration) => value.settings.non_personalized_only || !personalizedRef.current;
   const consentRef = useRef(consent);
   const [nativeVersion, setNativeVersion] = useState('0');
   const [tick, setTick] = useState(Date.now());
@@ -99,13 +112,15 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
   const actualPlatform = Capacitor.getPlatform();
   const nativeAvailable = hasNativeAdmob();
   const backend = getBackendConfig(), azure = backend.azure;
+  // Foreground poll is slow; focus/resume (refetchOnWindowFocus) and reconnect re-read it once stale.
   const configQuery = useQuery({ queryKey: ['admob-configuration', backend.url], queryFn: fetchAdmobConfiguration,
-    enabled: !!userId, staleTime: 15_000, gcTime: 60_000, refetchInterval: 30_000, retry: false });
+    enabled: !!userId, staleTime: ADMOB_CONFIG_STALE_MS, gcTime: ADMOB_CONFIG_FRESH_MS, refetchInterval: ADMOB_CONFIG_POLL_MS,
+    refetchOnWindowFocus: true, refetchOnReconnect: true, retry: false });
   const previewProof = useQuery({ queryKey: ['admin-admob-preview', backend.url, userId], queryFn: fetchAdmobOverview,
     enabled: !!userId && isAdmin && previewRequested && azure, staleTime: 0, refetchInterval: 30_000, retry: false });
   const demoAllowed = !!userId && isAdmin && previewRequested && previewProof.isSuccess && !previewProof.isError;
   const effectivePreview = { ...preview, enabled: preview.enabled && demoAllowed };
-  const configuration = !configQuery.isError && tick - configQuery.dataUpdatedAt < 75_000 ? configQuery.data ?? null : null;
+  const configuration = !configQuery.isError && tick - configQuery.dataUpdatedAt < ADMOB_CONFIG_FRESH_MS ? configQuery.data ?? null : null;
   const protectedLayout = { ...layout, blocked: layout.blocked || hasActiveTimer || hasActiveAudio || forcedBlocks.length > 0,
     allowed: hasActiveTimer || hasActiveAudio || forcedBlocks.length > 0 ? [] : layout.allowed };
   const current = useRef({ configuration, effectivePreview, userId, subscription, layout: protectedLayout, nativeVersion, nativeAvailable, surfaces, tick });
@@ -241,7 +256,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
   const bannerTop = bannerPosition === 'top' ? layout.safeTop + 8 : bannerPosition === 'middle' ? anchor?.top ?? 0
     : layout.viewportHeight - layout.bottom - (banner?.height ?? 60);
   const bannerVisible = bannerPosition !== 'middle' || anchor?.visible === true;
-  const bannerKey = bannerSurface && bannerDecision.allowed ? `${bannerSurface.token}:${bannerDecision.mode}:${bannerDecision.adUnitId}:${configuration?.settings.non_personalized_only}:${bannerPosition}` : '';
+  const bannerKey = bannerSurface && bannerDecision.allowed ? `${bannerSurface.token}:${bannerDecision.mode}:${bannerDecision.adUnitId}:${configuration ? npaFor(configuration) : ''}:${bannerPosition}` : '';
   const canDisplay = Boolean(bannerKey && Date.now() >= (backoff.current[bannerKey] ?? 0)
     && (bannerVisible || banner?.key === bannerKey));
   useEffect(() => {
@@ -259,7 +274,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
     if (mode === 'demo') { loaded(); emit(id, 'impression', mode); }
     else void adapter.showBanner(bannerDecision.adUnitId!, Math.max(0, bannerPosition === 'bottom'
       ? layout.bottom - (actualPlatform === 'ios' ? layout.safeBottom : 0) : bannerTop - layout.safeTop), mode,
-      configuration.settings.non_personalized_only, {
+      npaFor(configuration), {
         loaded,
         size: height => { if (valid() && height > 0) setBanner(previous => previous?.key === bannerKey ? { ...previous, height } : previous); },
         impression: () => { if (valid()) emit(id, 'impression', mode); },
@@ -294,15 +309,15 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
           const video = placement.story_format === 'video';
           if (!adapter.isStoryPrepared(decision.adUnitId, video) && !adapter.isStoryPreparing(decision.adUnitId, video)) {
             emit(surface.id, 'requested', decision.mode);
-            void adapter.prepareStory(decision.adUnitId, decision.mode, configuration.settings.non_personalized_only, video).then(ok => {
+            void adapter.prepareStory(decision.adUnitId, decision.mode, npaFor(configuration), video).then(ok => {
               if (!ok) backoff.current[surface.id] = Date.now() + 60000;
               emit(surface.id, ok ? 'loaded' : 'failed', decision.mode, ok ? '' : 'sdk_error');
             });
           }
-        } else if (!adapter.isPrepared(decision.adUnitId, decision.mode, configuration.settings.non_personalized_only)
-          && !adapter.isPreparing(decision.adUnitId, decision.mode, configuration.settings.non_personalized_only)) {
+        } else if (!adapter.isPrepared(decision.adUnitId, decision.mode, npaFor(configuration))
+          && !adapter.isPreparing(decision.adUnitId, decision.mode, npaFor(configuration))) {
           emit(surface.id, 'requested', decision.mode);
-          void adapter.prepare(decision.adUnitId, decision.mode, configuration.settings.non_personalized_only).then(ok => {
+          void adapter.prepare(decision.adUnitId, decision.mode, npaFor(configuration)).then(ok => {
             if (!ok) backoff.current[surface.id] = Date.now() + 60_000;
             emit(surface.id, ok ? 'loaded' : 'failed', decision.mode, ok ? '' : 'sdk_error');
           });
@@ -332,7 +347,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
       emit(id, 'reward_earned', mode);
     };
     if (mode !== 'demo' && !rewarded && !(nativeStory ? adapter.isStoryPrepared(decision.adUnitId!, storyVideo)
-      : adapter.isPrepared(decision.adUnitId!, mode, config.settings.non_personalized_only))) {
+      : adapter.isPrepared(decision.adUnitId!, mode, npaFor(config)))) {
       emit(id, 'skipped', mode, 'not_ready'); return false;
     }
     setBusyState(true); void adapter.stopBanner(); setBanner(null);
@@ -351,7 +366,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
       });
       if (rewarded) {
         emit(id, 'requested', mode);
-        if (!await adapter.prepare(decision.adUnitId!, mode, config.settings.non_personalized_only, true)) {
+        if (!await adapter.prepare(decision.adUnitId!, mode, npaFor(config), true)) {
           emit(id, 'failed', mode, 'sdk_error'); return false;
         }
         emit(id, 'loaded', mode);
@@ -363,7 +378,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
           impression: () => { if (stillCurrent()) emit(id, 'impression', mode); }, rewarded: grant,
       };
       const result = nativeStory ? await adapter.showStory(decision.adUnitId!, storyVideo, allowed, callbacks)
-        : await adapter.showFullscreen(decision.adUnitId!, mode, config.settings.non_personalized_only, rewarded, allowed, callbacks);
+        : await adapter.showFullscreen(decision.adUnitId!, mode, npaFor(config), rewarded, allowed, callbacks);
       if (stillCurrent()) emit(id, result.shown ? 'dismissed' : 'failed', mode, result.shown ? '' : 'sdk_error');
       return rewarded ? result.rewarded && stillCurrent() : result.shown;
     } finally { if (stillCurrent()) setBusyState(false); }
@@ -396,7 +411,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
     try {
       const result = await adapter.privacyOptions();
       if (mounted.current && epoch.current === ownEpoch) { consentRef.current = result; setConsent(result); }
-    } catch { toast.error('Reklam məxfilik seçimləri hazırda açılmır. Yenidən cəhd edin.'); }
+    } catch { toast.error(tr('adexp_privacy_unavailable', 'Reklam məxfilik seçimləri hazırda açılmır. Yenidən cəhd edin.')); }
     finally { if (ownEpoch === epoch.current) setBusyState(false); }
   }, [adapter, nativeAvailable, setBusyState]);
   const mode = effectivePreview.enabled ? 'demo' : configuration?.settings.mode ?? 'demo';
@@ -416,7 +431,7 @@ export function AdExperienceProvider({ children }: { children: ReactNode }) {
     <span id="admob-safe-area-probe" aria-hidden style={{ position: 'fixed', visibility: 'hidden', pointerEvents: 'none', paddingBottom: 'env(safe-area-inset-bottom)', paddingTop: 'env(safe-area-inset-top)' }} />
     {banner?.loaded && <div className="admob-banner-dock" style={{ top: bannerTop, height: banner.height, visibility: bannerVisible ? 'visible' : 'hidden', ...(bannerPosition === 'middle' ? { width: 'min(320px, calc(100% - 16px))' } : {}) }} data-testid="ad-banner-dock" data-placement={banner.id} data-position={bannerPosition}>
       {banner.mode === 'demo' && <DemoBanner placementId={banner.id} onClick={() => {
-        emit(banner.id, 'demo_clicked', 'demo'); toast.info('Bu demo reklamdır. Real reklamın məzmununu AdMob təqdim edir.');
+        emit(banner.id, 'demo_clicked', 'demo'); toast.info(tr('adexp_demo_banner_info', 'Bu demo reklamdır. Real reklamın məzmununu AdMob təqdim edir.'));
       }} />}
     </div>}
     {effectivePreview.enabled && <div className="admob-preview-toolbar" data-testid="ad-preview-toolbar">

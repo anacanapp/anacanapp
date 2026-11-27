@@ -15,7 +15,7 @@ import org.json.JSONObject
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * Anacan Timer Foreground Service — süd vermə / yuxu taymerlərini kilid ekranında
+ * Anacan Timer Foreground Service — süd vermə / yuxu (və sancı / hərəkət) taymerlərini kilid ekranında
  * xronometrli bildiriş kimi göstərir. "Dayandır" düyməsi tətbiqi açmadan taymeri
  * dayandırır (nəticə CapacitorStorage-a "pending stop" kimi yazılır ki, JS tərəf
  * sessiyanı baby_logs-a qeyd edə bilsin). Bildirişə toxunuş tətbiqi açır.
@@ -135,7 +135,9 @@ class TimerForegroundService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val name = localizedName?.takeIf { it.isNotBlank() } ?: "Taymerlər"
-            val desc = localizedDesc?.takeIf { it.isNotBlank() } ?: "Aktiv süd vermə / yuxu taymerləri"
+            // Kanal bütün aktiv taymerlər üçündür (süd vermə, yuxu, sancı, hərəkət sayğacı).
+            // CHANNEL_ID dəyişmir ki, istifadəçinin mövcud kanal ayarları qalsın.
+            val desc = localizedDesc?.takeIf { it.isNotBlank() } ?: "Aktiv taymerlər"
             val existing = nm.getNotificationChannel(CHANNEL_ID)
             if (existing == null) {
                 val ch = NotificationChannel(CHANNEL_ID, name, NotificationManager.IMPORTANCE_LOW)
@@ -143,8 +145,11 @@ class TimerForegroundService : Service() {
                 ch.setShowBadge(false)
                 ch.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
                 nm.createNotificationChannel(ch)
-            } else if (localizedName != null && existing.name?.toString() != name) {
-                // Dil dəyişib — kanal adını yenilə (createNotificationChannel mövcud kanalı update edir)
+            } else if ((localizedName != null && existing.name?.toString() != name) ||
+                (localizedDesc != null && existing.description != desc)
+            ) {
+                // Dil/mətn dəyişib — kanal adını və təsvirini yenilə (createNotificationChannel
+                // mövcud kanalı update edir; istifadəçinin vacibilik/səs ayarlarına toxunmur)
                 existing.name = name
                 existing.description = desc
                 nm.createNotificationChannel(existing)
@@ -155,6 +160,16 @@ class TimerForegroundService : Service() {
     private fun smallIconRes(): Int {
         val custom = resources.getIdentifier("ic_stat_icon", "drawable", packageName)
         return if (custom != 0) custom else applicationInfo.icon
+    }
+
+    /**
+     * Hamiləlik alətlərinin taymerləri (tool-live-timer.ts) başlıqda öz emojisi ilə
+     * göstərilir; süd vermə / yuxu və digər növlər əvvəlki kimi dəyişməz qalır.
+     */
+    private fun titleFor(info: TimerInfo): String = when (info.type) {
+        "contraction" -> "\uD83C\uDF0A ${info.label}" // 🌊
+        "kick" -> "\uD83D\uDC63 ${info.label}"        // 👣
+        else -> info.label
     }
 
     private fun buildNotification(info: TimerInfo): Notification {
@@ -179,7 +194,7 @@ class TimerForegroundService : Service() {
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(smallIconRes())
-            .setContentTitle(info.label)
+            .setContentTitle(titleFor(info))
             .setContentText(info.subLabel)
             .setUsesChronometer(true)      // kilid ekranında canlı sayğac
             .setShowWhen(true)

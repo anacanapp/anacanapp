@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Przywiązanie: bezpieczna przystań dziecka',
+    summary: 'Bezpieczne przywiązanie nie rodzi się z perfekcyjnego rodzicielstwa, tylko z rodzicielstwa „wystarczająco dobrego”, uważnego i godnego zaufania.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby opisał przywiązanie jako instynkt dziecka, by w chwili zagrożenia szukać bliskości. Mary Ainsworth zaobserwowała zaś, że dzieci, których rodzice są wrażliwi i przewidywalni, traktują ich jak „bezpieczną bazę”: swobodnie eksplorują, a gdy się boją, wracają, by się uspokoić.',
+      'Bezpieczne przywiązanie wiąże się w późniejszych latach z lepszą regulacją emocji, umiejętnością nawiązywania przyjaźni i wiarą w siebie. Ważna rzecz: nie trzeba w tym celu odpowiadać na każdy płacz natychmiast i perfekcyjnie. Badania pokazują, że duża część interakcji to chwile „niedopasowania”, a liczy się to, że później je naprawiamy.',
+      'Przywiązanie nie powstaje raz na zawsze: także w wieku szkolnym dziecko musi wiedzieć, że w trudnej chwili może do ciebie wrócić. Tyle że teraz to bardziej słuchanie i poczucie „jestem po twojej stronie” niż noszenie na rękach.',
+    ],
+    tryToday: [
+      'Gdy dziecko do ciebie przychodzi (z radością albo ze smutkiem), poświęć mu kilka sekund pełnej uwagi: odłóż telefon, spójrz mu w oczy.',
+      'Przed rozstaniem wprowadź krótki, zawsze taki sam rytuał pożegnania: przytulenie, „do zobaczenia wieczorem” — i naprawdę wyjdź. Wymykanie się po cichu podkopuje zaufanie.',
+      'Raz dziennie dołącz do jego zainteresowań: w co się bawi, o czym opowiada.',
+      'Napraw chwilę, w której się zdenerwowałaś/zdenerwowałeś: „Rano byłam niecierpliwa. Chodź, zacznijmy od nowa.”',
+    ],
+    mistakes: [
+      'Zostawianie niemowlęcia, żeby płakało, ze strachu, że „przyzwyczai się do noszenia”. W pierwszych miesiącach reagowanie nie zmniejsza samodzielności, wręcz ją zwiększa.',
+      'Rozumienie przywiązania jako „nigdy nie rozstawać się z dzieckiem”. Bezpieczne więzi powstają też z babcią, tatą, opiekunką — i to dobrze.',
+      'Dążenie do perfekcji. Dziecko nie potrzebuje idealnego rodzica, tylko szczerego i takiego, który umie naprawiać.',
+    ],
+    byAge: {
+      '0-1': 'Reaguj na płacz, nawiązuj kontakt wzrokowy, mów, śpiewaj. W tym wieku nie ma czegoś takiego jak rozpieszczanie.',
+      '1-3': 'Dziecko eksploruje i wraca. Wystarczy usiąść na placu zabaw i powiedzieć „jestem tutaj”.',
+      '3-6': 'Codzienny specjalny czas zabawy, 10–15 minut, wzmacnia przywiązanie.',
+      '6-12': 'Słuchaj bez oceniania. Jeśli będziesz przy nim w małych problemach, przyniesie ci też te duże.',
+    },
+    specialist: [
+      'Jeśli niemowlę unika kontaktu wzrokowego, w ogóle nie interesuje się tobą ani znajomymi osobami albo prawie nie da się go uspokoić — zgłoś się do lekarza.',
+      'Jeśli dziecko przywiązuje się do wszystkich, nawet obcych, w tym samym stopniu i bez różnicy (zwłaszcza po trudnych pierwszych latach) — zwróć się do psychologa dziecięcego.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Gdy niemowlę płacze: mit „rozpieszczenia”',
+    summary: 'Płacz to jedyny język niemowlęcia. Reagowanie na niego nie rozpieszcza, tylko buduje zaufanie.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'Amerykańska Akademia Pediatrii mówi wprost: w pierwszych miesiącach nie da się rozpieścić niemowlęcia. Czuła reakcja na płacz uspokaja jego układ stresu i buduje przekonanie, że „świat jest bezpieczny”.',
+      'Jednocześnie to normalne, że także zdrowe niemowlęta w pierwszych tygodniach dużo płaczą: płacz zaczyna narastać około 2. tygodnia, szczyt osiąga w 6.–8. tygodniu i słabnie w 3.–4. miesiącu. Czasem nie da się znaleźć żadnej przyczyny. To nie twoja porażka.',
+      'Najważniejsza zasada bezpieczeństwa: gdy nerwy sięgają zenitu, nigdy nie potrząsaj niemowlęciem. Potrząsanie może spowodować uszkodzenie mózgu. Położenie dziecka na plecach w łóżeczku i wyjście z pokoju na kilka minut to całkowicie właściwy krok.',
+    ],
+    tryToday: [
+      'Sprawdź podstawowe potrzeby: głód, pieluszka, za ciepło lub za zimno, odbicie, zmęczenie.',
+      'Wypróbuj sposoby uspokajania: otulanie (z luźnymi biodrami), rytmiczne kołysanie, „szszsz”, noszenie na rękach w ruchu, kontakt skóra do skóry.',
+      'Na godziny płaczu zrób plan pomocy: zmieniajcie się z partnerem, babcią albo sąsiadką.',
+      'Jeśli kończy ci się cierpliwość: połóż dziecko w bezpiecznym miejscu, oddychaj przez 5–10 minut, napij się wody, zadzwoń do kogoś, potem wróć.',
+    ],
+    mistakes: [
+      'Zostawianie bardzo małego niemowlęcia samego na długo, bo „jak się wypłacze, to się przyzwyczai”.',
+      'Wiązanie dużej ilości płaczu ze swoim „złym rodzicielstwem”. Ten okres minie.',
+      'Wstydzenie się prosić o pomoc.',
+    ],
+    specialist: [
+      'Jeśli płaczowi towarzyszy gorączka (zwłaszcza u niemowlęcia poniżej 3 miesięcy), wymioty, biegunka, odmowa jedzenia, apatia albo nietypowo przenikliwy płacz — natychmiast zgłoś się do lekarza. W poważnej sytuacji dzwoń pod {emergency}.',
+      'Jeśli pojawia się myśl o potrząśnięciu dzieckiem lub zrobieniu mu krzywdy, natychmiast poproś o pomoc. To nie czyni cię złym człowiekiem, pokazuje, że twoje zmęczenie sięgnęło granicy.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 minut dziennie: specjalny czas',
+    summary: 'Krótki, codzienny czas zabawy prowadzonej przez dziecko to jedno z najsilniejszych narzędzi zmniejszania problemów z zachowaniem.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Na tym właśnie opiera się pierwszy etap PCIT (Terapii Interakcji Rodzic–Dziecko), jednego z najlepiej przebadanych programów dla rodziców: 5–10 minut dziennie zabawy prowadzonej przez dziecko, podczas której rodzic chwali, opisuje i naśladuje. Metaanalizy pokazują, że takie programy wyraźnie zmniejszają problemy z zachowaniem.',
+      'Powód jest prosty: gdy potrzeba uwagi zostaje zaspokojona w pozytywny sposób, maleje potrzeba „zdobywania” uwagi trudnym zachowaniem.',
+    ],
+    tryToday: [
+      'Nastaw minutnik: 10 minut. Telefon w innym pokoju.',
+      'Dziecko wybiera zabawę, ty podążasz. Bez poleceń, zasypywania pytaniami i krytyki.',
+      'Opisuj, co robi: „Położyłeś czerwony klocek na samej górze.” Naśladuj, chwal: „Jak starannie budujesz!”',
+      'Na koniec powiedz: „Świetnie mi się z tobą bawiło. Jutro znowu.”',
+    ],
+    mistakes: [
+      'Odwoływanie specjalnego czasu za złe zachowanie. To nie kara ani nagroda, tylko codzienna witamina.',
+      'Zamienianie zabawy w „lekcję”: „Jaki to kolor? Ile jest klocków?”',
+    ],
+    byAge: {
+      '1-3': 'Wystarczy 5 minut. Usiądź na podłodze, na jego wysokości.',
+      '6-12': 'Nazwijcie ten czas: „czas mamy i syna”. Może to być gra w karty, wspólne gotowanie, spacer.',
+    },
+    specialist: [
+      'Jeśli specjalny czas i inne metody przez kilka tygodni nie przynoszą żadnej zmiany, a problemy z zachowaniem są poważne — zwróć się do specjalisty w sprawie PCIT lub podobnych programów.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Lęk separacyjny i adaptacja w żłobku/przedszkolu',
+    summary: 'Płacz przy rozstaniu to oznaka przywiązania. Krótkie, szczere pożegnanie i przewidywalny powrót ułatwiają adaptację.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Lęk separacyjny zaczyna się mniej więcej w 8.–10. miesiącu, szczyt osiąga w 15.–18. miesiącu i zwykle łagodnieje w okolicach 3. roku życia. To okres, w którym dziecko nie rozumie jeszcze w pełni, że rodzic nie „znika”.',
+      'Niepokój dziecka najbardziej nasila nieprzewidywalność. Wymykanie się po cichu może na chwilę zmniejszyć łzy, ale długofalowo sprawia, że dziecko bardziej się klei.',
+    ],
+    tryToday: [
+      'Wprowadź krótki, zawsze taki sam rytuał pożegnania: przytulenie, buziak, „przyjdę po obiedzie”, potem wyjdź.',
+      'Przed rozpoczęciem żłobka/przedszkola zróbcie krótkie próbne rozstania: 15 minut, potem 1 godzina.',
+      'Powiąż swój powrót ze zdarzeniem, które dziecko rozumie: „Przyjdę po drzemce, po podwieczorku.”',
+      'Pocieszeniem może być „przedmiot przejściowy” z domu — mała zabawka, twoje zdjęcie.',
+    ],
+    mistakes: [
+      'Niemożność odejścia od płaczącego dziecka, wielokrotne zawracanie od drzwi.',
+      'Śmianie się z lęku dziecka albo mówienie „jesteś już duży, wstyd”.',
+    ],
+    specialist: [
+      'Jeśli lęk separacyjny jest znacznie silniejszy, niż pasuje do wieku, od tygodni zaburza sen, jedzenie i chodzenie do żłobka/przedszkola albo powrócił w wieku szkolnym — zwróć się do psychologa dziecięcego.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Rytuał przed snem: co wieczór te same trzy kroki',
+    summary: 'Prosty rytuał powtarzany każdego wieczoru pomaga dziecku szybciej zasypiać i rzadziej budzić się w nocy.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'W badaniu z randomizacją (Mindell i współpracownicy, 2009) trzyetapowy rytuał wieczorny — kąpiel, masaż lub balsam, spokojna aktywność (przytulanie, kołysanka) — już po dwóch tygodniach sprawił, że dzieci szybciej zasypiały i rzadziej budziły się w nocy, a nastrój mam się poprawił. Późniejsze przeglądy pokazały, że wieczorne rutyny wiążą się też z rozwojem mowy i regulacją emocji.',
+      'Zalecana ilość snu według wieku (łącznie z drzemkami): 4–12 miesięcy — 12–16 godzin, 1–2 lata — 11–14 godzin, 3–5 lat — 10–13 godzin, 6–12 lat — 9–12 godzin. Niewyspanie u dzieci często nie wygląda jak zmęczenie, tylko jak rozdrażnienie i nadpobudliwość.',
+      'Ważne są zasady bezpiecznego snu niemowląt: na plecach, na twardym i płaskim materacu, bez poduszki i kołdry, najlepiej w tym samym pokoju co rodzice, ale we własnym łóżeczku.',
+    ],
+    tryToday: [
+      'Od dzisiejszego wieczoru wprowadź rytuał: na przykład kąpiel → piżama i mycie zębów → książka i kołysanka. Co wieczór ta sama kolejność, mniej więcej o tej samej porze.',
+      'Godzinę przed rytuałem wyłącz ekrany i przyciemnij światło.',
+      'Przygotujcie razem obrazkowy plan rytuału, a dziecko niech samo „odhacza” każdy krok.',
+      'Niech rytuał nie trwa dłużej niż 20–30 minut. Im jest dłuższy, tym bardziej dziecko będzie próbowało go przeciągać.',
+    ],
+    mistakes: [
+      'Co wieczór inna godzina i inna kolejność. Mózg szuka przewidywalnych sygnałów.',
+      'Ostra zabawa, ekrany albo krzyki przed snem.',
+      'Traktowanie metod usypiania jako „obowiązkowych”. Siedzenie obok, spanie razem lub osobno, stopniowe oddalanie się — wybierz to, co pasuje twojej rodzinie. Żadna metoda nie jest obowiązkowa dla wszystkich.',
+    ],
+    byAge: {
+      '0-1': 'Rytuał niech będzie krótki: kąpiel, karmienie, kołysanka. Możesz spróbować kłaść dziecko do łóżeczka śpiące, ale jeszcze nie śpiące na dobre — a jeśli się nie uda, nie martw się.',
+      '1-3': 'Daj wybór: „Czytamy tę książkę czy tamtą?” Nie negocjujemy pory snu, wybieramy książkę.',
+      '3-6': 'Pojawiają się pytania, które mają „przeciągnąć” pójście spać. Wpleć w rytuał moment „ostatniego pytania” albo „ostatniego przytulenia”.',
+      '6-12': 'Telefon, tablet i telewizor niech nie zostają w sypialni. Zaplanujcie razem porę snu, wspólnie z lekcjami i sportem.',
+    },
+    specialist: [
+      'Jeśli dziecko chrapie, ma przerwy w oddychaniu podczas snu, oddycha przez usta, a w dzień jest nadmiernie senne — zgłoś się do lekarza.',
+      'Jeśli problemy ze snem trwają dłużej niż kilka tygodni i poważnie zaburzają codzienne życie rodziny.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Nocne pobudki i lęki nocne',
+    summary: 'Koszmary i lęki nocne to dwie różne rzeczy. Każda z nich wymaga innego podejścia.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Koszmary pojawiają się w drugiej połowie nocy, w fazie snu z marzeniami sennymi. Dziecko się budzi, mówi, że się boi, rozpoznaje cię i potrzebuje pocieszenia.',
+      'Lęki nocne (pavor nocturnus) pojawiają się zwykle 1–3 godziny po zaśnięciu, w głębokim śnie. Dziecko może krzyczeć, mieć otwarte oczy, ale tak naprawdę nie jest obudzone, nie rozpoznaje cię i rano niczego nie pamięta. Często występują w wieku 3–7 lat i zazwyczaj są niegroźne.',
+    ],
+    tryToday: [
+      'Po koszmarze: przytul, krótko pociesz, zapal słabe światło. Nie każ w nocy opowiadać koszmaru ze szczegółami, porozmawiajcie rano.',
+      'Przy lęku nocnym: nie próbuj budzić dziecka, zadbaj tylko o jego bezpieczeństwo i spokojnie bądź obok. Gdy epizod minie, będzie spać dalej.',
+      'Niewyspanie nasila lęki nocne: spróbuj przesunąć porę snu o 20–30 minut wcześniej.',
+      'W ciągu dnia rozmawiajcie o lękach przez zabawę: narysujcie „książkę o potworach” i zróbcie potwory śmiesznymi.',
+    ],
+    mistakes: [
+      'Potrząsanie dzieckiem, żeby je obudzić podczas lęku nocnego.',
+      'Wyśmiewanie strachu: „Potworów nie ma, nie bądź głupi.”',
+    ],
+    specialist: [
+      'Jeśli epizody zdarzają się bardzo często (kilka razy w tygodniu), trwają dłużej niż 30 minut, pojawiają się nietypowe ruchy (rytmiczne drgawki, popuszczanie moczu) albo powodują senność w ciągu dnia — zgłoś się do lekarza.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Wybredne jedzenie: kto za co odpowiada?',
+    summary: 'Rodzic decyduje, co, kiedy i gdzie się je; dziecko — ile i czy w ogóle zje. Taki podział kończy wojny przy stole.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Niechęć do nowych potraw (neofobia) jest bardzo powszechna między 2. a 6. rokiem życia i ma sens ewolucyjny: chroni małe dziecko przed nieznanym, potencjalnie niebezpiecznym jedzeniem. Zwykle jest to przejściowy etap.',
+      'Badania pokazują, że zmuszanie do jedzenia, „jeszcze jedna łyżeczka” i nagradzanie słodyczami działają odwrotnie: zwiększają niechęć do danej potrawy i osłabiają zdolność dziecka do odczytywania sygnałów głodu i sytości. Natomiast wielokrotne podawanie bez nacisku — często 10–15 razy — zwiększa akceptację.',
+      'Model „podziału odpowiedzialności” dietetyczki Ellyn Satter zamienia tę wiedzę w praktyczną zasadę: rodzic wybiera menu, porę i miejsce, a dziecko — ile zje.',
+    ],
+    tryToday: [
+      'Przy każdym posiłku niech będzie co najmniej jedna „bezpieczna” potrawa, którą dziecko lubi, a obok mały kawałek czegoś nowego.',
+      'Podaj nową potrawę bez komentarza. Jeśli jej nie zje, też nic nie mów. Jutro, pojutrze — znowu.',
+      'Jedzcie razem, całą rodziną, bez ekranów. Dziecko powinno widzieć, że jesz z apetytem.',
+      'Zaangażuj dziecko w kuchni: niech myje warzywa, miesza sałatkę. To, co przygotuje samo, chętniej spróbuje.',
+      'Ustal pory posiłków i przekąsek, bez „podjadania” pomiędzy nimi.',
+    ],
+    mistakes: [
+      'Zmuszanie, przekupywanie („zjedz brokuła, dostaniesz czekoladę”) albo karanie.',
+      'Przygotowywanie przy każdym posiłku osobnego „menu restauracyjnego” dla dziecka.',
+      'Wymaganie, żeby talerz był pusty. Dziecko musi umieć słyszeć swoje uczucie sytości.',
+    ],
+    byAge: {
+      '1-3': 'Jedzenie do rączki, małe porcje, pozwolenie na samodzielne jedzenie. Brudzenie się to część nauki.',
+      '3-6': '„Zasada próbowania”: spróbowanie nie jest obowiązkowe, ale oglądanie, wąchanie i dotykanie nowej potrawy może być zabawą.',
+      '6-12': 'Zaangażuj w planowanie menu: raz w tygodniu niech wybierze nowe warzywo.',
+    },
+    specialist: [
+      'Jeśli dziecko traci na wadze, odstaje od siatki centylowej, je bardzo mało rodzajów potraw (np. mniej niż 15), krztusi się, dławi lub czuje ból przy jedzeniu — zgłoś się do lekarza.',
+      'Jeśli pojawia się silna panika przy jedzeniu, wymioty albo całkowita odmowa niektórych konsystencji — pomóc może specjalista od karmienia.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Czas przed ekranem: mądry plan według wieku',
+    summary: 'U małego dziecka ekran nie zastąpi prawdziwego kontaktu. Gdy dziecko rośnie, celem nie jest zakaz, tylko wspólnie ułożony plan rodzinny.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Małe dzieci uczą się z ekranu dużo mniej niż od żywego człowieka: mowa i umiejętności społeczne budują się w kontakcie twarzą w twarz, w „podaj i oddaj”. Nawet telewizor grający w tle zmniejsza ilość rozmów rodzica z dzieckiem.',
+      'WHO (2019): dzieciom poniżej 1. roku życia nie zaleca się ekranów; w wieku 2–4 lat nie więcej niż 1 godzina dziennie, a im mniej, tym lepiej. Amerykańska Akademia Pediatrii (2016): do 18. miesiąca unikać ekranów (z wyjątkiem wideorozmów), w wieku 2–5 lat do 1 godziny dziennie wartościowych treści, w miarę możliwości oglądanych z rodzicem; po 6. roku życia — stałe zasady, które nie przeszkadzają w śnie, ruchu i kontaktach.',
+      'Ekran przed snem opóźnia zasypianie. Ekran przy jedzeniu osłabia zdolność dziecka do odczytywania sygnałów sytości.',
+    ],
+    tryToday: [
+      'Wyznacz strefy bez ekranów: stół i sypialnię.',
+      'Wyłączaj ekrany godzinę przed snem.',
+      'Zapowiadaj z wyprzedzeniem koniec czasu przed ekranem i używaj minutnika: „Kiedy zadzwoni minutnik, tablet idzie odpocząć.”',
+      'Czasem obejrzyjcie coś razem i porozmawiajcie: „Jak myślisz, dlaczego on tak zrobił?” To zamienia ekran w rozmowę.',
+      'Przyjrzyj się też własnemu telefonowi: wyłączaj powiadomienia, gdy dziecko jest obok.',
+    ],
+    mistakes: [
+      'Robienie z ekranu głównego sposobu na przerwanie napadu złości. Dziecko nie uczy się uspokajać.',
+      'Stawianie zasad tylko dziecku. Dziecko powtarza ekranowe nawyki rodziców.',
+      'Uznawanie każdego ekranu za „zły”. Wideorozmowy, wspólnie oglądane treści edukacyjne i twórcze aplikacje to coś innego.',
+    ],
+    byAge: {
+      '0-1': 'Bez ekranów, z wyjątkiem wideorozmów. Najlepszym „ekranem” dla niemowlęcia jest twoja twarz.',
+      '1-3': 'Do 2. roku życia jak najmniej. Jeśli ogląda — krótko, w wolnym tempie, przy tobie.',
+      '3-6': 'Do 1 godziny dziennie, wartościowe treści bez reklam. Nie przy jedzeniu i nie przed snem.',
+      '6-12': 'Spiszcie razem rodzinny plan medialny: najpierw nauka, sen, sport, przyjaciele. Przestrzegaj granic wieku dla kont w mediach społecznościowych.',
+    },
+    specialist: [
+      'Jeśli po zabraniu ekranu dziecko staje się nadmiernie agresywne, nie interesuje się niczym innym, a sen i nauka są poważnie zaburzone — zwróć się do psychologa dziecięcego.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Gotowość do nocnika: bez pośpiechu',
+    summary: 'Najważniejszy krok w nauce korzystania z nocnika to poczekać na oznaki gotowości. Większość dzieci jest gotowa między 2. a 3. rokiem życia.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'W latach 60. pediatra Berry Brazelton zaproponował podejście „skoncentrowane na dziecku”: zaczynać, gdy dziecko wykazuje oznaki gotowości, bez nacisku i bez kar. To podejście do dziś stanowi podstawę zaleceń Amerykańskiej Akademii Pediatrii.',
+      'Oznaki gotowości: pozostaje suche przez 2 godziny lub dłużej, przeszkadza mu mokra pieluszka, rozumie proste polecenia, potrafi podciągnąć i opuścić spodnie, interesuje się toaletą. Suchość w nocy przychodzi później: moczenie się w nocy do 5.–6. roku życia jest normalne.',
+    ],
+    tryToday: [
+      'Sprawdź oznaki gotowości. Jeśli ich jeszcze nie ma, poczekaj — to normalne.',
+      'Niech dziecko samo wybierze nocnik lub nakładkę na sedes. Na początek niech siada w ubraniu i czyta książkę.',
+      'Po jedzeniu i po drzemce wprowadź krótki „czas na nocnik” i dziękuj niezależnie od efektu.',
+      'Wpadki przyjmuj spokojnie: „Zdarza się. Chodź, posprzątamy razem.”',
+    ],
+    mistakes: [
+      'Karanie, zawstydzanie, porównywanie z innymi dziećmi. To może prowadzić do zaparć i lęku przed toaletą.',
+      'Zaczynanie w czasie dużych zmian (nowe rodzeństwo, przeprowadzka, początek żłobka/przedszkola).',
+      'Zmuszanie do długiego siedzenia.',
+    ],
+    byAge: {
+      '1-3': 'Bawcie się w „nocnik” z zabawkami, czytajcie książeczki. Nie spiesz się z rozpoczęciem.',
+      '3-6': 'Wpadki są normalne, zwłaszcza gdy dziecko jest pochłonięte zabawą. Pieluchę na noc można jeszcze zostawić.',
+    },
+    specialist: [
+      'Bolesne lub bardzo rzadkie wypróżnienia (zaparcia), ból lub pieczenie przy oddawaniu moczu, częste wpadki w dzień po 4. roku życia.',
+      'Jeśli po długim okresie suchości znów zaczęło się moczenie w dzień lub w nocy — zgłoś się do lekarza.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Poranny pośpiech: wyjście bez krzyku',
+    summary: 'Większość porannych konfliktów rozwiązuje się wieczorem. Przygotowanie, obrazkowy plan i trochę zapasu czasu działają cuda.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'W pośpiechu i napięciu funkcje wykonawcze — planowanie, zapamiętywanie, cierpliwość — słabną zarówno u rodzica, jak i u dziecka. Dlatego poranne zasady lepiej działają jako plan, który widać, niż jako słowa.',
+      'Rutyny dające dziecku poczucie kontroli (kroki, które samo odhacza) zwiększają współpracę i zmniejszają potrzebę ciągłego przypominania.',
+    ],
+    tryToday: [
+      'Przygotuj wieczorem ubranie, plecak i buty. Niech dziecko samo wybierze ubranie.',
+      'Zróbcie obrazkowe karty z porannymi krokami: wstaję → toaleta → ubieram się → śniadanie → zęby → buty.',
+      'Zostaw 15 minut zapasu: zapisz sobie godzinę wyjścia wcześniej.',
+      'Rano bez ekranów, przynajmniej dopóki wszyscy nie będą gotowi.',
+    ],
+    mistakes: [
+      'Powtarzanie tego samego kilkadziesiąt razy. Powiedz raz, potem wskaż kartę.',
+      'Robienie wszystkiego za dziecko, bo „tak jest szybciej”.',
+    ],
+    specialist: [
+      'Jeśli dziecko każdego ranka skarży się na ból brzucha lub głowy albo uporczywie odmawia chodzenia do przedszkola czy szkoły — porozmawiaj z lekarzem lub psychologiem.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '„Podaj i oddaj”: sekret mowy i mózgu',
+    summary: 'Dziecko „podaje” sygnał — spojrzenie, dźwięk, gest — a ty go „oddajesz”. Ta prosta zabawa buduje architekturę mózgu.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Center on the Developing Child Uniwersytetu Harvarda porównuje tę wzajemną komunikację do gry w tenisa: niemowlę wydaje dźwięk, patrzy, pokazuje; dorosły odpowiada. Gdy to „podaj i oddaj” się powtarza, wzmacniają się ścieżki nerwowe odpowiedzialne za mowę, uwagę i umiejętności społeczne. Brak odpowiedzi natomiast wywołuje stres.',
+      'Ciekawe badanie (Romeo i współpracownicy, 2018) pokazało, że aktywność obszarów językowych w mózgu dziecka lepiej wyjaśnia liczba wymian w rozmowie niż sama liczba usłyszanych słów. Czyli ważne jest nie to, żeby dużo mówić, tylko żeby rozmawiać z dzieckiem.',
+    ],
+    tryToday: [
+      'Obserwuj, na czym skupia się uwaga dziecka, i nazywaj to słowami: „Tak, piesek! Duży, brązowy piesek.”',
+      'Czekaj na odpowiedź: 5 sekund ciszy po pytaniu daje dziecku czas, by wziąć swoją kolejkę.',
+      'Naśladuj dźwięki niemowlęcia i trochę je rozwijaj: ono mówi „ba”, ty „ba-ba-piłka!”',
+      'Opowiadaj codzienne czynności jak „komentator sportowy”: „Myję ziemniaki, teraz kroję…”',
+    ],
+    mistakes: [
+      'Zamienianie mówienia w „lekcję”: „Powiedz: jabłko! No, powiedz jabłko!” Nacisk zmniejsza mówienie.',
+      'Natychmiastowe poprawianie słów dziecka. Zamiast tego po prostu powtórz poprawną formę: „Miś-miś? Tak, czerwony, mięciutki miś.”',
+      'Zerkanie w telefon, gdy jesteś z dzieckiem. Każde powiadomienie to „nieodbita piłka”.',
+    ],
+    byAge: {
+      '0-1': 'Twarzą w twarz: uśmiechaj się, śpiewaj, odpowiadaj na dźwięki niemowlęcia.',
+      '1-3': 'Nazywaj przedmioty, które dziecko pokazuje, zadawaj proste pytania, rozwijaj jedno jego słowo do dwóch.',
+      '3-6': 'Badajcie razem pytania „dlaczego?”, zadawaj pytania otwarte: „Jak myślisz, co będzie dalej?”',
+    },
+    specialist: [
+      'Jeśli w 12. miesiącu nie ma żadnych gestów (machanie, wskazywanie), w 16.–18. miesiącu żadnego słowa, a w wieku 2 lat wyrażeń dwuwyrazowych — zgłoś się do lekarza lub logopedy.',
+      'Jeśli w dowolnym wieku straciło słowa, które wcześniej mówiło — nie czekaj, zgłoś się do lekarza.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Siła zabawy: dlaczego zabawa to nie „strata czasu”',
+    summary: 'Swobodna zabawa wzmacnia funkcje wykonawcze, kreatywność i odporność dziecka na stres.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Raport Amerykańskiej Akademii Pediatrii z 2018 roku („The Power of Play”) nazywa zabawę nie „luksusem”, lecz koniecznością dla rozwoju dziecka. Podczas zabawy dziecko planuje, trzyma się zasad, negocjuje z innymi i uczy się znosić rozczarowanie.',
+      'Zabawy w role („sklep”, „lekarz”) szczególnie ćwiczą funkcje wykonawcze: dziecko musi pozostać w roli, pamiętać zasady i powstrzymywać własne zachcianki.',
+    ],
+    tryToday: [
+      'Zarezerwuj co najmniej godzinę dziennie na nieustrukturyzowaną zabawę (w zależności od wieku można ją podzielić).',
+      'Wybieraj proste zabawki o otwartym zastosowaniu: klocki, pudełka, farby, przebrania. Mniej zabawek to więcej kreatywności.',
+      'Raz w tygodniu swobodna zabawa na dworze: drzewa, piasek, woda, patyki.',
+      'Czasem dołącz do zabawy w „odwróconej” roli: ty bądź klientem, a ono sprzedawcą.',
+    ],
+    mistakes: [
+      'Wypełnianie każdej minuty zajęciami dodatkowymi. Nuda to początek kreatywności.',
+      'Ciągłe wygrywanie albo ciągłe przegrywanie w grach. Dziecko musi nauczyć się jednego i drugiego.',
+    ],
+    specialist: [
+      'Jeśli po 2.–3. roku życia dziecko w ogóle nie interesuje się zabawą w udawanie, jego zabawy są bardzo powtarzalne i niezmienne albo nie interesuje go zabawa z innymi dziećmi — zgłoś się do lekarza na ocenę rozwoju.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Wspólne czytanie: od pierwszego dnia',
+    summary: 'Wspólne czytanie od niemowlęctwa to jeden z najprostszych i najsilniejszych nawyków dla mowy, uwagi i więzi.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Amerykańska Akademia Pediatrii (2014) zaleca pediatrom, by przy każdej wizycie zachęcali rodziców do czytania dziecku od niemowlęctwa. Wspólne czytanie poszerza zasób słów, umiejętność słuchania i późniejsze sukcesy w czytaniu.',
+      'Najwięcej korzyści daje „czytanie dialogowe”: rodzic zadaje pytania, rozwija odpowiedzi dziecka, rozmawia o obrazkach. Czyli książka to też narzędzie do „podaj i oddaj”.',
+    ],
+    tryToday: [
+      '10–15 minut wspólnego czytania dziennie, najlepiej jako część rytuału przed snem.',
+      'Na każdej stronie zadaj jedno pytanie: „Jak myślisz, co teraz zrobi kotek?”',
+      'Jeśli dziecko chce tę samą książkę 20 razy — czytaj. Powtarzanie to jeden ze sposobów uczenia się.',
+      'W wieku szkolnym czytajcie na zmianę: jedna strona ty, jedna strona ono.',
+    ],
+    mistakes: [
+      'Przedstawianie czytania jako obowiązkowej lekcji.',
+      'Przestanie czytania na głos, gdy dziecko zaczyna czytać samo. Czytanie na głos jest korzystne także do 10.–12. roku życia.',
+    ],
+    specialist: [
+      'Jeśli w wieku szkolnym czytanie przychodzi dziecku dużo trudniej niż rówieśnikom, często myli litery albo mimo wysiłku nie robi postępów — skonsultuj się z nauczycielem i specjalistą (logopedą, psychologiem).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

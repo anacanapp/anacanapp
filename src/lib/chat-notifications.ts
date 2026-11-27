@@ -1,4 +1,7 @@
-import { isNative, localNotifications } from "@/lib/native";
+import { isNative } from "@/lib/native";
+
+const CHAT_ID_BASE = 1_100_000_000;
+const CHAT_ID_SPAN = 100_000_000;
 
 /**
  * Check if current time is within silent hours
@@ -56,15 +59,11 @@ export const notifyIncomingChatMessage = async (params: {
 
   // Use native local notification
   if (isNative) {
-    const id = Math.abs(Math.floor((params.idSeed ?? Date.now()) % 1_000_000_000));
-    await localNotifications.schedule([
-      {
-        id,
-        title: params.title,
-        body: params.body,
-        schedule: { at: new Date(Date.now() + 250) },
-      },
-    ]);
+    // Shown at once (never a pending slot). Ids live in their own range so a chat notification can never
+    // replace a scheduled reminder; it never asks for permission (it arrives while the app is in the background).
+    const id = CHAT_ID_BASE + Math.abs(Math.floor((params.idSeed ?? Date.now()) % CHAT_ID_SPAN));
+    const { notifyNow } = await import("@/lib/local-notification-scheduler");
+    await notifyNow({ id, title: params.title, body: params.body });
   } else {
     // Web fallback - use browser Notification API if granted
     if ('Notification' in window && Notification.permission === 'granted') {

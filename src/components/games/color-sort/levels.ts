@@ -2,6 +2,7 @@ import catalog from './catalog.json';
 import { getLevelProfile, makeLevel, normalizeLevel, rulesForProfile, type ColorSortLevel } from './difficulty';
 import { pour, replaySolution, validateBoard, type Board, type Move } from './engine';
 import { permuteLevel } from './generator';
+import { writeStorageItem } from '@/lib/local-storage';
 
 export const BUNDLED_LEVELS: ColorSortLevel[] = catalog.map(item => makeLevel(getLevelProfile(item.level), item.seed, item.board,
   item.solution.map(([from, to]) => ({ from, to }))));
@@ -63,12 +64,14 @@ function readCacheIndex(): number[] {
 
 export function cacheLevel(level: ColorSortLevel): void {
   try {
-    localStorage.setItem(CACHE_PREFIX + level.level, JSON.stringify(level));
+    // Durable writes: under quota pressure evict disposable caches rather than throwing away
+    // the level the player is about to play (own eviction below bounds this cache separately).
+    writeStorageItem(localStorage, CACHE_PREFIX + level.level, JSON.stringify(level));
     const index = readCacheIndex().filter(value => value !== level.level);
     index.push(level.level);
     const evicted = index.splice(0, Math.max(0, index.length - MAX_CACHED_LEVELS));
     for (const value of evicted) localStorage.removeItem(CACHE_PREFIX + value);
-    localStorage.setItem(CACHE_INDEX_KEY, JSON.stringify(index));
+    writeStorageItem(localStorage, CACHE_INDEX_KEY, JSON.stringify(index));
   } catch { /* memory-only play */ }
 }
 

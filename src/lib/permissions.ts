@@ -10,6 +10,14 @@ export interface PermissionResult {
   status: PermissionStatus;
 }
 
+/** Stable marker for a denied camera permission so callers can surface a friendly
+ * "enable in Settings" message instead of crashing on a free-text error string. */
+export const CAMERA_PERMISSION_DENIED = 'CAMERA_PERMISSION_DENIED';
+export function isCameraPermissionError(error: unknown): boolean {
+  const message = (error && typeof error === 'object' && 'message' in error ? String((error as { message?: unknown }).message) : String(error ?? '')).toLowerCase();
+  return message.includes(CAMERA_PERMISSION_DENIED.toLowerCase()) || message.includes('permission') && message.includes('deni');
+}
+
 /**
  * Check and request camera permissions
  */
@@ -116,7 +124,7 @@ export async function takePhoto(): Promise<string | null> {
     if (permStatus.camera !== 'granted') {
       const requested = await Camera.requestPermissions({ permissions: ['camera'] });
       if (requested.camera !== 'granted') {
-        throw new Error('Camera permission denied');
+        throw new Error(CAMERA_PERMISSION_DENIED);
       }
     }
 

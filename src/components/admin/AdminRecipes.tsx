@@ -1,3 +1,4 @@
+import { compressImageForUpload } from '@/lib/image-compress';
 import { useState, useRef, useCallback } from 'react';
 import { tr } from '@/lib/tr';
 import { useQuery } from '@tanstack/react-query';
@@ -154,13 +155,15 @@ const AdminRecipes = () => {
 
     setUploadingImage(true);
     try {
-      const fileExt = file.name.split('.').pop();
+      // Recipe photos are shown at most ~900 px wide: upload a ~100 KB JPEG instead of a multi-MB PNG.
+      const upload = await compressImageForUpload(file, { maxDimension: 900, quality: 0.8, minBytes: 0, jpeg: true });
+      const fileExt = upload.type === 'image/jpeg' ? 'jpg' : file.name.split('.').pop();
       const fileName = `recipe-${Date.now()}.${fileExt}`;
       const filePath = `recipes/${fileName}`;
 
       const { error: uploadError } = await supabase.storage.
       from('assets').
-      upload(filePath, file, { upsert: true });
+      upload(filePath, upload, { upsert: true, cacheControl: '31536000', contentType: upload.type || file.type });
 
       if (uploadError) throw uploadError;
 

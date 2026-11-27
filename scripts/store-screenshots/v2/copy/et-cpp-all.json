@@ -1,0 +1,132 @@
+{
+ "lang": "et",
+ "badge": "Tasuta · 25 keelt",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Menstruatsioon · Rasedus · Emadus",
+   "title": [
+    "päevadest",
+    "beebini"
+   ],
+   "hl": "üks äpp",
+   "sub": "Menstruatsioonikalender, rasedus nädal-nädalalt ning ema ja beebi jälgija ühes kohas",
+   "cta": "Laadi tasuta alla",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Menstruatsioon",
+   "title": [
+    "tunne oma tsüklit"
+   ],
+   "hl": "täpselt",
+   "sub": "Järgmiste päevade, ovulatsiooni ja viljakate päevade prognoos"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Rasedus",
+   "title": [
+    "täna on su beebi"
+   ],
+   "hl": "tomati suurune",
+   "sub": "Jälgi rasedust nädal-nädalalt: suurus, kaal ja jäänud päevad",
+   "chips": [
+    [
+     "142",
+     "päeva jäänud"
+    ],
+    [
+     "19",
+     "nädalat, 4 päeva"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Emadus",
+   "title": [
+    "iga beebipäev"
+   ],
+   "hl": "ühes kohas",
+   "sub": "Päeva info, Sõnum emale, areng ja arsti meeldetuletused",
+   "chips": [
+    [
+     "245",
+     "päeva koos"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "on sul küsimus?"
+   ],
+   "hl": "vastus on siin",
+   "sub": "24/7 abiline menstruatsiooni, raseduse ja beebi küsimustes",
+   "chips": [
+    [
+     "24/7",
+     "iga küsimus"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Kogukond",
+   "title": [
+    "46 000+ naist"
+   ],
+   "hl": "on siin",
+   "sub": "Jaga oma küsimust ja saa tuge emadelt, kes käivad sama teed",
+   "chips": [
+    [
+     "46 000+",
+     "naist"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Mida emad ütlevad",
+   "title": [
+    "emad"
+   ],
+   "hl": "armastavad Anacani",
+   "sub": "Päris kasutajate arvustused, toimetamata",
+   "cta": "Laadi tasuta alla",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "App Store'i hinnang",
+    "stats": [
+     [
+      "46 000+",
+      "allalaadimist"
+     ],
+     [
+      "560+",
+      "viie tärni arvustust"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Store'i arvustus"
+     ]
+    ]
+   }
+  }
+ ]
+}

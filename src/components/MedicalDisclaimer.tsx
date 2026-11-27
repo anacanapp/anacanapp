@@ -1,5 +1,7 @@
 import { AlertCircle, Stethoscope } from 'lucide-react';
 import { tr } from '@/lib/tr';
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
 
 interface MedicalDisclaimerProps {
   variant?: 'banner' | 'compact' | 'inline' | 'anacan';
@@ -11,10 +13,11 @@ interface MedicalDisclaimerProps {
  * to comply with Google Play Health Content policy.
  */
 const MedicalDisclaimer = ({ variant = 'banner', className = '' }: MedicalDisclaimerProps) => {
-  const text = tr(
+  const emergency = useEmergencyNumber();
+  const text = fillEmergencyNumber(tr(
     'medical_disclaimer_full',
-    tr("medical_disclaimer_text", 'Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.')
-  );
+    tr("medical_disclaimer_text", 'Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda {emergency} nömrəsinə zəng edin.')
+  ), emergency);
 
   // Anacan redesign (anacan-demo) frosted disclaimer card
   if (variant === 'anacan') {
@@ -34,11 +37,23 @@ const MedicalDisclaimer = ({ variant = 'banner', className = '' }: MedicalDiscla
     );
   }
 
-  // banner / compact: the same design-system card, without the home-page top margin
+  if (variant === 'compact') {
+    return (
+      <div
+        className={`flex items-start gap-2 px-3 py-2 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 ${className}`}
+      >
+        <AlertCircle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+        <p className="text-[11px] text-amber-800 dark:text-amber-200 leading-relaxed">{text}</p>
+      </div>
+    );
+  }
+
   return (
-    <div className={`a-disclaimer flat${variant === 'compact' ? ' compact' : ''} ${className}`}>
-      <AlertCircle size={variant === 'compact' ? 14 : 16} />
-      <p>{text}</p>
+    <div
+      className={`flex items-start gap-2.5 px-3 py-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 ${className}`}
+    >
+      <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+      <p className="text-xs text-amber-800 dark:text-amber-200 leading-relaxed">{text}</p>
     </div>
   );
 };

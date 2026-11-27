@@ -1,0 +1,46 @@
+{
+  "menu": "Danos tu opinión",
+  "title": "¿Qué tal Anacan?",
+  "subtitle": "Tu opinión nos ayuda a mejorar la app para cada mamá.",
+  "stars": [
+    "Muy mal",
+    "Mal",
+    "Normal",
+    "Bien",
+    "Excelente"
+  ],
+  "low_title": "¿Qué no te gustó?",
+  "low_sub": "Elige algunas — leemos cada una.",
+  "high_title": "¿Qué es lo que más te gusta?",
+  "high_sub": "Elige para que lo mejoremos aún más.",
+  "low_reasons": {
+    "crash": "Se cierra / se congela",
+    "bug": "Algo no funciona",
+    "slow": "Va lento",
+    "missing": "Falta una función",
+    "content": "Información imprecisa",
+    "ads": "Demasiados anuncios",
+    "price": "Premium es caro",
+    "hard": "Difícil de usar",
+    "other": "Otro"
+  },
+  "high_reasons": {
+    "tracking": "Seguimientos",
+    "content": "Info diaria",
+    "ai": "Asistente IA",
+    "community": "Comunidad",
+    "partner": "Modo pareja",
+    "design": "Diseño",
+    "other": "Otro"
+  },
+  "message_low": "¿Qué pasó? ¿Qué deberíamos cambiar?",
+  "message_high": "¿Algo más que quieras añadir? (opcional)",
+  "send": "Enviar",
+  "sending": "Enviando...",
+  "thanks_low": "Gracias. Nuestro equipo lo leerá e intentará solucionarlo 💛",
+  "thanks_high": "¡Muchas gracias! Es una gran motivación para nuestro equipo 💛",
+  "close": "Cerrar",
+  "later": "Más tarde",
+  "error": "No se pudo enviar. Revisa tu conexión a internet e inténtalo de nuevo.",
+  "subject": "Opinión sobre la app"
+}

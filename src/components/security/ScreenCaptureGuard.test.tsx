@@ -10,11 +10,11 @@ it('allows only the visible main dashboard; a modal or other screen restores pro
  const root=document.createElement('div');document.body.append(root);expect(dashboardCaptureAllowed()).toBe(false);root.dataset.mainDashboard='true';expect(dashboardCaptureAllowed()).toBe(true);
  const modal=document.createElement('div');modal.setAttribute('role','dialog');document.body.append(modal);expect(dashboardCaptureAllowed()).toBe(false);modal.remove();root.dataset.mainDashboard='false';expect(dashboardCaptureAllowed()).toBe(false);
 });
-it('uses a fully opaque black curtain for protected capture instead of a toast, but permits dashboard capture',async()=>{
+it('uses a fully opaque branded curtain for protected capture, but permits dashboard capture',async()=>{
  const view=render(<><div data-main-dashboard="true"/><ScreenCaptureGuard/></>);await waitFor(()=>expect(mocks.set).toHaveBeenLastCalledWith({enabled:false}));
  act(()=>mocks.listeners.screenshotTaken());expect(document.querySelector('[data-capture-curtain]')).toBeNull();
  view.rerender(<><div data-main-dashboard="false"/><ScreenCaptureGuard/></>);await waitFor(()=>expect(mocks.set).toHaveBeenLastCalledWith({enabled:true}));
- act(()=>mocks.listeners.captureChanged({captured:true}));expect(document.querySelector('[data-capture-curtain]')).toHaveStyle({background:'#000',opacity:1});
+ act(()=>mocks.listeners.captureChanged({captured:true}));expect(document.querySelector('[data-capture-curtain]')).toHaveStyle({background:'#FAF7F4',opacity:1});
  act(()=>mocks.listeners.captureChanged({captured:false}));await waitFor(()=>expect(document.querySelector('[data-capture-curtain]')).toBeNull());
 });
 it('keeps native protection stable during dashboard taps and scroll gestures',async()=>{

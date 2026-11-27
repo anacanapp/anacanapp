@@ -1,0 +1,202 @@
+{
+ "any_drink": [
+  "Valmista talle soe jook",
+  "Küsimata, just nii nagu talle meeldib: tee, kakao või piim"
+ ],
+ "any_dishes": [
+  "Pese täna õhtul nõud",
+  "Jäta köök puhtaks, et ta saaks puhata"
+ ],
+ "any_compliment": [
+  "Tee talle südamlik kompliment",
+  "Mitte välimuse, vaid tema tugevuse ja hoolivuse kohta"
+ ],
+ "any_listen": [
+  "Kuula teda 15 minutit, telefon eemal",
+  "Ära anna nõu, lihtsalt ole olemas"
+ ],
+ "any_walk": [
+  "Minge koos jalutama",
+  "Värske õhk ja 20-minutiline vestlus"
+ ],
+ "any_love_note": [
+  "Jäta talle üllatuseks armastuskiri",
+  "Peeglile, kotti või telefoni juurde"
+ ],
+ "any_cook": [
+  "Valmista täna õhtusöök",
+  "Midagi lihtsat, sooja ja tema lemmikut"
+ ],
+ "any_errand": [
+  "Võta üks ülesanne tema nimekirjast enda kanda",
+  "Apteek, toidupood või arve tasumine"
+ ],
+ "any_flowers": [
+  "Too lilli või tema lemmikmaius",
+  "Väike rõõm ilma põhjuseta"
+ ],
+ "flow_heat": [
+  "Pane valmis soojaveekott",
+  "Soojus leevendab krampe"
+ ],
+ "flow_supplies": [
+  "Kontrolli tema menstruatsioonitarbeid",
+  "Kui need on otsakorral, osta küsimata juurde"
+ ],
+ "flow_iron_meal": [
+  "Valmista rauarikas eine",
+  "Liha, läätsed või spinat"
+ ],
+ "flow_patience": [
+  "Ole tema tuju suhtes kannatlik",
+  "Hormonaalsed muutused on normaalsed; lükka vaidlused edasi"
+ ],
+ "flow_rest": [
+  "Anna talle tund aega puhkamiseks",
+  "Võta selleks tunniks kodutööd enda kanda"
+ ],
+ "flow_massage": [
+  "Tee talle seljamassaaži",
+  "See leevendab alaseljavalu"
+ ],
+ "flow_movie": [
+  "Korralda õdus filmiõhtu",
+  "Pled, soe jook ja tema lemmikfilm"
+ ],
+ "flow_active": [
+  "Plaani midagi aktiivset tema energiarikkaks päevaks",
+  "Rattasõit, tantsimine või pikk jalutuskäik"
+ ],
+ "bump_vitamins": [
+  "Tuleta talle meelde vitamiinide võtmist",
+  "Et ta võtaks arsti määratud ravimeid õigel ajal"
+ ],
+ "bump_water": [
+  "Täida tema veepudel",
+  "Hoia vesi talle terve päeva vältel lähedal"
+ ],
+ "bump_feet": [
+  "Tee talle jalamassaaži",
+  "See vähendab õhtust paistetust"
+ ],
+ "bump_talk_baby": [
+  "Räägi beebiga",
+  "Räägi kõhuga, et beebi õpiks sinu häält tundma"
+ ],
+ "bump_appointment": [
+  "Minge järgmisele kontrollile koos",
+  "Pange oma küsimused eelnevalt koos kirja"
+ ],
+ "bump_read": [
+  "Lugege koos selle nädala arengu kohta",
+  "Mida beebi sel nädalal õpib?"
+ ],
+ "bump_heavy": [
+  "Tee rasket tõstmistööd",
+  "Ta ei tohiks tõsta raskeid asju ega palju kummardada"
+ ],
+ "bump_photo": [
+  "Tee kõhust pilti",
+  "Mälestus sellest nädalast"
+ ],
+ "bump_snack": [
+  "Valmista tervislik vahepala",
+  "Puuviljad, pähklid või jogurt"
+ ],
+ "bump_pillows": [
+  "Säti padjad paremaks uneks valmis",
+  "Padi põlvede vahele külili magamiseks"
+ ],
+ "late_bag": [
+  "Kontrolli haiglakotti",
+  "Dokumendid, beebiriided, laadija"
+ ],
+ "late_route": [
+  "Proovi läbi tee haiglani",
+  "Mitu minutit kulub päeval ja öösel?"
+ ],
+ "late_fuel": [
+  "Täida auto kütusepaak",
+  "Hoia paak vähemalt pooltäis"
+ ],
+ "late_car_seat": [
+  "Paigalda beebi turvatool",
+  "Et beebi jõuaks turvaliselt koju"
+ ],
+ "late_contractions": [
+  "Õpi kasutama tuhude mõõtjat",
+  "Tea 5-1-1 reeglit: 5 minutit, 1 minut, 1 tund"
+ ],
+ "late_phone": [
+  "Salvesta olulised numbrid",
+  "Arst, haigla ja pere"
+ ],
+ "late_birth_plan": [
+  "Lugege koos sünnitusplaani",
+  "Tea tema soove ja seisa nende eest"
+ ],
+ "nb_night_feed": [
+  "Võta üks öine toitmine enda kanda",
+  "Rinnapiima või piimaseguga, et ema saaks magada"
+ ],
+ "nb_diapers": [
+  "Vaheta järgmised kolm mähet",
+  "Lase emal veidi puhata"
+ ],
+ "nb_bath": [
+  "Vanni beebit",
+  "Soe vesi, pehme rätik ja kannatlikkus"
+ ],
+ "nb_skin": [
+  "20 minutit nahk-naha kontakti beebiga",
+  "See loob sidet ja rahu"
+ ],
+ "nb_visitors": [
+  "Tegele külalistega",
+  "Hoia külastused lühikesed, et ema saaks puhata"
+ ],
+ "nb_meal": [
+  "Valmista emale süüa ja pane valmis vesi",
+  "Imetamine nõuab palju vett"
+ ],
+ "nb_feelings": [
+  "Küsi, kuidas ta end tunneb",
+  "Sünnitusjärgne meeleolulangus on võimalik; ole tähelepanelik"
+ ],
+ "nb_nap": [
+  "Võimalda talle kahetunnine uinak",
+  "Mine beebiga jalutama või hoia teda ise"
+ ],
+ "mm_play": [
+  "Mängi beebiga 20 minutit",
+  "Ilma telefonita, põrandal, silmast silma"
+ ],
+ "mm_bedtime": [
+  "Pane beebi täna õhtul magama",
+  "Vann, jutt või unelaul"
+ ],
+ "mm_stroll": [
+  "Mine beebiga jalutama",
+  "Anna emale tund aega iseendale"
+ ],
+ "mm_baby_food": [
+  "Valmista beebile söök",
+  "Lihtne retsept tema vanusele"
+ ],
+ "mm_me_time": [
+  "Anna talle aega iseendale",
+  "Trenn, sõbrad või lihtsalt puhkus"
+ ],
+ "mm_photo": [
+  "Tehke perepilt",
+  "Hetk teist kolmest koos"
+ ],
+ "mm_read": [
+  "Loe beebile raamatut",
+  "Sinu hääl on tema lemmikheli"
+ ],
+ "mm_date": [
+  "Planeerige väike kohting",
+  "See võib toimuda kodus, kui beebi magab"
+ ]
+}

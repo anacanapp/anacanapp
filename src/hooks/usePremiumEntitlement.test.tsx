@@ -26,20 +26,42 @@ it('locks at exact own expiry without navigation or another network response', a
  mocks.rpc.mockResolvedValue({data:access(true,false,'2026-09-25T12:00:01Z'),error:null});const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(result.current.isPremium).toBe(true);
  await settle(1001);expect(result.current.isPremium).toBe(false);expect(mocks.rpc).toHaveBeenCalledOnce();
 });
-it('expires a household lease as well and never keeps a boolean grant for days offline', async () => {
+it('keeps a confirmed household grant past the short lease but never beyond the 72h offline window', async () => {
  mocks.rpc.mockResolvedValue({data:access(false,true),error:null});const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(result.current.householdPremium).toBe(true);
- await settle(30001);expect(result.current.isPremium).toBe(false);
+ await settle(30001);expect(result.current.householdPremium).toBe(true);
+ await settle(72*3600*1000);expect(result.current.isPremium).toBe(false);
 });
 it('uses a monotonic deadline even if the device clock moves backwards', async () => {
- const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();vi.setSystemTime(new Date('2020-01-01'));await settle(30001);expect(result.current.isPremium).toBe(false);
+ mocks.rpc.mockResolvedValue({data:access(true,false,'2026-09-25T12:00:01Z'),error:null});
+ const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(result.current.isPremium).toBe(true);vi.setSystemTime(new Date('2020-01-01'));await settle(1001);expect(result.current.isPremium).toBe(false);
 });
 it('applies a confirmed refund immediately and a later network error cannot restore it', async () => {
  const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(result.current.isPremium).toBe(true);
  mocks.rpc.mockResolvedValue({data:access(false),error:null});await act(async()=>{await result.current.refresh();});await settle();expect(result.current.isPremium).toBe(false);
  mocks.rpc.mockResolvedValue({data:null,error:{code:'NETWORK'}});await act(async()=>{await result.current.refresh();});await settle();expect(result.current.isPremium).toBe(false);
 });
-it('a failed refresh cannot extend the last successful grant', async () => {
- const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();mocks.rpc.mockRejectedValue(new Error('offline'));await act(async()=>{await result.current.refresh();});await settle(30001);expect(result.current.isPremium).toBe(false);
+it('a failed refresh keeps a confirmed grant offline until min(expiry, last confirmation + 72h) and never beyond', async () => {
+ const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();mocks.rpc.mockRejectedValue(new Error('offline'));await act(async()=>{await result.current.refresh();});await settle(30001);
+ expect(result.current.isPremium).toBe(true);expect(result.current.error).toBe(true);expect(result.current.revoked).toBe(false);
+ await settle(72*3600*1000);expect(result.current.isPremium).toBe(false);
+});
+it('a cold start offline uses the stored confirmed grant; an explicit inactive answer revokes it', async () => {
+ const first=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(first.result.current.isPremium).toBe(true);first.unmount();client.clear();
+ mocks.rpc.mockRejectedValue(new Error('offline'));const offline=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();
+ expect(offline.result.current.isPremium).toBe(true);expect(offline.result.current.revoked).toBe(false);offline.unmount();client.clear();
+ mocks.rpc.mockResolvedValue({data:access(false),error:null});const online=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(online.result.current.isPremium).toBe(false);online.unmount();client.clear();
+ mocks.rpc.mockRejectedValue(new Error('offline'));const later=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(later.result.current.isPremium).toBe(false);
+});
+it('never creates a grant from storage that the server did not confirm for this account and backend', async () => {
+ localStorage.setItem('anacan_premium_grant_v1:https://api.anacan.az:a',JSON.stringify({backend:'https://source.example',userId:'a',partner:null,confirmedAt:Date.now(),ownUntil:Date.now()+1e9,householdUntil:0,ownSource:null}));
+ localStorage.setItem('anacan_premium_grant_v1:https://api.anacan.az:b',JSON.stringify({backend:'https://api.anacan.az',userId:'b',partner:null,confirmedAt:Date.now(),ownUntil:Date.now()+1e9,householdUntil:0,ownSource:null}));
+ mocks.rpc.mockRejectedValue(new Error('offline'));const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(result.current.isPremium).toBe(false);
+});
+it('does not stop background white noise on a network error while a confirmed grant is valid', async () => {
+ renderHook(()=>PremiumEntitlementMonitor(),{wrapper});await settle();
+ await act(async()=>{useWhiteNoiseStore.setState({isPlaying:true,activeSoundId:'fixture',_audioElement:{pause:vi.fn(),src:'x'} as unknown as HTMLAudioElement});});
+ mocks.rpc.mockRejectedValue(new Error('timeout'));await act(async()=>{await client.invalidateQueries();});await settle(30001);
+ expect(useWhiteNoiseStore.getState().isPlaying).toBe(true);
 });
 it.each(['actor','backend'])('does not reuse cached entitlements across a %s change', async boundary => {
  const {result,rerender}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();expect(result.current.isPremium).toBe(true);
@@ -66,4 +88,19 @@ it.each(['expiry','refund'])('stops global background white noise on %s even whe
  expect(useWhiteNoiseStore.getState().isPlaying).toBe(false);
  if(reason==='expiry'){expect(pause).toHaveBeenCalledOnce();expect(audio.src).toBe('');}
  else{expect(stop).toHaveBeenCalledOnce();expect(close).toHaveBeenCalledOnce();}
+});
+it('does not poll the lease: the monitor re-reads on resume, explicit invalidation and every 10 minutes', async () => {
+ renderHook(()=>usePremiumEntitlement(true),{wrapper});await settle();expect(mocks.rpc).toHaveBeenCalledTimes(1);
+ // Mounting more consumers within the 60s freshness window shares the answer.
+ renderHook(()=>usePremiumEntitlement(),{wrapper});await settle(30_000);expect(mocks.rpc).toHaveBeenCalledTimes(1);
+ await settle(5*60_000);expect(mocks.rpc).toHaveBeenCalledTimes(1);
+ await settle(5*60_000);expect(mocks.rpc).toHaveBeenCalledTimes(2);
+ // A purchase/restore/promo invalidates immediately.
+ await act(async()=>{await client.invalidateQueries({queryKey:['premium-access-v1']});});await settle();expect(mocks.rpc).toHaveBeenCalledTimes(3);
+ // App resume (visibility) re-reads at once.
+ await settle(3000);await act(async()=>{document.dispatchEvent(new Event('visibilitychange'));});await settle();expect(mocks.rpc).toHaveBeenCalledTimes(4);
+});
+it('turns a hung entitlement request into an error instead of an endless loading state', async () => {
+ mocks.rpc.mockReturnValue(new Promise(()=>{}));const {result}=renderHook(()=>usePremiumEntitlement(),{wrapper});await settle();
+ expect(result.current.loading).toBe(true);await settle(15_001);expect(result.current.loading).toBe(false);expect(result.current.error).toBe(true);
 });

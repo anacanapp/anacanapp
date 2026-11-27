@@ -1,0 +1,46 @@
+{
+  "menu": "Send feedback",
+  "title": "How is Anacan?",
+  "subtitle": "Your feedback helps make the app better for every mom.",
+  "stars": [
+    "Very bad",
+    "Bad",
+    "Okay",
+    "Good",
+    "Excellent"
+  ],
+  "low_title": "What didn't you like?",
+  "low_sub": "Pick a few — we read every one.",
+  "high_title": "What do you like most?",
+  "high_sub": "Pick so we can make it even better.",
+  "low_reasons": {
+    "crash": "App crashes / freezes",
+    "bug": "Something doesn't work",
+    "slow": "It's slow",
+    "missing": "Missing a feature I need",
+    "content": "Info isn't accurate",
+    "ads": "Too many ads",
+    "price": "Premium is expensive",
+    "hard": "Hard to use",
+    "other": "Other"
+  },
+  "high_reasons": {
+    "tracking": "Trackers",
+    "content": "Daily info",
+    "ai": "AI assistant",
+    "community": "Community",
+    "partner": "Partner mode",
+    "design": "Design",
+    "other": "Other"
+  },
+  "message_low": "What happened? What should we change?",
+  "message_high": "Anything you'd like to add? (optional)",
+  "send": "Send",
+  "sending": "Sending...",
+  "thanks_low": "Thank you. Our team will read this and work on fixing it 💛",
+  "thanks_high": "Thank you so much! This is a big motivation for our team 💛",
+  "close": "Close",
+  "later": "Later",
+  "error": "Couldn't send. Check your internet and try again.",
+  "subject": "App feedback"
+}

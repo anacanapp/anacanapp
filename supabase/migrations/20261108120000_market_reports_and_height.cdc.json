@@ -1,0 +1,29 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261108120000_market_reports_and_height.sql",
+  "runtime": "google-market-safety",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the two new relations are registered in guarded_relations with the three standard triggers (the migration refuses without the guard catalog and verifies 2 relations / 6 triggers); profiles and marketplace_messages must already be in guarded_relations with all 3 triggers, which are left as they are (no drop or recreate)",
+  "preserve": [
+    "cron0, no timer added",
+    "8 enabled business timers",
+    "marketplace_listings unchanged; marketplace_messages policies unchanged (only a BEFORE INSERT row trigger is added)",
+    "profiles own-row RLS, grants and the three CDC/writer triggers unchanged; the new nullable column is captured by the existing row trigger",
+    "post_reports and user_blocks (community moderation / admin bans) unchanged and not reused"
+  ],
+  "relations": [
+    { "relation": "public.market_reports", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": true, "primary_key": ["id"],
+      "note": "second-hand market reports (listing | user | conversation; reason, optional note <= 500, evidence snapshot jsonb, status pending | reviewed | dismissed); RLS: reporter inserts and reads own rows, admins (has_role admin) read and update; BEFORE INSERT trigger market_reports_prepare fixes the reporter and fills the evidence" },
+    { "relation": "public.market_blocks", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "user-to-user blocks in the second-hand market (blocker_id, blocked_id unique); RLS own rows only, admins read" },
+    { "relation": "public.marketplace_messages", "change": "altered", "cdc": true, "writer_guard": true, "private": true, "pii": true, "primary_key": ["id"],
+      "triggers_added": ["market_messages_block_guard"],
+      "note": "BEFORE INSERT row trigger refuses a message when either side blocked the other (MARKET_BLOCKED, 42501) or when neither side owns the listing (MARKET_MESSAGE_TARGET_INVALID); no column or policy change" },
+    { "relation": "public.profiles", "change": "altered", "cdc": true, "writer_guard": true, "private": true, "pii": true, "primary_key": ["id"],
+      "columns_added": ["height_cm"],
+      "note": "height_cm numeric(5,1), nullable, check 120-220; written by the pregnancy weight tracker (device copy kept as fallback, an existing device value is uploaded once)" }
+  ],
+  "functions": [
+    { "name": "public.market_report_prepare()", "security": "definer", "grant": [], "note": "trigger function only; execute revoked from PUBLIC, anon, authenticated" },
+    { "name": "public.market_message_guard()", "security": "definer", "grant": [], "note": "trigger function only; execute revoked from PUBLIC, anon, authenticated" }
+  ]
+}

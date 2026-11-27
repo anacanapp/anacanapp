@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Tantrum: apa yang terjadi di otak?',
+    summary: 'Tantrum bukan akibat pola asuh yang buruk. Ini adalah momen ketika perasaan besar mengalahkan “sistem rem” yang masih kecil.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Sistem emosi yang terletak di lapisan dalam otak sudah kuat sejak lahir: ia merasakan bahaya, kecewa, dan marah dalam sekejap. Sementara korteks prefrontal — bagian yang menahan perasaan itu dan berkata “tunggu, ada cara lain” — baru matang menjelang usia 20 tahun. Pada anak usia 2–4 tahun, kesenjangan ini paling besar. Karena itu saat tantrum anak tidak mendengarmu dan tidak merespons logika: bagian otak yang “berpikir” sedang padam sementara.',
+      'Di saat itu anak tidak bisa menenangkan diri sendiri, ia “meminjam” ketenangan dari tubuh dan suaramu. Para peneliti menyebutnya ko-regulasi. Semakin orang tua tetap tenang, semakin cepat sistem stres anak kembali normal, dan dengan pengulangan, anak mempelajari dan menguasai cara menenangkan diri ini. Membentak dan menghukum justru menaikkan hormon stres dan memperpanjang tantrum.',
+      'Tantrum sering terjadi di momen yang sama: lelah, lapar, peralihan (dari main ke pulang, keluar dari taman), atau jawaban “tidak”. Mengenali momen-momen ini lebih awal bisa mencegah lebih dari separuh tantrum.',
+    ],
+    tryToday: [
+      'Tenangkan dirimu dulu: tarik napas dalam, turunkan bahu, pelankan suara. Kalau kamu tidak tenang, ia pun tidak bisa tenang.',
+      'Sedikit bicara. Satu-dua kalimat pendek sudah cukup: “Kamu marah sekali. Aku di sini.”',
+      'Jaga keamanan: kalau ia memukul, pegang tangannya dengan lembut, singkirkan benda yang bisa melukainya.',
+      'Setelah ia tenang, peluk dia, dan baru setelah itu bicara singkat: “Kamu marah sekali karena mainnya selesai. Lain kali kamu bisa bilang “tolong bantu aku”.”',
+      'Minggu ini catat kapan tantrum terjadi. Kemungkinan besar waktunya bertepatan dengan jam-jam lelah dan lapar.',
+    ],
+    mistakes: [
+      'Menjelaskan panjang lebar atau menasihati saat tantrum. Otaknya belum dalam mode mendengar: tenangkan dulu, baru bicara.',
+      'Memberikan yang ia mau agar tantrum berhenti. Ini berarti tantrum yang lebih kuat lain kali. Tunjukkan empati pada perasaannya, tapi tetap pada keputusanmu.',
+      'Mempermalukan anak: “Malu, semua orang lihat kamu.” Rasa malu tidak mengajarkan cara mengelola perasaan, hanya mengajarkan cara menyembunyikannya.',
+      'Menganggap tantrum sebagai “manipulasi”. Bagi anak kecil, ini terutama karena belum mampu, bukan siasat.',
+    ],
+    byAge: {
+      '1-3': 'Kosakatanya masih sedikit, jadi kamulah yang menamai perasaannya dan tunjukkan alternatif sederhana: “Kamu marah. Hentakkan kaki, begini!” Mengalihkan perhatian sangat efektif di usia ini.',
+      '3-6': 'Di saat tenang, buat “rencana saat marah” bersama: tarik napas, remas bantal, pergi ke pojok tenang. Tempel dalam bentuk gambar di dinding, dan saat tantrum mulai, cukup tunjuk saja.',
+    },
+    specialist: [
+      'Jika tantrum rutin berlangsung lebih dari 25 menit atau terjadi lebih dari lima kali sehari.',
+      'Jika saat tantrum anak melukai dirinya secara serius (membenturkan kepala, menggigit) atau menahan napas sampai pingsan — periksakan ke dokter.',
+      'Jika setelah usia 4–5 tahun tantrum malah bertambah, bukan berkurang, atau ada kekhawatiran lain soal bicara, tidur, atau interaksi sosial.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Emotion coaching: menamai perasaan',
+    summary: 'Melihat dan menamai perasaan memperkuat kemampuan anak mengelola diri. Ini tidak sama dengan membolehkan segalanya.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Pada tahun 1990-an, psikolog John Gottman mengamati keluarga-keluarga dan menemukan bahwa orang tua menanggapi perasaan anak dengan empat cara: mengabaikan perasaan (“Jangan nangis, cuma begitu saja”), menghukum, membolehkan segalanya, dan menjadi “pelatih emosi”. Orang tua pelatih menganggap perasaan anak serius, menamainya, dan mencari solusi bersama anak, tapi tetap memberi batas pada perilakunya.',
+      'Anak-anak dari orang tua pelatih emosi di tahun-tahun berikutnya lebih mampu menjaga fokus, lebih jarang berkonflik dengan teman, dan lebih cepat pulih dari stres. Program-program berikutnya (misalnya “Tuning in to Kids”) menunjukkan bahwa keterampilan ini bisa dipelajari oleh orang tua mana pun.',
+      'Penelitian otak juga menunjukkan hal menarik: memberi nama pada perasaan (“aku marah”, “aku takut”) menurunkan aktivitas pusat emosi. Jadi “namai untuk menjinakkan” bukan sekadar kata-kata indah.',
+    ],
+    tryToday: [
+      'Hari ini, tiga kali ucapkan perasaan anak seolah-olah kamu adalah dia: “Kayaknya kamu kecewa banget, ya.” Jangan takut kalau tebakanmu salah, ia akan meluruskannya.',
+      'Izinkan perasaannya, beri batas pada perilakunya: “Boleh marah. Tidak boleh memukul.”',
+      'Saat membaca buku, perhatikan wajah para tokohnya: “Menurutmu, dia sedang merasa apa?”',
+      'Ungkapkan juga perasaanmu sendiri dengan tenang: “Aku agak capek, jadi aku mau minum teh dulu dengan tenang.” Anak paling banyak meniru kamu.',
+    ],
+    mistakes: [
+      'Bilang “jangan nangis”, “nggak ada yang perlu ditakutkan”, “ah, cuma hal kecil”. Perasaannya tidak hilang, anak hanya belajar untuk tidak menunjukkannya padamu.',
+      'Mengira empati berarti membatalkan “tidak”. Mengatakan “Aku ngerti, kamu pengin banget. Jawabannya tetap tidak” itu sangat mungkin.',
+      'Membicarakan perasaan hanya di momen sulit. Latihan terbaik terjadi di saat tenang, lewat permainan dan buku.',
+    ],
+    byAge: {
+      '1-3': 'Kata-kata sederhana: senang, marah, sedih, takut. Tirukan ekspresi wajah bersama di depan cermin.',
+      '3-6': 'Gambar “termometer” perasaan: hijau — aku tenang, kuning — aku mulai kesal, merah — aku mau meledak. Biarkan anak menunjuk warnanya.',
+      '6-12': 'Ajarkan kata-kata yang lebih halus: kecewa, malu, cemburu, cemas. Tanyakan di bagian tubuh mana perasaan itu terasa.',
+    },
+    specialist: [
+      'Jika dalam waktu lama anak hampir tidak menunjukkan perasaan apa pun, atau setiap hal kecil membuatnya terguncang berjam-jam.',
+      'Jika kesedihan, ketakutan, atau kemarahan berlangsung lebih dari dua minggu dan memengaruhi tidur, makan, sekolah, dan pertemanan — hubungi psikolog anak.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Pojok tenang dan permainan napas',
+    summary: 'Anak bisa diajari cara menenangkan diri, tapi bukan lewat pojok hukuman, melainkan lewat tempat yang nyaman dan permainan.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Kemampuan regulasi diri awalnya terbentuk bersama orang tua, lalu bertahap menjadi mandiri. Semakin sering anak menjadi tenang bersama orang dewasa yang tenang, semakin baik ia mempelajari jalan itu.',
+      'Napas yang lambat dan dalam (terutama embusan napas yang panjang) memperlambat detak jantung dan mematikan mode “bahaya” tubuh. Anak-anak mempelajarinya lebih baik lewat permainan daripada lewat instruksi.',
+    ],
+    tryToday: [
+      'Bersama anak, buat “pojok nyaman” kecil di rumah: bantal, boneka lembut, satu-dua buku, kartu perasaan. Ini bukan tempat hukuman, tapi tempat yang boleh didatangi kapan saja.',
+      'Permainan “lilin dan bunga”: cium bunganya (tarik napas lewat hidung), tiup lilinnya (embuskan napas pelan lewat mulut). Lima kali.',
+      'Berlatihlah bersama di saat tenang: “Waktu kita marah, tubuh kita jadi bagaimana? Yuk, kita latihan napas sekarang selagi tenang, biar ingat waktu dibutuhkan.”',
+      'Dengan anak kecil, pergi ke pojoknya bersama-sama: “Yuk, kita ke pojok nyaman bareng.”',
+    ],
+    mistakes: [
+      'Memakai pojok itu sebagai hukuman: “Sana, berdiri di pojok!” Nanti anak akan menghindari tempat itu.',
+      'Mencoba mengajarkan latihan napas untuk pertama kalinya di tengah tantrum. Keterampilan dipelajari di saat tenang.',
+      'Berharap anak tenang “seketika”. Perasaan besar bisa butuh 10–20 menit untuk reda.',
+    ],
+    byAge: {
+      '3-6': 'Permainan “mengayun boneka dengan napas” — taruh boneka di atas perutnya — sangat efektif.',
+      '6-12': 'Biarkan anak menulis daftar cara menenangkan dirinya sendiri: musik, menggambar, jalan-jalan, minum air. Cara yang ia pilih sendiri lebih sering ia jalankan.',
+    },
+    specialist: [
+      'Jika anak hampir tidak pernah bisa tenang atau berperilaku membahayakan saat marah — hubungi psikolog anak.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Perasaan besar anak usia sekolah',
+    summary: 'Marah, malu, cemburu, kecewa: di usia sekolah perasaan makin kompleks, dan anak butuh bantuan untuk memahaminya.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Di usia sekolah anak sudah bisa menyembunyikan perasaannya, sehingga perasaan besar sering meledak di rumah, di dekat orang yang paling aman — kamu. Rewel sepulang sekolah sering kali adalah kelelahan karena seharian “menahan diri”.',
+      'Di usia ini perbandingan sosial dimulai. Rasa malu dan perasaan “aku jelek” bisa tampak seperti kemarahan. Semakin anak bisa menamai perasaannya, semakin mudah pula ia mengelolanya.',
+    ],
+    tryToday: [
+      'Jangan langsung membanjiri dengan pertanyaan sepulang sekolah. Camilan, diam, atau pelukan dulu, ngobrol belakangan.',
+      'Latih bersama kalimat “perasaan + kebutuhan”: “Aku merasa …, karena … . Aku butuh … .”',
+      'Ceritakan kisah serupa dari masa kecilmu: “Waktu umur 9 tahun, aku juga pernah malu begitu…”',
+      'Setelah ledakan, bahas bersama tanpa menyalahkan: “Tadi kenapa? Apa yang kamu rasakan di tubuhmu? Lain kali apa yang bisa membantu?”',
+    ],
+    mistakes: [
+      'Mengecilkan perasaannya: “Nggak perlu nangis cuma gara-gara itu.” Baginya, itu hal besar.',
+      'Langsung menawarkan solusi. Kadang anak hanya ingin didengar.',
+      'Menganggap marah “tidak pantas” untuk anak perempuan, dan sedih “tidak pantas” untuk anak laki-laki. Semua perasaan normal untuk semua anak.',
+    ],
+    specialist: [
+      'Sedih lebih dari dua minggu, kehilangan minat, perubahan tidur dan nafsu makan, menolak sekolah.',
+      'Menyakiti diri sendiri atau berbicara tentang kematian: segera hubungi tenaga profesional, dan jika ada bahaya, hubungi {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Merengek dan manja',
+    summary: 'Rengekan memang bikin kesal, tapi sering kali itu sinyal lelah atau butuh perhatian.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Anak cepat belajar perilaku mana yang berhasil. Kalau merengek akhirnya membuatnya mendapatkan yang ia mau, ia akan terus merengek. Perhatian — bahkan perhatian negatif — memperkuat perilaku.',
+      'Di saat yang sama, merengek sering kali tanda lapar, lelah, atau terlalu lama tidak diperhatikan. Menanggapi penyebabnya membuat perilaku ini cepat berkurang.',
+    ],
+    tryToday: [
+      'Di saat tenang, mainkan permainan “suara kuat”: ucapkan permintaan yang sama dengan suara merengek dan suara biasa, lalu tertawa bersama.',
+      'Saat ia merengek, katakan dengan tenang: “Aku lebih jelas dengar kamu kalau pakai suara biasa.” Saat ia bicara dengan suara biasa, langsung tanggapi dengan antusias.',
+      'Sepanjang hari, ambil langkah pertama: sering beri perhatian singkat tanpa alasan — kontak mata, pelukan, “aku lihat kamu”.',
+    ],
+    mistakes: [
+      'Awalnya bilang “tidak”, lalu saat rengekan berlarut bilang “ya sudah, nih”. Ini cara paling ampuh untuk mengajarkan merengek.',
+      'Mengejek rengekannya atau menirukannya untuk mempermalukan.',
+    ],
+    specialist: [
+      'Jika selain merengek anak sering tampak lelah dan pucat, atau nafsu makannya menurun — periksakan ke dokter untuk mengecek penyebab medis.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Disiplin positif: batasan dan kehangatan sekaligus',
+    summary: 'Hasil terbaik bukan didapat oleh orang tua yang keras maupun yang membolehkan segalanya, melainkan oleh yang hangat sekaligus jelas.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Pada tahun 1960-an, psikolog Diana Baumrind menggambarkan gaya pengasuhan dengan dua dimensi: kehangatan (kasih sayang, perhatian, responsif) dan tuntutan/struktur (harapan yang jelas, batasan). Gaya “autoritatif”, yang tinggi di keduanya, terbukti berkaitan dengan hasil terbaik: anak yang lebih mandiri, lebih percaya diri, dan lebih sedikit masalah perilaku.',
+      'Dalam dekade-dekade berikutnya, meta-analisis yang menggabungkan ratusan penelitian menegaskan temuan ini: hubungan yang hangat dan batasan yang disertai penjelasan berkaitan dengan lebih sedikit agresi dan pelanggaran aturan, sedangkan kontrol keras dan hukuman sebaliknya, dengan lebih banyak masalah perilaku.',
+      'American Academy of Pediatrics (2018) dan WHO (2022) merekomendasikan jalan yang sama kepada orang tua: membangun hubungan yang positif, memperhatikan dan memperkuat perilaku baik, harapan yang jelas, dan konsekuensi yang tenang. Hukuman fisik dan kata-kata merendahkan tidak dianjurkan.',
+    ],
+    tryToday: [
+      'Ucapkan satu aturan dengan bahasa positif: bukan “jangan lari”, tapi “di rumah kita jalan”.',
+      'Sampaikan harapan sebelumnya: “Di toko kamu pegang tanganku, dan kita cuma masukkan barang yang ada di daftar ke troli.”',
+      'Hari ini, lima kali perhatikan perilaku baik dan sebutkan dengan spesifik: “Kamu gantung tasmu sendiri, makasih ya!” Perilaku yang diberi perhatian, itulah yang tumbuh.',
+      'Pasang batasan dengan suara tenang, singkat, dan ramah, lalu lakukan. Tanpa peringatan berulang-ulang.',
+    ],
+    mistakes: [
+      'Mempertentangkan kasih sayang dengan batasan. “Aku sayang kamu, makanya aku tidak mengizinkan” — keduanya bisa berjalan bersama.',
+      'Menerapkan aturan yang sama satu hari, lalu melupakannya keesokan harinya. Konsistensi lebih penting daripada ketegasan.',
+      'Hanya bereaksi pada kesalahan. Kalau anak hanya bisa mendapat perhatian lewat perilaku bermasalah, ia akan mengulanginya.',
+    ],
+    byAge: {
+      '1-3': 'Lebih banyak mengatur lingkungan daripada kata-kata: simpan benda berbahaya di tempat yang tak terjangkau, simpan “tidak” hanya untuk hal-hal penting.',
+      '3-6': '3–4 aturan keluarga yang sederhana sudah cukup. Gambar dalam bentuk gambar dan tempel di tempat yang terlihat.',
+      '6-12': 'Diskusikan aturan bersama, sepakati konsekuensinya sejak awal. Anak lebih patuh pada aturan yang sebagian ia tulis sendiri.',
+    },
+    specialist: [
+      'Jika meski sudah berusaha keras, masalah perilaku mengganggu kehidupan keluarga, TK, atau sekolah selama berbulan-bulan — psikolog anak atau program parenting (misalnya PCIT, Triple P) sangat efektif.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Kenapa memukul tidak berhasil, dan apa yang berhasil',
+    summary: 'Pukulan bisa membuat anak patuh sesaat, tapi memperburuk perilaku jangka panjang. Bukti ilmiahnya sangat jelas soal ini.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Pada tahun 2016, Gershoff dan Grogan-Kaylor menggabungkan 75 penelitian yang melibatkan lebih dari 160 ribu anak. Hasilnya: memukul (spanking) tidak berkaitan dengan satu pun hasil jangka panjang yang positif pada anak, justru berkaitan dengan lebih banyak agresi, perilaku antisosial, masalah kesehatan mental, dan hubungan yang lemah dengan orang tua. Kaitan ini juga terlihat pada pukulan yang “ringan” atau “karena sayang”.',
+      'Alasannya sederhana: memukul tidak mengajarkan anak apa yang seharusnya ia lakukan, hanya mengajarkan rasa takut. Selain itu, memukul menunjukkan bahwa masalah diselesaikan dengan kekuatan. Membentak, mengancam, dan merendahkan juga berdampak serupa: dalam penelitian, disiplin verbal yang keras dikaitkan dengan lebih banyak masalah perilaku dan gejala depresi di tahun-tahun berikutnya.',
+      'American Academy of Pediatrics (2018) dan WHO tidak menganjurkan hukuman fisik dan kata-kata merendahkan. Cara yang berhasil sebagai gantinya: hubungan yang hangat, aturan yang jelas, memperkuat perilaku baik, konsekuensi logis, dan waktu untuk menenangkan diri.',
+    ],
+    tryToday: [
+      'Pilih “sinyal berhenti” untuk dirimu sendiri: saat emosi naik, masukkan tangan ke saku, atau mundur selangkah dan hitung sampai 10.',
+      'Hentikan perilaku berbahaya secara fisik tapi tanpa menyakiti: pegang tangannya, gendong anak, ambil bendanya.',
+      'Ajarkan apa yang perlu dilakukan lain kali: “Kalau kakakmu ambil mainanmu, kamu bisa bilang “kembalikan!”, atau datang ke aku.”',
+      'Kalau kamu sudah terlanjur memukul: minta maaf, ambil tanggung jawab atas perilakumu, dan sampaikan rencanamu. Ini juga mengajari anak cara bangkit dari kesalahan.',
+    ],
+    mistakes: [
+      'Berpikir “Aku dulu juga dipukul, dan aku baik-baik saja”. Banyak orang tumbuh baik meski begitu, tapi penelitian menunjukkan bahwa rata-rata risikonya meningkat.',
+      'Menyimpan pukulan sebagai “jalan terakhir”. Jalan terakhir adalah jeda untuk menenangkan diri dan meminta bantuan.',
+      'Mengganti hukuman fisik dengan cara merendahkan lainnya (mempermalukan, mengancam, menarik kasih sayang).',
+    ],
+    byAge: {
+      '1-3': 'Cara paling efektif di usia ini: mengalihkan perhatian, mengubah lingkungan, dengan tenang mengangkat anak dari tempat yang berbahaya.',
+      '3-6': 'Konsekuensi logis dan “time-in” (menenangkan diri di dekatmu) bekerja dengan baik.',
+      '6-12': 'Membatasi hak istimewa untuk sementara (misalnya waktu layar) dan menyelesaikan masalah bersama.',
+    },
+    specialist: [
+      'Jika kamu merasa tidak bisa menahan diri saat emosi dan bisa menyakiti anak — itu alasan kuat untuk meminta bantuan. Psikolog atau program parenting bisa mengubah keadaan ini.',
+      'Jika anak atau kamu dalam bahaya, atau ada kekerasan di rumah, segera telepon {emergency}.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Konsekuensi dan hukuman: apa bedanya?',
+    summary: 'Hukuman bertujuan menyakiti, konsekuensi bertujuan mengajari. Konsekuensi terbaik berkaitan dengan perilakunya, penuh hormat, dan sudah diketahui sebelumnya.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Psikologi perilaku menunjukkan bahwa perilaku paling banyak diubah oleh apa yang terjadi setelahnya. Tapi hukuman (memukul, merendahkan, larangan panjang) menimbulkan rasa takut dan sakit hati, dan anak justru berpikir “bagaimana caranya supaya tidak ketahuan”.',
+      'Konsekuensi logis berkaitan langsung dengan perilaku, singkat, dan mengajari: mencoret tembok dengan krayon — kita bersihkan bersama; melanggar aturan bersepeda — hari ini tidak ada sepeda. Konsekuensi alami (keluar tanpa jaket — kedinginan) adalah guru paling kuat, selama aman.',
+    ],
+    tryToday: [
+      'Cek “3 R”: apakah konsekuensinya berkaitan dengan perilaku (Related), penuh hormat (Respectful), dan masuk akal (Reasonable)?',
+      'Sampaikan konsekuensinya sebelumnya: “Kalau mainannya tidak dibereskan, besok mainannya istirahat di dalam kotak.” Lalu lakukan dengan tenang.',
+      'Buat konsekuensinya singkat: satu hari sudah cukup. Larangan sebulan tidak lagi mengajari, hanya menyakiti.',
+      'Setelah konsekuensi, “lembaran baru”: tanpa ceramah, kita mulai lagi.',
+    ],
+    mistakes: [
+      'Mengarang konsekuensi saat sedang emosi: “Setahun nggak ada sepeda!” Lalu tidak mungkin dijalankan, dan kata-katamu kehilangan bobotnya.',
+      'Hukuman yang tidak ada hubungannya dengan perilaku: tidak mengerjakan PR — tidak boleh datang ke ulang tahun teman.',
+      'Menerapkan konsekuensi sambil mengejek atau bilang “tuh, kan?”.',
+    ],
+    byAge: {
+      '3-6': 'Konsekuensi harus langsung dan sangat singkat. Beberapa jam kemudian, anak sudah tidak mengaitkannya dengan perilakunya.',
+      '6-12': 'Tentukan konsekuensi bersama. Anak lebih patuh pada aturan yang menurutnya adil.',
+    },
+    specialist: [
+      'Jika tidak ada konsekuensi yang berhasil dan perilakunya berbahaya atau cukup berat sampai menguras keluarga — konsultasikan dengan program parenting dan psikolog anak.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Cara bicara tanpa membentak',
+    summary: 'Membentak memberi kelegaan sesaat, tapi anak jadi terbiasa dengan suara keras dan makin jarang mendengar. Bicara dengan tenang dan dari dekat jauh lebih kuat.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Dalam penelitian, disiplin dengan teriakan, makian, dan kata-kata merendahkan yang rutin dikaitkan dengan lebih banyak masalah perilaku dan gejala depresi di tahun-tahun berikutnya, bahkan ketika hubungan secara umum hangat. Salah satu alasannya: membentak mengaktifkan sistem stres anak, sehingga ia bertahan alih-alih mendengar.',
+      'Kabar baiknya: regulasi diri orang tua adalah keterampilan yang bisa dipelajari. Membentak sering kali adalah sinyal bahwa orang tua lelah, lapar, dan kewalahan, bukan tanda “orang tua yang buruk”.',
+    ],
+    tryToday: [
+      'Daripada berteriak dari jauh, dekati anak, turunkan badan setinggi matanya, buat kontak mata, sebut namanya, dan bicara dengan kalimat singkat.',
+      'Saat ingin menaikkan suara, lakukan kebalikannya: bicara berbisik. Anak-anak mendengarkan bisikan dengan penasaran.',
+      'Catat momen-momen kamu membentak sepanjang hari. Paling sering di jam berapa? Buat rencana untuk jam itu (misalnya camilan, menyiapkan pekerjaan lebih awal).',
+      'Kalau sudah membentak, perbaiki: “Tadi aku membentak, itu tidak benar. Aku kesal, tapi seharusnya aku tidak meninggikan suara.”',
+    ],
+    mistakes: [
+      'Menyalahkan diri setelah setiap kesalahan. Ini malah menambah ketegangan lain kali. Tujuannya bukan sempurna, tapi frekuensi dan perbaikan.',
+      'Bilang “Kamu yang bikin aku teriak”. Kitalah yang bertanggung jawab atas perasaan kita.',
+    ],
+    specialist: [
+      'Jika marah dan kesal hampir setiap hari lepas kendali, disertai susah tidur, sedih, atau putus asa — bicaralah dengan dokter atau psikolog. Depresi dan kecemasan pada orang tua bisa diobati.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out atau time-in?',
+    summary: 'Jeda singkat untuk menenangkan diri bisa berhasil, tapi bagi anak kecil yang utama bukan isolasi, melainkan kedekatan yang membantunya tenang.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      '“Time-out” klasik (jeda tenang beberapa menit) telah diteliti dalam beberapa program parenting dan terbukti tidak berbahaya bila diterapkan dengan benar (singkat, tenang, tanpa merendahkan, di tengah hubungan yang hangat). Tapi ini bukan berarti mengurung anak di kamar atau menakut-nakutinya.',
+      '“Time-in” adalah anak menenangkan diri di dekatmu. Ini lebih cocok untuk anak kecil, karena mereka masih membutuhkan ko-regulasi. Dalam kedua cara, tujuannya bukan hukuman, tapi menenangkan diri dan “memulai lagi”.',
+    ],
+    tryToday: [
+      'Aturan: kira-kira satu menit per tahun usia, maksimal 5 menit.',
+      'Tempatnya tenang, tapi tidak menakutkan. Jangan pernah mengurung anak di kamar gelap.',
+      'Untuk time-in: “Sini, duduk di sebelahku. Kita tarik napas bareng.”',
+      'Setelah jeda, cukup bilang singkat “kita mulai lagi”, tanpa ceramah.',
+    ],
+    mistakes: [
+      'Memakai time-out terlalu lama, terlalu sering, dan disertai ancaman.',
+      'Menggabungkan jeda dengan merendahkan: “Pergi sana, aku nggak mau lihat kamu.”',
+    ],
+    specialist: [
+      'Jika di setiap jeda anak mengalami ketakutan luar biasa atau panik, atau momen berpisah membuatnya sangat terguncang — bicarakan dengan tenaga profesional.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Aturan keluarga: sedikit, jelas, konsisten',
+    summary: 'Anak menguji batasan karena ingin tahu apakah batasan itu masih ada di tempatnya. Batasan yang stabil memberi rasa aman.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Lingkungan yang bisa ditebak menenangkan sistem stres anak. Dalam penelitian, aturan yang jelas dan rutinitas harian dikaitkan dengan tidur yang lebih baik, lebih sedikit masalah perilaku, dan kemampuan mengelola diri yang lebih kuat.',
+      'Aturan yang paling berhasil jumlahnya sedikit (3–5), ditulis dengan bahasa positif, dan diterapkan sama oleh kedua orang tua.',
+    ],
+    tryToday: [
+      'Adakan rapat keluarga: setiap orang mengusulkan satu aturan, lalu pilih 3–5 aturan utama bersama.',
+      'Tulis aturannya secara positif: “Tangan lembut”, “Kalau ada yang bicara, kita dengarkan”, “Habis makan, piring ke dapur”.',
+      'Sepakati juga konsekuensinya bersama aturan.',
+      'Orang dewasa juga mengikuti aturan. Anak lebih melihat contoh daripada kata-kata.',
+    ],
+    mistakes: [
+      'Membuat aturan baru untuk setiap masalah baru. Terlalu banyak aturan sama saja dengan tidak ada aturan.',
+      'Ibu punya satu aturan, ayah atau nenek punya aturan lain. Orang dewasa harus sepakat dulu di antara mereka.',
+    ],
+    specialist: [
+      'Jika di keluarga terus terjadi konflik yang tegang soal aturan, konselor keluarga bisa membantu.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'Anak yang bilang “Nggak!”: menghadapi keras kepala',
+    summary: 'Fase “nggak” adalah penemuan anak bahwa “aku adalah orang yang terpisah”. Yang berhasil bukan melawannya, tapi memberinya pilihan.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Di tahun kedua, anak menemukan bahwa ia punya kehendak sendiri. Kebutuhan akan otonomi termasuk kebutuhan psikologis dasar: semakin anak merasa punya kendali, semakin siap ia bekerja sama.',
+      'Penelitian menunjukkan bahwa bahasa yang “mengontrol” (“pakai baju sekarang!”) meningkatkan perlawanan, sedangkan pilihan dan penjelasan meningkatkan kerja sama.',
+    ],
+    tryToday: [
+      'Beri dua pilihan yang sama-sama bisa diterima: “Sikat gigi dulu atau pakai piyama dulu?”',
+      'Daripada pertanyaan ya/tidak, pakai kalimat pernyataan: “Sekarang waktunya pakai baju”, bukan “Pakai baju, yuk?”',
+      'Jadikan permainan: “Coba lihat, siapa yang lebih cepat pakai kaus kaki — kamu atau si beruang?”',
+      'Lepaskan pertarungan yang tidak penting: kalau bajunya terbalik, dunia tidak runtuh.',
+    ],
+    mistakes: [
+      'Menjadikan setiap “nggak” sebagai perebutan kekuasaan.',
+      'Memberi pilihan, lalu tidak menerima pilihan anak.',
+    ],
+    specialist: [
+      'Jika anak hampir tidak merespons permintaan apa pun, tidak menoleh saat dipanggil namanya, atau kesulitan berkomunikasi — periksakan ke dokter untuk pemeriksaan perkembangan.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

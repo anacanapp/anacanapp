@@ -26,45 +26,50 @@ const BlockedScreen = ({ block }: BlockedScreenProps) => {
   null;
 
   return (
-    <div className="a-scope fixed inset-0 z-[500] flex flex-col items-center justify-center px-6"
-    style={{ background: 'var(--a-bg)', paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}>
+    <div className="fixed inset-0 z-[500] flex flex-col items-center justify-center px-6 bg-background"
+    style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}>
+      
+      <div className="w-20 h-20 rounded-3xl bg-red-50 dark:bg-red-950/40 flex items-center justify-center mb-5">
+        <Ban className="w-10 h-10 text-red-500" />
+      </div>
 
-      <span className="a3-ico-sq c-peach" style={{ width: 72, height: 72, borderRadius: 24, marginBottom: 20 }} aria-hidden="true">
-        <Ban size={34} style={{ color: 'var(--a-bad)' }} />
-      </span>
-
-      <h1 className="a3-tool-title" style={{ textAlign: 'center', marginBottom: 8 }}>
+      <h1 className="text-xl font-black text-foreground text-center mb-2">
         {tr('blocked_title', 'Hesabınız bloklanıb')}
       </h1>
-      <p className="a3-meta" style={{ textAlign: 'center', fontSize: 14, maxWidth: 360, marginBottom: 24 }}>
+      <p className="text-sm text-muted-foreground text-center mb-6 max-w-sm">
         {tr('blocked_subtitle', 'Anacan qaydalarının pozulmasına görə hesabınız tətbiqdən müvəqqəti və ya daimi olaraq kənarlaşdırılıb.')}
       </p>
 
-      <div className="a3-card a3-pad w-full max-w-sm" style={{ marginBottom: 12 }}>
-        <span className="a3-eyebrow" style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--a-bad)' }}>
-          <ShieldAlert size={14} />{tr('blocked_reason_label', 'Bloklanma səbəbi')}
-        </span>
-        <p style={{ margin: 0, fontSize: 15, lineHeight: 1.45, color: 'var(--a-ink)' }}>
+      <div className="w-full max-w-sm rounded-2xl border border-red-200 dark:border-red-900 bg-red-50/60 dark:bg-red-950/20 p-4 mb-3">
+        <div className="flex items-center gap-2 mb-1.5">
+          <ShieldAlert className="w-4 h-4 text-red-500 shrink-0" />
+          <span className="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wide">
+            {tr('blocked_reason_label', 'Bloklanma səbəbi')}
+          </span>
+        </div>
+        <p className="text-sm text-foreground leading-relaxed">
           {block.reason || tr('blocked_reason_default', 'Qaydaların pozulması')}
         </p>
       </div>
 
-      <div className="a3-card a3-pad w-full max-w-sm" style={{ marginBottom: 32 }}>
-        <p className="a3-meta" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14 }}>
-          <Clock size={16} />
-          <span>
+      <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-4 mb-8">
+        <div className="flex items-center gap-2">
+          <Clock className="w-4 h-4 text-muted-foreground shrink-0" />
+          <p className="text-sm text-muted-foreground">
             {expiryText ?
-            <>{tr('blocked_until', 'Blokun bitmə tarixi:')} <b style={{ color: 'var(--a-ink)' }}>{expiryText}</b></> :
+            <>{tr('blocked_until', 'Blokun bitmə tarixi:')} <span className="font-semibold text-foreground">{expiryText}</span></> :
             tr('blocked_permanent', 'Bu blok daimidir.')}
-          </span>
-        </p>
-        <p className="a3-meta">
+          </p>
+        </div>
+        <p className="text-[11px] text-muted-foreground mt-2">
           {tr('blocked_appeal', 'Bunun səhv olduğunu düşünürsünüzsə, support@anacan.az ünvanına yazın.')}
         </p>
       </div>
 
-      <button type="button" onClick={() => signOut()} className="a3-btn ghost">
-        <LogOut size={16} />
+      <button
+        onClick={() => signOut()}
+        className="flex items-center gap-2 px-6 h-11 rounded-full bg-muted font-bold text-sm text-foreground">
+        <LogOut className="w-4 h-4" />
         {tr('blocked_signout', 'Hesabdan çıx')}
       </button>
     </div>);

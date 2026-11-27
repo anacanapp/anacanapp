@@ -10,6 +10,7 @@ vi.mock('@/lib/analytics', () => ({ analytics: { logPremiumSubscribed: vi.fn(), 
 vi.mock('@/lib/revenuecat', () => ({
   REVENUECAT_ENABLED: true, isNativePlatform: () => true, hasRevenueCatPlugin: () => true,
   initRevenueCat: mocks.initialize, identifyUser: mocks.identify,
+  withNativeTimeout: (p: Promise<unknown>) => p, RC_NATIVE_TIMEOUT_MS: 15000,
   checkEntitlement: async () => ({ isPro: true }),
   getOfferings: async () => ({ all: { pricing_2026: { availablePackages: [{ identifier: '$rc_monthly', packageType: 'MONTHLY',
     product: { identifier: 'com.atlasoon.anacan.premium.monthly', price: 3.99, currencyCode: 'USD' } }] } } }),
@@ -70,4 +71,45 @@ it('restore and native paywall success cannot bypass an unconfirmed server resul
     const paywall = result.current.showPaywallSafe(); await vi.runAllTimersAsync(); expect(await paywall).toEqual({ available: true, didPurchase: false });
   });
   expect(result.current.isPro).toBe(false);
+});
+it('a pending store payment is pending (localized), never a failure, and never shows raw codes', async () => {
+  const { result } = await ready();
+  mocks.purchase.mockResolvedValue({ success: false, error: 'PURCHASE_PENDING' });
+  await act(async () => { expect(await result.current.purchaseMonthly()).toBe(false); });
+  expect(result.current.purchaseStatus).toBe('pending');
+  expect(result.current.error).toContain('təsdiq gözləyir');
+  expect(mocks.invoke).not.toHaveBeenCalled();
+});
+it.each(['REVENUECAT_ACCOUNT_MISMATCH', 'PURCHASE_OPTION_UNAVAILABLE', 'PURCHASE_PRICE_CHANGED', 'PREMIUM_SOURCE_NON_STORE'])('maps %s to a friendly message', async code => {
+  const { result } = await ready();
+  mocks.purchase.mockResolvedValue({ success: false, error: code });
+  await act(async () => { await result.current.purchaseMonthly(); });
+  expect(result.current.purchaseStatus).toBe('failed');
+  expect(result.current.error).toBeTruthy();
+  expect(result.current.error).not.toContain(code);
+});
+it('a hanging server sync cannot keep the paywall loading; offerings load in parallel', async () => {
+  mocks.invoke.mockReturnValue(new Promise(() => {}));
+  const { useInAppPurchase } = await import('./useInAppPurchase');
+  const hook = renderHook(useInAppPurchase);
+  await waitFor(() => expect(hook.result.current.isLoading).toBe(false));
+  expect(hook.result.current.packages).toHaveLength(1);
+  expect(hook.result.current.offeringsFailed).toBe(false);
+});
+it('retry re-initializes the store after a failed start and loads offerings', async () => {
+  mocks.initialize.mockRejectedValueOnce(new Error('store down'));
+  const { useInAppPurchase } = await import('./useInAppPurchase');
+  const hook = renderHook(useInAppPurchase);
+  await waitFor(() => expect(hook.result.current.isLoading).toBe(false));
+  expect(hook.result.current.isSupported).toBe(false); expect(hook.result.current.offeringsFailed).toBe(true);
+  await act(async () => { await hook.result.current.reloadOfferings(); });
+  expect(hook.result.current.isSupported).toBe(true); expect(hook.result.current.packages).toHaveLength(1);
+  expect(hook.result.current.offeringsFailed).toBe(false);
+});
+it('restore reports why nothing was restored', async () => {
+  const { result } = await ready();
+  mocks.restore.mockResolvedValue({ success: false, reason: 'network' });
+  await act(async () => { expect(await result.current.restorePurchasesDetailed()).toEqual({ ok: false, failure: 'network' }); });
+  mocks.restore.mockResolvedValue({ success: false, reason: 'none' });
+  await act(async () => { expect(await result.current.restorePurchasesDetailed()).toEqual({ ok: false, failure: 'none' }); });
 });

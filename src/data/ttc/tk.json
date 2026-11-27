@@ -1,0 +1,118 @@
+{
+ "goal_title": "Maksadyňyz näme?",
+ "goal_track": "Siklimi yzarla",
+ "goal_track_desc": "Aýbaşy, alamatlar we keýp",
+ "goal_conceive": "Göwreli bolmak",
+ "goal_conceive_desc": "Hasylly günler, ovulýasiýa testleri, taýýarlyk",
+ "goal_switch": "Maksat",
+ "goal_pill": "Maksat: göwrelilik",
+ "eyebrow": "Göwreli bolmaga synanyşmak · {n}-nji aý",
+ "eyebrow_start": "Göwreli bolmaga synanyşmak",
+ "cycle_day": "Siklň {n}-nji güni",
+ "chance": "göwreli bolmak ähtimallygy",
+ "chances": {
+  "low": "Pes",
+  "medium": "Orta",
+  "high": "Ýokary",
+  "peak": "Iň ýokary"
+ },
+ "window": "Hasylly döwür: {range}",
+ "window_today": "Siz hasylly döwrüňizde",
+ "ovulation": "Çaklanýan ovulýasiýa: {date}",
+ "ovulation_confirmed": "Ovulýasiýa testiňiz bilen tassyklandy",
+ "legend": {
+  "period": "Aýbaşy",
+  "fertile": "Hasylly",
+  "ovulation": "Ovulýasiýa",
+  "today": "Şu gün"
+ },
+ "tap_day": "Ähtimallygyňyzy görmek üçin güne basyň",
+ "day_detail": "{date} · {chance}",
+ "quick_lh": "Ovulýasiýa testi",
+ "quick_bbt": "Bazal temperatura",
+ "quick_intimacy": "Ýakynlyk",
+ "quick_test": "Göwrelilik testi",
+ "log_title": "Şu gün",
+ "lh_title": "Ovulýasiýa testi (LH)",
+ "lh": {
+  "negative": "Otrisatel",
+  "positive": "Položitel",
+  "peak": "Iň ýokary"
+ },
+ "bbt_title": "Bazal beden temperaturasy",
+ "bbt_hint": "Irden, düşekden turmazdan öň",
+ "bbt_chart": "Soňky 14 gün",
+ "bbt_shift": "Temperaturanyň ýokarlanmagy anyklandy — ovulýasiýa ähtimal bolup geçdi",
+ "intimacy_title": "Ýakynlyk",
+ "intimacy_desc": "Diňe size görünýär, ýoldaşyňyza hiç haçan görkezilmeýär",
+ "test_title": "Göwrelilik testi",
+ "test_desc": "Aýbaşy gijä galandan soň iň takyk",
+ "test": {
+  "negative": "Otrisatel",
+  "faint": "Gowşak çyzyk",
+  "positive": "Položitel"
+ },
+ "save": "Saklamak",
+ "saved": "Saklandy",
+ "error": "Saklap bolmady. Gaýtadan synanyşyň.",
+ "checklist_title": "Taýýarlyk barlag sanawy",
+ "checklist": {
+  "folic": {
+   "title": "Her gün fol kislotasy",
+   "desc": "400 mkg · azyndan 1 aý öň başlap"
+  },
+  "gyn": {
+   "title": "Ginekologa baryş",
+   "desc": "Göwrelilikden öň umumy barlag"
+  },
+  "labs": {
+   "title": "Gan barlaglary",
+   "desc": "Gan topary, gyzylja, TSH, demir, glýukoza"
+  },
+  "vaccines": {
+   "title": "Sanjymlar",
+   "desc": "Gyzylja, suwçeçek, dümew — lukmanyňyz bilen anyklaň"
+  },
+  "dentist": {
+   "title": "Diş lukmany",
+   "desc": "Göwrelilik wagtynda diş bejergisi has kyn"
+  },
+  "lifestyle": {
+   "title": "Çilimi we alkogoly taşlaň",
+   "desc": "Iki ýoldaş üçin hem"
+  },
+  "meds": {
+   "title": "Dermanlaryňyzy gözden geçiriň",
+   "desc": "Yzygiderli içýän dermanlaryňyzy lukmanyňyz bilen ara alyp maslahatlaşyň"
+  },
+  "partner": {
+   "title": "Ýoldaşyň saglygy",
+   "desc": "Durmuş ýörelgesi spermalara hem täsir edýär"
+  }
+ },
+ "months_normal": "Siz {n} aý bäri synanyşýarsyňyz. Bu düýbünden adaty — jübütleriň köpüsi 6–12 aýyň içinde göwreli bolýar.",
+ "months_first": "Siz ýaňy başlaýarsyňyz. Üstünlik! Iň möhüm zat: hasylly günleriňizde her 1–2 günden ýakynlyk.",
+ "months_doctor": "Siz {n} aý bäri synanyşýarsyňyz. Lukmana ýüz tutmagyň wagty geldi — bu adatça ýönekeý barlaglardan başlaýar we düýbünden adaty ädim.",
+ "started_on": "Haçan synanyşyp başladyňyz?",
+ "tips_title": "Ähtimallygyňyzy artdyrmak üçin",
+ "tips": [
+  "Hasylly döwrüňizde her 1–2 günden ýakynlyk",
+  "Ovulýasiýa testlerini günortandan soň ir wagtda ediň",
+  "Sagdyn agram we gowy uky",
+  "Stresi azaltmak üçin gezelençler we dem alyş maşklary"
+ ],
+ "positive_title": "Gutlaýarys!",
+ "positive_body": "Siz položitel testi ýazdyňyz. Anacan göwrelilik ýolunda siziň bilen dowam etmäge taýýar.",
+ "positive_lmp": "Soňky aýbaşy: {date}",
+ "positive_due": "Çaklanýan dogluş senesi: {date}",
+ "positive_visit": "Lukmana ilkinji baryş",
+ "positive_visit_desc": "6–8-nji hepdelerde maslahat berilýär",
+ "positive_partner": "Ýoldaşyňyza habar beriň",
+ "positive_partner_desc": "Onuň programmasy göwrelilik tertibine geçer",
+ "positive_switch": "Göwrelilik tertibine geçmek",
+ "positive_later": "Entek anyk däl — 2 günden ýatlat",
+ "faint_hint": "Gowşak çyzyk hem köplenç göwreliligi aňladýar. Testi 2 günden gaýtalaň.",
+ "switched": "Siz göwrelilik tertibine geçdiňiz 💛",
+ "bbt_premium": "Temperatura grafigi Premium-yň bir bölegi",
+ "no_cycle": "Hasylly günleriňizi hasaplamak üçin soňky aýbaşyňyzyň senesini giriziň."
+}

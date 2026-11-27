@@ -47,6 +47,21 @@ describe('doctor PDF generation', () => {
       notes: Array.from({ length: 150 }, (_, n) => `Qeyd ${n}: Həkim üçün tam saxlanmalı olan müşahidə.`).join('\n') });
     expect(doc.getNumberOfPages()).toBeGreaterThan(5);
   });
+
+  it('renders clinical sections with a clinician flag, cards, note and table', async () => {
+    const base = { userName: 'Test', stageTitle: 'Analıq', periodLabel: '1 ay', stageRows: [], trends: [], coverage: { records: 0, recordedDays: 0 } };
+    const sections = [
+      { id: 'epds', title: 'EPDS', flag: 'Diqqət: 10-cu sual 0-dan yuxarı: 05.11.2026 (1/3).', note: 'Skrininq.', table: { headers: ['Tarix', 'Bal', 'Risk', 'Sual 10'], rows: [['05.11.2026', '14 / 30', 'Ehtimal', '1 (!)']] } },
+      { id: 'growth', title: 'Böyümə', rows: [{ label: 'Çəki persentili', value: 'P40 · 7 kq' }], table: { headers: ['Tarix', 'Çəki'], rows: Array.from({ length: 60 }, (_, n) => [`0${n}.11.2026`, '7']) } },
+    ];
+    const doc = await generateDoctorReportPdf({ ...base, sections });
+    const text = new TextDecoder('latin1').decode(doc.output('arraybuffer'));
+    expect(doc.getNumberOfPages()).toBeGreaterThan(1);
+    expect(text.length).toBeGreaterThan(10000);
+    // An empty section is skipped instead of printing a bare heading.
+    const empty = await generateDoctorReportPdf({ ...base, sections: [{ id: 'kicks', title: 'Təpik', table: { headers: ['a'], rows: [] } }] });
+    expect(empty.getNumberOfPages()).toBe(1);
+  });
 });
 
 describe('PDF delivery', () => {

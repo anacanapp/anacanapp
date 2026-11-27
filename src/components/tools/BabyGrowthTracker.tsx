@@ -1,7 +1,12 @@
+import { ToolSectionsBar } from './anacan/ToolKit';
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ComposedChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import { buildCurveData, percentile, percentileLabel, ageInMonths, type Sex, type Measure } from '@/lib/whoGrowth';
+import { buildCurveData, ageInMonths, MAX_AGE_MONTHS, type Sex, type Measure, type GrowthCurvePoint } from '@/lib/whoGrowth';
+import {
+  GROWTH_MEASURES, chartMaxMonth, chartTicks, childPoints, latestPercentile as latestPercentileFor,
+  measureLabel, percentileChip, type GrowthEntryLike } from
+'@/lib/growthChartView';
 import { getPrematurityInfo } from '@/lib/pregnancy-utils';
 import {
   ArrowLeft, Scale, Ruler, Plus, TrendingUp, TrendingDown,
@@ -20,17 +25,21 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale, formatDateAz } from '@/lib/date-utils';
 import { useScreenAnalytics, trackEvent } from '@/hooks/useScreenAnalytics';
 import { tr } from "@/lib/tr";
+import { formatCount } from '@/lib/count-plural';
+import { todayKey } from '@/lib/local-date';
+import { SafetyStrip } from './anacan/SafetyStrip';
 
 interface BabyGrowthTrackerProps {
   onBack: () => void;
 }
 
 /**
- * WHO percentil əyriləri (0-24 ay) — çəki və boy.
- * P3/P15/P50/P85/P97 zolaqları + uşağın real ölçüləri.
+ * WHO percentil əyriləri (0-60 ay) — çəki, boy və baş çevrəsi.
+ * P3/P15/P50/P85/P97 zolaqları + uşağın real ölçüləri. Qrafik uşağın yaşına qədər
+ * uzanır (uşaq 24 aydan kiçikdirsə 0-24 ay, oxunaqlı qalsın deyə).
  */
 const WHOPercentileCard = ({ entries, birthDate, sex, dueDate }: {
-  entries: {entry_date: string;weight_kg: number | null;height_cm: number | null;}[];
+  entries: GrowthEntryLike[];
   birthDate: string;
   sex: Sex;
   /** Orijinal EDD — premature körpələrdə qrafik korreksiya olunmuş yaşla qurulur */
@@ -40,43 +49,35 @@ const WHOPercentileCard = ({ entries, birthDate, sex, dueDate }: {
 
   // PREMATURE DƏSTƏYİ: WHO əyriləri termdə doğulmuş körpələr üçündür. Premature
   // körpənin nöqtələrini XRONOLOJİ yaşla yerləşdirmək onu yalançı "aşağı
-  // percentil"də göstərir. Standart praktika: 24 aya qədər korreksiya olunmuş
-  // yaşla (EDD-dən hesablanan) plot etmək. Korreksiya olunmuş ay =
-  // ageInMonths(dueDate, entry_date).
+  // percentil"də göstərir. Standart praktika: korreksiya olunmuş yaşla (EDD-dən
+  // hesablanan) plot etmək. Korreksiya olunmuş ay = ageInMonths(dueDate, entry_date).
   const prematurity = useMemo(() => getPrematurityInfo(birthDate, dueDate ?? null), [birthDate, dueDate]);
   const ageReferenceDate = prematurity.isPremature && dueDate ? dueDate : birthDate;
 
-  const { chartData, latestPercentile } = useMemo(() => {
-    const curve = buildCurveData(measure, sex);
-
-    // Uşağın ölçülərini aylara yerləşdir
-    const childPoints: {month: number;value: number;}[] = [];
-    for (const e of entries) {
-      const val = measure === 'weight' ? e.weight_kg : e.height_cm;
-      if (!val) continue;
-      const m = ageInMonths(ageReferenceDate, e.entry_date);
-      if (m >= 0 && m <= 24) childPoints.push({ month: Math.round(m * 10) / 10, value: val });
-    }
-    childPoints.sort((a, b) => a.month - b.month);
+  const { chartData, latestPercentile, maxMonth } = useMemo(() => {
+    // Qrafik aralığı: uşağın indiki yaşı və ya son ölçü (hansı böyükdürsə), 24-60 ay.
+    const allPoints = childPoints(entries, measure, ageReferenceDate, MAX_AGE_MONTHS);
+    const lastPointMonth = allPoints.length > 0 ? allPoints[allPoints.length - 1].month : 0;
+    const max = chartMaxMonth(Math.max(ageInMonths(ageReferenceDate, todayKey()), lastPointMonth));
+    const curve = buildCurveData(measure, sex, max);
+    const points = allPoints.filter((p) => p.month <= max);
 
     // recharts: əyri + uşaq nöqtələri birləşmiş data
-    const merged: any[] = curve.map((c) => ({ ...c }));
-    for (const p of childPoints) {
+    const merged: (Partial<GrowthCurvePoint> & { month: number })[] = curve.map((c) => ({ ...c }));
+    for (const p of points) {
       merged.push({ month: p.month, child: p.value });
     }
     merged.sort((a, b) => a.month - b.month);
 
-    // Son ölçünün percentili
-    let latest: number | null = null;
-    if (childPoints.length > 0) {
-      const last = childPoints[childPoints.length - 1];
-      latest = percentile(measure, sex, last.month, last.value);
-    }
-
-    return { chartData: merged, latestPercentile: latest };
+    return {
+      chartData: merged,
+      latestPercentile: latestPercentileFor(entries, measure, sex, ageReferenceDate),
+      maxMonth: max
+    };
   }, [entries, ageReferenceDate, sex, measure]);
 
-  const tone = latestPercentile !== null ? percentileLabel(latestPercentile).tone : null;
+  const chip = latestPercentile !== null ? percentileChip(latestPercentile) : null;
+  const tone = chip?.tone ?? null;
   const toneStyle = tone === 'ok' ?
   { bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)' } :
   tone === 'watch' ?
@@ -95,7 +96,7 @@ const WHOPercentileCard = ({ entries, birthDate, sex, dueDate }: {
         <h3 className="a-card-title a-heading">{tr('who_curves_title', 'WHO inkişaf əyriləri')}</h3>
         {latestPercentile !== null &&
         <span className="a-rank-tag" style={{ background: toneStyle.bg, color: toneStyle.ink }}>
-            P{latestPercentile} · {tone === 'ok' ? tr('who_normal', 'normal') : tone === 'watch' ? tr('who_watch', 'izləyin') : tr('who_alert', 'həkimlə danışın')}
+            P{latestPercentile} · {chip ? tr(chip.key, chip.fallback) : ''}
           </span>
         }
       </div>
@@ -109,12 +110,12 @@ const WHOPercentileCard = ({ entries, birthDate, sex, dueDate }: {
 
       {/* Ölçü seçimi */}
       <div className="flex gap-2 mb-3">
-        {[
-        { id: 'weight' as Measure, label: tr('who_weight', 'Çəki (kq)') },
-        { id: 'height' as Measure, label: tr('who_height', 'Boy (sm)') }].
+        {GROWTH_MEASURES.map((id) => ({ id, label: tr(measureLabel(id).key, measureLabel(id).fallback) })).
         map((m) =>
         <button
           key={m.id}
+          type="button"
+          aria-pressed={measure === m.id}
           onClick={() => setMeasure(m.id)}
           className="flex-1 py-2 rounded-xl text-xs font-bold transition-all"
           style={{
@@ -133,8 +134,8 @@ const WHOPercentileCard = ({ entries, birthDate, sex, dueDate }: {
             <XAxis
               dataKey="month"
               type="number"
-              domain={[0, 24]}
-              ticks={[0, 6, 12, 18, 24]}
+              domain={[0, maxMonth]}
+              ticks={chartTicks(maxMonth)}
               tick={{ fontSize: 10, fill: 'var(--a-ink-soft)' }}
               tickLine={false}
               axisLine={{ stroke: 'var(--a-line)' }}
@@ -209,7 +210,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
     height_cm: '',
     head_cm: '',
     notes: '',
-    entry_date: new Date().toISOString().split('T')[0]
+    entry_date: todayKey()
   });
 
   useEffect(() => {
@@ -329,7 +330,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
       height_cm: '',
       head_cm: '',
       notes: '',
-      entry_date: new Date().toISOString().split('T')[0]
+      entry_date: todayKey()
     });
     setEditingEntry(null);
     setShowAddModal(false);
@@ -358,23 +359,34 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
   (latestEntry.height_cm || 0) - (previousEntry.height_cm || 0) :
   null;
 
+  // WHO əyriləri cinsə görədir: cins bilinmirsə ("unknown") qrafik və percentil göstərilmir.
+  const growthSex: Sex | null = selectedChild?.gender === 'boy' || selectedChild?.gender === 'girl' ? selectedChild.gender : null;
+  const headPercentile = useMemo(() => {
+    if (!selectedChild?.birth_date || !growthSex) return null;
+    const dueDate = selectedChild.due_date ?? null;
+    const premature = getPrematurityInfo(selectedChild.birth_date, dueDate).isPremature;
+    return latestPercentileFor(entries, 'head', growthSex, premature && dueDate ? dueDate : selectedChild.birth_date);
+  }, [entries, growthSex, selectedChild?.birth_date, selectedChild?.due_date]);
+  const headChip = headPercentile !== null ? percentileChip(headPercentile) : null;
+
   return (
     <div className="a-scope pb-24" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
       <div className="a-shell">
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{selectedChild?.name || tr("common_qeyd", "qeyd")}</p>
-              <p className="a3-tool-title">{tr("babygrowthtracker_i_nkisaf_izleyicisi_71039e", "\u0130nki\u015Faf izl\u0259yicisi")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("babygrowthtracker_i_nkisaf_izleyicisi_71039e", "\u0130nki\u015Faf izl\u0259yicisi")}</p>
             </div>
           </div>
           <div className="a-topbar-actions">
             <motion.button
               onClick={() => setShowAddModal(true)}
+              aria-label={tr("a11y_add", "Əlavə et")}
               className="a-icon-btn"
               style={{ background: 'var(--a-peach-2)', color: '#fff', border: 'none' }}
               whileTap={{ scale: 0.9 }}>
@@ -383,6 +395,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
             </motion.button>
           </div>
         </header>
+        <ToolSectionsBar />
 
         {/* Current Stats */}
         <div className="a-trio" style={{ marginTop: 6 }}>
@@ -441,16 +454,24 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
               {latestEntry?.head_cm ? `${latestEntry.head_cm}` : '—'}
             </p>
             <p className="a-trio-label">{tr("babygrowthtracker_bas_sm_1367d0", "baş sm")}</p>
+            {headPercentile !== null && headChip &&
+            <p
+              className="a-trio-label"
+              title={tr(headChip.key, headChip.fallback)}
+              style={{ marginTop: 3, fontWeight: 700, color: headChip.tone === 'ok' ? 'var(--a-green-ink)' : headChip.tone === 'watch' ? 'var(--a-warn-ink)' : 'var(--a-pink-ink)' }}>
+                P{headPercentile}
+              </p>
+            }
           </motion.div>
         </div>
 
         {/* WHO Percentil Əyriləri */}
-        {selectedChild?.birth_date && selectedChild?.gender && entries.length > 0 &&
+        {selectedChild?.birth_date && growthSex && entries.length > 0 &&
         <WHOPercentileCard
           entries={entries}
           birthDate={selectedChild.birth_date}
           dueDate={selectedChild.due_date}
-          sex={selectedChild.gender === 'boy' ? 'boy' : 'girl'} />
+          sex={growthSex} />
         }
 
         {/* History Section */}
@@ -462,7 +483,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
           
           <div className="a-section-head">
             <h2 className="a-section-title a-heading">{tr("babygrowthtracker_olcu_tarixcesi_249279", "Ölçü Tarixçəsi")}</h2>
-            <span className="a-section-link">{entries.length} {tr("common_qeyd", "qeyd")}</span>
+            <span className="a-section-link">{formatCount('count_records', entries.length)}</span>
           </div>
 
           {isLoading ?
@@ -536,6 +557,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
                   <span className="a-list-trail" style={{ display: 'flex', gap: 6 }}>
                     <motion.button
                   onClick={() => openEditModal(entry)}
+                  aria-label={tr("a11y_edit", "Redaktə et")}
                   className="a-icon-btn"
                   style={{ width: 30, height: 30 }}
                   whileTap={{ scale: 0.9 }}>
@@ -544,6 +566,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
                     </motion.button>
                     <motion.button
                   onClick={() => handleDelete(entry.id)}
+                  aria-label={tr("common_sil", "Sil")}
                   className="a-icon-btn"
                   style={{ width: 30, height: 30, background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)', border: 'none' }}
                   whileTap={{ scale: 0.9 }}>
@@ -556,6 +579,8 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
             </div>
           }
         </motion.section>
+
+        <SafetyStrip signs={tr('safety_growth_signs', 'Zəng edin: yeməkdən imtina, az yaş bez, çox süstlük və ya çətin oyanma')} />
       </div>
 
       {/* Add/Edit Modal */}
@@ -584,7 +609,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
             <div className="grid grid-cols-3 gap-3">
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Scale className="w-3.5 h-3.5 text-[color:var(--a-pink-ink)]" />
+                  <Scale className="w-3.5 h-3.5 text-rose-500" />
                   {tr("babygrowthtracker_ceki_kq_2f7555", "\xC7\u0259ki (kq)")}
                 </label>
                 <Input
@@ -598,7 +623,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Ruler className="w-3.5 h-3.5 text-[color:var(--a-lav-ink)]" />
+                  <Ruler className="w-3.5 h-3.5 text-indigo-500" />
                   {tr("babygrowthtracker_boy_sm_3bc841", "Boy (sm)")}
                 </label>
                 <Input
@@ -612,7 +637,7 @@ const BabyGrowthTracker = ({ onBack }: BabyGrowthTrackerProps) => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block flex items-center gap-1">
-                  <Baby className="w-3.5 h-3.5 text-[color:var(--a-lav-ink)]" />
+                  <Baby className="w-3.5 h-3.5 text-violet-500" />
                   {tr("babygrowthtracker_bas_sm_927b99", "Ba\u015F (sm)")}
                 </label>
                 <Input

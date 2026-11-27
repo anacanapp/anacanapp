@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261105090000_banner_target_platforms.sql",
+  "runtime": "google-banners",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; no new relation, banners already carries the standard CDC/writer triggers",
+  "relations": [
+    { "relation": "public.banners", "change": "altered", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "target_platforms text[] (ios/android/web), nullable, check constraint" }
+  ]
+}

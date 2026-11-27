@@ -1,0 +1,25 @@
+{
+  "schema": "anacan-word-garden-library-build-v1",
+  "language": "az",
+  "revision": "az-202610-v2",
+  "words": 6857,
+  "targetWords": 2921,
+  "commonWords": 412,
+  "dictionaryRowsRead": 16493,
+  "sourceBytes": 191410852,
+  "librarySha256": "4ee1a4ccd2dd8bc7753fe92096905a225605f56a599919d5b21e5e331da1cefb",
+  "sources": {
+    "name": "Wiktionary / Kaikki.org",
+    "url": "https://kaikki.org/dictionary/Azerbaijani/kaikki.org-dictionary-Azerbaijani.jsonl",
+    "license": "CC-BY-SA-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sha256": "007d6676f866dc1ae47d206db0126d549fbb6858d8cccf74b7290d452fd452c8",
+    "frequencyUrl": "https://raw.githubusercontent.com/subhangadirli/aosp-dict-az/c68c85cb297510d19cee04787e445e2a558b1f70/az_wordlist.combined",
+    "frequencySha256": "38ce388162db65d7f7ff751f9deda98377cc768319ea5e9a34f9f620645d91a3",
+    "editorialSha256": "fd518086e6eb414fb872b12245a34e910332d5eedd56f678c6c8cf71a4a42242",
+    "note": "Verified v1 dictionary snapshot; corpus-confirmed lemmas at frequency40+, varied Anacan opening curriculum; NFC/az Latin-script words and original sense filters retained."
+  },
+  "method": "verified-dictionary-snapshot-rebalance",
+  "previousRevision": "az-202610-v1",
+  "previousLibrarySha256": "acdab0987fb4dde5bf009746a69ba55fd465cc5f560cb0fdfb871508bf57d4ac"
+}

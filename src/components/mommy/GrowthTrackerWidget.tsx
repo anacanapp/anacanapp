@@ -8,6 +8,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 import { useChildren } from '@/hooks/useChildren';
 import { tr } from "@/lib/tr";
+import { todayKey } from '@/lib/local-date';
 
 interface BabyGrowthEntry {
   id: string;
@@ -131,7 +132,7 @@ const GrowthTrackerWidget = () => {
           weight_kg: isNaN(weight) ? null : weight,
           height_cm: isNaN(height) ? null : height,
           head_cm: showHeadCircumference && !isNaN(parseFloat(headInput)) ? parseFloat(headInput) : null,
-          entry_date: new Date().toISOString().split('T')[0],
+          entry_date: todayKey(),
         })
         .select()
         .single();

@@ -1,0 +1,18 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261108070000_web_premium_checkout_nudge.sql",
+  "runtime": "google-web-premium",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the new relation is registered in guarded_relations with the three standard triggers (the migration refuses without the guard catalog and verifies 1 relation / 3 triggers)",
+  "preserve": [
+    "web_premium_charges / web_premium_subscriptions unchanged (20261107090000_web_premium_subscriptions.sql)",
+    "existing timers unchanged; one new 15-minute timer anacan-web-premium-nudge calls web-premium-renew with {\"mode\":\"nudge\"}"
+  ],
+  "relations": [
+    { "relation": "public.web_premium_checkout_nudges", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "one row per abandoned initial web checkout reminded (user_id, charge_id unique, plan, email_sent, push_sent, created_at, sent_at); RLS on, no client grants; written only by the service-role RPCs below" }
+  ],
+  "functions": [
+    { "name": "public.web_premium_checkout_nudges_due_v1(integer)", "security": "definer", "grant": ["service_role"], "note": "campaign active; latest initial charge failed 30 min to 24 h ago (amount >= 1); no paid/pending charge, live web subscription, store Premium or reminder in 7 days; claims rows" },
+    { "name": "public.web_premium_checkout_nudge_sent_v1(uuid, boolean, integer)", "security": "definer", "grant": ["service_role"], "note": "records delivery" }
+  ]
+}

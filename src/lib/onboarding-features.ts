@@ -5,9 +5,13 @@ import type { OnboardingStage } from './onboarding-model';
 export type OnboardingFeatureKey = keyof typeof copy.languages.en;
 export type OnboardingFeaturePage = 'results' | 'features' | 'paywall' | 'offer';
 
-const premium = (mental: 'mental_exercises' | 'mental_fitness'): readonly OnboardingFeatureKey[] =>
-  ['anacan_ai', 'doctor_pdf', 'partner_account', mental, 'ad_free'];
-const mommyPremium = premium('mental_exercises'), otherPremium = premium('mental_fitness');
+// Premium/coffee pages lead with the stage outcome and list only features that are Premium in code
+// (src/lib/freemium.ts, PremiumGate/PremiumBlurGate). Free users keep 10 AI questions a day; ad-free stays last.
+const premium = (first: OnboardingFeatureKey, second: OnboardingFeatureKey): readonly OnboardingFeatureKey[] =>
+  [first, second, 'ai_daily_unlimited', 'doctor_pdf', 'ad_free'];
+const mommyPremium = premium('baby_care_tracking', 'growth_curves');
+const bumpPremium = premium('kicks_contractions', 'body_measurements');
+const flowPremium = premium('symptom_analysis', 'cycle_stats');
 
 const features: Record<OnboardingStage, Record<OnboardingFeaturePage, readonly OnboardingFeatureKey[]>> = {
   mommy: {
@@ -18,12 +22,12 @@ const features: Record<OnboardingStage, Record<OnboardingFeaturePage, readonly O
   bump: {
     results: ['fetal_growth', 'nutrition_control', 'safety_lookup', 'kicks_contractions', 'body_measurements'],
     features: ['anacan_ai', 'doctor_pdf', 'partner_account', 'healthy_recipes', 'hospital_bag_shopping', 'pregnancy_album_vitamins', 'mental_fitness', 'ad_free'],
-    paywall: otherPremium, offer: otherPremium,
+    paywall: bumpPremium, offer: bumpPremium,
   },
   flow: {
     results: ['mood_journal', 'nutrition_control', 'vitamin_tracker', 'healthy_recipes', 'mental_fitness'],
     features: ['anacan_ai', 'doctor_pdf', 'partner_account', 'healthy_recipes', 'nutrition_control', 'vitamin_tracker', 'mental_fitness', 'ad_free'],
-    paywall: otherPremium, offer: otherPremium,
+    paywall: flowPremium, offer: flowPremium,
   },
 };
 

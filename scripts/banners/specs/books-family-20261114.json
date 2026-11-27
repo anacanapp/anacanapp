@@ -1,0 +1,85 @@
+{
+ "_note": "Owner 2026-11-14: Azerbaijani family scenes (Nano Banana Pro, 21:9, not stored in Git). Live: a1, a2, a5, a6 targeted by child age; see migration 20261114120000.",
+ "banners": [
+  {
+   "id": "kitab-a1-korpe",
+   "layout": "scene",
+   "bg": "#f4e4d4",
+   "eyebrow": "6 aydan kitablar",
+   "title": "İlk kitabı *birlikdə vərəqləyin*",
+   "sub": "Böyük şəkillər, sadə sözlər",
+   "cta": "Kitab seç",
+   "images": [
+    "a1-ana-korpe.jpg"
+   ],
+   "veil": [
+    44,
+    62
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/books"
+   }
+  },
+  {
+   "id": "kitab-a2-boya",
+   "layout": "scene",
+   "bg": "#f4e6d8",
+   "eyebrow": "Nağıl · boyama · hərflər",
+   "title": "Çap et, *oxuyun və oynayın*",
+   "sub": "70 PDF kitab, 6 ay – 6 yaş",
+   "cta": "Kitablara bax",
+   "images": [
+    "a2-boya.jpg"
+   ],
+   "veil": [
+    44,
+    62
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/books"
+   }
+  },
+  {
+   "id": "kitab-a5-herf",
+   "layout": "scene",
+   "bg": "#f2e5d6",
+   "eyebrow": "Məktəbə hazırlıq",
+   "title": "Hərflər və xətlər *oyunla*",
+   "sub": "5–6 yaş üçün çap vərəqləri",
+   "cta": "Kitab seç",
+   "images": [
+    "a5-herfler.jpg"
+   ],
+   "veil": [
+    44,
+    62
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/books"
+   }
+  },
+  {
+   "id": "kitab-a6-printer",
+   "layout": "scene",
+   "bg": "#f3e6da",
+   "eyebrow": "PDF kitablar",
+   "title": "Evdə çap et, *dərhal başla*",
+   "sub": "10+ kitab seçəndə hər biri 2 ₼",
+   "cta": "Kitab seç",
+   "images": [
+    "a6-printer.jpg"
+   ],
+   "veil": [
+    44,
+    62
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/books"
+   }
+  }
+ ]
+}

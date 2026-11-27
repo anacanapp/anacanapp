@@ -25,7 +25,12 @@
       "pregnancy_album_vitamins": "Hamiləlik albomu, vitamin izləyici",
       "mental_fitness": "Mental sağlamlıq və idman",
       "mood_journal": "Əhval gündəliyi",
-      "vitamin_tracker": "Vitamin izləyicisi"
+      "vitamin_tracker": "Vitamin izləyicisi",
+      "ai_daily_unlimited": "Gündəlik limitsiz Anacan AI",
+      "baby_care_tracking": "Qidalanma, yuxu və bez qeydləri",
+      "growth_curves": "ÜST boy-çəki əyriləri",
+      "symptom_analysis": "Fazalara görə simptom analizi",
+      "cycle_stats": "Tsikl statistikası və trendlər"
     },
     "en": {
       "sleep_tracking": "Sleep routine tracking",
@@ -51,7 +56,12 @@
       "pregnancy_album_vitamins": "Pregnancy album & vitamin tracker",
       "mental_fitness": "Mental wellbeing & fitness",
       "mood_journal": "Mood journal",
-      "vitamin_tracker": "Vitamin tracker"
+      "vitamin_tracker": "Vitamin tracker",
+      "ai_daily_unlimited": "Anacan AI with no daily limit",
+      "baby_care_tracking": "Feeding, sleep & diaper logs",
+      "growth_curves": "WHO growth curves",
+      "symptom_analysis": "Symptom analysis by cycle phase",
+      "cycle_stats": "Cycle stats & trends"
     },
     "tr": {
       "sleep_tracking": "Uyku düzeni takibi",
@@ -77,7 +87,12 @@
       "pregnancy_album_vitamins": "Gebelik albümü ve vitamin takibi",
       "mental_fitness": "Ruh sağlığı ve spor",
       "mood_journal": "Ruh hâli günlüğü",
-      "vitamin_tracker": "Vitamin takibi"
+      "vitamin_tracker": "Vitamin takibi",
+      "ai_daily_unlimited": "Günlük sınırı olmayan Anacan AI",
+      "baby_care_tracking": "Beslenme, uyku ve bez takibi",
+      "growth_curves": "DSÖ boy-kilo eğrileri",
+      "symptom_analysis": "Evrelere göre semptom analizi",
+      "cycle_stats": "Döngü istatistikleri ve trendler"
     },
     "ru": {
       "sleep_tracking": "Отслеживание режима сна",
@@ -103,7 +118,12 @@
       "pregnancy_album_vitamins": "Альбом беременности и учёт витаминов",
       "mental_fitness": "Психическое здоровье и спорт",
       "mood_journal": "Дневник настроения",
-      "vitamin_tracker": "Учёт витаминов"
+      "vitamin_tracker": "Учёт витаминов",
+      "ai_daily_unlimited": "Anacan AI без дневного лимита",
+      "baby_care_tracking": "Учёт кормлений, сна и подгузников",
+      "growth_curves": "Кривые роста ВОЗ",
+      "symptom_analysis": "Анализ симптомов по фазам цикла",
+      "cycle_stats": "Статистика и тренды цикла"
     },
     "de": {
       "sleep_tracking": "Schlafrhythmus erfassen",
@@ -129,7 +149,12 @@
       "pregnancy_album_vitamins": "Schwangerschaftsalbum & Vitamin-Tracker",
       "mental_fitness": "Mentale Gesundheit & Sport",
       "mood_journal": "Stimmungstagebuch",
-      "vitamin_tracker": "Vitamin-Tracker"
+      "vitamin_tracker": "Vitamin-Tracker",
+      "ai_daily_unlimited": "Anacan AI ohne Tageslimit",
+      "baby_care_tracking": "Mahlzeiten, Schlaf & Windeln erfassen",
+      "growth_curves": "WHO-Wachstumskurven",
+      "symptom_analysis": "Symptomanalyse nach Zyklusphase",
+      "cycle_stats": "Zyklusstatistik & Trends"
     },
     "ar": {
       "sleep_tracking": "متابعة نمط النوم",
@@ -155,7 +180,12 @@
       "pregnancy_album_vitamins": "ألبوم الحمل ومتابعة الفيتامينات",
       "mental_fitness": "الصحة النفسية والرياضة",
       "mood_journal": "يوميات المزاج",
-      "vitamin_tracker": "متابعة الفيتامينات"
+      "vitamin_tracker": "متابعة الفيتامينات",
+      "ai_daily_unlimited": "Anacan AI بلا حد يومي",
+      "baby_care_tracking": "سجل الرضاعة والنوم والحفاضات",
+      "growth_curves": "منحنيات نمو منظمة الصحة العالمية",
+      "symptom_analysis": "تحليل الأعراض حسب مراحل الدورة",
+      "cycle_stats": "إحصاءات الدورة واتجاهاتها"
     },
     "ka": {
       "sleep_tracking": "ძილის რეჟიმის აღრიცხვა",
@@ -181,7 +211,12 @@
       "pregnancy_album_vitamins": "ორსულობის ალბომი და ვიტამინების აღრიცხვა",
       "mental_fitness": "ფსიქიკური ჯანმრთელობა და სპორტი",
       "mood_journal": "განწყობის დღიური",
-      "vitamin_tracker": "ვიტამინების აღრიცხვა"
+      "vitamin_tracker": "ვიტამინების აღრიცხვა",
+      "ai_daily_unlimited": "Anacan AI დღიური ლიმიტის გარეშე",
+      "baby_care_tracking": "კვების, ძილისა და საფენების აღრიცხვა",
+      "growth_curves": "ჯანმოს ზრდის მრუდები",
+      "symptom_analysis": "სიმპტომების ანალიზი ფაზების მიხედვით",
+      "cycle_stats": "ციკლის სტატისტიკა და ტენდენციები"
     },
     "kk": {
       "sleep_tracking": "Ұйқы режимін бақылау",
@@ -207,7 +242,12 @@
       "pregnancy_album_vitamins": "Жүктілік альбомы және дәрумендер есебі",
       "mental_fitness": "Психикалық денсаулық және спорт",
       "mood_journal": "Көңіл күй күнделігі",
-      "vitamin_tracker": "Дәрумендерді бақылау"
+      "vitamin_tracker": "Дәрумендерді бақылау",
+      "ai_daily_unlimited": "Күнделікті шектеусіз Anacan AI",
+      "baby_care_tracking": "Тамақ, ұйқы және жөргек жазбалары",
+      "growth_curves": "ДДСҰ бой-салмақ қисықтары",
+      "symptom_analysis": "Фазалар бойынша симптом талдауы",
+      "cycle_stats": "Цикл статистикасы мен трендтері"
     },
     "uz": {
       "sleep_tracking": "Uyqu tartibini kuzatish",
@@ -233,7 +273,12 @@
       "pregnancy_album_vitamins": "Homiladorlik albomi va vitaminlar nazorati",
       "mental_fitness": "Ruhiy salomatlik va sport",
       "mood_journal": "Kayfiyat kundaligi",
-      "vitamin_tracker": "Vitaminlarni kuzatish"
+      "vitamin_tracker": "Vitaminlarni kuzatish",
+      "ai_daily_unlimited": "Kunlik limitsiz Anacan AI",
+      "baby_care_tracking": "Ovqat, uyqu va taglik qaydlari",
+      "growth_curves": "JSST bo'y-vazn egri chiziqlari",
+      "symptom_analysis": "Fazalar bo'yicha simptom tahlili",
+      "cycle_stats": "Sikl statistikasi va trendlari"
     },
     "zh": {
       "sleep_tracking": "睡眠规律记录",
@@ -259,7 +304,12 @@
       "pregnancy_album_vitamins": "孕期相册与维生素记录",
       "mental_fitness": "心理健康与运动",
       "mood_journal": "心情日记",
-      "vitamin_tracker": "维生素记录"
+      "vitamin_tracker": "维生素记录",
+      "ai_daily_unlimited": "Anacan AI 无每日限额",
+      "baby_care_tracking": "喂养、睡眠和尿布记录",
+      "growth_curves": "WHO 生长曲线",
+      "symptom_analysis": "按周期阶段分析症状",
+      "cycle_stats": "周期统计与趋势"
     },
     "id": {
       "sleep_tracking": "Pemantauan pola tidur",
@@ -285,7 +335,12 @@
       "pregnancy_album_vitamins": "Album kehamilan & catatan vitamin",
       "mental_fitness": "Kesehatan mental & olahraga",
       "mood_journal": "Jurnal suasana hati",
-      "vitamin_tracker": "Catatan vitamin"
+      "vitamin_tracker": "Catatan vitamin",
+      "ai_daily_unlimited": "Anacan AI tanpa batas harian",
+      "baby_care_tracking": "Catatan makan, tidur & popok",
+      "growth_curves": "Kurva pertumbuhan WHO",
+      "symptom_analysis": "Analisis gejala per fase siklus",
+      "cycle_stats": "Statistik & tren siklus"
     },
     "fr": {
       "sleep_tracking": "Suivi du rythme de sommeil",
@@ -311,7 +366,12 @@
       "pregnancy_album_vitamins": "Album de grossesse et suivi des vitamines",
       "mental_fitness": "Santé mentale et sport",
       "mood_journal": "Journal d’humeur",
-      "vitamin_tracker": "Suivi des vitamines"
+      "vitamin_tracker": "Suivi des vitamines",
+      "ai_daily_unlimited": "Anacan AI sans limite quotidienne",
+      "baby_care_tracking": "Suivi repas, sommeil et couches",
+      "growth_curves": "Courbes de croissance OMS",
+      "symptom_analysis": "Analyse des symptômes par phase",
+      "cycle_stats": "Statistiques et tendances du cycle"
     },
     "es": {
       "sleep_tracking": "Seguimiento del sueño",
@@ -337,7 +397,12 @@
       "pregnancy_album_vitamins": "Álbum de embarazo y registro de vitaminas",
       "mental_fitness": "Salud mental y deporte",
       "mood_journal": "Diario de ánimo",
-      "vitamin_tracker": "Registro de vitaminas"
+      "vitamin_tracker": "Registro de vitaminas",
+      "ai_daily_unlimited": "Anacan AI sin límite diario",
+      "baby_care_tracking": "Registro de tomas, sueño y pañales",
+      "growth_curves": "Curvas de crecimiento de la OMS",
+      "symptom_analysis": "Análisis de síntomas por fase del ciclo",
+      "cycle_stats": "Estadísticas y tendencias del ciclo"
     },
     "pt": {
       "sleep_tracking": "Registo do ritmo de sono",
@@ -363,7 +428,12 @@
       "pregnancy_album_vitamins": "Álbum de gravidez e registo de vitaminas",
       "mental_fitness": "Saúde mental e desporto",
       "mood_journal": "Diário de humor",
-      "vitamin_tracker": "Registo de vitaminas"
+      "vitamin_tracker": "Registo de vitaminas",
+      "ai_daily_unlimited": "Anacan AI sem limite diário",
+      "baby_care_tracking": "Registo de refeições, sono e fraldas",
+      "growth_curves": "Curvas de crescimento da OMS",
+      "symptom_analysis": "Análise de sintomas por fase do ciclo",
+      "cycle_stats": "Estatísticas e tendências do ciclo"
     },
     "vi": {
       "sleep_tracking": "Theo dõi nếp ngủ",
@@ -389,7 +459,12 @@
       "pregnancy_album_vitamins": "Album thai kỳ và theo dõi vitamin",
       "mental_fitness": "Sức khỏe tinh thần và thể thao",
       "mood_journal": "Nhật ký tâm trạng",
-      "vitamin_tracker": "Theo dõi vitamin"
+      "vitamin_tracker": "Theo dõi vitamin",
+      "ai_daily_unlimited": "Anacan AI không giới hạn mỗi ngày",
+      "baby_care_tracking": "Ghi chép ăn, ngủ và thay tã",
+      "growth_curves": "Biểu đồ tăng trưởng WHO",
+      "symptom_analysis": "Phân tích triệu chứng theo giai đoạn",
+      "cycle_stats": "Thống kê và xu hướng chu kỳ"
     },
     "hi": {
       "sleep_tracking": "नींद की दिनचर्या का रिकॉर्ड",
@@ -415,7 +490,12 @@
       "pregnancy_album_vitamins": "गर्भावस्था का एल्बम और विटामिन का रिकॉर्ड",
       "mental_fitness": "मानसिक स्वास्थ्य और फ़िटनेस",
       "mood_journal": "मनोदशा की डायरी",
-      "vitamin_tracker": "विटामिन का रिकॉर्ड"
+      "vitamin_tracker": "विटामिन का रिकॉर्ड",
+      "ai_daily_unlimited": "Anacan AI, कोई दैनिक सीमा नहीं",
+      "baby_care_tracking": "आहार, नींद और डायपर का रिकॉर्ड",
+      "growth_curves": "WHO विकास वक्र",
+      "symptom_analysis": "चक्र के चरण के अनुसार लक्षण विश्लेषण",
+      "cycle_stats": "चक्र के आँकड़े और रुझान"
     },
     "ja": {
       "sleep_tracking": "睡眠リズムの記録",
@@ -441,7 +521,12 @@
       "pregnancy_album_vitamins": "妊娠アルバムとビタミンの記録",
       "mental_fitness": "心の健康と運動",
       "mood_journal": "気分日記",
-      "vitamin_tracker": "ビタミンの記録"
+      "vitamin_tracker": "ビタミンの記録",
+      "ai_daily_unlimited": "Anacan AIを1日の上限なしで",
+      "baby_care_tracking": "授乳・睡眠・おむつの記録",
+      "growth_curves": "WHO成長曲線",
+      "symptom_analysis": "周期の段階別の症状分析",
+      "cycle_stats": "周期の統計とトレンド"
     },
     "ko": {
       "sleep_tracking": "수면 패턴 기록",
@@ -467,7 +552,12 @@
       "pregnancy_album_vitamins": "임신 앨범과 비타민 기록",
       "mental_fitness": "마음 건강과 신체 활동",
       "mood_journal": "기분 일기",
-      "vitamin_tracker": "비타민 기록"
+      "vitamin_tracker": "비타민 기록",
+      "ai_daily_unlimited": "하루 한도 없는 Anacan AI",
+      "baby_care_tracking": "수유·수면·기저귀 기록",
+      "growth_curves": "WHO 성장 곡선",
+      "symptom_analysis": "주기 단계별 증상 분석",
+      "cycle_stats": "주기 통계와 추이"
     },
     "pl": {
       "sleep_tracking": "Śledzenie rytmu snu",
@@ -493,7 +583,12 @@
       "pregnancy_album_vitamins": "Album ciąży i rejestr witamin",
       "mental_fitness": "Zdrowie psychiczne i sport",
       "mood_journal": "Dziennik nastroju",
-      "vitamin_tracker": "Rejestr witamin"
+      "vitamin_tracker": "Rejestr witamin",
+      "ai_daily_unlimited": "Anacan AI bez dziennego limitu",
+      "baby_care_tracking": "Karmienie, sen i pieluchy",
+      "growth_curves": "Siatki centylowe WHO",
+      "symptom_analysis": "Analiza objawów według fazy cyklu",
+      "cycle_stats": "Statystyki i trendy cyklu"
     },
     "nl": {
       "sleep_tracking": "Slaapritme bijhouden",
@@ -519,7 +614,12 @@
       "pregnancy_album_vitamins": "Zwangerschapsalbum & vitaminetracker",
       "mental_fitness": "Mentale gezondheid & sport",
       "mood_journal": "Stemmingsdagboek",
-      "vitamin_tracker": "Vitaminetracker"
+      "vitamin_tracker": "Vitaminetracker",
+      "ai_daily_unlimited": "Anacan AI zonder daglimiet",
+      "baby_care_tracking": "Voeding, slaap & luiers bijhouden",
+      "growth_curves": "WHO-groeicurven",
+      "symptom_analysis": "Symptoomanalyse per cyclusfase",
+      "cycle_stats": "Cyclusstatistieken & trends"
     },
     "sv": {
       "sleep_tracking": "Följ sömnrytmen",
@@ -545,7 +645,136 @@
       "pregnancy_album_vitamins": "Gravidalbum och vitaminlogg",
       "mental_fitness": "Psykisk hälsa och träning",
       "mood_journal": "Humördagbok",
-      "vitamin_tracker": "Vitaminlogg"
+      "vitamin_tracker": "Vitaminlogg",
+      "ai_daily_unlimited": "Anacan AI utan daglig gräns",
+      "baby_care_tracking": "Logga matning, sömn och blöjor",
+      "growth_curves": "WHO:s tillväxtkurvor",
+      "symptom_analysis": "Symtomanalys per cykelfas",
+      "cycle_stats": "Cykelstatistik och trender"
+    },
+    "ky": {
+      "sleep_tracking": "Уйку тартибине көз салуу",
+      "feeding_tracking": "Тамактандырууну көзөмөлдөө",
+      "milestones": "Өнүгүү баскычтары",
+      "cry_analysis": "Ыйды анализдөө",
+      "weather_clothing": "Аба ырайы жана кийим",
+      "anacan_ai": "Anacan AI",
+      "doctor_pdf": "Дарыгер үчүн PDF",
+      "partner_account": "Өнөктөш аккаунту",
+      "sounds_stories": "Ак ызы-чуу жана акылдуу жомоктор",
+      "vaccine_calendar": "Эмдөө календары",
+      "healthy_recipes": "Пайдалуу рецепттер",
+      "teething_tracker": "Тиш чыгуусун көзөмөлдөө",
+      "mental_exercises": "Психикалык саламаттык жана көнүгүүлөр",
+      "ad_free": "Жарнамасыз колдонуу",
+      "fetal_growth": "Түйүлдүктүн өсүшүнө көз салуу",
+      "nutrition_control": "Тамактанууну көзөмөлдөө",
+      "safety_lookup": "Коопсуздукту текшерүү",
+      "kicks_contractions": "Кыймылдарды жана толгоолорду эсептегич",
+      "body_measurements": "Салмак, кан басымы жана глюкозаны көзөмөлдөө",
+      "hospital_bag_shopping": "Төрөткана баштыгы жана биргелешкен соода",
+      "pregnancy_album_vitamins": "Кош бойлуулук альбому жана витаминдерди көзөмөлдөө",
+      "mental_fitness": "Психикалык саламаттык жана фитнес",
+      "mood_journal": "Маанай күндөлүгү",
+      "vitamin_tracker": "Витаминдерди көзөмөлдөө",
+      "ai_daily_unlimited": "Күнүмдүк лимитсиз Anacan AI",
+      "baby_care_tracking": "Тамак, уйку жана жалаяк жазуулары",
+      "growth_curves": "ДСУ өсүү ийри сызыктары",
+      "symptom_analysis": "Фазалар боюнча симптом талдоосу",
+      "cycle_stats": "Цикл статистикасы жана тренддери"
+    },
+    "et": {
+      "sleep_tracking": "Une rutiini jälgimine",
+      "feeding_tracking": "Toitmise jälgija",
+      "milestones": "Arengu verstapostid",
+      "cry_analysis": "Nutuanalüüs",
+      "weather_clothing": "Ilm ja riietus",
+      "anacan_ai": "Anacan AI",
+      "doctor_pdf": "Arsti PDF-aruanne",
+      "partner_account": "Partneri konto",
+      "sounds_stories": "Valge müra ja nutikad lood",
+      "vaccine_calendar": "Vaktsineerimiskalender",
+      "healthy_recipes": "Tervislikud retseptid",
+      "teething_tracker": "Hammaste tuleku jälgija",
+      "mental_exercises": "Vaimne heaolu ja harjutused",
+      "ad_free": "Reklaamivaba kogemus",
+      "fetal_growth": "Loote kasvu jälgija",
+      "nutrition_control": "Toitumise jälgimine",
+      "safety_lookup": "Ohutuse kontrollija",
+      "kicks_contractions": "Loote liigutuste ja tuhude loendur",
+      "body_measurements": "Kaalu, vererõhu ja glükoosi jälgimine",
+      "hospital_bag_shopping": "Haiglakott ja jagatud ostunimekiri",
+      "pregnancy_album_vitamins": "Raseduse album ja vitamiinide jälgija",
+      "mental_fitness": "Vaimne heaolu ja treeningud",
+      "mood_journal": "Meeleolupäevik",
+      "vitamin_tracker": "Vitamiinide jälgija",
+      "ai_daily_unlimited": "Anacan AI ilma päevalimiidita",
+      "baby_care_tracking": "Toitmise, une ja mähkmete logi",
+      "growth_curves": "WHO kasvukõverad",
+      "symptom_analysis": "Sümptomite analüüs tsükli faaside kaupa",
+      "cycle_stats": "Tsükli statistika ja trendid"
+    },
+    "tk": {
+      "sleep_tracking": "Uky tertibini yzarlamak",
+      "feeding_tracking": "Iýmitlendiriş yzarlaýjysy",
+      "milestones": "Ösüş tapgyrlary",
+      "cry_analysis": "Aglamagy seljermek",
+      "weather_clothing": "Howa we eşik",
+      "anacan_ai": "Anacan AI",
+      "doctor_pdf": "Lukman üçin PDF",
+      "partner_account": "Hyzmatdaş hasaby",
+      "sounds_stories": "Ak ses we akylly ertekiler",
+      "vaccine_calendar": "Sanjym senenamasy",
+      "healthy_recipes": "Sagdyn reseptler",
+      "teething_tracker": "Diş çykmagy yzarlaýjy",
+      "mental_exercises": "Ruhy saglyk we maşklar",
+      "ad_free": "Mahabatsyz tejribe",
+      "fetal_growth": "Düwünçegiň ösüş yzarlaýjysy",
+      "nutrition_control": "Iýmitlenmäni yzarlamak",
+      "safety_lookup": "Howpsuzlyk barlaýjysy",
+      "kicks_contractions": "Hereket we tolgak hasaplaýjysy",
+      "body_measurements": "Agramy, gan basyşyny we glýukozany yzarlamak",
+      "hospital_bag_shopping": "Hassahana sumkasy we umumy söwda",
+      "pregnancy_album_vitamins": "Göwrelilik albomy we witamin yzarlaýjysy",
+      "mental_fitness": "Ruhy saglyk we fitnes",
+      "mood_journal": "Keýp gündeligi",
+      "vitamin_tracker": "Witamin yzarlaýjysy",
+      "ai_daily_unlimited": "Gündelik çäksiz Anacan AI",
+      "baby_care_tracking": "Iýmit, uky we bez ýazgylary",
+      "growth_curves": "BSGG ösüş egrileri",
+      "symptom_analysis": "Tapgyrlar boýunça alamat seljermesi",
+      "cycle_stats": "Sikl statistikasy we tendensiýalary"
+    },
+    "uk": {
+      "sleep_tracking": "Відстеження режиму сну",
+      "feeding_tracking": "Трекер годувань",
+      "milestones": "Етапи розвитку",
+      "cry_analysis": "Аналіз плачу",
+      "weather_clothing": "Погода й одяг",
+      "anacan_ai": "Anacan AI",
+      "doctor_pdf": "PDF для лікаря",
+      "partner_account": "Обліковий запис партнера",
+      "sounds_stories": "Білий шум і розумні казки",
+      "vaccine_calendar": "Календар щеплень",
+      "healthy_recipes": "Корисні рецепти",
+      "teething_tracker": "Трекер прорізування зубів",
+      "mental_exercises": "Психічне благополуччя та вправи",
+      "ad_free": "Без реклами",
+      "fetal_growth": "Трекер росту плода",
+      "nutrition_control": "Відстеження харчування",
+      "safety_lookup": "Перевірка безпеки",
+      "kicks_contractions": "Лічильник поштовхів і перейм",
+      "body_measurements": "Відстеження ваги, тиску та глюкози",
+      "hospital_bag_shopping": "Сумка в пологовий і спільні покупки",
+      "pregnancy_album_vitamins": "Альбом вагітності та трекер вітамінів",
+      "mental_fitness": "Психічне благополуччя та фітнес",
+      "mood_journal": "Щоденник настрою",
+      "vitamin_tracker": "Трекер вітамінів",
+      "ai_daily_unlimited": "Anacan AI без денного ліміту",
+      "baby_care_tracking": "Облік годувань, сну й підгузків",
+      "growth_curves": "Криві росту ВООЗ",
+      "symptom_analysis": "Аналіз симптомів за фазами циклу",
+      "cycle_stats": "Статистика й тренди циклу"
     }
   }
 }

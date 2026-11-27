@@ -1,0 +1,13 @@
+{
+  "title": "Skydda dina uppgifter",
+  "subtitle": "Dina anteckningar om graviditet, hälsa och bebis är privata. Se till att bara du kan öppna appen.",
+  "bio_ios": "Face ID",
+  "bio_android": "Fingeravtryck eller ansiktsigenkänning",
+  "bio_line": "Öppnas med en blick eller en touch",
+  "pin_title": "4-siffrig PIN-kod",
+  "pin_line": "Reserv: du kan alltid låsa upp med din PIN-kod",
+  "settings_title": "Stäng av när du vill",
+  "settings_line": "Du kan stänga av eller byta PIN-kod under {where}",
+  "enable": "Aktivera skydd",
+  "later": "Inte nu"
+}

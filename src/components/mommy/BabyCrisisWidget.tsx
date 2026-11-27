@@ -4,6 +4,7 @@ import { AlertTriangle, ChevronRight, Calendar, Clock, Sparkles, X, Check, Light
 import { useBabyCrisisPeriods, BabyCrisisPeriod, useCurrentBabyCrisis, useUpcomingBabyCrises } from '@/hooks/useBabyCrisisPeriods';
 import { hapticFeedback } from '@/lib/native';
 import { tr } from "@/lib/tr";
+import { weekOrdinal } from '@/lib/count-plural';
 
 interface BabyCrisisWidgetProps {
   babyAgeWeeks: number;
@@ -12,27 +13,24 @@ interface BabyCrisisWidgetProps {
 
 const severityConfig = {
   mild: { 
-    color: 'from-[color:var(--a-yellow-2)] to-[color:var(--a-yellow-2)]',
-    bgColor: 'bg-[color:var(--a-yellow-1)]',
-    borderColor: 'border-[color:var(--a-yellow-2)]',
-    textColor: 'text-[color:var(--a-yellow-ink)]',
-    dotColor: 'bg-[color:var(--a-yellow-ink)]',
+    color: 'from-amber-400 to-yellow-500', 
+    bgColor: 'bg-amber-50 dark:bg-amber-500/10',
+    borderColor: 'border-amber-200 dark:border-amber-500/30',
+    textColor: 'text-amber-700 dark:text-amber-400',
     label: tr("babycrisiswidget_yungul_2a8010", 'Yüngül')
   },
   medium: { 
-    color: 'from-[color:var(--a-peach-2)] to-[color:var(--a-peach-2)]',
-    bgColor: 'bg-[color:var(--a-peach-1)]',
-    borderColor: 'border-[color:var(--a-peach-2)]',
-    textColor: 'text-[color:var(--a-peach-ink)]',
-    dotColor: 'bg-[color:var(--a-peach-ink)]',
+    color: 'from-orange-400 to-amber-500', 
+    bgColor: 'bg-orange-50 dark:bg-orange-500/10',
+    borderColor: 'border-orange-200 dark:border-orange-500/30',
+    textColor: 'text-orange-700 dark:text-orange-400',
     label: tr('babycrisiswidget_medium','Orta')
   },
   intense: { 
-    color: 'from-[color:var(--a-pink-2)] to-[color:var(--a-pink-2)]',
-    bgColor: 'bg-[color:var(--a-pink-1)]',
-    borderColor: 'border-[color:var(--a-pink-2)]',
-    textColor: 'text-[color:var(--a-pink-ink)]',
-    dotColor: 'bg-[color:var(--a-pink-ink)]',
+    color: 'from-rose-400 to-red-500', 
+    bgColor: 'bg-rose-50 dark:bg-rose-500/10',
+    borderColor: 'border-rose-200 dark:border-rose-500/30',
+    textColor: 'text-rose-700 dark:text-rose-400',
     label: tr("babycrisiswidget_i_ntensiv_45a63b", 'İntensiv')
   },
 };
@@ -235,7 +233,7 @@ const BabyCrisisWidget = ({ babyAgeWeeks, babyName }: BabyCrisisWidgetProps) => 
                   <div>
                     <h2 className="text-xl font-bold text-foreground">{tr("babycrisiswidget_kriz_teqvimi_aa2ea5", "Kriz Təqvimi")}</h2>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      {babyName} • {babyAgeWeeks}. {tr('babycrisiswidget_week_header','həftə')}
+                      {babyName} • {weekOrdinal(babyAgeWeeks)}
                     </p>
                   </div>
                   <motion.button
@@ -421,7 +419,7 @@ const BabyCrisisWidget = ({ babyAgeWeeks, babyName }: BabyCrisisWidgetProps) => 
                     <div className="space-y-2">
                       {selectedCrisis.symptoms.map((symptom, i) => (
                         <div key={i} className="flex items-start gap-2">
-                          <div className={`w-1.5 h-1.5 rounded-full mt-1.5 ${getSeverityConfig(selectedCrisis.severity).dotColor}`} />
+                          <div className={`w-1.5 h-1.5 rounded-full mt-1.5 ${getSeverityConfig(selectedCrisis.severity).textColor.replace('text-', 'bg-')}`} />
                           <span className="text-sm text-foreground">{symptom}</span>
                         </div>
                       ))}

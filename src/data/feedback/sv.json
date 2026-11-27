@@ -1,0 +1,46 @@
+{
+  "menu": "Lämna feedback",
+  "title": "Vad tycker du om Anacan?",
+  "subtitle": "Din åsikt hjälper oss att göra appen bättre för varje mamma.",
+  "stars": [
+    "Mycket dåligt",
+    "Dåligt",
+    "Okej",
+    "Bra",
+    "Utmärkt"
+  ],
+  "low_title": "Vad gillade du inte?",
+  "low_sub": "Välj några — vi läser varje svar.",
+  "high_title": "Vad gillar du mest?",
+  "high_sub": "Välj så att vi kan göra det ännu bättre.",
+  "low_reasons": {
+    "crash": "Appen kraschar / fryser",
+    "bug": "Något fungerar inte",
+    "slow": "Den är långsam",
+    "missing": "En funktion saknas",
+    "content": "Informationen stämmer inte",
+    "ads": "För mycket reklam",
+    "price": "Premium är dyrt",
+    "hard": "Svår att använda",
+    "other": "Annat"
+  },
+  "high_reasons": {
+    "tracking": "Spårare",
+    "content": "Daglig info",
+    "ai": "AI-assistent",
+    "community": "Community",
+    "partner": "Partnerläge",
+    "design": "Design",
+    "other": "Annat"
+  },
+  "message_low": "Vad hände? Vad ska vi ändra?",
+  "message_high": "Något du vill lägga till? (valfritt)",
+  "send": "Skicka",
+  "sending": "Skickar...",
+  "thanks_low": "Tack. Vårt team läser detta och försöker åtgärda det 💛",
+  "thanks_high": "Tusen tack! Det är en stor motivation för vårt team 💛",
+  "close": "Stäng",
+  "later": "Senare",
+  "error": "Kunde inte skicka. Kontrollera internetanslutningen och försök igen.",
+  "subject": "Appfeedback"
+}

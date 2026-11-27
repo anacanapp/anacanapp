@@ -160,18 +160,14 @@ describe('Azure provider availability', () => {
 });
 
 describe('partner registration routing', () => {
-  it('keeps the legacy Supabase lookup, profile update and UUID RPC when not opted in', async () => {
+  it('refuses pairing before signup when secure pairing is unavailable, with no legacy writes', async () => {
     vi.stubEnv('VITE_AZURE_PARTNER_PAIRING', undefined);
-    vi.useFakeTimers();
-    const { form } = openRegistration('ANACAN-A01F');
+    const { form } = openRegistration('ANACAN-ABCD2345');
     await act(async () => { fireEvent.submit(form); });
-    await act(async () => { await vi.advanceTimersByTimeAsync(2000); });
-    expect(mocks.rpc).toHaveBeenNthCalledWith(1, 'find_partner_by_code', { p_partner_code: 'ANACAN-A01F' });
-    expect(mocks.update).toHaveBeenCalledExactlyOnceWith({ linked_partner_id: 'target-profile', life_stage: 'partner' });
-    expect(mocks.rpc).toHaveBeenNthCalledWith(2, 'link_partners', {
-      p_my_profile_id: 'my-profile', p_partner_profile_id: 'target-profile', p_partner_user_id: 'target-user',
-    });
-    expect(mocks.reload).toHaveBeenCalledOnce();
+    await waitFor(() => expect(mocks.toast).toHaveBeenCalled());
+    expect(mocks.signUp).not.toHaveBeenCalled();
+    expect(mocks.rpc).not.toHaveBeenCalled();
+    expect(mocks.update).not.toHaveBeenCalled();
   });
 
   it('rejects a legacy invitation before signup, without anonymous profile lookup', async () => {

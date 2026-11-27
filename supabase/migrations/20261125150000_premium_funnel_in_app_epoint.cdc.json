@@ -1,0 +1,28 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261125150000_premium_funnel_in_app_epoint.sql",
+  "runtime": "google-premium-funnel",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; refuses without the guard catalog or when public.app_settings is not guarded; enrolls the four new relations with the three standard triggers and verifies 4 relations / 12 triggers, the allowlist (keeps every live key, adds in_app_epoint) and that no client table grant exists",
+  "preserve": ["cron0", "8 enabled business timers", "Source sealed; new Google-only relations", "get_public_app_setting keeps every live key and only adds in_app_epoint"],
+  "relations": [
+    { "relation": "public.premium_funnel_daily", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "primary_key": ["day", "event", "source", "platform", "life_stage", "country"],
+      "note": "daily paywall/purchase funnel counters; no user id; written only by premium_funnel_hit_v1" },
+    { "relation": "public.premium_funnel_throttle", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "primary_key": ["user_id", "event", "source"],
+      "note": "operational throttle (last hit per user/event/source); rows older than a day are deleted on the user's next hit; never reported" },
+    { "relation": "public.premium_purchase_intents", "change": "created", "cdc": true, "writer_guard": true, "pii": true, "primary_key": ["id"],
+      "note": "buy taps (user, source, platform, plan) for purchase attribution; kept 90 days per user" },
+    { "relation": "public.premium_purchases", "change": "created", "cdc": true, "writer_guard": true, "pii": true, "primary_key": ["id"],
+      "note": "server-written paid period starts (store, Epoint, promo) with attributed source; unique provider_ref" },
+    { "relation": "public.app_settings", "change": "row inserted", "cdc": true, "writer_guard": true, "private": false, "pii": false, "primary_key": ["id"],
+      "note": "in_app_epoint = {enabled:true, countries:[AZ], platforms:{android:true, ios:false, web:true}}; already guarded" }
+  ],
+  "functions": [
+    { "name": "public.premium_funnel_hit_v1(text,text,text,text)", "security": "definer", "grant": "authenticated" },
+    { "name": "public.premium_purchase_intent_v1(text,text,text)", "security": "definer", "grant": "authenticated" },
+    { "name": "public.premium_purchase_record_v1(uuid,text,text,text,numeric,text,text,text,text,timestamptz)", "security": "definer", "grant": "service_role" },
+    { "name": "public.admin_premium_funnel_v1(integer)", "security": "definer", "grant": "authenticated (admin check inside)" },
+    { "name": "public.get_public_app_setting(text)", "security": "definer", "grant": "unchanged", "note": "allowlist + in_app_epoint (extended in place)" }
+  ]
+}

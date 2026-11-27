@@ -150,7 +150,7 @@ export const usePartnerMessages = () => {
 
   useEffect(() => {
     fetchMessages();
-  }, [user]);
+  }, [user?.id]);
 
   // Realtime subscription — ref-sayğaclı paylaşılan kanal (bax fayl başındakı modul-səviyyəli dəyişənlər)
   // Həmişə ən son render-in fetchMessages/toast-unu çağır (köhnə closure-lar yox).

@@ -3,6 +3,8 @@ import { NEW_LANGUAGE_CODES, readAppLanguage } from './app-languages';
 import { getBundledContentTranslation } from './content-i18n';
 import { formatCountUnit } from './count-format';
 
+const RU_FALLBACK_LANGUAGES = new Set(['ky', 'tk']);
+
 export function getPersistedLanguage(): string {
   return readAppLanguage();
 }
@@ -50,7 +52,10 @@ export function mapRowTranslation<T extends Record<string, any>>(
     } else if ((NEW_LANGUAGE_CODES as readonly string[]).includes(language)) {
       const bundled = getBundledContentTranslation(row, field, language);
       bundledField = row[`${field}_${language}`] == null && bundled !== undefined;
+      // While a content pack shard downloads (or if a row is newer than the pack),
+      // Kyrgyz/Turkmen readers get Russian, the others English.
       val = row[`${field}_${language}`] ?? bundled
+        ?? (RU_FALLBACK_LANGUAGES.has(language) ? row[`${field}_ru`] : undefined)
         ?? row[`${field}_en`] ?? row[`${field}_az`] ?? row[field];
     } else if (language === 'kk') {
       // kk üçün ru körpüsü: kk hələ tərcümə olunmayıbsa rus mətn az-dan daha faydalıdır

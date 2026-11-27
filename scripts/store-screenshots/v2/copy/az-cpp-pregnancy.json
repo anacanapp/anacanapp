@@ -1,0 +1,94 @@
+{
+ "lang": "az",
+ "badge": "Pulsuz · 23 dil",
+ "hero": "hero-photo-preg.jpg",
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Hamiləlik təqvimi",
+   "title": [
+    "hamiləliyini",
+    "həftə-həftə"
+   ],
+   "hl": "izlə",
+   "sub": "Körpənin ölçüsü, inkişafı və hər həftəyə özəl tövsiyələr",
+   "cta": "Pulsuz yüklə",
+   "ctaSub": "iOS və Android"
+  },
+  {
+   "key": "week",
+   "shot": "bump-home",
+   "eyebrow": "Həftə-həftə",
+   "title": [
+    "körpən bu gün"
+   ],
+   "hl": "pomidor boyda",
+   "sub": "Ölçü, çəki və doğuşa qalan günlər bir baxışda",
+   "chips": [
+    [
+     "142",
+     "gün qaldı"
+    ],
+    [
+     "19",
+     "həftə, 4 gün"
+    ]
+   ]
+  },
+  {
+   "key": "kick",
+   "shot": "kick",
+   "eyebrow": "Təpik sayğacı",
+   "title": [
+    "təpikləri"
+   ],
+   "hl": "bir toxunuşla say",
+   "sub": "Körpənin hərəkətlərini hər gün qeyd et, ritmini tanı",
+   "chips": [
+    [
+     "12",
+     "təpik bu gün"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "gecə saat 3-də"
+   ],
+   "hl": "cavab var",
+   "sub": "Hamiləlik sualların üçün 7/24 köməkçi",
+   "chips": [
+    [
+     "7/24",
+     "hər sual"
+    ]
+   ]
+  },
+  {
+   "key": "body",
+   "shot": "bump-scroll",
+   "eyebrow": "Hər həftə",
+   "title": [
+    "bu həftə"
+   ],
+   "hl": "nə dəyişir?",
+   "sub": "Bədənindəki dəyişikliklər və körpənin inkişafı, sadə dildə"
+  },
+  {
+   "key": "tools",
+   "shot": "bump-tools",
+   "eyebrow": "Hamiləlik alətləri",
+   "title": [
+    "hamiləlik üçün"
+   ],
+   "hl": "hər alət",
+   "sub": "Həkim görüşləri, xəstəxana çantası, təpik sayğacı və daha çoxu",
+   "cta": "Pulsuz yüklə",
+   "ctaSub": "iOS və Android"
+  }
+ ]
+}

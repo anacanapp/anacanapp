@@ -1,6 +1,7 @@
 // Sleep training (babies 1–12 months): age norms, a daily nap schedule built from the
 // wake-up time, live status, 7-day summaries with insights and the on-device plan state.
-// Pure functions only; the screen keeps state in localStorage per user.
+// Pure functions only; the plan is kept per child on the phone and synced with the account by
+// sleep-training-sync.ts (public.sleep_training_plans). planStorageKey is the older per-account key.
 import type { BabyLogRow } from '@/lib/baby-logs-range';
 
 export type AgeBand = '1-3' | '4-6' | '7-9' | '10-12';

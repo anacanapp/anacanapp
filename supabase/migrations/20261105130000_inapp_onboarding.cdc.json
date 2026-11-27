@@ -1,0 +1,12 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261105130000_inapp_onboarding.sql",
+  "runtime": "google-onboarding",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; no new relation, profiles and app_settings already carry the standard CDC/writer triggers",
+  "relations": [
+    { "relation": "public.profiles", "change": "altered", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "onboarding_journey jsonb (nullable), written by the owner through the existing profile update path" },
+    { "relation": "public.app_settings", "change": "rows added", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "inapp_onboarding='off', inapp_onboarding_since=<apply time>; both in the public allowlist RPC" }
+  ]
+}

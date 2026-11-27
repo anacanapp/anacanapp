@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Search, X, Link2 } from 'lucide-react';
 import BlogContent from '../components/blog/BlogContent';
-import { APP_LANGUAGES } from '../lib/app-languages';
+import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import { useWebsite } from './context';
 import { Arrow, ArticleCard, Breadcrumb, categoryKey, DownloadCard, Eyebrow, Intro } from './components';
 import type { WebsiteCopyKey } from './model';
@@ -9,6 +9,9 @@ import { WEBSITE_ORIGIN, sitePath } from './routes';
 import { refreshGoogleArticles } from './api';
 import {siteDate} from './dates';
 import {renderArticleContent} from './article-content';
+import { ArticleToolLink } from './tools/ToolLinks';
+import {HIGH_PRIORITY} from './images';
+import CampaignMercanBanner from './CampaignMercan';
 
 export const JOURNAL_PAGE_SIZE=12;
 function queryState() {
@@ -39,7 +42,7 @@ export default function Journal() {
     for(const[name,item]of Object.entries(next))if(item)params.set(name,item);
     window.history.replaceState(null,'',href('journal')+(params.size?'?'+params.toString():''));
   };
-  return <><Intro title="journalTitle" description="journalDescription" eyebrow="journalEyebrow"/>
+  return <><CampaignMercanBanner slot="journal"/><Intro title="journalTitle" description="journalDescription" eyebrow="journalEyebrow"/>
     <form className="site-search" action={href('journal')} method="get" onSubmit={event=>event.preventDefault()}><Search size={21} strokeWidth={1.5} aria-hidden="true"/><label className="site-sr" htmlFor="journal-search">{t('search')}</label><input type="search" id="journal-search" name="q" value={filters.q} placeholder={t('searchPlaceholder')} onChange={event=>setFilter('q',event.target.value)}/>{filters.q&&<button type="button" onClick={()=>setFilter('q','')} aria-label={t('clearSearch')}><X size={18}/></button>}<button type="submit" className="site-outline-button">{t('searchAction')}<Arrow/></button></form>
     <div className="site-journal-filters"><div className="site-filter-tabs" aria-label={t('category')}><button onClick={()=>setFilter('category','')} aria-pressed={!filters.category}>{t('all')}</button>{[...new Set(articles.map(article=>article.category))].map(category=><button key={category} aria-pressed={filters.category===category} onClick={()=>setFilter('category',category)}>{t(categoryKey(category))}</button>)}</div><label className="site-stage-filter"><span className="site-sr">{t('stageTitle')}</span><select value={filters.stage} onChange={event=>setFilter('stage',event.target.value)} aria-label={t('stageTitle')}><option value="">{t('all')}</option>{(['flow','bump','mommy'] as const).map(stage=><option key={stage} value={stage}>{t(stage)}</option>)}</select></label></div>
     <p className="site-results-count" role="status">{t('results',{count:all.length})}</p>
@@ -53,7 +56,7 @@ export function ArticlePage() {
   const [shareStatus,setShareStatus]=useState('');
   const rendered=useMemo(()=>article?.contentFormat==='anacan-article-html-v1'?{content:article.content||'',headings:article.headings}:renderArticleContent(article?.content||'',{footnotesLabel:t('references')}),[article?.content,article?.contentFormat,article?.headings,route.language]);
   if(!article)return null;
-  const locale=APP_LANGUAGES.find(item=>item.code===route.language)!.locale;
+  const locale=WEBSITE_LANGUAGES.find(item=>item.code===route.language)!.locale;
   const related=[...articles].filter(item=>item.id!==article.id).sort((a,b)=>Number(article.relatedIds.includes(b.id))-Number(article.relatedIds.includes(a.id))||Number(b.category===article.category)-Number(a.category===article.category)).slice(0,3);
   const share=async()=>{
     const url=WEBSITE_ORIGIN+sitePath(route.language,'article',article.slug);
@@ -65,15 +68,16 @@ export function ArticlePage() {
   };
   return <><nav className="site-breadcrumb" aria-label={t('home')}><a href={href()}>{t('home')}</a><span aria-hidden="true">/</span><a href={href('journal')}>{t('journal')}</a><span aria-hidden="true">/</span><span>{article.title}</span></nav>
     <article className="site-article" data-website-article={article.id}>
-      <header className="site-article-header"><Eyebrow>{t(categoryKey(article.category))}</Eyebrow><h1>{article.title}</h1><p className="site-article-summary">{article.excerpt}</p><div className="site-article-meta"><span>{article.author==='Anacan'?t('author'):article.author}</span><span>{t('readMinutes',{count:article.minutes})}</span><span>{t('updated')} <time dateTime={article.updatedAt}>{siteDate(article.updatedAt,route.language)}</time></span><button type="button" onClick={()=>void share()}><Link2 size={16}/>{t('share')}</button></div><span role="status">{shareStatus}</span></header>
-      {article.cover&&<img className="site-article-cover" src={article.cover} width="1200" height="630" alt={article.coverAlt} fetchPriority="high" decoding="async"/>}
+      <header className="site-article-header"><Eyebrow>{t(categoryKey(article.category))}</Eyebrow><h1>{article.title}</h1><p className="site-article-summary">{article.excerpt}</p><div className="site-article-meta">{article.author==='Anacan'?<a href={href('editorial')} rel="author">{t('author')}</a>:<span>{article.author}</span>}<span>{t('readMinutes',{count:article.minutes})}</span><span>{t('updated')} <time dateTime={article.updatedAt}>{siteDate(article.updatedAt,route.language)}</time></span><button type="button" onClick={()=>void share()}><Link2 size={16}/>{t('share')}</button></div><span role="status">{shareStatus}</span></header>
+      {article.cover&&<img className="site-article-cover" src={article.cover} width="1200" height="630" alt={article.coverAlt} {...HIGH_PRIORITY}/>}
       <div className="site-article-reader"><aside><nav className="site-toc" aria-label={t('toc')}><h2>{t('toc')}</h2><ol>{rendered.headings.map(heading=><li key={heading.id}><a href={`#${heading.id}`}>{heading.title}</a></li>)}</ol></nav></aside><div>
         <BlogContent content={rendered.content} prepared className="site-prose"/>
+        <ArticleToolLink articleId={article.id}/>
         {!!article.faq.length&&<section className="site-article-section"><h2>{t('faq')}</h2><div className="site-faq-list">{article.faq.map(faq=><details key={faq.question}><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></section>}
         {!!article.modules.length&&<section className="site-article-section"><h2>{t('modules')}</h2><div className="site-article-tags">{article.modules.map(module=><a key={module} className="site-outline-button" href={`https://app.anacan.az/?blog_module=${encodeURIComponent(module)}&blog_language=${route.language}`}>{t(module as WebsiteCopyKey)}<Arrow diagonal/></a>)}</div></section>}
         {!!article.references.length&&<section className="site-article-section site-references"><h2>{t('references')}</h2><ul>{article.references.map(reference=><li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.title}<Arrow diagonal/></a></li>)}</ul></section>}
         {!!article.tags.length&&<div className="site-article-tags">{[...new Set(article.tags)].map(tag=><a key={tag} href={`${href('journal')}?q=${encodeURIComponent(tag)}`}>{tag}</a>)}</div>}
       </div></div>
-    </article><section className="site-section"><h2>{t('related')}</h2><div className="site-article-grid">{related.map(item=><ArticleCard article={item} key={item.id}/>)}</div></section><DownloadCard/>
+    </article><CampaignMercanBanner slot="article"/><section className="site-section"><h2>{t('related')}</h2><div className="site-article-grid">{related.map(item=><ArticleCard article={item} key={item.id}/>)}</div></section><DownloadCard/>
   </>;
 }

@@ -1,0 +1,1544 @@
+{
+ "sets": [
+  {
+   "id": "0-1",
+   "label": "0–1 yaş",
+   "months": "0–12 ay",
+   "minM": 0,
+   "maxM": 12,
+   "rules": [
+    "Məşqləri körpə oyaq, sakit və tox olmayan vaxtda edin (yeməkdən ən azı 30–40 dəqiqə sonra).",
+    "Bərk, düz və təmiz səthdə (döşəmədə xalça/mat üzərində) məşq edin; körpəni hündür yerdə tək qoymayın.",
+    "Hərəkətlər yavaş və yumşaq olmalıdır. Heç vaxt güc tətbiq etməyin, qol-ayaqları dartmayın.",
+    "Körpə ağlayırsa, narahatdırsa və ya yorulubsa, dərhal dayanın.",
+    "Yaş aralıqları təxminidir; hər körpə öz tempi ilə inkişaf edir.",
+    "Vaxtından əvvəl doğulmuş və ya sağlamlıq problemi olan körpələr üçün əvvəlcə pediatrla məsləhətləşin."
+   ]
+  },
+  {
+   "id": "1-2",
+   "label": "1–2 yaş",
+   "months": "12–24 ay",
+   "minM": 12,
+   "maxM": 24,
+   "rules": [
+    "Bu yaşda məşq oyun deməkdir: uşağı məcbur etməyin, hərəkəti özünüz göstərin və birlikdə edin.",
+    "Gün ərzində ən azı 30 dəqiqə yönləndirilmiş, 1 saat və daha çox sərbəst hərəkətli oyun tövsiyə olunur.",
+    "Otağı təhlükəsiz edin: iti künclər, sürüşkən xalçalar, aşa bilən mebel olmasın. Ayaqyalın və ya sürüşməyən corabla məşq daha yaxşıdır.",
+    "Pilləkən, sürüşkən, dırmaşma və hoppanma zamanı həmişə əl çatacaq məsafədə olun.",
+    "Kiçik əşyalarla (top, kub) oynayarkən ölçüsünə diqqət edin: uşağın ağzına sığan əşya vermək olmaz.",
+    "Yaş aralıqları təxminidir. Uşaq 18 aya qədər müstəqil yerimirsə, pediatra müraciət edin."
+   ]
+  },
+  {
+   "id": "2-3",
+   "label": "2–3 yaş",
+   "months": "24–36 ay",
+   "minM": 24,
+   "maxM": 36,
+   "rules": [
+    "Bu yaşda məşq oyundur: hərəkəti özünüz göstərin, birlikdə edin, mahnı və nağılla müşayiət edin.",
+    "Gün ərzində ən azı 1 saat yönləndirilmiş, 2 saat və daha çox sərbəst hərəkətli oyun tövsiyə olunur.",
+    "Otağı və həyəti təhlükəsiz edin: sürüşkən döşəmə, iti künclər, aşa bilən əşyalar olmasın.",
+    "Hoppanma, dırmaşma, asılma və sürüşkən zamanı əl çatacaq məsafədə olun; yumşaq səth seçin.",
+    "Uşağı yormayın: qısa oyunlar, tez-tez fasilə və su.",
+    "Yaş aralıqları təxminidir; hər uşaq öz tempi ilə inkişaf edir. Narahatlığınız varsa, pediatra müraciət edin."
+   ]
+  },
+  {
+   "id": "3-4",
+   "label": "3–4 yaş",
+   "months": "36–48 ay",
+   "minM": 36,
+   "maxM": 48,
+   "rules": [
+    "Məşq hələ də oyundur: hərəkəti özünüz göstərin, birlikdə edin, yarış və nağıl elementləri əlavə edin.",
+    "Gün ərzində ən azı 1 saat yönləndirilmiş, 2 saat və daha çox sərbəst hərəkətli oyun tövsiyə olunur; mümkün qədər açıq havada.",
+    "Təhlükəsiz yer seçin: sürüşməyən döşəmə, yumşaq mat, ətrafda iti künc olmasın.",
+    "Təkərli vasitələrdə (skuter, velosiped) həmişə dəbilqə geyindirin.",
+    "Mayallaq, tarazlıq tiri və dırmaşma kimi məşqlərdə yanında olun.",
+    "Uşağı yormayın: qısa oyunlar, tez-tez fasilə və su.",
+    "Yaş aralıqları təxminidir; hər uşaq öz tempi ilə inkişaf edir. Narahatlığınız varsa, pediatra müraciət edin."
+   ]
+  },
+  {
+   "id": "4-5",
+   "label": "4–5 yaş",
+   "months": "48–60 ay",
+   "minM": 48,
+   "maxM": 60,
+   "rules": [
+    "Məşq oyun kimi keçməlidir: hərəkəti özünüz göstərin, birlikdə edin, kiçik yarışlar və \"rekordlar\" əlavə edin.",
+    "Gün ərzində ən azı 1 saat yönləndirilmiş, 2 saat və daha çox sərbəst hərəkətli oyun tövsiyə olunur; mümkün qədər açıq havada.",
+    "Təhlükəsiz yer seçin: sürüşməyən döşəmə, yumşaq mat, ətrafda iti künc olmasın.",
+    "Velosiped və skuterdə həmişə dəbilqə və qapalı ayaqqabı geyindirin.",
+    "Mayallaq, hündürlükdən tullanma, dırmaşma və asılma zamanı yanında olun.",
+    "Güc məşqlərində (plank, çöməlmə) keyfiyyət vacibdir, müddət yox: forması pozulanda dayanın.",
+    "Yaş aralıqları təxminidir; hər uşaq öz tempi ilə inkişaf edir. Narahatlığınız varsa, pediatra müraciət edin."
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "0-1/01_tummy_time",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Qarın üstə uzanma",
+   "age": "doğuşdan etibarən",
+   "how": "Körpəni mat üzərində qarnı üstə uzadın, qollarını dirsəkdən büküb başının yanına qoyun. Bir əlinizi kürəyinə, digərini ombasına yumşaq qoyun. Onunla danışın ki, başını qaldırmağa çalışsın.",
+   "duration": "gündə 2–3 dəfə, 1–3 dəqiqə; tədricən artırın.",
+   "benefit": "boyun, çiyin və kürək əzələlərini gücləndirir, başın arxasının yastılaşmasının qarşısını alır.",
+   "caution": "yalnız oyaq vaxtı və nəzarət altında. Yatmaq üçün körpəni həmişə arxası üstə qoyun."
+  },
+  {
+   "id": "0-1/02_tummy_on_chest",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Valideynin sinəsində qarın üstə",
+   "age": "0–2 ay",
+   "how": "Yastığa söykənərək yarıuzanmış vəziyyət alın. Körpəni sinənizə qarnı üstə qoyun, bir əlinizlə kürəyini, digəri ilə ombasını tutun. Üzünüzə baxması üçün onunla danışın.",
+   "duration": "gündə bir neçə dəfə, 2–5 dəqiqə.",
+   "benefit": "qarın üstə vəziyyətə ən yumşaq alışdırma üsuludur; başı qaldırmağa həvəsləndirir, bağlılığı gücləndirir.",
+   "caution": "özünüz yuxuludursunuzsa, bu məşqi etməyin."
+  },
+  {
+   "id": "0-1/03_tummy_on_lap",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Diz üstündə qarın üstə",
+   "age": "0–3 ay",
+   "how": "Oturun və körpəni budlarınızın üstünə köndələn, qarnı üstə uzadın. Bir əliniz kürəyində, digəri ombasında olsun. Kürəyini yumşaq sığallaya bilərsiniz.",
+   "duration": "2–3 dəqiqə.",
+   "benefit": "boyun əzələlərini işlədir, qazın çıxmasına kömək edir, körpəni sakitləşdirir."
+  },
+  {
+   "id": "0-1/04_visual_tracking",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Oyuncağı gözlə izləmə",
+   "age": "0–3 ay",
+   "how": "Körpə arxası üstə uzanır. Parlaq oyuncağı üzündən 20–30 sm məsafədə tutun və yavaş-yavaş sağa-sola aparın. Körpənin gözləri və başı ilə onu izləməsini gözləyin.",
+   "duration": "1–2 dəqiqə, hər tərəfə 4–5 dəfə.",
+   "benefit": "görmə diqqətini, göz-baş koordinasiyasını və boynun hər iki tərəfə dönməsini inkişaf etdirir."
+  },
+  {
+   "id": "0-1/05_grasp_finger",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Barmağı tutma",
+   "age": "0–4 ay",
+   "how": "Şəhadət barmağınızı körpənin ovcuna qoyun və onu sıxmasını gözləyin. Barmağınızı azca yuxarı-aşağı hərəkət etdirin. Hər iki əllə təkrarlayın.",
+   "duration": "hər əl üçün 3–5 dəfə.",
+   "benefit": "tutma refleksini və əl əzələlərini möhkəmləndirir, toxunma hissini inkişaf etdirir.",
+   "caution": "körpəni barmağınızdan tutaraq yuxarı qaldırmayın."
+  },
+  {
+   "id": "0-1/06_knees_to_tummy",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Dizləri qarına gətirmə",
+   "age": "0–6 ay",
+   "how": "Körpə arxası üstə uzanır. Hər iki baldırından tutun, dizlərini birlikdə yavaşca qarnına doğru bükün, 3–5 saniyə saxlayın və boşaldın.",
+   "duration": "5–8 təkrar.",
+   "benefit": "qaz və sancını yüngülləşdirir, bud-çanaq oynaqlarının hərəkətliliyini artırır.",
+   "caution": "sıxmayın; müqavimət hiss etsəniz, dayanın."
+  },
+  {
+   "id": "0-1/09_kicking",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Ovuca təpik vurma",
+   "age": "1–4 ay",
+   "how": "Körpə arxası üstə uzanır. Ovuclarınızı ayaqlarının altına söykəyin və yüngül müqavimət göstərin; körpə ayaqları ilə itələyəcək.",
+   "duration": "1–2 dəqiqə.",
+   "benefit": "ayaq əzələlərini gücləndirir, itələmə hərəkətini (gələcək iməkləmə və ayaq üstə durma üçün) hazırlayır."
+  },
+  {
+   "id": "0-1/10_side_lying",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Yan üstə oyun",
+   "age": "1–4 ay",
+   "how": "Körpəni yanı üstə uzadın, kürəyinin arxasına bükülmüş dəsmal qoyun. Hər iki əli qabaqda olsun; qarşısına oyuncaq qoyun. Sonra digər yana çevirin.",
+   "duration": "hər tərəfə 2–3 dəqiqə.",
+   "benefit": "əllərin bir-birinə toxunmasını asanlaşdırır, çevrilməyə hazırlayır, başın bir tərəfə meyillənməsinin qarşısını alır.",
+   "caution": "yalnız oyaq vaxtı və nəzarət altında; körpəni bu vəziyyətdə yatmağa qoymayın."
+  },
+  {
+   "id": "0-1/07_bicycle_legs",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "\"Velosiped\"",
+   "age": "1–6 ay",
+   "how": "Körpə arxası üstə uzanır. Baldırlarından tutub ayaqlarını növbə ilə, velosiped sürürmüş kimi hərəkət etdirin: bir diz qarına, digər ayaq irəli.",
+   "duration": "10–15 dövrə, arada fasilə.",
+   "benefit": "ayaq və qarın əzələlərini işlədir, bağırsaq fəaliyyətinə kömək edir, növbəli hərəkət koordinasiyasını öyrədir."
+  },
+  {
+   "id": "0-1/08_arm_open_close",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Qolları açıb-bağlama",
+   "age": "1–6 ay",
+   "how": "Körpə arxası üstə uzanır. Baş barmaqlarınızı ovuclarına qoyun və ya biləklərindən yumşaq tutun. Qollarını yanlara açın, sonra sinəsində çarpazlayın (özünü qucaqlayırmış kimi).",
+   "duration": "5–8 təkrar.",
+   "benefit": "sinə və çiyin əzələlərini açır, qolların orta xəttə gətirilməsini öyrədir.",
+   "caution": "qolları dartmayın, yalnız körpənin icazə verdiyi qədər açın."
+  },
+  {
+   "id": "0-1/11_towel_tummy_time",
+   "set": "0-1",
+   "group": "0–3 ay",
+   "title": "Dəsmal dayaqlı qarın üstə",
+   "age": "2–4 ay",
+   "how": "Bükülmüş dəsmalı körpənin sinəsinin altına (qoltuq xəttində) qoyun, qolları dəsmalın qabağında olsun. Qarşısına oyuncaq qoyun ki, başını qaldırıb baxsın.",
+   "duration": "3–5 dəqiqə, gündə bir neçə dəfə.",
+   "benefit": "başı qaldırmağı asanlaşdırır, dirsəklərə söykənməyə hazırlayır."
+  },
+  {
+   "id": "0-1/12_pull_to_sit",
+   "set": "0-1",
+   "group": "3–6 ay",
+   "title": "Oturuşa çəkmə",
+   "age": "3–5 ay (körpə başını saxlaya bildikdən sonra)",
+   "how": "Körpə arxası üstə uzanır. Baş barmaqlarınızı ovuclarına verin, biləklərini tutun və onu yavaşca oturuş vəziyyətinə doğru qaldırın, sonra eyni yavaşlıqla geri uzadın.",
+   "duration": "3–5 təkrar.",
+   "benefit": "qarın, boyun və qol əzələlərini gücləndirir.",
+   "caution": "baş arxaya düşürsə, məşqi təxirə salın. Sürətlə dartmayın."
+  },
+  {
+   "id": "0-1/13_reaching_toy",
+   "set": "0-1",
+   "group": "3–6 ay",
+   "title": "Oyuncağa uzanma",
+   "age": "3–5 ay",
+   "how": "Körpə arxası üstə uzanır. Oyuncağı sinəsinin üstündə, əli çatacaq məsafədə tutun və uzanıb tutmasını gözləyin. Oyuncağı gah sağa, gah sola aparın.",
+   "duration": "2–3 dəqiqə.",
+   "benefit": "göz-əl koordinasiyasını, çiyin əzələlərini və məqsədyönlü tutmanı inkişaf etdirir."
+  },
+  {
+   "id": "0-1/14_forearm_prop_reach",
+   "set": "0-1",
+   "group": "3–6 ay",
+   "title": "Dirsəyə söykənib uzanma",
+   "age": "4–6 ay",
+   "how": "Körpə qarın üstə, dirsəklərinə söykənib. Oyuncağı bir az qabağa və yana qoyun ki, bir qolu ilə uzansın. Əllərinizlə çanağını yüngülcə sabit saxlaya bilərsiniz.",
+   "duration": "3–5 dəqiqə.",
+   "benefit": "çəkini bir qoldan digərinə ötürməyi öyrədir, kürək və çiyin qurşağını gücləndirir, iməkləməyə hazırlayır."
+  },
+  {
+   "id": "0-1/15_rolling",
+   "set": "0-1",
+   "group": "3–6 ay",
+   "title": "Çevrilməyə kömək",
+   "age": "4–6 ay",
+   "how": "Körpə arxası üstə uzanır. Oyuncağı yan tərəfə qoyun. Bir əlinizlə budundan, digəri ilə çanağından tutub üst ayağını qarşı tərəfə keçirin; gövdə özü arxasınca dönəcək. Hər iki tərəfə edin.",
+   "duration": "hər tərəfə 3–4 dəfə.",
+   "benefit": "gövdə əzələlərini və bədənin burulma hərəkətini inkişaf etdirir, müstəqil çevrilməni öyrədir.",
+   "caution": "körpəni qolundan dartaraq çevirməyin."
+  },
+  {
+   "id": "0-1/16_feet_to_hands",
+   "set": "0-1",
+   "group": "3–6 ay",
+   "title": "Ayaqları tutma",
+   "age": "4–6 ay",
+   "how": "Körpə arxası üstə uzanır. Dizlərini büküb ayaqlarını əllərinə yaxınlaşdırın ki, onları tutsun. Tutduqdan sonra yüngülcə sağa-sola yellənməsinə imkan verin.",
+   "duration": "1–2 dəqiqə.",
+   "benefit": "qarın əzələlərini gücləndirir, bədən hissini və bud-çanaq elastikliyini artırır."
+  },
+  {
+   "id": "0-1/20_peekaboo",
+   "set": "0-1",
+   "group": "3–6 ay",
+   "title": "\"Cücü-bala\" (gizlənpaç)",
+   "age": "4–12 ay",
+   "how": "Körpə oturur. Yüngül parçanı üzünüzün (və ya onun) qarşısında tutun, sonra endirib \"cücü!\" deyin. Böyüdükcə parçanı özünün çəkməsinə imkan verin.",
+   "duration": "körpə maraq göstərdikcə.",
+   "benefit": "əşyanın daimiliyi anlayışını, diqqəti, ünsiyyəti və gülüşü inkişaf etdirir; qolların aktiv hərəkətini təşviq edir."
+  },
+  {
+   "id": "0-1/17_supported_sitting",
+   "set": "0-1",
+   "group": "3–6 ay",
+   "title": "Dəstəkli oturma",
+   "age": "5–7 ay",
+   "how": "Körpəni mat üzərində oturdun, arxadan çanağından və ya belindən tutun. Əlinə oyuncaq verin. Tarazlığı yaxşılaşdıqca dəstəyi azaldın.",
+   "duration": "3–5 dəqiqə.",
+   "benefit": "gövdə əzələlərini və oturma tarazlığını inkişaf etdirir, əlləri oyun üçün sərbəst buraxır.",
+   "caution": "kürəyi dəyirmilənib yorulanda uzadın; yastıqla zorla oturtmayın."
+  },
+  {
+   "id": "0-1/19_supported_standing",
+   "set": "0-1",
+   "group": "3–6 ay",
+   "title": "Ayaq üstə dəstəkli yaylanma",
+   "age": "5–8 ay",
+   "how": "Körpəni qoltuqlarının altından, gövdəsindən möhkəm tutun və ayaqlarını bərk səthə qoyun. Çəkisinin bir hissəsini ayaqlarına verməsinə və dizlərini büküb-açaraq yaylanmasına imkan verin.",
+   "duration": "1–2 dəqiqə.",
+   "benefit": "ayaq əzələlərini gücləndirir, ayaq üstə durmağa hazırlayır.",
+   "caution": "çəkinin çoxunu siz saxlayın; körpəni ayaqları üstə buraxmayın."
+  },
+  {
+   "id": "0-1/18_tripod_sit_reach",
+   "set": "0-1",
+   "group": "6–9 ay",
+   "title": "Oturub oyuncağa uzanma",
+   "age": "6–8 ay",
+   "how": "Körpə özü oturur, bir əli ilə yerə söykənir. Oyuncağı qabağa və yanlara, bir az uzağa qoyun ki, uzanıb götürsün və yenidən düzəlsin. Ətrafına yastıq qoyun.",
+   "duration": "5 dəqiqə.",
+   "benefit": "oturuş tarazlığını, gövdənin dönməsini və yıxılarkən əllə dayaq vermə reaksiyasını inkişaf etdirir."
+  },
+  {
+   "id": "0-1/22_crawl_assist",
+   "set": "0-1",
+   "group": "6–9 ay",
+   "title": "İməkləməyə kömək",
+   "age": "7–9 ay",
+   "how": "Körpə əlləri və dizləri üstə dayanır, qabağında oyuncaq var. Ovuclarınızı ayaqlarının altına söykəyin ki, itələnib irəli getsin.",
+   "duration": "3–5 dəqiqə.",
+   "benefit": "iməkləmə hərəkətini, qol-ayaq koordinasiyasını və gövdə gücünü inkişaf etdirir.",
+   "caution": "körpəni itələməyin, yalnız dayaq verin."
+  },
+  {
+   "id": "0-1/21_patty_cake",
+   "set": "0-1",
+   "group": "6–9 ay",
+   "title": "Əl çalma oyunu",
+   "age": "7–12 ay",
+   "how": "Körpə ilə üzbəüz oturun. Mahnı və ya sayma ilə ovuclarınızı onun ovuclarına vurun, sonra özünün əl çalmasını göstərin.",
+   "duration": "2–3 dəqiqə.",
+   "benefit": "iki əlin birgə işini, ritm hissini, təqlidi və ünsiyyəti inkişaf etdirir."
+  },
+  {
+   "id": "0-1/23_obstacle_crawl",
+   "set": "0-1",
+   "group": "6–9 ay",
+   "title": "Maneənin üstündən iməkləmə",
+   "age": "8–10 ay",
+   "how": "Mat üzərinə alçaq yastıq və ya bükülmüş yorğan qoyun, o biri tərəfə oyuncaq yerləşdirin. Körpənin maneəni aşıb keçməsinə imkan verin.",
+   "duration": "5 dəqiqə.",
+   "benefit": "güc, tarazlıq və hərəkət planlamasını inkişaf etdirir, dırmaşmağa hazırlayır."
+  },
+  {
+   "id": "0-1/25_pull_to_stand",
+   "set": "0-1",
+   "group": "6–9 ay",
+   "title": "Tutunub ayağa qalxma",
+   "age": "8–10 ay",
+   "how": "Oyuncağı alçaq, dayanıqlı divanın üstünə qoyun. Körpə diz üstə qalxıb, bir ayağını yerə basaraq ayağa durmağa çalışacaq. Lazım olsa, çanağından yüngülcə dəstəkləyin.",
+   "duration": "3–5 cəhd.",
+   "benefit": "ayaq və omba əzələlərini gücləndirir, müstəqil ayağa qalxmağı öyrədir.",
+   "caution": "mebelin aşmadığına və iti künclərinin olmadığına əmin olun."
+  },
+  {
+   "id": "0-1/24_ball_rolling",
+   "set": "0-1",
+   "group": "6–9 ay",
+   "title": "Topu diyirlətmə",
+   "age": "8–12 ay",
+   "how": "Körpə ayaqları aralı oturur. Yumşaq topu ona tərəf diyirlədin, tutub geri itələməsini gözləyin.",
+   "duration": "5 dəqiqə.",
+   "benefit": "oturuş tarazlığını, göz-əl koordinasiyasını və növbəli oyun vərdişini inkişaf etdirir."
+  },
+  {
+   "id": "0-1/26_cruising",
+   "set": "0-1",
+   "group": "9–12 ay",
+   "title": "Mebel boyunca yan addımlama",
+   "age": "9–11 ay",
+   "how": "Körpə divandan tutub durur. Oyuncağı ondan bir az aralıya qoyun ki, yan addımlarla ona çatsın. Hər iki istiqamətə edin.",
+   "duration": "5 dəqiqə.",
+   "benefit": "çəkini ayaqdan-ayağa ötürməyi və tarazlığı öyrədir; yeriməyə birbaşa hazırlıqdır."
+  },
+  {
+   "id": "0-1/27_squat_pickup",
+   "set": "0-1",
+   "group": "9–12 ay",
+   "title": "Çöməlib oyuncaq götürmə",
+   "age": "10–12 ay",
+   "how": "Körpə bir əli ilə divandan tutub durur. Oyuncağı ayağının yanına, yerə qoyun. Çöməlib götürməsini və yenidən qalxmasını gözləyin.",
+   "duration": "5–6 təkrar.",
+   "benefit": "ayaq əzələlərini və tarazlığı gücləndirir, oturub-durma nəzarətini öyrədir."
+  },
+  {
+   "id": "0-1/28_assisted_walking",
+   "set": "0-1",
+   "group": "9–12 ay",
+   "title": "Dəstəkli yerimə",
+   "age": "10–12 ay",
+   "how": "Körpənin arxasında durun və gövdəsindən (sinə səviyyəsində) tutun. Addımlamasına imkan verin; tarazlıq yaxşılaşdıqca dəstəyi azaldın.",
+   "duration": "3–5 dəqiqə.",
+   "benefit": "addımlama vərdişini və tarazlığı inkişaf etdirir.",
+   "caution": "qollarından yuxarı dartaraq gəzdirməkdənsə, gövdədən tutmaq çiyinlər üçün daha təhlükəsizdir."
+  },
+  {
+   "id": "0-1/29_push_walker",
+   "set": "0-1",
+   "group": "9–12 ay",
+   "title": "Arabacığı itələyərək yerimə",
+   "age": "11–12 ay",
+   "how": "Körpəyə dayanıqlı, ağır itələmə arabacığı verin. Hər iki əli ilə dəstəkdən tutub irəli addımlasın. Yanında olun.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "müstəqil yeriməyə inam yaradır, addım uzunluğunu və istiqamətləndirməni məşq etdirir.",
+   "caution": "arabacıq çox sürətlə qaçmamalıdır; oturaqlı yürütəc (hodunok) tövsiyə olunmur."
+  },
+  {
+   "id": "1-2/01_first_steps",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "İlk müstəqil addımlar",
+   "age": "12–15 ay",
+   "how": "Uşağı ayaq üstə qoyun, özünüz 2–3 addım aralıda diz çökün və əllərinizi açıb onu çağırın. Bacardıqca məsafəni artırın.",
+   "duration": "5–10 cəhd.",
+   "benefit": "müstəqil yeriməyə inam və tarazlıq yaradır."
+  },
+  {
+   "id": "1-2/02_one_hand_walk",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Bir əldən tutaraq yerimə",
+   "age": "12–15 ay",
+   "how": "Uşağın yalnız bir əlindən tutun və onun tempi ilə yeriyin. Əlinizi onun çiyni səviyyəsində saxlayın, yuxarı dartmayın. Əlləri dəyişin.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "iki əlli dəstəkdən müstəqil yeriməyə keçiddir; tarazlığı gücləndirir."
+  },
+  {
+   "id": "1-2/03_stand_up_from_floor",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Yerdən dəstəksiz ayağa qalxma",
+   "age": "12–15 ay",
+   "how": "Uşaq otaq ortasında oturanda maraqlı oyuncağı başı səviyyəsində tutun. Əllərini və ayaqlarını yerə basıb ombasını qaldıraraq özü dikəlməsini gözləyin.",
+   "duration": "5–6 təkrar.",
+   "benefit": "ayaq, omba və gövdə əzələlərini gücləndirir; mebelsiz ayağa qalxmağı öyrədir."
+  },
+  {
+   "id": "1-2/07_push_basket",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Səbəti itələmə",
+   "age": "12–18 ay",
+   "how": "Yüngül paltar səbətinə bir neçə oyuncaq qoyun. Uşaq hər iki əli ilə səbəti otaq boyu itələsin.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "ayaq və gövdə əzələlərini gücləndirir, yerişi sabitləşdirir."
+  },
+  {
+   "id": "1-2/08_climb_sofa",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Alçaq divana/yastığa dırmaşma",
+   "age": "12–18 ay",
+   "how": "Diz hündürlüyündə möhkəm yastıq və ya alçaq divan seçin. Uşaq qarnını söykəyib bir dizini üstünə qaldıraraq çıxsın. Əlləriniz ombasının arxasında hazır dursun. Enməyi də öyrədin: qarın üstə, ayaqlar əvvəl.",
+   "duration": "4–5 təkrar.",
+   "benefit": "bütün bədənin gücünü və hərəkət planlamasını inkişaf etdirir.",
+   "caution": "uşağı hündür yerdə tək qoymayın."
+  },
+  {
+   "id": "1-2/09_crawl_stairs",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Pilləkənə dırmaşma",
+   "age": "12–18 ay",
+   "how": "2–3 alçaq pillədə uşaq əllərini yuxarı pilləyə qoyub çıxsın. Siz arxasında, əlləriniz ombasının yanında durun. Enərkən arxası qabağa, ayaqları əvvəl enməyi öyrədin.",
+   "duration": "3–4 dəfə yuxarı-aşağı.",
+   "benefit": "ayaq gücünü, koordinasiyanı və pilləkən təhlükəsizliyi vərdişini formalaşdırır.",
+   "caution": "yalnız nəzarət altında; digər vaxt pilləkən qapısı bağlı olsun."
+  },
+  {
+   "id": "1-2/12_roll_ball",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Topu diyirlətmə",
+   "age": "12–18 ay",
+   "how": "Üzbəüz oturun və ya çöməlin. Topu bir-birinizə diyirlədin; uşaq onu hər iki əli ilə tutub geri itələsin.",
+   "duration": "5 dəqiqə.",
+   "benefit": "göz-əl koordinasiyasını, növbəli oyunu və gövdə tarazlığını inkişaf etdirir."
+  },
+  {
+   "id": "1-2/17_stack_blocks",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Kublardan qüllə",
+   "age": "12–18 ay",
+   "how": "Uşağa iri taxta kublar verin və 2–4 kubdan qüllə qurmağı göstərin. Yıxılanda yenidən qurun.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "incə motorikanı, əl dəqiqliyini və səbri inkişaf etdirir."
+  },
+  {
+   "id": "1-2/18_ball_in_box",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Topları qutuya atma",
+   "age": "12–18 ay",
+   "how": "Uşaq diz üstə və ya oturaraq topları bir-bir götürüb qutuya salsın. Sonra qutunu boşaldıb yenidən başlayın.",
+   "duration": "5 dəqiqə.",
+   "benefit": "tutma-buraxma vərdişini, göz-əl koordinasiyasını və diz üstə tarazlığı inkişaf etdirir."
+  },
+  {
+   "id": "1-2/10_tunnel",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Tuneldən iməkləmə",
+   "age": "12–24 ay",
+   "how": "Böyük karton qutunun iki tərəfini açıb tunel düzəldin. O biri başından uşağı çağırın və ya oyuncaq qoyun.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "çiyin və gövdə gücünü, məkan hissini inkişaf etdirir."
+  },
+  {
+   "id": "1-2/15_dance",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Musiqi ilə rəqs",
+   "age": "12–24 ay",
+   "how": "Ritmik musiqi qoyun və uşaqla birlikdə rəqs edin: dizləri büküb yaylanın, əl çalın, fırlanın.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "ritm hissini, tarazlığı və dözümlülüyü artırır, əhvalı yaxşılaşdırır."
+  },
+  {
+   "id": "1-2/04_squat_pickup",
+   "set": "1-2",
+   "group": "12–15 ay",
+   "title": "Dəstəksiz çöməlmə",
+   "age": "13–18 ay",
+   "how": "Yerə top və ya oyuncaq qoyun. Uşağın heç nədən tutmadan çöməlib onu götürməsini və yenidən qalxmasını təşviq edin.",
+   "duration": "6–8 təkrar.",
+   "benefit": "ayaq gücünü, tarazlığı və hərəkətə nəzarəti inkişaf etdirir."
+  },
+  {
+   "id": "1-2/05_carry_toy",
+   "set": "1-2",
+   "group": "15–18 ay",
+   "title": "Oyuncağı daşıyaraq yerimə",
+   "age": "15–18 ay",
+   "how": "Uşağa iri, yüngül oyuncaq verin və onu otağın o biri başına aparmasını xahiş edin.",
+   "duration": "5 dəqiqə.",
+   "benefit": "əllər məşğul olanda tarazlığı saxlamağı öyrədir, gövdə əzələlərini gücləndirir."
+  },
+  {
+   "id": "1-2/06_pull_toy",
+   "set": "1-2",
+   "group": "15–18 ay",
+   "title": "İpli oyuncağı arxasınca çəkmə",
+   "age": "15–20 ay",
+   "how": "Təkərli oyuncağı qısa iplə uşağın əlinə verin. Yeriyərkən oyuncağı arxasınca çəksin və dönüb ona baxsın.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "yeriyərkən başı və gövdəni döndərməyi, diqqəti bölməyi öyrədir.",
+   "caution": "ip qısa olsun (təxminən 30 sm); iplə tək qoymayın."
+  },
+  {
+   "id": "1-2/11_cushion_path",
+   "set": "1-2",
+   "group": "15–18 ay",
+   "title": "Yastıq cığırı",
+   "age": "15–20 ay",
+   "how": "Yerə bir neçə yastı yastıq düzün. Uşaq bir əlinizdən tutaraq onların üstü ilə yerisin.",
+   "duration": "3–5 keçid.",
+   "benefit": "qeyri-sabit səthdə tarazlığı, ayaq biləyi əzələlərini gücləndirir."
+  },
+  {
+   "id": "1-2/13_throw_ball",
+   "set": "1-2",
+   "group": "15–18 ay",
+   "title": "Topu səbətə atma",
+   "age": "15–24 ay",
+   "how": "Uşağın 1 addımlığına səbət qoyun. Yumşaq topu səbətə atmağı göstərin; bacardıqca məsafəni artırın.",
+   "duration": "8–10 atış.",
+   "benefit": "atma hərəkətini, göz-əl koordinasiyasını və çiyin gücünü inkişaf etdirir."
+  },
+  {
+   "id": "1-2/19_tidy_up",
+   "set": "1-2",
+   "group": "15–18 ay",
+   "title": "Oyuncaqları yığışdırma",
+   "age": "15–24 ay",
+   "how": "Oyuncaqları yerə səpələyin. Uşaq əyilib və ya çöməlib onları bir-bir götürsün və səbətə qoysun.",
+   "duration": "oyuncaqlar bitənə qədər.",
+   "benefit": "təkrarlanan əyilib-qalxma ayaq və bel əzələlərini gücləndirir; səliqə vərdişi yaradır."
+  },
+  {
+   "id": "1-2/24_ride_on",
+   "set": "1-2",
+   "group": "15–18 ay",
+   "title": "Təkərli maşında ayaqla itələnmə",
+   "age": "15–24 ay",
+   "how": "Uşağı pedalsız, alçaq təkərli oyuncağa oturdun; ayaqları yerə tam çatmalıdır. Ayaqları ilə itələnərək irəli getsin.",
+   "duration": "10 dəqiqə.",
+   "benefit": "ayaq gücünü, iki tərəfin koordinasiyasını və istiqamət idarəsini inkişaf etdirir."
+  },
+  {
+   "id": "1-2/14_kick_ball",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Topa təpik vurma",
+   "age": "18–24 ay",
+   "how": "Yüngül topu uşağın ayağının qabağına qoyun və təpik vurmağı göstərin. Əvvəlcə bir əlindən tuta bilərsiniz.",
+   "duration": "8–10 zərbə.",
+   "benefit": "bir ayaq üstə qısa tarazlığı və ayaq-göz koordinasiyasını inkişaf etdirir."
+  },
+  {
+   "id": "1-2/16_bubbles",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Köpük tutma",
+   "age": "18–24 ay",
+   "how": "Sabun köpükləri üfürün. Uşaq barmaq ucunda qalxıb, uzanıb, qaçaraq onları partlatsın.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "barmaq ucunda durmağı, yuxarı uzanmağı və göz-əl koordinasiyasını məşq etdirir."
+  },
+  {
+   "id": "1-2/20_stairs_hand",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Əldən tutaraq pilləkən çıxma",
+   "age": "18–24 ay",
+   "how": "Uşaq dik duraraq, bir əlinizdən (və ya məhəccərdən) tutub pillələri çıxsın. Hər pilləyə əvvəlcə bir ayağını, sonra o birini qoyması normaldır.",
+   "duration": "2–3 dəfə yuxarı-aşağı.",
+   "benefit": "ayaq gücünü və bir ayaq üstə tarazlığı artırır.",
+   "caution": "enərkən həmişə uşaqdan bir pillə aşağıda durun."
+  },
+  {
+   "id": "1-2/22_run",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Qaçış",
+   "age": "18–24 ay",
+   "how": "Geniş, maneəsiz yerdə \"tut məni\" oynayın və ya uşağı uzaqdan çağırın.",
+   "duration": "qısa fasilələrlə 5–10 dəqiqə.",
+   "benefit": "dözümlülüyü, sürəti və ürək-damar sistemini inkişaf etdirir."
+  },
+  {
+   "id": "1-2/25_bear_walk",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "\"Ayı yerişi\"",
+   "age": "18–24 ay",
+   "how": "Əllər və ayaqlar yerdə, dizlər yerə dəymədən, omba yuxarıda irəli getməyi göstərin. Birlikdə \"ayı kimi\" gəzin.",
+   "duration": "otaq boyu 2–3 keçid.",
+   "benefit": "çiyin, qol və gövdə əzələlərini gücləndirir, koordinasiyanı artırır."
+  },
+  {
+   "id": "1-2/26_reach_and_touch_toes",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Yuxarı uzan, barmaqlarına toxun",
+   "age": "18–24 ay",
+   "how": "Uşaqla üzbəüz durun. Əvvəlcə barmaq ucunda qalxıb əlləri yuxarı uzadın, sonra əyilib ayaq barmaqlarına toxunun. Mahnı ilə müşayiət edin.",
+   "duration": "5–6 təkrar.",
+   "benefit": "elastikliyi, tarazlığı və hərəkəti təqlid etməyi inkişaf etdirir; bədən hissələrini öyrədir."
+  },
+  {
+   "id": "1-2/27_slide",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Alçaq sürüşkən",
+   "age": "18–24 ay",
+   "how": "Uşaq alçaq sürüşkənin başında oturub ayaqları qabaqda sürüşsün. Əllərinizlə gövdəsindən tutun, sonra dəstəyi azaldın.",
+   "duration": "5–6 dəfə.",
+   "benefit": "dırmaşma, oturuş tarazlığı və cəsarəti inkişaf etdirir.",
+   "caution": "uşağı qucağınızda sürüşdürməyin; ayağı ilişib zədələnə bilər."
+  },
+  {
+   "id": "1-2/28_back_walk",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Geri-geri yerimə",
+   "age": "18–24 ay",
+   "how": "Uşaq arabacığı və ya ipli oyuncağı özünə tərəf çəkərək geri addımlasın. Əvvəlcə əllərindən tutub birlikdə geri yeriyin.",
+   "duration": "3–4 keçid.",
+   "benefit": "tarazlığı, bədən hissini və hərəkət istiqamətini dəyişməyi öyrədir.",
+   "caution": "arxada maneə olmadığına əmin olun."
+  },
+  {
+   "id": "1-2/21_jump",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Yerində hoppanma",
+   "age": "20–24 ay",
+   "how": "Hoppanmağı özünüz göstərin: dizləri bükün və iki ayaqla yerdən qalxın. Əvvəlcə əllərindən tuta və ya alçaq yastığın üstündən düşürə bilərsiniz.",
+   "duration": "5–8 hoppanma.",
+   "benefit": "ayaqların partlayıcı gücünü, sümükləri və koordinasiyanı möhkəmləndirir.",
+   "caution": "yumşaq səthdə edin; iki ayaqla hoppanma çox vaxt 2 yaşa yaxın alınır."
+  },
+  {
+   "id": "1-2/23_balance_line",
+   "set": "1-2",
+   "group": "18–24 ay",
+   "title": "Xətt üzrə yerimə",
+   "age": "20–24 ay",
+   "how": "Yerə enli rəngli lent yapışdırın. Uşaq bir əlinizdən tutaraq ayaqlarını lentin üstünə qoyub yerisin.",
+   "duration": "3–5 keçid.",
+   "benefit": "tarazlığı və dar dayaq üzərində yerişi inkişaf etdirir."
+  },
+  {
+   "id": "2-3/01_jump_forward",
+   "set": "2-3",
+   "group": "Hoppanma və tarazlıq",
+   "title": "İki ayaqla irəli hoppanma",
+   "age": "24–30 ay",
+   "how": "Yerə rəngli lent yapışdırın. Uşaq dizlərini büküb iki ayaqla birlikdə lentin üstündən hoppansın. Əvvəlcə özünüz göstərin.",
+   "duration": "6–8 hoppanma.",
+   "benefit": "ayaq gücünü, iki ayağın birgə işini və yerə yumşaq enməyi inkişaf etdirir."
+  },
+  {
+   "id": "2-3/02_jump_down",
+   "set": "2-3",
+   "group": "Hoppanma və tarazlıq",
+   "title": "Alçaq pillədən hoppanma",
+   "age": "24–30 ay",
+   "how": "Uşaq 10–15 sm hündürlükdə möhkəm pillədən bir əlinizdən tutaraq yumşaq mata hoppansın. Dizləri bükərək enməyi göstərin.",
+   "duration": "5–6 dəfə.",
+   "benefit": "cəsarəti, ayaq gücünü və enmə zamanı tarazlığı inkişaf etdirir.",
+   "caution": "hündürlüyü artırmayın; pillə sürüşməməlidir."
+  },
+  {
+   "id": "2-3/03_one_leg_stand",
+   "set": "2-3",
+   "group": "Hoppanma və tarazlıq",
+   "title": "Bir ayaq üstə durma",
+   "age": "30–36 ay",
+   "how": "\"Leylək kimi dur\" deyin. Uşaq bir əlinizdən tutaraq bir ayağını qaldırsın və 2–3 saniyə dursun. Ayaqları dəyişin, sonra dəstəksiz sınayın.",
+   "duration": "hər ayaq üçün 3–4 dəfə.",
+   "benefit": "tarazlığı və ayaq biləyi əzələlərini gücləndirir."
+  },
+  {
+   "id": "2-3/04_tiptoe_walk",
+   "set": "2-3",
+   "group": "Hoppanma və tarazlıq",
+   "title": "Barmaq ucunda yerimə",
+   "age": "24–36 ay",
+   "how": "\"Sakit pişik kimi yeriyək\" deyin və barmaq ucunda otaq boyu gəzin.",
+   "duration": "2–3 keçid.",
+   "benefit": "baldır əzələlərini, ayaq tağını və tarazlığı möhkəmləndirir.",
+   "caution": "uşaq daim barmaq ucunda yeriyirsə, bunu pediatra deyin."
+  },
+  {
+   "id": "2-3/05_balance_beam",
+   "set": "2-3",
+   "group": "Hoppanma və tarazlıq",
+   "title": "Taxta üzərində yerimə",
+   "age": "24–36 ay",
+   "how": "Yerə enli, alçaq taxta qoyun. Uşaq bir əlinizdən tutaraq onun üstü ilə yerisin; bacardıqca dəstəyi buraxın.",
+   "duration": "4–5 keçid.",
+   "benefit": "tarazlığı, diqqəti və ayaqları bir xətt üzrə qoymağı inkişaf etdirir."
+  },
+  {
+   "id": "2-3/26_beanbag_on_head",
+   "set": "2-3",
+   "group": "Hoppanma və tarazlıq",
+   "title": "Başında kisəciklə yerimə",
+   "age": "30–36 ay",
+   "how": "Uşağın başına kiçik parça kisəcik (düyü və ya noxud dolu) qoyun. Düşürməmək üçün yavaş və dik yerisin.",
+   "duration": "3–4 keçid.",
+   "benefit": "qaməti, tarazlığı və diqqəti inkişaf etdirir."
+  },
+  {
+   "id": "2-3/25_stepping_spots",
+   "set": "2-3",
+   "group": "Hoppanma və tarazlıq",
+   "title": "Ləkədən-ləkəyə hoppanma",
+   "age": "30–36 ay",
+   "how": "Yerə rəngli dairələr (rezin ləkə, kağız, yastıq) düzün. Uşaq birindən o birinə hoppansın və ya iri addımlasın.",
+   "duration": "3–4 keçid.",
+   "benefit": "hoppanmanın dəqiqliyini, tarazlığı və hərəkət planlamasını inkişaf etdirir.",
+   "caution": "dairələr sürüşməməlidir."
+  },
+  {
+   "id": "2-3/06_stairs_alternate",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Pilləkəni ayaq dəyişərək çıxma",
+   "age": "30–36 ay",
+   "how": "Uşaq məhəccərdən tutaraq hər pilləyə bir ayağını qoyub çıxsın. Enərkən hələ hər pilləyə iki ayaq qoyması normaldır.",
+   "duration": "2–3 dəfə yuxarı-aşağı.",
+   "benefit": "ayaq gücünü və bir ayaq üstə tarazlığı artırır.",
+   "caution": "enərkən uşaqdan bir pillə aşağıda durun."
+  },
+  {
+   "id": "2-3/14_marching",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Marş yerişi",
+   "age": "24–36 ay",
+   "how": "Musiqi qoyun və \"parad\" keçirin: dizləri hündür qaldıraraq, qolları yelləyərək yeriyin. Arada \"fırlan\", \"hoppan\", \"dayan\" kimi əmrlər verin.",
+   "duration": "5 dəqiqə.",
+   "benefit": "koordinasiyanı, ritm hissini və göstərişə əməl etməyi inkişaf etdirir."
+  },
+  {
+   "id": "2-3/20_run_and_stop",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Qaç və dayan",
+   "age": "24–36 ay",
+   "how": "\"Yaşıl işıq\" deyəndə uşaq qaçır, \"qırmızı işıq\" deyəndə yerində donur. Xətt çəkib onun qabağında dayanmağı da tapşıra bilərsiniz.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "sürəti, tormozlamanı, bədənə nəzarəti və diqqəti inkişaf etdirir."
+  },
+  {
+   "id": "2-3/19_pull_wagon",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Arabacığı çəkmə",
+   "age": "24–36 ay",
+   "how": "Arabacığa oyuncaqlar yükləyin; uşaq onu dəstəyindən tutub çəksin, döngələrdən keçirsin.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "gövdə və ayaq əzələlərini gücləndirir, istiqamət idarəsini öyrədir."
+  },
+  {
+   "id": "2-3/07_tricycle",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Üçtəkərli velosiped",
+   "age": "30–36 ay",
+   "how": "Uşağı üçtəkərli velosipedə oturdun, ayaqlarını pedallara qoyun. Əvvəlcə arxadan yüngülcə itələyin ki, pedalların hərəkətini hiss etsin.",
+   "duration": "10–15 dəqiqə.",
+   "benefit": "ayaqların növbəli işini, gücü və sükan idarəsini inkişaf etdirir.",
+   "caution": "dəbilqə geyindirin; yoldan uzaq, düz səthdə sürün."
+  },
+  {
+   "id": "2-3/12_crawl_under",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Masanın altından iməkləmə",
+   "age": "24–36 ay",
+   "how": "Alçaq masa, stul və ya karton qutudan \"tunel\" qurun. Uşaq başını əyib altından iməkləyərək keçsin.",
+   "duration": "4–5 keçid.",
+   "benefit": "çiyin və gövdə gücünü, bədən ölçüsünü hiss etməyi inkişaf etdirir."
+  },
+  {
+   "id": "2-3/13_climbing_frame",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Dırmaşma nərdivanı",
+   "age": "24–36 ay",
+   "how": "Alçaq dırmaşma üçbucağında və ya oyun meydançasında uşaq əlləri ilə tutub ayaqlarını pillə-pillə qoyaraq çıxsın. Əlləriniz ombasının arxasında hazır olsun.",
+   "duration": "4–5 dəfə.",
+   "benefit": "bütün bədənin gücünü, tutma gücünü və cəsarəti inkişaf etdirir.",
+   "caution": "altında yumşaq səth olsun; uşağı tək qoymayın."
+  },
+  {
+   "id": "2-3/28_slide_alone",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Sürüşkəndən müstəqil sürüşmə",
+   "age": "24–36 ay",
+   "how": "Uşaq nərdivanla özü çıxıb, oturaraq, ayaqları qabaqda sürüşsün. Siz aşağıda gözləyin.",
+   "duration": "6–8 dəfə.",
+   "benefit": "dırmaşmanı, oturuş tarazlığını və müstəqilliyi inkişaf etdirir.",
+   "caution": "baş aşağı və ya qarın üstə sürüşməyə icazə verməyin."
+  },
+  {
+   "id": "2-3/23_bar_hang",
+   "set": "2-3",
+   "group": "Yerimə, qaçış və dırmaşma",
+   "title": "Turnikdən asılma",
+   "age": "30–36 ay",
+   "how": "Uşaq alçaq turnikdən (ayaqları yerdən bir neçə santimetr aralı) iki əli ilə tutub 3–5 saniyə asılsın. Əllərinizlə belindən tutun.",
+   "duration": "3–4 dəfə.",
+   "benefit": "əl və çiyin gücünü, tutmanı möhkəmləndirir.",
+   "caution": "uşağı əllərindən tutub qaldırmayın və yelləməyin; altında mat olsun."
+  },
+  {
+   "id": "2-3/08_throw_overhand",
+   "set": "2-3",
+   "group": "Topla oyunlar",
+   "title": "Topu yuxarıdan atma",
+   "age": "24–36 ay",
+   "how": "1–2 metr aralıda durun. Uşaq kiçik yumşaq topu çiyin üstündən sizə atsın.",
+   "duration": "8–10 atış.",
+   "benefit": "atma texnikasını, çiyin gücünü və hədəfə yönəlməni inkişaf etdirir."
+  },
+  {
+   "id": "2-3/09_catch_ball",
+   "set": "2-3",
+   "group": "Topla oyunlar",
+   "title": "Topu tutma",
+   "age": "30–36 ay",
+   "how": "İri, yüngül topu 1 metr məsafədən yavaşca uşağın sinəsinə doğru atın. Qollarını qabağa uzadıb topu sinəsinə sıxaraq tutsun.",
+   "duration": "8–10 dəfə.",
+   "benefit": "göz-əl koordinasiyasını və reaksiyanı inkişaf etdirir."
+  },
+  {
+   "id": "2-3/10_kick_ball",
+   "set": "2-3",
+   "group": "Topla oyunlar",
+   "title": "Topa qaçaraq təpik vurma",
+   "age": "24–36 ay",
+   "how": "İki konus və ya qutudan \"qapı\" düzəldin. Uşaq topa bir-iki addım atıb təpik vursun.",
+   "duration": "8–10 zərbə.",
+   "benefit": "bir ayaq üstə tarazlığı, ayaq-göz koordinasiyasını və gücü inkişaf etdirir."
+  },
+  {
+   "id": "2-3/11_beanbag_toss",
+   "set": "2-3",
+   "group": "Topla oyunlar",
+   "title": "Kisəciyi halqaya atma",
+   "age": "24–36 ay",
+   "how": "Yerə halqa və ya ləyən qoyun. Uşaq 1 addım məsafədən kisəcikləri aşağıdan ataraq içinə salsın; bacardıqca məsafəni artırın.",
+   "duration": "8–10 atış.",
+   "benefit": "hədəfə atma dəqiqliyini və güc ölçməyi öyrədir."
+  },
+  {
+   "id": "2-3/27_bowling",
+   "set": "2-3",
+   "group": "Topla oyunlar",
+   "title": "Ev boulinqi",
+   "age": "24–36 ay",
+   "how": "6 boş plastik butulkanı üçbucaq şəklində düzün. Uşaq çöməlib topu iki əli ilə diyirlədərək onları yıxsın.",
+   "duration": "5–6 raund.",
+   "benefit": "hədəfə yönəlməni, çöməlmə gücünü və növbə gözləməyi inkişaf etdirir."
+  },
+  {
+   "id": "2-3/24_balloon",
+   "set": "2-3",
+   "group": "Topla oyunlar",
+   "title": "Şarı havada saxlama",
+   "age": "24–36 ay",
+   "how": "Şarı havaya atın. Uşaq əli ilə vuraraq onun yerə düşməsinə imkan verməsin.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "göz-əl koordinasiyasını, yuxarı uzanmanı və reaksiyanı inkişaf etdirir.",
+   "caution": "partlamış şar parçalarını dərhal yığışdırın (boğulma təhlükəsi)."
+  },
+  {
+   "id": "2-3/16_head_shoulders",
+   "set": "2-3",
+   "group": "Gimnastika və təqlid oyunları",
+   "title": "\"Baş, çiyin, diz, barmaq\"",
+   "age": "24–36 ay",
+   "how": "Mahnı ilə növbə ilə əlləri başa, çiyinlərə, dizlərə və ayaq barmaqlarına toxundurun. Tədricən sürəti artırın.",
+   "duration": "3–4 dəfə.",
+   "benefit": "elastikliyi, koordinasiyanı və bədən hissələrini tanımağı inkişaf etdirir."
+  },
+  {
+   "id": "2-3/15_spin",
+   "set": "2-3",
+   "group": "Gimnastika və təqlid oyunları",
+   "title": "Fırlanma",
+   "age": "24–36 ay",
+   "how": "Uşaq qollarını yanlara açıb yerində yavaş-yavaş fırlansın; sonra əks istiqamətə.",
+   "duration": "hər tərəfə 2–3 dövrə.",
+   "benefit": "tarazlıq (vestibulyar) sistemini və bədənə nəzarəti inkişaf etdirir.",
+   "caution": "ətrafda maneə olmasın; başı gicəllənəndə dayansın."
+  },
+  {
+   "id": "2-3/17_frog_jump",
+   "set": "2-3",
+   "group": "Gimnastika və təqlid oyunları",
+   "title": "\"Qurbağa\" hoppanması",
+   "age": "30–36 ay",
+   "how": "Uşaq dərin çöməlib əllərini dizlərinin arasında yerə qoysun, sonra qurbağa kimi irəli hoppansın.",
+   "duration": "5–6 hoppanma.",
+   "benefit": "ayaq və omba əzələlərinin gücünü, bud-çanaq hərəkətliliyini artırır."
+  },
+  {
+   "id": "2-3/18_wheelbarrow",
+   "set": "2-3",
+   "group": "Gimnastika və təqlid oyunları",
+   "title": "\"Əl arabası\"",
+   "age": "30–36 ay",
+   "how": "Uşaq əllərini yerə qoyur. Siz onu budlarından (dizdən yuxarı) tutub ayaqlarını qaldırın; əlləri ilə bir neçə \"addım\" atsın.",
+   "duration": "3–5 addım, 2–3 dəfə.",
+   "benefit": "qol, çiyin və gövdə əzələlərini gücləndirir.",
+   "caution": "topuqlardan yox, budlardan tutun; beli çökürsə və ya yorulursa, dayanın."
+  },
+  {
+   "id": "2-3/21_log_roll",
+   "set": "2-3",
+   "group": "Gimnastika və təqlid oyunları",
+   "title": "\"Kötük\" kimi diyirlənmə",
+   "age": "24–36 ay",
+   "how": "Uşaq mat üzərində düz uzanıb qollarını başının üstünə uzatsın və yanı üstə diyirlənsin; sonra əks tərəfə.",
+   "duration": "hər tərəfə 3–4 dövrə.",
+   "benefit": "gövdə əzələlərini, bədən hissini və tarazlıq sistemini inkişaf etdirir."
+  },
+  {
+   "id": "2-3/22_butterfly_stretch",
+   "set": "2-3",
+   "group": "Gimnastika və təqlid oyunları",
+   "title": "\"Kəpənək\" dartınması",
+   "age": "24–36 ay",
+   "how": "Uşaq oturub ayaqlarının altını bir-birinə birləşdirsin, əlləri ilə ayaqlarını tutsun və dizlərini \"qanad\" kimi yüngülcə yuxarı-aşağı hərəkət etdirsin.",
+   "duration": "20–30 saniyə.",
+   "benefit": "bud-çanaq elastikliyini artırır, məşqdən sonra sakitləşdirir.",
+   "caution": "dizlərə əllə təzyiq etməyin."
+  },
+  {
+   "id": "3-4/01_hop_one_foot",
+   "set": "3-4",
+   "group": "Hoppanma",
+   "title": "Bir ayaq üstə hoppanma",
+   "age": "3,5–4 yaş",
+   "how": "Uşaq bir ayağını arxaya büküb o biri ayağı üstə yerində və ya irəli hoppansın. Əvvəlcə əlindən tutun. Ayaqları dəyişin.",
+   "duration": "hər ayaqla 3–5 hoppanma.",
+   "benefit": "ayaq gücünü, tarazlığı və koordinasiyanı inkişaf etdirir."
+  },
+  {
+   "id": "3-4/02_long_jump",
+   "set": "3-4",
+   "group": "Hoppanma",
+   "title": "Yerindən uzunluğa tullanma",
+   "age": "3–4 yaş",
+   "how": "Yerə xətt çəkin. Uşaq dizlərini büküb, qollarını yelləyərək iki ayaqla mümkün qədər uzağa tullansın. Düşdüyü yeri işarələyib \"rekord\"u yeniləyin.",
+   "duration": "5–6 cəhd.",
+   "benefit": "ayaqların partlayıcı gücünü və qol-ayaq uzlaşmasını artırır."
+  },
+  {
+   "id": "3-4/03_jump_over_hurdle",
+   "set": "3-4",
+   "group": "Hoppanma",
+   "title": "Maneənin üstündən tullanma",
+   "age": "3–4 yaş",
+   "how": "10–15 sm hündürlükdə yumşaq maneə (köpük çubuq, bükülmüş dəsmal) qoyun. Uşaq iki ayaqla üstündən tullansın.",
+   "duration": "6–8 dəfə.",
+   "benefit": "tullanma hündürlüyünü, cəsarəti və yumşaq enməni inkişaf etdirir.",
+   "caution": "maneə ilişəndə asan yıxılan olmalıdır."
+  },
+  {
+   "id": "3-4/04_hopscotch",
+   "set": "3-4",
+   "group": "Hoppanma",
+   "title": "\"Cızıq\" oyunu",
+   "age": "3,5–4 yaş",
+   "how": "Təbaşirlə yerə damalar çəkin: bir dama, sonra yan-yana iki dama. Uşaq tək damaya bir ayaqla, qoşa damaya iki ayaqla hoppansın. Əvvəlcə hamısını iki ayaqla edə bilər.",
+   "duration": "4–5 keçid.",
+   "benefit": "tarazlığı, ritmi və ayaq dəyişməni öyrədir."
+  },
+  {
+   "id": "3-4/26_hoop_jumps",
+   "set": "3-4",
+   "group": "Hoppanma",
+   "title": "Halqadan-halqaya hoppanma",
+   "age": "3–4 yaş",
+   "how": "Yerə 3–5 halqa düzün. Uşaq iki ayaqla birindən o birinə hoppansın.",
+   "duration": "4–5 keçid.",
+   "benefit": "ardıcıl hoppanmanı, dəqiqliyi və dözümlülüyü inkişaf etdirir."
+  },
+  {
+   "id": "3-4/19_leap_river",
+   "set": "3-4",
+   "group": "Hoppanma",
+   "title": "\"Çayın\" üstündən sıçrama",
+   "age": "3–4 yaş",
+   "how": "Yerə mavi parça və ya iki ip qoyub \"çay\" düzəldin. Uşaq qaçaraq bir ayaqla itələnib o biri ayağı üstə düşərək üstündən sıçrasın. \"Çayı\" tədricən enləndirin.",
+   "duration": "6–8 dəfə.",
+   "benefit": "iri addımla sıçramanı, gücü və məsafəni qiymətləndirməyi inkişaf etdirir."
+  },
+  {
+   "id": "3-4/25_star_jump",
+   "set": "3-4",
+   "group": "Hoppanma",
+   "title": "\"Ulduz\" hoppanması",
+   "age": "3,5–4 yaş",
+   "how": "Uşaq hoppanıb havada qollarını və ayaqlarını yanlara açsın (\"ulduz\"), sonra ayaqlarını birləşdirib ensin.",
+   "duration": "5–8 dəfə.",
+   "benefit": "qol və ayaqların eyni vaxtda işini, dözümlülüyü inkişaf etdirir."
+  },
+  {
+   "id": "3-4/05_gallop",
+   "set": "3-4",
+   "group": "Hoppanma",
+   "title": "\"At çapması\"",
+   "age": "3–4 yaş",
+   "how": "Bir ayaq həmişə qabaqda, o biri onun arxasınca: \"at kimi çapaq\". Sonra qabaqdakı ayağı dəyişin.",
+   "duration": "otaq boyu 3–4 keçid.",
+   "benefit": "ritmi, koordinasiyanı və dözümlülüyü inkişaf etdirir."
+  },
+  {
+   "id": "3-4/06_tree_balance",
+   "set": "3-4",
+   "group": "Tarazlıq",
+   "title": "\"Ağac\" duruşu",
+   "age": "3–4 yaş",
+   "how": "Uşaq bir ayağının altını o biri ayağının baldırına söykəsin, qollarını yanlara açsın və 3–5 saniyə dursun. Ayaqları dəyişin.",
+   "duration": "hər ayaq üçün 3 dəfə.",
+   "benefit": "tarazlığı, diqqəti və ayaq biləyi əzələlərini gücləndirir."
+  },
+  {
+   "id": "3-4/07_heel_toe_line",
+   "set": "3-4",
+   "group": "Tarazlıq",
+   "title": "Xətt üzrə dabandan-barmağa yerimə",
+   "age": "3,5–4 yaş",
+   "how": "Yerə lent yapışdırın. Uşaq qabaqdakı ayağın dabanını arxadakı ayağın barmaqlarına toxundura-toxundura lentin üstü ilə yerisin.",
+   "duration": "3–4 keçid.",
+   "benefit": "incə tarazlığı və bədənə nəzarəti inkişaf etdirir."
+  },
+  {
+   "id": "3-4/08_balance_beam",
+   "set": "3-4",
+   "group": "Tarazlıq",
+   "title": "Tarazlıq tiri",
+   "age": "3–4 yaş",
+   "how": "Uşaq yerdən 10 sm hündürlükdə olan enli tirin üstü ilə qollarını açaraq müstəqil yerisin. Yanında gedin.",
+   "duration": "4–5 keçid.",
+   "benefit": "tarazlığı, cəsarəti və diqqəti inkişaf etdirir.",
+   "caution": "altında yumşaq mat olsun."
+  },
+  {
+   "id": "3-4/09_stairs_down",
+   "set": "3-4",
+   "group": "Tarazlıq",
+   "title": "Pilləkəni ayaq dəyişərək enmə",
+   "age": "3,5–4 yaş",
+   "how": "Uşaq məhəccərdən tutaraq hər pilləyə bir ayağını qoyub ensin.",
+   "duration": "2–3 dəfə.",
+   "benefit": "ayaq gücünü, tarazlığı və nəzarətli enməni inkişaf etdirir.",
+   "caution": "siz bir pillə aşağıda durun."
+  },
+  {
+   "id": "3-4/10_scooter",
+   "set": "3-4",
+   "group": "Təkərli vasitələr və qaçış",
+   "title": "Skuter",
+   "age": "3–4 yaş",
+   "how": "Üçtəkərli skuterdə uşaq bir ayağını platformaya qoyub o biri ilə yerdən itələnsin. Ayaqları dəyişməyi öyrədin.",
+   "duration": "10–15 dəqiqə.",
+   "benefit": "tarazlığı, ayaq gücünü və istiqamət idarəsini inkişaf etdirir.",
+   "caution": "dəbilqə və qapalı ayaqqabı vacibdir; yoldan uzaq, düz səthdə sürün."
+  },
+  {
+   "id": "3-4/11_balance_bike",
+   "set": "3-4",
+   "group": "Təkərli vasitələr və qaçış",
+   "title": "Tarazlıq velosipedi",
+   "age": "3–4 yaş",
+   "how": "Pedalsız velosipeddə uşaq oturub ayaqları ilə yerdən itələnərək getsin. Sürət yığanda ayaqlarını qaldırıb tarazlığı saxlamağa çalışsın.",
+   "duration": "10–15 dəqiqə.",
+   "benefit": "tarazlığı inkişaf etdirir, pedallı velosipedə keçidi asanlaşdırır.",
+   "caution": "dəbilqə və qapalı ayaqqabı vacibdir; oturacaq elə olsun ki, ayaqlar yerə tam çatsın."
+  },
+  {
+   "id": "3-4/17_tag",
+   "set": "3-4",
+   "group": "Təkərli vasitələr və qaçış",
+   "title": "Tutmaca",
+   "age": "3–4 yaş",
+   "how": "Uşağı qovun və yüngülcə toxunun; sonra o sizi qovsun. İstiqaməti tez-tez dəyişin.",
+   "duration": "fasilələrlə 5–10 dəqiqə.",
+   "benefit": "sürəti, çevikliyi, dözümlülüyü və reaksiyanı inkişaf etdirir."
+  },
+  {
+   "id": "3-4/12_catch_bounce",
+   "set": "3-4",
+   "group": "Topla oyunlar",
+   "title": "Yerdən sıçrayan topu tutma",
+   "age": "3–4 yaş",
+   "how": "Topu uşağın qabağında yerə vurun ki, bir dəfə sıçrayıb əllərinə gəlsin. Uşaq onu iki əli ilə tutsun.",
+   "duration": "8–10 dəfə.",
+   "benefit": "göz-əl koordinasiyasını və topun hərəkətini qabaqcadan görməyi inkişaf etdirir."
+  },
+  {
+   "id": "3-4/13_target_throw",
+   "set": "3-4",
+   "group": "Topla oyunlar",
+   "title": "Hədəfə atma",
+   "age": "3–4 yaş",
+   "how": "Divara və ya dayağa rəngli dairə şəklində hədəf asın. Uşaq 1,5–2 metrdən yumşaq topu hədəfə atsın.",
+   "duration": "8–10 atış.",
+   "benefit": "atma dəqiqliyini, çiyin gücünü və diqqəti inkişaf etdirir."
+  },
+  {
+   "id": "3-4/14_dribble_cones",
+   "set": "3-4",
+   "group": "Topla oyunlar",
+   "title": "Topu konuslar arasından aparma",
+   "age": "3,5–4 yaş",
+   "how": "3–4 konusu (və ya butulkanı) bir sıraya düzün. Uşaq topu ayağı ilə yüngülcə vuraraq onların arasından ilanvari aparsın.",
+   "duration": "3–4 keçid.",
+   "benefit": "ayaq-göz koordinasiyasını, topa nəzarəti və istiqamət dəyişməni inkişaf etdirir."
+  },
+  {
+   "id": "3-4/15_bounce_catch",
+   "set": "3-4",
+   "group": "Topla oyunlar",
+   "title": "Topu yerə vurub tutma",
+   "age": "3,5–4 yaş",
+   "how": "Uşaq orta ölçülü topu iki əli ilə yerə vursun və sıçrayanda tutsun.",
+   "duration": "8–10 dəfə.",
+   "benefit": "əl gücünü ölçməyi, ritmi və göz-əl koordinasiyasını inkişaf etdirir."
+  },
+  {
+   "id": "3-4/16_balloon_paddle",
+   "set": "3-4",
+   "group": "Topla oyunlar",
+   "title": "Boşqabla şar oyunu",
+   "age": "3–4 yaş",
+   "how": "Uşaq kağız boşqabı raketka kimi tutub şarı yuxarı vursun və yerə düşməyə qoymasın. Sonra bir-birinizə ötürün.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "alətlə vurma vərdişini, göz-əl koordinasiyasını və reaksiyanı inkişaf etdirir.",
+   "caution": "partlamış şar parçalarını dərhal yığışdırın."
+  },
+  {
+   "id": "3-4/20_forward_roll",
+   "set": "3-4",
+   "group": "Güc və gimnastika",
+   "title": "Köməklə irəli mayallaq",
+   "age": "3,5–4 yaş",
+   "how": "Qalın matda uşaq çöməlib əllərini yerə qoysun, çənəsini sinəsinə sıxsın və ombasını qaldırsın. Bir əlinizlə boynunun arxasını qoruyun, o biri ilə ombasından yüngülcə aşırın ki, kürəyi üstə diyirlənsin.",
+   "duration": "3–4 dəfə.",
+   "benefit": "bədən hissini, cəsarəti və gövdə əzələlərini inkişaf etdirir.",
+   "caution": "çəki başın təpəsinə düşməməlidir; çənə həmişə sinədə olsun. Yalnız yumşaq matda və köməklə."
+  },
+  {
+   "id": "3-4/21_crab_walk",
+   "set": "3-4",
+   "group": "Güc və gimnastika",
+   "title": "\"Xərçəng\" yerişi",
+   "age": "3,5–4 yaş",
+   "how": "Uşaq oturub əllərini arxada, ayaqlarını qabaqda yerə qoysun, ombasını qaldırsın və bu vəziyyətdə irəli-geri getsin.",
+   "duration": "2–3 qısa keçid.",
+   "benefit": "qol, çiyin, omba və gövdə əzələlərini gücləndirir."
+  },
+  {
+   "id": "3-4/22_bridge",
+   "set": "3-4",
+   "group": "Güc və gimnastika",
+   "title": "\"Körpü\"",
+   "age": "3–4 yaş",
+   "how": "Uşaq arxası üstə uzanıb dizlərini büksün, ayaqlarını yerə bassın və ombasını yuxarı qaldırıb 3–5 saniyə saxlasın. Altından oyuncaq maşın keçirə bilərsiniz.",
+   "duration": "5–6 təkrar.",
+   "benefit": "omba, bel və budun arxa əzələlərini gücləndirir."
+  },
+  {
+   "id": "3-4/23_superman",
+   "set": "3-4",
+   "group": "Güc və gimnastika",
+   "title": "\"Supermen\"",
+   "age": "3–4 yaş",
+   "how": "Uşaq qarın üstə uzanıb qollarını qabağa uzatsın, sonra qollarını və ayaqlarını eyni vaxtda yerdən azca qaldırıb 3 saniyə \"uçsun\".",
+   "duration": "4–5 təkrar.",
+   "benefit": "kürək əzələlərini gücləndirir, düzgün qaməti dəstəkləyir."
+  },
+  {
+   "id": "3-4/24_downward_dog",
+   "set": "3-4",
+   "group": "Güc və gimnastika",
+   "title": "\"Aşağı baxan it\" duruşu",
+   "age": "3–4 yaş",
+   "how": "Uşaq əllərini və ayaqlarını yerə qoyub ombasını yuxarı qaldırsın (\"dağ\" və ya \"it kimi gərnəşək\"). 5 saniyə saxlasın.",
+   "duration": "3–4 təkrar.",
+   "benefit": "qol və çiyinləri gücləndirir, ayaqların arxa əzələlərini dartır."
+  },
+  {
+   "id": "3-4/27_tug_of_war",
+   "set": "3-4",
+   "group": "Güc və gimnastika",
+   "title": "İp dartma",
+   "age": "3–4 yaş",
+   "how": "Yumşaq ipin bir ucundan uşaq, o birindən siz tutun. Uşaq dizlərini büküb arxaya söykənərək dartsın; gücünüzü onun gücünə uyğunlaşdırın.",
+   "duration": "3–4 raund.",
+   "benefit": "qol, kürək, gövdə və ayaq əzələlərini gücləndirir.",
+   "caution": "ipi qəfil buraxmayın və ələ dolamayın."
+  },
+  {
+   "id": "3-4/18_clap_and_stomp",
+   "set": "3-4",
+   "group": "Ritm və koordinasiya",
+   "title": "Əl çal, ayaq vur",
+   "age": "3–4 yaş",
+   "how": "Mahnı ilə hərəkət edin: \"sevinirsənsə, əl çal\", \"ayağını yerə vur\", \"fırlan\", \"hoppan\". Hərəkətləri növbə ilə dəyişin.",
+   "duration": "5 dəqiqə.",
+   "benefit": "ritm hissini, göstərişə əməl etməyi və koordinasiyanı inkişaf etdirir."
+  },
+  {
+   "id": "3-4/28_ribbon_circles",
+   "set": "3-4",
+   "group": "Ritm və koordinasiya",
+   "title": "Lentlə dairələr",
+   "age": "3–4 yaş",
+   "how": "Çubuğa bağlanmış uzun lenti uşaq əlində tutub havada böyük dairələr, dalğalar və \"səkkizlər\" çəksin. Əlləri dəyişin.",
+   "duration": "3–5 dəqiqə.",
+   "benefit": "çiyin hərəkətliliyini, bilək nəzarətini və iki tərəfin koordinasiyasını inkişaf etdirir."
+  },
+  {
+   "id": "4-5/01_skipping",
+   "set": "4-5",
+   "group": "Hoppanma və tullanma",
+   "title": "Atlana-atlana yerimə",
+   "age": "4,5–5 yaş",
+   "how": "\"Addım at – hoppan\" ritmini göstərin: bir ayaqla addım atıb həmin ayaq üstə hoppanın, sonra o biri ayaqla. Əl-ələ tutub birlikdə edin.",
+   "duration": "otaq və ya həyət boyu 3–4 keçid.",
+   "benefit": "ritmi, iki tərəfin növbəli işini və koordinasiyanı inkişaf etdirir."
+  },
+  {
+   "id": "4-5/02_jump_rope",
+   "set": "4-5",
+   "group": "Hoppanma və tullanma",
+   "title": "İplə hoppanma",
+   "age": "4,5–5 yaş",
+   "how": "Əvvəlcə ipi yerə qoyub üstündən hoppanmağı, sonra ipi başın üstündən qabağa atıb üstündən keçməyi öyrədin. Ardıcıl hoppanma tədricən alınır.",
+   "duration": "5–10 cəhd.",
+   "benefit": "ritmi, qol-ayaq uzlaşmasını və dözümlülüyü inkişaf etdirir.",
+   "caution": "ipin uzunluğu uşağa uyğun olsun (ortasına basanda dəstəklər qoltuğa çatmalıdır)."
+  },
+  {
+   "id": "4-5/03_side_jumps",
+   "set": "4-5",
+   "group": "Hoppanma və tullanma",
+   "title": "Xəttin üstündən yan hoppanma",
+   "age": "4–5 yaş",
+   "how": "Yerə lent yapışdırın. Uşaq iki ayaqla birlikdə lentin bir tərəfindən o birinə ardıcıl hoppansın.",
+   "duration": "8–10 hoppanma.",
+   "benefit": "yan istiqamətdə çevikliyi, ayaq biləyi gücünü və ritmi inkişaf etdirir."
+  },
+  {
+   "id": "4-5/04_hop_through_hoops",
+   "set": "4-5",
+   "group": "Hoppanma və tullanma",
+   "title": "Halqalardan bir ayaqla hoppanma",
+   "age": "4–5 yaş",
+   "how": "4–5 halqanı bir sıraya düzün. Uşaq bir ayaq üstə halqadan-halqaya hoppansın; geri qayıdanda ayağı dəyişsin.",
+   "duration": "hər ayaqla 2–3 keçid.",
+   "benefit": "bir ayaq üstə gücü, tarazlığı və dəqiqliyi inkişaf etdirir."
+  },
+  {
+   "id": "4-5/05_jump_from_box",
+   "set": "4-5",
+   "group": "Hoppanma və tullanma",
+   "title": "Qutudan tullanıb yumşaq enmə",
+   "age": "4–5 yaş",
+   "how": "Uşaq diz hündürlüyündə möhkəm qutudan qalın mata tullansın və dizlərini bükərək, iki ayağı üstə \"sakit\" ensin. Qollar qabağa.",
+   "duration": "5–6 dəfə.",
+   "benefit": "düzgün enmə texnikasını, ayaq gücünü və cəsarəti inkişaf etdirir.",
+   "caution": "qutu sürüşməməlidir; hündürlüyü artırmayın."
+  },
+  {
+   "id": "4-5/06_bicycle",
+   "set": "4-5",
+   "group": "Qaçış, velosiped və ritm oyunları",
+   "title": "Köməkçi təkərli velosiped",
+   "age": "4–5 yaş",
+   "how": "Uşaq pedalları fırladaraq sürsün, döngələri və əyləci öyrənsin. Tarazlığı yaxşılaşdıqca köməkçi təkərləri çıxarmaq olar.",
+   "duration": "15–20 dəqiqə.",
+   "benefit": "ayaq gücünü, dözümlülüyü, tarazlığı və yol hissini inkişaf etdirir.",
+   "caution": "dəbilqə və qapalı ayaqqabı vacibdir; yoldan uzaq, düz səthdə sürün."
+  },
+  {
+   "id": "4-5/07_shuttle_run",
+   "set": "4-5",
+   "group": "Qaçış, velosiped və ritm oyunları",
+   "title": "Məkik qaçışı",
+   "age": "4–5 yaş",
+   "how": "4–5 metr aralıya vedrə və bir neçə kisəcik qoyun. Uşaq qaçıb bir kisəcik götürsün, geri qaçıb vedrəyə atsın və hamısı bitənə qədər davam etsin.",
+   "duration": "2–3 raund.",
+   "benefit": "sürəti, istiqaməti tez dəyişməyi, əyilib-qalxmanı və dözümlülüyü inkişaf etdirir."
+  },
+  {
+   "id": "4-5/08_freeze_statue",
+   "set": "4-5",
+   "group": "Qaçış, velosiped və ritm oyunları",
+   "title": "\"Don\" oyunu",
+   "age": "4–5 yaş",
+   "how": "Musiqi çalanda uşaq rəqs edir və ya qaçır; musiqi dayananda heykəl kimi donur və tərpənməməyə çalışır.",
+   "duration": "5–10 dəqiqə.",
+   "benefit": "bədənə nəzarəti, tarazlığı, diqqəti və özünü saxlamağı inkişaf etdirir."
+  },
+  {
+   "id": "4-5/09_hokey_pokey",
+   "set": "4-5",
+   "group": "Qaçış, velosiped və ritm oyunları",
+   "title": "\"Ayağını içəri, ayağını çölə\"",
+   "age": "4–5 yaş",
+   "how": "Yerə halqa qoyun. Mahnı ilə uşaq növbə ilə bir ayağını, əlini, başını halqanın içinə uzadıb çıxarsın, sonra fırlansın.",
+   "duration": "5 dəqiqə.",
+   "benefit": "bir ayaq üstə tarazlığı, sağ-sol anlayışını və göstərişə əməl etməyi inkişaf etdirir."
+  },
+  {
+   "id": "4-5/10_catch_small_ball",
+   "set": "4-5",
+   "group": "Topla oyunlar",
+   "title": "Kiçik topu əllə tutma",
+   "age": "4–5 yaş",
+   "how": "1,5–2 metrdən kiçik yumşaq topu yavaşca atın. Uşaq onu sinəsinə sıxmadan, yalnız əlləri ilə tutsun.",
+   "duration": "10 dəfə.",
+   "benefit": "göz-əl koordinasiyasını və barmaqların çevikliyini inkişaf etdirir."
+  },
+  {
+   "id": "4-5/11_toss_and_catch",
+   "set": "4-5",
+   "group": "Topla oyunlar",
+   "title": "Yuxarı atıb tutma",
+   "age": "4–5 yaş",
+   "how": "Uşaq kisəciyi və ya yumşaq topu özü yuxarı atsın və iki əli ilə tutsun. Sonra arada bir əl çalmağı əlavə edin.",
+   "duration": "10 dəfə.",
+   "benefit": "güc ölçməyi, izləməni və reaksiyanı inkişaf etdirir."
+  },
+  {
+   "id": "4-5/12_hand_dribble",
+   "set": "4-5",
+   "group": "Topla oyunlar",
+   "title": "Topu əllə yerə vurma",
+   "age": "4,5–5 yaş",
+   "how": "Uşaq dizlərini azca büküb topu bir əli ilə ardıcıl yerə vursun. Əvvəlcə 2–3 dəfə, sonra daha çox. Əlləri dəyişin.",
+   "duration": "hər əllə 3–4 cəhd.",
+   "benefit": "ritmi, əl gücünə nəzarəti və göz-əl koordinasiyasını inkişaf etdirir."
+  },
+  {
+   "id": "4-5/13_goal_shot",
+   "set": "4-5",
+   "group": "Topla oyunlar",
+   "title": "Qapıya zərbə",
+   "age": "4–5 yaş",
+   "how": "Kiçik qapı qurun (və ya iki əşya qoyun). Uşaq 2–3 metrdən topu qapıya vursun; sonra diyirlənən topa vurmağı sınayın.",
+   "duration": "10 zərbə.",
+   "benefit": "ayaq-göz koordinasiyasını, tarazlığı və zərbə dəqiqliyini inkişaf etdirir."
+  },
+  {
+   "id": "4-5/14_tee_ball",
+   "set": "4-5",
+   "group": "Topla oyunlar",
+   "title": "Dayaqdakı topa çubuqla vurma",
+   "age": "4–5 yaş",
+   "how": "Yumşaq topu alçaq dayağın üstünə qoyun. Uşaq yan durub yüngül plastik çubuğu iki əli ilə tutaraq topa vursun.",
+   "duration": "8–10 zərbə.",
+   "benefit": "gövdənin burulmasını, göz-əl koordinasiyasını və alətlə vurma vərdişini inkişaf etdirir.",
+   "caution": "ətrafda başqa uşaq olmasın; yalnız yumşaq top və plastik çubuq."
+  },
+  {
+   "id": "4-5/15_basketball_hoop",
+   "set": "4-5",
+   "group": "Topla oyunlar",
+   "title": "Topu səbətə atma",
+   "age": "4–5 yaş",
+   "how": "Uşaq boyundan bir az hündür səbətə yüngül topu iki əli ilə atsın. Bacardıqca bir addım geri çəkilsin.",
+   "duration": "10 atış.",
+   "benefit": "yuxarı atma gücünü, dəqiqliyi və ayaq-qol uzlaşmasını inkişaf etdirir."
+  },
+  {
+   "id": "4-5/16_ring_toss",
+   "set": "4-5",
+   "group": "Topla oyunlar",
+   "title": "Halqa atma",
+   "age": "4–5 yaş",
+   "how": "Uşaq 1–1,5 metrdən halqaları dik çubuğa keçirməyə çalışsın.",
+   "duration": "2–3 raund.",
+   "benefit": "incə dəqiqliyi, bilək nəzarətini və səbri inkişaf etdirir."
+  },
+  {
+   "id": "4-5/17_airplane_balance",
+   "set": "4-5",
+   "group": "Tarazlıq",
+   "title": "\"Təyyarə\" duruşu",
+   "age": "4–5 yaş",
+   "how": "Uşaq bir ayaq üstə durub gövdəsini qabağa əysin, o biri ayağını arxaya uzatsın, qollarını qanad kimi açsın. 3–5 saniyə saxlasın, ayağı dəyişsin.",
+   "duration": "hər ayaq üçün 3 dəfə.",
+   "benefit": "tarazlığı, gövdə və omba əzələlərini gücləndirir."
+  },
+  {
+   "id": "4-5/18_beam_step_over",
+   "set": "4-5",
+   "group": "Tarazlıq",
+   "title": "Tir üzərində maneədən keçmə",
+   "age": "4–5 yaş",
+   "how": "Alçaq tarazlıq tirinin üstünə kisəcik qoyun. Uşaq tirlə yeriyib kisəciyin üstündən addımlasın.",
+   "duration": "4–5 keçid.",
+   "benefit": "dinamik tarazlığı, diqqəti və ayağı hündür qaldırmağı inkişaf etdirir.",
+   "caution": "altında yumşaq mat olsun, yanında gedin."
+  },
+  {
+   "id": "4-5/19_stork_stand",
+   "set": "4-5",
+   "group": "Tarazlıq",
+   "title": "\"Leylək\" duruşu",
+   "age": "4–5 yaş",
+   "how": "Uşaq əllərini belinə qoyub bir ayaq üstə dursun, o biri ayağını dizinin qabağına qaldırsın. 8–10 saniyə saymağa çalışın.",
+   "duration": "hər ayaq üçün 2–3 dəfə.",
+   "benefit": "statik tarazlığı və diqqəti inkişaf etdirir."
+  },
+  {
+   "id": "4-5/28_hula_hoop",
+   "set": "4-5",
+   "group": "Tarazlıq",
+   "title": "Halqanı beldə fırlatma",
+   "age": "4,5–5 yaş",
+   "how": "Uşaq halqanı belinə söykəyib fırlatsın və ombasını irəli-geri hərəkət etdirərək onu saxlamağa çalışsın. Əvvəlcə bir neçə dövrə kifayətdir.",
+   "duration": "5 dəqiqə.",
+   "benefit": "gövdə əzələlərini, ritmi və koordinasiyanı inkişaf etdirir."
+  },
+  {
+   "id": "4-5/20_forward_roll",
+   "set": "4-5",
+   "group": "Güc və gimnastika",
+   "title": "Müstəqil irəli mayallaq",
+   "age": "4–5 yaş",
+   "how": "Qalın matda uşaq çöməlib əllərini yerə qoysun, çənəsini sinəsinə sıxsın, ayaqları ilə itələnib dəyirmi kürəyi üstə diyirlənsin və çöməlmiş vəziyyətdə qalxsın.",
+   "duration": "3–5 dəfə.",
+   "benefit": "bədən hissini, çevikliyi və gövdə əzələlərini inkişaf etdirir.",
+   "caution": "çəki başın təpəsinə düşməməlidir; çənə həmişə sinədə. Əvvəlcə köməklə öyrədin."
+  },
+  {
+   "id": "4-5/21_plank",
+   "set": "4-5",
+   "group": "Güc və gimnastika",
+   "title": "Plank",
+   "age": "4–5 yaş",
+   "how": "Uşaq dirsəkləri və ayaq barmaqları üstə dayansın, bədəni başdan dabana düz xətt olsun. 5–10 saniyə saxlasın.",
+   "duration": "2–3 dəfə.",
+   "benefit": "qarın, kürək və çiyin əzələlərini gücləndirir.",
+   "caution": "beli çökəndə dayansın."
+  },
+  {
+   "id": "4-5/22_chair_squat",
+   "set": "4-5",
+   "group": "Güc və gimnastika",
+   "title": "\"Görünməz stul\" çöməlməsi",
+   "age": "4–5 yaş",
+   "how": "Uşaq ayaqlarını çiyin enində açıb, qollarını qabağa uzadıb, stula oturmuş kimi çöməlsin və qalxsın. Dabanlar yerdə qalsın.",
+   "duration": "6–8 təkrar.",
+   "benefit": "ayaq və omba əzələlərini gücləndirir."
+  },
+  {
+   "id": "4-5/23_boat_pose",
+   "set": "4-5",
+   "group": "Güc və gimnastika",
+   "title": "\"Qayıq\" duruşu",
+   "age": "4–5 yaş",
+   "how": "Uşaq oturub azca arxaya əyilsin, dizlərini büküb ayaqlarını yerdən qaldırsın, qollarını qabağa uzatsın. 5 saniyə tarazlığı saxlasın.",
+   "duration": "3–4 təkrar.",
+   "benefit": "qarın əzələlərini və tarazlığı gücləndirir."
+  },
+  {
+   "id": "4-5/24_cobra",
+   "set": "4-5",
+   "group": "Güc və gimnastika",
+   "title": "\"Kobra\" dartınması",
+   "age": "4–5 yaş",
+   "how": "Uşaq qarın üstə uzanıb əllərini çiyinlərinin altına qoysun və sinəsini yuxarı qaldırsın; ombası yerdə qalsın. 5 saniyə saxlasın.",
+   "duration": "3–4 təkrar.",
+   "benefit": "kürək əzələlərini gücləndirir, qarın və sinəni dartır.",
+   "caution": "beli zorla bükməyin."
+  },
+  {
+   "id": "4-5/25_straddle_reach",
+   "set": "4-5",
+   "group": "Güc və gimnastika",
+   "title": "Ayaqlar aralı oturub qabağa uzanma",
+   "age": "4–5 yaş",
+   "how": "Uşaq ayaqlarını geniş açıb otursun və əllərini yerlə qabağa sürüşdürərək uzansın. 10 saniyə saxlasın, yellənmədən.",
+   "duration": "3 təkrar.",
+   "benefit": "budun iç və arxa əzələlərinin elastikliyini artırır."
+  },
+  {
+   "id": "4-5/26_monkey_bars",
+   "set": "4-5",
+   "group": "Güc və gimnastika",
+   "title": "Üfüqi nərdivanda asılaraq irəliləmə",
+   "age": "4,5–5 yaş",
+   "how": "Uşaq alçaq üfüqi nərdivandan asılıb əllərini növbə ilə növbəti çubuğa atsın. Belindən tutaraq çəkisinin bir hissəsini götürün.",
+   "duration": "2–3 cəhd.",
+   "benefit": "əl, qol və çiyin gücünü, tutmanı inkişaf etdirir.",
+   "caution": "altında yumşaq səth olsun; əlləri yaş olmasın."
+  },
+  {
+   "id": "4-5/27_climbing_net",
+   "set": "4-5",
+   "group": "Güc və gimnastika",
+   "title": "Kəndir tora dırmaşma",
+   "age": "4–5 yaş",
+   "how": "Oyun meydançasında və ya evdə alçaq tor üzərində uşaq əlləri ilə yuxarıdan tutub ayaqlarını növbə ilə qoyaraq dırmaşsın və eyni yolla ensin.",
+   "duration": "3–4 dəfə.",
+   "benefit": "bütün bədənin gücünü, koordinasiyanı və cəsarəti inkişaf etdirir.",
+   "caution": "altında yumşaq səth olsun; yanında durun."
+  }
+ ]
+}

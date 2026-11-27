@@ -1,0 +1,18 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261109180000_banner_min_app_version.sql",
+  "runtime": "google-api",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; refuses unless public.banners is guarded and the platform guard exists",
+  "preserve": ["cron0 and the 8 enabled timers unchanged", "banners without creative_options.min_app_version unaffected", "platform guard semantics unchanged"],
+  "relations": [
+    { "relation": "public.banners", "change": "restrictive SELECT policy banners_platform_server_guard_v1 now also checks min_app_version", "cdc": true, "writer_guard": true, "private": false, "pii": false, "primary_key": ["id"],
+      "note": "creative_options.min_app_version honoured on every read path; admins exempt" }
+  ],
+  "functions": [
+    { "name": "public.app_version_parts_v1(text)", "security": "invoker", "grant": "default", "note": "version string to int[]" },
+    { "name": "public.request_app_version_v1(uuid)", "security": "definer", "grant": [], "note": "X-Anacan-Version header, else newest user_consents.app_version" },
+    { "name": "public.banner_client_allowed_v1(text[],jsonb,uuid)", "security": "definer", "grant": ["anon", "authenticated", "service_role"], "note": "platform + min version" },
+    { "name": "public.get_banner_inventory_v3(uuid,text,text)", "security": "definer", "grant": "unchanged", "note": "uses banner_client_allowed_v1" },
+    { "name": "public.get_banner_inventory_v2(uuid,text,text)", "security": "definer", "grant": "unchanged", "note": "uses banner_client_allowed_v1" }
+  ]
+}

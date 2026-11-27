@@ -50,9 +50,10 @@ const PrematurityBackfillCard = ({ child, onSaved }: {child: Child;onSaved: () =
 
   const saveTerm = () => save(child.birth_date);
   const savePreterm = () => {
-    const d = new Date(child.birth_date);
-    d.setDate(d.getDate() + (280 - gestWeeks * 7));
-    save(d.toISOString().split('T')[0]);
+    // birth_date is a stored YYYY-MM-DD: do the arithmetic on that calendar day in UTC so no time zone or DST
+    // change can shift the result by a day.
+    const due = new Date(Date.parse(`${child.birth_date.slice(0, 10)}T00:00:00Z`) + (280 - gestWeeks * 7) * 86400000);
+    save(due.toISOString().slice(0, 10));
   };
 
   return (

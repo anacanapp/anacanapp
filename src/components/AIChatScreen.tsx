@@ -1,6 +1,3 @@
-import { takeAiDraft } from '@/lib/ai-draft';
-import { Mascot } from '@/components/anacan/Mascot';
-import { rd } from '@/lib/redesign-i18n';
 import { useState, useRef, useEffect, forwardRef, memo, useCallback } from 'react';
 import { getLocaleTag } from '@/lib/i18n';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,6 +10,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { usePregnancyContentByDay } from '@/hooks/usePregnancyContent';
 import { useFruitImages, getDynamicFruitData } from '@/hooks/useFruitData';
 import { useAIChatHistory } from '@/hooks/useAIChatHistory';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { useAuth } from '@/hooks/useAuth';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics, trackEvent } from '@/hooks/useScreenAnalytics';
@@ -31,8 +29,17 @@ import { useWeightEntries } from '@/hooks/useWeightEntries';
 import { useKickSessions } from '@/hooks/useKickSessions';
 import { useSubscription } from '@/hooks/useSubscription';
 import PremiumModal from '@/components/PremiumModal';
+import { isWeaningQuestion } from '@/lib/weaning-entry';
+import { WeaningAiCard } from '@/components/tools/weaning/WeaningEntryCards';
+import { ParentingAiCard } from '@/components/tools/parenting/ParentingEntry';
 import MarkdownContent from './MarkdownContent';
 import { tr } from "@/lib/tr";
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
+import { storedDateKey } from '@/lib/stored-date-key';
+import { useOnlineStatus } from '@/hooks/useOnlineStatus';
+import { AI_STREAM_IDLE_TIMEOUT_MS, fetchStreaming, isRequestTimeoutError } from '@/lib/network-timeout';
+import { useChatMediaSrc } from '@/lib/chat-media';
 
 interface Message {
   id: string;
@@ -40,7 +47,8 @@ interface Message {
   content: string;
   timestamp: Date;
   isStreaming?: boolean;
-  /** İstifadəçinin mesaja qoşduğu şəkil (chat-media URL) — Gemini vision */
+  /** İstifadəçinin mesaja qoşduğu şəkil: chat-media obyekt yolu (köhnə sətirlərdə
+   *  tam public URL) və ya blob: preview. Render anında signed URL-ə çevrilir. */
   imageUrl?: string | null;
 }
 
@@ -91,7 +99,11 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
   message: Message;
   copied: boolean;
   onCopy: (id: string, content: string) => void;
-}) => (
+}) => {
+  // chat-media is private: resolve the stored path/legacy public URL to a signed
+  // URL at render time (blob: previews of a just-sent image pass through as-is).
+  const mediaSrc = useChatMediaSrc(message.imageUrl);
+  return (
   <motion.div
     initial={{ opacity: 0, y: 8 }}
     animate={{ opacity: 1, y: 0 }}
@@ -102,14 +114,14 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
     <span className={`a-chat-avatar${message.role === 'user' ? ' user' : ''}`}>
       {message.role === 'user' ?
       <User size={13} strokeWidth={2.2} /> :
-      <AssistantFace />}
+      <Bot size={13} strokeWidth={2.2} />}
     </span>
     <div className="a-chat-bubble-wrap">
       <div className={`a-chat-bubble ${message.role === 'user' ? 'user' : 'ai'}`}>
         {/* Mesaja qoşulmuş şəkil */}
-        {message.imageUrl &&
+        {mediaSrc &&
         <img
-          src={message.imageUrl}
+          src={mediaSrc}
           alt=""
           style={{ maxWidth: 220, maxHeight: 260, borderRadius: 12, display: 'block', marginBottom: message.content ? 6 : 0, objectFit: 'cover' }} />
         }
@@ -148,23 +160,34 @@ const ChatMessageRow = memo(({ message, copied, onCopy }: {
         </span>}
     </div>
   </motion.div>
-));
+  );
+});
 ChatMessageRow.displayName = 'ChatMessageRow';
 
-const companionStage = (stage?: string | null) => (stage === 'bump' || stage === 'mommy' ? stage : 'flow') as 'bump' | 'mommy' | 'flow';
-
-/** Assistant avatar in bubbles: the stage companion's face. */
-function AssistantFace() {
-  const stage = useUserStore((s) => s.lifeStage);
-  return <Mascot stage={companionStage(stage)} pose="mode" width={26} />;
+/** Woman's context for the partner persona (Ata AI): stage and shared profile fields. */
+export interface AIChatPartnerContext {
+  lifeStage: 'flow' | 'bump' | 'mommy';
+  pregnancyWeek?: number;
+  womanName?: string | null;
+  dueDate?: string | null;
+  babyName?: string | null;
+  babyBirthDate?: string | null;
+  lastPeriodDate?: string | null;
+  cycleLength?: number | null;
 }
 
-const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
+const PARTNER_QUESTIONS = {
+  flow: ['ai_pq_flow_1', 'ai_pq_flow_2', 'ai_pq_support'],
+  bump: ['ai_pq_support', 'ai_pq_birth', 'ai_pq_bag'],
+  mommy: ['ai_pq_crying', 'ai_pq_night', 'ai_pq_postpartum'],
+} as const;
+
+const AIChatScreen = forwardRef<HTMLDivElement, { partner?: AIChatPartnerContext }>(({ partner }, ref) => {
   useScrollToTop();
   useScreenAnalytics('AIChat', 'Chat');
 
   const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState(takeAiDraft);
+  const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPremiumModal, setShowPremiumModal] = useState(false);
   const { checkAndConsume } = useSubscription();
@@ -247,7 +270,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
   // Kopyalama feedback-i
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const { lifeStage, getPregnancyData, name, dueDate, babyName, babyBirthDate, lastPeriodDate, cycleLength, periodLength, language } = useUserStore(
+  const { lifeStage: storeLifeStage, getPregnancyData, name, dueDate, babyName, babyBirthDate, lastPeriodDate: storeLastPeriodDate, cycleLength: storeCycleLength, periodLength, language } = useUserStore(
     useShallow((s) => ({
       lifeStage: s.lifeStage,
       getPregnancyData: s.getPregnancyData,
@@ -261,10 +284,16 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
       language: s.language,
     }))
   );
+  // Ata AI talks about the woman's stage; the partner's own store stage is 'partner'.
+  const lifeStage = partner ? partner.lifeStage : storeLifeStage;
+  const lastPeriodDate = partner ? partner.lastPeriodDate ?? null : storeLastPeriodDate;
+  const cycleLength = partner ? partner.cycleLength ?? 28 : storeCycleLength;
   const { user, profile } = useAuth();
+  const emergencyNumber = useEmergencyNumber();
+  const online = useOnlineStatus();
   // Əkiz/üçüz və s. — qarşılama mesajı və AI-a göndərilən kontekst buna görə uyğunlaşır
   const isMultiplePregnancy = !!(profile as any)?.multiples_type && (profile as any).multiples_type !== 'single';
-  const { messages: savedMessages, addMessage, clearHistory, loading: historyLoading } = useAIChatHistory('woman');
+  const { messages: savedMessages, addMessage, clearHistory, loading: historyLoading } = useAIChatHistory(partner ? 'partner' : 'woman');
   const { toast } = useToast();
 
   const copyMessage = useCallback(async (id: string, content: string) => {
@@ -310,10 +339,10 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
   // Create profile object from store data
   const userProfile = {
     name: name || undefined,
-    due_date: dueDate ? new Date(dueDate).toISOString().split('T')[0] : undefined,
+    due_date: storedDateKey(dueDate),
     baby_name: babyName || undefined,
-    baby_birth_date: babyBirthDate ? new Date(babyBirthDate).toISOString().split('T')[0] : undefined,
-    last_period_date: lastPeriodDate ? new Date(lastPeriodDate).toISOString().split('T')[0] : undefined,
+    baby_birth_date: storedDateKey(babyBirthDate),
+    last_period_date: storedDateKey(lastPeriodDate),
     cycle_length: cycleLength,
     // Əkiz/üçüz və s. — Dr. Anacan-a göndərilir ki, cavablarında "körpəniz" əvəzinə
     // "körpələriniz" kimi düzgün say-uzlaşmalı danışsın (bax prompts.ts)
@@ -350,6 +379,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
 
   const getWelcomeMessage = () => {
     const userName = name ? `, ${name}` : '';
+    if (partner) return feature37Text('ai_partner_welcome').replace('{name}', userName);
     const dynamicFruit = getDynamicFruitName();
     const lang = useUserStore.getState().language || 'az';
 
@@ -410,8 +440,8 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
           from('chat-media').
           upload(path, blob, { contentType: 'image/jpeg' });
           if (!upErr) {
-            const { data: urlData } = supabase.storage.from('chat-media').getPublicUrl(path);
-            imageUrl = urlData.publicUrl;
+            // Store the object path (private bucket); signed at render time.
+            imageUrl = path;
           }
         }
       } catch (e) {
@@ -477,6 +507,14 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
       if (!streamFlushTimer) streamFlushTimer = setTimeout(flushStream, 80);
     };
     abortRef.current = controller;
+    // Weak network: a stream that goes silent is stopped (the partial answer stays).
+    let streamTimedOut = false;
+    let idleTimer: ReturnType<typeof setTimeout> | null = null;
+    const clearIdleTimer = () => { if (idleTimer) clearTimeout(idleTimer); idleTimer = null; };
+    const armIdleTimer = () => {
+      clearIdleTimer();
+      idleTimer = setTimeout(() => { streamTimedOut = true; controller.abort(); }, AI_STREAM_IDLE_TIMEOUT_MS);
+    };
 
     try {
       const conversationHistory = messages.
@@ -496,7 +534,9 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
       if (!session?.access_token) {
         throw new Error(tr("aichatscreen_sessiya_tapilmadi_yeniden_daxi_455503", "Sessiya tap\u0131lmad\u0131. Yenid\u0259n daxil olun."));
       }
-      const response = await fetch(`${getBackendConfig().url}/functions/v1/dr-anacan-chat`, {
+      // WebView fetch even on native: the CapacitorHttp bridge buffers the whole answer and
+      // ignores Stop; this path streams progressively and aborts. Bounded until the headers.
+      const response = await fetchStreaming(`${getBackendConfig().url}/functions/v1/dr-anacan-chat`, {
         method: 'POST',
         signal: controller.signal,
         headers: {
@@ -507,8 +547,8 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
         body: JSON.stringify({
           messages: conversationHistory,
           lifeStage: lifeStage || 'bump',
-          pregnancyWeek: pregnancyData?.currentWeek,
-          isPartner: false,
+          pregnancyWeek: partner ? partner.pregnancyWeek : pregnancyData?.currentWeek,
+          isPartner: !!partner,
           stream: true,
           language: useUserStore.getState().language || 'az',
           // Gemini vision: son user mesajına şəkil qoşulur (bax dr-anacan-chat)
@@ -519,7 +559,15 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
               return { cyclePhase: info.phase, cycleDay: info.dayInCycle };
             } catch {return {};}
           })() : {}),
-          userProfile: {
+          userProfile: partner ? {
+            name: name || undefined,
+            partnerName: partner.womanName || undefined,
+            dueDate: partner.dueDate || undefined,
+            babyName: partner.babyName || undefined,
+            babyBirthDate: partner.babyBirthDate || undefined,
+            lastPeriodDate: partner.lastPeriodDate || undefined,
+            cycleLength: partner.cycleLength || undefined
+          } : {
             name: userProfile.name,
             dueDate: userProfile.due_date,
             babyName: userProfile.baby_name,
@@ -578,9 +626,11 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
         let fullContent = '';
         let buffer = '';
 
+        armIdleTimer();
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
+          armIdleTimer();
 
           buffer += decoder.decode(value, { stream: true });
           const lines = buffer.split('\n');
@@ -624,6 +674,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
         }
 
         // Mark streaming as complete and save to database
+        clearIdleTimer();
         cancelStreamFlush();
         const finalContent = fullContent || tr("aichatscreen_bagislayin_cavab_ala_bilmedim_4078bf", "Ba\u011F\u0131\u015Flay\u0131n, cavab ala bilm\u0259dim.");
         setMessages((prev) => prev.map((m) =>
@@ -649,8 +700,17 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
         }
       }
     } catch (error: any) {
-      // Stop düyməsi ilə dayandırıldı — qismən cavabı saxla, xəta göstərmə
-      if (error?.name === 'AbortError') {
+      // Stop düyməsi ilə dayandırıldı — qismən cavabı saxla, xəta göstərmə.
+      // Timeout (no headers in time / silent stream): keep the partial answer and say why.
+      const timedOut = streamTimedOut || isRequestTimeoutError(error);
+      if (timedOut) {
+        toast({
+          title: tr("aichatscreen_xeta_3cdbb6", 'Xəta'),
+          description: tr('netsync_timeout_retry', 'Bağlantı zəifdir, cavab gecikdi. Yenidən cəhd edin.'),
+          variant: 'destructive'
+        });
+      }
+      if (error?.name === 'AbortError' || timedOut) {
         // Buferdə qalan mətni əvvəlcə state-ə yaz ki, qismən cavab itməsin
         flushStream();
         setMessages((prev) => {
@@ -660,7 +720,11 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
             void addMessage('assistant', partial).catch(() => {});
             return prev.map((m) => m.id === assistantMessageId ? { ...m, isStreaming: false } : m);
           }
-          // Heç nə gəlməmişdisə boş bubble-ı sil
+          // Heç nə gəlməmişdisə boş bubble-ı sil (timeout: retry mətni göstər)
+          if (timedOut) {
+            return prev.map((m) => m.id === assistantMessageId ?
+              { ...m, isStreaming: false, content: tr('netsync_timeout_retry', 'Bağlantı zəifdir, cavab gecikdi. Yenidən cəhd edin.') } : m);
+          }
           return prev.filter((m) => m.id !== assistantMessageId);
         });
       } else {
@@ -679,6 +743,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
         ));
       }
     } finally {
+      clearIdleTimer();
       cancelStreamFlush();
       abortRef.current = null;
       setIsLoading(false);
@@ -709,10 +774,12 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
   };
 
   // Fetch dynamic suggested questions
-  const { data: dynamicQuestions = [] } = useAISuggestedQuestions(lifeStage || 'bump', 'mother');
+  const { data: dynamicQuestions = [] } = useAISuggestedQuestions(lifeStage || 'bump', partner ? 'partner' : 'mother');
 
   const suggestedQuestions = dynamicQuestions.length > 0 ?
   dynamicQuestions.map((q) => q.question) :
+  partner ?
+  PARTNER_QUESTIONS[partner.lifeStage].map((key) => feature37Text(key)) :
   lifeStage === 'bump' ?
   [tr("aichatscreen_bu_hefte_korpem_nece_inkisaf_e_7ffbca", "Bu h\u0259ft\u0259 k\xF6rp\u0259m nec\u0259 inki\u015Faf edir?"), tr("aichatscreen_hamilelikde_hansi_qidalar_fayd_cfee1a", "Hamil\u0259likd\u0259 hans\u0131 qidalar faydal\u0131d\u0131r?"), tr("aichatscreen_urek_bulanmasina_qarsi_ne_ede__39caf3", "\xDCr\u0259k bulanmas\u0131na qar\u015F\u0131 n\u0259 ed\u0259 bil\u0259r\u0259m?")] :
 
@@ -736,14 +803,14 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
       {/* Chat header (anacan-demo) */}
       <div className="safe-area-top" style={{ paddingInlineStart: 20, paddingInlineEnd: 20, flexShrink: 0 }}>
         <div className="a-chat-header">
-          <span className="a-chat-header-avatar a3-ai-face">
-            <Mascot stage={companionStage(lifeStage)} pose="mode" width={40} />
+          <span className="a-chat-header-avatar">
+            <Sparkles size={19} strokeWidth={2} />
           </span>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <h1 className="a-chat-header-name a-heading">{tr("bottomnav_anacan_ai", 'Anacan.AI')}</h1>
+            <h1 className="a-chat-header-name a-heading">{partner ? feature37Text('pm_ata_ai') : tr("bottomnav_anacan_ai", 'Anacan.AI')}</h1>
             <div className="a-chat-header-status">
-              <span className="a-chat-status-dot" />
-              {tr("untranslated_onlayn_xfaffi", "Onlayn")} · {tr("aichatscreen_hekim_mesleheti_evezi_deyil_a1808c", "⚕️ Həkim məsləhəti əvəzi deyil").replace('⚕️ ', '')}
+              <span className="a-chat-status-dot" style={online ? undefined : { background: 'var(--a-ink-soft)', boxShadow: 'none' }} />
+              {online ? tr("untranslated_onlayn_xfaffi", "Onlayn") : tr("aichat_status_offline", "Oflayn")} · {tr("aichatscreen_hekim_mesleheti_evezi_deyil_a1808c", "⚕️ Həkim məsləhəti əvəzi deyil").replace('⚕️ ', '')}
             </div>
           </div>
           <button type="button" className="a-icon-btn" onClick={clearChat} aria-label="Reset">
@@ -771,7 +838,7 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
                 overflow: 'hidden'
               }}>
                 {warnExpanded ?
-              tr("aichatscreen_medical_disclaimer_banner", "Anacan.AI tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Verilən məlumatlar yalnız informasiya xarakterli olub yalnız təhsil məqsədi daşıyır. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda 103-ə zəng edin.") :
+              fillEmergencyNumber(tr("aichatscreen_medical_disclaimer_banner", "Anacan.AI tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Verilən məlumatlar yalnız informasiya xarakterli olub yalnız təhsil məqsədi daşıyır. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda {emergency} nömrəsinə zəng edin."), emergencyNumber) :
               tr("aichatscreen_warn_short", "Tibbi məsləhət əvəzi deyil — ətraflı üçün toxunun")}
               </span>
               <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -805,13 +872,24 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
 
         <div className="pb-4 pt-1">
           <AnimatePresence initial={false}>
-            {messages.map((message) =>
-            <ChatMessageRow
-              key={message.id}
-              message={message}
-              copied={copiedId === message.id}
-              onCopy={copyMessage} />
-            )}
+            {messages.flatMap((message, i) => {
+              const row =
+              <ChatMessageRow
+                key={message.id}
+                message={message}
+                copied={copiedId === message.id}
+                onCopy={copyMessage} />;
+              const answered = message.role === 'assistant' && !message.isStreaming && !!message.content && messages[i - 1]?.role === 'user';
+              // Süddən ayırma: tool card under the answer to a weaning question (mother persona only).
+              const asked = !partner && answered && isWeaningQuestion(messages[i - 1].content);
+              if (asked) return [row, <WeaningAiCard key={`${message.id}-weaning`} />];
+              // Tərbiyə: the best SOS card / article for a parenting question (mother, or the partner of an Ana-module mother).
+              if (answered) {
+                return [row, <ParentingAiCard key={`${message.id}-parenting`} question={messages[i - 1].content}
+                  partner={partner ? { lifeStage: partner.lifeStage, babyBirthDate: partner.babyBirthDate } : null} />];
+              }
+              return [row];
+            })}
           </AnimatePresence>
         </div>
 
@@ -823,11 +901,6 @@ const AIChatScreen = forwardRef<HTMLDivElement>((_, ref) => {
           transition={{ delay: 0.3 }}
           className="pb-4">
           
-            <div className="a3-ai-intro">
-              <Mascot stage={companionStage(lifeStage)} pose="welcome" width={96} bob />
-              <p className="a3-ai-intro-title">{rd('ai_intro_title')}</p>
-              <p className="a3-meta">{rd('ai_intro_text')}</p>
-            </div>
             <p className="a-chat-suggest-label">{tr("aichatscreen_meslehet_ucun_sual_secin_3c0236", "Məsləhət üçün sual seçin:")}</p>
             <div className="a-chat-suggest-row">
               {suggestedQuestions.map((question, index) =>

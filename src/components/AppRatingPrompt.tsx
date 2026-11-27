@@ -56,23 +56,23 @@ const AppRatingPrompt = () => {
           exit={{ scale: 0.8, opacity: 0, y: 20 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           onClick={(e) => e.stopPropagation()}
-          className="a-scope a3-card max-w-sm w-full relative" style={{ padding: 24, borderRadius: 28 }}>
+          className="bg-card rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-border/50 relative">
           
             {/* Close button */}
             <button
             onClick={handleLater}
-            className="a3-icon-btn absolute top-2 end-2" aria-label={tr("premiummodal_bagla_84bdc9", "Bağla")}>
+            className="absolute top-4 end-4 w-8 h-8 rounded-full bg-muted/50 flex items-center justify-center">
             
               <X className="w-4 h-4 text-muted-foreground" />
             </button>
 
             {/* Title */}
-            <h2 className="a3-tool-title" style={{ textAlign: 'center', margin: '12px 0 8px' }}>
+            <h2 className="text-xl font-bold text-foreground text-center mb-2 mt-2">
               {tr("appratingprompt_anacan_i_beyendiniz_34b6fc", "Anacan-\u0131 b\u0259y\u0259ndiniz?")}
             </h2>
 
             {/* Description */}
-            <p className="a3-meta" style={{ textAlign: 'center', fontSize: 14, marginBottom: 20 }}>
+            <p className="text-muted-foreground text-center text-sm mb-5">
               {tr("appratingprompt_tetbiqimizi_deyerlendirerek_di_885a35", "T\u0259tbiqimizi d\u0259y\u0259rl\u0259ndir\u0259r\u0259k dig\u0259r analara k\xF6m\u0259k ed\u0259 bil\u0259rsiniz. \n              R\u0259yiniz bizim \xFC\xE7\xFCn \xE7ox d\u0259y\u0259rlidir! \uD83D\uDC95")}
             
           </p>
@@ -93,7 +93,7 @@ const AppRatingPrompt = () => {
                   <Star
                 className={`w-10 h-10 transition-colors ${
                 star <= displayStars ?
-                'text-[color:var(--a-yellow-2)] fill-[color:var(--a-yellow-2)]' :
+                'text-amber-400 fill-amber-400' :
                 'text-muted-foreground/30'}`
                 } />
               
@@ -109,13 +109,12 @@ const AppRatingPrompt = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}>
               
-                  <button
-                type="button"
+                  <Button
                 onClick={handleSubmit}
-                className="a3-btn accent block" style={{ marginBottom: 8 }}>
+                className="w-full h-12 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-xl shadow-lg shadow-amber-500/30 mb-3">
                 
                     {selectedStars === 5 ? tr("appratingprompt_deyerlendirin_8f0efc", "\u2B50 D\u0259y\u0259rl\u0259ndirin") : tr("appratingprompt_gonder_3f11bd", "G\xF6nd\u0259r")}
-                  </button>
+                  </Button>
                 </motion.div>
             }
             </AnimatePresence>

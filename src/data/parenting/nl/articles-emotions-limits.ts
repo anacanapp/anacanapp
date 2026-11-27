@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Driftbui: wat gebeurt er in de hersenen?',
+    summary: 'Een driftbui is geen gevolg van een slechte opvoeding. Het is het moment waarop een groot gevoel het nog kleine “remsysteem” overspoelt.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Het emotiesysteem diep in de hersenen is vanaf de geboorte sterk: het voelt gevaar, teleurstelling en boosheid in een flits. De prefrontale cortex, die deze gevoelens afremt en zegt “wacht, er is een andere manier”, is pas rond je twintigste uitgerijpt. Bij een kind van 2–4 jaar is dat verschil het grootst. Daarom hoort je kind je tijdens een driftbui niet en reageert het niet op logica: het “denkende” deel van de hersenen staat tijdelijk uit.',
+      'Je kind kan op dat moment niet zelf tot rust komen en “leent” de rust van jouw lichaam en jouw stem. Onderzoekers noemen dat co-regulatie. Hoe rustiger jij blijft, hoe sneller het stresssysteem van je kind weer normaal wordt, en door herhaling leert je kind die weg naar rust zich eigen te maken. Schreeuwen en straffen verhogen juist de stresshormonen en maken de driftbui langer.',
+      'Driftbuien komen vaak op dezelfde momenten: bij vermoeidheid, honger, overgangen (van spelen naar huis, de speeltuin verlaten) of na een “nee”. Als je die momenten ziet aankomen, kun je meer dan de helft van de driftbuien voorkomen.',
+    ],
+    tryToday: [
+      'Kalmeer eerst jezelf: haal diep adem, laat je schouders zakken, praat zachter. Als jij niet rustig bent, kan je kind dat ook niet worden.',
+      'Praat weinig. Een of twee korte zinnen zijn genoeg: “Je bent heel boos. Ik ben hier.”',
+      'Zorg voor veiligheid: slaat hij, houd dan zacht zijn hand vast en leg spullen waarmee hij zich kan bezeren aan de kant.',
+      'Knuffel hem als hij rustig is en praat pas daarna, kort: “Je was heel boos, want het spelletje was afgelopen. De volgende keer kun je “help me” zeggen.”',
+      'Houd deze week bij wanneer de driftbuien komen. Grote kans dat ze samenvallen met momenten van moeheid en honger.',
+    ],
+    mistakes: [
+      'Tijdens een driftbui lang uitleggen of preken. De hersenen staan nog niet in de luisterstand: eerst kalmeren, dan praten.',
+      'Hem geven wat hij wil om de driftbui te stoppen. Dat betekent de volgende keer een nog heftigere bui. Toon begrip voor het gevoel, maar blijf bij je besluit.',
+      'Je kind beschamen: “Foei, iedereen kijkt naar je.” Schaamte leert een kind niet om met gevoelens om te gaan, alleen om ze te verbergen.',
+      'Een driftbui zien als “manipulatie”. Voor een jong kind is het vooral iets wat hij nog niet kan, geen trucje.',
+    ],
+    byAge: {
+      '1-3': 'Zijn woordenschat is nog klein, dus benoem jij het gevoel en laat een eenvoudig alternatief zien: “Je bent boos. Stamp maar met je voet, zo!” Afleiden werkt op deze leeftijd heel goed.',
+      '3-6': 'Maak op een rustig moment een “boosheidsplan”: ademhalen, in een kussen knijpen, naar het rustige hoekje gaan. Hang het met plaatjes aan de muur en wijs er alleen naar als een driftbui begint.',
+    },
+    specialist: [
+      'Als driftbuien regelmatig langer dan 25 minuten duren of vaker dan vijf keer per dag voorkomen.',
+      'Als je kind zich tijdens een driftbui ernstig verwondt (hoofdbonken, bijten) of zo hard huilt dat de adem stokt en hij flauwvalt — laat hem door een arts nakijken.',
+      'Als de driftbuien na 4–5 jaar toenemen in plaats van afnemen, of als er ook andere zorgen zijn over praten, slapen of contact.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Emotiecoaching: gevoelens benoemen',
+    summary: 'Gevoelens zien en benoemen versterkt de zelfregulatie van je kind. Dat betekent niet dat alles mag.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Psycholoog John Gottman volgde in de jaren negentig gezinnen en zag dat ouders op vier manieren op de gevoelens van hun kind reageren: afwijzend (“Niet huilen, het stelt niks voor”), afkeurend en straffend, alles toelatend, en als “emotiecoach”. Een coachende ouder neemt het gevoel serieus, geeft het een naam en zoekt samen met het kind naar een oplossing, maar stelt wel grenzen aan het gedrag.',
+      'Kinderen van emotiecoachende ouders konden in de jaren daarna hun aandacht beter vasthouden, hadden minder conflicten met vriendjes en herstelden sneller van stress. Latere programma’s (bijvoorbeeld “Tuning in to Kids”) lieten zien dat elke ouder deze vaardigheid kan leren.',
+      'Hersenonderzoek laat ook iets interessants zien: een gevoel benoemen (“ik ben boos”, “ik ben bang”) vermindert de activiteit van het emotiecentrum. “Benoemen om te temmen” is dus niet zomaar een mooie uitspraak.',
+    ],
+    tryToday: [
+      'Zeg vandaag drie keer het gevoel van je kind hardop, alsof je het voor hem zegt: “Volgens mij ben je echt teleurgesteld.” Zit je ernaast, geen probleem: hij verbetert je wel.',
+      'Laat het gevoel er zijn en begrens het gedrag: “Boos zijn mag. Slaan niet.”',
+      'Kijk bij het voorlezen naar de gezichten van de personages: “Wat denk jij dat hij nu voelt?”',
+      'Benoem ook je eigen gevoelens rustig: “Ik ben een beetje moe, dus ik drink even in stilte een kopje thee.” Je kind doet jou het meest na.',
+    ],
+    mistakes: [
+      'Zeggen: “Niet huilen”, “Er is niks om bang voor te zijn”, “Stel je niet aan.” Het gevoel verdwijnt niet; je kind leert alleen het niet meer aan jou te laten zien.',
+      'Denken dat empathie je “nee” ongedaan maakt. “Ik snap het, je wilde het zo graag. Het antwoord is nog steeds nee” kan prima.',
+      'Alleen op moeilijke momenten over gevoelens praten. De beste oefening gebeurt op rustige momenten, via spel en boeken.',
+    ],
+    byAge: {
+      '1-3': 'Eenvoudige woorden: blij, boos, verdrietig, bang. Doe samen gezichtsuitdrukkingen na voor de spiegel.',
+      '3-6': 'Teken een “gevoelsthermometer”: groen — ik ben rustig, geel — ik word boos, rood — ik ontplof. Laat je kind de kleur aanwijzen.',
+      '6-12': 'Leer fijnere woorden: teleurstelling, schaamte, jaloezie, ongerustheid. Vraag waar hij het gevoel in zijn lijf voelt.',
+    },
+    specialist: [
+      'Als je kind lange tijd bijna geen gevoelens laat zien, of als elk klein ding hem urenlang van slag brengt.',
+      'Als verdriet, angst of boosheid langer dan twee weken aanhoudt en invloed heeft op slapen, eten, school en vriendschappen — zoek hulp bij een kinderpsycholoog.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Rusthoekje en ademspelletjes',
+    summary: 'Je kunt een kind leren kalmeren, maar niet met een strafhoek: wel met een fijne plek en spelletjes.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Zelfregulatie ontwikkelt zich eerst samen met de ouder en daarna geleidelijk zelfstandig. Hoe vaker je kind samen met een rustige volwassene tot rust is gekomen, hoe beter hij die weg leert.',
+      'Langzaam en diep ademen (vooral lang uitademen) vertraagt de hartslag en zet de “gevaarstand” van het lichaam uit. Kinderen leren dat beter via spel dan via instructies.',
+    ],
+    tryToday: [
+      'Maak samen met je kind een klein “rusthoekje” in huis: een kussen, een knuffel, een of twee boekjes, gevoelskaartjes. Het is geen strafplek, maar een plek waar je altijd naartoe mag.',
+      'Het spelletje “bloem en kaarsje”: ruik aan de bloem (adem in door je neus), blaas het kaarsje uit (adem langzaam uit door je mond). Vijf keer.',
+      'Oefen samen op een rustig moment: “Hoe voelt ons lijf als we boos zijn? Kom, we oefenen het ademen nu we rustig zijn, dan weten we het nog als het nodig is.”',
+      'Ga met een jong kind samen naar het hoekje: “Kom, we gaan samen even naar het rusthoekje.”',
+    ],
+    mistakes: [
+      'Het hoekje als straf gebruiken: “Ga in de hoek staan!” Dan gaat je kind die plek vermijden.',
+      'Een ademoefening voor het eerst willen aanleren midden in een driftbui. Een vaardigheid leer je op rustige momenten.',
+      'Verwachten dat hij “meteen” rustig is. Een groot gevoel kan 10–20 minuten nodig hebben om te zakken.',
+    ],
+    byAge: {
+      '3-6': 'Een knuffel op zijn buik leggen en “de knuffel wiegen met je adem” werkt heel goed.',
+      '6-12': 'Laat je kind zijn eigen lijstje schrijven met dingen die helpen om rustig te worden: muziek, tekenen, een rondje lopen, water drinken. Een zelfgekozen manier gebruikt hij vaker.',
+    },
+    specialist: [
+      'Als je kind bijna nooit tot rust kan komen of zich in boze momenten gevaarlijk gedraagt — zoek hulp bij een kinderpsycholoog.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Grote gevoelens bij schoolkinderen',
+    summary: 'Boosheid, schaamte, jaloezie, teleurstelling: op de basisschoolleeftijd worden gevoelens ingewikkelder, en je kind heeft hulp nodig om ze te begrijpen.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Een schoolkind kan zijn gevoelens al verbergen, en daarom barsten grote gevoelens vaak thuis los, bij de veiligste persoon — bij jou. Prikkelbaarheid na school is vaak de vermoeidheid van een hele dag “je inhouden”.',
+      'Op deze leeftijd begint het vergelijken met anderen. Schaamte en het gevoel “ik ben slecht” kunnen eruitzien als boosheid. Hoe beter je kind zijn gevoel kan benoemen, hoe makkelijker het wordt om ermee om te gaan.',
+    ],
+    tryToday: [
+      'Bestook hem direct na school niet met vragen. Eerst iets te eten, stilte of een knuffel, praten komt later.',
+      'Oefen samen de zin “gevoel + behoefte”: “Ik voel me …, omdat … . Ik heb … nodig.”',
+      'Vertel een vergelijkbaar verhaal uit je eigen jeugd: “Toen ik 9 was, schaamde ik me ook zo…”',
+      'Bespreek een uitbarsting achteraf zonder te beschuldigen: “Wat gebeurde er? Wat voelde je in je lijf? Wat zou de volgende keer helpen?”',
+    ],
+    mistakes: [
+      'Het gevoel kleiner maken: “Daar hoef je toch niet om te huilen.” Voor hem is het groot.',
+      'Meteen met een oplossing komen. Soms wil je kind gewoon gehoord worden.',
+      'Boosheid bij meisjes en verdriet bij jongens “niet passend” vinden. Elk gevoel is normaal voor elk kind.',
+    ],
+    specialist: [
+      'Langer dan twee weken verdriet, verlies van interesse, veranderingen in slaap en eetlust, weigeren naar school te gaan.',
+      'Zelfbeschadiging of praten over de dood: zoek meteen professionele hulp; is er direct gevaar, bel {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Zeuren en drenzen',
+    summary: 'Zeuren werkt op je zenuwen, maar vaak is het een signaal van vermoeidheid of behoefte aan aandacht.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Kinderen leren snel welk gedrag werkt. Als zeuren uiteindelijk oplevert wat hij wil, gaat hij ermee door. Aandacht — zelfs negatieve aandacht — versterkt gedrag.',
+      'Tegelijk is zeuren vaak een teken van honger, moeheid of te lang geen aandacht gehad hebben. Als je op de oorzaak reageert, neemt het gedrag snel af.',
+    ],
+    tryToday: [
+      'Speel op een rustig moment het spelletje “sterke stem”: zeg hetzelfde verzoek met een zeurstem en met een gewone stem, en lach erom.',
+      'Zeg rustig als hij zeurt: “Met je gewone stem kan ik je veel beter horen.” Reageer meteen en enthousiast als hij het met zijn gewone stem vraagt.',
+      'Neem zelf het initiatief gedurende de dag: geef vaak kort aandacht zonder reden — oogcontact, een knuffel, “ik zie je”.',
+    ],
+    mistakes: [
+      'Eerst “nee” zeggen en als het zeuren aanhoudt “oké, hier heb je het”. Dat leert je kind het sterkst om te zeuren.',
+      'Het zeuren belachelijk maken of nadoen om hem te beschamen.',
+    ],
+    specialist: [
+      'Als je kind naast het zeuren vaak moe en bleek lijkt of minder eetlust heeft — ga naar een arts om lichamelijke oorzaken uit te sluiten.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Positief opvoeden: grenzen en warmte samen',
+    summary: 'De beste resultaten halen niet de strenge ouders en ook niet de ouders die alles toestaan, maar ouders die zowel warm als duidelijk zijn.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In de jaren zestig beschreef psycholoog Diana Baumrind opvoedstijlen langs twee dimensies: warmte (liefde, aandacht, responsiviteit) en eisen/structuur (duidelijke verwachtingen, grenzen). De “autoritatieve” stijl, waarin beide hoog zijn, bleek samen te hangen met de beste uitkomsten: zelfstandigere kinderen met meer zelfvertrouwen en minder probleemgedrag.',
+      'In de decennia daarna bevestigden meta-analyses van honderden studies dit: een warme relatie en grenzen met uitleg hangen samen met minder agressie en regelovertreding, harde controle en straf juist met meer probleemgedrag.',
+      'De American Academy of Pediatrics (2018) en de WHO (2022) raden ouders dezelfde weg aan: een positieve band opbouwen, goed gedrag zien en versterken, duidelijke verwachtingen en rustige gevolgen. Lichamelijk straffen en vernederende woorden worden afgeraden.',
+    ],
+    tryToday: [
+      'Formuleer één regel positief: niet “niet rennen”, maar “binnen lopen we”.',
+      'Vertel vooraf wat je verwacht: “In de winkel houd je mijn hand vast en in het karretje gaat alleen wat op het lijstje staat.”',
+      'Zie vandaag vijf keer goed gedrag en benoem het precies: “Je hebt je tas zelf opgehangen, dankjewel!” Het gedrag waar je aandacht naartoe gaat, groeit.',
+      'Stel de grens rustig, kort en vriendelijk, en doe dan wat je zegt. Geen herhaalde waarschuwingen.',
+    ],
+    mistakes: [
+      'Liefde en grenzen tegenover elkaar zetten. “Ik hou van je, en daarom sta ik het niet toe” — die twee gaan prima samen.',
+      'Een regel de ene dag handhaven en de volgende dag vergeten. Consequent zijn is belangrijker dan streng zijn.',
+      'Alleen op fouten reageren. Als je kind alleen met probleemgedrag aandacht krijgt, gaat hij dat herhalen.',
+    ],
+    byAge: {
+      '1-3': 'Meer omgeving dan woorden: zet gevaarlijke spullen buiten bereik en bewaar “nee” voor de echt belangrijke dingen.',
+      '3-6': '3–4 eenvoudige gezinsregels zijn genoeg. Teken ze met plaatjes en hang ze op een plek waar iedereen ze ziet.',
+      '6-12': 'Bespreek de regels samen en spreek de gevolgen van tevoren af. Als je kind een deel van de regel zelf heeft bedacht, houdt hij zich er beter aan.',
+    },
+    specialist: [
+      'Als gedragsproblemen ondanks al je inspanningen het gezinsleven, de opvang of school maandenlang ontregelen — een kinderpsycholoog of oudertraining (bijvoorbeeld PCIT, Triple P) is zeer effectief.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Waarom slaan niet werkt, en wat wel',
+    summary: 'Een tik kan op dat moment gehoorzaamheid opleveren, maar maakt gedrag op lange termijn slechter. Het wetenschappelijk bewijs is hierover heel duidelijk.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In 2016 brachten Gershoff en Grogan-Kaylor 75 studies samen met in totaal meer dan 160.000 kinderen. De uitkomst: een tik (slaan) hangt bij kinderen niet samen met enig positief effect op lange termijn, maar juist met meer agressie, antisociaal gedrag, psychische problemen en een zwakkere band met de ouder. Dat verband is ook te zien bij “lichte” tikken of tikken “uit liefde”.',
+      'De reden is eenvoudig: slaan leert een kind niet wat hij wel moet doen, alleen om bang te zijn. Bovendien laat het zien dat problemen met geweld worden opgelost. Schreeuwen, dreigen en vernederen hebben een vergelijkbaar effect: in onderzoek hangt harde verbale discipline samen met meer gedragsproblemen en depressieve klachten in de jaren daarna.',
+      'De American Academy of Pediatrics (2018) en de WHO raden lichamelijk straffen en vernederende woorden af. Wat wel werkt: een warme band, duidelijke regels, goed gedrag versterken, logische gevolgen en tijd om tot rust te komen.',
+    ],
+    tryToday: [
+      'Kies voor jezelf een “stopsignaal”: als je boosheid opkomt, steek je hand in je zak of zet een stap achteruit en tel tot 10.',
+      'Stop gevaarlijk gedrag lichamelijk maar zonder pijn te doen: houd zijn hand vast, neem je kind op schoot, pak het voorwerp weg.',
+      'Leer hem wat hij de volgende keer kan doen: “Als je broer je speelgoed afpakt, kun je “geef terug!” zeggen of naar mij komen.”',
+      'Heb je toch geslagen: bied je excuses aan, neem de verantwoordelijkheid voor je eigen gedrag en vertel wat je plan is. Zo leert je kind ook hoe je een fout herstelt.',
+    ],
+    mistakes: [
+      'De gedachte “Ik heb ook klappen gehad en ik ben prima terechtgekomen”. Veel mensen zijn ondanks dat goed terechtgekomen, maar onderzoek laat zien dat het risico gemiddeld groter wordt.',
+      'Slaan bewaren als “laatste redmiddel”. Het laatste redmiddel is: pauze nemen om te kalmeren en hulp vragen.',
+      'Lichamelijke straf vervangen door een andere vernederende methode (beschamen, dreigen, liefde terugtrekken).',
+    ],
+    byAge: {
+      '1-3': 'De meest effectieve methodes op deze leeftijd: afleiden, de omgeving aanpassen, je kind rustig weghalen van een gevaarlijke plek.',
+      '3-6': 'Logische gevolgen en “time-in” (bij jou tot rust komen) werken goed.',
+      '6-12': 'Een privilege kort beperken (bijvoorbeeld schermtijd) en het probleem samen oplossen.',
+    },
+    specialist: [
+      'Als je merkt dat je jezelf in boze momenten niet in de hand hebt en je kind iets zou kunnen aandoen — dat is een goede reden om hulp te vragen. Een psycholoog of oudertraining kan dit echt veranderen.',
+      'Als je kind of jij in gevaar bent, of als er geweld in huis is, bel dan meteen {emergency}.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Gevolg of straf: wat is het verschil?',
+    summary: 'Straf is gericht op pijn doen, een gevolg op leren. Het beste gevolg hangt samen met het gedrag, is respectvol en is vooraf bekend.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'De gedragspsychologie laat zien dat gedrag vooral verandert door wat erop volgt. Maar straffen (slaan, vernederen, langdurig iets afpakken) wekken angst en wrok op, en je kind gaat vooral nadenken over “hoe word ik niet betrapt”.',
+      'Een logisch gevolg hangt direct samen met het gedrag, is kort en leert iets: met verf op de muur getekend — samen schoonmaken; de fietsregel overtreden — vandaag geen fiets. Natuurlijke gevolgen (zonder jas naar buiten — kou gehad) zijn de sterkste leermeester, zolang ze veilig zijn.',
+    ],
+    tryToday: [
+      'De “3 R”-check: hangt het gevolg samen met het gedrag (Related), is het respectvol (Respectful), is het redelijk (Reasonable)?',
+      'Benoem het gevolg vooraf: “Als je het speelgoed niet opruimt, gaat het morgen even uitrusten in de doos.” En voer het dan rustig uit.',
+      'Houd het gevolg kort: één dag is genoeg. Een verbod van een maand leert niets extra’s, het kwetst alleen.',
+      'Na het gevolg een “schone lei”: geen preek, we beginnen opnieuw.',
+    ],
+    mistakes: [
+      'In je boosheid een gevolg verzinnen: “Een jaar geen fiets!” Dat blijkt niet uitvoerbaar en je woorden verliezen hun waarde.',
+      'Straf die niets met het gedrag te maken heeft: huiswerk niet gemaakt — niet naar het verjaardagsfeestje.',
+      'Het gevolg uitvoeren met spot of een “zie je wel?”.',
+    ],
+    byAge: {
+      '3-6': 'Het gevolg moet direct komen en heel kort zijn. Uren later legt je kind geen verband meer met het gedrag.',
+      '6-12': 'Bepaal de gevolgen samen. Je kind houdt zich beter aan een regel die hij eerlijk vindt.',
+    },
+    specialist: [
+      'Als geen enkel gevolg werkt en het gedrag gevaarlijk is of zo heftig dat het gezin erdoor uitgeput raakt — overleg met een kinderpsycholoog of over een oudertraining.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Hoe praat je zonder te schreeuwen?',
+    summary: 'Schreeuwen geeft even lucht, maar je kind went aan het volume en luistert juist minder. Rustig en dichtbij praten is krachtiger.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'In onderzoek hangt opvoeden met regelmatig schreeuwen, schelden en vernederende woorden samen met meer gedragsproblemen en depressieve klachten in de jaren daarna, zelfs als de relatie verder warm is. Een van de redenen: schreeuwen zet het stresssysteem van je kind aan, en in plaats van te luisteren schiet hij in de verdediging.',
+      'Het goede nieuws: als ouder jezelf reguleren is een vaardigheid die je kunt leren. Schreeuwen is vaak een signaal van vermoeidheid, honger en overbelasting bij de ouder, niet van “een slechte ouder” zijn.',
+    ],
+    tryToday: [
+      'Roep niet van een afstand, maar loop naar je kind toe, ga op zijn hoogte zitten, maak oogcontact, zeg zijn naam en praat in een korte zin.',
+      'Als je je stem wilt verheffen, doe dan het omgekeerde: fluister. Kinderen luisteren nieuwsgierig naar gefluister.',
+      'Houd vandaag bij wanneer je schreeuwt. Op welk moment het vaakst? Maak een plan voor dat moment (bijvoorbeeld een tussendoortje, dingen van tevoren klaarzetten).',
+      'Heb je geschreeuwd, herstel het dan: “Ik schreeuwde, dat was niet goed. Ik was boos, maar ik had mijn stem niet moeten verheffen.”',
+    ],
+    mistakes: [
+      'Jezelf na elke fout de schuld geven. Dat zorgt de volgende keer voor nog meer spanning. Het doel is niet perfectie, maar minder vaak en het herstellen.',
+      'Zeggen: “Jij laat me schreeuwen.” Voor onze eigen gevoelens zijn wij zelf verantwoordelijk.',
+    ],
+    specialist: [
+      'Als boosheid en prikkelbaarheid bijna elke dag uit de hand lopen, samen met slapeloosheid, somberheid of hopeloosheid — praat met een arts of psycholoog. Depressie en angst bij ouders zijn goed te behandelen.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out of time-in?',
+    summary: 'Een korte pauze om af te koelen kan werken, maar wat jonge kinderen vooral nodig hebben is geen afzondering, maar nabijheid die helpt om rustig te worden.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'De klassieke “time-out” (een rustige pauze van een paar minuten) is onderzocht binnen sommige oudertrainingen, en bij juiste toepassing (kort, rustig, zonder vernedering, binnen een warme relatie) bleek die niet schadelijk. Maar dat betekent niet een kind in een kamer opsluiten of bang maken.',
+      'Bij een “time-in” komt je kind bij jou tot rust. Voor jonge kinderen past dat beter, omdat ze nog co-regulatie nodig hebben. In beide gevallen is het doel niet straffen, maar tot rust komen en “opnieuw beginnen”.',
+    ],
+    tryToday: [
+      'Vuistregel: ongeveer één minuut per levensjaar, maximaal 5 minuten.',
+      'Kies een rustige plek, maar geen enge. Sluit je kind nooit op in een donkere kamer.',
+      'Voor een time-in: “Kom maar naast me zitten. We ademen samen.”',
+      'Na de pauze een kort “we beginnen opnieuw”, geen preek.',
+    ],
+    mistakes: [
+      'Time-outs lang, vaak en met dreigementen gebruiken.',
+      'De pauze combineren met vernedering: “Ga weg, ik wil je niet zien.”',
+    ],
+    specialist: [
+      'Als je kind bij elke pauze vreselijke angst of paniek ervaart, of als momenten van scheiding hem buitensporig van streek maken — praat erover met een professional.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Gezinsregels: weinig, duidelijk, consequent',
+    summary: 'Kinderen testen grenzen, omdat ze willen weten of die er nog staan. Een stevige grens geeft een gevoel van veiligheid.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Een voorspelbare omgeving kalmeert het stresssysteem van je kind. Duidelijke regels en een vast dagritme hangen in onderzoek samen met beter slapen, minder gedragsproblemen en een sterkere zelfbeheersing.',
+      'De regels die het best werken zijn er weinig (3–5), zijn positief geformuleerd en worden door beide ouders op dezelfde manier toegepast.',
+    ],
+    tryToday: [
+      'Houd een gezinsoverleg: iedereen stelt een regel voor, en samen kiezen jullie 3–5 belangrijkste regels.',
+      'Schrijf de regels positief op: “Zachte handen”, “Als iemand praat, luisteren we naar elkaar”, “Na het eten gaat je bord naar de keuken”.',
+      'Spreek naast de regels ook de gevolgen af.',
+      'Laat volwassenen zich ook aan de regels houden. Een kind kijkt meer naar je voorbeeld dan naar je woorden.',
+    ],
+    mistakes: [
+      'Voor elk nieuw probleem een nieuwe regel verzinnen. Te veel regels is hetzelfde als geen regels.',
+      'Bij mama de ene regel, bij papa of oma een andere. Volwassenen moeten het eerst onderling eens worden.',
+    ],
+    specialist: [
+      'Als er in het gezin voortdurend gespannen conflicten zijn over regels, kan een gezinstherapeut helpen.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'Een kind dat “Nee!” zegt: omgaan met koppigheid',
+    summary: 'De “nee”-fase is de ontdekking van je kind dat hij “een eigen persoon” is. Niet ertegen vechten, maar keuzes geven werkt.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'In het tweede levensjaar ontdekt je kind dat hij een eigen wil heeft. Autonomie is een van de psychologische basisbehoeften: hoe meer gevoel van controle je kind krijgt, hoe meer hij bereid is mee te werken.',
+      'Onderzoek laat zien dat “controlerende” taal (“Nu meteen aankleden!”) de weerstand vergroot, terwijl keuzes en uitleg samenwerking bevorderen.',
+    ],
+    tryToday: [
+      'Geef twee keuzes die allebei oké zijn: “Eerst tandenpoetsen of eerst je pyjama?”',
+      'Gebruik een mededeling in plaats van een ja/nee-vraag: “Nu is het tijd om je aan te kleden”, niet “Zullen we ons aankleden?”',
+      'Maak er een spelletje van: “Eens kijken wie het snelst zijn sokken aan heeft — jij of de beer?”',
+      'Laat onbelangrijke strijd los: als zijn shirt achterstevoren zit, vergaat de wereld niet.',
+    ],
+    mistakes: [
+      'Van elk “nee” een machtsstrijd maken.',
+      'Een keuze geven en de keuze van je kind daarna niet accepteren.',
+    ],
+    specialist: [
+      'Als je kind bijna op geen enkel verzoek reageert, niet op zijn naam reageert of moeite heeft met contact maken — ga naar een arts voor een ontwikkelingsonderzoek.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

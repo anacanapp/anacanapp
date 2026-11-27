@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useUserStore } from '@/store/userStore';
 import { mapRowsTranslation } from '@/lib/tr';
+import { resolvePublicStorageUrl } from '@/lib/illustration-image';
 
 // Default placeholder for months without illustrations
 export const DEFAULT_BABY_ILLUSTRATION = '/placeholder.svg';
@@ -45,7 +46,8 @@ export const useBabyIllustrationByMonth = (monthNumber: number) => {
   const result = useMemo(() => {
     const illustration = illustrations.find(i => i.month_number === monthNumber);
     return {
-      imageUrl: illustration?.image_url || DEFAULT_BABY_ILLUSTRATION,
+      // Köhnə (dayandırılmış Azure) host URL-ləri Google Storage-a yönləndirilir.
+      imageUrl: resolvePublicStorageUrl(illustration?.image_url) || DEFAULT_BABY_ILLUSTRATION,
       title: illustration?.title || null,
       description: illustration?.description || null,
       hasIllustration: !!illustration

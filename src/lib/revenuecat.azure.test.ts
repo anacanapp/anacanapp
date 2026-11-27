@@ -132,3 +132,63 @@ it('Source purchase and restore reject a stale RevenueCat account binding', asyn
   expect((await rc.restorePurchases(USER)).success).toBe(false);
   expect(mocks.purchasePackage).not.toHaveBeenCalled(); expect(mocks.restorePurchases).not.toHaveBeenCalled();
 });
+
+it('treats RevenueCat string code "20" as a pending payment and "1" as a cancellation', async () => {
+  vi.stubEnv('MODE', 'production');
+  const rc = await import('./revenuecat');
+  mocks.purchasePackage.mockRejectedValue({ code: '20', message: 'The payment is pending.' });
+  expect(await rc.purchasePackage({ identifier: 'fixture' })).toEqual({ success: false, error: 'PURCHASE_PENDING' });
+  mocks.purchasePackage.mockRejectedValue({ code: '1', message: 'Purchase was cancelled.' });
+  expect(await rc.purchasePackage({ identifier: 'fixture' })).toEqual({ success: false, error: 'USER_CANCELLED' });
+  mocks.purchasePackage.mockRejectedValue({ code: '0', message: 'English SDK text' });
+  expect((await rc.purchasePackage({ identifier: 'fixture' })).error).toBe('UNKNOWN');
+  // Store call finished without the entitlement (Ask to Buy / deferred): pending, not failed.
+  mocks.purchasePackage.mockResolvedValue({ customerInfo: { entitlements: { active: {} } } });
+  expect((await rc.purchasePackage({ identifier: 'fixture' })).error).toBe('PURCHASE_PENDING');
+});
+
+it('StoreKit sells the yearly plan when intro eligibility is unknown and the user saw both prices', async () => {
+  vi.stubEnv('MODE', 'production');
+  const rc = await import('./revenuecat');
+  const pkg = { product: { identifier: 'yearly', price: 29.99, currencyCode: 'USD', introPrice: { price: 19.99 } } };
+  mocks.checkTrialOrIntroductoryPriceEligibility.mockRejectedValue(new Error('lookup failed'));
+  mocks.purchasePackage.mockResolvedValue({ customerInfo: { entitlements: { active: { 'Anacan LLC Pro': {} } } } });
+  expect((await rc.purchasePackage(pkg, { productId: 'yearly', price: 29.99, currency: 'USD' })).error).toBe('PURCHASE_OPTION_UNAVAILABLE');
+  expect((await rc.purchasePackage(pkg, { productId: 'yearly', price: 29.99, currency: 'USD', introUncertain: true })).success).toBe(true);
+  expect(mocks.purchasePackage).toHaveBeenCalledOnce();
+});
+
+it('Android plan change replaces the active Play subscription instead of billing twice', async () => {
+  vi.stubEnv('MODE', 'production'); mocks.platform = 'android';
+  const rc = await import('./revenuecat');
+  const yearly = { id: 'yearly-plan', isBasePlan: true, fullPricePhase: { billingPeriod: { iso8601: 'P1Y' } }, pricingPhases: [{ price: { amountMicros: 29990000 } }] };
+  const pkg = { product: { identifier: 'premium.yearly:yearly-plan', subscriptionOptions: [yearly] } };
+  mocks.getCustomerInfo.mockResolvedValue({ customerInfo: { entitlements: { active: { 'Anacan LLC Pro': {
+    store: 'PLAY_STORE', productIdentifier: 'premium.monthly', productPlanIdentifier: 'monthly-plan' } } } } });
+  mocks.purchaseSubscriptionOption.mockResolvedValue({ customerInfo: { entitlements: { active: { 'Anacan LLC Pro': {} } } } });
+  expect((await rc.purchasePackage(pkg, undefined, undefined, { ownPremium: true, householdPremium: false })).success).toBe(true);
+  expect(mocks.purchaseSubscriptionOption).toHaveBeenCalledExactlyOnceWith({ subscriptionOption: yearly,
+    googleProductChangeInfo: { oldProductIdentifier: 'premium.monthly', prorationMode: 1 } });
+});
+
+it.each([
+  ['web/promo own Premium without a store entitlement', null, { ownPremium: true, householdPremium: false }, 'PREMIUM_SOURCE_NON_STORE'],
+  ['household Premium', null, { ownPremium: false, householdPremium: true }, 'PREMIUM_SOURCE_HOUSEHOLD'],
+  ['an App Store subscription on Android', { store: 'APP_STORE', productIdentifier: 'yearly' }, { ownPremium: true, householdPremium: false }, 'PREMIUM_MANAGED_ELSEWHERE'],
+])('refuses a store purchase that would double charge: %s', async (_name, entitlement, premium, error) => {
+  vi.stubEnv('MODE', 'production'); mocks.platform = 'android';
+  const rc = await import('./revenuecat');
+  mocks.getCustomerInfo.mockResolvedValue({ customerInfo: { entitlements: { active: entitlement ? { 'Anacan LLC Pro': entitlement } : {} } } });
+  const pkg = { product: { identifier: 'premium.yearly:yearly-plan', subscriptionOptions: [{ id: 'yearly-plan', isBasePlan: true, pricingPhases: [{}] }] } };
+  expect(await rc.purchasePackage(pkg, undefined, undefined, premium)).toEqual({ success: false, error });
+  expect(mocks.purchaseSubscriptionOption).not.toHaveBeenCalled();
+});
+
+it('restore distinguishes nothing to restore from a network failure', async () => {
+  vi.stubEnv('MODE', 'production');
+  const rc = await import('./revenuecat');
+  mocks.restorePurchases.mockResolvedValue({ customerInfo: { entitlements: { active: {} } } });
+  expect(await rc.restorePurchases()).toMatchObject({ success: false, reason: 'none' });
+  mocks.restorePurchases.mockRejectedValue({ code: '10', message: 'Network error' });
+  expect(await rc.restorePurchases()).toMatchObject({ success: false, reason: 'network' });
+});

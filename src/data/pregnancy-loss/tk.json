@@ -1,0 +1,357 @@
+{
+ "ui": {
+  "section_title": "Meniň göwreliligim",
+  "dates_row": "Göwrelilik seneleri",
+  "dates_sub": "Dogluş senesi we hepdeler",
+  "birth_row": "Çagam dünýä indi",
+  "birth_sub": "Eje tertibine geçmek",
+  "entry_title": "Göwreliligim tamamlandy",
+  "entry_sub": "Asuda, gysga ädim",
+  "entry_note": "Göwreliligiňiz tamamlanan bolsa, Anacan göwrelilik bildirişlerini derrew togtadýar we dikeliş döwründe size goldaw berýär.",
+  "sheet_title": "Biz örän gynanýarys",
+  "sheet_body": "Bu siziň günäňiz däl. Anacan bu döwürde siziň ýanyňyzda bolar.",
+  "sheet_stop": "Çaga habarlary we göwrelilik bildirişleri derrew togtar",
+  "sheet_keep": "Albomyňyz we söhbetdeşlikleriňiz pozulmaýar, diňe gizlenýär",
+  "sheet_guide": "8 hepdelik dikeliş gollanmasy açylar",
+  "sheet_date": "Bu haçan boldy?",
+  "sheet_date_sub": "Dikeliş hepdeleri şu seneden hasaplanýar",
+  "sheet_partner": "Ýoldaşyma habar bermek",
+  "sheet_partner_sub": "Oňa mylaýym habar ibereris we size nädip goldaw bermelidigini görkezeris",
+  "sheet_continue": "Dowam et",
+  "sheet_back": "Yza gaýtmak",
+  "sheet_error": "Bir zat nädogry boldy. Internet baglanyşygyňyzy barlap, gaýtadan synanyşyň.",
+  "partner_message": "Bu günler goldawyňa örän mätäç 🤍 Anacan-da seniň üçin gollanma açyldy.",
+  "home_hello": "Salam, {name}",
+  "home_title": "Şu gün özüňize mylaýym boluň",
+  "home_week": "Dikeliş · {n}/8-nji hepde",
+  "home_done": "8 hepde yzda galdy",
+  "home_done_body": "Dikeliş her kimde dürli depginde bolýar. Taýýar bolanyňyzda, aşakdaky mümkinçilikler size garaşar. Howlukmagyň zerurlygy ýok.",
+  "home_open_week": "Bu hepdäni görmek",
+  "mood_title": "Şu gün özüňizi nähili duýýarsyňyz?",
+  "moods": [
+   "Örän kyn",
+   "Gamgyn",
+   "Boş",
+   "Asuda",
+   "Birneme gowy"
+  ],
+  "mood_reply": [
+   "Şu gün örän kyn we bu düşnükli. Özüňizi hiç zat etmäge mejbur etmäň. Islän bolsaňyz, birine ýazyň ýa-da Anacan.AI bilen gürleşiň.",
+   "Gaýgy dowam edýän söýgüdir. Aglasyňyz gelse, aglaň. Bu duýgular kem-kemden ýumşar.",
+   "Ýitgiden soň özüňi boş duýmak örän köp duş gelýär. Şu gün bir kiçijik zat ediň: biraz suw içiň, gysga gezelenç ediň, bir zat iýiň.",
+   "Asuda günler hem bolýar. Günäkärlik duýman, ondan lezzet almaga özüňize rugsat beriň.",
+   "Özüňi gowy duýmak unutmak diýmek däl. Bu pursatdan lezzet almaga özüňize rugsat beriň."
+  ],
+  "mood_saved": "Saklandy",
+  "warn_title": "Sizde şular bar bolsa, derrew lukmana ýüz tutuň:",
+  "warn_body": "köp gan gelme, 38°C-dan ýokary temperatura, güýçli agyry, ýakymsyz ysly bölünip çykmalar ýa-da baş aýlanma.",
+  "check_title": "Beden barlagy",
+  "check_sub": "Aladalandyrýan alamatlar barmy? Bir minutda barlaň",
+  "talk_title": "Gürleşmek isleýärsiňizmi?",
+  "talk_sub": "Anacan.AI sizi ýazgarmazdan diňleýär",
+  "epds_title": "Keýpiňizi barlaň",
+  "epds_sub": "Gysga sorag kagyzy (EPDS), 2 minut",
+  "diary_title": "Duýgularymy ýazmak",
+  "diary_sub": "Keýp gündeligi",
+  "memories_title": "Meniň ýatlamalarym",
+  "memories_sub": "Albom, söhbetdeşlik we hat — diňe siziňki",
+  "ready_title": "Taýýar bolanyňyzda",
+  "ready_sub": "Howlukmaň. Bu mümkinçilikler hemişe şu ýerde bolar.",
+  "ready_cycle": "Siklimi yzarla",
+  "ready_cycle_sub": "Aýbaşy we ovulýasiýa senenamasy",
+  "ready_pregnant": "Men ýene göwreli",
+  "ready_pregnant_sub": "Täze göwreliligi başlamak",
+  "ready_stay": "Häzirlikçe dikeliş tertibinde galýaryn",
+  "ready_stay_sub": "Hiç zat üýtgemeýär",
+  "ready_confirm_cycle": "Dikeliş tertibi ýapylar we aýbaşy senenamasy açylar. Dikeliş gollanmasy Meniň ýatlamalarym bölüminde elýeterli bolup galýar.",
+  "ready_confirm_pregnant": "Dikeliş tertibi ýapylar. Indiki ädimde täze göwreliligiňiziň senelerini girizersiňiz.",
+  "ready_yes": "Hawa, dowam etmek",
+  "ready_no": "Entek däl",
+  "guide_title": "Dikeliş gollanmasy",
+  "guide_sub": "8 hepde, ädimme-ädim",
+  "week": "{n}-nji hepde",
+  "tab_week": "Bu hepde",
+  "tab_signs": "Alamatlar",
+  "tab_faq": "Soraglar",
+  "your_body": "Siziň bedeniňiz",
+  "your_mind": "Siziň duýgularyňyz",
+  "for_you": "Bu hepde siziň üçin",
+  "signs_title": "Beden barlagy",
+  "signs_sub": "Soňky birnäçe günde bellän zatlaryňyzy saýlaň. Bu diagnoz däl.",
+  "signs_none": "Hiç bir duýduryş alamaty saýlanmady. Dynç almagy we özüňize ideg etmegi dowam ediň.",
+  "signs_some": "Bu alamatlar barada ýakyn günlerde lukmanyňyz bilen gürleşiň. Garaşmagyň zerurlygy ýok.",
+  "signs_urgent": "Siz gyssagly alamaty saýladyňyz. Ýeke galmaň: derrew gyssagly kömek gullugyna (112) jaň ediň ýa-da ýakyn biriňizden gelmegini haýyş ediň.",
+  "signs_urgent_group": "Gyssagly",
+  "signs_soon_group": "Ýakyn günlerde lukmana ýüz tutuň",
+  "call": "Jaň et",
+  "faq_title": "Ýygy-ýygydan berilýän soraglar",
+  "disclaimer": "Bu maglumat lukmançylyk maslahatynyň ornuny tutmaýar. Dikeliş her kimde dürli bolýar we ýitginiň haýsy hepdede bolandygyna bagly.",
+  "mem_intro": "Bu ýatlamalar diňe siziňki. Olary başga hiç kim görmeýär. Islän wagtyňyz olara seredip, saklap ýa-da pozup bilersiňiz.",
+  "mem_album": "Göwrelilik albomy",
+  "mem_album_sub": "Suratlary görmek ýa-da pozmak",
+  "mem_chat": "Çaga bilen söhbetdeşlik",
+  "mem_chat_sub": "{n} gün",
+  "mem_chat_empty": "Söhbetdeşlik ýok",
+  "mem_chat_delete": "Söhbetdeşligi pozmak",
+  "mem_chat_delete_confirm": "Söhbetdeşlik bu enjamdan hemişelik pozular. Ynamyňyz kämilmi?",
+  "mem_deleted": "Pozuldy",
+  "mem_letter": "Oňa hat",
+  "mem_letter_sub": "Aýtmak isleýän zadyňyzy ýazyň. Ol diňe şu enjamda saklanýar.",
+  "mem_letter_placeholder": "Eziz...",
+  "mem_save": "Saklamak",
+  "mem_saved": "Saklandy 🤍",
+  "mem_guide": "Dikeliş gollanmasy",
+  "mem_guide_sub": "8 hepdelik gollanma şu ýerde hemişe açyk",
+  "back": "Yza",
+  "p_card_title": "Bu günler onuň ýanynda boluň",
+  "p_card_sub": "Dikeliş · {n}/8-nji hepde · gollanmany açmak",
+  "p_title": "Onuň ýanynda boluň",
+  "p_sub": "Ýitgiden soň goldaw gollanmasy",
+  "p_hero_label": "Dikeliş döwri",
+  "p_tab_now": "Häzir",
+  "p_tab_say": "Näme aýtmaly",
+  "p_tab_you": "Siziň duýgularyňyz",
+  "p_tab_signs": "Alamatlar",
+  "p_phase": "{a}–{b}-nji hepdeler",
+  "p_intro_title": "Onuň ýanynda boluň 🤍",
+  "p_intro_body": "Bu ýitgi ikiňiz üçin hem agyr. Siziň hem gaýgy çekmäge doly hakyňyz bar. Onuň üçin iň möhüm zat dogry sözleri tapmak däl, siziň ýanynda bolmagyňyz.",
+  "p_what_do": "Näme edip bilersiňiz",
+  "p_say_title": "Şeýle diýip bilersiňiz",
+  "p_avoid_title": "Aýtmazlyga synanyşyň",
+  "p_send": "Ugrat",
+  "p_sent": "Iberildi 🤍",
+  "p_phrases_title": "Oňa birnäçe söz ýazyň",
+  "p_phrases_sub": "Bir basyşda habar hökmünde iberilýär.",
+  "p_tasks_title": "Şu gün men başararyn",
+  "p_tasks_sub": "Saýlan zatlaryňyzy oňa iberiň, goý, size näme düşýändigini bilsin.",
+  "p_tasks_send": "Saýlawlarymy oňa ibermek",
+  "p_tasks_message": "Şu gün men şulary öz üstüme alýaryn: {list} 🤍 Sen dynç al.",
+  "p_mood_low_title": "Soňky birnäçe gün onuň üçin örän kyn boldy",
+  "p_mood_low_body": "Soňky 7 günde ol {n} gün keýpini pes diýip belledi. Şu gün onuň bilen köpräk wagt geçiriň we özüni nähili duýýandygyny soraň.",
+  "p_mood_low_long": "Bu 2 hepdeden köp dowam etse, bile lukman ýa-da psiholog bilen gürleşiň.",
+  "p_signs_sub": "Onda bellän zatlaryňyzy saýlaň. Bu diagnoz däl.",
+  "p_hidden_note": "Göwrelilik tabşyryklary, dogluş meýilnamasy we gijeki nobatlar wagtlaýyn gizlenendir."
+ },
+ "weeks": [
+  {
+   "title": "Ilkinji günler",
+   "body": "Bu hepde gan gelme we aýbaşy ýaly sanjylar adaty zat. Tampon däl-de, arassalyk ýassyklaryny ulanyň. Ýitgi göwreliligiň giçki möhletinde bolan bolsa, döşleriňizde süýt emele gelip biler: berk döşlük we sowuk kompresler kömek edýär.",
+   "mind": "Sarsgyn, gussa, gahar, boşluk ýa-da düýbünden hiç zat duýmazlyk — bularyň hemmesi adaty. “Näme üçin?” diýen sorag köp ýüze çykar. Bu siziň günäňiz däl.",
+   "todo": [
+    "Dynç alyň we öý işlerini başgalara goýuň",
+    "Temperaturaňyza we gan gelmä üns beriň",
+    "Ýakyn biriňize ýagdaýyňyzy aýdyň"
+   ]
+  },
+  {
+   "title": "Bedeniňiz bitişýär",
+   "body": "Gan gelme adatça azalýar, käte 1–2 hepde dowam edýär. Köp suw içiň we demre baý iýmit iýiň (et, merjimek, ysmanak). Gan gelme togtaýança basseýnden, wannadan we jynsy gatnaşykdan gaça duruň.",
+   "mind": "Töweregiňizdäki adamlar durmuşa dolanýarlar, siz bolsa henizem agyry çekýärsiňiz. Bu tapawut ýalňyzlyk duýgusyny döredip biler. Duýgularyňyzy gizlemegiň zerurlygy ýok.",
+   "todo": [
+    "Her gün gysga gezelenç — diňe isleseňiz",
+    "Lukmanyňyzyň aýdan gaýtadan baryşyny belläň",
+    "Gaty agyr görünýän soraglara ýoldaşyňyz jogap bersin"
+   ]
+  },
+  {
+   "title": "Gaýgy tolkun-tolkun gelýär",
+   "body": "Ýadawlyk henizem dowam edip biler. Gan gelme togtan bolsa, ýeňil hereket we uky tertibi güýjüňizi dikeltmäge kömek edýär. Göwrelilik testi birnäçe hepde položitel bolup biler we bu adaty zat.",
+   "mind": "Gowy günüň yzyndan kyn gün gelip biler. Gaýgy göni çyzyk däl. Göwreli aýallary we çagalary görmek kyn bolup biler — özüňizi goramak bolýar.",
+   "todo": [
+    "Sizi ýadadýan sosial media hasaplaryny wagtlaýyn sessiz ediň",
+    "Bu barada ýoldaşyňyz bilen gürleşiň",
+    "Özüňiz üçin kiçijik we hoş bir zat ediň"
+   ]
+  },
+  {
+   "title": "Ritm dolanýar",
+   "body": "Köp aýallarda beden şu hepdeler töweregi adaty ritmine dolanýar. Indiki aýbaşyňyz adatça ýitgiden 4–6 hepde soň gelýär we ilkinji gezek birneme başgaça bolup biler.",
+   "mind": "Gündelik durmuşa dolanmak hem kömek edýär, hem ýadadýar. Işe gaýtmaga howlukmaň; mümkin bolsa, ýüküňizi ýeňilleşdiriň.",
+   "todo": [
+    "Işde kime we näçe aýtjakdygyňyzy özüňiz kesgitläň",
+    "Günde bir gezek keýpiňizi belläň",
+    "Gerek bolsa, keýp sorag kagyzyny (EPDS) dolduryň"
+   ]
+  },
+  {
+   "title": "Kiçi ädimler",
+   "body": "Güýjüňiz ýuwaş-ýuwaşdan dolanýar. Deňagramly iýmitleniň we fol kislotasyny içmek barada lukmanyňyz bilen gürleşiň. Gaýtadan baryşy entek etmedik bolsaňyz, ony häzir belläň.",
+   "mind": "Seneler — dogluş möhletiňiz, käbir hepdeler — agyr degip biler. Şol günler üçin öňünden asuda meýilnama düzüň.",
+   "todo": [
+    "Kyn seneler üçin meýilnama düzüň",
+    "Dostuňyz bilen duşuşyň",
+    "Bedeniňiz üçin ýeňil hereketi saýlaň: ýoga, gezelenç"
+   ]
+  },
+  {
+   "title": "Söýgini ýatlamak",
+   "body": "Bedeniňiz esasan dikeldi. Aýbaşyňyz entek gelmedik bolsa, lukmanyňyz bilen gürleşiň.",
+   "mind": "Käbir maşgalalar kiçijik ýatlama dessuryny geçirýärler: hat ýazmak, agaç oturtmak, şem ýakmak. Diňe isleseňiz.",
+   "todo": [
+    "Meniň ýatlamalarym bölüminde oňa hat ýazyň",
+    "Size näme kömek edýändigini belläň",
+    "Ýoldaşyňyz bilen bile wagt geçiriň"
+   ]
+  },
+  {
+   "title": "Özüňe dolanmak",
+   "body": "Uky, iýmit we hereket dikelişiň esasydyr. Täze göwrelilik barada pikir edýän bolsaňyz, haçan taýýardygyňyzy lukmanyňyz bilen bile kesgitläň.",
+   "mind": "Gaýgy ýumşasa-da, ol doly ýitmezligi mümkin. Bu siziň unutmandygyňyzy aňladýar. Gaýgy 2 hepdeden köp gündelik durmuşa päsgel berse, hünärmen bilen gürleşiň.",
+   "todo": [
+    "Keýp sorag kagyzyny gaýtadan doldurmak",
+    "Geljek üçin bir kiçijik meýilnama düzüň",
+    "Özüňizi öwüň: siz şu ýere çenli geldiňiz"
+   ]
+  },
+  {
+   "title": "Öňdäki ýol",
+   "body": "8 hepde yzda galdy. Bedeniňiz dikeldi, ýöne duýgularyňyz üçin wagt çägi ýok.",
+   "mind": "Taýýar bolanyňyzda, sikliňizi yzarlap başlap ýa-da täze meýilnamalara geçip bilersiňiz. Taýýar bolmasaňyz, bu hem bolýar. Anacan sizi howlukdyrmaz.",
+   "todo": [
+    "Taýýar bolanyňyzda mümkinçiliklere serediň",
+    "Size goldaw beren adamlara minnetdarlyk bildiriň",
+    "Gerek bolanda bu gollanma islän wagtyňyz dolanyň"
+   ]
+  }
+ ],
+ "signs": {
+  "urgent": [
+   "Köp gan gelme: bir sagadyň içinde arassalyk ýassygyny doly ezýär",
+   "38°C-dan ýokary temperatura ýa-da titreme",
+   "Güýçli ýa-da güýçlenýän garyn agyrysy",
+   "Ýakymsyz ysly bölünip çykmalar",
+   "Baş aýlanma, huşuňy ýitirmek",
+   "Özüňe zyýan bermek barada pikirler"
+  ],
+  "soon": [
+   "Gan gelme 2 hepdeden köp dowam edýär",
+   "8 hepdeden soň hem aýbaşym gelmedi",
+   "Gussa ýa-da boşluk 2 hepdeden köp wagt bäri gündelik durmuşyma päsgel berýär",
+   "Ukym we işdäm düýbünden bozuldy",
+   "Hiç zat maňa şatlyk getirmeýär"
+  ]
+ },
+ "faq": [
+  {
+   "q": "Bu meniň günämmi?",
+   "a": "Ýok. Irki ýitgileriň köpüsi çagadaky hromosoma tapawutlary sebäpli bolýar we hiç bir hereket, stres, iýmit ýa-da iş olara sebäp bolmaýar."
+  },
+  {
+   "q": "Bu näçe ýygy bolýar?",
+   "a": "Tassyklanan göwreliliklerin takmynan 10–20%-i ýitgi bilen tamamlanýar. Siz ýeke däl; adamlar bu barada seýrek gürleşýärler."
+  },
+  {
+   "q": "Haçan lukmana ýüz tutmaly?",
+   "a": "Gyssagly alamatlar bar bolsa, derrew. Bolmasa, lukmanyňyzyň bellän gaýtadan baryşyna gidiň we soraglaryňyzy öňünden ýazyň."
+  },
+  {
+   "q": "Aýbaşym haçan geler?",
+   "a": "Adatça 4–6 hepdeden soň. Ilkinji aýbaşy adatdakydan köp ýa-da az bolup biler. 8 hepde geçip, henizem gelmedik bolsa, lukmana ýüz tutuň."
+  },
+  {
+   "q": "Bu indiki göwreliligimde hem bolarmy?",
+   "a": "Bir ýitgiden soň aýallaryň köpüsiniň sagdyn göwreliligi bolýar. Gaýtalanýan ýitgiler bolan bolsa, lukmanyňyz goşmaça barlaglary teklip edip biler."
+  },
+  {
+   "q": "Haçan ýene synanyşyp bileris?",
+   "a": "Bu siziň beden we duýgy taýdan özüňizi näçe taýýar duýýandygyňyza bagly. Wagty lukmanyňyz bilen bile kesgitläň; howlukmagyň zerurlygy ýok."
+  },
+  {
+   "q": "Bu duýgular haçan geçer?",
+   "a": "Munuň üçin kesgitli möhlet ýok. Gaýgy wagtyň geçmegi bilen ýumşaýar. Ol 2 hepdeden köp gündelik durmuşa päsgel berse, psiholog bilen gürleşmek kömek edýär."
+  }
+ ],
+ "partner": {
+  "phases": [
+   {
+    "title": "Ilkinji günler: ýanynda boluň",
+    "body": "Onuň bedeni gan gelme we agyry arkaly bitişýär, duýgulary bolsa sarsgyn ýagdaýda. Dogry sözleri gözlemäň — ýanynda bolmak ýeterlik.",
+    "do": [
+     "Öý işlerini we nahary doly öz üstüňize alyň",
+     "Ol düşündirmeli bolmaz ýaly garyndaşlara özüňiz aýdyň",
+     "Lukman kabulyna bile gidiň",
+     "Onuň temperaturasyna we gan gelmesine üns beriň"
+    ]
+   },
+   {
+    "title": "3–4-nji hepdeler: dünýä öňe gidýär, ol entek däl",
+    "body": "Hemmeler durmuşa dolanýar, siz hem bu eýýäm geçen ýaly duýup bilersiňiz. Onuň üçin gaýgy tolkun-tolkun gelmegini dowam edýär.",
+    "do": [
+     "Her gün “Şu gün ýagdaýyň nähili?” diýip soraň we jogabyny diňläň",
+     "Ony göwreli tanyşlardan we çaga habarlaryndan goraň",
+     "Bile gysga gezelenç ediň",
+     "Onuň duýgularyny “düzetmäge” synanyşmaň"
+    ]
+   },
+   {
+    "title": "5–6-njy hepdeler: kyn seneler",
+    "body": "Dogluş möhleti ýa-da käbir hepdeler oňa agyr degip biler. Olary öňünden biliň we ýanynda boluň.",
+    "do": [
+     "Kyn seneleri senenamaňyzda belläň",
+     "Ýatlama hökmünde bir zat etmek islese, ony goldaň",
+     "Bile wagt geçirmek üçin asuda meýilnamalary teklip ediň",
+     "Öz gaýgyňyz barada hem gürläň"
+    ]
+   },
+   {
+    "title": "7–8-nji hepdeler: bile öňe gitmek",
+    "body": "Onuň bedeni dikelýär, ýöne duýgular henizem dowam edip biler. Geljek meýilnamalary onuň depgininde ara alyp maslahatlaşyň.",
+    "do": [
+     "Ol özi gürrüň açýança täze göwrelilik barada gürlemäň",
+     "Lukman üçin soraglaryňyzy bile taýýarlaň",
+     "Kiçijik şatlyklary meýilleşdiriň",
+     "Gerek bolsa, oňa psiholog tapmaga kömek ediň"
+    ]
+   }
+  ],
+  "say": [
+   "Men şu ýerde.",
+   "Näme gerek bolsa, men ederin.",
+   "Men hem gynanýaryn.",
+   "Bu seniň günäň däl.",
+   "Aglasyň gelse, agla. Men edil şu ýerde.",
+   "Ikimiz hem ony hiç haçan unutmarys."
+  ],
+  "avoid": [
+   "“Ýene synanyşyp bilersiňiz.”",
+   "“Hiç bolmanda ir boldy.”",
+   "“Her zadyň bir sebäbi bar.”",
+   "“Hiç bolmanda…” bilen başlaýan sözlemler",
+   "“Eýýäm unutmalydyň.”",
+   "“Aglama.”"
+  ],
+  "tasks": [
+   "Nahary men bişirýärin",
+   "Öýi men ýygnaýaryn",
+   "Söwdany men edýärin",
+   "Garyndaşlara men jogap berýärin",
+   "Lukman kabulyny men belleýärin",
+   "Jaňlara we habarlara men jogap berýärin",
+   "Şu agşam bile gezelenç edeliň",
+   "Saňa ýyly çaý demleýärin"
+  ],
+  "phrases": [
+   "Men seni şeýle köp söýýärin. Men şu ýerde 🤍",
+   "Şu gün ýagdaýyň nähili? Näme gerek bolsa aýt.",
+   "Bu seniň günäň däl.",
+   "Men hem ony ýatlaýaryn.",
+   "Şu agşam hiç zat etme, hemmesini men edýärin.",
+   "Men sen bilen buýsanýaryn, sen şeýle güýçli."
+  ],
+  "you_title": "Siz hem gaýgy çekýärsiňiz",
+  "you_body": "Erkekler köplenç bu ýitgini dymyp başdan geçirýärler we “Men güýçli bolmaly” diýip duýgularyny gizleýärler. Ýöne siziň hem gaýgy çekmäge doly hakyňyz bar. Bile gaýgy çekmek sizi ýakynlaşdyrýar.",
+  "you_tips": [
+   "Duýgularyňyzy onuň bilen hem paýlaşyň: “Men hem gynanýaryn”",
+   "Ynanýan dostuňyz bilen gürleşiň",
+   "Ukyny, nahary we hereketi ýatdan çykarmaň",
+   "Kyn bolsa, psihologa ýüz tutuň",
+   "Gaýgyňyzy alkogol bilen ýa-da işe gaçmak bilen basyrmaň"
+  ]
+ },
+ "chips": [
+  "🤍 Men şu ýerde",
+  "🤗 Ýagdaýyň nähili?",
+  "🍵 Çaý getireýinmi?",
+  "🛒 Bir zat gerekmi?"
+ ]
+}

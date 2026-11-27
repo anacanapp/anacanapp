@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
-import { Home, Compass, MessageCircle, User, Users, Sparkles, HeartHandshake } from 'lucide-react';
+import { Home, Compass, MessageCircle, User, Users, Sparkles, HeartHandshake, LayoutGrid } from 'lucide-react';
 import { RiApps2AiLine } from 'react-icons/ri';
 import { useUnreadMessages } from '@/hooks/useUnreadMessages';
 import { useUnreadCommunityPosts } from '@/hooks/useUnreadCommunityPosts';
 import { tr } from "@/lib/tr";
 import { useChatChromeHidden } from '@/hooks/useChatChrome';
+import { useAppSetting } from '@/hooks/useAppSettings';
+import { useAuth } from '@/hooks/useAuth';
 
 interface BottomNavProps {
   activeTab: string;
@@ -13,14 +15,22 @@ interface BottomNavProps {
 }
 
 /**
- * Floating glass bottom navigation (redesign v3): a sliding indicator follows the
- * active tab and the AI tab is a solid coral pill. Opaque under html.a-lite.
+ * Floating pill bottom navigation — redesigned to match the
+ * anacan-demo-app concept (blurred white pill, peach active state,
+ * special circular gradient icon for the AI tab).
  * All tabs, badges and translations are unchanged.
  */
 const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps) => {
   const { unreadCount } = useUnreadMessages();
   const { unreadCount: communityUnread } = useUnreadCommunityPosts();
   const hiddenForChat = useChatChromeHidden();
+  // Test: floating glass capsule, only when app_settings.bottom_nav_style is 'capsule'. The default (also while
+  // settings load) is the classic pill, which has no backdrop blur.
+  const navStyle = useAppSetting('bottom_nav_style');
+  const capsule = navStyle === 'capsule';
+  const { profile } = useAuth();
+  const avatarUrl = (profile as { avatar_url?: string | null } | null)?.avatar_url || null;
+  const initial = ((profile as { name?: string | null } | null)?.name || '').trim().charAt(0).toUpperCase();
 
   const womanTabs = [
     { id: 'home', label: tr("bottomnav_esas_6d87f7", 'Əsas'), icon: Home },
@@ -43,17 +53,10 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
 
   if (hiddenForChat) return null;
 
-  const tabs = isPartner ? partnerTabs : visibleWomanTabs;
-  const activeIndex = tabs.findIndex((t) => t.id === activeTab);
-  const rtl = typeof document !== 'undefined' && document.documentElement.dir === 'rtl';
-
   return (
     <div className="a-nav-wrap a-scope" data-ad-bottom-nav>
-      <nav className="a-nav" aria-label="Primary" style={{ ['--a-nav-count' as string]: tabs.length }}>
-        {/* Sliding pill behind the active tab (hidden on the special AI tab, which carries its own fill) */}
-        {activeIndex >= 0 && !tabs[activeIndex].special &&
-          <span className="a-nav-ind" aria-hidden="true" style={{ transform: `translateX(${(rtl ? -1 : 1) * activeIndex * 100}%)` }} />}
-        {tabs.map((tab) => {
+      <nav className={`a-nav${capsule ? ' capsule' : ''}`} aria-label="Primary">
+        {(isPartner ? partnerTabs : visibleWomanTabs).map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
           // Show badge on chat tab for unread messages (both partner and woman)
@@ -65,19 +68,24 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
           return (
             <motion.button
               key={tab.id}
+              data-tour={`tab-${tab.id}`}
               onClick={() => onTabChange(tab.id)}
               className={`a-nav-item${isActive ? ' active' : ''}`}
-              aria-current={isActive ? 'page' : undefined}
               whileTap={{ scale: 0.92 }}
+              aria-label={tab.label}
+              aria-current={isActive ? 'page' : undefined}
             >
-              {tab.special ? (
+              {capsule && tab.id === 'profile' ? (
+                <span className="a-nav-avatar" aria-hidden>
+                  {avatarUrl ? <img src={avatarUrl} alt="" /> : initial || <Icon size={16} strokeWidth={2.2} />}
+                </span>
+              ) : tab.special ? (
                 <span className="a-nav-ai-icon">
-                  <Icon size={15} strokeWidth={2.4} />
+                  <Icon size={capsule ? 21 : 15} strokeWidth={capsule ? 2.1 : 2.4} />
                 </span>
               ) : (
-                <span className="a-nav-ib">
-                  <Icon size={tab.id === 'tools' && !isPartner ? 19 : 21} strokeWidth={isActive ? 2.4 : 2} />
-                </span>
+                capsule && tab.id === 'tools' ? <LayoutGrid size={22} strokeWidth={isActive ? 2.3 : 1.9} />
+                  : <Icon size={capsule ? 22 : tab.id === 'tools' && !isPartner ? 17 : 19} strokeWidth={isActive ? 2.4 : 2} />
               )}
 
               {/* Unread badge */}
@@ -101,7 +109,7 @@ const BottomNav = ({ activeTab, onTabChange, isPartner = false }: BottomNavProps
                 </motion.span>
               )}
 
-              <span className="a-nav-label">{tab.label}</span>
+              {!capsule && <span className="a-nav-label">{tab.label}</span>}
             </motion.button>
           );
         })}

@@ -6,6 +6,7 @@ export const ONBOARDING_OFFERING = 'onboarding_last_chance_2026';
 export const ONBOARDING_OFFER_PRODUCT = 'com.atlasoon.anacan.premium.yearly.onboarding';
 export const ONBOARDING_ANNUAL_PRODUCT = 'com.atlasoon.anacan.premium.yearly';
 export const ONBOARDING_OFFER_OPTION = 'yearly-plan:onboarding-first-year';
+/** Reference prices of the standing offer (docs/ONBOARDING_STORE_OFFER.md); not enforced at runtime. */
 export const ONBOARDING_USD_PRICES = { annual: 29.99, firstYear: 19.99 } as const;
 
 export interface PaidPurchaseRequest {
@@ -14,6 +15,8 @@ export interface PaidPurchaseRequest {
   price: number;
   currency: string;
   paidIntro?: boolean;
+  /** iOS: intro eligibility was unknown and the user was shown both the intro and the regular price. */
+  introUncertain?: boolean;
 }
 export interface StorePlan {
   pkg: any;
@@ -24,6 +27,9 @@ export interface StorePlan {
   renewalPriceString: string;
   kind: 'yearly' | 'monthly';
   request: PaidPurchaseRequest;
+  /** iOS: StoreKit decides at purchase time whether the first-year price applies
+   * (eligibility unknown). price = first-year price, renewalPrice = regular price. */
+  introUncertain?: boolean;
 }
 export const isoPeriod = (period: any): string | null => typeof period === 'string' ? period : period?.iso8601 || null;
 const annual = (period: any) => ['P1Y', 'P12M'].includes(isoPeriod(period) || '');
@@ -47,9 +53,20 @@ export function standardStorePlan(pkg: any, platform: 'ios' | 'android' | 'web',
     money = phaseMoney(base.fullPricePhase); optionId = base.id;
   } else {
     if (!expectedPeriod(product.subscriptionPeriod)) return null;
-    // StoreKit auto-applies eligible introductory offers. Never display the
+    // StoreKit auto-applies eligible introductory offers. Never display only the
     // regular price while an automatic intro price/trial could be charged.
-    if (product.introPrice && eligibility !== 1) return null;
+    if (product.introPrice && eligibility !== 1) {
+      const intro = product.introPrice;
+      // Eligible: annualStorePlan shows the intro. Unknown eligibility (lookup failed,
+      // 0, 3): a paid one-year intro stays buyable with both prices shown; StoreKit
+      // charges the intro when eligible, otherwise the regular price. Free trials never.
+      const uncertainYear = eligibility !== 2 && kind === 'yearly' && Number(intro?.price) > 0 && annual(intro?.period) && intro?.cycles === 1;
+      if (!uncertainYear) return null;
+      const first = { price: Number(intro.price), priceString: intro.priceString || '', currency: money.currency };
+      if (!validMoney(money.price, money.priceString, money.currency) || !validMoney(first.price, first.priceString, first.currency) || first.price >= money.price) return null;
+      return { pkg, ...first, renewalPrice: money.price, renewalPriceString: money.priceString, kind, introUncertain: true,
+        request: { productId: product.identifier, price: money.price, currency: money.currency, introUncertain: true } };
+    }
   }
   if (!validMoney(money.price, money.priceString, money.currency)) return null;
   return { pkg, ...money, renewalPrice: money.price, renewalPriceString: money.priceString, kind,
@@ -81,8 +98,8 @@ export function annualStorePlan(pkg: any, platform: 'ios' | 'android' | 'web', e
   if (!validMoney(first.price, first.priceString, first.currency) || !validMoney(renewal.price, renewal.priceString, renewal.currency)
     || first.currency !== renewal.currency || first.price >= renewal.price
     || standard && (standard.currency !== renewal.currency || Math.abs(renewal.price - standard.price) > 0.000001)) return standard;
-  if (first.currency === 'USD' && (Math.abs(renewal.price - ONBOARDING_USD_PRICES.annual) > .000001
-    || Math.abs(first.price - ONBOARDING_USD_PRICES.firstYear) > .000001)) return standard;
+  // Any store-configured first-year price below the renewal price is shown as is (e.g. a one-day 11.11 offer);
+  // the store remains the source of truth, so campaigns need only a store change, no app release.
   return { pkg, ...first, kind: 'yearly', renewalPrice: renewal.price, renewalPriceString: renewal.priceString,
     request: { productId: product.identifier, optionId, price: first.price, currency: first.currency, paidIntro: platform === 'ios' } };
 }

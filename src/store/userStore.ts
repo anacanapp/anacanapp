@@ -6,6 +6,8 @@ import { normalizeAppLanguage, setCachedAppLanguage } from '@/lib/app-languages'
 import type { LifeStage, UserRole, DailyLog, CycleData, PregnancyData, BabyData, DeliveryType, PostpartumData } from '@/types/anacan';
 import { FRUIT_SIZES } from '@/types/anacan';
 import { getPregnancyWeek, getDayInWeek, getTrimester, calculateDueDate, getRealCalendarAge } from '@/lib/pregnancy-utils';
+import { storedCalendarDate } from '@/lib/stored-date-key';
+import { differenceInCalendarDays } from 'date-fns';
 import { Preferences } from '@capacitor/preferences';
 import { Capacitor } from '@capacitor/core';
 
@@ -77,15 +79,6 @@ interface UserState {
   getPostpartumWeek: () => PostpartumData | null;
 }
 
-const generatePartnerCode = (): string => {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let code = 'ANACAN-';
-  for (let i = 0; i < 4; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return code;
-};
-
 export const useUserStore = create<UserState>()(
   persist(
     (set, get) => ({
@@ -122,8 +115,8 @@ export const useUserStore = create<UserState>()(
           userId: userId || null,
           email: email || null,
           name: name || null,
-          // Only generate partner code if we don't already have one
-          partnerCode: isAuth ? (current.partnerCode || generatePartnerCode()) : null,
+          // The invitation code comes from the server profile (ensure_secure_partner_code).
+          partnerCode: isAuth ? current.partnerCode : null,
         });
       },
 
@@ -213,8 +206,9 @@ export const useUserStore = create<UserState>()(
         if (!lastPeriodDate) return null;
 
         const today = new Date();
-        const lastPeriod = new Date(lastPeriodDate);
-        const daysSincePeriod = Math.floor((today.getTime() - lastPeriod.getTime()) / (1000 * 60 * 60 * 24));
+        const lastPeriod = storedCalendarDate(lastPeriodDate) ?? new Date(lastPeriodDate);
+        // Calendar days, not ms / 24 h: a DST day has 23/25 hours.
+        const daysSincePeriod = differenceInCalendarDays(today, lastPeriod);
         const currentDay = (daysSincePeriod % cycleLength) + 1;
         
         let phase: CycleData['phase'];

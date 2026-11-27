@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Utbrott: vad händer i hjärnan?',
+    summary: 'Ett utbrott är inte ett resultat av dålig uppfostran. Det är stunden då en stor känsla tar över ett ”bromssystem” som fortfarande är litet.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'Känslosystemet djupt inne i hjärnan är starkt redan från födseln: det känner fara, besvikelse och ilska på ett ögonblick. Pannloben, som håller tillbaka känslorna och säger ”vänta, det finns ett annat sätt”, mognar först runt 20 års ålder. Hos ett barn på 2–4 år är skillnaden som störst. Därför hör barnet dig inte under ett utbrott och svarar inte på logik: hjärnans ”tänkande” del är tillfälligt avstängd.',
+      'Barnet kan inte lugna sig själv i stunden utan ”lånar” lugnet från din kropp och din röst. Forskare kallar det samreglering. Ju lugnare du är, desto snabbare återgår barnets stressystem till det normala, och genom upprepning lär sig barnet den vägen till lugn och gör den till sin egen. Att skrika och straffa höjer i stället stresshormonerna och förlänger utbrottet.',
+      'Utbrott kommer ofta i samma situationer: vid trötthet, hunger, övergångar (från lek till hemgång, att lämna lekparken) eller efter ett ”nej”. Om du ser de stunderna komma kan du förebygga mer än hälften av utbrotten.',
+    ],
+    tryToday: [
+      'Lugna dig själv först: ta ett djupt andetag, släpp ner axlarna, sänk rösten. Om du inte är lugn kan barnet inte heller bli det.',
+      'Prata lite. En eller två korta meningar räcker: ”Du är jättearg. Jag är här.”',
+      'Håll det säkert: slår barnet, håll mjukt i handen och flytta undan saker som hen kan skada sig på.',
+      'Krama barnet när hen har lugnat sig, och prata först då, kort: ”Du blev så arg för att leken tog slut. Nästa gång kan du säga ”hjälp mig”.”',
+      'Anteckna den här veckan när utbrotten kommer. Med stor sannolikhet sammanfaller de med trötta och hungriga stunder.',
+    ],
+    mistakes: [
+      'Att förklara länge eller läxa upp under utbrottet. Hjärnan är inte i lyssningsläge än: först lugn, sedan samtal.',
+      'Att ge barnet det hen vill ha för att stoppa utbrottet. Det betyder ett ännu kraftigare utbrott nästa gång. Visa förståelse för känslan, men stå fast vid ditt beslut.',
+      'Att skämma ut barnet: ”Fy skäms, alla tittar på dig.” Skam lär inte barnet att hantera känslor, bara att dölja dem.',
+      'Att se utbrottet som ”manipulation”. För ett litet barn handlar det framför allt om bristande förmåga, inte om ett trick.',
+    ],
+    byAge: {
+      '1-3': 'Ordförrådet är litet, så sätt du namn på känslan och visa ett enkelt alternativ: ”Du är arg. Stampa med foten, så här!” Att avleda fungerar mycket bra i den här åldern.',
+      '3-6': 'Gör en ”ilskeplan” i en lugn stund: andas, krama en kudde, gå till lugna hörnan. Sätt upp den med bilder på väggen och peka bara på den när ett utbrott börjar.',
+    },
+    specialist: [
+      'Om utbrotten regelbundet varar längre än 25 minuter eller kommer fler än fem gånger om dagen.',
+      'Om barnet allvarligt skadar sig under utbrotten (dunkar huvudet, biter) eller gråter så att andningen stannar och hen svimmar — låt en läkare undersöka barnet.',
+      'Om utbrotten ökar i stället för att minska efter 4–5 års ålder, eller om det också finns annan oro kring tal, sömn eller kontakt.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Känslocoachning: att sätta ord på känslor',
+    summary: 'Att se och sätta ord på känslor stärker barnets självreglering. Det betyder inte att allt är tillåtet.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Psykologen John Gottman följde familjer på 1990-talet och såg att föräldrar svarar på barnets känslor på fyra olika sätt: avfärdande (”Gråt inte, det är väl inget”), bestraffande, tillåtande i allt och som ”känslocoach”. En coachande förälder tar känslan på allvar, sätter namn på den och letar efter lösningar tillsammans med barnet, men sätter gränser för beteendet.',
+      'Barn till känslocoachande föräldrar kunde under de följande åren hålla kvar uppmärksamheten bättre, hade färre konflikter med kompisar och återhämtade sig snabbare från stress. Senare program (till exempel ”Tuning in to Kids”) visade att alla föräldrar kan lära sig den här förmågan.',
+      'Hjärnforskningen visar också något intressant: att sätta namn på en känsla (”jag är arg”, ”jag är rädd”) minskar aktiviteten i känslocentrum. ”Sätt ord på det så lugnar det sig” är alltså inte bara en fin fras.',
+    ],
+    tryToday: [
+      'Säg i dag tre gånger högt vad barnet känner, som om du säger det åt hen: ”Jag tror att du blev riktigt besviken.” Gissar du fel gör det inget, hen rättar dig.',
+      'Tillåt känslan och sätt gräns för beteendet: ”Det är okej att bli arg. Det är inte okej att slå.”',
+      'Titta på figurernas ansikten när ni läser: ”Vad tror du att hen känner nu?”',
+      'Sätt också lugnt ord på dina egna känslor: ”Jag är lite trött, så jag dricker en kopp te i lugn och ro.” Barnet härmar dig mest av allt.',
+    ],
+    mistakes: [
+      'Att säga ”Gråt inte”, ”Det finns inget att vara rädd för”, ”Det är väl inget”. Känslan försvinner inte; barnet lär sig bara att inte visa den för dig.',
+      'Att tro att empati upphäver ditt ”nej”. ”Jag förstår, du ville det så gärna. Svaret är ändå nej” går alldeles utmärkt.',
+      'Att bara prata om känslor i svåra stunder. Den bästa träningen sker i lugna stunder, genom lek och böcker.',
+    ],
+    byAge: {
+      '1-3': 'Enkla ord: glad, arg, ledsen, rädd. Härma ansiktsuttryck tillsammans framför spegeln.',
+      '3-6': 'Rita en ”känslotermometer”: grönt — jag är lugn, gult — jag börjar bli arg, rött — jag exploderar. Låt barnet peka på färgen.',
+      '6-12': 'Lär ut mer nyanserade ord: besvikelse, skam, svartsjuka, oro. Fråga var i kroppen känslan sitter.',
+    },
+    specialist: [
+      'Om barnet under lång tid nästan inte visar några känslor alls, eller om minsta lilla sak gör hen upprörd i timmar.',
+      'Om ledsenhet, rädsla eller ilska håller i sig mer än två veckor och påverkar sömn, mat, skola och vänskap — vänd dig till en barnpsykolog.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'Lugna hörnan och andningslekar',
+    summary: 'Det går att lära ett barn att lugna sig, men inte med en skamvrå: med en mysig plats och lekar.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Självreglering utvecklas först tillsammans med föräldern och sedan gradvis på egen hand. Ju fler gånger barnet har lugnat sig tillsammans med en lugn vuxen, desto bättre lär hen sig vägen dit.',
+      'Långsam, djup andning (särskilt en lång utandning) sänker pulsen och stänger av kroppens ”faroläge”. Barn lär sig det bättre genom lek än genom instruktioner.',
+    ],
+    tryToday: [
+      'Gör en liten ”lugn hörna” hemma tillsammans med barnet: en kudde, ett gosedjur, en eller två böcker, känslokort. Det är ingen straffplats, utan en plats man får gå till när som helst.',
+      'Leken ”blomman och ljuset”: lukta på blomman (andas in genom näsan), blås ut ljuset (andas långsamt ut genom munnen). Fem gånger.',
+      'Öva tillsammans i en lugn stund: ”Hur känns kroppen när vi är arga? Kom, vi övar på att andas nu när vi är lugna, så att vi kommer ihåg det när det behövs.”',
+      'Med ett litet barn går ni till hörnan tillsammans: ”Kom, vi går till lugna hörnan tillsammans.”',
+    ],
+    mistakes: [
+      'Att använda hörnan som straff: ”Gå och ställ dig i hörnet!” Då kommer barnet att undvika platsen.',
+      'Att försöka lära ut en andningsövning för första gången mitt i ett utbrott. En förmåga lär man sig i lugna stunder.',
+      'Att förvänta sig att barnet lugnar sig ”direkt”. En stor känsla kan behöva 10–20 minuter för att lägga sig.',
+    ],
+    byAge: {
+      '3-6': 'Att lägga ett gosedjur på magen och ”vagga gosedjuret med andningen” fungerar jättebra.',
+      '6-12': 'Låt barnet skriva en egen lista över vad som hjälper hen att lugna sig: musik, rita, en promenad, dricka vatten. Ett sätt hen själv har valt använder hen oftare.',
+    },
+    specialist: [
+      'Om barnet nästan aldrig kan lugna sig eller beter sig farligt när hen är arg — vänd dig till en barnpsykolog.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Skolbarnets stora känslor',
+    summary: 'Ilska, skam, svartsjuka, besvikelse: i skolåldern blir känslorna mer komplicerade, och barnet behöver hjälp att förstå dem.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'Ett skolbarn kan redan dölja sina känslor, och därför exploderar stora känslor ofta hemma, hos den tryggaste personen — hos dig. Lättretlighet efter skolan är ofta tröttheten efter en hel dag av att ”hålla ihop”.',
+      'I den här åldern börjar jämförelsen med andra. Skam och känslan ”jag är dålig” kan se ut som ilska. Ju bättre barnet kan sätta ord på känslan, desto lättare blir det att hantera den.',
+    ],
+    tryToday: [
+      'Ös inte frågor över barnet direkt efter skolan. Först mellanmål, tystnad eller en kram, samtalet kommer sedan.',
+      'Öva meningen ”känsla + behov” tillsammans: ”Jag känner mig …, för att … . Jag behöver ….”',
+      'Berätta en liknande historia från din egen barndom: ”När jag var 9 skämdes jag också så här…”',
+      'Gå igenom ett utbrott efteråt utan att skuldbelägga: ”Vad hände? Vad kände du i kroppen? Vad skulle hjälpa nästa gång?”',
+    ],
+    mistakes: [
+      'Att förminska känslan: ”Det där är väl inget att gråta för.” För barnet är det stort.',
+      'Att genast föreslå en lösning. Ibland vill barnet bara bli lyssnat på.',
+      'Att se ilska hos flickor och ledsenhet hos pojkar som ”opassande” känslor. Alla känslor är normala för alla barn.',
+    ],
+    specialist: [
+      'Mer än två veckor av nedstämdhet, förlorat intresse, förändrad sömn och aptit, skolvägran.',
+      'Självskada eller prat om döden: sök professionell hjälp direkt; finns det akut fara, ring {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Gnäll och kinkighet',
+    summary: 'Gnäll går en på nerverna, men ofta är det en signal om trötthet eller ett behov av uppmärksamhet.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Barn lär sig snabbt vilket beteende som fungerar. Om gnället till slut ger det hen vill ha, fortsätter hen. Uppmärksamhet — även negativ uppmärksamhet — förstärker beteendet.',
+      'Samtidigt är gnäll ofta ett tecken på hunger, trötthet eller att barnet länge har varit utan uppmärksamhet. Om du svarar på orsaken minskar beteendet snabbt.',
+    ],
+    tryToday: [
+      'Lek leken ”stark röst” i en lugn stund: säg samma önskan med gnällröst och med vanlig röst, och skratta åt det.',
+      'Säg lugnt när barnet gnäller: ”Jag hör dig mycket bättre med din vanliga röst.” Svara direkt och entusiastiskt när hen säger det med vanlig röst.',
+      'Ta själv första steget under dagen: ge ofta kort uppmärksamhet utan anledning — ögonkontakt, en kram, ”jag ser dig”.',
+    ],
+    mistakes: [
+      'Att först säga ”nej” och sedan, när gnället drar ut på tiden, ”okej, ta det då”. Det lär barnet att gnälla allra mest.',
+      'Att göra narr av gnället eller härma det för att skämma ut barnet.',
+    ],
+    specialist: [
+      'Om barnet utöver gnället ofta verkar trött och blek eller har sämre aptit — kontakta läkare för att utesluta medicinska orsaker.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Positivt föräldraskap: gränser och värme tillsammans',
+    summary: 'Bäst resultat får varken stränga föräldrar eller de som tillåter allt, utan de som är både varma och tydliga.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'På 1960-talet beskrev psykologen Diana Baumrind föräldrastilar utifrån två dimensioner: värme (kärlek, uppmärksamhet, lyhördhet) och krav/struktur (tydliga förväntningar, gränser). Den ”auktoritativa” stilen, där båda är höga, visade sig hänga ihop med de bästa resultaten: mer självständiga barn med bättre självförtroende och mindre problembeteende.',
+      'Under de följande decennierna bekräftade metaanalyser av hundratals studier detta: en varm relation och gränser med förklaringar hänger ihop med mindre aggression och regelbrott, medan hård kontroll och straff hänger ihop med mer problembeteende.',
+      'American Academy of Pediatrics (2018) och WHO (2022) rekommenderar föräldrar samma väg: bygg en positiv relation, se och förstärk bra beteende, ha tydliga förväntningar och lugna konsekvenser. Fysisk bestraffning och förnedrande ord avråds.',
+    ],
+    tryToday: [
+      'Formulera en regel positivt: inte ”spring inte”, utan ”inomhus går vi”.',
+      'Säg i förväg vad du förväntar dig: ”I affären håller du min hand, och i vagnen lägger vi bara det som står på listan.”',
+      'Lägg i dag märke till bra beteende fem gånger och benämn det exakt: ”Du hängde upp väskan själv, tack!” Det beteende som får uppmärksamhet växer.',
+      'Sätt gränsen lugnt, kort och vänligt, och gör sedan som du sagt. Inga upprepade varningar.',
+    ],
+    mistakes: [
+      'Att ställa kärlek och gränser mot varandra. ”Jag älskar dig, och därför tillåter jag det inte” — båda går att kombinera.',
+      'Att följa en regel ena dagen och glömma den nästa. Att vara konsekvent är viktigare än att vara sträng.',
+      'Att bara reagera på misstag. Om barnet bara får uppmärksamhet genom problembeteende kommer hen att upprepa det.',
+    ],
+    byAge: {
+      '1-3': 'Mer miljö än ord: ställ farliga saker utom räckhåll och spara ”nej” till det som verkligen är viktigt.',
+      '3-6': '3–4 enkla familjeregler räcker. Rita dem med bilder och sätt upp dem där alla ser dem.',
+      '6-12': 'Diskutera reglerna tillsammans och kom överens om konsekvenserna i förväg. När barnet själv har skrivit en del av regeln följer hen den bättre.',
+    },
+    specialist: [
+      'Om beteendeproblem trots alla dina ansträngningar stör familjelivet, förskolan eller skolan i månader — en barnpsykolog eller ett föräldraprogram (till exempel PCIT, Triple P) är mycket effektivt.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Varför slag inte fungerar, och vad som gör det',
+    summary: 'En smäll kan ge lydnad för stunden, men gör beteendet sämre på lång sikt. Forskningen är mycket tydlig på den här punkten.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'År 2016 sammanställde Gershoff och Grogan-Kaylor 75 studier som omfattade mer än 160 000 barn. Resultatet: smisk (att slå) hänger inte ihop med någon positiv långsiktig effekt hos barnet, utan tvärtom med mer aggression, antisocialt beteende, psykisk ohälsa och en svagare relation till föräldern. Sambandet syns även vid ”lätta” smällar eller smällar ”av kärlek”.',
+      'Orsaken är enkel: slag lär inte barnet vad hen ska göra, bara att vara rädd. Dessutom visar det att problem löses med våld. Att skrika, hota och förnedra har en liknande effekt: i forskningen har hård verbal disciplin kopplats till fler beteendeproblem och depressiva symtom under de följande åren.',
+      'American Academy of Pediatrics (2018) och WHO avråder från fysisk bestraffning och förnedrande ord. Det som fungerar i stället: en varm relation, tydliga regler, att förstärka bra beteende, logiska konsekvenser och tid att lugna sig.',
+    ],
+    tryToday: [
+      'Välj en ”stoppsignal” för dig själv: när ilskan stiger, stoppa handen i fickan eller ta ett steg bakåt och räkna till 10.',
+      'Stoppa farligt beteende fysiskt men utan att göra illa: håll i handen, ta barnet i knät, ta bort föremålet.',
+      'Lär barnet vad hen kan göra nästa gång: ”När din bror tar din leksak kan du säga ”ge tillbaka!” eller komma till mig.”',
+      'Om du redan har slagit: be om förlåtelse, ta ansvar för ditt eget beteende och berätta vad du tänker göra annorlunda. Det lär också barnet hur man reparerar ett misstag.',
+    ],
+    mistakes: [
+      'Tanken ”Jag fick också stryk och blev helt normal”. Många har klarat sig bra trots det, men forskningen visar att risken i genomsnitt ökar.',
+      'Att spara slag som ”sista utväg”. Den sista utvägen är att ta en paus för att lugna sig och be om hjälp.',
+      'Att ersätta fysisk bestraffning med en annan förnedrande metod (skämma ut, hota, dra tillbaka kärlek).',
+    ],
+    byAge: {
+      '1-3': 'De mest effektiva sätten i den här åldern: avleda, ändra miljön, lugnt lyfta bort barnet från en farlig plats.',
+      '3-6': 'Logiska konsekvenser och ”time-in” (att lugna sig bredvid dig) fungerar bra.',
+      '6-12': 'Att begränsa ett privilegium under en kort tid (till exempel skärmtid) och att lösa problemet tillsammans.',
+    },
+    specialist: [
+      'Om du märker att du inte kan behärska dig när du är arg och att du skulle kunna skada barnet — det är ett starkt skäl att be om hjälp. En psykolog eller ett föräldraprogram kan förändra situationen.',
+      'Om barnet eller du är i fara, eller om det förekommer våld i hemmet, ring {emergency} direkt.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Konsekvens eller straff: vad är skillnaden?',
+    summary: 'Straff syftar till att göra ont, en konsekvens till att lära. Den bästa konsekvensen hänger ihop med beteendet, är respektfull och känd i förväg.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Beteendepsykologin visar att det som mest förändrar ett beteende är det som följer efter det. Men straff (slag, förnedring, långvariga förbud) skapar rädsla och agg, och barnet börjar tänka på ”hur jag undviker att åka fast”.',
+      'En logisk konsekvens hänger direkt ihop med beteendet, är kort och lär ut något: ritade med färg på väggen — vi torkar bort det tillsammans; bröt mot cykelregeln — ingen cykel i dag. Naturliga konsekvenser (gick ut utan jacka — frös) är den starkaste läraren, så länge de är säkra.',
+    ],
+    tryToday: [
+      '”3 R”-kollen: hänger konsekvensen ihop med beteendet (Related), är den respektfull (Respectful), är den rimlig (Reasonable)?',
+      'Säg konsekvensen i förväg: ”Om du inte plockar undan leksakerna får de vila i lådan i morgon.” Och genomför den sedan lugnt.',
+      'Håll konsekvensen kort: en dag räcker. Ett månadslångt förbud lär inte ut något mer, det sårar bara.',
+      'Efter konsekvensen ett ”blankt blad”: ingen predikan, vi börjar om.',
+    ],
+    mistakes: [
+      'Att hitta på en konsekvens i ilskan: ”Ingen cykel på ett år!” Sedan går det inte att genomföra och dina ord tappar sitt värde.',
+      'Straff som inte har något med beteendet att göra: gjorde inte läxan — får inte gå på kalaset.',
+      'Att genomföra konsekvensen med hån eller ett ”där ser du?”.',
+    ],
+    byAge: {
+      '3-6': 'Konsekvensen måste komma direkt och vara mycket kort. Timmar senare kopplar barnet inte ihop den med beteendet.',
+      '6-12': 'Bestäm konsekvenserna tillsammans. Barnet följer en regel som hen tycker är rättvis bättre.',
+    },
+    specialist: [
+      'Om ingen konsekvens fungerar och beteendet är farligt eller så kraftigt att familjen blir utmattad — rådgör med en barnpsykolog eller om ett föräldraprogram.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'Hur pratar man utan att skrika?',
+    summary: 'Att skrika ger lättnad för stunden, men barnet vänjer sig vid ljudnivån och lyssnar mindre. Att prata lugnt och nära är kraftfullare.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'I forskningen har uppfostran med regelbundna skrik, svordomar och förnedrande ord kopplats till fler beteendeproblem och depressiva symtom under de följande åren, även när relationen i övrigt är varm. En av orsakerna: skrik sätter igång barnets stressystem, och i stället för att lyssna går hen i försvarsställning.',
+      'De goda nyheterna: förälderns självreglering är en förmåga som går att lära sig. Skrik är ofta en signal om förälderns trötthet, hunger och överbelastning, inte om att vara ”en dålig förälder”.',
+    ],
+    tryToday: [
+      'I stället för att ropa på avstånd: gå fram, sätt dig på barnets nivå, få ögonkontakt, säg hens namn och prata med en kort mening.',
+      'När du vill höja rösten, gör tvärtom: viska. Barn lyssnar nyfiket på viskningar.',
+      'Anteckna under dagen när du skriker. Vid vilken tid oftast? Gör en plan för den tiden (till exempel ett mellanmål, att förbereda saker i förväg).',
+      'Har du skrikit, reparera: ”Jag skrek, det var inte okej. Jag blev arg, men jag skulle inte ha höjt rösten.”',
+    ],
+    mistakes: [
+      'Att anklaga dig själv efter varje misstag. Det skapar ännu mer spänning nästa gång. Målet är inte perfektion, utan att det händer mer sällan och att du reparerar.',
+      'Att säga ”Du får mig att skrika”. Vi bär själva ansvaret för våra känslor.',
+    ],
+    specialist: [
+      'Om ilska och irritation tar överhanden nästan varje dag, tillsammans med sömnlöshet, nedstämdhet eller hopplöshet — prata med en läkare eller psykolog. Depression och ångest hos föräldrar går att behandla.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out eller time-in?',
+    summary: 'En kort paus för att lugna sig kan fungera, men det små barn främst behöver är inte avskildhet, utan närhet som hjälper dem att bli lugna.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Den klassiska ”time-outen” (en lugn paus på några minuter) har studerats i vissa föräldraprogram, och när den används rätt (kort, lugnt, utan förnedring, i en varm relation) har den inte visat sig vara skadlig. Men det betyder inte att stänga in barnet i ett rum eller skrämma hen.',
+      'Vid ”time-in” lugnar sig barnet bredvid dig. Det passar små barn bättre, eftersom de fortfarande behöver samreglering. I båda fallen är målet inte straff, utan att lugna sig och ”börja om”.',
+    ],
+    tryToday: [
+      'Tumregel: ungefär en minut per levnadsår, högst 5 minuter.',
+      'Platsen ska vara lugn men inte skrämmande. Stäng aldrig in barnet i ett mörkt rum.',
+      'För time-in: ”Kom och sätt dig bredvid mig. Vi andas tillsammans.”',
+      'Efter pausen ett kort ”vi börjar om”, ingen predikan.',
+    ],
+    mistakes: [
+      'Att använda time-out länge, ofta och med hot.',
+      'Att kombinera pausen med förnedring: ”Gå härifrån, jag vill inte se dig.”',
+    ],
+    specialist: [
+      'Om barnet känner fruktansvärd rädsla eller panik vid varje paus, eller om separationer gör hen oproportionerligt upprörd — prata med en specialist.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Familjeregler: få, tydliga, konsekventa',
+    summary: 'Barn testar gränser för att de vill veta om gränsen finns kvar. En stabil gräns ger en känsla av trygghet.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'En förutsägbar miljö lugnar barnets stressystem. Tydliga regler och fasta rutiner har i forskningen kopplats till bättre sömn, mindre beteendeproblem och starkare självkontroll.',
+      'De regler som fungerar bäst är få (3–5), positivt formulerade och tillämpas på samma sätt av båda föräldrarna.',
+    ],
+    tryToday: [
+      'Ha ett familjeråd: alla föreslår en regel, och tillsammans väljer ni 3–5 viktigaste regler.',
+      'Skriv reglerna positivt: ”Mjuka händer”, ”När någon pratar lyssnar vi på varandra”, ”Efter maten går tallriken till köket”.',
+      'Kom också överens om konsekvenserna bredvid reglerna.',
+      'Låt de vuxna också följa reglerna. Barnet tittar mer på förebilden än på orden.',
+    ],
+    mistakes: [
+      'Att hitta på en ny regel för varje nytt problem. För många regler är detsamma som inga regler.',
+      'En regel hos mamma, en annan hos pappa eller mormor. De vuxna behöver först komma överens sinsemellan.',
+    ],
+    specialist: [
+      'Om det finns ständiga och spända konflikter i familjen kring regler kan en familjeterapeut hjälpa.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'Barnet som säger ”Nej!”: att hantera trots',
+    summary: '”Nej”-fasen är barnets upptäckt att ”jag är en egen person”. Det som fungerar är inte att slåss mot den, utan att ge val.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Under det andra levnadsåret upptäcker barnet att det har en egen vilja. Självbestämmande är ett av de grundläggande psykologiska behoven: ju mer känsla av kontroll barnet får, desto mer villigt blir det att samarbeta.',
+      'Forskning visar att ”kontrollerande” språk (”Klä på dig nu direkt!”) ökar motståndet, medan val och förklaringar ökar samarbetet.',
+    ],
+    tryToday: [
+      'Ge två val som båda är okej: ”Ska vi borsta tänderna först eller ta på pyjamasen?”',
+      'Använd ett påstående i stället för en ja/nej-fråga: ”Nu är det dags att klä på sig”, inte ”Ska vi klä på oss?”',
+      'Gör det till en lek: ”Vi ser vem som får på sig strumporna snabbast — du eller nallen?”',
+      'Släpp oviktiga strider: om tröjan sitter bak och fram går inte världen under.',
+    ],
+    mistakes: [
+      'Att göra varje ”nej” till en maktkamp.',
+      'Att ge ett val och sedan inte acceptera barnets val.',
+    ],
+    specialist: [
+      'Om barnet nästan inte svarar på någon uppmaning, inte reagerar på sitt namn eller har svårt att få kontakt — kontakta läkare för en utvecklingsbedömning.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

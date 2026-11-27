@@ -16,6 +16,9 @@ for (const host of ['app.anacan.az','gcp.anacan.az','api.anacan.az']) {
     for (const path of ['/storage/v1/object/public/images/a.webp','/rest/v1/blog_posts','/.well-known/anacan-backend.json','/sitemap-blog.xml']) assert.equal(entryDecision(`https://${host}${path}`),'resource');
     assert.equal(entryDecision(`https://${host}/auth/v1/token`),'system');
     assert.equal(entryDecision(`https://${host}/reset-password`),'system');
+    assert.equal(entryDecision(`https://${host}/h/EXPO-26`),'system');
+    assert.equal(entryDecision(`https://${host}/h/EXPO-26/`),'system');
+    for (const path of ['/h/','/h/ab','/h/EXPO/x','/h/EXPO%2F26']) assert.equal(entryDecision(`https://${host}${path}`),'launch');
     assert.equal(entryDecision(`https://${host}/brands`),'brand');
   });
 }

@@ -5,7 +5,7 @@ import WordGarden from './WordGarden';
 import LetterWheel from './LetterWheel';
 import { selectWheelLetter } from './wheel';
 import { gardenText } from './messages';
-import { loadGardenLexicon } from './library';
+import { loadGardenLexicon, WORD_GARDEN_LIBRARIES } from './library';
 import { generateGardenLevel } from './generator';
 import { gardenStorageKey } from './storage';
 import { createGardenProfile, createGardenRound } from './state';
@@ -22,7 +22,10 @@ vi.mock('@/hooks/useGameAds', () => ({ useGameAds: (_id: string, phase: string, 
     resetRound: vi.fn(), transition: async (action: () => void) => { fixture.transition(); action(); },
     revive: async () => { if (fixture.earned) fixture.restore?.({ moves: 5, lives: 3, seconds: 15 }); }, allowedPlacements: phase === 'lost' ? 'game_revive_rewarded games_break_interstitial' : phase === 'won' ? 'games_break_interstitial' : '', reason: '', message: '' };
 } }));
-vi.mock('./workerClient', async () => ({ disposeGardenWorker: () => {}, loadGardenLevel: async (language: string, level: number, mode: 'calm' | 'timed', _signal: AbortSignal, revision?: string) => generateGardenLevel(await loadGardenLexicon(language, revision), level, mode) }));
+vi.mock('./workerClient', async () => ({ disposeGardenWorker: () => {}, loadGardenLevel: async (language: string, level: number, mode: 'calm' | 'timed', _signal: AbortSignal, revision?: string, seed?: number) => generateGardenLevel(await loadGardenLexicon(language, revision), level, mode, seed) }));
+const current = WORD_GARDEN_LIBRARIES.az.revision;
+// The player's own seed (stored with the progress) decides which words level N deals.
+const storedSeed = (mode: 'calm' | 'timed' = 'calm') => JSON.parse(localStorage.getItem(gardenStorageKey('az', current, mode))!).seed as number;
 beforeAll(async () => { await loadGardenLexicon('az'); });
 beforeEach(() => { localStorage.clear(); fixture.language = 'az'; fixture.restore = null; fixture.earned = false; fixture.transition.mockReset(); });
 afterEach(() => { cleanup(); vi.useRealTimers(); });
@@ -46,7 +49,7 @@ async function word(value: string) {
 describe('Word Garden player', () => {
   it('plays the real first crossword, commits one win and unlocks the next level', async () => {
     render(<StrictMode><WordGarden onBack={vi.fn()} /></StrictMode>); await start();
-    const definition = generateGardenLevel(await loadGardenLexicon('az'), 1);
+    const definition = generateGardenLevel(await loadGardenLexicon('az'), 1, 'calm', storedSeed());
     for (const entry of definition.words) await word(entry.word);
     expect(await screen.findByRole('heading', { name: 'Bağın çiçəkləndi!' })).toBeVisible();
     const stored = JSON.parse(localStorage.getItem(gardenStorageKey('az', definition.revision, 'calm'))!);
@@ -59,7 +62,7 @@ describe('Word Garden player', () => {
   }, 15000);
   it('keeps a half-played board on exit/reopen and spends the free and paid hints correctly', async () => {
     const view = render(<WordGarden onBack={vi.fn()} />); await start();
-    const definition = generateGardenLevel(await loadGardenLexicon('az'), 1);
+    const definition = generateGardenLevel(await loadGardenLexicon('az'), 1, 'calm', storedSeed());
     await word(definition.words[0].word);
     fireEvent.click(screen.getByRole('button', { name: /İpucu/ }));
     const hidden = () => document.querySelector<HTMLButtonElement>('[data-garden-cell][data-revealed="false"]')!;
@@ -86,11 +89,11 @@ describe('Word Garden player', () => {
     fireEvent.keyDown(window, { key: 'Escape' });
     fireEvent.click(screen.getByRole('button', { name: 'Növbəti bağça' }));
     expect(screen.getByRole('button', { name: 'Səviyyə 21, bağlıdır' })).toBeDisabled();
-    expect(localStorage.getItem(gardenStorageKey('az', 'az-202610-v2', 'calm'))).toBeNull();
+    expect(localStorage.getItem(gardenStorageKey('az', current, 'calm'))).toBeNull();
   });
   it('grants time only on an earned reward and blocks taps when the round is lost', async () => {
-    const definition = generateGardenLevel(await loadGardenLexicon('az'), 1, 'timed');
-    const profile = { ...createGardenProfile('az', definition.revision, 'timed'), round: { ...createGardenRound(definition), started: true, remainingSeconds: 0 } };
+    const definition = generateGardenLevel(await loadGardenLexicon('az'), 1, 'timed', 7);
+    const profile = { ...createGardenProfile('az', definition.revision, 'timed'), seed: 7, round: { ...createGardenRound(definition), started: true, remainingSeconds: 0 } };
     localStorage.setItem(gardenStorageKey('az', definition.revision, 'timed'), JSON.stringify(profile));
     render(<WordGarden onBack={vi.fn()} />); fireEvent.click(screen.getByRole('button', { name: 'Vaxtlı' }));
     fireEvent.click(screen.getByRole('button', { name: /Oyuna davam et/ }));
@@ -110,7 +113,7 @@ describe('Word Garden player', () => {
   });
   it('debits elapsed time only while playing, pauses for settings and latches a background pause', async () => {
     render(<WordGarden onBack={vi.fn()} />); fireEvent.click(screen.getByRole('button', { name: 'Vaxtlı' })); await start();
-    const revision = 'az-202610-v2', key = gardenStorageKey('az', revision, 'timed');
+    const key = gardenStorageKey('az', current, 'timed');
     const remaining = () => JSON.parse(localStorage.getItem(key)!).round.remainingSeconds;
     vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'performance'] });
     // Restart the timer effect after switching into a modal and back so it uses
@@ -133,8 +136,8 @@ describe('Word Garden player', () => {
     hidden.mockRestore();
   });
   it('recovers from a malformed saved round without resetting valid aggregate progress', async () => {
-    const definition = generateGardenLevel(await loadGardenLexicon('az'), 1);
-    const profile = createGardenProfile('az', definition.revision, 'calm');
+    const definition = generateGardenLevel(await loadGardenLexicon('az'), 1, 'calm', 11);
+    const profile = { ...createGardenProfile('az', definition.revision, 'calm'), seed: 11 };
     localStorage.setItem(gardenStorageKey('az', definition.revision, 'calm'), JSON.stringify({ ...profile, round: { found: [] } }));
     render(<WordGarden onBack={vi.fn()} />); await start();
     expect(screen.getByRole('button', { name: 'Ləçəklər' })).toHaveTextContent('75');
@@ -143,7 +146,7 @@ describe('Word Garden player', () => {
   it('waits for the player to start the short timer and makes expiry block input', async () => {
     render(<WordGarden onBack={vi.fn()} />); fireEvent.click(screen.getByRole('button', { name: 'Vaxtlı' }));
     fireEvent.click(screen.getByRole('button', { name: /Oyna/ })); await screen.findByTestId('wordgarden-wheel');
-    const key = gardenStorageKey('az', 'az-202610-v2', 'timed');
+    const key = gardenStorageKey('az', current, 'timed');
     const remaining = () => JSON.parse(localStorage.getItem(key)!).round.remainingSeconds;
     expect(remaining()).toBeGreaterThanOrEqual(25); expect(remaining()).toBeLessThanOrEqual(35);
     vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'performance'] });
@@ -155,19 +158,21 @@ describe('Word Garden player', () => {
     expect(screen.getByTestId('wordgarden-game')).toHaveAttribute('data-game-phase', 'lost');
     expect(document.querySelector<HTMLButtonElement>('[data-letter-index]')).toBeDisabled();
   });
-  it('finishes an old saved puzzle against its original library and then deals a new-revision level', async () => {
-    const legacy = generateGardenLevel(await loadGardenLexicon('az', 'az-202610-v1'), 1);
+  it.each(['az-202610-v1', 'az-202610-v2'])('finishes an old %s saved puzzle against its original library and then deals a new-revision level', async revision => {
+    const legacy = generateGardenLevel(await loadGardenLexicon('az', revision), 1);
     let profile = { ...createGardenProfile('az', legacy.revision, 'calm'), round: createGardenRound(legacy) };
     profile = { ...profile, progress: { ...profile.progress, coins: 140 } };
     localStorage.setItem(gardenStorageKey('az', legacy.revision, 'calm'), JSON.stringify(profile));
     render(<WordGarden onBack={vi.fn()} />); fireEvent.click(screen.getByRole('button', { name: /Oyuna davam et/ }));
     await screen.findByTestId('wordgarden-wheel');
-    const key = gardenStorageKey('az', 'az-202610-v2', 'calm');
+    const key = gardenStorageKey('az', current, 'calm');
     expect(JSON.parse(localStorage.getItem(key)!).round.levelId).toBe(legacy.id);
     for (const entry of legacy.words) await word(entry.word);
     expect(await screen.findByRole('heading', { name: 'Bağın çiçəkləndi!' })).toBeVisible();
     fireEvent.click(screen.getByRole('button', { name: 'Növbəti səviyyə' })); await screen.findByRole('heading', { name: 'Səviyyə 2' });
-    await waitFor(() => expect(JSON.parse(localStorage.getItem(key)!).round.levelId).toContain('az:az-202610-v2:calm:2:'));
+    await waitFor(() => expect(JSON.parse(localStorage.getItem(key)!).round.levelId).toContain(`az:${current}:calm:2:`));
+    const next = generateGardenLevel(await loadGardenLexicon('az'), 2, 'calm', storedSeed());
+    expect(JSON.parse(localStorage.getItem(key)!).round.levelId).toBe(next.id);
     expect(JSON.parse(localStorage.getItem(key)!).progress.coins).toBe(190);
     expect(localStorage.getItem(gardenStorageKey('az', legacy.revision, 'calm'))).toBe(JSON.stringify(profile));
   });

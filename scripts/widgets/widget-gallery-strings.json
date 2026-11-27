@@ -1,0 +1,31 @@
+{
+  "_about": "Widget gallery names/descriptions (shown by iOS/Android in the device language). Generates ios/App/AnacanTimerWidgetExt/<lang>.lproj/Localizable.strings and android/app/src/main/res/values-<lang>/widget_strings.xml via scripts/widgets/build-widget-gallery-strings.mjs.",
+  "keys": ["journey_name", "journey_desc", "care_name", "care_desc", "word_name", "word_desc"],
+  "languages": {
+    "en": ["Anacan · Journey", "Pregnancy week and baby size, or your baby's age", "Anacan · Feeding and sleep", "Last feed, next nap and quick buttons (Premium)", "Anacan · Word of the day", "A gentle daily affirmation"],
+    "az": ["Anacan · Səyahət", "Hamiləlik həftəsi və körpənin ölçüsü, ya da körpənin yaşı", "Anacan · Qidalanma və yuxu", "Son qidalanma, növbəti yuxu və sürətli düymələr (Premium)", "Anacan · Günün sözü", "Hər gün xoş bir dəstək sözü"],
+    "tr": ["Anacan · Yolculuk", "Gebelik haftası ve bebeğin boyutu ya da bebeğinizin yaşı", "Anacan · Beslenme ve uyku", "Son beslenme, sonraki uyku ve hızlı düğmeler (Premium)", "Anacan · Günün sözü", "Her gün nazik bir destek cümlesi"],
+    "ru": ["Anacan · Путь", "Неделя беременности и размер малыша или возраст ребёнка", "Anacan · Кормление и сон", "Последнее кормление, следующий сон и быстрые кнопки (Premium)", "Anacan · Слово дня", "Тёплая поддержка каждый день"],
+    "de": ["Anacan · Reise", "Schwangerschaftswoche und Größe des Babys oder das Alter deines Babys", "Anacan · Füttern und Schlaf", "Letzte Mahlzeit, nächster Schlaf und Schnelltasten (Premium)", "Anacan · Wort des Tages", "Jeden Tag ein liebevoller Zuspruch"],
+    "ar": ["Anacan · الرحلة", "أسبوع الحمل وحجم الجنين، أو عمر طفلك", "Anacan · الرضاعة والنوم", "آخر رضعة، والقيلولة التالية، وأزرار سريعة (Premium)", "Anacan · كلمة اليوم", "عبارة دعم لطيفة كل يوم"],
+    "ka": ["Anacan · მოგზაურობა", "ორსულობის კვირა და ბავშვის ზომა, ან თქვენი ბავშვის ასაკი", "Anacan · კვება და ძილი", "ბოლო კვება, შემდეგი ძილი და სწრაფი ღილაკები (Premium)", "Anacan · დღის სიტყვა", "ყოველდღიური თბილი მხარდაჭერა"],
+    "kk": ["Anacan · Сапар", "Жүктілік аптасы мен нәрестенің өлшемі немесе балаңыздың жасы", "Anacan · Тамақтану және ұйқы", "Соңғы тамақтану, келесі ұйқы және жылдам батырмалар (Premium)", "Anacan · Күн сөзі", "Күн сайын жылы қолдау сөзі"],
+    "uz": ["Anacan · Sayohat", "Homiladorlik haftasi va chaqaloq kattaligi yoki farzandingiz yoshi", "Anacan · Ovqatlantirish va uyqu", "Oxirgi ovqatlantirish, keyingi uyqu va tezkor tugmalar (Premium)", "Anacan · Kun so‘zi", "Har kuni iliq qo‘llab-quvvatlash so‘zi"],
+    "zh": ["Anacan · 旅程", "孕周和宝宝大小，或宝宝的年龄", "Anacan · 喂养与睡眠", "上次喂养、下次小睡和快捷按钮（Premium）", "Anacan · 每日一句", "每天一句温柔的鼓励"],
+    "id": ["Anacan · Perjalanan", "Minggu kehamilan dan ukuran bayi, atau usia bayi Anda", "Anacan · Menyusui dan tidur", "Menyusui terakhir, tidur berikutnya, dan tombol cepat (Premium)", "Anacan · Kata hari ini", "Kata penyemangat lembut setiap hari"],
+    "fr": ["Anacan · Parcours", "Semaine de grossesse et taille du bébé, ou âge de votre bébé", "Anacan · Repas et sommeil", "Dernier repas, prochaine sieste et boutons rapides (Premium)", "Anacan · Mot du jour", "Un mot doux d’encouragement chaque jour"],
+    "es": ["Anacan · Tu camino", "Semana de embarazo y tamaño del bebé, o la edad de tu bebé", "Anacan · Tomas y sueño", "Última toma, próxima siesta y botones rápidos (Premium)", "Anacan · Frase del día", "Una frase de ánimo amable cada día"],
+    "pt": ["Anacan · Jornada", "Semana de gravidez e tamanho do bebé, ou a idade do seu bebé", "Anacan · Alimentação e sono", "Última mamada, próxima sesta e botões rápidos (Premium)", "Anacan · Frase do dia", "Uma frase de apoio carinhosa todos os dias"],
+    "vi": ["Anacan · Hành trình", "Tuần thai và kích thước em bé, hoặc tuổi của bé", "Anacan · Bú và ngủ", "Lần bú gần nhất, giấc ngủ tiếp theo và nút nhanh (Premium)", "Anacan · Lời hay mỗi ngày", "Một lời động viên dịu dàng mỗi ngày"],
+    "hi": ["Anacan · सफ़र", "गर्भावस्था का सप्ताह और शिशु का आकार, या आपके शिशु की उम्र", "Anacan · दूध और नींद", "आख़िरी फ़ीड, अगली झपकी और त्वरित बटन (Premium)", "Anacan · आज का विचार", "हर दिन एक प्यार भरा प्रोत्साहन"],
+    "ja": ["Anacan · 歩み", "妊娠週数と赤ちゃんの大きさ、または赤ちゃんの月齢", "Anacan · 授乳と睡眠", "前回の授乳、次のお昼寝、クイックボタン（Premium）", "Anacan · 今日のことば", "毎日のやさしい励まし"],
+    "ko": ["Anacan · 여정", "임신 주차와 아기 크기, 또는 아기의 나이", "Anacan · 수유와 수면", "마지막 수유, 다음 낮잠, 빠른 버튼 (Premium)", "Anacan · 오늘의 한마디", "매일 건네는 다정한 응원"],
+    "pl": ["Anacan · Podróż", "Tydzień ciąży i wielkość dziecka albo wiek Twojego dziecka", "Anacan · Karmienie i sen", "Ostatnie karmienie, następna drzemka i szybkie przyciski (Premium)", "Anacan · Słowo dnia", "Codziennie ciepłe słowa wsparcia"],
+    "nl": ["Anacan · Reis", "Zwangerschapsweek en grootte van de baby, of de leeftijd van je baby", "Anacan · Voeding en slaap", "Laatste voeding, volgend slaapje en snelknoppen (Premium)", "Anacan · Woord van de dag", "Elke dag een lieve aanmoediging"],
+    "sv": ["Anacan · Resan", "Graviditetsvecka och bebisens storlek, eller ditt barns ålder", "Anacan · Matning och sömn", "Senaste matningen, nästa tupplur och snabbknappar (Premium)", "Anacan · Dagens ord", "En varm uppmuntran varje dag"],
+    "ky": ["Anacan · Сапар", "Кош бойлуулук жумасы жана ымыркайдын өлчөмү же балаңыздын жашы", "Anacan · Тамактандыруу жана уйку", "Акыркы тамактандыруу, кийинки уйку жана тез баскычтар (Premium)", "Anacan · Күндүн сөзү", "Күн сайын жылуу колдоо сөзү"],
+    "et": ["Anacan · Teekond", "Rasedusnädal ja beebi suurus või sinu lapse vanus", "Anacan · Toitmine ja uni", "Viimane toitmine, järgmine uinak ja kiirnupud (Premium)", "Anacan · Päeva sõna", "Iga päev üks hell julgustus"],
+    "tk": ["Anacan · Ýol", "Göwrelilik hepdesi we çaganyň ululygy ýa-da çagaňyzyň ýaşy", "Anacan · Iýmitlendirmek we uky", "Soňky iýmitlendirme, indiki uky we çalt düwmeler (Premium)", "Anacan · Günüň sözi", "Her gün mähirli goldaw sözi"],
+    "uk": ["Anacan · Шлях", "Тиждень вагітності й розмір малюка або вік вашої дитини", "Anacan · Годування і сон", "Останнє годування, наступний сон і швидкі кнопки (Premium)", "Anacan · Слово дня", "Щодня тепле слово підтримки"]
+  }
+}

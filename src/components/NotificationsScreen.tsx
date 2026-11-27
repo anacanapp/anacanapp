@@ -136,12 +136,12 @@ const NotificationsScreen = ({ onBack, onNavigateToCommunity, onNavigateToModera
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div style={{ minWidth: 0 }}>
               {unreadCount > 0 && <p className="a-eyebrow">{unreadCount} {tr("notificationsscreen_oxunmamis_8bfc41", "oxunmamış")}</p>}
-              <p className="a3-tool-title">{tr("notificationsscreen_bildirisler_54eb88", "Bildirişlər")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("notificationsscreen_bildirisler_54eb88", "Bildirişlər")}</p>
             </div>
           </div>
           {unreadCount > 0 &&

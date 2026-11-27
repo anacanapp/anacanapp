@@ -1,0 +1,13 @@
+{
+  "title": "Lindungi datamu",
+  "subtitle": "Catatan kehamilan, kesehatan, dan bayimu bersifat pribadi. Hanya kamu yang bisa membuka aplikasi.",
+  "bio_ios": "Face ID",
+  "bio_android": "Sidik jari atau pengenalan wajah",
+  "bio_line": "Terbuka dengan sekali lihat atau sentuh",
+  "pin_title": "PIN 4 digit",
+  "pin_line": "Cadangan: kamu selalu bisa membuka dengan PIN",
+  "settings_title": "Matikan kapan saja",
+  "settings_line": "Kamu bisa mematikannya atau mengganti PIN di {where}",
+  "enable": "Aktifkan perlindungan",
+  "later": "Nanti saja"
+}

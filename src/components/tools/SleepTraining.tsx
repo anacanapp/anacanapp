@@ -18,10 +18,10 @@ import { getEmergencyNumber } from '@/lib/emergency';
 import { bc, durationUnits, type BabycareKey } from '@/lib/babycare-i18n';
 import { formatClockSeconds, formatMinutes } from '@/lib/baby-logs-range';
 import {
-  BAND_NORMS, DEFAULT_PLAN_STATE, MAX_SLEEP_MINUTES, METHODS, METHOD_STEPS, MIN_SLEEP_MINUTES, PLAN_DAYS, RATINGS,
+  BAND_NORMS, MAX_SLEEP_MINUTES, METHODS, METHOD_STEPS, MIN_SLEEP_MINUTES, PLAN_DAYS, RATINGS,
   ROUTINE_STEPS, SAFETY_ITEMS, WAKE_MAX, WAKE_MIN, WAKE_PRESETS, adjustNightWakes, ageBand, averageNightWakes, blockMinutes,
-  buildSchedule, dayOffset, formatClock, localDateKey, minutesOfDay, monthsOld, nightKey, parseClock, parsePlanState, pickMethod,
-  planDayNumber, planProgress, planStorageKey, prunePlanState, ratePlanDay, resetPlan, routineStreak, scheduleStatus, setPendingSleep,
+  buildSchedule, dayOffset, formatClock, localDateKey, minutesOfDay, monthsOld, nightKey, parseClock, pickMethod,
+  planDayNumber, planProgress, ratePlanDay, resetPlan, routineStreak, scheduleStatus, setPendingSleep,
   setWake, shiftWake, sleepDays, sleepEntries, sleepSummary, timelineSegments, toggleRoutine, toggleSafety, toggleStep,
   type AgeBand, type Insight, type Method, type PlanState, type Rating, type ScheduleBlock, type SleepDay, type SleepSummary,
 } from '@/lib/sleep-training';
@@ -29,6 +29,12 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import { Sheet } from '@/components/anacan/Sheet';
 import { ToolPage, ToolHeader, ToolEmpty } from './anacan/ToolKit';
+import { SafetyStrip } from './anacan/SafetyStrip';
+import { tr } from '@/lib/tr';
+import NextNapSection from '@/components/sleep/NextNapSection';
+import { predictNextNap } from '@/lib/sleep-predict';
+import { consumeWidgetAction } from '@/lib/widget-actions';
+import { useSleepTrainingPlan } from '@/hooks/useSleepTrainingPlan';
 
 type Tone = 'lav' | 'blue' | 'green' | 'peach' | 'yellow' | 'pink' | 'neutral';
 type Tab = 'today' | 'week' | 'plan' | 'safety';
@@ -572,28 +578,24 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
   const child = selectedChild ?? children[0] ?? null;
   const { addLog, deleteLog } = useBabyLogs();
   const { logs } = useBabyLogsRange(14);
-  const storageKey = planStorageKey(user?.id ?? 'guest');
-  const [state, setState] = useState<PlanState>(DEFAULT_PLAN_STATE);
-  const [loaded, setLoaded] = useState(false);
+  // The plan is kept per child on the phone and synced with the account (shared with the linked partner).
+  const { state, loaded, update } = useSleepTrainingPlan(user?.id ?? null, child?.id ?? null);
   const [tab, setTab] = useState<Tab>('today');
   const [busy, setBusy] = useState(false);
   const lock = useRef(false);
   const now = useNow(30_000);
   const todayKey = localDateKey(now);
 
+  // A "Sleep" tap on the home-screen widget starts the sleep timer right away.
+  const [initialWidgetAction] = useState(consumeWidgetAction);
+  const widgetAction = useRef(initialWidgetAction);
   useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(storageKey);
-      setState(prunePlanState(parsePlanState(raw ? JSON.parse(raw) : null), localDateKey(new Date())));
-    } catch { setState(DEFAULT_PLAN_STATE); }
-    setLoaded(true);
-  }, [storageKey]);
-  useEffect(() => {
-    if (!loaded) return;
-    try { window.localStorage.setItem(storageKey, JSON.stringify(state)); } catch { /* storage optional */ }
-  }, [state, storageKey, loaded]);
+    if (!loaded || widgetAction.current !== 'sleep') return;
+    widgetAction.current = null;
+    if (!state.pendingSleepStart) update((s) => setPendingSleep(s, new Date().toISOString()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
 
-  const update = (fn: (s: PlanState) => PlanState) => setState((s) => prunePlanState(fn(s), localDateKey(new Date())));
   const birth = child?.birth_date ? new Date(child.birth_date) : null;
   const months = birth ? monthsOld(birth, now) : 0;
   const band = ageBand(months);
@@ -607,9 +609,19 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
   const nightWakes = state.nightWakes[nightKey(now)] ?? 0;
   const emergency = getEmergencyNumber((profile as { country_code?: string } | null)?.country_code ?? (child as { country_code?: string } | null)?.country_code ?? null);
 
+  const wakeClock = parseClock(state.wakeTime);
+  const morningWake = wakeClock === null ? null : new Date(now.getFullYear(), now.getMonth(), now.getDate(), Math.floor(wakeClock / 60), wakeClock % 60);
+  const predicted = useMemo(() => (band ? predictNextNap({ entries, band, now, sleepingSince, morningWake }) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [band, entries, now, sleepingSince?.getTime(), morningWake?.getTime()]);
+
   const todaySummary = todayDay.totalMinutes > 0 ? fill('sleeptraining_today_summary', { time: dur(todayDay.totalMinutes) }) : bc('sleeptraining_today_none');
   const hero = sleepingSince
     ? { sleeping: true, title: bc('sleeptraining_hero_sleeping'), detail: fill('sleeptraining_live_since', { time: clockOf(sleepingSince) }) }
+    : predicted?.windowStart && predicted.minutesToStart !== null
+      ? predicted.minutesToStart > 0
+        ? { sleeping: false, title: fill('sleeptraining_hero_next', { label: predicted.isBedtime ? bc('sleeptraining_block_bedtime') : bc('sleeptraining_block_nap') }), detail: fill('sleeptraining_hero_in', { time: dur(predicted.minutesToStart), clock: clockOf(predicted.windowStart) }) }
+        : { sleeping: false, title: fill('sleeptraining_hero_now', { label: predicted.isBedtime ? bc('sleeptraining_block_bedtime') : bc('sleeptraining_block_nap') }), detail: fill('sleeptraining_hero_until', { time: clockOf(predicted.windowEnd ?? predicted.windowStart) }) }
     : status.currentIndex !== null
       ? { sleeping: false, title: fill('sleeptraining_hero_now', { label: blockLabel(schedule[status.currentIndex], status.currentIndex) }), detail: fill('sleeptraining_hero_until', { time: schedule[status.currentIndex].end }) }
       : status.nextIndex !== null && status.minutesToNext !== null
@@ -689,6 +701,8 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
 
         {tab === 'today' && (
           <>
+            <NextNapSection entries={entries} band={band} now={now} birth={birth} childName={child.name} sleepingSince={sleepingSince}
+              morningWake={morningWake} busy={busy} onStartSleep={startSleep} />
             <LiveSleep sleepingSince={sleepingSince} nightWakes={nightWakes} busy={busy} todaySummary={todaySummary}
               onStart={startSleep} onStop={stopSleep} onDiscard={discard} onNightWake={(d) => update((s) => adjustNightWakes(s, nightKey(new Date()), d))} />
             <DayTimeline schedule={schedule} wakeTime={state.wakeTime} now={now}
@@ -710,6 +724,8 @@ export default function SleepTraining({ onBack }: { onBack: () => void }) {
             onToggleStep={(st) => update((s) => toggleStep(s, st))} onRate={(d, r, clear) => update((s) => ratePlanDay(s, d, r, clear))} onReset={() => update(resetPlan)} />
         )}
         {tab === 'safety' && <Safety done={state.safetyDone} emergency={emergency} onToggle={(it) => update((s) => toggleSafety(s, it))} />}
+        {/* The safety tab already has its own call row; the other tabs get the one-line strip. */}
+        {tab !== 'safety' && <SafetyStrip signs={tr('safety_sleep_signs', 'Zəng edin: nəfəs dayanması, göyərmiş dodaqlar, hərarət, qeyri-adi yuxululuq')} />}
       </div>
     </ToolPage>
   );

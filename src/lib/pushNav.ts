@@ -21,6 +21,9 @@
 import { validate as isUuid } from 'uuid';
 import { getBackendConfig } from '@/integrations/supabase/backend-config';
 import type { CommunityDeepLinkTarget } from '@/components/community/CommunityScreen';
+import { parseDeeplink, type ParsedDeeplink } from '@/lib/deeplink';
+import { setParentingTarget } from './parenting-target';
+
 
 export interface PushNavIntent {
   tab?: string;
@@ -28,8 +31,12 @@ export interface PushNavIntent {
   /** Qadın tərəfdə partner söhbəti (MessagesScreen) */
   motherChat?: boolean;
   shoppingList?: boolean;
+  /** Open a tool from another screen (e.g. Nutrition → baby feeding). */
+  tool?: string;
   /** Community-yə keçəndə MƏHZ hansı post/şərh/story-nin açılacağı (bax CommunityDeepLinkTarget) */
   communityTarget?: CommunityDeepLinkTarget;
+  /** An in-app link (anacan://tool/…) handled by Index's own deeplink router, no OS round trip. */
+  deeplink?: ParsedDeeplink;
 }
 
 export const PUSH_NAV_EVENT = 'anacan-push-nav';
@@ -55,6 +62,14 @@ export function intentFromPushData(data: Record<string, any>): PushNavIntent | n
       };
     case 'shopping_list':
       return { shoppingList: true };
+    case 'parenting_programme':
+      // Local Tərbiyə programme reminder (src/lib/parenting-reminders.ts): open the running programme itself;
+      // the partner app has no Tools tab.
+      if (typeof data.programme === 'string') setParentingTarget({ kind: 'programme', id: data.programme });
+      return data.partner === '1' ? { screen: 'partner-parenting' } : { tool: 'parenting' };
+    case 'baby_chat':
+      // Local notification from "Körpəmdən mesajlar" (src/lib/baby-chat-notifications.ts)
+      return { screen: 'baby-chat' };
     case 'group_message':
     case 'group_invite':
     case 'group_join_request':
@@ -105,6 +120,20 @@ export function intentFromPushData(data: Record<string, any>): PushNavIntent | n
   }
 }
 
+/** The public website (not the app host): its pages open in the phone's browser. */
+const WEBSITE_ORIGINS = ['https://anacan.az', 'https://www.anacan.az'];
+
+function openWhenVisible(href: string): void {
+  const open = () => { try { window.open(href, '_blank', 'noopener,noreferrer'); } catch { /* nothing else to try */ } };
+  if (typeof document === 'undefined' || document.visibilityState === 'visible') { setTimeout(open, 350); return; }
+  const onVisible = () => {
+    if (document.visibilityState !== 'visible') return;
+    document.removeEventListener('visibilitychange', onVisible);
+    setTimeout(open, 350);
+  };
+  document.addEventListener('visibilitychange', onVisible);
+}
+
 /** Push toxunuşunda çağırılır (useDeviceToken). */
 export function navigateFromPush(data: Record<string, any>): void {
   // Preserve explicit links only within the app's registered schemes/origins.
@@ -129,8 +158,24 @@ export function navigateFromPush(data: Record<string, any>): void {
         && url.href.startsWith(`${url.protocol}//`);
       if (!url.username && !url.password && (appScheme ||
         (url.protocol === 'https:' && trustedOrigins.includes(url.origin)))) {
-        window.location.href = url.href;
+        // Route in-app links inside the app. Handing anacan:// back to the OS was lost when the
+        // push opened the app behind the PIN lock (it only showed the dashboard). Pending survives
+        // a cold start: Index consumes it when it mounts.
+        const parsed = parseDeeplink(url.href);
+        if (parsed) {
+          pending = { deeplink: parsed };
+          try { window.dispatchEvent(new CustomEvent(PUSH_NAV_EVENT, { detail: pending })); } catch { /* Index consumes pending */ }
+          return;
+        }
         pending = null;
+        if (url.protocol === 'https:' && WEBSITE_ORIGINS.includes(url.origin)) {
+          // Website links (e.g. the anacan.az campaign) open in the phone's browser. Assigning
+          // window.location inside the native WebView was silently cancelled on iOS, so the tap
+          // only opened the app. Wait until the app is visible: a cold-start tap runs before that.
+          openWhenVisible(url.href);
+          return;
+        }
+        window.location.href = url.href;
         return;
       }
     } catch {/* aşağıdakı intent yolu ilə davam */}

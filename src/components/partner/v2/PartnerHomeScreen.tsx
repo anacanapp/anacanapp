@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import IllnessHomeCard from '@/components/illness/IllnessHomeCard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Send, MessageCircle, BookOpen, Sparkles } from 'lucide-react';
 import { useUserStore } from '@/store/userStore';
@@ -10,22 +11,30 @@ import { usePregnancyContentByDay } from '@/hooks/usePregnancyContent';
 import { useFruitImages, getDynamicFruitData } from '@/hooks/useFruitData';
 import { useDailyTip } from '@/hooks/usePartnerDailyTips';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { getPregnancyDay } from '@/lib/pregnancy-utils';
+import { getPregnancyDay, getRealCalendarAge } from '@/lib/pregnancy-utils';
 import { supabase } from '@/integrations/supabase/client';
+import { sendPartnerMessage } from '@/lib/chat';
 import { hapticFeedback } from '@/lib/native';
 import { useToast } from '@/hooks/use-toast';
+import PartnerLinkForm from './PartnerLinkForm';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { tr } from '@/lib/tr';
 
 import SOSButton from '@/components/partner/SOSButton';
 import PartnerOnboardingTour, { PARTNER_TOUR_KEY } from './PartnerOnboardingTour';
 import DailyMissionsCard from './DailyMissionsCard';
+import BirthModeCard from './BirthModeCard';
+import PostpartumCard from './PostpartumCard';
+import { postpartumWeek } from '@/data/postpartum-partner';
 import PartnerActivityFeed from './PartnerActivityFeed';
 import NextAppointmentCard from './NextAppointmentCard';
 import PartnerWeekInfoCard from './PartnerWeekInfoCard';
-import PartnerBabyCrisisCard from './PartnerBabyCrisisCard';
+import BabyCrisisWidget from '@/components/mommy/BabyCrisisWidget';
 import PartnerBabyTodayCard from './PartnerBabyTodayCard';
 import PartnerFlowStatusCard from '@/components/flow/PartnerFlowStatusCard';
 import { AdInlineAnchor } from '@/components/ads/AdExperienceProvider';
+import PartnerLossCard from '@/components/pregnancy-loss/PartnerLossCard';
+import { usePregnancyLossText } from '@/data/pregnancy-loss';
 
 /**
  * Partnyor "Bu gün" — v2 ana ekran.
@@ -52,7 +61,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
   const { profile } = useAuth();
   const { toast } = useToast();
   const {
-    partnerProfile, partnerDailyLog, sharing, loading,
+    partnerProfile, partnerDailyLog, partnerChildren, sharing, loading,
     getPregnancyWeek, getDaysUntilDue, getBabyAgeDays,
     getCyclePhaseInfo, getDaysUntilNextPeriod
   } = usePartnerData();
@@ -82,6 +91,10 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
   const babyAgeDays = getBabyAgeDays();
   const cyclePhase = getCyclePhaseInfo();
   const pregnancyDay = partnerProfile?.last_period_date ? getPregnancyDay(partnerProfile.last_period_date) : 0;
+  // Pregnancy loss recovery: no fertility, missions or tips. The guide only when she chose to share it.
+  const inLoss = lifeStage === 'flow' && !!partnerProfile?.loss_recovery_active;
+  const lossShared = inLoss && !!partnerProfile?.loss_share_partner;
+  const lossText = usePregnancyLossText(language || 'az');
 
   const { data: dayContent } = usePregnancyContentByDay(pregnancyDay > 0 ? pregnancyDay : undefined);
   const { data: fruitImages = [] } = useFruitImages();
@@ -104,12 +117,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
     await hapticFeedback.heavy();
     if (!profile || !partnerProfile) return;
     try {
-      await supabase.from('partner_messages').insert({
-        sender_id: profile.user_id,
-        receiver_id: partnerProfile.user_id,
-        message_type: 'love',
-        content: '❤️'
-      });
+      await sendPartnerMessage(profile.user_id, partnerProfile.user_id, '❤️');
       toast({ title: tr('partnerdashboard_sevgi_gonderildi_4284b1', '💕 Sevgi göndərildi!'), description: `${womanName} ${tr('partner_will_receive_notification', 'bildiriş alacaq')}` });
     } catch (err) {
       console.error('Error sending love:', err);
@@ -121,12 +129,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
     if (!content || !profile || !partnerProfile) return;
     await hapticFeedback.medium();
     try {
-      await supabase.from('partner_messages').insert({
-        sender_id: profile.user_id,
-        receiver_id: partnerProfile.user_id,
-        message_type: 'text',
-        content
-      });
+      await sendPartnerMessage(profile.user_id, partnerProfile.user_id, content);
       toast({ title: tr('partnerdashboard_mesaj_gonderildi_dca65e', '💌 Mesaj göndərildi!'), description: content });
       if (!text) setLoveMessage('');
     } catch (err) {
@@ -136,6 +139,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
 
   // ── Stage-ə görə hero statları ──
   const heroStats: {emoji: string;value: string;label: string;}[] = (() => {
+    if (inLoss) return [];
     if (lifeStage === 'bump') {
       return [
       { emoji: weekData?.emoji || '🍎', value: `${currentWeek}`, label: tr('partnerv2_hefte', 'həftə') },
@@ -195,9 +199,12 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--a-ink)', marginBottom: 8 }}>{tr('partnerdashboard_nece_baglanmali_8234cb', '📲 Necə bağlanmalı?')}</p>
           <ol className="text-start space-y-1.5 list-decimal list-inside" style={{ fontSize: 12, color: 'var(--a-ink-soft)' }}>
             <li>{tr('partnerdashboard_heyat_yoldasinizdan_onun_profilindeki_pa_c8a86f', 'Həyat yoldaşınızdan onun profilindəki partnyor kodunu istəyin')}</li>
-            <li>{tr('partnerdashboard_profil_bolmesine_kecerek_kodu_daxil_edin_2d8a3e', 'Profil bölməsinə keçərək kodu daxil edin')}</li>
+            <li>{feature37Text('partner_link_step2')}</li>
             <li>{tr('partnerdashboard_bir_nece_saniye_icinde_baglanti_yaranaca_99fbd5', 'Bir neçə saniyə içində bağlantı yaranacaq')}</li>
           </ol>
+        </div>
+        <div className="relative z-10 w-full flex justify-center" style={{ marginTop: 14 }}>
+          <PartnerLinkForm />
         </div>
       </div>);
   }
@@ -228,17 +235,37 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
         </header>
 
         <div className="space-y-4">
+          {lossShared &&
+          <PartnerLossCard lossDate={partnerProfile?.pregnancy_loss_date} onOpen={() => onNavigate('partner-loss-support')} />
+          }
+
+          {/* ── Doğuş rejimi: 36+ həftə ── */}
+          {lifeStage === 'bump' && currentWeek >= 36 &&
+          <BirthModeCard daysUntilDue={daysUntilDue} onNavigate={onNavigate} />
+          }
+
+          {/* ── Doğuşdan sonra ilk 8 həftə ── */}
+          {lifeStage === 'mommy' && postpartumWeek(babyAgeDays) !== null &&
+          <PostpartumCard week={postpartumWeek(babyAgeDays)!} shareMood={sharing.share_mood} onOpen={() => onNavigate('postpartum-support')} />
+          }
+
+          {/* ── Körpə xəstədirsə: ailənin xəstəlik jurnalı ── */}
+          {lifeStage === 'mommy' && <IllnessHomeCard mode="active" onOpen={() => onNavigate('illness')} />}
+
           {/* ── HERO: onun günü ── */}
           <motion.div className="a-card" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
+              <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0 overflow-hidden"
               style={{ background: 'var(--a-grad-blue)' }}>
-                {lifeStage === 'bump' ? '🤰' : lifeStage === 'mommy' ? '👩‍🍼' : '🌸'}
+                {partnerProfile.avatar_url ?
+                <img src={partnerProfile.avatar_url} alt={womanName} className="w-full h-full object-cover" loading="lazy" /> :
+                lossShared ? '🤍' : lifeStage === 'bump' ? '🤰' : lifeStage === 'mommy' ? '👩‍🍼' : '🌸'}
               </div>
               <div className="flex-1 min-w-0">
                 <h2 className="truncate" style={{ fontSize: 17, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--a-ink)' }}>{womanName}</h2>
                 <p style={{ fontSize: 11.5, color: 'var(--a-ink-soft)' }}>
-                  {lifeStage === 'bump' ? tr('partnerv2_hamilelik_yolculugu', 'Hamiləlik yolçuluğu') :
+                  {lossShared && lossText ? lossText.ui.p_hero_label :
+                  lifeStage === 'bump' ? tr('partnerv2_hamilelik_yolculugu', 'Hamiləlik yolçuluğu') :
                   lifeStage === 'mommy' ? tr('partnerv2_analiq_dovru', 'Analıq dövrü') :
                   tr('partnerv2_tsikl_izleme', 'Tsikl izləmə')}
                 </p>
@@ -273,6 +300,26 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
                   </div>
               )}
               </div>
+            }
+
+            {/* All of her active children (mommy) when there is more than one */}
+            {lifeStage === 'mommy' && !inLoss && partnerChildren.length > 1 &&
+            <div className="flex flex-wrap gap-1.5 mt-2.5" aria-label={tr('profilescreen_usaqlarim_d988f7', 'Uşaqlarım')}>
+                {partnerChildren.map((child) => {
+                  const days = child.birth_date ? getRealCalendarAge(child.birth_date).totalDays : 0;
+                  const months = Math.floor(days / 30), years = Math.floor(months / 12);
+                  const age = years >= 2 ? `${years} ${tr('time_years_old', 'yaş')}` : months > 0 ? `${months} ${tr('common_ay', 'ay')}` : `${days} ${tr('common_gun', 'gün')}`;
+                  return <span key={child.id} className="inline-flex items-center gap-1"
+                  style={{ background: child.is_current ? 'var(--a-peach-1)' : 'var(--a-surface-soft)', borderRadius: 999, padding: '4px 10px', fontSize: 11.5, fontWeight: 700, color: 'var(--a-ink)' }}>
+                      {child.avatar_emoji || (child.gender === 'boy' ? '👦' : '👧')} {child.name}
+                      <span style={{ fontWeight: 600, color: 'var(--a-ink-soft)' }}>· {child.birth_date ? age : '—'}</span>
+                    </span>;
+                })}
+              </div>
+            }
+
+            {lifeStage === 'flow' && !inLoss && !sharing.share_cycle &&
+            <p style={{ fontSize: 12, color: 'var(--a-ink-soft)', lineHeight: 1.5 }}>{feature37Text('pm_cycle_hidden')}</p>
             }
 
             {/* Simptomlar */}
@@ -332,7 +379,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           budur (partnyorun öz ekranı, burada usePartnerData() qadının
           profilini qaytarır, komponentin öz life_stage yoxlaması düzgün
           işləyir). */}
-          {lifeStage === 'flow' && sharing.share_cycle &&
+          {lifeStage === 'flow' && !inLoss && sharing.share_cycle &&
           <PartnerFlowStatusCard />
           }
 
@@ -344,19 +391,20 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
             onOpen={() => onNavigate('partner-baby-day')} />
           }
           {lifeStage === 'mommy' && babyAgeDays > 0 &&
-          <PartnerBabyCrisisCard
+          <BabyCrisisWidget
             babyAgeWeeks={Math.floor(babyAgeDays / 7)}
             babyName={partnerProfile.baby_name || tr('partnerv2_korpe', 'Körpə')} />
           }
 
           {/* ── Günlük tapşırıqlar ── */}
           <AdInlineAnchor id="home_banner" />
-          <DailyMissionsCard />
+          {!inLoss && <DailyMissionsCard lifeStage={lifeStage} pregnancyWeek={currentWeek} babyAgeDays={babyAgeDays} />}
 
           {/* ── Növbəti randevu ── */}
           {sharing.share_appointments &&
           <NextAppointmentCard motherUserId={partnerProfile.user_id} onOpen={() => onNavigate('partner-appointments')} />
           }
+          {lifeStage === 'mommy' && <IllnessHomeCard mode="entry" onOpen={() => onNavigate('illness')} />}
 
           {/* ── Sürətli mesaj ── */}
           <motion.div className="a-card" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
@@ -380,11 +428,15 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
               </motion.button>
             </div>
             <div className="flex flex-wrap gap-1.5 mt-2.5">
-              {[
+              {(lossShared && lossText ? lossText.chips : [
               tr('partnerdashboard_seni_sevirem_d85d3c', '❤️ Səni sevirəm!'),
-              tr('partnerdashboard_gozelsen_1124fe', '🌹 Gözəlsən!'),
-              tr('partnerdashboard_guclusen_673231', '💪 Güclüsən!'),
-              tr('partnerv2_nece_hiss_edirsen', '🤗 Necə hiss edirsən?')].
+              tr('partnerv2_nece_hiss_edirsen', '🤗 Necə hiss edirsən?'),
+              ...(lifeStage === 'mommy' ?
+              [feature37Text('pm_chip_night'), feature37Text('pm_chip_rest'), feature37Text('pm_chip_buy')] :
+              lifeStage === 'flow' ?
+              [feature37Text('pm_chip_tea'), feature37Text('pm_chip_rest'), feature37Text('pm_chip_buy')] :
+              [feature37Text('pm_chip_on_way'), feature37Text('pm_chip_tea'), feature37Text('pm_chip_buy')]),
+              tr('partnerdashboard_guclusen_673231', '💪 Güclüsən!')]).
               map((msg) =>
               <motion.button
                 key={msg}
@@ -401,7 +453,7 @@ const PartnerHomeScreen = ({ onNavigate, onOpenChat }: Props) => {
           <PartnerActivityFeed />
 
           {/* ── Həftəlik bələdçi / günün tövsiyəsi ── */}
-          {(partnerTip || tipText) &&
+          {!inLoss && (partnerTip || tipText) &&
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
           className="a-card" style={{ background: 'var(--a-surface)' }}>
               <div className="flex items-center gap-2 mb-2.5">

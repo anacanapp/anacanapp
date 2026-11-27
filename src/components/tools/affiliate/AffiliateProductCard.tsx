@@ -82,6 +82,8 @@ const AffiliateProductCard = ({ product, onSelect, index = 0, variant = 'grid' }
           {/* Save Button */}
           <button
             onClick={handleSaveToggle}
+            aria-label={tr("a11y_save", "Yadda saxla")}
+            aria-pressed={!!isSaved}
             className="absolute top-2 end-2 w-7 h-7 rounded-full flex items-center justify-center transition-colors"
             style={isSaved ?
             { background: 'var(--a-pink-2)', color: '#fff', border: 'none', cursor: 'pointer' } :
@@ -170,6 +172,8 @@ const AffiliateProductCard = ({ product, onSelect, index = 0, variant = 'grid' }
         {/* Save Button */}
         <button
           onClick={handleSaveToggle}
+          aria-label={tr("a11y_save", "Yadda saxla")}
+          aria-pressed={!!isSaved}
           className="absolute top-1.5 end-1.5 w-6 h-6 rounded-full flex items-center justify-center transition-colors"
           style={isSaved ?
           { background: 'var(--a-pink-2)', color: '#fff', border: 'none', cursor: 'pointer' } :

@@ -25,3 +25,25 @@ it('shows Premium for a paid member and alongside a staff badge, but respects ex
   rerender(<UserBadge type="premium" premium={false} />);
   expect(screen.queryByText('Premium')).not.toBeInTheDocument();
 });
+it('opens app links the router knows in-app and leaves other links as browser links', async () => {
+  const { fireEvent } = await import('@testing-library/react');
+  const seen: unknown[] = [];
+  const listener = (event: Event) => seen.push((event as CustomEvent).detail);
+  window.addEventListener('anacan:deeplink', listener);
+  try {
+    render(<CommentText content={'Bax:\nhttps://app.anacan.az/parenting/sos/shop-tantrum\nanacan://tool/names, https://example.com/x https://app.anacan.az/unknown/path'} allowLinks />);
+    const links = screen.getAllByRole('link');
+    expect(links.map(link => link.getAttribute('href'))).toEqual(['https://app.anacan.az/parenting/sos/shop-tantrum', 'anacan://tool/names', 'https://example.com/x', 'https://app.anacan.az/unknown/path']);
+    expect(links[0]).not.toHaveAttribute('target');
+    expect(links[0]).toHaveAttribute('data-in-app-link');
+    fireEvent.click(links[0]);
+    fireEvent.click(links[1]);
+    expect(seen).toEqual([
+      { action: 'tool', params: { tool_id: 'parenting', parenting_kind: 'sos', parenting_id: 'shop-tantrum' } },
+      { action: 'tool', params: { tool_id: 'names' } },
+    ]);
+    expect(links[2]).toHaveAttribute('target', '_blank');
+    expect(links[3]).toHaveAttribute('target', '_blank');
+    expect(links[3]).not.toHaveAttribute('data-in-app-link');
+  } finally { window.removeEventListener('anacan:deeplink', listener); }
+});

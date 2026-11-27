@@ -1,0 +1,376 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const EMOTION_LIMIT_ARTICLES: Article[] = [
+  // ── Emotions ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'tantrum-brain',
+    area: 'emotions',
+    emoji: '🌋',
+    title: 'Tantrums: what’s happening in the brain?',
+    summary: 'A tantrum isn’t the result of bad parenting. It’s the moment a big feeling overwhelms a “braking system” that is still small.',
+    bands: ['1-3', '3-6'],
+    free: true,
+    science: [
+      'The emotion system deep in the brain is powerful from birth: it registers danger, frustration and anger in an instant. The prefrontal cortex — the part that holds these feelings back and says “wait, there’s another way” — keeps maturing until around age 20. In 2–4-year-olds this gap is at its widest. That’s why, mid-tantrum, your child can’t hear you and doesn’t respond to reason: the “thinking” part of the brain is temporarily offline.',
+      'In that moment your child can’t calm down alone; they “borrow” calm from your body and your voice. Researchers call this co-regulation. The calmer the parent stays, the faster the child’s stress system returns to normal — and with repetition, the child learns and takes on this way of calming down. Shouting and punishing, on the other hand, raise stress hormones and make the tantrum last longer.',
+      'Tantrums tend to happen at the same moments: tiredness, hunger, transitions (from play to home, leaving the park), hearing “no”. Spotting these moments in advance can prevent more than half of tantrums.',
+    ],
+    tryToday: [
+      'Calm yourself first: take one deep breath, drop your shoulders, lower your voice. If you’re not calm, they can’t be either.',
+      'Say little. One or two short sentences are enough: “You’re really angry. I’m here.”',
+      'Keep everyone safe: if they’re hitting, hold their hands gently, and move away anything they could hurt themselves with.',
+      'Once they’ve calmed down, cuddle them — and only then talk, briefly: “You got really angry because the game was over. Next time you can say ‘help me’.”',
+      'This week, note down when tantrums happen. Most likely they’ll line up with tired and hungry times.',
+    ],
+    mistakes: [
+      'Giving long explanations or lectures during a tantrum. The brain isn’t in listening mode yet — calm first, talk later.',
+      'Giving in to stop the tantrum. That means a bigger tantrum next time. Show empathy for the feeling, but stick to your decision.',
+      'Shaming your child: “Shame on you, everyone’s looking at you.” Shame doesn’t teach them to manage feelings — only to hide them.',
+      'Seeing the tantrum as “manipulation”. For a young child it’s mostly a lack of skill, not a trick.',
+    ],
+    byAge: {
+      '1-3': 'Their vocabulary is small, so you name the feeling and show a simple alternative: “You’re angry. Stamp your feet — like this!” Distraction works really well at this age.',
+      '3-6': 'In a calm moment, make an “anger plan” together: breathing, squeezing a cushion, going to a quiet corner. Put it on the wall in pictures, and when a tantrum starts, just point to it.',
+    },
+    specialist: [
+      'If tantrums regularly last longer than 25 minutes or happen more than five times a day.',
+      'If your child seriously hurts themselves during tantrums (head-banging, biting) or holds their breath until they pass out — see a doctor.',
+      'If after age 4–5 tantrums are increasing instead of easing off, or there are other concerns about speech, sleep or social interaction.',
+    ],
+    sources: [S.healthyChildrenTantrums, S.harvardEF2011, S.harvardStress, S.cdcEssentials],
+  },
+  {
+    id: 'emotion-coaching',
+    area: 'emotions',
+    emoji: '🫶',
+    title: 'Emotion coaching: naming feelings',
+    summary: 'Noticing and naming feelings strengthens a child’s self-control. It doesn’t mean allowing everything.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In the 1990s psychologist John Gottman observed families and found that parents respond to their children’s feelings in four different ways: dismissing (“Don’t cry, it’s nothing”), disapproving, laissez-faire (allowing everything) and “emotion coaching”. A coaching parent takes the feeling seriously, names it and looks for solutions together with the child — while still setting limits on behaviour.',
+      'Children of emotion-coaching parents went on to hold their attention better, have fewer conflicts with friends and recover from stress faster. Later programmes (for example, “Tuning in to Kids”) showed that any parent can learn this skill.',
+      'Brain research shows something interesting too: putting a feeling into words (“I’m angry”, “I’m scared”) reduces activity in the emotion centre. So “name it to tame it” is more than a nice phrase.',
+    ],
+    tryToday: [
+      'Three times today, say your child’s feeling “as if” you were them: “Looks like you’re really disappointed.” Don’t worry if you get it wrong — they’ll correct you.',
+      'Allow the feeling, limit the behaviour: “It’s OK to be angry. It’s not OK to hit.”',
+      'When reading, look at the characters’ faces: “How do you think they’re feeling right now?”',
+      'Put your own feelings into calm words too: “I’m a bit tired, so I’m going to have a quiet cup of tea.” Your child copies you more than anyone.',
+    ],
+    mistakes: [
+      'Saying “Don’t cry”, “There’s nothing to be scared of”, “It’s nothing”. The feeling doesn’t go away — your child just learns not to show it to you.',
+      'Thinking empathy cancels the “no”. You can absolutely say “I understand, you really wanted it. The answer is still no.”',
+      'Only talking about feelings in hard moments. The best practice happens in calm moments, through play and books.',
+    ],
+    byAge: {
+      '1-3': 'Simple words: happy, angry, sad, scared. Copy facial expressions together in the mirror.',
+      '3-6': 'Draw a feelings “thermometer”: green — I’m calm, yellow — I’m getting upset, red — I’m going to explode. Let your child point to the colour.',
+      '6-12': 'Teach more nuanced words: disappointment, embarrassment, jealousy, worry. Ask where in their body they feel it.',
+    },
+    specialist: [
+      'If for a long time your child shows almost no feelings at all, or every little thing upsets them for hours.',
+      'If sadness, fear or anger lasts more than two weeks and affects sleep, eating, school and friendships — see a child psychologist.',
+    ],
+    sources: [S.gottman1996, S.havighurst2010, S.lieberman2007, S.cdcPositive],
+  },
+  {
+    id: 'calm-corner',
+    area: 'emotions',
+    emoji: '🧘',
+    title: 'A calm-down corner and breathing games',
+    summary: 'You can teach a child to calm down — not with a naughty corner, but with a cosy place and games.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Self-regulation develops first together with a parent and then, gradually, on one’s own. The more times a child has calmed down alongside a calm adult, the better they learn the way.',
+      'Slow, deep breathing (especially a long out-breath) slows the heart rate and switches off the body’s “danger” mode. Children learn this better through play than through instructions.',
+    ],
+    tryToday: [
+      'Set up a little “cosy corner” at home together: a cushion, a soft toy, a book or two, feelings cards. It isn’t a place of punishment — it’s somewhere they can go any time.',
+      'The “flower and candle” game: smell the flower (breathe in through the nose), blow out the candle (breathe out slowly through the mouth). Five times.',
+      'Practise together when things are calm: “What does our body feel like when we’re angry? Let’s practise breathing now, while we’re calm, so we remember when we need it.”',
+      'With a younger child, go to the corner together: “Come on, let’s go to the cosy corner together.”',
+    ],
+    mistakes: [
+      'Using the corner as a punishment: “Go and stand in the corner!” Then your child will avoid going there.',
+      'Trying to teach breathing for the first time in the middle of a tantrum. Skills are learned in calm times.',
+      'Expecting calm “right now”. A big feeling can take 10–20 minutes to fade.',
+    ],
+    byAge: {
+      '3-6': 'Putting a toy on their tummy and “rocking the toy with your breath” works really well.',
+      '6-12': 'Let your child write their own calm-down list: music, drawing, a walk, a drink of water. They’re more likely to use a method they chose themselves.',
+    },
+    specialist: [
+      'If your child almost never manages to calm down, or behaves dangerously when angry — see a child psychologist.',
+    ],
+    sources: [S.harvardEF2011, S.havighurst2010, S.diamond2013],
+  },
+  {
+    id: 'big-feelings-school',
+    area: 'emotions',
+    emoji: '🌧️',
+    title: 'Big feelings in school-age children',
+    summary: 'Anger, embarrassment, jealousy, disappointment: at school age feelings get more complex, and children need help understanding them.',
+    bands: ['6-12'],
+    free: false,
+    science: [
+      'By school age children can hide their feelings, so big feelings often explode at home — next to the safest person, you. Irritability after school is often the exhaustion of “holding it together” all day.',
+      'Social comparison begins at this age. Shame and an “I’m bad” feeling can look like anger. The better your child can name a feeling, the easier it becomes to manage.',
+    ],
+    tryToday: [
+      'Don’t fire questions at them straight after school. Snack, quiet or a hug first — talk later.',
+      'Practise a “feeling + need” sentence together: “I feel … because … . I need … .”',
+      'Share a similar story from your own childhood: “When I was 9, I was embarrassed like that too…”',
+      'After a meltdown, go over it without blame: “What happened? What did you feel in your body? What would help next time?”',
+    ],
+    mistakes: [
+      'Shrinking the feeling: “That’s not worth crying over.” For them, it’s big.',
+      'Jumping straight in with solutions. Sometimes a child just wants to be heard.',
+      'Treating anger as “unbecoming” in girls or sadness as “unbecoming” in boys. Every feeling is normal for every child.',
+    ],
+    specialist: [
+      'Sadness, loss of interest, changes in sleep and appetite, or refusing school for more than two weeks.',
+      'Self-harm or talking about death: get professional help straight away, and if there is immediate danger call {emergency}.',
+    ],
+    sources: [S.gottman1996, S.cdcPositive, S.aapMediaSchool2016],
+  },
+  {
+    id: 'whining',
+    area: 'emotions',
+    emoji: '🥺',
+    title: 'Whining and clinginess',
+    summary: 'Whining grates on your nerves, but it’s often a signal of tiredness or a need for attention.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Children quickly learn which behaviour works. If whining eventually gets them what they want, they’ll keep doing it. Attention — even negative attention — reinforces behaviour.',
+      'At the same time, whining is often a sign of hunger, tiredness or having gone a long time without attention. Responding to the cause quickly reduces the behaviour.',
+    ],
+    tryToday: [
+      'In a calm moment, play the “strong voice” game: say the same request in a whiny voice and in a normal voice, and laugh together.',
+      'When they whine, say calmly: “I can hear you much better in your normal voice.” When they use their normal voice, respond straight away and with enthusiasm.',
+      'Get in first during the day: frequent, short attention for no reason — eye contact, a hug, “I see you”.',
+    ],
+    mistakes: [
+      'Saying “no” first, then “fine, have it” when the whining drags on. Nothing teaches whining more powerfully.',
+      'Mocking the whining or imitating it to shame them.',
+    ],
+    specialist: [
+      'If along with the whining your child often looks tired or pale, or has lost their appetite — see a doctor to check for medical causes.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline],
+  },
+
+  // ── Limits ──────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'positive-discipline',
+    area: 'limits',
+    emoji: '🧭',
+    title: 'Positive discipline: limits and warmth together',
+    summary: 'The best outcomes come not from strict parents or from parents who allow everything, but from those who are both warm and clear.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In the 1960s psychologist Diana Baumrind described parenting styles along two dimensions: warmth (love, attention, responsiveness) and demands/structure (clear expectations, limits). The “authoritative” style, high in both, was linked with the best outcomes: more independent, more self-confident children with fewer behaviour problems.',
+      'In the decades that followed, meta-analyses combining hundreds of studies confirmed this: a warm relationship and limits set with explanation are associated with less aggression and rule-breaking, while harsh control and punishment are associated with more problem behaviour.',
+      'The American Academy of Pediatrics (2018) and the WHO (2022) recommend the same approach to parents: build a positive relationship, notice and reinforce good behaviour, set clear expectations and use calm consequences. Physical punishment and humiliating words are not recommended.',
+    ],
+    tryToday: [
+      'Phrase one rule positively: not “Don’t run”, but “We walk indoors”.',
+      'State the expectation in advance: “In the shop you hold my hand, and we only put what’s on the list in the trolley.”',
+      'Today, notice good behaviour five times and name it precisely: “You hung up your bag yourself — thank you!” Whatever behaviour gets attention, grows.',
+      'Set the limit in a calm, short, kind voice, then follow through. No repeated warnings.',
+    ],
+    mistakes: [
+      'Setting love and limits against each other. “I love you, and that’s why I’m not allowing it” — both can go together.',
+      'Enforcing a rule one day and forgetting it the next. Consistency matters more than strictness.',
+      'Only reacting to mistakes. If problem behaviour is the only way your child gets attention, they’ll repeat it.',
+    ],
+    byAge: {
+      '1-3': 'Environment more than words: put dangerous things out of reach and save “no” for what really matters.',
+      '3-6': '3–4 simple family rules are enough. Draw them in pictures and put them somewhere visible.',
+      '6-12': 'Discuss rules together and agree on consequences in advance. When a child writes part of a rule themselves, they follow it more.',
+    },
+    specialist: [
+      'If, despite all your efforts, behaviour problems disrupt family life, nursery or school for months — a child psychologist or parenting programmes (for example, PCIT, Triple P) are very effective.',
+    ],
+    sources: [S.baumrind1966, S.pinquart2017, S.aapDiscipline2018, S.whoParenting2022],
+  },
+  {
+    id: 'no-hitting',
+    area: 'limits',
+    emoji: '✋',
+    title: 'Why hitting doesn’t work — and what does',
+    summary: 'A smack may bring instant obedience, but it makes behaviour worse in the long run. The scientific evidence on this is very clear.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In 2016 Gershoff and Grogan-Kaylor combined 75 studies covering more than 160,000 children. The result: spanking is not linked with a single positive long-term outcome — on the contrary, it’s associated with more aggression, antisocial behaviour, mental health problems and a weaker relationship with the parent. The link shows up even with “light” smacking or smacking “out of love”.',
+      'The reason is simple: hitting doesn’t teach a child what to do, it only teaches fear. It also shows that problems are solved by force. Shouting, threats and humiliation have a similar effect: in research, harsh verbal discipline has been linked with more behaviour problems and depressive symptoms in later years.',
+      'The American Academy of Pediatrics (2018) and the WHO do not recommend physical punishment or humiliating words. What works instead: a warm relationship, clear rules, reinforcing good behaviour, logical consequences and time to calm down.',
+    ],
+    tryToday: [
+      'Choose a “stop signal” for yourself: when your temper rises, put your hands in your pockets, or take a step back and count to 10.',
+      'Stop dangerous behaviour physically but without harm: hold their hand, pick your child up, take the object away.',
+      'Teach what to do next time: “When your brother takes your toy, you can say ‘give it back!’ — or come to me.”',
+      'If you’ve already hit: apologise, take responsibility for your own behaviour and say what your plan is. This also teaches your child how to recover from a mistake.',
+    ],
+    mistakes: [
+      'Thinking “I was smacked and I turned out fine”. Many people did turn out well regardless, but research shows that on average the risk goes up.',
+      'Keeping hitting as a “last resort”. The real last resort is taking a break to calm down and asking for help.',
+      'Replacing physical punishment with another humiliating method (shaming, threats, withdrawing love).',
+    ],
+    byAge: {
+      '1-3': 'The most effective methods at this age: distraction, changing the environment, calmly moving your child away from danger.',
+      '3-6': 'Logical consequences and “time-in” (calming down next to you) work well.',
+      '6-12': 'Briefly limiting a privilege (for example, screen time) and solving the problem together.',
+    },
+    specialist: [
+      'If you feel you can’t control yourself when you’re angry, or that you might hurt your child — that’s a strong reason to ask for help. A psychologist or a parenting programme can change things.',
+      'If your child or you are in danger, or there is violence at home, call {emergency} immediately.',
+    ],
+    sources: [S.gershoff2016, S.aapDiscipline2018, S.wangKenny2014, S.whoParenting2022],
+  },
+  {
+    id: 'consequences',
+    area: 'limits',
+    emoji: '⚖️',
+    title: 'Consequences vs punishment: what’s the difference?',
+    summary: 'Punishment aims to hurt; a consequence aims to teach. The best consequence is related to the behaviour, respectful and known in advance.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Behavioural psychology shows that what changes behaviour most is what follows it. But punishments (hitting, humiliating, long deprivations) create fear and resentment, and the child starts thinking about “how not to get caught”.',
+      'A logical consequence, on the other hand, is directly linked to the behaviour, short, and it teaches: drew on the wall with paints — we clean it together; broke the bike rule — no bike today. Natural consequences (went out without a jacket — got cold) are the most powerful teacher, as long as they are safe.',
+    ],
+    tryToday: [
+      'The “3 R” check: is the consequence Related to the behaviour, Respectful and Reasonable?',
+      'Say the consequence in advance: “If you don’t tidy the toys, tomorrow they’ll have a rest in the box.” Then follow through calmly.',
+      'Keep the consequence short: one day is enough. A month-long ban doesn’t teach more — it just hurts.',
+      'After the consequence, a “clean slate”: no lecture, we start again.',
+    ],
+    mistakes: [
+      'Making up consequences while angry: “No bike for a year!” Then you can’t carry it out and your word loses its value.',
+      'A punishment unrelated to the behaviour: didn’t do homework — can’t go to the birthday party.',
+      'Applying a consequence with sarcasm or an “I told you so”.',
+    ],
+    byAge: {
+      '3-6': 'The consequence has to be immediate and very short. Hours later, your child won’t connect it with the behaviour.',
+      '6-12': 'Decide the consequences together. Children follow rules they think are fair much more.',
+    },
+    specialist: [
+      'If no consequence works and the behaviour is dangerous or strong enough to exhaust the family — talk to a child psychologist and look into parenting programmes.',
+    ],
+    sources: [S.aapDiscipline2018, S.cdcEssentials, S.pcitMeta2007],
+  },
+  {
+    id: 'no-shouting',
+    area: 'limits',
+    emoji: '🔉',
+    title: 'How to talk without shouting',
+    summary: 'Shouting brings instant relief, but your child gets used to the volume and hears you less. Speaking calmly and up close is more powerful.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'In research, discipline with regular shouting, swearing and humiliating words has been linked with more behaviour problems and depressive symptoms in later years — even when the relationship is generally warm. One reason: shouting switches on the child’s stress system, and instead of listening they go on the defensive.',
+      'The good news: a parent’s self-regulation is a skill that can be learned. Shouting is very often a signal of the parent’s tiredness, hunger and overload — not of being a “bad parent”.',
+    ],
+    tryToday: [
+      'Instead of shouting from across the room, come close, get down to your child’s level, make eye contact, say their name and speak in a short sentence.',
+      'When you want to raise your voice, do the opposite: whisper. Children listen to a whisper with curiosity.',
+      'Note the moments you shout during the day. What time is it most often? Make a plan for that time (for example, a snack, preparing things in advance).',
+      'If you shout, repair it: “I shouted, and that wasn’t OK. I was upset, but I shouldn’t have raised my voice.”',
+    ],
+    mistakes: [
+      'Beating yourself up after every slip. That only creates more tension next time. The goal isn’t perfection, but shouting less often and repairing.',
+      'Saying “You make me shout”. We are responsible for our own feelings.',
+    ],
+    specialist: [
+      'If anger and irritability get out of control almost every day, or come with sleeplessness, sadness or hopelessness — talk to a doctor or psychologist. Parental depression and anxiety can be treated.',
+    ],
+    sources: [S.wangKenny2014, S.aapDiscipline2018, S.harvardStress],
+  },
+  {
+    id: 'time-in',
+    area: 'limits',
+    emoji: '⏸️',
+    title: 'Time-out or time-in?',
+    summary: 'A short calm-down break can work, but what young children mainly need isn’t isolation — it’s closeness that helps them calm down.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'The classic “time-out” (a calm break of a few minutes) has been studied within some parenting programmes, and when used correctly (short, calm, without humiliation, within a warm relationship) it has been shown not to be harmful. But it doesn’t mean locking a child in a room or frightening them.',
+      '“Time-in” means your child calms down next to you. It’s a better fit for young children, because they still need co-regulation. Either way, the goal isn’t punishment but calming down and “starting again”.',
+    ],
+    tryToday: [
+      'Rule of thumb: about one minute per year of age, 5 minutes at most.',
+      'The place should be quiet, but not scary. Never lock a child in a dark room.',
+      'For time-in: “Come and sit next to me. Let’s breathe together.”',
+      'After the break, a short “let’s start again” — no lecture.',
+    ],
+    mistakes: [
+      'Using time-out for long periods, often and with threats.',
+      'Combining the break with humiliation: “Go away, I don’t want to see you.”',
+    ],
+    specialist: [
+      'If your child experiences terrible fear or panic during every break, or moments of separation overwhelm them — talk to a specialist.',
+    ],
+    sources: [S.aapDiscipline2018, S.pcitMeta2007, S.cdcEssentials],
+  },
+  {
+    id: 'family-rules',
+    area: 'limits',
+    emoji: '📋',
+    title: 'Family rules: few, clear, consistent',
+    summary: 'Children test limits because they want to know whether they’re still there. A steady limit gives a sense of safety.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'A predictable environment calms a child’s stress system. In research, clear rules and a daily routine are linked with better sleep, fewer behaviour problems and stronger self-control.',
+      'The rules that work best are few (3–5), written in positive language and applied the same way by both parents.',
+    ],
+    tryToday: [
+      'Hold a family meeting: everyone suggests one rule, and together you choose 3–5 main rules.',
+      'Write the rules positively: “Gentle hands”, “We listen to each other when someone is talking”, “Plates go to the kitchen after meals”.',
+      'Agree on consequences alongside the rules.',
+      'Adults follow the rules too. Children watch your example more than your words.',
+    ],
+    mistakes: [
+      'Inventing a new rule for every new problem. Too many rules is the same as no rules.',
+      'One rule with mum, another with dad or grandma. The adults need to agree among themselves first.',
+    ],
+    specialist: [
+      'If there are constant, tense conflicts about rules in the family, a family counsellor can help.',
+    ],
+    sources: [S.cdcPositive, S.baumrind1967, S.aapDiscipline2018],
+  },
+  {
+    id: 'saying-no',
+    area: 'limits',
+    emoji: '🙅',
+    title: 'The child who says “No!”: dealing with stubbornness',
+    summary: 'The “no” stage is your child discovering “I’m a separate person”. Fighting it doesn’t work — giving choices does.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'In their second year children discover that they have a will of their own. The need for autonomy is one of the basic psychological needs: the more sense of control a child gets, the more ready they are to cooperate.',
+      'Research shows that “controlling” language (“Get dressed right now!”) increases resistance, while choices and explanations increase cooperation.',
+    ],
+    tryToday: [
+      'Offer two acceptable choices: “Teeth first, or pyjamas?”',
+      'Use a statement instead of a yes/no question: “Now it’s time to get dressed” — not “Shall we get dressed?”',
+      'Turn it into a game: “Let’s see who can put their socks on faster — you or the teddy?”',
+      'Let go of battles that don’t matter: if the T-shirt is on back to front, the world won’t end.',
+    ],
+    mistakes: [
+      'Turning every “no” into a power struggle.',
+      'Offering a choice and then not accepting what your child chose.',
+    ],
+    specialist: [
+      'If your child responds to almost no requests, doesn’t react to their name or finds it hard to connect with others — see a doctor for a developmental check.',
+    ],
+    sources: [S.cdcEssentials, S.healthyChildrenDiscipline, S.deci1999],
+  },
+];

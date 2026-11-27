@@ -1,0 +1,910 @@
+{
+ "source": "olivia.az",
+ "captured": "2026-11-16",
+ "collections": {
+  "bag": [
+   "00-00016900",
+   "00-00016912",
+   "00-00010989",
+   "00-00010981",
+   "00-10031297",
+   "00-00009801",
+   "00-10021827",
+   "00-00007396"
+  ],
+  "pregnant": [
+   "00-00001286",
+   "00-10018335",
+   "00-10018767",
+   "00-10020171",
+   "00-00008533",
+   "00-00012371",
+   "00-00004375",
+   "00-00001285"
+  ],
+  "newmom": [
+   "00-10025971",
+   "00-10025984",
+   "00-00011861",
+   "00-10030401",
+   "00-10014309",
+   "00-00001285",
+   "00-00016900",
+   "00-10021826"
+  ],
+  "baby": [
+   "00-00010989",
+   "00-00017854",
+   "00-00010981",
+   "00-00009224",
+   "00-00009095",
+   "00-00009091",
+   "00-10013447",
+   "00-10013451",
+   "00-10023595",
+   "00-10023596",
+   "00-00012835",
+   "00-00007396"
+  ],
+  "kid": [
+   "00-00004118",
+   "00-00005513",
+   "00-00010144",
+   "00-00009225",
+   "00-10026895",
+   "00-00018731",
+   "00-10027250",
+   "00-00001294",
+   "00-10029965"
+  ],
+  "cycle": [
+   "00-00004097",
+   "00-00016903",
+   "00-00010185",
+   "00-00004104",
+   "00-10021826",
+   "00-00004375"
+  ],
+  "gift": [
+   "00-10025749",
+   "00-00017598",
+   "00-00015874",
+   "00-10025913",
+   "00-10025753",
+   "00-10029272",
+   "00-10027791"
+  ]
+ },
+ "products": [
+  {
+   "sku": "00-00016900",
+   "name": "Butterfly Maxi Thick L, 32 ədəd",
+   "full_name": "Qadın Bezləri Butterfly Breathables Maxi Thick L 30+2 ədəd",
+   "price": 9.79,
+   "original_price": 14.99,
+   "url": "https://olivia.az/qadin-bezleri-butterfly-breathables-maxi-thick-l-30-2-eded",
+   "collections": [
+    "bag",
+    "newmom"
+   ],
+   "why": {
+    "bag": "Doğuşdan sonrakı ilk günlər üçün qalın bez",
+    "newmom": "Doğuşdan sonrakı ilk həftələr"
+   },
+   "image": "/olivia/00-00016900.webp",
+   "sort": 0
+  },
+  {
+   "sku": "00-00016912",
+   "name": "Butterfly Long XXL, 16 ədəd",
+   "full_name": "Qadın Bezləri Butterfly Long Big Saver XXL 16 ədəd",
+   "price": 4.29,
+   "original_price": 7.99,
+   "url": "https://olivia.az/qadin-bezleri-butterfly-long-big-saver-xxl-16-eded",
+   "collections": [
+    "bag"
+   ],
+   "why": {
+    "bag": "Gecə üçün uzun bez"
+   },
+   "image": "/olivia/00-00016912.webp",
+   "sort": 1
+  },
+  {
+   "sku": "00-00010989",
+   "name": "Uşastıy Nyan nəm salfet, 120 ədəd",
+   "full_name": "Uşaq Üçün Nəm Salfet Uşastıy Nyan 120 ədəd",
+   "price": 5.79,
+   "original_price": 6.49,
+   "url": "https://olivia.az/usaq-ucun-nem-salfet-ushastyj-njan-120-sht-4600697223391",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Körpə üçün ilk paket",
+    "baby": "Gündəlik istifadə üçün, 0+"
+   },
+   "image": "/olivia/00-00010989.webp",
+   "sort": 2
+  },
+  {
+   "sku": "00-00010981",
+   "name": "Uşastıy Nyan bezaltı krem, 100 ml",
+   "full_name": "Uşaq Üçün Bezaltı Krem Uşastıy Nyan Qoruyucu 100 ml",
+   "price": 3.99,
+   "original_price": 5.99,
+   "url": "https://olivia.az/usaq-ucun-bezalti-krem-ushastyj-njan-100-ml-4600697192222",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Bezaltı qızartıya qarşı qoruyucu",
+    "baby": "Bez dəyişəndə"
+   },
+   "image": "/olivia/00-00010981.webp",
+   "sort": 3
+  },
+  {
+   "sku": "00-10031297",
+   "name": "Hira pambıq disklər, 60 ədəd",
+   "full_name": "Uşaq Üçün Pambıq Disklər Hira Cotton 60 ədəd",
+   "price": 4.79,
+   "original_price": 6.99,
+   "url": "https://olivia.az/usaq-ucun-pambiq-diskler-hira-cotton-60-eded",
+   "collections": [
+    "bag"
+   ],
+   "why": {
+    "bag": "Körpənin üz və göz baxımı"
+   },
+   "image": "/olivia/00-10031297.webp",
+   "sort": 4
+  },
+  {
+   "sku": "00-00009801",
+   "name": "Batiste quru şampun, 200 ml",
+   "full_name": "Quru Şampun Batiste Tropical 200 ml",
+   "price": 11.89,
+   "original_price": 16.99,
+   "url": "https://olivia.az/batiste-tropical-quru-sampun-200-ml-5010724527511",
+   "collections": [
+    "bag"
+   ],
+   "why": {
+    "bag": "Xəstəxanada duş çətin olanda"
+   },
+   "image": "/olivia/00-00009801.webp",
+   "sort": 5
+  },
+  {
+   "sku": "00-10021827",
+   "name": "İntimly Hyaluron intim gel, 220 ml",
+   "full_name": "İntim Gigiyena Geli İntimly Hyaluron Nəmləndirici Və Rahatlıq 220 ml",
+   "price": 6.49,
+   "original_price": 8.79,
+   "url": "https://olivia.az/intim-gigiyena-geli-intimly-hyaluron-nemlendirici-ve-rahatliq-220-ml",
+   "collections": [
+    "bag"
+   ],
+   "why": {
+    "bag": "Yumşaq gündəlik gigiyena"
+   },
+   "image": "/olivia/00-10021827.webp",
+   "sort": 6
+  },
+  {
+   "sku": "00-00007396",
+   "name": "Lionesse körpə darağı",
+   "full_name": "Körpə Darağı Lionesse 62",
+   "price": 0.99,
+   "original_price": 1.99,
+   "url": "https://olivia.az/daraq-lionesse-62-8697888017644",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Yumşaq dişli ilk daraq",
+    "baby": "Yumşaq dişli"
+   },
+   "image": "/olivia/00-00007396.webp",
+   "sort": 7
+  },
+  {
+   "sku": "00-00001286",
+   "name": "Celenes Cloudberry losyon, ətirsiz",
+   "full_name": "Bədən losyonu Celenes Cloudberry quru və həssas dəri üçün ətirsiz 200 ml",
+   "price": 6.99,
+   "original_price": 13.99,
+   "url": "https://olivia.az/celenes-cloudberry-beden-losyonu-7350104248222",
+   "collections": [
+    "pregnant"
+   ],
+   "why": {
+    "pregnant": "Ətirsiz, quru və həssas dəri üçün"
+   },
+   "image": "/olivia/00-00001286.webp",
+   "sort": 8
+  },
+  {
+   "sku": "00-10018335",
+   "name": "Eveline Extra Soft Bio Kokos, 200 ml",
+   "full_name": "Universal Krem Eveline Extra Soft Bio Kokos 200 ml",
+   "price": 7.99,
+   "original_price": 10.99,
+   "url": "https://olivia.az/universal-krem-eveline-extra-soft-bio-kokos-200-ml",
+   "collections": [
+    "pregnant"
+   ],
+   "why": {
+    "pregnant": "Qarın, sinə və bud nahiyəsi üçün nəmləndirici"
+   },
+   "image": "/olivia/00-10018335.webp",
+   "sort": 9
+  },
+  {
+   "sku": "00-10018767",
+   "name": "Vaseline Aloe losyon, 400 ml",
+   "full_name": "Bədən Losyonu Vaseline Aloe 400 ml",
+   "price": 11.99,
+   "original_price": 16.99,
+   "url": "https://olivia.az/beden-losyonu-vaseline-aloe-400-ml",
+   "collections": [
+    "pregnant"
+   ],
+   "why": {
+    "pregnant": "Gündəlik bədən nəmləndiricisi"
+   },
+   "image": "/olivia/00-10018767.webp",
+   "sort": 10
+  },
+  {
+   "sku": "00-10020171",
+   "name": "Bioderma Atoderm Intensive, 200 ml",
+   "full_name": "Bədən balzamı Bioderma Atoderm Intensive quru və atopik dəri üçün 200 ml xüsusi qiymət",
+   "price": 44.25,
+   "original_price": null,
+   "url": "https://olivia.az/beden-balzami-bioderma-atoderm-intensive-quru-ve-atopik-deri-ucun-200-ml-xususi-qiymet",
+   "collections": [
+    "pregnant"
+   ],
+   "why": {
+    "pregnant": "Çox quru, qaşınan dəri üçün balzam"
+   },
+   "image": "/olivia/00-10020171.webp",
+   "sort": 11
+  },
+  {
+   "sku": "00-00008533",
+   "name": "Bioderma Photoderm SPF 50+, 40 ml",
+   "full_name": "Günəşdən Qoruyucu Krem Bioderma Photoderm Spf 50+ 40 ml",
+   "price": 29.49,
+   "original_price": 43.99,
+   "url": "https://olivia.az/gunesden-qoruyucu-krem-bioderma-photoderm-spf-50-40-ml-3701129803523",
+   "collections": [
+    "pregnant"
+   ],
+   "why": {
+    "pregnant": "Hamiləlik ləkələrinə qarşı günəş qoruması"
+   },
+   "image": "/olivia/00-00008533.webp",
+   "sort": 12
+  },
+  {
+   "sku": "00-00012371",
+   "name": "Revox B77 Hialuron SPF 50+, 30 ml",
+   "full_name": "Günəşdən Qoruyucu Krem Revox B77 Just Hialuron SPF 50+ 30 ml",
+   "price": 8.99,
+   "original_price": 13.99,
+   "url": "https://olivia.az/gunesden-qoruyucu-krem-revox-b77-just-hialuron-spf-50-30-ml-5060565103030",
+   "collections": [
+    "pregnant"
+   ],
+   "why": {
+    "pregnant": "Büdcəyə uyğun gündəlik SPF"
+   },
+   "image": "/olivia/00-00012371.webp",
+   "sort": 13
+  },
+  {
+   "sku": "00-00004375",
+   "name": "Eveline Lactimed intim gel",
+   "full_name": "Intim Gigiyena Geli Eveline Lactimed Süd Turşusu Və Çobanyastığı Ekstraktı 250 ml",
+   "price": 6.49,
+   "original_price": 7.99,
+   "url": "https://olivia.az/eveline-lactimed-intim-gigiyena-geli-5901761949087",
+   "collections": [
+    "pregnant",
+    "cycle"
+   ],
+   "why": {
+    "pregnant": "Süd turşusu, çobanyastığı",
+    "cycle": "Süd turşusu ilə"
+   },
+   "image": "/olivia/00-00004375.webp",
+   "sort": 14
+  },
+  {
+   "sku": "00-00001285",
+   "name": "Celenes Cloudberry əl kremi, 75 ml",
+   "full_name": "Əl kremi Celenes Cloudberry həssas dəri üçün 75 ml",
+   "price": 5.99,
+   "original_price": 11.99,
+   "url": "https://olivia.az/celenes-cloudberry-el-kremi-7350104248147",
+   "collections": [
+    "pregnant",
+    "newmom"
+   ],
+   "why": {
+    "pregnant": "Həssas dəri üçün",
+    "newmom": "Tez-tez yuyulan əllər üçün"
+   },
+   "image": "/olivia/00-00001285.webp",
+   "sort": 15
+  },
+  {
+   "sku": "00-10025971",
+   "name": "Farmona Radical saç serumu, 15 ampul",
+   "full_name": "Saç Serumu Farmona Radical Saç Tökülməsinə Qarşı Gücləndirici Konsentrat 15 x 5 ml",
+   "price": 20.99,
+   "original_price": 41.99,
+   "url": "https://olivia.az/sac-serumu-farmona-radical-sac-tokulmesine-qarsi-guclendirici-konsentrat-15-x-5-ml",
+   "collections": [
+    "newmom"
+   ],
+   "why": {
+    "newmom": "Doğuşdan sonrakı saç tökülməsi dövrü"
+   },
+   "image": "/olivia/00-10025971.webp",
+   "sort": 16
+  },
+  {
+   "sku": "00-10025984",
+   "name": "Farmona Radical Med qadınlar üçün",
+   "full_name": "Saç Serumu Farmona Radical Med Qadınlar Üçün Saç Tökülməsinə Qarşı 15 x 5 ml",
+   "price": 24.99,
+   "original_price": 49.99,
+   "url": "https://olivia.az/sac-serumu-farmona-radical-med-qadinlar-ucun-sac-tokulmesine-qarsi-15-x-5-ml",
+   "collections": [
+    "newmom"
+   ],
+   "why": {
+    "newmom": "Saç tökülməsinə qarşı intensiv kurs"
+   },
+   "image": "/olivia/00-10025984.webp",
+   "sort": 17
+  },
+  {
+   "sku": "00-00011861",
+   "name": "Beautyderm göz patçları, 60 ədəd",
+   "full_name": "Göz patçiləri Beautyderm qızılı 60 ədəd",
+   "price": 12.99,
+   "original_price": 19.99,
+   "url": "https://olivia.az/goz-patcileri-beautyderm-qizili-4820185225083",
+   "collections": [
+    "newmom"
+   ],
+   "why": {
+    "newmom": "Yuxusuz gecələrdən sonra"
+   },
+   "image": "/olivia/00-00011861.webp",
+   "sort": 18
+  },
+  {
+   "sku": "00-10030401",
+   "name": "Dermokil kofeinli göz patçı",
+   "full_name": "Göz patçiləri Dermokil canlandırıcı hialuron və kofein hidrogel 7 qr",
+   "price": 4.39,
+   "original_price": 5.49,
+   "url": "https://olivia.az/goz-patcileri-dermokil-canlandirici-hialuron-ve-kofein-hidrogel-7-qr",
+   "collections": [
+    "newmom"
+   ],
+   "why": {
+    "newmom": "Səhər 10 dəqiqəlik təravət"
+   },
+   "image": "/olivia/00-10030401.webp",
+   "sort": 19
+  },
+  {
+   "sku": "00-10014309",
+   "name": "Batiste quru şampun Fresh",
+   "full_name": "Quru Şampun Batiste Fresh 200 ml",
+   "price": 11.89,
+   "original_price": 16.99,
+   "url": "https://olivia.az/quru-sampun-batiste-fresh-200-ml",
+   "collections": [
+    "newmom"
+   ],
+   "why": {
+    "newmom": "Duşa vaxt olmayan günlər"
+   },
+   "image": "/olivia/00-10014309.webp",
+   "sort": 20
+  },
+  {
+   "sku": "00-10021826",
+   "name": "İntimly İmmuno intim gel",
+   "full_name": "İntim Gigiyena Geli İntimly İmmuno Normallaşdırıcı Və Müdafiə 220 ml",
+   "price": 8.79,
+   "original_price": null,
+   "url": "https://olivia.az/intim-gigiyena-geli-intimly-immuno-normallasdirici-ve-mudafie-220-ml",
+   "collections": [
+    "newmom",
+    "cycle"
+   ],
+   "why": {
+    "newmom": "Bərpa dövründə gigiyena",
+    "cycle": "Müdafiə və balans"
+   },
+   "image": "/olivia/00-10021826.webp",
+   "sort": 21
+  },
+  {
+   "sku": "00-00017854",
+   "name": "Smile Baby nəm salfet, 72 ədəd",
+   "full_name": "Uşaq Üçün Nəm Salfet Smile Baby Körpələr Üçün 72 ədəd",
+   "price": 5.69,
+   "original_price": null,
+   "url": "https://olivia.az/usaq-ucun-nem-salfet-smile-baby-korpeler-ucun-72-eded",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpələr üçün"
+   },
+   "image": "/olivia/00-00017854.webp",
+   "sort": 22
+  },
+  {
+   "sku": "00-00009224",
+   "name": "Bübchen körpə yağı, 200 ml",
+   "full_name": "Körpələr Üçün Yağ Bübchen 200 ml",
+   "price": 7.79,
+   "original_price": 8.49,
+   "url": "https://olivia.az/korpeler-ucun-yag-bubchen-200-ml-065331000019",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Masaj və quru dəri"
+   },
+   "image": "/olivia/00-00009224.webp",
+   "sort": 23
+  },
+  {
+   "sku": "00-00009095",
+   "name": "Johnson's Baby nəmləndirici yağ, 200 ml",
+   "full_name": "Uşaq Üçün Yağ Johnson's Baby Nəmləndirici 200 ml",
+   "price": 8.99,
+   "original_price": null,
+   "url": "https://olivia.az/usaq-ucun-yag-johnson-s-baby-nemlendirici-200-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Çimizdirmədən sonra"
+   },
+   "image": "/olivia/00-00009095.webp",
+   "sort": 24
+  },
+  {
+   "sku": "00-00009091",
+   "name": "Johnson's Baby \"Yuxudan əvvəl\" şampun",
+   "full_name": "Uşaq Üçün Şampun Johnson's Baby Yuxudan Əvvəl 200 ml",
+   "price": 5.49,
+   "original_price": 6.79,
+   "url": "https://olivia.az/usaq-ucun-sampun-johnson-s-baby-yuxudan-evvel-300-ml-3574661649085",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Axşam yuxu rejimi üçün"
+   },
+   "image": "/olivia/00-00009091.webp",
+   "sort": 25
+  },
+  {
+   "sku": "00-10013447",
+   "name": "Beautyderm körpə şampun-gel 2-si 1-də",
+   "full_name": "Körpələr Üçün Şampun-Gel Beautyderm 2-si 1-də Çiyələk Və Banan 300 ml",
+   "price": 6.79,
+   "original_price": 9.59,
+   "url": "https://olivia.az/korpeler-ucun-sampun-gel-beautyderm-2-si-1-de-ciyelek-ve-banan-300-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Saç və bədən üçün bir məhsul"
+   },
+   "image": "/olivia/00-10013447.webp",
+   "sort": 26
+  },
+  {
+   "sku": "00-10013451",
+   "name": "Beautyderm kalendula krem, 75 ml",
+   "full_name": "Uşaq Üçün Krem Beautyderm Kalendula 75 ml",
+   "price": 3.79,
+   "original_price": 5.89,
+   "url": "https://olivia.az/usaq-ucun-krem-beautyderm-kalendula-75-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Quru və qızarmış nahiyələr"
+   },
+   "image": "/olivia/00-10013451.webp",
+   "sort": 27
+  },
+  {
+   "sku": "00-10023595",
+   "name": "Siveno körpə paltarı üçün yuyucu gel",
+   "full_name": "Yuyucu gel Siveno körpələr üçün təbii tərkibli 750 ml",
+   "price": 15.99,
+   "original_price": null,
+   "url": "https://olivia.az/yuyucu-gel-korpeler-ucun-ucun-siveno-tebii-terkibli-750-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Təbii tərkib, 750 ml"
+   },
+   "image": "/olivia/00-10023595.webp",
+   "sort": 28
+  },
+  {
+   "sku": "00-10023596",
+   "name": "Siveno körpə qabları üçün vasitə",
+   "full_name": "Qabların yuyulması üçün vasitə Siveno körpələr üçün təbii tərkibli 500 ml",
+   "price": 8.09,
+   "original_price": 12.49,
+   "url": "https://olivia.az/qablarin-yuyulmasi-ucun-vasite-korpeler-ucun-siveno-tebii-terkibli-500-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Butulka və əmzik yumaq üçün"
+   },
+   "image": "/olivia/00-10023596.webp",
+   "sort": 29
+  },
+  {
+   "sku": "00-00012835",
+   "name": "Longa Vita 0+ diş fırçası",
+   "full_name": "Uşaq diş fırçası Longa Vita Paw Patrol 0+ T-1057",
+   "price": 4.99,
+   "original_price": 7.99,
+   "url": "https://olivia.az/usaq-dis-fircasi-longa-vita-paw-patrol-0-t-1057-4603777671181",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "İlk diş çıxanda"
+   },
+   "image": "/olivia/00-00012835.webp",
+   "sort": 30
+  },
+  {
+   "sku": "00-00004118",
+   "name": "Colgate Doktor Zayac 2+ diş məcunu",
+   "full_name": "Uşaq Diş Məcunu Colgate Doktor Zayac 2+ Çiyələk 50 ml",
+   "price": 3.49,
+   "original_price": null,
+   "url": "https://olivia.az/usaq-dis-mecunu-colgate-doktor-dovsan-2-50-ml-4606144005374",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "2 yaşdan, çiyələk"
+   },
+   "image": "/olivia/00-00004118.webp",
+   "sort": 31
+  },
+  {
+   "sku": "00-00005513",
+   "name": "Splat Kids 2-6 yaş diş məcunu",
+   "full_name": "Uşaq Diş Məcunu Splat Kids Albalı 2-6 Yaş 50 ml",
+   "price": 6.49,
+   "original_price": null,
+   "url": "https://olivia.az/dis-mecunu-usaqlar-ucun-splat-kids-albali-ve-ciyelek-2-6-yas-50ml-4603014006318",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Albalı dadı"
+   },
+   "image": "/olivia/00-00005513.webp",
+   "sort": 32
+  },
+  {
+   "sku": "00-00010144",
+   "name": "Nordics Kids diş məcunu",
+   "full_name": "Uşaq Diş Məcunu Nordics Kids Saqqız 50 ml",
+   "price": 6.79,
+   "original_price": 9.99,
+   "url": "https://olivia.az/usaq-dis-mecunu-nordics-50-ml-3800500324456",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Saqqız dadı"
+   },
+   "image": "/olivia/00-00010144.webp",
+   "sort": 33
+  },
+  {
+   "sku": "00-00009225",
+   "name": "Bübchen Kinder şampun, 400 ml",
+   "full_name": "Uşaq Üçün Şampun Bübchen Kinder 400 ml",
+   "price": 12.99,
+   "original_price": null,
+   "url": "https://olivia.az/usaq-ucun-sampun-bubchen-kinder-400-ml-4065331001733",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaq saçı üçün"
+   },
+   "image": "/olivia/00-00009225.webp",
+   "sort": 34
+  },
+  {
+   "sku": "00-10026895",
+   "name": "Uşastıy Nyan asan darama şampunu",
+   "full_name": "Uşaq Üçün Şampun-Kondisioner Uşastıy Nyan Çobanyastığı Asan Darama 200 ml",
+   "price": 3.29,
+   "original_price": 4.59,
+   "url": "https://olivia.az/usaq-ucun-sampun-kondisioner-usastiy-nyan-cobanyastigi-asan-darama-200-ml",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Dolaşmayan saç"
+   },
+   "image": "/olivia/00-10026895.webp",
+   "sort": 35
+  },
+  {
+   "sku": "00-00018731",
+   "name": "Mini Me 3-ü 1-də, 500 ml",
+   "full_name": "Uşaq Üçün Gel-Şampun-Köpük Mini Me 3-ü 1-də 500 ml",
+   "price": 6.29,
+   "original_price": 8.49,
+   "url": "https://olivia.az/usaq-ucun-gel-sampun-kopuk-mini-me-3-u-1-de-500-ml",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Gel, şampun, köpük"
+   },
+   "image": "/olivia/00-00018731.webp",
+   "sort": 36
+  },
+  {
+   "sku": "00-10027250",
+   "name": "Greenlabel uşaq SPF 50+, 100 ml",
+   "full_name": "Uşaqlar üçün günəşdən qoruyucu krem Greenlabel SPF 50+ 100 ml",
+   "price": 25.99,
+   "original_price": null,
+   "url": "https://olivia.az/usaqlar-ucun-gunesden-qoruyucu-krem-greenlabel-spf-50-100-ml",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Yay və dəniz üçün"
+   },
+   "image": "/olivia/00-10027250.webp",
+   "sort": 37
+  },
+  {
+   "sku": "00-00001294",
+   "name": "Celenes Herbal uşaq SPF 50+ sprey",
+   "full_name": "Günəşdən Qoruyucu Sprey Celenes Herbal Uşaqlar Üçün Spf 50+ 150 ml",
+   "price": 22.99,
+   "original_price": null,
+   "url": "https://olivia.az/celenes-herbal-gunesden-qoruyucu-sprey-7350104248284",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Asan sürtülür"
+   },
+   "image": "/olivia/00-00001294.webp",
+   "sort": 38
+  },
+  {
+   "sku": "00-10029965",
+   "name": "Pic Nic Baby ağcaqanad kremi",
+   "full_name": "Uşaqlar Üçün Pic Nic Baby Ağcaqanadlara Qarşı Krem 40 ml",
+   "price": 3.89,
+   "original_price": 4.49,
+   "url": "https://olivia.az/usaqlar-ucun-pic-nic-baby-agcaqanadlara-qarsi-krem-40-ml",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Bağ və gəzinti üçün"
+   },
+   "image": "/olivia/00-10029965.webp",
+   "sort": 39
+  },
+  {
+   "sku": "00-00004097",
+   "name": "Kotex Normal hipoallergen, 8 ədəd",
+   "full_name": "Qadın Bezləri Kotex Normal Hipoallergen 8 ədəd",
+   "price": 3.49,
+   "original_price": 4.29,
+   "url": "https://olivia.az/qadin-bezleri-kotex-normal-hipoallergen-8-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Gündüz üçün"
+   },
+   "image": "/olivia/00-00004097.webp",
+   "sort": 40
+  },
+  {
+   "sku": "00-00016903",
+   "name": "Butterfly Ultra Thin Cottony L",
+   "full_name": "Qadın Bezləri Butterfly Ultra Thin Cottony L 8 ədəd",
+   "price": 3.49,
+   "original_price": 4.99,
+   "url": "https://olivia.az/qadin-bezleri-butterfly-ultra-thin-cottony-l-8-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "İncə və pambıqlı"
+   },
+   "image": "/olivia/00-00016903.webp",
+   "sort": 41
+  },
+  {
+   "sku": "00-00010185",
+   "name": "Minuoyi Night, 4 damcı",
+   "full_name": "Qadın Bezləri Minuoyi Night 4 Damcı 8 ədəd",
+   "price": 4.79,
+   "original_price": 6.99,
+   "url": "https://olivia.az/qadin-bezleri-minuoyi-night-4-damci-8-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Gecə üçün"
+   },
+   "image": "/olivia/00-00010185.webp",
+   "sort": 42
+  },
+  {
+   "sku": "00-00004104",
+   "name": "Kotex gündəlik bezlər, 56 ədəd",
+   "full_name": "Gündəlik Bezlər Kotex Normal Deo 56 ədəd",
+   "price": 6.89,
+   "original_price": null,
+   "url": "https://olivia.az/gundelik-bezler-kotex-normal-deo-56-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Hər gün üçün"
+   },
+   "image": "/olivia/00-00004104.webp",
+   "sort": 43
+  },
+  {
+   "sku": "00-10025749",
+   "name": "IDC In Love masaj dəsti, 3-lü",
+   "full_name": "Hədiyyə Dəsti Idc İn Love Masaj Seti 3-lü",
+   "price": 14.99,
+   "original_price": 29.99,
+   "url": "https://olivia.az/hediyye-desti-idc-in-love-masaj-seti-3-lu",
+   "collections": [
+    "gift"
+   ],
+   "why": {
+    "gift": "Hamilə həyat yoldaşına axşam masajı"
+   },
+   "image": "/olivia/00-10025749.webp",
+   "sort": 44
+  },
+  {
+   "sku": "00-00017598",
+   "name": "Gloss Body bədən baxımı, 3-lü",
+   "full_name": "Hədiyyə dəsti Gloss Body Cosmetics 3-lü bədən baxımı",
+   "price": 14.99,
+   "original_price": 19.99,
+   "url": "https://olivia.az/hediyyelik-dest-lily-peony-4-lu-beden-baximi",
+   "collections": [
+    "gift"
+   ],
+   "why": {
+    "gift": "Doğum sonrası hədiyyə"
+   },
+   "image": "/olivia/00-00017598.webp",
+   "sort": 45
+  },
+  {
+   "sku": "00-00015874",
+   "name": "Anyong Hydra-Glow dəsti",
+   "full_name": "Dəst Anyong Hydra-Glow",
+   "price": 19.99,
+   "original_price": 34.99,
+   "url": "https://olivia.az/qulluq-desti-anyong-hydra-glow-8684221509089",
+   "collections": [
+    "gift"
+   ],
+   "why": {
+    "gift": "Üz baxımı hədiyyəsi"
+   },
+   "image": "/olivia/00-00015874.webp",
+   "sort": 46
+  },
+  {
+   "sku": "00-10025913",
+   "name": "Farmona əl kremi dəsti, 4 x 50 ml",
+   "full_name": "Dəst əl üçün Farmona 4 x 50 ml",
+   "price": 19.49,
+   "original_price": 27.99,
+   "url": "https://olivia.az/dest-el-ucun-farmona-4x50-ml",
+   "collections": [
+    "gift"
+   ],
+   "why": {
+    "gift": "Hər çantaya bir krem"
+   },
+   "image": "/olivia/00-10025913.webp",
+   "sort": 47
+  },
+  {
+   "sku": "00-10025753",
+   "name": "IDC Natural Oil, 4-lü çanta",
+   "full_name": "Hədiyyə Dəsti Idc Natural Oil Bədən Baxımı 4-lü Çanta",
+   "price": 23.99,
+   "original_price": 35.99,
+   "url": "https://olivia.az/hediyye-desti-idc-natural-oil-beden-baximi-4-lu-canta",
+   "collections": [
+    "gift"
+   ],
+   "why": {
+    "gift": "Bədən yağları dəsti"
+   },
+   "image": "/olivia/00-10025753.webp",
+   "sort": 48
+  },
+  {
+   "sku": "00-10029272",
+   "name": "Celenes əl kremi + dodaq balzamı",
+   "full_name": "Dəst Celenes Cloudberry Əl Kremi 75 ml + Celenes Dodaq Balzamı Cloudberry Stick 4.8 qr",
+   "price": 8.49,
+   "original_price": 16.99,
+   "url": "https://olivia.az/dest-celenes-cloudberry-el-kremi-75-ml-celenes-dodaq-balzami-cloudberry-stick-4-8-qr",
+   "collections": [
+    "gift"
+   ],
+   "why": {
+    "gift": "Kiçik, gözəl jest"
+   },
+   "image": "/olivia/00-10029272.webp",
+   "sort": 49
+  },
+  {
+   "sku": "00-10027791",
+   "name": "Martinelia Little Unicorn çimmə dəsti",
+   "full_name": "Uşaq Üçün Dəst Martinelia Little Unicorn Bath 2-li",
+   "price": 6.99,
+   "original_price": 19.99,
+   "url": "https://olivia.az/usaq-ucun-dest-martinelia-little-unicorn-bath-2-li",
+   "collections": [
+    "gift"
+   ],
+   "why": {
+    "gift": "Böyük bacı və ya qardaş üçün"
+   },
+   "image": "/olivia/00-10027791.webp",
+   "sort": 50
+  }
+ ]
+}

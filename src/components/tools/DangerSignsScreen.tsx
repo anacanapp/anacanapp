@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, ChevronDown, ShieldAlert, Siren, HeartHandshake } from 'lucide-react';
 import { ToolPage, ToolHeader } from '@/components/tools/anacan/ToolKit';
 import { getDangerSignsForStage, type DangerSign } from '@/lib/redFlags';
-import { getEmergencyNumber } from '@/lib/emergency';
+import { fillEmergencyNumber, getEmergencyNumber } from '@/lib/emergency';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
@@ -177,7 +177,7 @@ const DangerSignsScreen = ({ onBack }: Props) => {
             <Siren size={19} className="text-white" />
           </motion.div>
           <div className="flex-1">
-            <p style={{ fontSize: 14, fontWeight: 800, color: 'var(--a-alert-ink)' }}>{tr('rf_103_title', 'Təcili Tibbi Yardım')}</p>
+            <p style={{ fontSize: 14, fontWeight: 800, color: 'var(--a-alert-ink)' }}>{fillEmergencyNumber(tr('rf_103_title', 'Təcili Tibbi Yardım'), emergencyNum)}</p>
             <p style={{ fontSize: 11.5, color: 'var(--a-alert-soft)' }}>{tr('rf_103_sub', 'Zəng etmək üçün toxunun')}</p>
           </div>
           <span style={{ fontSize: 22, fontWeight: 900, color: 'var(--a-alert-ink)' }}>{emergencyNum}</span>

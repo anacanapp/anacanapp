@@ -9,6 +9,10 @@ import { supabase } from '@/integrations/supabase/client';
 import { Capacitor } from '@capacitor/core';
 import { createBrandExposure } from '@/lib/ads/brandMeasurement';
 import { safeAdUrl } from '@/lib/brand-ads';
+import { parseDeeplink } from '@/lib/deeplink';
+
+/** In-app deeplink event: banners (and other UI) open any app route such as /books, /cakes or /tool/{id}. Index.tsx handles it. */
+export const APP_DEEPLINK_EVENT = 'anacan:deeplink';
 import { leadText } from '@/lib/ads/leadForm';
 import NativeAdCard from './NativeAdCard';
 import LeadFormSheet from './LeadFormSheet';
@@ -32,9 +36,12 @@ const BannerSlot = ({ placement, onNavigate, onToolOpen, className = '' }: Banne
   // uyğun olsun deyə (heç bir early return-dan ƏVVƏL) hesablanır, yüklənərkən boş massivə düşür
   // Brand creatives reach Premium only when the brand explicitly targets that tier (v3).
   const tier = isPremium ? 'premium' : 'free';
-  const visibleBanners = (banners || []).filter((b) => b.branded
+  // Own banners may also target a tier (e.g. Premium upsell banners: audience_tiers = {free}).
+  const platform = Capacitor.getPlatform();
+  const visibleBanners = (banners || []).filter((b) => !b.target_platforms?.length || (b.target_platforms as string[]).includes(platform)).filter((b) => b.branded
     ? (b.audience_tiers?.length ? b.audience_tiers.includes(tier) : !isPremium)
-    : (!b.is_premium_only || isPremium));
+    : b.audience_tiers?.length ? b.audience_tiers.includes(tier) && (!b.is_premium_only || isPremium)
+      : (!b.is_premium_only || isPremium));
   const visibleIds = visibleBanners.map((b) => b.id).join(',');
 
   // Hər banner faktiki göründükdə (bu slot render olunanda) BİR DƏFƏ görüntülənmə qeyd olunur
@@ -67,12 +74,13 @@ const BannerSlot = ({ placement, onNavigate, onToolOpen, className = '' }: Banne
       case 'external':
         window.open(safeAdUrl(banner.link_url)!, '_blank', 'noopener,noreferrer');
         break;
-      case 'internal':
-        if (onNavigate) {
-          const screen = banner.link_url.replace('/', '');
-          onNavigate(screen);
-        }
+      case 'internal': {
+        // Internal links are app deeplink paths (/books, /cakes, /tool/names, /premium...).
+        const parsed = parseDeeplink(banner.link_url);
+        if (parsed) window.dispatchEvent(new CustomEvent(APP_DEEPLINK_EVENT, { detail: parsed }));
+        else if (onNavigate) onNavigate(banner.link_url.replace('/', ''));
         break;
+      }
       case 'tool':
         if (onToolOpen) {
           onToolOpen(banner.link_url);

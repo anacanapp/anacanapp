@@ -178,6 +178,7 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
         actions={
         <motion.button
           onClick={() => setShowAddModal(true)}
+          aria-label={tr("a11y_add", "Əlavə et")}
           className="a-icon-btn"
           style={{ background: 'var(--a-peach-2)', color: '#fff', border: 'none' }}
           whileTap={{ scale: 0.9 }}>
@@ -195,7 +196,6 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}>
         
-        <span className="a-cta-shape" style={{ width: 110, height: 110, top: -40, insetInlineEnd: -30, background: 'rgba(255,255,255,0.35)' }} />
         <div className="a-cta-top">
           <span className="a-cta-badge" style={{ background: 'var(--a-chip-overlay)', color: 'var(--a-green-ink)' }}>
             💊 {tr("vitamintracker_bugunku_qebul_ae152d", "Bugünkü qəbul")}
@@ -287,6 +287,8 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
                   <span className="a-list-trail" style={{ display: 'flex', gap: 6 }}>
                     <button
                     onClick={() => handleToggleNotification(schedule)}
+                    aria-label={tr("vitamintracker_xatirlatma_bildirisi_8da2b8", "Xatırlatma bildirişi")}
+                    aria-pressed={!!schedule.notification_enabled}
                     className="a-icon-btn"
                     style={{ width: 30, height: 30 }}>
                     
@@ -298,6 +300,7 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
                     </button>
                     <button
                     onClick={() => handleDelete(schedule.id)}
+                    aria-label={tr("common_sil", "Sil")}
                     className="a-icon-btn"
                     style={{ width: 30, height: 30, background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)', border: 'none' }}>
                       <Trash2 size={13} strokeWidth={2} />
@@ -328,7 +331,7 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
             
               <div className="p-5 flex items-center justify-between" style={{ borderBottom: '1px solid var(--a-line)' }}>
                 <h2 className="a-card-title a-heading" style={{ fontSize: 16 }}>{tr("vitamintracker_vitamin_elave_et_ba4a9c", "Vitamin Əlavə Et")}</h2>
-                <button onClick={() => setShowAddModal(false)} className="a-icon-btn" style={{ width: 32, height: 32 }}>
+                <button onClick={() => setShowAddModal(false)} className="a-icon-btn" style={{ width: 32, height: 32 }} aria-label={tr("common_close", "Bağla")}>
                   <X size={15} />
                 </button>
               </div>
@@ -402,7 +405,8 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
                   type="time"
                   value={newVitamin.time}
                   onChange={(e) => setNewVitamin((prev) => ({ ...prev, time: e.target.value }))}
-                  className="a-input w-full" />
+                  className="a-input a-date-input"
+                  style={{ maxWidth: 140, minHeight: 42, padding: '8px 14px' }} />
                 
                 </div>
 
@@ -431,6 +435,8 @@ const VitaminTracker = ({ onBack }: VitaminTrackerProps) => {
                   </div>
                   <button
                   onClick={() => setNewVitamin((prev) => ({ ...prev, notification: !prev.notification }))}
+                  aria-label={tr("vitamintracker_xatirlatma_bildirisi_8da2b8", "Xatırlatma bildirişi")}
+                  aria-pressed={newVitamin.notification}
                   style={{ width: 44, height: 25, borderRadius: 999, border: 'none', cursor: 'pointer', transition: 'background 150ms ease', background: newVitamin.notification ? 'var(--a-peach-2)' : 'var(--a-line-strong)', position: 'relative' }}>
                   
                     <div

@@ -5,6 +5,9 @@ import { getPregnancyWeek, getDaysUntilDue as calcDaysUntilDue, getDaysElapsed, 
 import { getPhaseInfoForDate, type CyclePhaseInfo } from '@/lib/cycle-utils';
 import { usePartnerSharedSettings } from './usePartnerSharing';
 import { readCache, writeCache } from '@/lib/offlineCache';
+import { todayKey } from '@/lib/local-date';
+import { storedCalendarDate } from '@/lib/stored-date-key';
+import { differenceInCalendarDays } from 'date-fns';
 
 const PARTNER_PROFILE_CACHE = 'partner_profile';
 const PARTNER_DAILYLOG_CACHE = 'partner_dailylog';
@@ -24,6 +27,30 @@ export interface PartnerWomanData {
   // Əkiz/üçüz və s. — partnyor ekranlarında "körpəniz"/"körpələriniz" mətnini
   // düzgün seçmək üçün (bax PartnerHomeScreen.tsx, PartnerWeekInfoCard.tsx)
   multiples_type: string | null;
+  /** Her profile photo (null → the stage emoji is shown). */
+  avatar_url?: string | null;
+  /** Pregnancy loss recovery (Duzelis72); the partner guide shows only when she chose to share it. */
+  pregnancy_loss_date?: string | null;
+  loss_recovery_active?: boolean | null;
+  loss_share_partner?: boolean | null;
+}
+
+/** One of her ACTIVE children, from partner_children_v1 (Duzelis83; masked by share_baby_logs). */
+export interface PartnerChild {
+  id: string;
+  name: string;
+  birth_date: string | null;
+  gender: 'boy' | 'girl' | null;
+  avatar_emoji: string | null;
+  is_current: boolean;
+  /** Original due date (migration 20261109090000): a preterm baby's Tərbiyə milestone check uses corrected age. */
+  due_date: string | null;
+}
+
+/** Rows of partner_children_v1; an older function without due_date gives null (calendar age). */
+export function normalizePartnerChildren(rows: unknown[]): PartnerChild[] {
+  return rows.filter((r): r is PartnerChild => !!r && typeof r === 'object' && typeof (r as PartnerChild).id === 'string')
+    .map((r) => ({ ...r, due_date: typeof r.due_date === 'string' && /^\d{4}-\d{2}-\d{2}/.test(r.due_date) ? r.due_date.slice(0, 10) : null }));
 }
 
 export interface PartnerDailyLog {
@@ -38,6 +65,7 @@ export const usePartnerData = () => {
   const { sharing } = usePartnerSharedSettings();
   const [partnerProfile, setPartnerProfile] = useState<PartnerWomanData | null>(null);
   const [partnerDailyLog, setPartnerDailyLog] = useState<PartnerDailyLog | null>(null);
+  const [partnerChildren, setPartnerChildren] = useState<PartnerChild[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -49,7 +77,7 @@ export const usePartnerData = () => {
     setPartnerProfile(cachedProfile);
     // Gündəlik log yalnız bu günə aiddirsə göstərilsin (dünənki əhval "bu gün" kimi görünməsin)
     const cachedLog = readCache<PartnerDailyLog>(PARTNER_DAILYLOG_CACHE, profile.user_id);
-    const today = new Date().toISOString().split('T')[0];
+    const today = todayKey();
     if (cachedLog?.log_date === today) setPartnerDailyLog(cachedLog);
     return true;
   };
@@ -64,7 +92,7 @@ export const usePartnerData = () => {
       // Fetch partner's profile using the linked_partner_id
       const { data: partnerData, error: profileError } = await supabase.
       from('profiles').
-      select('id, user_id, name, life_stage, last_period_date, due_date, baby_birth_date, baby_name, baby_gender, cycle_length, period_length, multiples_type').
+      select('id, user_id, name, life_stage, last_period_date, due_date, baby_birth_date, baby_name, baby_gender, cycle_length, period_length, multiples_type, pregnancy_loss_date, loss_recovery_active, loss_share_partner, avatar_url').
       eq('id', profile.linked_partner_id).
       maybeSingle();
 
@@ -79,22 +107,23 @@ export const usePartnerData = () => {
       }
 
       if (partnerData) {
-        setPartnerProfile(partnerData as PartnerWomanData);
+        setPartnerProfile(partnerData as unknown as PartnerWomanData);
         if (profile?.user_id) writeCache(PARTNER_PROFILE_CACHE, profile.user_id, partnerData);
 
         // Fetch today's daily log for the partner
-        const today = new Date().toISOString().split('T')[0];
-        const { data: logData, error: logError } = await supabase.
-        from('daily_logs').
-        select('mood, symptoms, water_intake, log_date').
-        eq('user_id', partnerData.user_id).
-        eq('log_date', today).
-        maybeSingle();
+        const today = todayKey();
+        // Masked by her sharing settings on the server (Duzelis68); no direct daily_logs access.
+        const { data: logRows, error: logError } = await (supabase as any).rpc('partner_daily_logs_v1', { p_from: today, p_to: today });
+        const logData = (logRows as PartnerDailyLog[] | null)?.[0] ?? null;
 
         if (!logError && logData) {
           setPartnerDailyLog(logData);
           if (profile?.user_id) writeCache(PARTNER_DAILYLOG_CACHE, profile.user_id, logData);
         }
+
+        // All of her active children (a missing RPC on an older backend just leaves the list empty).
+        const { data: kids, error: kidsError } = await (supabase as any).rpc('partner_children_v1');
+        if (!kidsError && Array.isArray(kids)) setPartnerChildren(normalizePartnerChildren(kids));
       }
     } catch (err) {
       console.error('Error in fetchPartnerData:', err);
@@ -109,24 +138,15 @@ export const usePartnerData = () => {
   useEffect(() => {
     fetchPartnerData();
 
-    // Set up realtime subscription for partner's daily logs — server-side
-    // filtrlənir (partnerProfile.user_id məlum olan kimi), bütün daily_logs
-    // cədvəlinə yox.
+    // daily_logs is no longer readable row-by-row for the partner (Duzelis68), so realtime
+    // cannot deliver it; refresh while the app is open and when it returns to the foreground.
+    // The foreground/visibility refetch keeps partner updates live; the background poll is
+    // gentle (5 min instead of 60s) so an open-but-idle app does not hit the RPC every minute.
     if (profile?.linked_partner_id && partnerProfile?.user_id) {
-      const channel = supabase.
-      channel(`partner-logs-${profile.linked_partner_id}:${crypto.randomUUID()}`).
-      on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'daily_logs', filter: `user_id=eq.${partnerProfile.user_id}` },
-        () => {
-          fetchPartnerData();
-        }
-      ).
-      subscribe();
-
-      return () => {
-        supabase.removeChannel(channel);
-      };
+      const timer = window.setInterval(fetchPartnerData, 300_000);
+      const onVisible = () => { if (document.visibilityState === 'visible') fetchPartnerData(); };
+      document.addEventListener('visibilitychange', onVisible);
+      return () => { window.clearInterval(timer); document.removeEventListener('visibilitychange', onVisible); };
     }
   }, [profile?.linked_partner_id, partnerProfile?.user_id]);
 
@@ -162,7 +182,7 @@ export const usePartnerData = () => {
     }
     return getPhaseInfoForDate(
       new Date(),
-      new Date(partnerProfile.last_period_date),
+      storedCalendarDate(partnerProfile.last_period_date) ?? new Date(partnerProfile.last_period_date),
       partnerProfile.cycle_length || 28,
       partnerProfile.period_length || 5
     );
@@ -175,9 +195,8 @@ export const usePartnerData = () => {
       return 0;
     }
     const cycleLength = partnerProfile.cycle_length || 28;
-    const lmp = new Date(partnerProfile.last_period_date);
-    const today = new Date();
-    const daysSince = Math.floor((today.getTime() - lmp.getTime()) / (1000 * 60 * 60 * 24));
+    const lmp = storedCalendarDate(partnerProfile.last_period_date) ?? new Date(partnerProfile.last_period_date);
+    const daysSince = differenceInCalendarDays(new Date(), lmp);
     const daysIntoCycle = (daysSince % cycleLength + cycleLength) % cycleLength;
     return Math.max(0, cycleLength - daysIntoCycle);
   };
@@ -193,6 +212,7 @@ export const usePartnerData = () => {
   return {
     partnerProfile,
     partnerDailyLog: maskedDailyLog,
+    partnerChildren,
     sharing,
     loading,
     error,

@@ -1,0 +1,34 @@
+{
+  "country": "BR",
+  "locale": "pt-BR",
+  "names": {
+    "mother": "Ana",
+    "baby": "Helena",
+    "cycle": "Júlia",
+    "partner": "Rafael"
+  },
+  "appointments": [
+    "Ultrassom",
+    "Maternidade Central",
+    "Exame de sangue",
+    "Consulta com pediatra"
+  ],
+  "authors": [
+    "Mariana Souza",
+    "Beatriz Lima",
+    "Camila Rocha"
+  ],
+  "posts": [
+    "Hoje senti os primeiros chutes! 🥹 Não consigo descrever esse sentimento. Com quantas semanas foi para vocês? #gravidez",
+    "Conversar com a Anacan.AI às 3 da manhã, quando meu bebê não dormia, ajudou demais. Recomendo para as mamães de primeira viagem 💛",
+    "Estamos com 24 semanas e comecei a arrumar a mala da maternidade. O que tem na lista de vocês? 🧳"
+  ],
+  "ai_question": "O que ajuda com o enjoo?",
+  "ai_answer": [
+    "3 dicas simples contra o enjoo:\n\n",
+    "1. **Chá de gengibre** — uma xícara de manhã, em jejum.\n",
+    "2. **Refeições pequenas e frequentes** — não deixe o estômago vazio.\n",
+    "3. **Antes de levantar da cama**, coma alguns biscoitos de água e sal.\n\n",
+    "Beba água ao longo do dia 💧 Se os vômitos piorarem, procure seu médico."
+  ]
+}

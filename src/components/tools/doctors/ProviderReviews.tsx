@@ -4,7 +4,7 @@ import { Star, Send, Trash2, User, MessageSquare } from 'lucide-react';
 import { useProviderReviews } from '@/hooks/useProviderReviews';
 import { formatDistanceToNow } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
-import { tr } from "@/lib/tr";
+import { tr, formatTr } from "@/lib/tr";
 
 interface ProviderReviewsProps {
   providerId: string;
@@ -74,6 +74,8 @@ const ProviderReviews = ({ providerId, providerName }: ProviderReviewsProps) => 
             <button
               key={star}
               onClick={() => setRating(star)}
+              aria-label={formatTr("a11y_star_n", "Qiymət: {n}/5", { n: star })}
+              aria-pressed={rating === star}
               onMouseEnter={() => setHoverRating(star)}
               onMouseLeave={() => setHoverRating(0)}
               className="p-1 transition-transform hover:scale-110"

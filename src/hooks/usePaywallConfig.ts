@@ -91,11 +91,12 @@ export interface BillingConfig {
  */
 export const getDefaultPaywallConfig = (): PaywallConfig => ({
   title: 'Anacan Premium',
-  subtitle: tr("usepaywallconfig_tam_tecrube_sinirsiz_imkanlar_ce3376", "Tam təcrübə · Sınırsız imkanlar"),
+  subtitle: tr("usepaywallconfig_subtitle_v2", "Sizə uyğun tam Anacan təcrübəsi"),
+  // Yalnız real Premium imkanları: AI-da gündəlik limit yoxdur (pulsuz: gündə 10 sual), reklamsızlıq sonda.
   pills: [
-  { icon: 'Zap', text: tr("common_limitsiz", 'Limitsiz') },
-  { icon: 'Shield', text: tr("usepaywallconfig_reklamsiz_cc4ba5", "Reklamsız") },
-  { icon: 'Sparkles', text: tr("usepaywallconfig_ai_desteyi_934e62", "AI dəstəyi") }],
+  { icon: 'Sparkles', text: tr("paywall_pill_ai_daily", "Gündəlik limitsiz AI") },
+  { icon: 'Users', text: tr("pw_feat_household", "Partnyorla ortaq Premium") },
+  { icon: 'Shield', text: tr("usepaywallconfig_reklamsiz_cc4ba5", "Reklamsız") }],
 
   cta_new_user: tr("usepaywallconfig_premium_a_kec_2e8b0e", "Premium-a Ke\xE7"),
   cta_upgrade: tr("usepaywallconfig_plani_yenile_3ad3f4", "Plan\u0131 Yenil\u0259"),
@@ -119,9 +120,9 @@ export const getDefaultPaywallConfig = (): PaywallConfig => ({
    free_trial_cta: '',
    free_trial_note: '',
   purchasing_text: tr("paywall_emal_edilir", 'Emal edilir...'),
-  gradient_from: '#d97706',
-  gradient_via: '#ea580c',
-  gradient_to: '#be123c'
+  gradient_from: '#FF8D89',
+  gradient_via: '#FF5A5F',
+  gradient_to: '#D93A40'
 });
 
 /** Geri uyğunluq (PaywallDesignerTab) — hər müraciətdə cari dillə hesablanır */
@@ -158,9 +159,9 @@ export const getDefaultBillingConfig = (): BillingConfig => ({
   paid_label: tr("usepaywallconfig_odenildi_504c21", "\xD6d\u0259nildi"),
   support_text: tr("usepaywallconfig_suallariniz_ucun_872f23", "Suallar\u0131n\u0131z \xFC\xE7\xFCn:"),
   support_email: 'info@anacan.az',
-  header_gradient_from: '#d97706',
-  header_gradient_via: '#ea580c',
-  header_gradient_to: '#be123c',
+  header_gradient_from: '#FF8D89',
+  header_gradient_via: '#FF5A5F',
+  header_gradient_to: '#D93A40',
   header_free_from: '#475569',
   header_free_via: '#334155',
   header_free_to: '#1e293b'

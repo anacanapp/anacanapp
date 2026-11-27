@@ -1,0 +1,24 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261106090000_weaning.sql",
+  "runtime": "google-weaning",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the two new relations are registered in guarded_relations with the three standard triggers; tool_configs and app_settings are already guarded (the migration refuses otherwise)",
+  "preserve": [
+    "cron0, no timer added: weaning reminders are local notifications on the phone",
+    "8 enabled business timers",
+    "public allowlist RPC keeps every earlier key and only adds weaning_tool"
+  ],
+  "relations": [
+    { "relation": "public.weaning_plans", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false,
+      "note": "the mother's weaning plan per child: pace, night_mode, steps jsonb, status (active|paused|finished|cancelled), pause_reason, started_at; RLS: own rows only, child must be her own" },
+    { "relation": "public.weaning_checkins", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false,
+      "note": "daily weaning check-in (child mood, wet diapers, sick child, breast fullness, lump, redness, fever, mother mood, result tone); RLS: own rows only, health data never shared" },
+    { "relation": "public.tool_configs", "change": "row weaning added", "cdc": true, "writer_guard": true, "private": false, "pii": false,
+      "note": "free (is_premium=false, premium_type=none), life_stages={mommy}, mommy_active only; existing guarded relation" },
+    { "relation": "public.app_settings", "change": "row weaning_tool added", "cdc": true, "writer_guard": true, "private": false, "pii": false,
+      "note": "weaning_tool='off' (Admin → Tənzimləmələr switch), in the public allowlist RPC; existing guarded relation" }
+  ],
+  "functions": [
+    { "name": "public.get_public_app_setting(text)", "security": "definer", "grant": ["anon", "authenticated"], "note": "allowlist gains weaning_tool; body otherwise unchanged from 20261105130000_inapp_onboarding.sql" }
+  ]
+}

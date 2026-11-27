@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { consumePendingPushNav, intentFromPushData, navigateFromPush, PUSH_NAV_EVENT } from './pushNav';
+import { clearParentingTarget, peekParentingTarget } from './parenting-target';
 
 const SENDER = '01234567-89ab-4cde-8fab-0123456789ab';
 const CURRENT = 'https://current-app.example.test';
@@ -23,6 +24,15 @@ describe('push type mapping', () => {
   ])('falls back to conversations for an invalid sender (%j)', (sender_id) => {
     expect(intentFromPushData({ type: 'direct_message', sender_id, senderId: SENDER, user_id: SENDER }))
       .toEqual({ tab: 'community', communityTarget: { conversations: true } });
+  });
+
+  it('opens the running Tərbiyə programme from its reminder (and ignores a malformed id)', () => {
+    clearParentingTarget();
+    expect(intentFromPushData({ type: 'parenting_programme', partner: '0', programme: 'tantrums-14' })).toEqual({ tool: 'parenting' });
+    expect(peekParentingTarget()).toEqual({ kind: 'programme', id: 'tantrums-14' });
+    clearParentingTarget();
+    expect(intentFromPushData({ type: 'parenting_programme', partner: '1', programme: '../x' })).toEqual({ screen: 'partner-parenting' });
+    expect(peekParentingTarget()).toBeNull();
   });
 
   it('maps shopping without guessing the recipient role', () => {
@@ -66,8 +76,10 @@ describe('push type mapping', () => {
 describe('push link trust boundary and pending intents', () => {
   const navigate = vi.fn();
   const dispatch = vi.fn();
+  const windowOpen = vi.fn();
 
   beforeEach(() => {
+    vi.useFakeTimers();
     vi.resetAllMocks();
     consumePendingPushNav();
     vi.stubEnv('VITE_SUPABASE_URL', AZURE);
@@ -79,6 +91,7 @@ describe('push link trust boundary and pending intents', () => {
         set href(url: string) { navigate(url); },
       },
       dispatchEvent: dispatch,
+      open: windowOpen,
     });
   });
 
@@ -86,18 +99,41 @@ describe('push link trust boundary and pending intents', () => {
     consumePendingPushNav();
     vi.unstubAllEnvs();
     vi.unstubAllGlobals();
+    vi.useRealTimers();
   });
 
   it.each([
-    'anacan://tool/shopping', 'com.atlasoon.anacan://messages',
-    'https://anacan.az/community', 'https://www.anacan.az/',
-    'https://app.anacan.az/tool/shopping', 'https://anacanapp.lovable.app/messages',
+    'https://anacan.az/community', 'https://www.anacan.az/', 'https://anacanapp.lovable.app/messages',
     `${CURRENT}/community`, `${AZURE}/messages`,
-  ])('accepts the exact app destination %s', (deeplink) => {
+  ])('opens the trusted web destination %s in the WebView', (deeplink) => {
     navigateFromPush({ type: 'shopping_list', deeplink });
-    expect(navigate).toHaveBeenCalledExactlyOnceWith(deeplink);
+    if (/^https:\/\/(www\.)?anacan\.az\//.test(deeplink)) {
+      // Website pages open in the phone's browser once the app is visible.
+      expect(navigate).not.toHaveBeenCalled();
+      vi.advanceTimersByTime(400);
+      expect(windowOpen).toHaveBeenCalledExactlyOnceWith(deeplink, '_blank', 'noopener,noreferrer');
+    } else expect(navigate).toHaveBeenCalledExactlyOnceWith(deeplink);
     expect(dispatch).not.toHaveBeenCalled();
     expect(consumePendingPushNav()).toBeNull();
+  });
+
+  it.each([
+    'anacan://tool/shopping', 'com.atlasoon.anacan://messages', 'https://app.anacan.az/tool/shopping',
+  ])('routes the exact app destination %s inside the app', (deeplink) => {
+    navigateFromPush({ type: 'shopping_list', deeplink });
+    expect(navigate).not.toHaveBeenCalled();
+    const event = dispatch.mock.calls[0][0] as CustomEvent;
+    expect(event.type).toBe(PUSH_NAV_EVENT);
+    expect(event.detail.deeplink).toBeTruthy();
+    // Kept for a cold start behind the PIN lock; Index consumes it once.
+    expect(consumePendingPushNav()).toEqual(event.detail);
+    expect(consumePendingPushNav()).toBeNull();
+  });
+
+  it('opens a tool link as an in-app tool route', () => {
+    navigateFromPush({ type: 'admin_direct', deeplink: 'anacan://tool/cry-translator' });
+    expect(navigate).not.toHaveBeenCalled();
+    expect(consumePendingPushNav()).toEqual({ deeplink: expect.objectContaining({ action: 'tool', params: expect.objectContaining({ tool_id: 'cry-translator' }) }) });
   });
 
   it('resolves an existing relative-path convention against the current app, not another origin', () => {
@@ -136,7 +172,8 @@ describe('push link trust boundary and pending intents', () => {
       expect(navigate).not.toHaveBeenCalled();
       expect(dispatch).not.toHaveBeenCalled();
       navigateFromPush({ deeplink: 'https://app.anacan.az/messages' });
-      expect(navigate).toHaveBeenCalledExactlyOnceWith('https://app.anacan.az/messages');
+      expect(navigate).not.toHaveBeenCalled();
+      expect(consumePendingPushNav()?.deeplink).toBeTruthy();
     });
 
   it('uses only the configured origin, not its entire shared hosting domain', () => {
@@ -152,15 +189,16 @@ describe('push link trust boundary and pending intents', () => {
     expect(consumePendingPushNav()).toBeNull();
   });
 
-  it('clears an older pending intent when an approved URL takes precedence', () => {
+  it('replaces an older pending intent when an approved URL takes precedence', () => {
     navigateFromPush({ type: 'appointment' });
     navigateFromPush({ deeplink: 'anacan://community' });
-    expect(consumePendingPushNav()).toBeNull();
+    expect(consumePendingPushNav()).toEqual({ deeplink: expect.objectContaining({ action: 'tab' }) });
   });
 
   it('falls back to the mapped intent if opening a trusted URL fails', () => {
     navigate.mockImplementation(() => { throw new Error('Navigation unavailable'); });
-    navigateFromPush({ type: 'shopping_list', deeplink: 'anacan://tool/shopping' });
+    // A trusted URL the in-app router does not know still goes to the WebView; if that fails, the type wins.
+    navigateFromPush({ type: 'shopping_list', deeplink: 'https://app.anacan.az/no-such-route-here' });
     expect(consumePendingPushNav()).toEqual({ shoppingList: true });
   });
 });

@@ -112,7 +112,7 @@ const EPDSTab = () => {
               <TableHead>№</TableHead>
               <TableHead>Sual (AZ)</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="w-[100px]">{tr("adminmentalhealth_emeliyyatlar_54d70c", "Əməliyyatlar")}</TableHead>
+              <TableHead className="w-[100px]">{tr("adminmentalhealth_emeliyyatlar_54d70c", "Æməliyyatlar")}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -330,7 +330,7 @@ const BreathingTab = () => {
               <TableHead>Saxla</TableHead>
               <TableHead>{tr("adminmentalhealth_nefes_ver_6ccae7", "Nəfəs ver")}</TableHead>
               <TableHead>{tr("adminmentalhealth_dovrler_24f55e", "Dövrlər")}</TableHead>
-              <TableHead>{tr("adminmentalhealth_emeliyyatlar_54d70c", "Əməliyyatlar")}</TableHead>
+              <TableHead>{tr("adminmentalhealth_emeliyyatlar_54d70c", "Æməliyyatlar")}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -459,7 +459,7 @@ const NoiseTab = () => {
               <TableHead>{tr("adminmentalhealth_araliq_db_a88377", "Aralıq (dB)")}</TableHead>
               <TableHead>Etiket</TableHead>
               <TableHead>Emoji</TableHead>
-              <TableHead>{tr("adminmentalhealth_emeliyyatlar_54d70c", "Əməliyyatlar")}</TableHead>
+              <TableHead>{tr("adminmentalhealth_emeliyyatlar_54d70c", "Æməliyyatlar")}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -658,7 +658,7 @@ const ResourcesTab = () => {
               <TableHead>Tip</TableHead>
               <TableHead>{tr("adminmentalhealth_tecili_ab784b", "Təcili")}</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead>{tr("adminmentalhealth_emeliyyat_580469", "Əməliyyat")}</TableHead>
+              <TableHead>{tr("adminmentalhealth_emeliyyat_580469", "Æməliyyat")}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

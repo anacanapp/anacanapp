@@ -1,0 +1,132 @@
+{
+ "lang": "pl",
+ "badge": "Za darmo · 25 języków",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Okres · Ciąża · Macierzyństwo",
+   "title": [
+    "od okresu",
+    "do dziecka"
+   ],
+   "hl": "jedna aplikacja",
+   "sub": "Kalendarz okresu, ciąża tydzień po tygodniu i dziennik mamy i dziecka w jednym miejscu",
+   "cta": "Pobierz za darmo",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Okres",
+   "title": [
+    "poznaj swój cykl"
+   ],
+   "hl": "co do dnia",
+   "sub": "Prognoza następnego okresu, owulacji i dni płodnych"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Ciąża",
+   "title": [
+    "dziś Twój maluszek"
+   ],
+   "hl": "jest wielkości pomidora",
+   "sub": "Śledź ciążę tydzień po tygodniu: wielkość, waga i dni do porodu",
+   "chips": [
+    [
+     "142",
+     "dni do porodu"
+    ],
+    [
+     "19",
+     "tygodni i 4 dni"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Macierzyństwo",
+   "title": [
+    "każdy dzień dziecka"
+   ],
+   "hl": "w jednym miejscu",
+   "sub": "Codzienne porady, wiadomość dla mamy, rozwój i przypomnienia o lekarzu",
+   "chips": [
+    [
+     "245",
+     "dni razem"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "masz pytanie?"
+   ],
+   "hl": "tu jest odpowiedź",
+   "sub": "Asystentka 24/7 od pytań o okres, ciążę i dziecko",
+   "chips": [
+    [
+     "24/7",
+     "każde pytanie"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Społeczność",
+   "title": [
+    "46 000+ kobiet"
+   ],
+   "hl": "już tu jest",
+   "sub": "Zadaj pytanie i otrzymaj wsparcie od mam, które przechodzą to samo",
+   "chips": [
+    [
+     "46 000+",
+     "kobiet"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Co mówią mamy",
+   "title": [
+    "mamy"
+   ],
+   "hl": "kochają Anacan",
+   "sub": "Prawdziwe opinie, bez edycji",
+   "cta": "Pobierz za darmo",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "Ocena w App Store",
+    "stats": [
+     [
+      "46 000+",
+      "pobrań"
+     ],
+     [
+      "560+",
+      "opinii na 5 gwiazdek"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "Opinia z App Store"
+     ]
+    ]
+   }
+  }
+ ]
+}

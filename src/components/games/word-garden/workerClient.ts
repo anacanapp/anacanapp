@@ -30,13 +30,13 @@ function resetWorker(reason: () => Error) {
 export function disposeGardenWorker() {
   resetWorker(() => new DOMException('Aborted', 'AbortError'));
 }
-export async function loadGardenLevel(language: string, level: number, mode: WordGardenMode, signal?: AbortSignal, revision?: string): Promise<WordGardenLevel> {
+export async function loadGardenLevel(language: string, level: number, mode: WordGardenMode, signal?: AbortSignal, revision?: string, seed?: number): Promise<WordGardenLevel> {
   if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
   const current = getWorker();
   if (!current) {
     const lexicon = await loadGardenLexicon(language, revision);
     if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
-    return generateGardenLevel(lexicon, level, mode);
+    return generateGardenLevel(lexicon, level, mode, seed);
   }
   const id = crypto.randomUUID();
   return new Promise((resolve, reject) => {
@@ -49,7 +49,7 @@ export async function loadGardenLevel(language: string, level: number, mode: Wor
     const finish = (action: () => void) => { clearTimeout(timer); signal?.removeEventListener('abort', cancel); action(); };
     requests.set(id, { resolve: value => finish(() => resolve(value)), reject: error => finish(() => reject(error)) });
     signal?.addEventListener('abort', cancel, { once: true });
-    try { current.postMessage({ id, language, level, mode, revision }); }
+    try { current.postMessage({ id, language, level, mode, revision, seed }); }
     catch {
       requests.delete(id);
       finish(() => reject(new Error('WORD_GARDEN_WORKER_FAILED')));

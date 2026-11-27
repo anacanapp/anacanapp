@@ -2,7 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { requireUser } from "../_shared/auth.ts";
 import { callGeminiSmart } from "../_shared/vertex-ai.ts";
 import { EXPANDED_LANGUAGE_NAMES } from '../_shared/languages.ts';
-import { checkAndConsumeServerSide, limitExceededResponse } from "../_shared/usage-limit.ts";
+import { checkDailyLimit, limitExceededResponse, recordDailyUsage } from "../_shared/usage-limit.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -219,7 +219,7 @@ serve(async (req) => {
     const auth = await requireUser(req);
     if (auth.error) return auth.error;
 
-    const usage = await checkAndConsumeServerSide(auth.user.id, 'horoscope');
+    const usage = await checkDailyLimit(auth.user.id, 'horoscope');
     if (!usage.allowed) return limitExceededResponse(corsHeaders, usage.limit);
 
     const { 
@@ -428,6 +428,9 @@ ${dadSun ? `[Ana (${momSun.signAz}) və ata (${dadSun.signAz}) arasındakı kosm
       },
     };
 
+    if (Number.isFinite(usage.limit)) {
+      await recordDailyUsage(auth.user.id, 'horoscope').catch((e) => console.error('usage record failed:', e));
+    }
     console.log("Horoscope analysis completed successfully with accurate calculations");
 
     return new Response(JSON.stringify(result), {

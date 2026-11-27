@@ -1,10 +1,13 @@
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
+import { useDrawerPointerGuard } from "@/lib/drawer-pointer-guard";
+import { useBackClosableRoot } from "@/hooks/useOverlayBackHandler";
 
 import { cn } from "@/lib/utils";
 
+// Android back closes the top-most open drawer (swallowed when not dismissible).
 const Drawer = ({ shouldScaleBackground = true, ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
-  <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...props} />
+  <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...useBackClosableRoot(props, props.dismissible !== false)} />
 );
 Drawer.displayName = "Drawer";
 
@@ -25,11 +28,14 @@ DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 const DrawerContent = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => {
+  // Guards vaul's null-event crash on pointerout/contextmenu before any pointermove (src/lib/drawer-pointer-guard.ts).
+  const guardedRef = useDrawerPointerGuard(ref);
+  return (
   <DrawerPortal>
     <DrawerOverlay />
     <DrawerPrimitive.Content
-      ref={ref}
+      ref={guardedRef}
       className={cn(
         "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-background",
         className,
@@ -40,7 +46,8 @@ const DrawerContent = React.forwardRef<
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>
-));
+  );
+});
 DrawerContent.displayName = "DrawerContent";
 
 const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (

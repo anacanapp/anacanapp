@@ -1,0 +1,13 @@
+{
+  "title": "Ma’lumotlaringizni himoya qiling",
+  "subtitle": "Homiladorlik, salomatlik va chaqaloq haqidagi qaydlaringiz shaxsiy. Ilovani faqat siz ocha olasiz.",
+  "bio_ios": "Face ID",
+  "bio_android": "Barmoq izi yoki yuzni tanish",
+  "bio_line": "Bir qarash yoki teginish bilan ochiladi",
+  "pin_title": "4 xonali PIN",
+  "pin_line": "Zaxira yo‘li: har doim PIN bilan ham ochishingiz mumkin",
+  "settings_title": "Istalgan vaqt o‘chiring",
+  "settings_line": "{where} bo‘limida o‘chirish yoki PIN’ni o‘zgartirish mumkin",
+  "enable": "Himoyani yoqish",
+  "later": "Hozir emas"
+}

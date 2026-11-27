@@ -15,7 +15,7 @@ import { toast } from 'sonner';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { ToolPage, ToolHeader } from './anacan/ToolKit';
-import { tr } from "@/lib/tr";
+import { tr, formatTr } from "@/lib/tr";
 
 interface MomFriendlyMapProps {
   onBack: () => void;
@@ -170,10 +170,11 @@ const MomFriendlyMap = ({ onBack }: MomFriendlyMapProps) => {
             className="a-icon-btn"
             style={showFilters || selectedAmenities.length > 0 ? { background: 'var(--a-pink-2)', color: '#fff', borderColor: 'transparent' } : undefined}
             onClick={() => setShowFilters(!showFilters)}
-            aria-label="Filter">
+            aria-label={tr("a11y_filter", "Filtr")}
+            aria-pressed={showFilters}>
               <Filter size={16} strokeWidth={2} />
             </button>
-            <button className="a-icon-btn" onClick={() => setShowAddPlace(true)} aria-label="Add">
+            <button className="a-icon-btn" onClick={() => setShowAddPlace(true)} aria-label={tr("a11y_add", "Əlavə et")}>
               <Plus size={16} strokeWidth={2} />
             </button>
           </>
@@ -470,6 +471,7 @@ const MomFriendlyMap = ({ onBack }: MomFriendlyMapProps) => {
                 </div>
                 <motion.button
                 onClick={() => setSelectedPlace(null)}
+                aria-label={tr("common_close", "Bağla")}
                 className="absolute top-3 end-3 w-8 h-8 rounded-full flex items-center justify-center"
                 style={{ background: 'rgba(255,255,255,0.35)', border: 'none', cursor: 'pointer' }}
                 whileTap={{ scale: 0.95 }}>
@@ -560,6 +562,8 @@ const MomFriendlyMap = ({ onBack }: MomFriendlyMapProps) => {
                       <button
                         key={star}
                         onClick={() => setReviewRating(star)}
+                        aria-label={formatTr("a11y_star_n", "Qiymət: {n}/5", { n: star })}
+                        aria-pressed={reviewRating === star}
                         className="p-1"
                         style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                         

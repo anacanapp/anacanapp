@@ -1,0 +1,357 @@
+{
+ "ui": {
+  "section_title": "Minu rasedus",
+  "dates_row": "Raseduse kuupäevad",
+  "dates_sub": "Sünnitustähtaeg ja nädalad",
+  "birth_row": "Minu laps sündis",
+  "birth_sub": "Lülitu emarežiimile",
+  "entry_title": "Minu rasedus on lõppenud",
+  "entry_sub": "Vaikne ja lühike samm",
+  "entry_note": "Kui sinu rasedus on lõppenud, peatab Anacan kohe rasedusteavitused ja toetab sind taastumisel.",
+  "sheet_title": "Meil on väga kahju",
+  "sheet_body": "See ei ole sinu süü. Anacan on sel ajal sinu kõrval.",
+  "sheet_stop": "Lapsesõnumid ja rasedusteavitused peatatakse kohe",
+  "sheet_keep": "Sinu albumit ja vestlusi ei kustutata, vaid need peidetakse",
+  "sheet_guide": "Avaneb 8-nädalane taastumisjuhend",
+  "sheet_date": "Millal see juhtus?",
+  "sheet_date_sub": "Taastumisnädalaid loetakse sellest kuupäevast",
+  "sheet_partner": "Anna mu partnerile teada",
+  "sheet_partner_sub": "Saadame talle leebe sõnumi ja näitame, kuidas ta saab sind toetada",
+  "sheet_continue": "Jätka",
+  "sheet_back": "Mine tagasi",
+  "sheet_error": "Midagi läks valesti. Kontrolli internetiühendust ja proovi uuesti.",
+  "partner_message": "Vajan neil päevil väga sinu toetust 🤍 Anacanis avanes sulle juhend.",
+  "home_hello": "Tere, {name}",
+  "home_title": "Ole täna enda vastu leebe",
+  "home_week": "Taastumine · {n}/8. nädal",
+  "home_done": "8 nädalat on seljataga",
+  "home_done_body": "Taastumine kulgeb igaühe jaoks erinevas tempos. Kui oled valmis, ootavad sind allolevad valikud. Kiiret pole.",
+  "home_open_week": "Vaata seda nädalat",
+  "mood_title": "Kuidas sa end täna tunned?",
+  "moods": [
+   "Väga raske",
+   "Kurb",
+   "Tühi",
+   "Rahulik",
+   "Veidi parem"
+  ],
+  "mood_reply": [
+   "Täna on väga raske ja see on mõistetav. Ära sunni end midagi tegema. Kui soovid, kirjuta kellelegi või räägi Anacan.AI-ga.",
+   "Lein on edasikestev armastus. Kui tunned, et tahad nutta, siis nuta. Need tunded lehenevad tasapisi.",
+   "Tühjustunne on pärast kaotust väga tavaline. Tee täna üks väike asi: joo vett, tee lühike jalutuskäik või söö midagi.",
+   "Ka rahulikke päevi tuleb ette. Luba endal seda nautida, tundmata süüd.",
+   "Parem enesetunne ei tähenda unustamist. Luba endal seda hetke nautida."
+  ],
+  "mood_saved": "Salvestatud",
+  "warn_title": "Pöördu kohe arsti poole, kui sul on:",
+  "warn_body": "tugev verejooks, palavik üle 38°C, tugev valu, halvalõhnaline voolus või pearinglus.",
+  "check_title": "Keha kontroll",
+  "check_sub": "Kas on murettekitavaid märke? Kontrolli minutiga",
+  "talk_title": "Kas soovid rääkida?",
+  "talk_sub": "Anacan.AI kuulab sind hukka mõistmata",
+  "epds_title": "Kontrolli oma tuju",
+  "epds_sub": "Lühike küsimustik (EPDS), 2 minutit",
+  "diary_title": "Kirjuta oma tunnetest",
+  "diary_sub": "Tujupäevik",
+  "memories_title": "Minu mälestused",
+  "memories_sub": "Album, vestlus ja kiri — ainult sinu omad",
+  "ready_title": "Kui oled valmis",
+  "ready_sub": "Kiiret pole. Need valikud on alati siin olemas.",
+  "ready_cycle": "Jälgi oma tsüklit",
+  "ready_cycle_sub": "Menstruatsiooni- ja ovulatsioonikalender",
+  "ready_pregnant": "Olen uuesti rase",
+  "ready_pregnant_sub": "Alusta uut rasedust",
+  "ready_stay": "Jään praegu taastumisrežiimile",
+  "ready_stay_sub": "Midagi ei muutu",
+  "ready_confirm_cycle": "Taastumisrežiim sulgub ja avaneb tsüklikalender. Taastumisjuhend jääb kättesaadavaks jaotises Minu mälestused.",
+  "ready_confirm_pregnant": "Taastumisrežiim sulgub. Järgmise sammuna sisestad oma uue raseduse kuupäevad.",
+  "ready_yes": "Jah, jätka",
+  "ready_no": "Veel mitte",
+  "guide_title": "Taastumisjuhend",
+  "guide_sub": "8 nädalat, samm-sammult",
+  "week": "{n}. nädal",
+  "tab_week": "See nädal",
+  "tab_signs": "Märgid",
+  "tab_faq": "Küsimused",
+  "your_body": "Sinu keha",
+  "your_mind": "Sinu tunded",
+  "for_you": "Sulle sel nädalal",
+  "signs_title": "Keha kontroll",
+  "signs_sub": "Vali, mida oled viimastel päevadel märganud. See ei ole diagnoos.",
+  "signs_none": "Ühtegi ohumärki pole valitud. Puhka edasi ja hoolitse enda eest.",
+  "signs_some": "Räägi neist märkidest oma arstiga lähipäevil. Pole vaja oodata.",
+  "signs_urgent": "Valisid kiireloomulise märgi. Ära jää üksi: helista kohe hädaabinumbrile (112) või palu lähedasel tulla.",
+  "signs_urgent_group": "Kiireloomuline",
+  "signs_soon_group": "Pöördu lähipäevil arsti poole",
+  "call": "Helista",
+  "faq_title": "Korduma kippuvad küsimused",
+  "disclaimer": "See teave ei asenda arsti nõuandeid. Taastumine on igaühe jaoks erinev ja sõltub sellest, mis nädalal kaotus toimus.",
+  "mem_intro": "Need mälestused on ainult sinu omad. Keegi teine neid ei näe. Võid neid vaadata, hoida või kustutada millal iganes soovid.",
+  "mem_album": "Rasedusalbum",
+  "mem_album_sub": "Vaata või kustuta fotosid",
+  "mem_chat": "Vestlus lapsega",
+  "mem_chat_sub": "{n} päeva",
+  "mem_chat_empty": "Vestlus puudub",
+  "mem_chat_delete": "Kustuta vestlus",
+  "mem_chat_delete_confirm": "Vestlus kustutatakse sellest seadmest jäädavalt. Kas oled kindel?",
+  "mem_deleted": "Kustutatud",
+  "mem_letter": "Kiri neile",
+  "mem_letter_sub": "Pane kirja kõik, mida soovid öelda. See salvestatakse vaid sellesse seadmesse.",
+  "mem_letter_placeholder": "Minu kallis...",
+  "mem_save": "Salvesta",
+  "mem_saved": "Salvestatud 🤍",
+  "mem_guide": "Taastumisjuhend",
+  "mem_guide_sub": "8-nädalane juhend on siin alati avatud",
+  "back": "Tagasi",
+  "p_card_title": "Ole neil päevil tema kõrval",
+  "p_card_sub": "Taastumine · {n}. nädal/8 · ava juhend",
+  "p_title": "Ole tema kõrval",
+  "p_sub": "Toetusjuhend pärast kaotust",
+  "p_hero_label": "Taastumisperiood",
+  "p_tab_now": "Praegu",
+  "p_tab_say": "Mida öelda",
+  "p_tab_you": "Sinu tunded",
+  "p_tab_signs": "Märgid",
+  "p_phase": "{a}.–{b}. nädal",
+  "p_intro_title": "Ole tema kõrval 🤍",
+  "p_intro_body": "See kaotus on raske teile mõlemale. Ka sul on täielik õigus leinata. Tema jaoks pole kõige olulisem õigete sõnade leidmine, vaid see, et sa oled olemas.",
+  "p_what_do": "Mida sa saad teha",
+  "p_say_title": "Võid öelda",
+  "p_avoid_title": "Püüa mitte öelda",
+  "p_send": "Saada",
+  "p_sent": "Saadetud 🤍",
+  "p_phrases_title": "Kirjuta talle paar sõna",
+  "p_phrases_sub": "Saada sõnumina ühe puudutusega.",
+  "p_tasks_title": "Täna hoolitsen mina selle eest",
+  "p_tasks_sub": "Saada talle oma valikud, et ta teaks, mille eest sa hoolitsed.",
+  "p_tasks_send": "Saada minu valikud talle",
+  "p_tasks_message": "Täna hoolitsen mina nende asjade eest: {list} 🤍 Sina puhka.",
+  "p_mood_low_title": "Viimased päevad on olnud tema jaoks väga rasked",
+  "p_mood_low_body": "Viimase 7 päeva jooksul on ta märkinud oma tuju halvaks {n} päeval. Veeda täna temaga rohkem aega ja küsi, kuidas ta end tunneb.",
+  "p_mood_low_long": "Kui see kestab kauem kui 2 nädalat, pöörduge koos arsti või psühholoogi poole.",
+  "p_signs_sub": "Vali, mida oled tema juures märganud. See ei ole diagnoos.",
+  "p_hidden_note": "Raseduse ülesanded, sünnitusplaan ja öövahetused on ajutiselt peidetud."
+ },
+ "weeks": [
+  {
+   "title": "Esimesed päevad",
+   "body": "Veritsus ja menstruatsioonilaadsed krambid on sel nädalal normaalsed. Kasuta sidemeid, mitte tampoone. Kui kaotus leidis aset hilisemas rasedusetapis, võib rinnast tulla piima: abi on toetavast rinnahoidjast ja külmadest kompressidest.",
+   "mind": "Šokk, kurbus, viha, tühjustunne või üldse mitte midagi tundmine – see kõik on normaalne. Küsimus „Miks?“ tekkib sageli. See ei ole sinu süü.",
+   "todo": [
+    "Puhka ja jäta kodutööd teiste hooleks",
+    "Jälgi oma kehatemperatuuri ja veritsust",
+    "Räägi kellelegi lähedasele, kuidas sul läheb"
+   ]
+  },
+  {
+   "title": "Sinu keha paraneb",
+   "body": "Veritsus tavaliselt väheneb, kestes mõnikord 1–2 nädalat. Joo palju vett ja söö rauarikkaid toite (liha, läätsed, spinat). Väldi ujumist, vanne ja seksuaalvahekorda kuni veritsuse lakkamiseni.",
+   "mind": "Inimesed sinu ümber naasevad tavapärase elu juurde, samal ajal kui sina tunned ikka veel valu. See lõhe võib tekitada üksindustunnet. Sa ei pea oma tundeid varjama.",
+   "todo": [
+    "Lühike jalutuskäik iga päev – ainult siis, kui tunned, et soovid",
+    "Pane kirja arsti soovitatud kontrollvisiidi aeg",
+    "Lase partneril vastata küsimustele, mis tunduvad liiga rasked"
+   ]
+  },
+  {
+   "title": "Lein käib lainetena",
+   "body": "Väsimus võib veel püsida. Kui veritsus on lakanud, aitavad jõudu taastada kerge liikumine ja une rutiin. Rasedustest võib jääda positiivseks veel paariks nädalaks ja see on normaalne.",
+   "mind": "Heale päevale võib järgneda raske. Lein ei ole sirgjooneline. Rasedate naiste ja beebide nägemine võib olla valus – on okei end selle eest kaitsta.",
+   "todo": [
+    "Pane ajutiselt vaigistusse sotsiaalmeedia kontod, mis sind kurnavad",
+    "Räägi sellest oma partneriga",
+    "Tee endale midagi head ja väikest"
+   ]
+  },
+  {
+   "title": "Rütm taastub",
+   "body": "Paljude naiste keha naaseb tavapärase rütmi juurde nendel nädalatel. Järgmine menstruatsioon algab tavaliselt 4–6 nädalat pärast kaotust ja võib esimesel korral olla veidi teistsugune.",
+   "mind": "Igapäevaellu naasmine nii aitab kui ka väsitab. Ära kiirusta tööle naasmisega; kui võimalik, vähenda oma koormust.",
+   "todo": [
+    "Otsusta ise, kellele tööl räägid ja kui palju",
+    "Märgi oma tuju kord päevas üles",
+    "Vajadusel täida tuju küsimustik (EPDS)"
+   ]
+  },
+  {
+   "title": "Väikesed sammud",
+   "body": "Sinu energia taastub aeglaselt. Söö tasakaalustatult ja räägi arstiga foolhappe võtmisest. Kui sa pole veel kontrollis käinud, pane aeg kirja nüüd.",
+   "mind": "Teatud kuupäevad – oletatav sünnitustähtaeg, teatud nädalad – võivad tunduda rasked. Tee nende päevade jaoks rahulikult plaan juba ette.",
+   "todo": [
+    "Tee plaan rasketeks kuupäevadeks",
+    "Saa sõbraga kokku",
+    "Vali kehale leebe liikumine: jooga, jalutuskäik"
+   ]
+  },
+  {
+   "title": "Armastusega mäletamine",
+   "body": "Sinu keha on suures osas taastunud. Kui menstruatsioon pole veel alanud, räägi oma arstiga.",
+   "mind": "Mõned pered loovad väikese mälestusrituaali: kirjutavad kirja, istutavad puu või süütavad küünla. Ainult siis, kui sa seda soovid.",
+   "todo": [
+    "Kirjuta neile kiri jaotises „Minu mälestused“",
+    "Pane kirja, mis on sind aidanud",
+    "Veetke partneriga koos aega"
+   ]
+  },
+  {
+   "title": "Iseendani naasmine",
+   "body": "Uni, toit ja liikumine on taastumise alustalad. Kui mõtled uuele rasedusele, otsustage koos arstiga, millal oled selleks valmis.",
+   "mind": "Isegi kui lein leveneb, ei pruugi see täielikult kaduda. See tähendab, et sa pole unustanud. Kui lein segab igapäevaelu kauem kui 2 nädalat, räägi spetsialistiga.",
+   "todo": [
+    "Täida tuju küsimustik uuesti",
+    "Tee üks väike tulevikuplaan",
+    "Tunnusta end: oled nii kaugele jõudnud"
+   ]
+  },
+  {
+   "title": "Tee edasi",
+   "body": "8 nädalat on seljataga. Sinu keha on taastunud, kuid tunnetel pole ajalist piirangut.",
+   "mind": "Kui oled valmis, võid alustada tsükli jälgimist või liikuda uute plaanide juurde. Kui sa pole veel valmis, on ka see okei. Anacan ei kiirusta sind.",
+   "todo": [
+    "Vaata oma valikuid, kui oled valmis",
+    "Tänage inimesi, kes teid toetasid",
+    "Tule selle juhendi juurde tagasi alati, kui seda vajad"
+   ]
+  }
+ ],
+ "signs": {
+  "urgent": [
+   "Tugev veritsus: side liguneb täielikult läbi vähem kui tunniga",
+   "Palavik üle 38 °C või külmavärinad",
+   "Tugev või süvenev kõhuvalu",
+   "Ebameeldiva lõhnaga voolus",
+   "Pearinglus, minestamine",
+   "Mõtted endale haiget teha"
+  ],
+  "soon": [
+   "Veritsus kestab kauem kui 2 nädalat",
+   "Menstruatsioon pole 8 nädala möödudes alanud",
+   "Kurbus või tühjustunne on seganud mu igapäevaelu kauem kui 2 nädalat",
+   "Minu uni ja söögiisu on täiesti häiritud",
+   "Miski ei valmista mulle rõõmu"
+  ]
+ },
+ "faq": [
+  {
+   "q": "Kas see on minu süü?",
+   "a": "Ei. Enamik varajasi raseduse katkemisi juhtub loote kromosoomierinevuste tõttu ning ükski tegevus, stress, toit ega töö ei põhjusta neid."
+  },
+  {
+   "q": "Kui levinud see on?",
+   "a": "Umbes 10–20% kinnitatud rasedustest lõpeb katkemisega. Sa ei ole üksi; inimesed räägivad sellest lihtsalt harva."
+  },
+  {
+   "q": "Millal peaksin arsti poole pöörduma?",
+   "a": "Kohe, kui sul on kiireloomulisi sümptomeid. Muul juhul mine arsti määratud järelkontrolli ja pane oma küsimused eelnevalt kirja."
+  },
+  {
+   "q": "Millal algab menstruatsioon?",
+   "a": "Tavaliselt 4–6 nädala pärast. Esimene menstruatsioon võib olla tavapärasest tugevam või kergem. Kui 8 nädalat on möödas ja seda pole ikka veel alanud, pöördu arsti poole."
+  },
+  {
+   "q": "Kas see juhtub ka järgmisel rasedusel?",
+   "a": "Pärast ühte katkemist on enamikul naistel järgmine rasedus terve. Kui rasedusi on katkenud korduvalt, võib arst soovitada lisauuringuid."
+  },
+  {
+   "q": "Millal võime uuesti proovida?",
+   "a": "See sõltub sellest, kui valmis sa end füüsiliselt ja emotsionaalselt tunned. Otsustage ajastus koos arstiga; kiirustamiseks pole põhjust."
+  },
+  {
+   "q": "Millal need tunded mööduvad?",
+   "a": "Selleks pole kindlat ajakava. Lein leeveneb aja jooksul. Kui see segab igapäevaelu kauem kui 2 nädalat, aitab psühholoogiga rääkimine."
+  }
+ ],
+ "partner": {
+  "phases": [
+   {
+    "title": "Esimesed päevad: ole olemas",
+    "body": "Tema keha paraneb verejooksu ja valu kaudu ning tunded on šokis. Ära otsi õigeid sõnu — olemasolemisest piisab.",
+    "do": [
+     "Võta majapidamistööd ja söögitegemine täielikult enda peale",
+     "Teavita sugulasi ise, et ta ei peaks selgitusi jagama",
+     "Minge arsti vastuvõtule koos",
+     "Hoia silm peal tema kehatemperatuuril ja verejooksul"
+    ]
+   },
+   {
+    "title": "3.–4. nädal: maailm liigub edasi, tema veel mitte",
+    "body": "Kõik naasevad oma elu juurde ja sa võid tunda, et see on juba seljataga. Tema jaoks tuleb lein ikka veel lainetena.",
+    "do": [
+     "Küsi iga päev „Kuidas sul täna läheb?“ ja kuula vastust",
+     "Kaitse teda rasedate tuttavate ja beebiuudiste eest",
+     "Käige koos lühikestel jalutuskäikudel",
+     "Ära püüa tema tundeid „parandada“"
+    ]
+   },
+   {
+    "title": "5.–6. nädal: rasked kuupäevad",
+    "body": "Tähtaeg või teatud nädalad võivad talle raskelt mõjuda. Tea neid kuupäevi ette ja ole tema kõrval.",
+    "do": [
+     "Märgi rasked kuupäevad oma kalendrisse",
+     "Kui ta soovib mälestuseks midagi teha, toeta teda",
+     "Paku välja rahulikke plaane koos aja veetmiseks",
+     "Räägi ka oma leinast"
+    ]
+   },
+   {
+    "title": "7.–8. nädal: koos edasi liikumine",
+    "body": "Tema keha taastub, kuid tunded võivad veel kesta. Arutage tulevikuplaane tema tempos.",
+    "do": [
+     "Ära võta uut rasedust jutuks enne, kui ta ise seda teeb",
+     "Valmistage arsti küsimused koos ette",
+     "Planeeri väikeseid rõõme",
+     "Vajadusel aita tal leida psühholoog"
+    ]
+   }
+  ],
+  "say": [
+   "Ma olen siin.",
+   "Mida iganes sa vajad, ma teen seda.",
+   "Ma olen ka kurb.",
+   "See ei ole sinu süü.",
+   "Kui tahad nutta, siis nuta. Ma olen siinsamas.",
+   "Me kumbki ei unusta neid kunagi."
+  ],
+  "avoid": [
+   "„Saad uuesti proovida.“",
+   "„Vähemalt juhtus see varakult.“",
+   "„Kõik juhtub põhjusega.“",
+   "Lauseid, mis algavad „Vähemalt…“",
+   "„Peaksid juba üle saama.“",
+   "„Ära nuta.“"
+  ],
+  "tasks": [
+   "Ma teen süüa",
+   "Ma koristan kodu",
+   "Ma käin poes",
+   "Ma vastan sugulastele",
+   "Ma panen arstiaja kirja",
+   "Ma tegelen kõnede ja sõnumitega",
+   "Lähme täna õhtul koos jalutama",
+   "Ma teen sulle sooja teed"
+  ],
+  "phrases": [
+   "Ma armastan sind nii väga. Olen siin 🤍",
+   "Kuidas sul täna läheb? Ütle mulle, mida iganes vajad.",
+   "See ei ole sinu süü.",
+   "Mina mäletan neid ka.",
+   "Ära täna midagi tee, ma hoolitsen kõige eest.",
+   "Olen su üle uhke, sa oled nii tugev."
+  ],
+  "you_title": "Sa leinad ka",
+  "you_body": "Mehed elavad seda kaotust sageli vaikuses läbi ja peidavad oma tundeid, sest arvavad, et „peavad tugevad olema“. Kuid sul on täielik õigus samuti leinata. Koos leinamine lähendab teid.",
+  "you_tips": [
+   "Jaga ka temaga oma tundeid: „Ma olen ka kurb“",
+   "Räägi sõbraga, keda usaldad",
+   "Ära unusta und, toitu ja liikumist",
+   "Kui läheb raskeks, pöördu psühholoogi poole",
+   "Ära uputa oma leina alkoholi ega põgene töö tegemisse"
+  ]
+ },
+ "chips": [
+  "🤍 Olen siin",
+  "🤗 Kuidas sul läheb?",
+  "🍵 Kas toon teed?",
+  "🛒 Vajad midagi?"
+ ]
+}

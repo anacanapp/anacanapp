@@ -1,17 +1,19 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Baby, Volume2, Square, Clock, X, VolumeX } from 'lucide-react';
 import { useTimerStore, type TimerType } from '@/store/timerStore';
 import { useWhiteNoiseStore } from '@/store/whiteNoiseStore';
 import { useBabyLogs } from '@/hooks/useBabyLogs';
+import { useToast } from '@/hooks/use-toast';
+import { queuedToast, saveFailedToast } from '@/lib/offline-outbox-copy';
 import { tr } from "@/lib/tr";
 import { useIsRtl, rtlX } from '@/lib/rtl';
 
 const timerConfig: Record<TimerType, {icon: typeof Moon;color: string;label: string;}> = {
-  sleep: { icon: Moon, color: 'text-[color:var(--a-lav-ink)]', label: tr("common_yuxu", 'Yuxu') },
-  feeding: { icon: Baby, color: 'text-[color:var(--a-pink-ink)]', label: tr("floatingtimerwidget_emizdirme_20d46a", 'Əmizdirmə') },
-  diaper: { icon: Clock, color: 'text-[color:var(--a-yellow-ink)]', label: tr("common_bez", 'Bez') },
-  'white-noise': { icon: Volume2, color: 'text-[color:var(--a-green-ink)]', label: tr("floatingtimerwidget_kuy_sesi_7b0cd5", 'Küy Səsi') }
+  sleep: { icon: Moon, color: 'text-indigo-500', label: tr("common_yuxu", 'Yuxu') },
+  feeding: { icon: Baby, color: 'text-rose-500', label: tr("floatingtimerwidget_emizdirme_20d46a", 'Əmizdirmə') },
+  diaper: { icon: Clock, color: 'text-amber-500', label: tr("common_bez", 'Bez') },
+  'white-noise': { icon: Volume2, color: 'text-emerald-500', label: tr("floatingtimerwidget_kuy_sesi_7b0cd5", 'Küy Səsi') }
 };
 
 const formatTime = (totalSeconds: number) => {
@@ -45,14 +47,18 @@ const FloatingTimerWidget = () => {
   const hasWhiteNoise = whiteNoise.isPlaying;
   const hasAnything = hasTimers || hasWhiteNoise;
 
-  // Dayandırılan yuxu/əmizdirmə sessiyasını baby_logs-a yaz
+  const { toast } = useToast();
+  const savingRef = useRef(new Set<string>());
+
+  // Dayandırılan yuxu/əmizdirmə sessiyasını baby_logs-a yaz.
+  // 'saved' = server confirmed, 'queued' = kept in the offline outbox, 'error' = rejected.
   const saveTimerLog = useCallback(async (opts: {
     type: string; feedType?: 'left' | 'right' | null; startTime: number; endTime: number;
     childId?: string;
-  }) => {
-    if (opts.type !== 'sleep' && opts.type !== 'feeding') return;
-    if (opts.endTime - opts.startTime < 3000) return; // <3s — təsadüfi toxunuş
-    await addLog({
+  }): Promise<'saved' | 'queued' | 'error' | 'skipped'> => {
+    if (opts.type !== 'sleep' && opts.type !== 'feeding') return 'skipped';
+    if (opts.endTime - opts.startTime < 3000) return 'skipped'; // <3s — təsadüfi toxunuş
+    const result = await addLog({
       log_type: opts.type as 'sleep' | 'feeding',
       feed_type: opts.type === 'feeding' && opts.feedType
         ? (opts.feedType === 'left' ? 'breast_left' : 'breast_right')
@@ -61,23 +67,37 @@ const FloatingTimerWidget = () => {
       end_time: new Date(opts.endTime).toISOString(),
       // Taymer hansı uşaq üçün başladılıbsa, qeyd də ona yazılsın (əkizlər)
       ...(opts.childId ? { child_id: opts.childId } : {}),
-    } as any);
+    });
+    if (result.error) return 'error';
+    return result.queued ? 'queued' : 'saved';
   }, [addLog]);
 
-  // Panel düyməsindən dayandırma — artıq sessiyanı da saxlayır (əvvəl itirdi!)
+  // Panel düyməsindən dayandırma — sessiyanı saxlayır. Taymer YALNIZ yazı
+  // təsdiqlənəndə və ya offline növbəyə düşəndə dayandırılır; real xətada
+  // taymer işləməyə davam edir ki, istifadəçi yenidən cəhd edə bilsin.
   const handleStop = useCallback(async (timerId: string) => {
     const timer = activeTimers.find((t) => t.id === timerId);
-    const result = stopTimer(timerId);
-    if (timer && result) {
-      await saveTimerLog({
+    if (!timer) return;
+    if (savingRef.current.has(timerId)) return;
+    savingRef.current.add(timerId);
+    try {
+      const outcome = await saveTimerLog({
         type: timer.type,
         feedType: timer.feedType,
-        startTime: Date.now() - result.durationSeconds * 1000,
+        startTime: timer.startTime,
         endTime: Date.now(),
         childId: timer.childId,
       });
+      if (outcome === 'error') {
+        toast(saveFailedToast());
+        return;
+      }
+      stopTimer(timerId);
+      if (outcome === 'queued') toast(queuedToast());
+    } finally {
+      savingRef.current.delete(timerId);
     }
-  }, [activeTimers, stopTimer, saveTimerLog]);
+  }, [activeTimers, stopTimer, saveTimerLog, toast]);
 
   // QEYD: kilid ekranı widget-indən / bildirişdən dayandırılanların emalı
   // buradan usePendingTimerStops hook-una (Index səviyyəsi, HƏMİŞƏ mounted)
@@ -93,7 +113,7 @@ const FloatingTimerWidget = () => {
   const primaryTimer = activeTimers[0];
   const config = primaryTimer ? timerConfig[primaryTimer.type] || timerConfig.sleep : null;
   const PrimaryIcon = config?.icon || Volume2;
-  const primaryColor = config?.color || 'text-[color:var(--a-green-ink)]';
+  const primaryColor = config?.color || 'text-emerald-500';
 
   return (
     <AnimatePresence mode="wait">
@@ -109,7 +129,7 @@ const FloatingTimerWidget = () => {
         className="fixed end-3 z-[55] flex items-center gap-1.5 rounded-full shadow-lg border border-border/60 bg-card px-2.5 py-1.5"
         style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 5.75rem)' }}>
         
-          <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--a-green-2)] ring-2 ring-[color:var(--a-green-1)]" />
+          <div className="w-1.5 h-1.5 rounded-full bg-green-500 ring-2 ring-green-500/30" />
           {hasWhiteNoise && !primaryTimer ?
         <>
               <span className="text-sm">{whiteNoise.soundEmoji || '🔊'}</span>
@@ -148,7 +168,7 @@ const FloatingTimerWidget = () => {
               <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">{tr("untranslated_taymer_uen6sv", "Taymer")}</span>
               <button
               onClick={() => setExpanded(false)}
-              className="w-8 h-8 -me-1 rounded-full bg-muted/60 flex items-center justify-center" aria-label={tr("premiummodal_bagla_84bdc9", "Bağla")}>
+              className="w-5 h-5 rounded-full bg-muted/60 flex items-center justify-center">
               
                 <X className="w-3 h-3 text-muted-foreground" />
               </button>
@@ -156,7 +176,7 @@ const FloatingTimerWidget = () => {
             <div className="px-2 pb-2 space-y-1">
               {/* White noise entry */}
               {hasWhiteNoise &&
-            <div className="flex items-center gap-2 rounded-xl bg-[color:var(--a-green-1)] px-2.5 py-1.5">
+            <div className="flex items-center gap-2 rounded-xl bg-emerald-500/10 px-2.5 py-1.5">
                   <span className="text-sm shrink-0">{whiteNoise.soundEmoji || '🔊'}</span>
                   <div className="flex-1 min-w-0">
                     <p className="text-[11px] font-semibold text-foreground truncate leading-tight">
@@ -171,7 +191,7 @@ const FloatingTimerWidget = () => {
                 
                     {whiteNoise.isMuted ?
                 <VolumeX className="w-2.5 h-2.5 text-muted-foreground" /> :
-                <Volume2 className="w-2.5 h-2.5 text-[color:var(--a-green-ink)]" />
+                <Volume2 className="w-2.5 h-2.5 text-emerald-600" />
                 }
                   </motion.button>
                   <motion.button

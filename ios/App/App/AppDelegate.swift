@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 import Capacitor
 import FirebaseCore
 import FirebaseMessaging
@@ -15,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Initialize Firebase before anything else
         FirebaseApp.configure()
+
+        // White noise / lullabies: use the playback category so web audio keeps
+        // playing with the silent switch on and on the lock screen (Info.plist
+        // already declares the `audio` background mode). mixWithOthers keeps the
+        // user's own music/podcast running when the app plays short sounds.
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
+        } catch {
+            print("[AppDelegate] AVAudioSession category error: \(error.localizedDescription)")
+        }
 
         // Initialize Facebook / Meta SDK (reads FacebookAppID & FacebookClientToken from Info.plist)
 #if canImport(FBSDKCoreKit)

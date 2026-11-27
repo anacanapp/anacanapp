@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "Dastlabki 8 hafta",
+    "subtitle": "Tugʻruqdan keyin unga qanday yordam berish kerak",
+    "home_card": "Tugʻruqdan keyin · {n}/8-hafta",
+    "open": "Ochish",
+    "week": "{n}-hafta",
+    "tab_week": "Shu hafta",
+    "tab_blues": "Baby blues",
+    "tab_signs": "Xavfli belgilar",
+    "tab_support": "Unga yordam",
+    "her_body": "Uning tanasi",
+    "her_mind": "Uning hissiyotlari",
+    "you_do": "Nima qila olasan",
+    "you_say": "Nima deya olasan",
+    "avoid": "Bundan saqlan",
+    "send": "Yuborish",
+    "sent": "Yuborildi 💌",
+    "phrases_title": "Unga bir necha soʻz yubor",
+    "phrases_sub": "Bir bosishda xabar sifatida yuboriladi.",
+    "tasks_title": "Bugun bularni men bajaraman",
+    "tasks_sub": "Nimalarni oʻz zimmangga olayotganingni unga yubor, u xotirjam boʻlsin.",
+    "tasks_send": "Roʻyxatimni unga yuborish",
+    "tasks_message": "Bugun bularni men bajaraman: {list} 💪 Sen dam ol.",
+    "signs_title": "Belgilarni tekshir",
+    "signs_sub": "Soʻnggi paytlarda sezgan narsalaringni belgila. Bu tashxis emas.",
+    "signs_none": "Hozircha xavfli belgi belgilanmagan. Yordamingni davom ettir.",
+    "signs_some": "Agar bu belgilar 2 haftadan ortiq davom etsa, birga shifokorga boringlar.",
+    "signs_urgent": "Shoshilinch belgini belgilading. Uni yolgʻiz qoldirma va hoziroq tez yordamga (103) qoʻngʻiroq qil.",
+    "mood_low_title": "Soʻnggi paytlarda uning kayfiyati past",
+    "mood_low_body": "U soʻnggi 7 kunning {n} kunida past kayfiyatni belgilagan. Bugun unga koʻproq vaqt ajrat va oʻzini qanday his qilayotganini soʻra.",
+    "mood_low_long": "Agar bu 2 haftadan ortiq davom etsa, birga shifokor bilan gaplashinglar.",
+    "disclaimer": "Bu maʼlumot shifokor maslahatining oʻrnini bosmaydi."
+  },
+  "weeks": [
+    {
+      "title": "Uydagi dastlabki kunlar",
+      "body": "Tugʻruqdan keyin qon ketishi (loxiya) boʻladi, choklar yoki kesar kesish jarohati ogʻriydi. Sut taxminan 3–5-kunlari keladi, koʻkraklar shishib, ogʻrishi mumkin.",
+      "mind": "Taxminan 3–5-kunlari gormonlar keskin tushadi. Sababsiz yigʻlash, xavotir va oʻzini yetarli emas deb his qilish normal holat: bu baby blues (tugʻruqdan keyingi gʻamginlik).",
+      "do": ["Bu hafta mehmonlarni eng kam darajada ushla va eshikni oʻzing kutib ol", "Har emizishda suv va yengil taom olib kel", "Taglik almashtirish, kiyintirish va chaqaloqni choʻmiltirishni oʻz zimmangga ol", "Uy ishlari, ovqat va xaridni toʻliq oʻzing hal qil"],
+      "say": ["Sen ajoyib onasan. Biz hali bir-birimizni tanib olyapmiz", "Yigʻlaging kelsa, yigʻla. Men yoningdaman"],
+      "avoid": "«Hamma bola tugʻadi, nima boʻpti?» dema. Uning hissiyotlarini kamsitma."
+    },
+    {
+      "title": "Uyqu yetishmasligi ortib boradi",
+      "body": "Qon ketishi kamaya boshlaydi. Emizish hali ham ogʻriqli boʻlishi mumkin; yoriqlar, qattiq tugun yoki qizarish boʻlsa, shifokor yoki laktatsiya maslahatchisiga murojaat qilinglar.",
+      "mind": "Baby blues odatda 2 hafta ichida oʻtib ketadi. Agar gʻamginlik, umidsizlik yoki qiziqishning yoʻqolishi bundan uzoq davom etsa, bu tugʻruqdan keyingi depressiya boʻlishi mumkin. Diqqat bilan kuzat.",
+      "do": ["U ketma-ket kamida 4–5 soat uxlashi uchun tungi navbatchilik rejasini tuz", "U uyda yolgʻiz dam olishi uchun chaqaloqni sayrga olib chiq", "Emizish boʻyicha savollar uchun laktatsiya maslahatchisini top", "Har kuni «Oʻzingni qanday his qilyapsan?» deb soʻra va tingla"],
+      "say": ["Bu kecha men qarayman, sen uxla", "Nima kerakligini ayt, hammasini birga hal qilamiz"],
+      "avoid": "Uning oʻrniga qaror qabul qilma va maslahatlarni yogʻdirma. Avval tingla."
+    },
+    {
+      "title": "Oʻsish sakrashi",
+      "body": "Chaqaloq juda tez-tez emishni xohlashi mumkin (klaster emizish). Bu sut yetmayapti degani emas: chaqaloq oʻsyapti.",
+      "mind": "Toʻxtovsiz emizish uni charchatadi va hech narsaga ulgurmayotgandek his qildiradi. Uni yolgʻiz his qilishiga yoʻl qoʻyma.",
+      "do": ["Kechki emizishlarda yonida oʻtir: suv, ovqat va pultni olib kel", "Emizishdan keyin chaqaloqqa havo chiqartir va uxlat", "Kir yuvish va tozalashni oʻzing rejalashtir", "Uning sevimli taomini pishir yoki buyurtma qil"],
+      "say": ["Sen farzandimizni oʻstiryapsan. Bu ogʻir mehnat va sen uddalayapsan", "Men shu yerdaman, sen yolgʻiz emassan"],
+      "avoid": "«Yana emadimi?» yoki «Balki suting yetmayotgandir» dema. Bu uning ishonchini sindiradi."
+    },
+    {
+      "title": "Bir oy oʻtdi",
+      "body": "Choklar odatda bitib ketgan, lekin ogʻir narsa koʻtarish hali erta, ayniqsa kesar kesishdan keyin.",
+      "mind": "Charchoq toʻplanib qolgan. U oʻzini avvalgi hayotidan uzoqlashgandek, endi «faqat ona»dek his qilishi mumkin.",
+      "do": ["Unga faqat oʻzi uchun 1–2 soat ajrat: dush, sayr, dugonalar", "Kichik syurpriz rejalashtir: gullar, sevimli shirinligi, xat", "Oila va doʻstlardan ovqat va yordamni oʻzing tashkil qil", "Chaqaloqning ilk suratlaridan birga albom tuzinglar"],
+      "say": ["Bugun senga biroz yengil boʻlishi uchun nima qila olaman?", "Seni juda sevaman. Ona boʻlganingdan beri senga yanada koʻproq qoyil qolaman"],
+      "avoid": "Uning tashqi koʻrinishi yoki vazni haqida gapirma."
+    },
+    {
+      "title": "Kun tartibi shakllanmoqda",
+      "body": "Endi qon ketishi juda oz boʻlishi kerak. Agar u birdan kuchaysa, isitma yoki yoqimsiz hid paydo boʻlsa, shifokorga murojaat qilinglar.",
+      "mind": "Kun tartibi shakllanyapti, lekin har kuni bir xil ishlar uni toliqtirishi mumkin. Agar gʻamginlik 2 haftadan ortiq davom etsa, mutaxassis yordami vaqti keldi.",
+      "do": ["Har kuni bitta kechki ishni oʻz zimmangga ol: choʻmiltirish yoki uxlatish", "Dam olish kunlari qisqa oilaviy sayr rejalashtir", "Hozir unga eng qiyini nima ekanini soʻra va bittasini hal qil", "Oʻz charchogʻingni ham kuzat va u haqda u bilan gaplash"],
+      "say": ["Bu kecha dam ol, chaqaloqni men uxlataman", "Biz bir jamoamiz"],
+      "avoid": "Uning kunini «kun boʻyi uyda oʻtirding-ku» deb baholama."
+    },
+    {
+      "title": "Yigʻining choʻqqisi va koʻrik",
+      "body": "Tugʻruqdan keyingi koʻrik odatda shu paytda boʻladi. Chaqaloqlar 6–8 haftaligida eng koʻp yigʻlaydi; keyin bu kamayadi.",
+      "mind": "Chaqaloqni tinchlantira olmaslik juda charchatadi. Asabiylik oshganda chaqaloqni xavfsiz beshikka yotqizib, bir necha daqiqa nafas rostlash mumkin. Hech qachon chaqaloqni silkitma.",
+      "do": ["Koʻrikka birga boringlar va savollarni oldindan yozib qoʻy", "Yigʻlagan paytlarda chaqaloqni navbatma-navbat koʻtarib yuringlar", "«Endi men qarayman» deb unga tanaffus ber", "Uni shifokorga oʻz kayfiyati haqida ham aytishga undagin"],
+      "say": ["Yigʻlashi sening aybing emas; chaqaloqlar shunaqa", "Navbatma-navbat qaraymiz, sen dam ol"],
+      "avoid": "Yaqinlikka shoshilma. U tayyor boʻlganda oʻzi aytadi."
+    },
+    {
+      "title": "Oʻzini qayta topish",
+      "body": "Tanasi hali tiklanmoqda. Agar shifokor ruxsat bergan boʻlsa, yengil sayrlar va nafas mashqlari foydali.",
+      "mind": "U oʻzini qayta tanimoqda va tanasi, ishi yoki doʻstlari haqida xavotirlanishi mumkin. Sening yordaming unga kuch beradi.",
+      "do": ["Har hafta unga butunlay «boʻsh bir soat» ber", "Birga qisqa sayr yoki kafega borishni rejalashtir", "Tungi navbatlarni adolatli boʻlishishda davom et", "Minnatdorchiligingni ovoz chiqarib ayt"],
+      "say": ["Sen hamon oʻzingsan va men seni har kuni tanlayman", "Bu oy sen ulkan ish qilding"],
+      "avoid": "Solishtirma: «Falonchi tezda tiklanib ketdi» dema."
+    },
+    {
+      "title": "Ikki oy: yangi oila",
+      "body": "Koʻp onalar bu vaqtga kelib oʻzini kuchliroq his qiladi. Agar ogʻriq, qon ketishi yoki holsizlik hali ham kuchli boʻlsa, shifokorga ayting.",
+      "mind": "Kayfiyati yaxshilanishi kerak. Agar gʻamginlik, xavotir yoki chaqaloqdan uzoqlik hissi davom etsa, birga shifokor bilan gaplashinglar. Yordam bor va bu davolanadi.",
+      "do": ["Bu ikki oyni birga sarhisob qilinglar: nima yaxshi boʻldi, nimani oʻzgartirish kerak", "Uy ishlarini taqsimlashni birga qayta koʻrib chiqinglar", "Kichik «ikki oylik» bayram uyushtir", "Oʻz kayfiyatingni ham tekshir: otalarda ham tugʻruqdan keyingi depressiya boʻlishi mumkin"],
+      "say": ["Sen bilan ota-ona boʻlish mening eng katta baxtim", "Kelasi oy nimani boshqacha qilamiz?"],
+      "avoid": "«Endi hammasi yaxshi» deb yordamingni birdan kamaytirma."
+    }
+  ],
+  "blues": {
+    "title": "Baby blues nima?",
+    "intro": "Ayollarning taxminan 50–80% tugʻruqdan keyin baby blues (tugʻruqdan keyingi gʻamginlik)ni boshdan kechiradi. Sabablari: gormonlarning keskin tushishi, uyqu yetishmasligi va yangi masʼuliyat.",
+    "facts": ["Odatda tugʻruqdan 2–5 kun keyin boshlanadi", "Sababsiz yigʻlash, asabiylik, xavotir va charchoq koʻp uchraydi", "Odatda 2 hafta ichida oʻz-oʻzidan oʻtib ketadi", "Eng yaxshi davo: uyqu, ovqat, yordam va tushunish"],
+    "help_title": "Nima qila olasan",
+    "help": ["Uni tingla; hissiyotlarini «tuzatishga» urinma", "Uning uyqusini asra: tungi navbatchilik tashkil qil", "Uy ishlari va mehmonlarni oʻz zimmangga ol", "Har kuni uni maqta va yonida ekaningni koʻrsat"],
+    "ppd_title": "Tugʻruqdan keyingi depressiya boshqa narsa",
+    "ppd_intro": "U ayollarning taxminan 10–15% ida uchraydi va tugʻruqdan keyingi birinchi yil davomida istalgan vaqtda boshlanishi mumkin. Bu zaiflik emas va u davolanadi.",
+    "ppd_signs": ["2 haftadan ortiq davom etadigan gʻamginlik yoki boʻshliq hissi", "Avval yoqqan narsalarga qiziqishi yoʻqolgan", "Chaqaloq uxlaganda ham uxlay olmaydi", "Oʻzini keraksiz yoki aybdor his qiladi", "Oʻzini chaqaloqdan uzoq his qiladi", "Ishtahasi keskin oʻzgargan"],
+    "ppd_action": "Bu belgilarni koʻrsang, uni shifokorga (ginekolog, oilaviy shifokor yoki psixolog) borishga unda va u bilan birga bor.",
+    "urgent_title": "Darhol yordam soʻra",
+    "urgent_signs": ["Oʻziga yoki chaqaloqqa zarar yetkazish haqidagi fikrlar", "Yoʻq narsalarni koʻrish yoki eshitish", "Chalkashlik, kayfiyatning keskin oʻzgarishi, kunlab uxlamaslik"],
+    "urgent_action": "Bunday hollarda uni yolgʻiz qoldirma va darhol tez yordamga (103) qoʻngʻiroq qil.",
+    "self_title": "Sen ham muhimsan",
+    "self": ["Otalarda ham tugʻruqdan keyingi depressiya boʻlishi mumkin (taxminan 10%)", "Qisqa uxlab ol va ovqatni oʻtkazib yuborma", "Hissiyotlaring haqida u bilan yoki doʻsting bilan gaplash", "Yordam soʻrash — bu kuch"]
+  },
+  "phrases": ["Sen ajoyib onasan 💛", "Bugun nima kerak boʻlsa, men yoningdaman", "Biroz yotib ol, chaqaloqqa men qarayman", "Seni juda sevaman, sen yolgʻiz emassan", "Charchading va bu mutlaqo normal. Birga uddalaymiz", "Senga nima olib kelay? Choy, ovqat yoki shunchaki quchoqmi?", "Bu kecha men qarayman, yaxshi uxla", "Bugun qilgan hamma ishing uchun rahmat"],
+  "tasks": ["Bitta tungi ovqatlantirish", "Tagliklar", "Chaqaloqni choʻmiltirish", "Ovqat pishirish", "Idish yuvish", "Kir yuvish", "Oziq-ovqat xaridi", "Mehmonlar", "Chaqaloq bilan sayr", "Dorixona"]
+}

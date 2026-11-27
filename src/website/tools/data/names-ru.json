@@ -1,0 +1,2396 @@
+[
+{
+"name": "Александр",
+"gender": "boy",
+"popularity": 99,
+"origin": "древнегреческое",
+"meaning": "защитник людей"
+},
+{
+"name": "Мария",
+"gender": "girl",
+"popularity": 99,
+"origin": "древнееврейское",
+"meaning": "любимая, желанная"
+},
+{
+"name": "София",
+"gender": "girl",
+"popularity": 99,
+"origin": "греческое",
+"meaning": "мудрость"
+},
+{
+"name": "Анна",
+"gender": "girl",
+"popularity": 98,
+"origin": "древнееврейское",
+"meaning": "благодать, милость"
+},
+{
+"name": "Михаил",
+"gender": "boy",
+"popularity": 98,
+"origin": "древнееврейское",
+"meaning": "кто подобен Богу"
+},
+{
+"name": "Анастасия",
+"gender": "girl",
+"popularity": 97,
+"origin": "греческое",
+"meaning": "воскресшая, возвращённая к жизни"
+},
+{
+"name": "Артём",
+"gender": "boy",
+"popularity": 97,
+"origin": "древнегреческое",
+"meaning": "здоровый, невредимый"
+},
+{
+"name": "Максим",
+"gender": "boy",
+"popularity": 97,
+"origin": "латинское",
+"meaning": "величайший"
+},
+{
+"name": "Виктория",
+"gender": "girl",
+"popularity": 96,
+"origin": "латинское",
+"meaning": "победа"
+},
+{
+"name": "Ева",
+"gender": "girl",
+"popularity": 96,
+"origin": "древнееврейское",
+"meaning": "живая, дающая жизнь"
+},
+{
+"name": "Иван",
+"gender": "boy",
+"popularity": 96,
+"origin": "древнееврейское",
+"meaning": "Бог милостив"
+},
+{
+"name": "Алиса",
+"gender": "girl",
+"popularity": 95,
+"origin": "древнегерманское",
+"meaning": "благородная"
+},
+{
+"name": "Даниил",
+"gender": "boy",
+"popularity": 95,
+"origin": "древнееврейское",
+"meaning": "Бог , мой судья"
+},
+{
+"name": "Дмитрий",
+"gender": "boy",
+"popularity": 95,
+"origin": "древнегреческое",
+"meaning": "посвящённый богине Деметре"
+},
+{
+"name": "Полина",
+"gender": "girl",
+"popularity": 95,
+"origin": "греческое",
+"meaning": "посвящённая Аполлону"
+},
+{
+"name": "Александра",
+"gender": "girl",
+"popularity": 94,
+"origin": "греческое",
+"meaning": "защитница людей"
+},
+{
+"name": "Давид",
+"gender": "boy",
+"popularity": 94,
+"origin": "древнееврейское",
+"meaning": "любимый, возлюбленный"
+},
+{
+"name": "Елизавета",
+"gender": "girl",
+"popularity": 94,
+"origin": "древнееврейское",
+"meaning": "Бог , моя клятва"
+},
+{
+"name": "Матвей",
+"gender": "boy",
+"popularity": 94,
+"origin": "древнееврейское",
+"meaning": "дар Бога"
+},
+{
+"name": "Саша",
+"gender": "unisex",
+"popularity": 94,
+"origin": "греческое, краткая форма имени Александр или Александра",
+"meaning": "защитник или защитница людей"
+},
+{
+"name": "Варвара",
+"gender": "girl",
+"popularity": 93,
+"origin": "греческое",
+"meaning": "чужеземка"
+},
+{
+"name": "Дарья",
+"gender": "girl",
+"popularity": 93,
+"origin": "древнеперсидское",
+"meaning": "владеющая добром"
+},
+{
+"name": "Лев",
+"gender": "boy",
+"popularity": 93,
+"origin": "древнегреческое",
+"meaning": "лев, храбрый человек"
+},
+{
+"name": "Роман",
+"gender": "boy",
+"popularity": 93,
+"origin": "латинское",
+"meaning": "римлянин"
+},
+{
+"name": "Адам",
+"gender": "boy",
+"popularity": 92,
+"origin": "древнееврейское",
+"meaning": "человек, созданный из земли"
+},
+{
+"name": "Екатерина",
+"gender": "girl",
+"popularity": 92,
+"origin": "греческое",
+"meaning": "чистая, непорочная"
+},
+{
+"name": "Илья",
+"gender": "boy",
+"popularity": 92,
+"origin": "древнееврейское",
+"meaning": "мой Бог , Господь"
+},
+{
+"name": "Кирилл",
+"gender": "boy",
+"popularity": 92,
+"origin": "древнегреческое",
+"meaning": "господин, владыка"
+},
+{
+"name": "Ксения",
+"gender": "girl",
+"popularity": 92,
+"origin": "греческое",
+"meaning": "гостеприимная, чужестранка"
+},
+{
+"name": "Марк",
+"gender": "boy",
+"popularity": 92,
+"origin": "латинское",
+"meaning": "посвящённый богу Марсу"
+},
+{
+"name": "Алексей",
+"gender": "boy",
+"popularity": 91,
+"origin": "древнегреческое",
+"meaning": "защитник"
+},
+{
+"name": "Арина",
+"gender": "girl",
+"popularity": 91,
+"origin": "греческое",
+"meaning": "мир, покой"
+},
+{
+"name": "Артур",
+"gender": "boy",
+"popularity": 91,
+"origin": "кельтское",
+"meaning": "медведь, сильный как медведь"
+},
+{
+"name": "Тимофей",
+"gender": "boy",
+"popularity": 91,
+"origin": "древнегреческое",
+"meaning": "почитающий Бога"
+},
+{
+"name": "Эмилия",
+"gender": "girl",
+"popularity": 91,
+"origin": "латинское",
+"meaning": "старательная, соперница"
+},
+{
+"name": "Андрей",
+"gender": "boy",
+"popularity": 90,
+"origin": "древнегреческое",
+"meaning": "мужественный, храбрый"
+},
+{
+"name": "Василиса",
+"gender": "girl",
+"popularity": 90,
+"origin": "греческое",
+"meaning": "царственная, царица"
+},
+{
+"name": "Женя",
+"gender": "unisex",
+"popularity": 90,
+"origin": "греческое, краткая форма имени Евгений или Евгения",
+"meaning": "благородный, из хорошего рода"
+},
+{
+"name": "Милана",
+"gender": "girl",
+"popularity": 90,
+"origin": "славянское",
+"meaning": "милая, любимая"
+},
+{
+"name": "Никита",
+"gender": "boy",
+"popularity": 90,
+"origin": "древнегреческое",
+"meaning": "победитель"
+},
+{
+"name": "Тимур",
+"gender": "boy",
+"popularity": 90,
+"origin": "тюркское",
+"meaning": "железо, стойкий"
+},
+{
+"name": "Амир",
+"gender": "boy",
+"popularity": 89,
+"origin": "арабское",
+"meaning": "правитель, повелитель, князь"
+},
+{
+"name": "Арсений",
+"gender": "boy",
+"popularity": 89,
+"origin": "древнегреческое",
+"meaning": "мужественный, зрелый"
+},
+{
+"name": "Валерия",
+"gender": "girl",
+"popularity": 89,
+"origin": "латинское",
+"meaning": "сильная, здоровая"
+},
+{
+"name": "Николай",
+"gender": "boy",
+"popularity": 89,
+"origin": "древнегреческое",
+"meaning": "победитель народов"
+},
+{
+"name": "Эмма",
+"gender": "girl",
+"popularity": 89,
+"origin": "древнегерманское",
+"meaning": "целая, всеобщая"
+},
+{
+"name": "Алина",
+"gender": "girl",
+"popularity": 88,
+"origin": "древнегерманское",
+"meaning": "благородная"
+},
+{
+"name": "Вероника",
+"gender": "girl",
+"popularity": 88,
+"origin": "греческое",
+"meaning": "несущая победу"
+},
+{
+"name": "Мила",
+"gender": "girl",
+"popularity": 88,
+"origin": "славянское",
+"meaning": "милая, любимая"
+},
+{
+"name": "Сергей",
+"gender": "boy",
+"popularity": 88,
+"origin": "латинское",
+"meaning": "знатный, высокочтимый"
+},
+{
+"name": "Фёдор",
+"gender": "boy",
+"popularity": 88,
+"origin": "древнегреческое",
+"meaning": "дар Бога"
+},
+{
+"name": "Амелия",
+"gender": "girl",
+"popularity": 87,
+"origin": "древнегерманское",
+"meaning": "трудолюбивая, деятельная"
+},
+{
+"name": "Владимир",
+"gender": "boy",
+"popularity": 87,
+"origin": "славянское",
+"meaning": "владеющий миром"
+},
+{
+"name": "Георгий",
+"gender": "boy",
+"popularity": 87,
+"origin": "древнегреческое",
+"meaning": "земледелец"
+},
+{
+"name": "Дамир",
+"gender": "boy",
+"popularity": 87,
+"origin": "славянское или тюркское",
+"meaning": "мирный; также толкуется как железный"
+},
+{
+"name": "Маргарита",
+"gender": "girl",
+"popularity": 87,
+"origin": "греческое",
+"meaning": "жемчужина"
+},
+{
+"name": "Ульяна",
+"gender": "girl",
+"popularity": 87,
+"origin": "латинское",
+"meaning": "принадлежащая роду Юлиев"
+},
+{
+"name": "Алекс",
+"gender": "unisex",
+"popularity": 86,
+"origin": "греческое, международная краткая форма имен Александр и Александра",
+"meaning": "защитник или защитница людей"
+},
+{
+"name": "Майя",
+"gender": "girl",
+"popularity": 86,
+"origin": "греческое",
+"meaning": "мать, кормилица"
+},
+{
+"name": "Мия",
+"gender": "girl",
+"popularity": 86,
+"origin": "скандинавское и западноевропейское",
+"meaning": "краткая форма имени Мария; любимая, желанная"
+},
+{
+"name": "Павел",
+"gender": "boy",
+"popularity": 86,
+"origin": "латинское",
+"meaning": "маленький, младший"
+},
+{
+"name": "Семён",
+"gender": "boy",
+"popularity": 86,
+"origin": "древнееврейское",
+"meaning": "услышанный Богом"
+},
+{
+"name": "Таисия",
+"gender": "girl",
+"popularity": 86,
+"origin": "греческое",
+"meaning": "посвящённая богине Исиде"
+},
+{
+"name": "Ангелина",
+"gender": "girl",
+"popularity": 85,
+"origin": "греческое",
+"meaning": "вестница, ангельская"
+},
+{
+"name": "Антон",
+"gender": "boy",
+"popularity": 85,
+"origin": "латинское",
+"meaning": "вступающий в бой"
+},
+{
+"name": "Виктор",
+"gender": "boy",
+"popularity": 85,
+"origin": "латинское",
+"meaning": "победитель"
+},
+{
+"name": "Елена",
+"gender": "girl",
+"popularity": 85,
+"origin": "греческое",
+"meaning": "светлая, сияющая"
+},
+{
+"name": "Оливия",
+"gender": "girl",
+"popularity": 85,
+"origin": "латинское",
+"meaning": "оливковая, символ мира"
+},
+{
+"name": "Степан",
+"gender": "boy",
+"popularity": 85,
+"origin": "древнегреческое",
+"meaning": "венец, корона"
+},
+{
+"name": "Денис",
+"gender": "boy",
+"popularity": 84,
+"origin": "древнегреческое",
+"meaning": "посвящённый богу Дионису"
+},
+{
+"name": "Евгений",
+"gender": "boy",
+"popularity": 84,
+"origin": "древнегреческое",
+"meaning": "благородный"
+},
+{
+"name": "Кристина",
+"gender": "girl",
+"popularity": 84,
+"origin": "латинское",
+"meaning": "христианка, посвящённая Христу"
+},
+{
+"name": "Леон",
+"gender": "boy",
+"popularity": 84,
+"origin": "греческое",
+"meaning": "лев"
+},
+{
+"name": "Марина",
+"gender": "girl",
+"popularity": 84,
+"origin": "латинское",
+"meaning": "морская"
+},
+{
+"name": "Мирон",
+"gender": "boy",
+"popularity": 84,
+"origin": "древнегреческое",
+"meaning": "благоухающий"
+},
+{
+"name": "Ярослав",
+"gender": "boy",
+"popularity": 84,
+"origin": "славянское",
+"meaning": "яркий и славный"
+},
+{
+"name": "Аврора",
+"gender": "girl",
+"popularity": 83,
+"origin": "латинское",
+"meaning": "утренняя заря"
+},
+{
+"name": "Владислав",
+"gender": "boy",
+"popularity": 83,
+"origin": "славянское",
+"meaning": "владеющий славой"
+},
+{
+"name": "Диана",
+"gender": "girl",
+"popularity": 83,
+"origin": "латинское",
+"meaning": "божественная"
+},
+{
+"name": "Макар",
+"gender": "boy",
+"popularity": 83,
+"origin": "древнегреческое",
+"meaning": "блаженный, счастливый"
+},
+{
+"name": "Олег",
+"gender": "boy",
+"popularity": 83,
+"origin": "древнескандинавское",
+"meaning": "священный, святой"
+},
+{
+"name": "Юлия",
+"gender": "girl",
+"popularity": 83,
+"origin": "латинское",
+"meaning": "принадлежащая роду Юлиев"
+},
+{
+"name": "Алёна",
+"gender": "girl",
+"popularity": 82,
+"origin": "греческое",
+"meaning": "светлая, сияющая"
+},
+{
+"name": "Валя",
+"gender": "unisex",
+"popularity": 82,
+"origin": "латинское, краткая форма имени Валентин или Валентина",
+"meaning": "сильный, здоровый"
+},
+{
+"name": "Захар",
+"gender": "boy",
+"popularity": 82,
+"origin": "древнееврейское",
+"meaning": "Бог помнит"
+},
+{
+"name": "Камилла",
+"gender": "girl",
+"popularity": 82,
+"origin": "латинское",
+"meaning": "девушка благородного происхождения, служительница обряда"
+},
+{
+"name": "Мирослава",
+"gender": "girl",
+"popularity": 82,
+"origin": "славянское",
+"meaning": "прославляющая мир"
+},
+{
+"name": "Савелий",
+"gender": "boy",
+"popularity": 82,
+"origin": "древнееврейское",
+"meaning": "испрошенный у Бога"
+},
+{
+"name": "Теодор",
+"gender": "boy",
+"popularity": 82,
+"origin": "греческое",
+"meaning": "дар Бога"
+},
+{
+"name": "Юрий",
+"gender": "boy",
+"popularity": 82,
+"origin": "древнегреческое",
+"meaning": "земледелец"
+},
+{
+"name": "Ариана",
+"gender": "girl",
+"popularity": 81,
+"origin": "древнегреческое",
+"meaning": "святая, чистая"
+},
+{
+"name": "Глеб",
+"gender": "boy",
+"popularity": 81,
+"origin": "древнескандинавское",
+"meaning": "наследник, защищённый богами"
+},
+{
+"name": "Ирина",
+"gender": "girl",
+"popularity": 81,
+"origin": "греческое",
+"meaning": "мир, покой"
+},
+{
+"name": "Константин",
+"gender": "boy",
+"popularity": 81,
+"origin": "латинское",
+"meaning": "стойкий, постоянный"
+},
+{
+"name": "Леонид",
+"gender": "boy",
+"popularity": 81,
+"origin": "древнегреческое",
+"meaning": "подобный льву"
+},
+{
+"name": "Филипп",
+"gender": "boy",
+"popularity": 81,
+"origin": "греческое",
+"meaning": "любящий лошадей"
+},
+{
+"name": "Виолетта",
+"gender": "girl",
+"popularity": 80,
+"origin": "латинское",
+"meaning": "фиалка"
+},
+{
+"name": "Григорий",
+"gender": "boy",
+"popularity": 80,
+"origin": "древнегреческое",
+"meaning": "бодрствующий, бдительный"
+},
+{
+"name": "Наталья",
+"gender": "girl",
+"popularity": 80,
+"origin": "латинское",
+"meaning": "родная, рождённая в Рождество"
+},
+{
+"name": "Ольга",
+"gender": "girl",
+"popularity": 80,
+"origin": "древнескандинавское",
+"meaning": "святая, священная"
+},
+{
+"name": "Платон",
+"gender": "boy",
+"popularity": 80,
+"origin": "древнегреческое",
+"meaning": "широкоплечий"
+},
+{
+"name": "Роберт",
+"gender": "boy",
+"popularity": 80,
+"origin": "древнегерманское",
+"meaning": "сияющая слава"
+},
+{
+"name": "Адель",
+"gender": "girl",
+"popularity": 79,
+"origin": "древнегерманское",
+"meaning": "благородная"
+},
+{
+"name": "Борис",
+"gender": "boy",
+"popularity": 79,
+"origin": "славянское",
+"meaning": "борец, славный в борьбе"
+},
+{
+"name": "Василий",
+"gender": "boy",
+"popularity": 79,
+"origin": "древнегреческое",
+"meaning": "царственный"
+},
+{
+"name": "Герман",
+"gender": "boy",
+"popularity": 79,
+"origin": "латинское",
+"meaning": "родной, единокровный"
+},
+{
+"name": "Татьяна",
+"gender": "girl",
+"popularity": 79,
+"origin": "латинское",
+"meaning": "принадлежащая роду Татия"
+},
+{
+"name": "Ян",
+"gender": "boy",
+"popularity": 79,
+"origin": "древнееврейское через европейские языки",
+"meaning": "Бог милостив"
+},
+{
+"name": "Яна",
+"gender": "girl",
+"popularity": 79,
+"origin": "древнееврейское",
+"meaning": "Бог милостив"
+},
+{
+"name": "Богдан",
+"gender": "boy",
+"popularity": 78,
+"origin": "славянское",
+"meaning": "данный Богом"
+},
+{
+"name": "Даниэль",
+"gender": "boy",
+"popularity": 78,
+"origin": "древнееврейское",
+"meaning": "Бог , мой судья"
+},
+{
+"name": "Карина",
+"gender": "girl",
+"popularity": 78,
+"origin": "латинское",
+"meaning": "дорогая, милая"
+},
+{
+"name": "Крис",
+"gender": "unisex",
+"popularity": 78,
+"origin": "греческое, краткая форма имен Кристиан, Кристина и родственных имен",
+"meaning": "посвященный Христу"
+},
+{
+"name": "Пётр",
+"gender": "boy",
+"popularity": 78,
+"origin": "древнегреческое",
+"meaning": "камень, скала"
+},
+{
+"name": "Руслан",
+"gender": "boy",
+"popularity": 78,
+"origin": "тюркское",
+"meaning": "лев"
+},
+{
+"name": "Эвелина",
+"gender": "girl",
+"popularity": 78,
+"origin": "западноевропейское",
+"meaning": "желанная, жизненная"
+},
+{
+"name": "Николь",
+"gender": "girl",
+"popularity": 77,
+"origin": "французское, от древнегреческого",
+"meaning": "победа народа"
+},
+{
+"name": "Станислав",
+"gender": "boy",
+"popularity": 77,
+"origin": "славянское",
+"meaning": "ставший славным"
+},
+{
+"name": "Эрик",
+"gender": "boy",
+"popularity": 77,
+"origin": "скандинавское",
+"meaning": "вечный правитель"
+},
+{
+"name": "Амалия",
+"gender": "girl",
+"popularity": 76,
+"origin": "древнегерманское",
+"meaning": "трудолюбивая, деятельная"
+},
+{
+"name": "Марсель",
+"gender": "boy",
+"popularity": 76,
+"origin": "латинское",
+"meaning": "посвящённый Марсу"
+},
+{
+"name": "Родион",
+"gender": "boy",
+"popularity": 76,
+"origin": "древнегреческое",
+"meaning": "житель острова Родос"
+},
+{
+"name": "Серафима",
+"gender": "girl",
+"popularity": 76,
+"origin": "древнееврейское",
+"meaning": "пламенная, огненная"
+},
+{
+"name": "Агата",
+"gender": "girl",
+"popularity": 75,
+"origin": "греческое",
+"meaning": "добрая, хорошая"
+},
+{
+"name": "Алан",
+"gender": "boy",
+"popularity": 75,
+"origin": "древнеиранское",
+"meaning": "представитель древнего народа аланов"
+},
+{
+"name": "Альберт",
+"gender": "boy",
+"popularity": 75,
+"origin": "древнегерманское",
+"meaning": "благородный и блистательный"
+},
+{
+"name": "Слава",
+"gender": "unisex",
+"popularity": 75,
+"origin": "славянское, краткая форма имен с элементом «слав»",
+"meaning": "слава, известность"
+},
+{
+"name": "Элина",
+"gender": "girl",
+"popularity": 75,
+"origin": "европейское, форма имени Елена",
+"meaning": "светлая, сияющая"
+},
+{
+"name": "Адриан",
+"gender": "boy",
+"popularity": 74,
+"origin": "латинское",
+"meaning": "родом с берегов Адриатики"
+},
+{
+"name": "Евгения",
+"gender": "girl",
+"popularity": 74,
+"origin": "греческое",
+"meaning": "благородная"
+},
+{
+"name": "Лилия",
+"gender": "girl",
+"popularity": 74,
+"origin": "латинское",
+"meaning": "лилия, символ чистоты"
+},
+{
+"name": "Ноа",
+"gender": "unisex",
+"popularity": 74,
+"origin": "еврейское",
+"meaning": "покой, утешение; также движение"
+},
+{
+"name": "Стефания",
+"gender": "girl",
+"popularity": 74,
+"origin": "древнегреческое",
+"meaning": "венец, корона"
+},
+{
+"name": "Эмиль",
+"gender": "boy",
+"popularity": 74,
+"origin": "латинское",
+"meaning": "старательный, соперник"
+},
+{
+"name": "Игорь",
+"gender": "boy",
+"popularity": 73,
+"origin": "древнескандинавское",
+"meaning": "воинственный, хранитель"
+},
+{
+"name": "Лука",
+"gender": "boy",
+"popularity": 73,
+"origin": "греческое",
+"meaning": "родом из Лукании"
+},
+{
+"name": "Самира",
+"gender": "girl",
+"popularity": 73,
+"origin": "арабское",
+"meaning": "приятная собеседница"
+},
+{
+"name": "Светлана",
+"gender": "girl",
+"popularity": 73,
+"origin": "славянское",
+"meaning": "светлая, чистая"
+},
+{
+"name": "Вера",
+"gender": "girl",
+"popularity": 72,
+"origin": "славянское",
+"meaning": "вера, доверие"
+},
+{
+"name": "Вячеслав",
+"gender": "boy",
+"popularity": 72,
+"origin": "славянское",
+"meaning": "наиславнейший"
+},
+{
+"name": "Милан",
+"gender": "boy",
+"popularity": 72,
+"origin": "славянское",
+"meaning": "милый, дорогой"
+},
+{
+"name": "Надежда",
+"gender": "girl",
+"popularity": 72,
+"origin": "славянское",
+"meaning": "надежда, упование"
+},
+{
+"name": "Чарли",
+"gender": "unisex",
+"popularity": 72,
+"origin": "древнегерманское через английский язык",
+"meaning": "свободный человек"
+},
+{
+"name": "Ясмина",
+"gender": "girl",
+"popularity": 72,
+"origin": "персидское",
+"meaning": "жасмин"
+},
+{
+"name": "Вадим",
+"gender": "boy",
+"popularity": 71,
+"origin": "древнерусское",
+"meaning": "привлекающий, зовущий"
+},
+{
+"name": "Лиана",
+"gender": "girl",
+"popularity": 71,
+"origin": "французское",
+"meaning": "тонкая, гибкая, подобная лиане"
+},
+{
+"name": "Любовь",
+"gender": "girl",
+"popularity": 71,
+"origin": "славянское",
+"meaning": "любовь"
+},
+{
+"name": "Оскар",
+"gender": "boy",
+"popularity": 71,
+"origin": "древнегерманское",
+"meaning": "божественное копьё"
+},
+{
+"name": "Дарина",
+"gender": "girl",
+"popularity": 70,
+"origin": "славянское",
+"meaning": "дарованная, подарок"
+},
+{
+"name": "Мартин",
+"gender": "boy",
+"popularity": 70,
+"origin": "латинское",
+"meaning": "посвящённый Марсу, воинственный"
+},
+{
+"name": "Оксана",
+"gender": "girl",
+"popularity": 70,
+"origin": "греческое",
+"meaning": "гостеприимная, чужестранка"
+},
+{
+"name": "Святослав",
+"gender": "boy",
+"popularity": 70,
+"origin": "славянское",
+"meaning": "священная слава"
+},
+{
+"name": "Стелла",
+"gender": "girl",
+"popularity": 70,
+"origin": "латинское",
+"meaning": "звезда"
+},
+{
+"name": "Валерий",
+"gender": "boy",
+"popularity": 69,
+"origin": "латинское",
+"meaning": "сильный, здоровый"
+},
+{
+"name": "Зоя",
+"gender": "girl",
+"popularity": 69,
+"origin": "греческое",
+"meaning": "жизнь"
+},
+{
+"name": "Рафаэль",
+"gender": "boy",
+"popularity": 69,
+"origin": "древнееврейское",
+"meaning": "Бог исцелил"
+},
+{
+"name": "Рустам",
+"gender": "boy",
+"popularity": 69,
+"origin": "персидское",
+"meaning": "богатырь, могучий герой"
+},
+{
+"name": "Сабина",
+"gender": "girl",
+"popularity": 69,
+"origin": "латинское",
+"meaning": "сабинянка, женщина из народа сабинов"
+},
+{
+"name": "Всеволод",
+"gender": "boy",
+"popularity": 68,
+"origin": "славянское",
+"meaning": "владеющий всем"
+},
+{
+"name": "Лана",
+"gender": "girl",
+"popularity": 68,
+"origin": "славянское и западноевропейское",
+"meaning": "светлая, мирная"
+},
+{
+"name": "Нина",
+"gender": "girl",
+"popularity": 68,
+"origin": "грузинское",
+"meaning": "царица"
+},
+{
+"name": "Ринат",
+"gender": "boy",
+"popularity": 68,
+"origin": "латинское",
+"meaning": "возрождённый, рождённый заново"
+},
+{
+"name": "Шура",
+"gender": "unisex",
+"popularity": 68,
+"origin": "греческое, краткая форма имени Александр или Александра",
+"meaning": "защитник или защитница людей"
+},
+{
+"name": "Ари",
+"gender": "unisex",
+"popularity": 67,
+"origin": "еврейское",
+"meaning": "лев"
+},
+{
+"name": "Дана",
+"gender": "girl",
+"popularity": 67,
+"origin": "славянское и древнееврейское",
+"meaning": "данная, дарованная"
+},
+{
+"name": "Кристиан",
+"gender": "boy",
+"popularity": 67,
+"origin": "латинское",
+"meaning": "христианин, последователь Христа"
+},
+{
+"name": "Лидия",
+"gender": "girl",
+"popularity": 67,
+"origin": "греческое",
+"meaning": "жительница Лидии"
+},
+{
+"name": "Ростислав",
+"gender": "boy",
+"popularity": 67,
+"origin": "славянское",
+"meaning": "тот, чья слава растёт"
+},
+{
+"name": "Эльвира",
+"gender": "girl",
+"popularity": 67,
+"origin": "древнегерманское",
+"meaning": "верная защитница"
+},
+{
+"name": "Людмила",
+"gender": "girl",
+"popularity": 66,
+"origin": "славянское",
+"meaning": "милая людям"
+},
+{
+"name": "Мелисса",
+"gender": "girl",
+"popularity": 66,
+"origin": "древнегреческое",
+"meaning": "пчела"
+},
+{
+"name": "Натан",
+"gender": "boy",
+"popularity": 66,
+"origin": "древнееврейское",
+"meaning": "дарованный Богом"
+},
+{
+"name": "Сэм",
+"gender": "unisex",
+"popularity": 66,
+"origin": "еврейское и английское, краткая форма имен Самуил, Саманта и других",
+"meaning": "услышанный Богом"
+},
+{
+"name": "Валентина",
+"gender": "girl",
+"popularity": 65,
+"origin": "латинское",
+"meaning": "сильная, здоровая"
+},
+{
+"name": "Ванесса",
+"gender": "girl",
+"popularity": 65,
+"origin": "английское литературное",
+"meaning": "созданное литературное имя, ассоциируемое с бабочкой"
+},
+{
+"name": "Ким",
+"gender": "unisex",
+"popularity": 65,
+"origin": "английское и корейское",
+"meaning": "в английской традиции , луг Кинебурги; в корейской , золото"
+},
+{
+"name": "Наоми",
+"gender": "girl",
+"popularity": 64,
+"origin": "древнееврейское",
+"meaning": "приятная, прекрасная"
+},
+{
+"name": "Никки",
+"gender": "unisex",
+"popularity": 64,
+"origin": "греческое через английский язык, краткая форма имен Николас, Николь и других",
+"meaning": "победа народа"
+},
+{
+"name": "Тамара",
+"gender": "girl",
+"popularity": 64,
+"origin": "древнееврейское",
+"meaning": "финиковая пальма"
+},
+{
+"name": "Антонина",
+"gender": "girl",
+"popularity": 63,
+"origin": "латинское",
+"meaning": "принадлежащая роду Антониев"
+},
+{
+"name": "Робин",
+"gender": "unisex",
+"popularity": 63,
+"origin": "древнегерманское через английский и французский языки",
+"meaning": "сияющая слава"
+},
+{
+"name": "Хлоя",
+"gender": "girl",
+"popularity": 63,
+"origin": "древнегреческое",
+"meaning": "молодой зелёный побег, цветущая"
+},
+{
+"name": "Эдвард",
+"gender": "boy",
+"popularity": 63,
+"origin": "древнеанглийское",
+"meaning": "страж богатства"
+},
+{
+"name": "Галина",
+"gender": "girl",
+"popularity": 62,
+"origin": "греческое",
+"meaning": "спокойствие, безмятежность"
+},
+{
+"name": "Джесси",
+"gender": "unisex",
+"popularity": 62,
+"origin": "еврейское через английский язык",
+"meaning": "дар, подарок"
+},
+{
+"name": "Мишель",
+"gender": "girl",
+"popularity": 62,
+"origin": "французское, от древнееврейского",
+"meaning": "кто подобен Богу"
+},
+{
+"name": "Реми",
+"gender": "unisex",
+"popularity": 61,
+"origin": "французское от латинского имени Ремигий",
+"meaning": "гребец"
+},
+{
+"name": "Эдгар",
+"gender": "boy",
+"popularity": 61,
+"origin": "древнеанглийское",
+"meaning": "богатый воин, счастливое копьё"
+},
+{
+"name": "Аркадий",
+"gender": "boy",
+"popularity": 60,
+"origin": "древнегреческое",
+"meaning": "житель Аркадии"
+},
+{
+"name": "Лариса",
+"gender": "girl",
+"popularity": 60,
+"origin": "греческое",
+"meaning": "чайка"
+},
+{
+"name": "Тони",
+"gender": "unisex",
+"popularity": 60,
+"origin": "латинское через европейские языки, краткая форма имен Антонио, Антония и других",
+"meaning": "по традиционному толкованию , бесценный"
+},
+{
+"name": "Габи",
+"gender": "unisex",
+"popularity": 59,
+"origin": "еврейское через европейские языки, краткая форма имен Габриэль и Габриэла",
+"meaning": "Бог , моя сила"
+},
+{
+"name": "Анатолий",
+"gender": "boy",
+"popularity": 58,
+"origin": "древнегреческое",
+"meaning": "восточный, восходящий"
+},
+{
+"name": "Раиса",
+"gender": "girl",
+"popularity": 58,
+"origin": "греческое",
+"meaning": "лёгкая, беспечная"
+},
+{
+"name": "Рене",
+"gender": "unisex",
+"popularity": 58,
+"origin": "французское от латинского имени Ренатус",
+"meaning": "возрожденный, рожденный заново"
+},
+{
+"name": "Жанна",
+"gender": "girl",
+"popularity": 57,
+"origin": "французское",
+"meaning": "Бог милостив"
+},
+{
+"name": "Скай",
+"gender": "unisex",
+"popularity": 57,
+"origin": "английское",
+"meaning": "небо"
+},
+{
+"name": "Геннадий",
+"gender": "boy",
+"popularity": 56,
+"origin": "древнегреческое",
+"meaning": "благородного происхождения"
+},
+{
+"name": "Инна",
+"gender": "girl",
+"popularity": 55,
+"origin": "латинское",
+"meaning": "бурный поток"
+},
+{
+"name": "Алла",
+"gender": "girl",
+"popularity": 53,
+"origin": "древнегреческое",
+"meaning": "иная, другая"
+},
+{
+"name": "Айсель",
+"gender": "girl",
+"popularity": 72,
+"origin": "азербайджанское",
+"meaning": "лунный поток, подобная лунному свету"
+},
+{
+"name": "Лейла",
+"gender": "girl",
+"popularity": 78,
+"origin": "арабское",
+"meaning": "ночь"
+},
+{
+"name": "Нигяр",
+"gender": "girl",
+"popularity": 60,
+"origin": "персидское",
+"meaning": "возлюбленная, красавица"
+},
+{
+"name": "Айгюн",
+"gender": "girl",
+"popularity": 55,
+"origin": "тюркское",
+"meaning": "луна и солнце"
+},
+{
+"name": "Гюнай",
+"gender": "girl",
+"popularity": 62,
+"origin": "тюркское",
+"meaning": "солнце и луна"
+},
+{
+"name": "Гюльнар",
+"gender": "girl",
+"popularity": 45,
+"origin": "персидское",
+"meaning": "цветок граната"
+},
+{
+"name": "Айнур",
+"gender": "girl",
+"popularity": 58,
+"origin": "тюркское",
+"meaning": "лунный свет"
+},
+{
+"name": "Нармин",
+"gender": "girl",
+"popularity": 60,
+"origin": "персидское",
+"meaning": "нежная"
+},
+{
+"name": "Севиндж",
+"gender": "girl",
+"popularity": 48,
+"origin": "тюркское",
+"meaning": "радость"
+},
+{
+"name": "Улькер",
+"gender": "girl",
+"popularity": 40,
+"origin": "тюркское",
+"meaning": "Плеяды, созвездие"
+},
+{
+"name": "Фидан",
+"gender": "girl",
+"popularity": 52,
+"origin": "азербайджанское",
+"meaning": "молодой росток"
+},
+{
+"name": "Хадиджа",
+"gender": "girl",
+"popularity": 55,
+"origin": "арабское",
+"meaning": "рождённая раньше срока"
+},
+{
+"name": "Фатима",
+"gender": "girl",
+"popularity": 72,
+"origin": "арабское",
+"meaning": "отнятая от груди"
+},
+{
+"name": "Аиша",
+"gender": "girl",
+"popularity": 70,
+"origin": "арабское",
+"meaning": "живая, живущая"
+},
+{
+"name": "Амина",
+"gender": "girl",
+"popularity": 75,
+"origin": "арабское",
+"meaning": "верная, надёжная"
+},
+{
+"name": "Малика",
+"gender": "girl",
+"popularity": 62,
+"origin": "арабское",
+"meaning": "царица"
+},
+{
+"name": "Зарина",
+"gender": "girl",
+"popularity": 58,
+"origin": "персидское",
+"meaning": "золотая"
+},
+{
+"name": "Зульфия",
+"gender": "girl",
+"popularity": 40,
+"origin": "персидское",
+"meaning": "с прекрасными локонами"
+},
+{
+"name": "Сафия",
+"gender": "girl",
+"popularity": 55,
+"origin": "арабское",
+"meaning": "чистая"
+},
+{
+"name": "Асия",
+"gender": "girl",
+"popularity": 52,
+"origin": "арабское",
+"meaning": "утешающая, исцеляющая"
+},
+{
+"name": "Алия",
+"gender": "girl",
+"popularity": 64,
+"origin": "арабское",
+"meaning": "возвышенная"
+},
+{
+"name": "Ляйсан",
+"gender": "girl",
+"popularity": 45,
+"origin": "тюркское",
+"meaning": "первый весенний дождь"
+},
+{
+"name": "Динара",
+"gender": "girl",
+"popularity": 50,
+"origin": "арабское",
+"meaning": "золотая монета, драгоценная"
+},
+{
+"name": "Наргиз",
+"gender": "girl",
+"popularity": 50,
+"origin": "персидское",
+"meaning": "нарцисс"
+},
+{
+"name": "Мадина",
+"gender": "girl",
+"popularity": 66,
+"origin": "арабское",
+"meaning": "город, в честь Медины"
+},
+{
+"name": "Нурай",
+"gender": "girl",
+"popularity": 52,
+"origin": "тюркское",
+"meaning": "свет луны"
+},
+{
+"name": "Айлин",
+"gender": "girl",
+"popularity": 62,
+"origin": "тюркское",
+"meaning": "лунный ореол"
+},
+{
+"name": "Севда",
+"gender": "girl",
+"popularity": 40,
+"origin": "тюркское",
+"meaning": "любовь"
+},
+{
+"name": "Ламия",
+"gender": "girl",
+"popularity": 42,
+"origin": "арабское",
+"meaning": "блестящая, сияющая"
+},
+{
+"name": "Сара",
+"gender": "girl",
+"popularity": 55,
+"origin": "древнееврейское",
+"meaning": "госпожа"
+},
+{
+"name": "Захра",
+"gender": "girl",
+"popularity": 60,
+"origin": "арабское",
+"meaning": "цветущая, сияющая"
+},
+{
+"name": "Азиза",
+"gender": "girl",
+"popularity": 44,
+"origin": "арабское",
+"meaning": "дорогая, могущественная"
+},
+{
+"name": "Латифа",
+"gender": "girl",
+"popularity": 35,
+"origin": "арабское",
+"meaning": "нежная, добрая"
+},
+{
+"name": "Наиля",
+"gender": "girl",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "достигающая цели, одарённая"
+},
+{
+"name": "Альфия",
+"gender": "girl",
+"popularity": 35,
+"origin": "арабское",
+"meaning": "тысячелетняя, долголетняя"
+},
+{
+"name": "Гульнур",
+"gender": "girl",
+"popularity": 38,
+"origin": "персидское",
+"meaning": "сияющий цветок"
+},
+{
+"name": "Айгерим",
+"gender": "girl",
+"popularity": 50,
+"origin": "казахское",
+"meaning": "лунная красавица"
+},
+{
+"name": "Лала",
+"gender": "girl",
+"popularity": 45,
+"origin": "персидское",
+"meaning": "тюльпан"
+},
+{
+"name": "Гюльшен",
+"gender": "girl",
+"popularity": 35,
+"origin": "персидское",
+"meaning": "цветущий сад"
+},
+{
+"name": "Нурана",
+"gender": "girl",
+"popularity": 50,
+"origin": "арабское",
+"meaning": "светлая, лучезарная"
+},
+{
+"name": "Айтан",
+"gender": "girl",
+"popularity": 42,
+"origin": "тюркское",
+"meaning": "лунный рассвет"
+},
+{
+"name": "Арзу",
+"gender": "girl",
+"popularity": 45,
+"origin": "персидское",
+"meaning": "мечта, желание"
+},
+{
+"name": "Хабиба",
+"gender": "girl",
+"popularity": 45,
+"origin": "арабское",
+"meaning": "любимая"
+},
+{
+"name": "Джамиля",
+"gender": "girl",
+"popularity": 42,
+"origin": "арабское",
+"meaning": "красивая"
+},
+{
+"name": "Карима",
+"gender": "girl",
+"popularity": 38,
+"origin": "арабское",
+"meaning": "щедрая"
+},
+{
+"name": "Нилуфар",
+"gender": "girl",
+"popularity": 40,
+"origin": "персидское",
+"meaning": "лотос, кувшинка"
+},
+{
+"name": "Айсу",
+"gender": "girl",
+"popularity": 50,
+"origin": "тюркское",
+"meaning": "лунная вода"
+},
+{
+"name": "Мелек",
+"gender": "girl",
+"popularity": 45,
+"origin": "арабское",
+"meaning": "ангел"
+},
+{
+"name": "Дильбар",
+"gender": "girl",
+"popularity": 35,
+"origin": "персидское",
+"meaning": "очаровательная, пленяющая сердце"
+},
+{
+"name": "Дилара",
+"gender": "girl",
+"popularity": 55,
+"origin": "персидское",
+"meaning": "услада сердца"
+},
+{
+"name": "Хадия",
+"gender": "girl",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "ведущая по верному пути"
+},
+{
+"name": "Райхана",
+"gender": "girl",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "базилик, благоуханная"
+},
+{
+"name": "Захида",
+"gender": "girl",
+"popularity": 30,
+"origin": "арабское",
+"meaning": "благочестивая"
+},
+{
+"name": "Мунира",
+"gender": "girl",
+"popularity": 32,
+"origin": "арабское",
+"meaning": "сияющая, светлая"
+},
+{
+"name": "Злата",
+"gender": "girl",
+"popularity": 70,
+"origin": "славянское",
+"meaning": "золотая"
+},
+{
+"name": "Мирра",
+"gender": "girl",
+"popularity": 68,
+"origin": "древнегреческое",
+"meaning": "благовонная смола, мирра"
+},
+{
+"name": "Кира",
+"gender": "girl",
+"popularity": 72,
+"origin": "древнегреческое",
+"meaning": "госпожа"
+},
+{
+"name": "Агния",
+"gender": "girl",
+"popularity": 62,
+"origin": "древнегреческое",
+"meaning": "непорочная, чистая"
+},
+{
+"name": "Аглая",
+"gender": "girl",
+"popularity": 55,
+"origin": "древнегреческое",
+"meaning": "блистательная"
+},
+{
+"name": "Милена",
+"gender": "girl",
+"popularity": 66,
+"origin": "славянское",
+"meaning": "милая"
+},
+{
+"name": "Ника",
+"gender": "girl",
+"popularity": 60,
+"origin": "древнегреческое",
+"meaning": "победа"
+},
+{
+"name": "Аделина",
+"gender": "girl",
+"popularity": 62,
+"origin": "древнегерманское",
+"meaning": "благородная"
+},
+{
+"name": "Василина",
+"gender": "girl",
+"popularity": 48,
+"origin": "древнегреческое",
+"meaning": "царственная"
+},
+{
+"name": "Ярослава",
+"gender": "girl",
+"popularity": 55,
+"origin": "славянское",
+"meaning": "яркая слава"
+},
+{
+"name": "Владислава",
+"gender": "girl",
+"popularity": 45,
+"origin": "славянское",
+"meaning": "владеющая славой"
+},
+{
+"name": "Лада",
+"gender": "girl",
+"popularity": 42,
+"origin": "славянское",
+"meaning": "милая, ладная"
+},
+{
+"name": "Анфиса",
+"gender": "girl",
+"popularity": 40,
+"origin": "древнегреческое",
+"meaning": "цветущая"
+},
+{
+"name": "Фаина",
+"gender": "girl",
+"popularity": 30,
+"origin": "древнегреческое",
+"meaning": "сияющая"
+},
+{
+"name": "Эльчин",
+"gender": "boy",
+"popularity": 55,
+"origin": "азербайджанское",
+"meaning": "посланник народа"
+},
+{
+"name": "Тогрул",
+"gender": "boy",
+"popularity": 52,
+"origin": "тюркское",
+"meaning": "сокол, ловчая птица"
+},
+{
+"name": "Ильхам",
+"gender": "boy",
+"popularity": 50,
+"origin": "арабское",
+"meaning": "вдохновение"
+},
+{
+"name": "Анар",
+"gender": "boy",
+"popularity": 50,
+"origin": "персидское",
+"meaning": "гранат"
+},
+{
+"name": "Орхан",
+"gender": "boy",
+"popularity": 58,
+"origin": "тюркское",
+"meaning": "великий хан, предводитель"
+},
+{
+"name": "Ильгар",
+"gender": "boy",
+"popularity": 40,
+"origin": "азербайджанское",
+"meaning": "данное слово, обещание"
+},
+{
+"name": "Фарид",
+"gender": "boy",
+"popularity": 52,
+"origin": "арабское",
+"meaning": "единственный, несравненный"
+},
+{
+"name": "Рашад",
+"gender": "boy",
+"popularity": 45,
+"origin": "арабское",
+"meaning": "благоразумие, верный путь"
+},
+{
+"name": "Самир",
+"gender": "boy",
+"popularity": 55,
+"origin": "арабское",
+"meaning": "собеседник"
+},
+{
+"name": "Фуад",
+"gender": "boy",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "сердце"
+},
+{
+"name": "Вугар",
+"gender": "boy",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "гордость, достоинство"
+},
+{
+"name": "Айхан",
+"gender": "boy",
+"popularity": 50,
+"origin": "тюркское",
+"meaning": "лунный хан"
+},
+{
+"name": "Гусейн",
+"gender": "boy",
+"popularity": 55,
+"origin": "арабское",
+"meaning": "красивый, хороший"
+},
+{
+"name": "Хасан",
+"gender": "boy",
+"popularity": 55,
+"origin": "арабское",
+"meaning": "хороший, красивый"
+},
+{
+"name": "Али",
+"gender": "boy",
+"popularity": 75,
+"origin": "арабское",
+"meaning": "возвышенный"
+},
+{
+"name": "Мухаммад",
+"gender": "boy",
+"popularity": 80,
+"origin": "арабское",
+"meaning": "восхваляемый"
+},
+{
+"name": "Омар",
+"gender": "boy",
+"popularity": 65,
+"origin": "арабское",
+"meaning": "живущий, долгожитель"
+},
+{
+"name": "Юсуф",
+"gender": "boy",
+"popularity": 72,
+"origin": "арабское",
+"meaning": "Бог приумножит"
+},
+{
+"name": "Ибрагим",
+"gender": "boy",
+"popularity": 66,
+"origin": "древнееврейское",
+"meaning": "отец многих народов"
+},
+{
+"name": "Исмаил",
+"gender": "boy",
+"popularity": 62,
+"origin": "древнееврейское",
+"meaning": "Бог услышит"
+},
+{
+"name": "Ислам",
+"gender": "boy",
+"popularity": 60,
+"origin": "арабское",
+"meaning": "покорность Богу"
+},
+{
+"name": "Мурад",
+"gender": "boy",
+"popularity": 58,
+"origin": "арабское",
+"meaning": "желанный, цель"
+},
+{
+"name": "Карим",
+"gender": "boy",
+"popularity": 55,
+"origin": "арабское",
+"meaning": "щедрый"
+},
+{
+"name": "Рахим",
+"gender": "boy",
+"popularity": 42,
+"origin": "арабское",
+"meaning": "милосердный"
+},
+{
+"name": "Халид",
+"gender": "boy",
+"popularity": 50,
+"origin": "арабское",
+"meaning": "вечный"
+},
+{
+"name": "Тагир",
+"gender": "boy",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "чистый"
+},
+{
+"name": "Рауф",
+"gender": "boy",
+"popularity": 38,
+"origin": "арабское",
+"meaning": "сострадательный"
+},
+{
+"name": "Наиль",
+"gender": "boy",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "одарённый, достигающий цели"
+},
+{
+"name": "Азат",
+"gender": "boy",
+"popularity": 45,
+"origin": "персидское",
+"meaning": "свободный"
+},
+{
+"name": "Аяз",
+"gender": "boy",
+"popularity": 48,
+"origin": "тюркское",
+"meaning": "ясный морозный день"
+},
+{
+"name": "Арслан",
+"gender": "boy",
+"popularity": 45,
+"origin": "тюркское",
+"meaning": "лев"
+},
+{
+"name": "Аслан",
+"gender": "boy",
+"popularity": 58,
+"origin": "тюркское",
+"meaning": "лев"
+},
+{
+"name": "Алмаз",
+"gender": "boy",
+"popularity": 38,
+"origin": "тюркское",
+"meaning": "алмаз, драгоценный камень"
+},
+{
+"name": "Батыр",
+"gender": "boy",
+"popularity": 35,
+"origin": "тюркское",
+"meaning": "богатырь, герой"
+},
+{
+"name": "Булат",
+"gender": "boy",
+"popularity": 40,
+"origin": "тюркское",
+"meaning": "булат, крепкая сталь"
+},
+{
+"name": "Данияр",
+"gender": "boy",
+"popularity": 52,
+"origin": "персидское",
+"meaning": "наделённый знанием"
+},
+{
+"name": "Ильяс",
+"gender": "boy",
+"popularity": 60,
+"origin": "древнееврейское",
+"meaning": "мой Бог Яхве"
+},
+{
+"name": "Сулейман",
+"gender": "boy",
+"popularity": 60,
+"origin": "древнееврейское",
+"meaning": "мирный"
+},
+{
+"name": "Якуб",
+"gender": "boy",
+"popularity": 50,
+"origin": "древнееврейское",
+"meaning": "следующий по пятам"
+},
+{
+"name": "Амин",
+"gender": "boy",
+"popularity": 58,
+"origin": "арабское",
+"meaning": "верный, надёжный"
+},
+{
+"name": "Мансур",
+"gender": "boy",
+"popularity": 48,
+"origin": "арабское",
+"meaning": "победитель"
+},
+{
+"name": "Расул",
+"gender": "boy",
+"popularity": 50,
+"origin": "арабское",
+"meaning": "посланник"
+},
+{
+"name": "Рамазан",
+"gender": "boy",
+"popularity": 45,
+"origin": "арабское",
+"meaning": "в честь священного месяца Рамадан"
+},
+{
+"name": "Сабир",
+"gender": "boy",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "терпеливый"
+},
+{
+"name": "Тофик",
+"gender": "boy",
+"popularity": 35,
+"origin": "арабское",
+"meaning": "удача, успех"
+},
+{
+"name": "Шамиль",
+"gender": "boy",
+"popularity": 45,
+"origin": "арабское",
+"meaning": "всеобъемлющий"
+},
+{
+"name": "Эльдар",
+"gender": "boy",
+"popularity": 55,
+"origin": "тюркское",
+"meaning": "владеющий страной"
+},
+{
+"name": "Эмин",
+"gender": "boy",
+"popularity": 58,
+"origin": "арабское",
+"meaning": "верный, надёжный"
+},
+{
+"name": "Джавид",
+"gender": "boy",
+"popularity": 40,
+"origin": "персидское",
+"meaning": "вечный"
+},
+{
+"name": "Джамал",
+"gender": "boy",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "красота"
+},
+{
+"name": "Мирза",
+"gender": "boy",
+"popularity": 40,
+"origin": "персидское",
+"meaning": "сын эмира"
+},
+{
+"name": "Байрам",
+"gender": "boy",
+"popularity": 35,
+"origin": "тюркское",
+"meaning": "праздник"
+},
+{
+"name": "Шахин",
+"gender": "boy",
+"popularity": 42,
+"origin": "персидское",
+"meaning": "сокол"
+},
+{
+"name": "Камран",
+"gender": "boy",
+"popularity": 48,
+"origin": "персидское",
+"meaning": "счастливый, достигший желаемого"
+},
+{
+"name": "Бахтияр",
+"gender": "boy",
+"popularity": 42,
+"origin": "персидское",
+"meaning": "счастливый"
+},
+{
+"name": "Ниджат",
+"gender": "boy",
+"popularity": 42,
+"origin": "арабское",
+"meaning": "спасение"
+},
+{
+"name": "Садиг",
+"gender": "boy",
+"popularity": 32,
+"origin": "арабское",
+"meaning": "правдивый, верный"
+},
+{
+"name": "Агиль",
+"gender": "boy",
+"popularity": 35,
+"origin": "арабское",
+"meaning": "умный"
+},
+{
+"name": "Ариф",
+"gender": "boy",
+"popularity": 40,
+"origin": "арабское",
+"meaning": "знающий, мудрый"
+},
+{
+"name": "Яшар",
+"gender": "boy",
+"popularity": 35,
+"origin": "тюркское",
+"meaning": "живущий"
+},
+{
+"name": "Абдулла",
+"gender": "boy",
+"popularity": 55,
+"origin": "арабское",
+"meaning": "раб Аллаха"
+},
+{
+"name": "Ахмед",
+"gender": "boy",
+"popularity": 62,
+"origin": "арабское",
+"meaning": "достохвальный"
+},
+{
+"name": "Ильнур",
+"gender": "boy",
+"popularity": 45,
+"origin": "тюркское",
+"meaning": "свет родины"
+},
+{
+"name": "Нурлан",
+"gender": "boy",
+"popularity": 48,
+"origin": "тюркское",
+"meaning": "озарённый светом"
+},
+{
+"name": "Айдын",
+"gender": "boy",
+"popularity": 48,
+"origin": "тюркское",
+"meaning": "светлый, просвещённый"
+},
+{
+"name": "Эрен",
+"gender": "boy",
+"popularity": 45,
+"origin": "тюркское",
+"meaning": "святой, мудрец"
+},
+{
+"name": "Тихон",
+"gender": "boy",
+"popularity": 58,
+"origin": "древнегреческое",
+"meaning": "удачливый"
+},
+{
+"name": "Елисей",
+"gender": "boy",
+"popularity": 62,
+"origin": "древнееврейское",
+"meaning": "Бог спасение"
+},
+{
+"name": "Савва",
+"gender": "boy",
+"popularity": 50,
+"origin": "арамейское",
+"meaning": "старец"
+},
+{
+"name": "Прохор",
+"gender": "boy",
+"popularity": 42,
+"origin": "древнегреческое",
+"meaning": "руководитель хора"
+},
+{
+"name": "Добрыня",
+"gender": "boy",
+"popularity": 35,
+"origin": "славянское",
+"meaning": "добрый"
+},
+{
+"name": "Мстислав",
+"gender": "boy",
+"popularity": 35,
+"origin": "славянское",
+"meaning": "славный местью"
+},
+{
+"name": "Гавриил",
+"gender": "boy",
+"popularity": 40,
+"origin": "древнееврейское",
+"meaning": "Бог моя сила"
+},
+{
+"name": "Серафим",
+"gender": "boy",
+"popularity": 48,
+"origin": "древнееврейское",
+"meaning": "пламенный"
+}
+]

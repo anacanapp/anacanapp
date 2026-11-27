@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "Konfirmasi email kamu",
+    "subtitle": "Kami mengirim kode 6 digit ke {email}. Masukkan di bawah ini.",
+    "why": "Ini melindungi akunmu dan memastikan Premium yang kamu dapatkan terhubung ke akunmu sendiri.",
+    "code_label": "Kode verifikasi",
+    "confirm": "Konfirmasi",
+    "resend": "Kirim ulang kode",
+    "resend_in": "Kirim ulang dalam {s} dtk",
+    "sent": "Kode terkirim",
+    "spam_hint": "Email belum masuk? Cek juga folder Spam atau Promosi.",
+    "wrong_code": "Kode salah. Periksa dan coba lagi.",
+    "expired": "Kode sudah kedaluwarsa. Kirim kode baru.",
+    "too_many": "Terlalu banyak percobaan. Kirim kode baru.",
+    "rate_limited": "Tunggu sebentar lalu coba lagi.",
+    "send_failed": "Gagal mengirim kode. Periksa koneksi internetmu dan coba lagi.",
+    "verified": "Email kamu sudah terkonfirmasi 🎉",
+    "wrong_email": "Email salah? Keluar dan daftar ulang"
+  },
+  "email": {
+    "subject": "{code} — kode verifikasi Anacan kamu",
+    "preheader": "Masukkan kode ini untuk mengonfirmasi akunmu.",
+    "heading": "Kode verifikasi kamu",
+    "intro": "Masukkan kode ini di aplikasi untuk mengonfirmasi akun Anacan kamu:",
+    "expires": "Kode berlaku selama 15 menit.",
+    "ignore": "Kalau kamu tidak memintanya, abaikan saja email ini — tidak ada yang berubah di akunmu.",
+    "footer": "Anacan — menemanimu di setiap tahap"
+  }
+}

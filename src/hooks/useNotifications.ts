@@ -122,7 +122,7 @@ export const useNotifications = () => {
 
   useEffect(() => {
     fetchNotifications();
-  }, [user]);
+  }, [user?.id]);
 
   // Realtime subscription
   useEffect(() => {
@@ -147,7 +147,7 @@ export const useNotifications = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [user]);
+  }, [user?.id]);
 
   return {
     notifications,

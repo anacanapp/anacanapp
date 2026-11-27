@@ -1,4 +1,12 @@
 import { create } from 'zustand';
+import {
+  effectiveGain,
+  isIOSAudioPlatform,
+  resumeIfNeeded,
+  setAudioSessionType,
+  setGain,
+  setMediaSession,
+} from '@/lib/white-noise-audio';
 
 interface WhiteNoiseState {
   activeSoundId: string | null;
@@ -87,6 +95,32 @@ const stopAudioInternal = (state: WhiteNoiseState) => {
   }
 };
 
+type GetState = () => WhiteNoiseState;
+
+/** Resume after a call/Siri/lock interruption once the app is visible again. */
+const resumeWanted = (get: GetState) => {
+  const state = get();
+  if (!state.isPlaying) return;
+  if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
+  resumeIfNeeded(state._audioContext, state._audioElement);
+};
+
+const watchContext = (ctx: AudioContext, get: GetState) => {
+  try {
+    ctx.addEventListener?.('statechange', () => {
+      if (get()._audioContext === ctx) resumeWanted(get);
+    });
+  } catch { /* older WebViews */ }
+};
+
+let lifecycleInstalled = false;
+const installLifecycleListeners = (get: GetState) => {
+  if (lifecycleInstalled || typeof document === 'undefined') return;
+  lifecycleInstalled = true;
+  document.addEventListener('visibilitychange', () => resumeWanted(get));
+  if (typeof window !== 'undefined') window.addEventListener('pageshow', () => resumeWanted(get));
+};
+
 export const useWhiteNoiseStore = create<WhiteNoiseState>((set, get) => ({
   activeSoundId: null,
   soundName: null,
@@ -107,11 +141,49 @@ export const useWhiteNoiseStore = create<WhiteNoiseState>((set, get) => ({
     // Stop existing audio
     stopAudioInternal(state);
 
-    const effectiveVolume = state.isMuted ? 0 : state.volume / 100;
+    const effectiveVolume = effectiveGain(state.volume, state.isMuted);
+    installLifecycleListeners(get);
+    setAudioSessionType('playback');
+    setMediaSession({ title: sound.name, artist: 'Anacan' }, () => get().stop());
 
     if (sound.audioUrl) {
-      const audio = new Audio(sound.audioUrl);
+      const audioUrl = sound.audioUrl;
+      const audio = new Audio();
       audio.loop = true;
+      // iOS ignores element.volume: route through a GainNode so the slider works.
+      let routedCtx: AudioContext | null = null;
+      let routedGain: GainNode | null = null;
+      if (isIOSAudioPlatform()) {
+        try {
+          audio.crossOrigin = 'anonymous';
+          routedCtx = new AudioContext();
+          routedGain = routedCtx.createGain();
+          setGain(routedGain, effectiveVolume);
+          routedGain.connect(routedCtx.destination);
+          routedCtx.createMediaElementSource(audio).connect(routedGain);
+          routedCtx.resume().catch(() => {});
+          // No CORS headers on the file → load error; replay without Web Audio
+          // (fixed volume) instead of staying silent.
+          const ctxForFallback = routedCtx;
+          audio.addEventListener('error', () => {
+            const current = get();
+            if (current._audioElement !== audio) return;
+            ctxForFallback.close().catch(() => {});
+            const plain = new Audio(audioUrl);
+            plain.loop = true;
+            plain.volume = effectiveGain(current.volume, current.isMuted);
+            plain.play().catch(err => console.warn('Audio play failed:', err));
+            set({ _audioElement: plain, _audioContext: null, _gainNode: null });
+          }, { once: true });
+        } catch {
+          routedCtx?.close().catch(() => {});
+          routedCtx = null;
+          routedGain = null;
+          audio.removeAttribute('crossorigin');
+        }
+      }
+      if (routedCtx) watchContext(routedCtx, get);
+      audio.src = audioUrl;
       audio.volume = effectiveVolume;
       audio.play().catch(err => console.warn('Audio play failed:', err));
       set({
@@ -123,12 +195,15 @@ export const useWhiteNoiseStore = create<WhiteNoiseState>((set, get) => ({
         audioUrl: sound.audioUrl,
         isPlaying: true,
         _audioElement: audio,
-        _audioContext: null,
+        _audioContext: routedCtx,
         _noiseSource: null,
-        _gainNode: null,
+        _gainNode: routedGain,
       });
     } else {
       const ctx = new AudioContext();
+      watchContext(ctx, get);
+      // Auto-play from saved preferences runs outside a tap: iOS starts it suspended.
+      ctx.resume().catch(() => {});
       const gainNode = ctx.createGain();
       gainNode.gain.value = effectiveVolume;
       gainNode.connect(ctx.destination);
@@ -156,6 +231,8 @@ export const useWhiteNoiseStore = create<WhiteNoiseState>((set, get) => ({
 
   stop: () => {
     stopAudioInternal(get());
+    setAudioSessionType('auto');
+    setMediaSession(null, () => {});
     set({
       activeSoundId: null,
       soundName: null,
@@ -173,29 +250,17 @@ export const useWhiteNoiseStore = create<WhiteNoiseState>((set, get) => ({
 
   setVolume: (v) => {
     const state = get();
-    const effectiveVolume = state.isMuted ? 0 : v / 100;
+    const effectiveVolume = effectiveGain(v, state.isMuted);
     if (state._audioElement) state._audioElement.volume = effectiveVolume;
-    if (state._gainNode) {
-      try {
-        state._gainNode.gain.setValueAtTime(effectiveVolume, state._gainNode.context.currentTime);
-      } catch {
-        state._gainNode.gain.value = effectiveVolume;
-      }
-    }
+    if (state._gainNode) setGain(state._gainNode, effectiveVolume);
     set({ volume: v });
   },
 
   setMuted: (m) => {
     const state = get();
-    const effectiveVolume = m ? 0 : state.volume / 100;
+    const effectiveVolume = effectiveGain(state.volume, m);
     if (state._audioElement) state._audioElement.volume = effectiveVolume;
-    if (state._gainNode) {
-      try {
-        state._gainNode.gain.setValueAtTime(effectiveVolume, state._gainNode.context.currentTime);
-      } catch {
-        state._gainNode.gain.value = effectiveVolume;
-      }
-    }
+    if (state._gainNode) setGain(state._gainNode, effectiveVolume);
     set({ isMuted: m });
   },
 

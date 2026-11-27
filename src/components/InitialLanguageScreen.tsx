@@ -5,10 +5,11 @@ import { Check, Search, ChevronLeft, Globe } from 'lucide-react';
 import { ensureLanguageReady, loadTranslations, fetchActiveLanguages } from '@/lib/i18n';
 import { isRtlLang, rtlX } from '@/lib/rtl';
 import logoImage from '@/assets/brand-mark.png';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import countriesData from '../../countries.json';
 import { APP_LANGUAGES, NEW_LANGUAGE_CODES, localizedCountryName } from '@/lib/app-languages';
 import { startupText, type StartupKey } from '@/lib/startup-i18n';
+import { fetchGeoCountry, languageForCountry } from '@/lib/geoLanguage';
 
 // flagcdn ölkə kodu xəritəsi (dil kodu → bayraq kodu)
 const FLAG_BY_CODE: Record<string, string> = Object.fromEntries(APP_LANGUAGES.map(language => [language.code, language.flag]));
@@ -61,7 +62,17 @@ export default function InitialLanguageScreen() {
   const [langs, setLangs] = useState(FALLBACK_LANGS);
   // Cihaz dil-regionundan təxmin edilən ölkə — siyahının başında göstərilir və işarələnir,
   // istifadəçi hələ toxunmasa da default kimi qeyd olunur (istənilən vaxt dəyişdirilə bilər).
-  const [guessedCountry] = useState<string | null>(() => guessCountryFromLocale(countriesData));
+  const [guessedCountry, setGuessedCountry] = useState<string | null>(() => guessCountryFromLocale(countriesData));
+  // İP ölkəsi (load balancer `X-Anacan-Geo-Country` → `request_geo_country()` RPC). undefined = hələ gözlənilir,
+  // null = alınmadı (offline/timeout) — o halda köhnə davranış qalır. İstifadəçi dilə toxunubsa, seçimini dəyişmirik.
+  const [geoCountry, setGeoCountry] = useState<string | null | undefined>(undefined);
+  const userPickedRef = useRef(false);
+
+  useEffect(() => {
+    let alive = true;
+    void fetchGeoCountry().then((country) => { if (alive) setGeoCountry(country); });
+    return () => { alive = false; };
+  }, []);
 
   // Aktiv dillər DB-dən (app_languages.is_active) — ru/tr açılışı app release tələb etmir.
   useEffect(() => {
@@ -81,8 +92,18 @@ export default function InitialLanguageScreen() {
       .catch(() => {});
   }, []);
 
+  // İP ölkəsinin dili default seçilir (ölkənin dili tətbiqdə yoxdursa — ingilis dili).
+  useEffect(() => {
+    if (!geoCountry || userPickedRef.current) return;
+    const language = languageForCountry(geoCountry, langs.map((l) => l.code));
+    setSelectedLang(language);
+    if (countriesData.some((c) => c.isoAlpha2 === geoCountry)) setGuessedCountry(geoCountry);
+    requestAnimationFrame(() => document.querySelector(`[data-lang="${language}"]`)?.scrollIntoView({ block: 'nearest' }));
+  }, [geoCountry, langs]);
+
   const handleLangSelect = (code: string) => {
     if (isSwitching) return;
+    userPickedRef.current = true;
     setSelectedLang(code);
     setLanguageError(false);
   };
@@ -205,6 +226,7 @@ export default function InitialLanguageScreen() {
                     return (
                       <motion.button
                         key={lang.code}
+                        data-lang={lang.code}
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: Math.min(0.08 + idx * 0.035, 0.35), duration: 0.3 }}

@@ -9,7 +9,7 @@ import { tr } from '@/lib/tr';
 /**
  * Premium bölmə qapısı — freemium sisteminin UI hissəsi.
  * Premium/admin: children olduğu kimi. Free: cazibədar kilidli kart →
- * toxununca paywall. Məqsəd: istifadəçini free trial-a yönəltmək.
+ * toxununca paywall. Məqsəd: istifadəçini Premium paywall-a yönəltmək.
  */
 
 interface PremiumGateProps {
@@ -54,7 +54,7 @@ const PremiumGate = ({ children, title, description, feature, emoji = '✨' }: P
               {title}
             </p>
             <p className="a-list-sub" style={{ whiteSpace: 'normal' }}>
-              {description || tr('pgate_default_desc', 'Premium ilə açılır — 3 gün pulsuz sınayın')}
+              {description || tr('pgate_default_desc_v2', 'Premium ilə açılır')}
             </p>
           </div>
           <span

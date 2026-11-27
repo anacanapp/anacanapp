@@ -1,0 +1,140 @@
+{
+ "lang": "az",
+ "badge": "Pulsuz · 25 dil",
+ "hero": "hero-photo-coral.jpg",
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Menstruasiya · Hamiləlik · Analıq",
+   "title": [
+    "menstruasiyadan",
+    "körpəyə"
+   ],
+   "hl": "bir tətbiq",
+   "sub": "Menstruasiya təqvimi, hamiləlik həftə-həftə və ana-körpə izləyicisi bir yerdə",
+   "cta": "Pulsuz yüklə",
+   "ctaSub": "iOS və Android"
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Menstruasiya",
+   "title": [
+    "dövrünü"
+   ],
+   "hl": "dəqiq bil",
+   "sub": "Növbəti aybaşı, ovulyasiya və məhsuldar günlərin proqnozu"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Hamiləlik",
+   "title": [
+    "körpən bu gün"
+   ],
+   "hl": "pomidor boyda",
+   "sub": "Hamiləliyini həftə-həftə izlə: ölçü, çəki və doğuşa qalan günlər",
+   "chips": [
+    [
+     "142",
+     "gün qaldı"
+    ],
+    [
+     "19",
+     "həftə, 4 gün"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Analıq",
+   "title": [
+    "körpənin hər günü"
+   ],
+   "hl": "bir yerdə",
+   "sub": "Gündəlik məlumat, Anaya Mesaj, inkişaf və həkim xatırlatmaları",
+   "chips": [
+    [
+     "245",
+     "gün birlikdə"
+    ],
+    [
+     "7 ay",
+     "30 gün"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "sualın var?"
+   ],
+   "hl": "cavab burada",
+   "sub": "Menstruasiya, hamiləlik və körpə sualların üçün 7/24 köməkçi",
+   "chips": [
+    [
+     "7/24",
+     "hər sual"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Cəmiyyət",
+   "title": [
+    "46 000+ qadın"
+   ],
+   "hl": "buradadır",
+   "sub": "Sualını paylaş, səninlə eyni yoldan keçən analardan dəstək al",
+   "chips": [
+    [
+     "46 000+",
+     "qadın"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Analar nə deyir",
+   "title": [
+    "analar"
+   ],
+   "hl": "Anacan-ı sevir",
+   "sub": "Real istifadəçi rəyləri, redaktə olunmadan",
+   "cta": "Pulsuz yüklə",
+   "ctaSub": "iOS və Android",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "App Store reytinqi",
+    "stats": [
+     [
+      "46 000+",
+      "yükləmə"
+     ],
+     [
+      "560+",
+      "beş ulduzlu rəy"
+     ]
+    ],
+    "reviews": [
+     [
+      "Bugünə qədər istifadə etdiyim hamiləlik tətbiqləri içində ən gözəl tətbiqdir, Azərbaycanda yaradılması və Azərbaycan dilini dəstəkləməsi isə qürurvericidir ❤️😍",
+      "App Store rəyi"
+     ],
+     [
+      "Çox bəyəndim. Tövsiyyə edirəm. Analar və hamilələr üçün belə bir platformanın olması əladır.",
+      "Yaqut N."
+     ]
+    ]
+   }
+  }
+ ],
+ "heroH1Android": 38,
+ "heroH1": 52
+}

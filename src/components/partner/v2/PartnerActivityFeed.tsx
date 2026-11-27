@@ -53,9 +53,9 @@ const PartnerActivityFeed = () => {
 
   const items: FeedItem[] = useMemo(() => {
     return (messages || []).
+    // usePartnerMessages returns newest first.
     filter((m: any) => EVENT_TYPES.has(m.message_type) && m.receiver_id === user?.id).
-    slice(-8).
-    reverse().
+    slice(0, 8).
     map((m: any) => {
       let title = EVENT_META[m.message_type]?.fallbackTitle || m.message_type;
       let body = '';

@@ -1,606 +1,258 @@
-import { useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
+import { keepPreviousData, useQuery, useQueryClient } from '@tanstack/react-query';
+import { Ban, Crown, Edit, Eye, EyeOff, KeyRound, Shield, User, UserRound, Users } from 'lucide-react';
 import { tr } from '@/lib/tr';
-import { motion } from 'framer-motion';
-import { Search, Filter, MoreVertical, Shield, User, Ban, Edit, Crown, KeyRound, Eye, EyeOff } from 'lucide-react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger } from
-'@/components/ui/dropdown-menu';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle } from
-'@/components/ui/dialog';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue } from
-'@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { LocalizedInput } from "./ui/LocalizedInput";
-import { LocalizedTextarea } from "./ui/LocalizedTextarea";
-import { useAdminLocalize } from "@/contexts/AdminLanguageContext";
-import { fetchAllRows } from '@/lib/supabaseFetchAll';
 import BlockUserDialog from '@/components/moderation/BlockUserDialog';
+import countriesData from '../../../countries.json';
+import { countryFlag } from '@/lib/admin-insights';
+import {
+  AdminTabs, Avatar, Btn, DataTable, DescriptionList, EmptyState, ErrorState, Field, FieldGrid, FilterChips, Notice, Page, PageHeader, SearchInput, Section, SelectFilter,
+  SideDrawer, SkeletonRows, StatusPill, Toolbar, fmtDate, fmtDateTime, fmtMinor, fmtNumber, type Column, type SortState,
+} from './kit';
+import { ADMIN_QUERY } from './data/rpc';
+import { emptyUserFilters, fetchUserCounts, fetchUserDetail, fetchUsersPage, USERS_PAGE_SIZE, type AdminUserRow, type AppRole, type UserFilters } from './data/users';
 
-interface UserProfile {
-  id: string;
-  user_id: string;
-  name: string;
-  email: string | null;
-  life_stage: string | null;
-  partner_code: string | null;
-  created_at: string;
-}
+const countries = countriesData as Array<{ isoAlpha2: string; name: string }>;
+const STAGES: Record<string, { label: string; tone: 'danger' | 'violet' | 'success' | 'info' | 'neutral' }> = {
+  flow: { label: 'Menstruasiya', tone: 'danger' }, bump: { label: tr('adminusers_hamilelik_e86feb', 'Hamiləlik'), tone: 'violet' },
+  mommy: { label: tr('adminusers_analiq_9e762d', 'Analıq'), tone: 'success' }, partner: { label: 'Partnyor', tone: 'info' },
+};
+const stageLabel = (stage: string | null) => (stage && STAGES[stage]?.label) || tr('adminusers_mueyyen_edilmeyib_2d0de2', 'Müəyyən edilməyib');
+const ROLE_LABEL: Record<AppRole, string> = { admin: 'Admin', moderator: 'Moderator', user: tr('adminusers_i_stifadeci_b6bdd6', 'İstifadəçi') };
+const countryLabel = (code?: string | null) => { if (!code) return '—'; const item = countries.find(entry => entry.isoAlpha2 === code); return item ? `${countryFlag(code)} ${item.name}`.trim() : code; };
 
-interface UserRole {
-  user_id: string;
-  role: 'admin' | 'moderator' | 'user';
-}
+type Dialog = { kind: 'detail' | 'edit' | 'role' | 'password'; user: AdminUserRow } | null;
 
-const AdminUsers = () => {
-    const localize = useAdminLocalize();
-  const [users, setUsers] = useState<UserProfile[]>([]);
-  const [userRoles, setUserRoles] = useState<UserRole[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedUser, setSelectedUser] = useState<UserProfile | null>(null);
-  const [editDialogOpen, setEditDialogOpen] = useState(false);
-  const [roleDialogOpen, setRoleDialogOpen] = useState(false);
-  const [selectedRole, setSelectedRole] = useState<'admin' | 'moderator' | 'user'>('user');
-  const [passwordDialogOpen, setPasswordDialogOpen] = useState(false);
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [changingPassword, setChangingPassword] = useState(false);
-  const [blockDialogOpen, setBlockDialogOpen] = useState(false);
+const AdminUsers = ({ onNavigate }: { onNavigate?: (section: string) => void }) => {
   const { toast } = useToast();
+  const client = useQueryClient();
+  const [filters, setFilters] = useState<UserFilters>(emptyUserFilters);
+  const [page, setPage] = useState(0);
+  const [sort, setSort] = useState<SortState | null>(null);
+  const [dialog, setDialog] = useState<Dialog>(null);
+  const [blockUser, setBlockUser] = useState<AdminUserRow | null>(null);
+  const update = (patch: Partial<UserFilters>) => { setFilters(previous => ({ ...previous, ...patch })); setPage(0); };
 
-  useEffect(() => {
-    fetchUsers();
-    fetchUserRoles();
-  }, []);
+  const list = useQuery({ queryKey: ['admin-users-page', filters, page, sort], queryFn: () => fetchUsersPage(filters, page, sort), placeholderData: keepPreviousData, ...ADMIN_QUERY, staleTime: 30_000 });
+  const counts = useQuery({ queryKey: ['admin-users-counts'], queryFn: fetchUserCounts, ...ADMIN_QUERY });
+  const refresh = () => { void client.invalidateQueries({ queryKey: ['admin-users-page'] }); void client.invalidateQueries({ queryKey: ['admin-user-detail'] }); };
 
-  const fetchUsers = async () => {
-    try {
-      // DÜZƏLİŞ: limitsiz `.select('*')` profiles 1000-i keçəndə (bizdə
-      // qat-qat çoxdur) YALNIZ ilk 1000 istifadəçini gətirirdi — bu, ƏSAS
-      // İstifadəçi İdarəetmə səhifəsi olduğu üçün ən kritik nümunələrdən biri idi.
-      const data = await fetchAllRows<UserProfile>((from, to) =>
-        supabase.from('profiles').select('*').order('created_at', { ascending: false }).range(from, to)
-      );
-      setUsers(data);
-    } catch (error) {
-      console.error('Error fetching users:', error);
-      toast({
-        title: tr("adminusers_xeta_3cdbb6", "Xəta"),
-        description: tr("adminusers_istifadeciler_yuklene_bilmedi_3c369d", "İstifadəçilər yüklənə bilmədi"),
-        variant: 'destructive'
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchUserRoles = async () => {
-    try {
-      const data = await fetchAllRows<UserRole>((from, to) =>
-        supabase.from('user_roles').select('user_id, role').range(from, to)
-      );
-      setUserRoles(data);
-    } catch (error) {
-      console.error('Error fetching roles:', error);
-    }
-  };
-
-  const getUserRole = (userId: string): 'admin' | 'moderator' | 'user' => {
-    const role = userRoles.find((r) => r.user_id === userId);
-    if (role?.role === 'admin') return 'admin';
-    if (role?.role === 'moderator') return 'moderator';
-    return 'user';
-  };
-
-  const handleUpdateUser = async (userId: string, updates: Partial<UserProfile>) => {
-    try {
-      const { error } = await supabase.
-      from('profiles').
-      update(updates).
-      eq('id', userId);
-
-      if (error) throw error;
-
-      toast({
-        title: tr("adminusers_ugurlu_7fe64c", "Uğurlu"),
-        description: tr("adminusers_i_stifadeci_melumatlari_yenile_b7069b", "\u0130stifad\u0259\xE7i m\u0259lumatlar\u0131 yenil\u0259ndi")
-      });
-
-      fetchUsers();
-      setEditDialogOpen(false);
-    } catch (error) {
-      console.error('Error updating user:', error);
-      toast({
-        title: tr("adminusers_xeta_3cdbb6", "Xəta"),
-        description: tr("adminusers_istifadeci_yenilene_bilmedi_62887d", "İstifadəçi yenilənə bilmədi"),
-        variant: 'destructive'
-      });
-    }
-  };
-
-  const handleAssignRole = async () => {
-    if (!selectedUser) return;
-
-    try {
-      // Check if user already has a role entry
-      const existingRole = userRoles.find((r) => r.user_id === selectedUser.user_id);
-
-      if (existingRole) {
-        // Update existing role
-        const { error } = await supabase.
-        from('user_roles').
-        update({ role: selectedRole }).
-        eq('user_id', selectedUser.user_id);
-
-        if (error) throw error;
-      } else {
-        // Insert new role
-        const { error } = await supabase.
-        from('user_roles').
-        insert([{ user_id: selectedUser.user_id, role: selectedRole }]);
-
-        if (error) throw error;
-      }
-
-      toast({
-        title: tr("adminusers_ugurlu_7fe64c", "Uğurlu"),
-        description: `${selectedUser.name} üçün ${getRoleLabel(selectedRole)} rolu təyin edildi`
-      });
-
-      fetchUserRoles();
-      setRoleDialogOpen(false);
-    } catch (error) {
-      console.error('Error assigning role:', error);
-      toast({
-        title: tr("adminusers_xeta_3cdbb6", "Xəta"),
-        description: tr("adminusers_rol_teyin_edile_bilmedi_8ddf00", "Rol təyin edilə bilmədi"),
-        variant: 'destructive'
-      });
-    }
-  };
-
-  const handleChangePassword = async () => {
-    if (!selectedUser) return;
-    if (newPassword.length < 8) {
-      toast({ title: tr("adminusers_xeta_3cdbb6", "Xəta"), description: tr("adminusers_sifre_en_azi_8_simvol_olmalidir_f7dd87", "Şifrə ən azı 8 simvol olmalıdır"), variant: 'destructive' });
-      return;
-    }
-    if (newPassword !== confirmPassword) {
-      toast({ title: tr("adminusers_xeta_3cdbb6", "Xəta"), description: tr("adminusers_sifreler_uygun_gelmir_af4b84", "Şifrələr uyğun gəlmir"), variant: 'destructive' });
-      return;
-    }
-    setChangingPassword(true);
-    try {
-      const { data, error } = await supabase.functions.invoke('admin-change-user-password', {
-        body: { user_id: selectedUser.user_id, new_password: newPassword }
-      });
-      if (error) throw error;
-      if ((data as any)?.error) throw new Error((data as any).error);
-      toast({ title: tr("adminusers_ugurlu_7fe64c", "Uğurlu"), description: `${selectedUser.name} üçün şifrə yeniləndi` });
-      setPasswordDialogOpen(false);
-      setNewPassword('');
-      setConfirmPassword('');
-    } catch (err: any) {
-      console.error('Error changing password:', err);
-      toast({ title: tr("adminusers_xeta_3cdbb6", "Xəta"), description: err?.message || tr("adminusers_sifre_yenilene_bilmedi_4ba698", "\u015Eifr\u0259 yenil\u0259n\u0259 bilm\u0259di"), variant: 'destructive' });
-    } finally {
-      setChangingPassword(false);
-    }
-  };
-
-  const filteredUsers = users.filter((user) =>
-  user.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  user.email?.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const getLifeStageLabel = (stage: string | null) => {
-    switch (stage) {
-      case 'flow':return 'Menstruasiya';
-      case 'bump':return tr("adminusers_hamilelik_e86feb", "Hamil\u0259lik");
-      case 'mommy':return tr("adminusers_analiq_9e762d", "Anal\u0131q");
-      case 'partner':return 'Partnyor';
-      default:return tr("adminusers_mueyyen_edilmeyib_2d0de2", "M\xFC\u0259yy\u0259n edilm\u0259yib");
-    }
-  };
-
-  const getLifeStageColor = (stage: string | null) => {
-    switch (stage) {
-      case 'flow':return 'bg-pink-500/10 text-pink-500';
-      case 'bump':return 'bg-purple-500/10 text-purple-500';
-      case 'mommy':return 'bg-green-500/10 text-green-500';
-      case 'partner':return 'bg-blue-500/10 text-blue-500';
-      default:return 'bg-muted text-muted-foreground';
-    }
-  };
-
-  const getRoleLabel = (role: string) => {
-    switch (role) {
-      case 'admin':return 'Admin';
-      case 'moderator':return 'Moderator';
-      default:return tr("adminusers_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i");
-    }
-  };
-
-  const getRoleColor = (role: string) => {
-    switch (role) {
-      case 'admin':return 'bg-red-500/10 text-red-500 border-red-500/20';
-      case 'moderator':return 'bg-blue-500/10 text-blue-500 border-blue-500/20';
-      default:return 'bg-muted text-muted-foreground';
-    }
-  };
-
-  const getRoleIcon = (role: string) => {
-    switch (role) {
-      case 'admin':return <Crown className="w-3 h-3" />;
-      case 'moderator':return <Shield className="w-3 h-3" />;
-      default:return <User className="w-3 h-3" />;
-    }
-  };
+  const columns = useMemo<Column<AdminUserRow>[]>(() => [
+    { key: 'name', header: tr('adminusers_istifadeci_b6bdd6', 'İstifadəçi'), sortable: true, mobile: 'title', cell: user => (
+      <span className="ak-cell-user"><Avatar name={user.name} src={user.avatar_url} /><span className="min-w-0"><span className="ak-cell-main">{user.name || 'Adsız'}</span><span className="ak-cell-sub">{user.email || '—'}</span></span></span>) },
+    { key: 'stage', header: tr('adminusers_merhele_0e09aa', 'Mərhələ'), cell: user => <StatusPill tone={(user.life_stage && STAGES[user.life_stage]?.tone) || 'neutral'}>{stageLabel(user.life_stage)}</StatusPill> },
+    { key: 'premium', header: 'Premium', cell: user => user.is_premium ? <StatusPill tone="accent" title={user.premium_until ? `Bitmə: ${fmtDate(user.premium_until)}` : 'Ömürlük'}>Premium</StatusPill> : <span className="ak-cell-sub">Pulsuz</span> },
+    { key: 'role', header: 'Rol', cell: user => user.role === 'user' ? <span className="ak-cell-sub">{ROLE_LABEL.user}</span> : <StatusPill tone={user.role === 'admin' ? 'danger' : 'info'}>{ROLE_LABEL[user.role]}</StatusPill> },
+    { key: 'country', header: 'Ölkə', cell: user => <span className="ak-cell-sub">{countryLabel(user.country_code)}</span> },
+    { key: 'partner', header: 'Partner kodu', mobile: 'hidden', cell: user => <span className="ak-mono">{user.partner_code || '—'}</span> },
+    { key: 'created_at', header: 'Qeydiyyat', sortable: true, align: 'end', cell: user => <span className="ak-num">{fmtDate(user.created_at)}</span> },
+  ], []);
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-foreground">{tr("adminusers_istifadeciler_1dd7b9", "İstifadəçilər")}</h1>
-          <p className="text-muted-foreground">{tr("adminusers_butun_istifadecileri_idare_edin_42b284", "Bütün istifadəçiləri idarə edin")}</p>
+    <Page testId="admin-users">
+      <PageHeader title={tr('adminusers_istifadeciler_1dd7b9', 'İstifadəçilər')} subtitle={tr('adminusers_butun_istifadecileri_idare_edin_42b284', 'Bütün istifadəçiləri idarə edin')}
+        meta={counts.data && <StatusPill tone="neutral" dot={false}>{fmtNumber(counts.data.total)} {tr('adminusers_istifadeci_84a198', 'istifadəçi')}</StatusPill>}
+        actions={<Btn onClick={() => onNavigate?.('subscriptions')}><Crown size={15} />Premium hüquqları</Btn>} />
+      <Section flush>
+        <div className="px-4 pb-3 grid gap-2.5">
+          <Toolbar end={<>
+            <SelectFilter label="Premium filtri" value={filters.premium} onChange={value => update({ premium: value as UserFilters['premium'] })}
+              options={[{ value: 'all', label: 'Premium: hamısı' }, { value: 'premium', label: `Premium${counts.data ? ` (${fmtNumber(counts.data.premium)})` : ''}` }, { value: 'free', label: 'Pulsuz' }]} />
+            <SelectFilter label="Rol filtri" value={filters.role} onChange={value => update({ role: value as UserFilters['role'] })}
+              options={[{ value: 'all', label: 'Rol: hamısı' }, { value: 'admin', label: 'Admin' }, { value: 'moderator', label: 'Moderator' }]} />
+            <SelectFilter label="Ölkə filtri" value={filters.country} onChange={value => update({ country: value })}
+              options={[{ value: '', label: 'Ölkə: hamısı' }, ...countries.map(item => ({ value: item.isoAlpha2, label: `${countryFlag(item.isoAlpha2)} ${item.name}`.trim() }))]} />
+          </>}>
+            <SearchInput value={filters.search} onChange={value => update({ search: value })} placeholder={tr('adminusers_ad_ve_ya_email_ile_axtar_335c5a', 'Ad və ya email ilə axtar...')} label="İstifadəçi axtar" />
+          </Toolbar>
+          <FilterChips label="Mərhələ" value={filters.stage} onChange={value => update({ stage: value })}
+            options={[{ value: 'all', label: 'Hamısı' }, ...Object.entries(STAGES).map(([value, item]) => ({ value, label: item.label })), { value: 'none', label: 'Seçilməyib' }]} />
         </div>
-        <Badge variant="secondary" className="text-lg px-4 py-2">
-          {users.length} {tr("adminusers_istifadeci_84a198", "istifad\u0259\xE7i")}
-        </Badge>
-      </div>
+        <DataTable testId="admin-users-table" rowTestId="admin-user-row" columns={columns} rows={list.data?.rows} rowKey={user => user.id}
+          loading={list.isLoading} fetching={list.isFetching && !list.isLoading} error={list.isError ? list.error : null} onRetry={() => void list.refetch()}
+          page={page} total={list.data?.total ?? 0} pageSize={USERS_PAGE_SIZE} onPageChange={setPage} sort={sort} onSortChange={next => { setSort(next); setPage(0); }}
+          onRowClick={user => setDialog({ kind: 'detail', user })}
+          empty={<EmptyState icon={<Users size={20} />} title={tr('adminusers_i_stifadeci_tapilmadi_4e2156', 'İstifadəçi tapılmadı')} description="Filtrləri dəyişin və ya axtarışı təmizləyin." />}
+          actions={[
+            { label: 'Ətraflı', icon: <UserRound size={14} />, onSelect: user => setDialog({ kind: 'detail', user }) },
+            { label: tr('adminusers_redakte_et_66cf3b', 'Redaktə et'), icon: <Edit size={14} />, onSelect: user => setDialog({ kind: 'edit', user }) },
+            { label: tr('adminusers_rol_teyin_et_41b431', 'Rol təyin et'), icon: <Shield size={14} />, onSelect: user => setDialog({ kind: 'role', user }) },
+            { label: tr('adminusers_sifreni_deyis_a48972', 'Şifrəni dəyiş'), icon: <KeyRound size={14} />, onSelect: user => setDialog({ kind: 'password', user }) },
+            { label: tr('adminusers_blokla', 'Blokla'), icon: <Ban size={14} />, danger: true, separatorBefore: true, onSelect: user => setBlockUser(user) },
+          ]} />
+      </Section>
 
-      {/* Search and Filter */}
-      <Card className="p-4">
-        <div className="flex items-center gap-4">
-          <div className="relative flex-1">
-            <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              placeholder={tr("adminusers_ad_ve_ya_email_ile_axtar_335c5a", "Ad və ya email ilə axtar...")}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="ps-10" />
-            
-          </div>
-          <Button variant="outline" className="gap-2">
-            <Filter className="w-4 h-4" />
-            Filter
-          </Button>
-        </div>
-      </Card>
-
-      {/* Users Table */}
-      <Card className="overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-muted/50">
-              <tr>
-                <th className="text-start p-4 font-medium text-muted-foreground">{tr("adminusers_istifadeci_b6bdd6", "İstifadəçi")}</th>
-                <th className="text-start p-4 font-medium text-muted-foreground">{tr("adminusers_merhele_0e09aa", "Mərhələ")}</th>
-                <th className="text-start p-4 font-medium text-muted-foreground">Rol</th>
-                <th className="text-start p-4 font-medium text-muted-foreground">Partner Kodu</th>
-                <th className="text-start p-4 font-medium text-muted-foreground">Tarix</th>
-                <th className="text-end p-4 font-medium text-muted-foreground">{tr("adminusers_emeliyyatlar_54d70c", "Əməliyyatlar")}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {loading ?
-              <tr>
-                  <td colSpan={6} className="p-8 text-center text-muted-foreground">
-                    {tr("adminusers_yuklenir_5557de", "Y\xFCkl\u0259nir...")}
-                  </td>
-                </tr> :
-              filteredUsers.length === 0 ?
-              <tr>
-                  <td colSpan={6} className="p-8 text-center text-muted-foreground">
-                    {tr("adminusers_i_stifadeci_tapilmadi_4e2156", "\u0130stifad\u0259\xE7i tap\u0131lmad\u0131")}
-                  </td>
-                </tr> :
-
-              filteredUsers.map((user, index) => {
-                const userRole = getUserRole(user.user_id);
-                return (
-                  <motion.tr
-                    key={user.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="hover:bg-muted/30">
-                    
-                      <td className="p-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                            <span className="text-primary font-bold">
-                              {user.name?.charAt(0).toUpperCase() || 'U'}
-                            </span>
-                          </div>
-                          <div>
-                            <p className="font-medium text-foreground">{user.name}</p>
-                            <p className="text-sm text-muted-foreground">{user.email}</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="p-4">
-                        <Badge className={getLifeStageColor(user.life_stage)}>
-                          {getLifeStageLabel(user.life_stage)}
-                        </Badge>
-                      </td>
-                      <td className="p-4">
-                        <Badge className={`${getRoleColor(userRole)} flex items-center gap-1 w-fit`}>
-                          {getRoleIcon(userRole)}
-                          {getRoleLabel(userRole)}
-                        </Badge>
-                      </td>
-                      <td className="p-4">
-                        <code className="text-sm bg-muted px-2 py-1 rounded">
-                          {user.partner_code || '-'}
-                        </code>
-                      </td>
-                      <td className="p-4 text-sm text-muted-foreground">
-                        {new Date(user.created_at).toLocaleDateString('az-AZ')}
-                      </td>
-                      <td className="p-4 text-end">
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon">
-                              <MoreVertical className="w-4 h-4" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuItem onClick={() => {
-                            setSelectedUser(user);
-                            setEditDialogOpen(true);
-                          }}>
-                              <Edit className="w-4 h-4 me-2" />
-                              {tr("adminusers_redakte_et_66cf3b", "Redakt\u0259 et")}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => {
-                            setSelectedUser(user);
-                            setSelectedRole(getUserRole(user.user_id));
-                            setRoleDialogOpen(true);
-                          }}>
-                              <Shield className="w-4 h-4 me-2" />
-                              {tr("adminusers_rol_teyin_et_41b431", "Rol t\u0259yin et")}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => {
-                            setSelectedUser(user);
-                            setNewPassword('');
-                            setConfirmPassword('');
-                            setPasswordDialogOpen(true);
-                          }}>
-                              <KeyRound className="w-4 h-4 me-2" />
-                              {tr("adminusers_sifreni_deyis_a48972", "\u015Eifr\u0259ni d\u0259yi\u015F")}
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            {/* Əvvəllər burada onClick-i OLMAYAN ölü "Sil" düyməsi var idi —
-                                moderasiya üçün işlək "Blokla" ilə əvəzləndi */}
-                            <DropdownMenuItem
-                            className="text-destructive"
-                            onClick={() => {
-                              setSelectedUser(user);
-                              setBlockDialogOpen(true);
-                            }}>
-                              <Ban className="w-4 h-4 me-2" />
-                              {tr("adminusers_blokla", "Blokla")}
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </td>
-                    </motion.tr>);
-
-              })
-              }
-            </tbody>
-          </table>
-        </div>
-      </Card>
-
-      {/* Edit Dialog */}
-      <Dialog open={editDialogOpen} onOpenChange={setEditDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{tr("adminusers_istifadecini_redakte_et_f6c153", "İstifadəçini Redaktə Et")}</DialogTitle>
-          </DialogHeader>
-          {selectedUser &&
-          <div className="space-y-4 mt-4">
-              <div>
-                <label className="text-sm font-medium">Ad</label>
-                <Input
-                value={selectedUser.name}
-                onChange={(e) => setSelectedUser({ ...selectedUser, name: e.target.value })} />
-              
-              </div>
-              <div>
-                <label className="text-sm font-medium">{tr("adminusers_merhele_0e09aa", "Mərhələ")}</label>
-                <Select
-                value={selectedUser.life_stage || ''}
-                onValueChange={(value) => setSelectedUser({ ...selectedUser, life_stage: value })}>
-                
-                  <SelectTrigger>
-                    <SelectValue placeholder={tr("adminusers_merhele_secin_a3f9bb", "Mərhələ seçin")} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="flow">Menstruasiya</SelectItem>
-                    <SelectItem value="bump">{tr("adminusers_hamilelik_e86feb", "Hamiləlik")}</SelectItem>
-                    <SelectItem value="mommy">{tr("adminusers_analiq_9e762d", "Analıq")}</SelectItem>
-                    <SelectItem value="partner">Partnyor</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <Button
-              className="w-full"
-              onClick={() => handleUpdateUser(selectedUser.id, {
-                name: selectedUser.name,
-                life_stage: selectedUser.life_stage
-              })}>
-              
-                Yadda saxla
-              </Button>
-            </div>
-          }
-        </DialogContent>
-      </Dialog>
-
-      {/* Role Assignment Dialog */}
-      <Dialog open={roleDialogOpen} onOpenChange={setRoleDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{tr("adminusers_rol_teyin_et_ec751c", "Rol Təyin Et")}</DialogTitle>
-          </DialogHeader>
-          {selectedUser &&
-          <div className="space-y-4 mt-4">
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold">
-                    {selectedUser.name?.charAt(0).toUpperCase() || 'U'}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-medium">{selectedUser.name}</p>
-                  <p className="text-sm text-muted-foreground">{selectedUser.email}</p>
-                </div>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium mb-2 block">{tr("adminusers_rol_secin_7dccbd", "Rol seçin")}</label>
-                <Select
-                value={selectedRole}
-                onValueChange={(value) => setSelectedRole(value as 'admin' | 'moderator' | 'user')}>
-                
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="user">
-                      <div className="flex items-center gap-2">
-                        <User className="w-4 h-4" />
-                        {tr("adminusers_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i")}
-                      </div>
-                    </SelectItem>
-                    <SelectItem value="moderator">
-                      <div className="flex items-center gap-2">
-                        <Shield className="w-4 h-4 text-blue-500" />
-                        Moderator
-                      </div>
-                    </SelectItem>
-                    <SelectItem value="admin">
-                      <div className="flex items-center gap-2">
-                        <Crown className="w-4 h-4 text-red-500" />
-                        Admin
-                      </div>
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
-                <p className="text-sm text-amber-600 dark:text-amber-400">
-                  {tr("adminusers_admin_rollu_istifadeciler_butu_789e17", "\u26A0\uFE0F Admin rollu istifad\u0259\xE7il\u0259r b\xFCt\xFCn sistem funksiyalar\u0131na tam giri\u015F \u0259ld\u0259 ed\u0259c\u0259k.")}
-                </p>
-              </div>
-
-              <Button className="w-full" onClick={handleAssignRole}>
-                {tr("adminusers_rolu_teyin_et_e61864", "Rolu T\u0259yin Et")}
-              </Button>
-            </div>
-          }
-        </DialogContent>
-      </Dialog>
-
-      {/* Change Password Dialog */}
-      <Dialog open={passwordDialogOpen} onOpenChange={setPasswordDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{tr("adminusers_istifadecinin_sifresini_deyis_15d6c7", "İstifadəçinin şifrəsini dəyiş")}</DialogTitle>
-          </DialogHeader>
-          {selectedUser &&
-          <div className="space-y-4 mt-4">
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold">
-                    {selectedUser.name?.charAt(0).toUpperCase() || 'U'}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-medium">{selectedUser.name}</p>
-                  <p className="text-sm text-muted-foreground">{selectedUser.email}</p>
-                </div>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium mb-2 block">{tr("adminusers_yeni_sifre_8f04c6", "Yeni şifrə")}</label>
-                <div className="relative">
-                  <Input
-                  type={showPassword ? 'text' : 'password'}
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder={tr("adminusers_en_azi_8_simvol_168104", "Ən azı 8 simvol")}
-                  className="pe-10" />
-                
-                  <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
-                  
-                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium mb-2 block">{tr("adminusers_sifreni_tesdiqle_6b3e17", "Şifrəni təsdiqlə")}</label>
-                <Input
-                type={showPassword ? 'text' : 'password'}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder={tr("adminusers_yeni_sifreni_tekrar_daxil_edin_3c87dd", "Yeni şifrəni təkrar daxil edin")} />
-              
-              </div>
-
-              <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
-                <p className="text-sm text-amber-600 dark:text-amber-400">
-                  {tr("adminusers_i_stifadeci_yeni_sifre_ile_yen_60d0cc", "\u26A0\uFE0F \u0130stifad\u0259\xE7i yeni \u015Fifr\u0259 il\u0259 yenid\u0259n daxil olmal\u0131 olacaq.")}
-                </p>
-              </div>
-
-              <Button
-              className="w-full"
-              onClick={handleChangePassword}
-              disabled={changingPassword || !newPassword || !confirmPassword}>
-              
-                {changingPassword ? tr("adminusers_yenilenir_3017dc", "Yenil\u0259nir...") : tr("adminusers_sifreni_deyis_1d1a1f", "\u015Eifr\u0259ni D\u0259yi\u015F")}
-              </Button>
-            </div>
-          }
-        </DialogContent>
-      </Dialog>
-
+      {dialog?.kind === 'detail' && <UserDetailDrawer user={dialog.user} onClose={() => setDialog(null)} onAction={kind => kind === 'block' ? setBlockUser(dialog.user) : setDialog({ kind, user: dialog.user })} onNavigate={onNavigate} />}
+      {dialog?.kind === 'edit' && <EditUserDrawer user={dialog.user} onClose={() => setDialog(null)} onSaved={refresh} toast={toast} />}
+      {dialog?.kind === 'role' && <RoleDrawer user={dialog.user} onClose={() => setDialog(null)} onSaved={refresh} toast={toast} />}
+      {dialog?.kind === 'password' && <PasswordDrawer user={dialog.user} onClose={() => setDialog(null)} toast={toast} />}
       {/* İstifadəçini blokla (community/tam, müddət + səbəb) */}
-      <BlockUserDialog
-        open={blockDialogOpen}
-        onOpenChange={setBlockDialogOpen}
-        userId={selectedUser?.user_id || null}
-        userName={selectedUser?.name || null} />
-    </div>);
-
+      <BlockUserDialog open={!!blockUser} onOpenChange={open => { if (!open) setBlockUser(null); }} userId={blockUser?.user_id || null} userName={blockUser?.name || null} />
+    </Page>
+  );
 };
+
+type ToastFn = ReturnType<typeof useToast>['toast'];
+
+function UserDetailDrawer({ user, onClose, onAction, onNavigate }: { user: AdminUserRow; onClose: () => void; onAction: (kind: 'edit' | 'role' | 'password' | 'block') => void; onNavigate?: (section: string) => void }) {
+  const [tab, setTab] = useState<'profile' | 'subscription' | 'children' | 'roles'>('profile');
+  const detail = useQuery({ queryKey: ['admin-user-detail', user.user_id], queryFn: () => fetchUserDetail(user.user_id), ...ADMIN_QUERY });
+  const profile = (detail.data?.profile ?? user) as Record<string, unknown>;
+  const text = (key: string) => (profile[key] === null || profile[key] === undefined || profile[key] === '' ? '—' : String(profile[key]));
+  return (
+    <SideDrawer open onOpenChange={open => { if (!open) onClose(); }} size="lg" testId="admin-user-drawer"
+      title={<span className="flex items-center gap-2.5"><Avatar name={user.name} src={user.avatar_url} size={34} /><span className="min-w-0"><span className="block truncate">{user.name || 'Adsız'}</span><span className="ak-cell-sub">{user.email || '—'}</span></span></span>}
+      footer={<>
+        <Btn onClick={() => onAction('edit')}><Edit size={14} />Redaktə</Btn>
+        <Btn onClick={() => onAction('role')}><Shield size={14} />Rol</Btn>
+        <Btn onClick={() => onAction('password')}><KeyRound size={14} />Şifrə</Btn>
+        <Btn variant="danger" onClick={() => onAction('block')}><Ban size={14} />Blokla</Btn>
+      </>}>
+      <AdminTabs value={tab} onChange={setTab} items={[{ value: 'profile', label: 'Profil' }, { value: 'subscription', label: 'Abunəlik' },
+        { value: 'children', label: 'Uşaqlar', count: detail.data?.children.length }, { value: 'roles', label: 'Rollar' }]} />
+      {detail.isError && <ErrorState compact onRetry={() => void detail.refetch()} />}
+      {tab === 'profile' && <DescriptionList items={[
+        ['Mərhələ', <StatusPill key="s" tone={(user.life_stage && STAGES[user.life_stage]?.tone) || 'neutral'}>{stageLabel(user.life_stage)}</StatusPill>],
+        ['Ölkə', countryLabel(user.country_code)], ['Qeydiyyat', fmtDateTime(user.created_at)],
+        ['Son aktivlik', detail.isLoading ? '…' : fmtDateTime(detail.data?.last_seen ?? null)],
+        ['Doğuş tarixi (təxmini)', text('due_date')], ['Körpənin doğum tarixi', text('baby_birth_date')], ['Partner kodu', <span key="p" className="ak-mono">{user.partner_code || '—'}</span>],
+        ['Sifarişlər', detail.data?.orders ?? '—'], ['Dəstək müraciətləri', detail.data?.support_tickets ?? '—'],
+        ['QayğıCash balansı', detail.data?.qaygicash ? `${fmtMinor(detail.data.qaygicash.available_minor)} · gözləmədə ${fmtMinor(detail.data.qaygicash.pending_minor)}` : '—'],
+        ['User ID', <span key="u" className="ak-mono">{user.user_id}</span>],
+      ]} />}
+      {tab === 'subscription' && (
+        <div className="grid gap-3">
+          <DescriptionList items={[
+            ['Premium', user.is_premium ? <StatusPill key="p" tone="accent">Aktiv</StatusPill> : 'Pulsuz'],
+            ['Premium bitmə', user.is_premium ? (user.premium_until ? fmtDate(user.premium_until) : 'Ömürlük / mağaza') : '—'], ['Nişan', user.badge_type || '—'],
+          ]} />
+          {detail.isLoading ? <SkeletonRows rows={2} columns={3} /> : detail.data?.subscriptions.length ? (
+            <div className="grid gap-2">{detail.data.subscriptions.map((sub, index) => (
+              <div key={String(sub.id ?? index)} className="ak-card-row">
+                <div className="flex items-center gap-2 flex-wrap"><strong>{String(sub.plan_type ?? sub.product_id ?? 'Plan')}</strong><StatusPill tone={sub.status === 'active' ? 'success' : sub.status === 'cancelled' ? 'warning' : 'neutral'}>{String(sub.status ?? '—')}</StatusPill>{sub.is_trial ? <StatusPill tone="info">Trial</StatusPill> : null}</div>
+                <p className="ak-cell-sub mt-1">Başlanğıc {fmtDate(sub.started_at as string)} · bitmə {fmtDate(sub.expires_at as string)}{sub.cancelled_at ? ` · ləğv ${fmtDate(sub.cancelled_at as string)}` : ''}</p>
+              </div>))}</div>
+          ) : <EmptyState compact title="Mağaza abunəliyi qeydə alınmayıb" description={detail.data?.source === 'fallback' ? 'admin_user_detail_v1 tətbiq olunanda tam tarixçə görünəcək.' : undefined} />}
+          <Btn onClick={() => onNavigate?.('subscriptions')}><Crown size={14} />Premium ver / ləğv et</Btn>
+        </div>
+      )}
+      {tab === 'children' && (detail.isLoading ? <SkeletonRows rows={2} columns={3} /> : detail.data?.children.length ? (
+        <div className="grid gap-2">{detail.data.children.map(child => (
+          <div key={child.id} className="ak-card-row flex items-center justify-between gap-3">
+            <span><strong>{child.name}</strong><span className="ak-cell-sub">{child.birth_date ? `Doğum: ${fmtDate(child.birth_date)}` : child.due_date ? `Gözlənilən: ${fmtDate(child.due_date)}` : '—'}{child.gender ? ` · ${child.gender === 'girl' || child.gender === 'female' ? 'qız' : child.gender === 'boy' || child.gender === 'male' ? 'oğlan' : child.gender}` : ''}</span></span>
+            {child.is_active === false && <StatusPill>Arxiv</StatusPill>}
+          </div>))}</div>
+      ) : <EmptyState compact title="Uşaq profili yoxdur" />)}
+      {tab === 'roles' && (
+        <div className="grid gap-3">
+          <div className="flex gap-2 flex-wrap">{(detail.data?.roles.length ? detail.data.roles : [user.role]).map(role => <StatusPill key={role} tone={role === 'admin' ? 'danger' : role === 'moderator' ? 'info' : 'neutral'}>{ROLE_LABEL[role as AppRole] ?? role}</StatusPill>)}</div>
+          <Btn onClick={() => onAction('role')}><Shield size={14} />Rolu dəyiş</Btn>
+        </div>
+      )}
+    </SideDrawer>
+  );
+}
+
+function EditUserDrawer({ user, onClose, onSaved, toast }: { user: AdminUserRow; onClose: () => void; onSaved: () => void; toast: ToastFn }) {
+  const [name, setName] = useState(user.name ?? ''), [stage, setStage] = useState(user.life_stage || '');
+  const [saving, setSaving] = useState(false);
+  const dirty = name !== (user.name ?? '') || stage !== (user.life_stage || '');
+  const save = async () => {
+    setSaving(true);
+    try {
+      const { error } = await supabase.from('profiles').update({ name, life_stage: stage || null }).eq('id', user.id);
+      if (error) throw error;
+      toast({ title: tr('adminusers_ugurlu_7fe64c', 'Uğurlu'), description: tr('adminusers_i_stifadeci_melumatlari_yenile_b7069b', 'İstifadəçi məlumatları yeniləndi') });
+      onSaved(); onClose();
+    } catch (error) {
+      console.error('Error updating user:', error);
+      toast({ title: tr('adminusers_xeta_3cdbb6', 'Xəta'), description: tr('adminusers_istifadeci_yenilene_bilmedi_62887d', 'İstifadəçi yenilənə bilmədi'), variant: 'destructive' });
+    } finally { setSaving(false); }
+  };
+  return (
+    <SideDrawer open onOpenChange={open => { if (!open) onClose(); }} title={tr('adminusers_istifadecini_redakte_et_f6c153', 'İstifadəçini Redaktə Et')} description={user.email ?? undefined}
+      dirty={dirty} saving={saving} onSave={save} saveDisabled={!dirty}>
+      <Field label="Ad">{id => <input id={id} className="ak-input" value={name} onChange={event => setName(event.target.value)} />}</Field>
+      <Field label={tr('adminusers_merhele_0e09aa', 'Mərhələ')}>{id => (
+        <select id={id} className="ak-select w-full" value={stage} onChange={event => setStage(event.target.value)}>
+          <option value="" disabled>{tr('adminusers_merhele_secin_a3f9bb', 'Mərhələ seçin')}</option>
+          {Object.entries(STAGES).map(([value, item]) => <option key={value} value={value}>{item.label}</option>)}
+        </select>)}</Field>
+    </SideDrawer>
+  );
+}
+
+function RoleDrawer({ user, onClose, onSaved, toast }: { user: AdminUserRow; onClose: () => void; onSaved: () => void; toast: ToastFn }) {
+  const [role, setRole] = useState<AppRole>(user.role), [saving, setSaving] = useState(false);
+  const save = async () => {
+    setSaving(true);
+    try {
+      // Same write as before: update the existing role row, or insert one if the user has none.
+      const { data: existing, error: readError } = await supabase.from('user_roles').select('user_id').eq('user_id', user.user_id).limit(1);
+      if (readError) throw readError;
+      if (existing?.length) {
+        const { error } = await supabase.from('user_roles').update({ role }).eq('user_id', user.user_id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase.from('user_roles').insert([{ user_id: user.user_id, role }]);
+        if (error) throw error;
+      }
+      toast({ title: tr('adminusers_ugurlu_7fe64c', 'Uğurlu'), description: `${user.name} üçün ${ROLE_LABEL[role]} rolu təyin edildi` });
+      onSaved(); onClose();
+    } catch (error) {
+      console.error('Error assigning role:', error);
+      toast({ title: tr('adminusers_xeta_3cdbb6', 'Xəta'), description: tr('adminusers_rol_teyin_edile_bilmedi_8ddf00', 'Rol təyin edilə bilmədi'), variant: 'destructive' });
+    } finally { setSaving(false); }
+  };
+  return (
+    <SideDrawer open onOpenChange={open => { if (!open) onClose(); }} title={tr('adminusers_rol_teyin_et_ec751c', 'Rol Təyin Et')} description={`${user.name} · ${user.email ?? ''}`}
+      dirty={role !== user.role} saving={saving} onSave={save} saveLabel={tr('adminusers_rolu_teyin_et_e61864', 'Rolu Təyin Et')} saveDisabled={role === user.role}>
+      <div className="grid gap-2" role="radiogroup" aria-label={tr('adminusers_rol_secin_7dccbd', 'Rol seçin')}>
+        {([['user', <User key="u" size={16} />], ['moderator', <Shield key="m" size={16} />], ['admin', <Crown key="a" size={16} />]] as Array<[AppRole, JSX.Element]>).map(([value, icon]) => (
+          <label key={value} className="ak-card-row flex items-center gap-3 cursor-pointer" data-selected={role === value}>
+            <input type="radio" name="role" className="ak-check" checked={role === value} onChange={() => setRole(value)} />{icon}<strong>{ROLE_LABEL[value]}</strong>
+          </label>
+        ))}
+      </div>
+      <Notice tone="warning">{tr('adminusers_admin_rollu_istifadeciler_butu_789e17', '⚠️ Admin rollu istifadəçilər bütün sistem funksiyalarına tam giriş əldə edəcək.')}</Notice>
+    </SideDrawer>
+  );
+}
+
+function PasswordDrawer({ user, onClose, toast }: { user: AdminUserRow; onClose: () => void; toast: ToastFn }) {
+  const [newPassword, setNewPassword] = useState(''), [confirmPassword, setConfirmPassword] = useState(''), [show, setShow] = useState(false), [saving, setSaving] = useState(false);
+  const mismatch = !!confirmPassword && newPassword !== confirmPassword, short = !!newPassword && newPassword.length < 8;
+  const save = async () => {
+    if (newPassword.length < 8) { toast({ title: tr('adminusers_xeta_3cdbb6', 'Xəta'), description: tr('adminusers_sifre_en_azi_8_simvol_olmalidir_f7dd87', 'Şifrə ən azı 8 simvol olmalıdır'), variant: 'destructive' }); return; }
+    if (newPassword !== confirmPassword) { toast({ title: tr('adminusers_xeta_3cdbb6', 'Xəta'), description: tr('adminusers_sifreler_uygun_gelmir_af4b84', 'Şifrələr uyğun gəlmir'), variant: 'destructive' }); return; }
+    setSaving(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('admin-change-user-password', { body: { user_id: user.user_id, new_password: newPassword } });
+      if (error) throw error;
+      if ((data as { error?: string } | null)?.error) throw new Error((data as { error: string }).error);
+      toast({ title: tr('adminusers_ugurlu_7fe64c', 'Uğurlu'), description: `${user.name} üçün şifrə yeniləndi` });
+      setNewPassword(''); setConfirmPassword(''); onClose();
+    } catch (err) {
+      console.error('Error changing password:', err);
+      toast({ title: tr('adminusers_xeta_3cdbb6', 'Xəta'), description: (err as Error)?.message || tr('adminusers_sifre_yenilene_bilmedi_4ba698', 'Şifrə yenilənə bilmədi'), variant: 'destructive' });
+    } finally { setSaving(false); }
+  };
+  return (
+    <SideDrawer open onOpenChange={open => { if (!open) onClose(); }} title={tr('adminusers_istifadecinin_sifresini_deyis_15d6c7', 'İstifadəçinin şifrəsini dəyiş')} description={`${user.name} · ${user.email ?? ''}`}
+      dirty={!!newPassword || !!confirmPassword} saving={saving} onSave={save} saveLabel={saving ? tr('adminusers_yenilenir_3017dc', 'Yenilənir...') : tr('adminusers_sifreni_deyis_1d1a1f', 'Şifrəni Dəyiş')}
+      saveDisabled={!newPassword || !confirmPassword}>
+      <Field label={tr('adminusers_yeni_sifre_8f04c6', 'Yeni şifrə')} error={short ? 'Ən azı 8 simvol' : undefined}>{id => (
+        <div className="relative">
+          <input id={id} className="ak-input pe-10" type={show ? 'text' : 'password'} autoComplete="new-password" value={newPassword} onChange={event => setNewPassword(event.target.value)} placeholder={tr('adminusers_en_azi_8_simvol_168104', 'Ən azı 8 simvol')} />
+          <button type="button" className="ak-icon-btn absolute end-1 top-1/2 -translate-y-1/2" aria-label={show ? 'Gizlət' : 'Göstər'} onClick={() => setShow(!show)}>{show ? <EyeOff size={15} /> : <Eye size={15} />}</button>
+        </div>)}</Field>
+      <Field label={tr('adminusers_sifreni_tesdiqle_6b3e17', 'Şifrəni təsdiqlə')} error={mismatch ? tr('adminusers_sifreler_uygun_gelmir_af4b84', 'Şifrələr uyğun gəlmir') : undefined}>{id => (
+        <input id={id} className="ak-input" type={show ? 'text' : 'password'} autoComplete="new-password" value={confirmPassword} onChange={event => setConfirmPassword(event.target.value)} placeholder={tr('adminusers_yeni_sifreni_tekrar_daxil_edin_3c87dd', 'Yeni şifrəni təkrar daxil edin')} />)}</Field>
+      <Notice tone="warning">{tr('adminusers_i_stifadeci_yeni_sifre_ile_yen_60d0cc', '⚠️ İstifadəçi yeni şifrə ilə yenidən daxil olmalı olacaq.')}</Notice>
+    </SideDrawer>
+  );
+}
 
 export default AdminUsers;

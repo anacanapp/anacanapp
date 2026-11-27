@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "Emailingni tasdiqla",
+    "subtitle": "{email} manziliga 6 xonali kod yubordik. Uni pastga kirit.",
+    "why": "Bu hisobingni himoya qiladi va olinadigan Premium aynan sening hisobingga bog‘lanishini ta’minlaydi.",
+    "code_label": "Tasdiqlash kodi",
+    "confirm": "Tasdiqlash",
+    "resend": "Kodni qayta yuborish",
+    "resend_in": "Qayta yuborish: {s} s",
+    "sent": "Kod yuborildi",
+    "spam_hint": "Xat kelmagan bo‘lsa, Spam yoki Reklama jildini ham tekshir.",
+    "wrong_code": "Kod noto‘g‘ri. Tekshirib, qayta urinib ko‘r.",
+    "expired": "Kodning muddati tugagan. Yangi kod yubor.",
+    "too_many": "Juda ko‘p urinish bo‘ldi. Yangi kod yubor.",
+    "rate_limited": "Biroz kutib, qayta urinib ko‘r.",
+    "send_failed": "Kodni yuborib bo‘lmadi. Internet aloqangni tekshirib, qayta urinib ko‘r.",
+    "verified": "Emailing tasdiqlandi 🎉",
+    "wrong_email": "Email noto‘g‘rimi? Chiqib, qaytadan ro‘yxatdan o‘t"
+  },
+  "email": {
+    "subject": "{code} — Anacan tasdiqlash koding",
+    "preheader": "Hisobingni tasdiqlash uchun ushbu kodni kirit.",
+    "heading": "Tasdiqlash koding",
+    "intro": "Anacan hisobingni tasdiqlash uchun ilovada ushbu kodni kirit:",
+    "expires": "Kod 15 daqiqa amal qiladi.",
+    "ignore": "Agar bu so‘rovni sen yubormagan bo‘lsang, bu xatga e’tibor berma — hisobingda hech narsa o‘zgarmaydi.",
+    "footer": "Anacan — har bosqichda yoningda"
+  }
+}

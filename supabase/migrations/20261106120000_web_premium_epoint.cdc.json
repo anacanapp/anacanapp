@@ -1,0 +1,14 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261106120000_web_premium_epoint.sql",
+  "runtime": "google-web-premium-epoint",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls the new relation and checks its three triggers",
+  "relations": [
+    { "relation": "public.web_premium_orders", "change": "created", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "Epoint checkouts of the Premium funnel: e-mail, plan, server price, status; service role only (no client access)" },
+    { "relation": "public.web_subscriptions", "change": "altered", "cdc": true, "writer_guard": true, "pii": true,
+      "note": "provider check widened to dodo | epoint; Epoint passes are rows with cancel_at_period_end = true" },
+    { "relation": "public.app_settings", "change": "rows added", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "web_premium_epoint = {enabled, prices{monthly, yearly}} in AZN (not on the public allowlist; read by web-shop)" }
+  ]
+}

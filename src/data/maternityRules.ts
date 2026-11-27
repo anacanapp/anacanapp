@@ -18,6 +18,8 @@ export interface CompensationRule {
   percentage?: number;
   maxCapDaily?: number;
   maxCapTotal?: number;
+  /** Monthly benefit ceiling in `currency` (AZ: 25 × minimum monthly labour pension). */
+  maxCapMonthly?: number;
   minCapDaily?: number;
   flatRateDaily?: number;
   formulaDescription_az: string;
@@ -57,8 +59,9 @@ export const maternityRules: MaternityRule[] = [
     normalDaysBefore: 70,
     normalDaysAfter: 56,
     complicatedDaysAfter: 70,
-    multipleDaysBefore: 84,
-    multipleDaysAfter: 110,
+    // Əmək Məcəlləsi 125.1: ağır doğuş və ya iki və daha çox uşaq doğulduqda doğuşdan sonra 70 gün (cəmi 140).
+    multipleDaysBefore: 70,
+    multipleDaysAfter: 70,
     payPercentage: 100,
     payDescription_az: '100% əmək haqqı ödənilir',
 
@@ -70,15 +73,17 @@ export const maternityRules: MaternityRule[] = [
     },
     parental: {
       months: 36,
-      payDescription_az: 'Qismən ödənişli (1.5 yaşa qədər sabit məbləğ)',
-      payDescription_en: 'Partially paid (fixed amount until 1.5 years)'
+      payDescription_az: 'Qismən ödənişli sosial məzuniyyət: 1,5 yaşa qədər ayda 44 AZN, 1,5–3 yaş arası ayda 28 AZN',
+      payDescription_en: 'Partially paid social leave: AZN 44 a month until 1.5 years, AZN 28 a month from 1.5 to 3 years'
     },
     compensation: {
-      "type": "PERCENTAGE_UNCAPPED",
+      "type": "PERCENTAGE_CAPPED",
       "currency": "AZN",
       "percentage": 100,
-      "formulaDescription_az": "Gündəlik maaşın 100%-i",
-      "formulaDescription_en": "100% of daily salary"
+      // sosial.gov.az: aylıq müavinət minimum aylıq əmək pensiyasının (320 AZN) 25 mislindən çox ola bilməz.
+      "maxCapMonthly": 8000,
+      "formulaDescription_az": "Gündəlik maaşın 100%-i (ayda ən çox 8 000 AZN)",
+      "formulaDescription_en": "100% of daily salary (at most AZN 8,000 a month)"
     },
     payDescription_en: '100% of salary is paid',
     guidelines_az: [
@@ -446,16 +451,16 @@ export const maternityRules: MaternityRule[] = [
     name_en: 'Spain',
     flag: '🇪🇸',
     normalDaysBefore: 28, // 4 weeks voluntarily before
-    normalDaysAfter: 84, // 12 weeks
-    complicatedDaysAfter: 84,
+    normalDaysAfter: 105, // 15 weeks (19 weeks in total since 31.07.2025, RDL 9/2025)
+    complicatedDaysAfter: 105,
     multipleDaysBefore: 28,
-    multipleDaysAfter: 98, // +1 week per extra child for each parent
+    multipleDaysAfter: 119, // +1 week per extra child for each parent
     payPercentage: 100,
     payDescription_az: '100% Sosial Təminat tərəfindən ödənilir',
 
     tenureRequirementMonths: 6,
     paternity: {
-      days: 112,
+      days: 133,
       payDescription_az: 'Ödənişli (100% - analıq ilə eyni)',
       payDescription_en: 'Paid (100% - same as maternity)'
     },
@@ -476,14 +481,14 @@ export const maternityRules: MaternityRule[] = [
     guidelines_az: [
       {
         title: 'Qanunvericilik',
-        content: 'İspaniyada analar üçün 16 həftə ödənişli məzuniyyət nəzərdə tutulur (doğuşdan sonra ilk 6 həftə məcburidir).',
+        content: 'İspaniyada 31.07.2025-dən hər valideynə 19 həftə ödənişli doğuş məzuniyyəti verilir (doğuşdan sonra ilk 6 həftə məcburidir).',
         icon: '⚖️'
       }
     ],
     guidelines_en: [
       {
         title: 'Legislation',
-        content: 'In Spain, mothers get 16 weeks of paid leave (the first 6 weeks after birth are compulsory).',
+        content: 'Since 31 July 2025 each parent in Spain gets 19 weeks of paid birth leave (the first 6 weeks after birth are compulsory).',
         icon: '⚖️'
       }
     ]
@@ -1127,9 +1132,9 @@ export const maternityRules: MaternityRule[] = [
       payDescription_en: '100% paid'
     },
     parental: {
-      months: 41,
-      payDescription_az: '70% ödənişli',
-      payDescription_en: '70% paid'
+      months: 9, // 41 weeks for one child
+      payDescription_az: '41 həftə, 70% ödənişli',
+      payDescription_en: '41 weeks, 70% paid'
     },
     compensation: {
       "type": "PERCENTAGE_UNCAPPED",

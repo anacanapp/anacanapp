@@ -1,17 +1,56 @@
-import { tr } from "@/lib/tr";import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { tr } from "@/lib/tr";import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, useRef } from 'react';
+import { QueryClientContext } from '@tanstack/react-query';
+import { runLogoutCleanup } from '@/lib/logout-cleanup';
+import { supabase, authStorage } from '@/integrations/supabase/client';
+import { setRequestTimeoutMessage } from '@/lib/network-timeout';
+import { OFFLINE_RESTORE_GRACE_MS, isSessionExpired, readStoredSession, type StoredSession } from '@/lib/offline-session';
 import { isAzureBackend } from '@/integrations/supabase/backend-config';
 import { readCache, writeCache, clearAllCaches } from '@/lib/offlineCache';
+import { syncUserTimeZone } from '@/lib/user-timezone';
 import { safeAppleWebError, signInWithAppleWeb, usesAzureAppleWebFlow } from '@/lib/apple-web-auth';
 const isCapacitorNative = typeof (window as any)?.Capacitor?.isNativePlatform === 'function' &&
   (window as any).Capacitor.isNativePlatform();
 import { useUserStore } from '@/store/userStore';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 import { useShallow } from 'zustand/react/shallow';
 import type { User, Session } from '@supabase/supabase-js';
 import type { Json } from '@/integrations/supabase/types';
 
+// Clear, localized retry text for SDK request timeouts (the client cannot import i18n itself).
+setRequestTimeoutMessage(() => tr('netsync_timeout_retry', 'Bağlantı zəifdir, cavab gecikdi. Yenidən cəhd edin.'));
+
+/** The persisted SDK session (null when Auth removed it, i.e. after a real sign-out/invalid token). */
+const readPersistedSession = (): Promise<StoredSession | null> => {
+  try { return readStoredSession(authStorage?.storage, authStorage?.storageKey); } catch { return Promise.resolve(null); }
+};
+
 const PROFILE_CACHE_KEY = 'profile';
 const ROLE_CACHE_KEY = 'role';
+/** auth-js emits SIGNED_IN on every visibility return; the same account is re-read at most this often. */
+export const SAME_USER_REHYDRATE_MS = 10 * 60 * 1000;
+
+const json = (value: unknown) => { try { return JSON.stringify(value ?? null); } catch { return ''; } };
+/** Same account and no field the app reads changed: keep the previous object reference. */
+function sameAuthUser(a: User | null, b: User | null): boolean {
+  if (a === b) return true;
+  if (!a || !b) return false;
+  return a.id === b.id && a.email === b.email && a.phone === b.phone && a.role === b.role && a.aud === b.aud
+    && a.created_at === b.created_at && a.updated_at === b.updated_at && a.last_sign_in_at === b.last_sign_in_at
+    && a.email_confirmed_at === b.email_confirmed_at && a.phone_confirmed_at === b.phone_confirmed_at
+    && json(a.user_metadata) === json(b.user_metadata) && json(a.app_metadata) === json(b.app_metadata)
+    && json(a.identities?.map((i) => [i.id, i.provider])) === json(b.identities?.map((i) => [i.id, i.provider]));
+}
+const sameSession = (a: Session | null, b: Session | null) => a === b || !!a && !!b
+  && a.access_token === b.access_token && a.refresh_token === b.refresh_token && a.expires_at === b.expires_at;
+const dateMs = (value: unknown): number | null => {
+  if (value === null || value === undefined || value === '') return null;
+  // A YYYY-MM-DD profile column is a local calendar day (see storedCalendarDate), not UTC midnight.
+  const ms = value instanceof Date ? value.getTime()
+    : typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) ? storedCalendarDate(value)?.getTime() ?? NaN
+    : new Date(value as string).getTime();
+  return Number.isFinite(ms) ? ms : null;
+};
+const sameDate = (a: unknown, b: unknown) => dateMs(a) === dateMs(b);
 
 // ─────────────────────────────────────────
 // Types
@@ -44,6 +83,10 @@ export interface Profile {
   // Əvvəllər burada elan edilməmişdi (sütun DB-də var idi, HƏR YERDƏ `as any`
   // ilə oxunurdu — məs. useCommunity.ts, useBanners.ts, useBlog.ts).
   country_code: string | null;
+  /** Pregnancy loss support (Duzelis72): the date it ended, the 8-week recovery mode, and partner sharing. */
+  pregnancy_loss_date?: string | null;
+  loss_recovery_active?: boolean | null;
+  loss_share_partner?: boolean | null;
   onboarding_answers?: Json;
   created_at: string;
   updated_at: string;
@@ -86,6 +129,33 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   const [userRole, setUserRole] = useState<UserRole | null>(null);
   const [loading, setLoading] = useState(true);
   const [profileLoaded, setProfileLoaded] = useState(false);
+  // Optional so AuthProvider also works outside a QueryClientProvider (tests, widgets).
+  const queryClient = useContext(QueryClientContext);
+  const queryClientRef = useRef(queryClient);
+  queryClientRef.current = queryClient;
+  /** Account whose profile/roles/prefs were last hydrated, and when. */
+  const hydratedRef = useRef<{ userId: string; at: number } | null>(null);
+  const userRef = useRef<User | null>(null);
+  userRef.current = user;
+  const profileRef = useRef<Profile | null>(null);
+  profileRef.current = profile;
+  /** Opened on the stored account while the token could not be refreshed (offline). */
+  const offlineSessionRef = useRef(false);
+
+  // Stable references: ~40 hooks depend on [user]/[profile]; a resume must not replace
+  // equal objects and re-run every effect/query in the tree.
+  const applyUser = useCallback((next: User | null) => {
+    setUser((prev) => sameAuthUser(prev, next) ? prev : next);
+  }, []);
+  const applySession = useCallback((next: Session | null) => {
+    setSession((prev) => sameSession(prev, next) ? prev : next);
+  }, []);
+  const applyProfile = useCallback((next: Profile | null) => {
+    setProfile((prev) => prev === next || (prev && next && json(prev) === json(next)) ? prev : next);
+  }, []);
+  const applyRole = useCallback((next: UserRole | null) => {
+    setUserRole((prev) => (prev?.role ?? null) === (next?.role ?? null) ? prev : next);
+  }, []);
 
   // useShallow: bu 12 sahə userStore-un action funksiyalarıdır (referansları
   // stabildir), amma seçicisiz useUserStore() BÜTÜN store obyektinə abunə
@@ -190,8 +260,14 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       // yalnız truthy dəyər yazılırdı: DB-də təmizlənmiş LMP store-da köhnə
       // dəyəri saxlayır, ProfileEdit formu ona əsaslanıb köhnə tarixi
       // YENİDƏN DB-yə yazırdı ("silinmiş LMP öz-özünə qayıdır" bug-ı)
-      setLastPeriodDate(profileData.last_period_date ? new Date(profileData.last_period_date) : null);
-      setDueDate(profileData.due_date ? new Date(profileData.due_date) : null);
+      // New Date objects only when the value changed: an equal re-sync (resume/refresh)
+      // must not notify every store subscriber that compares dates by reference.
+      const current = useUserStore.getState() as Partial<{ lastPeriodDate: unknown; dueDate: unknown; babyBirthDate: unknown;
+        babyName: unknown; babyGender: unknown; babyCount: unknown; multiplesType: unknown }>;
+      if (!sameDate(current.lastPeriodDate, profileData.last_period_date)) {
+        setLastPeriodDate(profileData.last_period_date ? storedCalendarDate(profileData.last_period_date) : null);
+      }
+      if (!sameDate(current.dueDate, profileData.due_date)) setDueDate(profileData.due_date ? storedCalendarDate(profileData.due_date) : null);
       if (profileData.cycle_length) setCycleLength(profileData.cycle_length);
       if (profileData.period_length) setPeriodLength(profileData.period_length);
 
@@ -202,10 +278,12 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       // store has reset to one child. Keep the count/type pair coherent.
       const babyCount = [1, 2, 3, 4].includes(profileData.baby_count ?? 0) ? profileData.baby_count! : 1;
       const multipleType = (['single', 'twins', 'triplets', 'quadruplets'] as const)[babyCount - 1];
-      setMultiplesData(babyCount, multipleType);
+      if (current.babyCount !== babyCount || current.multiplesType !== multipleType) setMultiplesData(babyCount, multipleType);
 
-      if (profileData.baby_birth_date && profileData.baby_name && profileData.baby_gender) {
-        setBabyData(new Date(profileData.baby_birth_date), profileData.baby_name, profileData.baby_gender,
+      if (profileData.baby_birth_date && profileData.baby_name && profileData.baby_gender && (
+        !sameDate(current.babyBirthDate, profileData.baby_birth_date) || current.babyName !== profileData.baby_name
+        || current.babyGender !== profileData.baby_gender || current.babyCount !== babyCount || current.multiplesType !== multipleType)) {
+        setBabyData(storedCalendarDate(profileData.baby_birth_date) ?? new Date(profileData.baby_birth_date), profileData.baby_name, profileData.baby_gender,
           babyCount, multipleType);
       }
 
@@ -297,10 +375,24 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   const signInWithGoogle = useCallback(async () => {
     try {
       if (isCapacitorNative) {
-        const { signInWithGoogleNative } = await import('@/lib/native-auth');
-        const data = await signInWithGoogleNative();
-        import('@/lib/analytics').then((m) => m.analytics.logLogin('google')).catch(() => {});
-        return { data, error: null };
+        const nativeAuth = await import('@/lib/native-auth');
+        try {
+          const data = await nativeAuth.signInWithGoogleNative();
+          import('@/lib/analytics').then((m) => m.analytics.logLogin('google')).catch(() => {});
+          return { data, error: null };
+        } catch (error) {
+          if (!(error instanceof nativeAuth.GoogleNativePickerError)) throw error;
+          const { resolveGoogleNativeFailure } = await import('@/lib/social-auth-errors');
+          const outcome = resolveGoogleNativeFailure(error, (window as any)?.Capacitor?.getPlatform?.());
+          if (outcome.report) import('@/lib/crashReporter').then((m) => m.reportAuthError('google', error)).catch(() => {});
+          if (outcome.action === 'silent') return { data: null, error: null };
+          if (outcome.action === 'browser') {
+            // Old Android (no Credential Manager / Play Services, DEVELOPER_ERROR 10, 12500): browser OAuth.
+            await nativeAuth.signInWithGoogleBrowserFallback();
+            return { data: null, error: null };
+          }
+          return { data: null, error: outcome.action === 'error' ? outcome.error : error };
+        }
       }
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
@@ -333,7 +425,17 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       const platform = (window as any)?.Capacitor?.getPlatform?.();
       if (isCapacitorNative && platform === 'ios') {
         const { signInWithAppleNative } = await import('@/lib/native-auth');
-        const data = await signInWithAppleNative();
+        let data;
+        try {
+          data = await signInWithAppleNative();
+        } catch (error) {
+          // ASAuthorizationError 1001 (sheet closed) = silent; 1000 = clear message, never the raw code.
+          const { resolveAppleNativeFailure } = await import('@/lib/social-auth-errors');
+          const outcome = resolveAppleNativeFailure(error);
+          if (outcome.action === 'rethrow') throw error;
+          if (outcome.report) import('@/lib/crashReporter').then((m) => m.reportAuthError('apple', error)).catch(() => {});
+          return { data: null, error: outcome.action === 'error' ? outcome.error : null };
+        }
         import('@/lib/analytics').then((m) => m.analytics.logLogin('apple')).catch(() => {});
         return { data, error: null };
       }
@@ -354,6 +456,9 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   }, []);
 
   const signOut = useCallback(async () => {
+    // Privacy cleanup while the session still exists (device_tokens delete is RLS-scoped):
+    // push row + FCM token, pending/delivered local reminders. Bounded; never blocks logout.
+    try { await runLogoutCleanup(userRef.current?.id ?? useUserStore.getState().userId ?? null); } catch { /* best effort */ }
     try {
       const { error } = await supabase.auth.signOut();
       // Ignore AuthSessionMissingError - session already gone
@@ -367,11 +472,13 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       }
     } finally {
       // Always clear local state regardless of server response
+      hydratedRef.current = null;
       setUser(null);
       setSession(null);
       setProfile(null);
       setUserRole(null);
       storeLogout();
+      try { queryClientRef.current?.clear(); } catch { /* in-memory only */ }
       clearAllCaches(); // offline "son vəziyyət" cache-ləri də getsin
       if (isAzureBackend()) {
         import('@/lib/revenuecat').then(({ logOutRevenueCat }) => logOutRevenueCat()).catch(() => {});
@@ -420,37 +527,16 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
   const linkPartner = useCallback(async (partnerCode: string) => {
     if (!user) return { error: 'No user logged in' };
     try {
-      const { isAzurePartnerPairingEnabled, linkPartnerByCode } = await import('@/lib/partner-link');
-      if (isAzurePartnerPairingEnabled()) {
+      const { clearStaleOneSidedLink, linkPartnerByCode, PartnerLinkError } = await import('@/lib/partner-link');
+      try {
         await linkPartnerByCode(partnerCode);
-        const newProfile = await fetchProfileStrict(user.id);
-        if (!newProfile) throw new Error('Profile could not be refreshed after pairing');
-        setProfile(newProfile);
-        syncProfileToStore(newProfile, user.id);
-        return { error: null };
+      } catch (error) {
+        if (!(error instanceof PartnerLinkError && error.code === 'PAIRING_CONFLICT' && profile?.linked_partner_id
+          && await clearStaleOneSidedLink(user.id))) throw error;
+        await linkPartnerByCode(partnerCode);
       }
-
-      const { data: partnerProfile, error: findError } = await supabase.
-      from('profiles').
-      select('id, user_id').
-      eq('partner_code', partnerCode).
-      maybeSingle();
-
-      if (findError || !partnerProfile) return { error: 'Partner code not found' };
-
-      const { error: updateError } = await supabase.
-      from('profiles').
-      update({ linked_partner_id: partnerProfile.id, life_stage: 'partner' as const }).
-      eq('user_id', user.id);
-
-      if (updateError) throw updateError;
-
-      const { data: myProfile } = await supabase.from('profiles').select('id').eq('user_id', user.id).single();
-      if (myProfile) {
-        await supabase.from('profiles').update({ linked_partner_id: myProfile.id }).eq('user_id', partnerProfile.user_id);
-      }
-
-      const newProfile = await fetchProfile(user.id);
+      const newProfile = await fetchProfileStrict(user.id);
+      if (!newProfile) throw new Error('Profile could not be refreshed after pairing');
       setProfile(newProfile);
       syncProfileToStore(newProfile, user.id);
       return { error: null };
@@ -458,7 +544,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       console.error('Link partner error:', error);
       return { error };
     }
-  }, [user, fetchProfile, fetchProfileStrict, syncProfileToStore]);
+  }, [user, profile?.linked_partner_id, fetchProfileStrict, syncProfileToStore]);
 
   const refreshProfile = useCallback(async () => {
     if (!user) return;
@@ -466,11 +552,11 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
     // Offline-da fetchProfile cache qaytarır; null yalnız cache də yoxdursa gəlir —
     // o halda mövcud vəziyyəti pozmuruq (onboarding-ə atmamaq üçün).
     if (profileData) {
-      setProfile(profileData);
+      applyProfile(profileData);
       syncProfileToStore(profileData, user.id);
     }
-    if (roleData) setUserRole(roleData);
-  }, [user, fetchProfile, fetchUserRole, syncProfileToStore]);
+    if (roleData) applyRole(roleData);
+  }, [user, fetchProfile, fetchUserRole, syncProfileToStore, applyProfile, applyRole]);
 
   // ─────────────────────────────────────────
   // Init & listener
@@ -546,8 +632,10 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
         } else {
           Promise.resolve(supabase.from('user_preferences').upsert({ user_id: u.id, language: localLang }, { onConflict: 'user_id' })).catch(console.error);
         }
-        setProfile(profileData);
-        setUserRole(roleData);
+        // Device time zone for server reminders (once per session, only when changed, quiet if the column is missing).
+        void syncUserTimeZone(u.id);
+        applyProfile(profileData);
+        applyRole(roleData);
 
         setAuth(
           true,
@@ -573,6 +661,78 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       }
     };
 
+    /** Same account came back (resume): re-read profile/role only, no prefs upsert. */
+    const refreshSameUser = async (u: User) => {
+      try {
+        const [profileRes, roleRes] = await Promise.allSettled([fetchProfileStrict(u.id), fetchUserRole(u.id)]);
+        if (!mounted || userRef.current?.id !== u.id) return;
+        // A failed read keeps the current state (offline-first); only a server answer updates.
+        if (profileRes.status === 'fulfilled' && profileRes.value) {
+          const next = profileRes.value;
+          if (json(profileRef.current) !== json(next)) {
+            applyProfile(next);
+            syncProfileToStore(next, u.id);
+          }
+        }
+        if (roleRes.status === 'fulfilled' && roleRes.value) applyRole(roleRes.value);
+      } catch { /* keep current state */ }
+    };
+
+    const beginHydration = (u: User) => {
+      hydratedRef.current = { userId: u.id, at: Date.now() };
+      void hydrateUser(u);
+    };
+
+    let initialHandled = false;
+    /** Read-only open on the stored account: cached profile/role, no network, no logout. */
+    const restoreOfflineSession = (stored: StoredSession) => {
+      if (!mounted) return;
+      const u = stored.user;
+      const alreadyRestored = offlineSessionRef.current && userRef.current?.id === u.id;
+      offlineSessionRef.current = true;
+      if (alreadyRestored) { finishLoading(); return; }
+      // at: 0 → the first real session triggers a fresh server read.
+      hydratedRef.current = { userId: u.id, at: 0 };
+      applySession(stored);
+      applyUser(u);
+      setAuth(true, u.id, u.email || '', u.user_metadata?.name || tr("authcontext_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i"));
+      const cachedProfile = readCache<Profile>(PROFILE_CACHE_KEY, u.id);
+      const cachedRole = readCache<UserRole>(ROLE_CACHE_KEY, u.id);
+      if (cachedProfile) {
+        applyProfile(cachedProfile);
+        syncProfileToStore(cachedProfile, u.id);
+      }
+      // No cached profile: the persisted store state stays as it was (offline-first).
+      if (cachedRole) applyRole(cachedRole);
+      setProfileLoaded(true);
+      finishLoading();
+    };
+
+    /** The token was refreshed after an offline open: full server read, then send queued writes. */
+    const leaveOfflineSession = (u: User) => {
+      if (!offlineSessionRef.current) return false;
+      offlineSessionRef.current = false;
+      beginHydration(u);
+      import('@/lib/offline-outbox').then((m) => m.flushOutbox(u.id)).catch(() => {});
+      return true;
+    };
+
+    // Expired stored token: do not wait for the SDK's refresh retries (~25 s offline).
+    let restoreTimer: ReturnType<typeof setTimeout> | null = null;
+    void readPersistedSession().then((stored) => {
+      if (!mounted || initialHandled || !stored || !isSessionExpired(stored)) return;
+      const restore = () => { if (mounted && !initialHandled) restoreOfflineSession(stored); };
+      if (typeof navigator !== 'undefined' && navigator.onLine === false) restore();
+      else restoreTimer = setTimeout(restore, OFFLINE_RESTORE_GRACE_MS);
+    });
+
+    // Network back while opened offline: refresh now (getSession refreshes an expired token;
+    // success arrives as TOKEN_REFRESHED, a real invalid token as SIGNED_OUT).
+    const onOnline = () => {
+      if (offlineSessionRef.current) void supabase.auth.getSession().catch(() => {});
+    };
+    if (typeof window !== 'undefined') window.addEventListener('online', onOnline);
+
     // Single source of truth: only onAuthStateChange handles auth state.
     // No separate initializeAuth / getSession call to avoid race conditions.
     const {
@@ -582,12 +742,15 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       if (!mounted) return;
 
       if (event === 'SIGNED_OUT') {
+        offlineSessionRef.current = false;
+        hydratedRef.current = null;
         setSession(null);
         setUser(null);
         setProfile(null);
         setUserRole(null);
         setProfileLoaded(false);
         storeLogout();
+        try { queryClientRef.current?.clear(); } catch { /* in-memory only */ }
         clearAllCaches();
         finishLoading();
         import('@/lib/revenuecat').then((m) => m.logOutRevenueCat()).catch(() => {});
@@ -595,9 +758,22 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
       }
 
       if (event === 'INITIAL_SESSION') {
+        initialHandled = true;
+        if (restoreTimer) { clearTimeout(restoreTimer); restoreTimer = null; }
+        if (!currentSession?.user) {
+          // Auth keeps the stored session only when the refresh failed for a network reason
+          // (offline, timeout, captive portal). That is not a logout: open read-only.
+          const stored = await readPersistedSession();
+          if (!mounted) return;
+          if (stored) {
+            restoreOfflineSession(stored);
+            return;
+          }
+        }
         if (currentSession?.user) {
-          setSession(currentSession);
-          setUser(currentSession.user);
+          offlineSessionRef.current = false;
+          applySession(currentSession);
+          applyUser(currentSession.user);
           setAuth(
             true,
             currentSession.user.id,
@@ -611,7 +787,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
             m.analytics.setUserProperties({ life_stage: '' });
           }).catch(() => {});
           import('@/lib/revenuecat').then((m) => m.identifyUser(currentSession.user.id)).catch(() => {});
-          void hydrateUser(currentSession.user);
+          beginHydration(currentSession.user);
         } else {
           // No session on initial load - user is truly not logged in
           storeLogout();
@@ -622,8 +798,29 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
 
       if (event === 'SIGNED_IN') {
         if (currentSession?.user) {
-          setSession(currentSession);
-          setUser(currentSession.user);
+          const u = currentSession.user;
+          const hydrated = hydratedRef.current;
+          if (offlineSessionRef.current && hydrated?.userId === u.id) {
+            applySession(currentSession);
+            applyUser(u);
+            finishLoading();
+            leaveOfflineSession(u);
+            return;
+          }
+          if (hydrated?.userId === u.id) {
+            // Same account (visibility return / duplicate after INITIAL_SESSION): keep the
+            // user/session references when nothing changed and skip the full hydration.
+            applySession(currentSession);
+            applyUser(u);
+            finishLoading();
+            if (Date.now() - hydrated.at >= SAME_USER_REHYDRATE_MS) {
+              hydratedRef.current = { userId: u.id, at: Date.now() };
+              void refreshSameUser(u);
+            }
+            return;
+          }
+          applySession(currentSession);
+          applyUser(u);
           setAuth(
             true,
             currentSession.user.id,
@@ -631,16 +828,18 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
             currentSession.user.user_metadata?.name || tr("authcontext_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i")
           );
           finishLoading();
-          void hydrateUser(currentSession.user);
+          beginHydration(currentSession.user);
         }
         return;
       }
 
       if (event === 'TOKEN_REFRESHED') {
         if (currentSession?.user) {
-          // Silently update session - don't re-hydrate to avoid flickering
-          setSession(currentSession);
-          setUser(currentSession.user);
+          // Silently update session - don't re-hydrate to avoid flickering. The user
+          // object keeps its reference unless a field actually changed.
+          applySession(currentSession);
+          applyUser(currentSession.user);
+          leaveOfflineSession(currentSession.user);
         }
         // Do NOT call storeLogout if token refresh comes back without a session
         // The session might still be recoverable
@@ -649,16 +848,18 @@ export const AuthProvider: React.FC<{children: React.ReactNode;}> = ({ children 
 
       // USER_UPDATED and other events
       if (currentSession?.user) {
-        setSession(currentSession);
-        setUser(currentSession.user);
+        applySession(currentSession);
+        applyUser(currentSession.user);
         finishLoading();
-        void hydrateUser(currentSession.user);
+        beginHydration(currentSession.user);
       }
     });
 
     return () => {
       mounted = false;
       clearBootstrapTimeout();
+      if (restoreTimer) clearTimeout(restoreTimer);
+      if (typeof window !== 'undefined') window.removeEventListener('online', onOnline);
       subscription.unsubscribe();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -709,3 +910,6 @@ export const useAuthContext = (): AuthContextValue => {
   if (!ctx) throw new Error('useAuthContext must be used within AuthProvider');
   return ctx;
 };
+
+/** Same context, but null outside AuthProvider (for widgets rendered anywhere). */
+export const useOptionalAuthContext = (): AuthContextValue | null => useContext(AuthContext);

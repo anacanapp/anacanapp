@@ -1,6 +1,8 @@
+import { stickerFromMessage, stickerText } from './stickers';
 import { supabase } from '@/integrations/supabase/client';
 import { getBackendConfig } from '@/integrations/supabase/backend-config';
 import { tr } from '@/lib/group-i18n';
+import { compressImageForUpload } from '@/lib/image-compress';
 
 export type ChatKind = 'direct' | 'partner' | 'group';
 export type ChatMediaType = 'image' | 'video' | 'audio';
@@ -8,7 +10,8 @@ export interface ChatMessage {
   id: string; sender_id: string; receiver_id?: string; group_id?: string;
   content: string | null; message_type: string; media_url?: string | null;
   media_path?: string | null; media_mime?: string | null; duration_ms?: number | null;
-  reply_to_id?: string | null; is_read?: boolean; created_at: string;
+  reply_to_id?: string | null; is_read?: boolean; created_at: string; deleted_at?: string | null;
+  revision?: number | null; edited_at?: string | null;
 }
 export interface ChatReaction {
   id: string; user_id: string; emoji: string;
@@ -16,6 +19,8 @@ export interface ChatReaction {
 }
 export interface ChatAttachment { path: string; mime: string; type: ChatMediaType; durationMs?: number }
 export const CHAT_REACTIONS = ['👍', '❤️', '😂', '😮', '😢', '🙏', '🔥', '👏'] as const;
+/** Behind the "+" in the message menu; the server (Duzelis66) accepts exactly these plus CHAT_REACTIONS. */
+export const CHAT_MORE_REACTIONS = ['😍', '🥰', '😘', '🤗', '😅', '😭', '😡', '🤔', '👌', '🙌', '💪', '🎉', '💕', '🌸', '👶', '🍼'] as const;
 export const chatTable = (kind: ChatKind) => kind === 'group' ? 'group_messages' : kind === 'partner' ? 'partner_messages' : 'direct_messages';
 export const reactionColumn = (kind: ChatKind) => kind === 'group' ? 'group_message_id' : kind === 'partner' ? 'partner_message_id' : 'direct_message_id';
 const MIME_EXTENSIONS: Record<string, string> = {
@@ -40,6 +45,7 @@ export function chatPreview(message: Pick<ChatMessage, 'content' | 'message_type
   if (message.message_type === 'image') return tr('chat_image', 'Şəkil');
   if (message.message_type === 'audio') return tr('chat_voice', 'Səs mesajı');
   if (message.message_type === 'video') return tr('chat_video', 'Video');
+  if (message.message_type === 'text' && stickerFromMessage(message.content)) return `🧸 ${stickerText('sticker')}`;
   return message.content || tr('chat_message', 'Mesaj');
 }
 
@@ -48,6 +54,12 @@ export async function notifyChatMessage(kind: ChatKind, target: string, message:
   const title = tr('directmessages_yeni_mesaj', 'Yeni mesaj');
   const body = chatPreview(message).slice(0, 120) || title;
   if (kind === 'group') {
+    // One call: the server fans the push out to every current member (dedup-claimed per
+    // message + recipient). Only a server without that contract gets the per-member loop.
+    const fanout = await invokeSendPush({ userId: message.sender_id, title, body, kind: 'group_message_fanout', data: {
+      type: 'group_message_fanout', context: 'group_message_fanout', groupId: target, messageId: message.id, interactionId: message.id,
+    } });
+    if (fanout.serverError !== 'unsupported_context_or_type') return;
     const { data, error } = await (supabase as any).rpc('chat_group_members_v2', { p_group: target });
     if (error) return;
     const recipients = (data || []).filter((member: { user_id: string }) => member.user_id !== message.sender_id);
@@ -62,7 +74,8 @@ export async function notifyChatMessage(kind: ChatKind, target: string, message:
   }
 }
 
-export async function uploadChatMedia(actor: string, kind: ChatKind, target: string, file: Blob, type: ChatMediaType, signal?: AbortSignal): Promise<ChatAttachment | null> {
+export async function uploadChatMedia(actor: string, kind: ChatKind, target: string, original: Blob, type: ChatMediaType, signal?: AbortSignal): Promise<ChatAttachment | null> {
+  const file = type === 'image' ? await compressImageForUpload(original) : original;
   const mime = file.type.toLowerCase().split(';')[0];
   const ext = MIME_EXTENSIONS[mime];
   if (!ext || !mime.startsWith(`${type}/`) || file.size === 0) throw new Error('CHAT_INVALID_MEDIA');
@@ -114,4 +127,15 @@ export async function resolveChatMedia(message: ChatMessage): Promise<string | n
     throw error || new Error('CHAT_MEDIA_SIGNING_FAILED');
   }
   return url.href;
+}
+
+/** One send path for partner quick messages and ❤️ (same RPC and push as the chat screen). */
+export async function sendPartnerMessage(actor: string, partnerUserId: string, content: string, type: 'text' | 'love' = 'text'): Promise<ChatMessage> {
+  const { data, error } = await (supabase as any).rpc('chat_send_message_v2', {
+    p_actor: actor, p_id: crypto.randomUUID(), p_kind: 'partner', p_target: partnerUserId, p_content: content,
+    p_type: type, p_media_path: null, p_media_mime: null, p_reply_to: null, p_duration_ms: null,
+  });
+  if (error) throw error;
+  void notifyChatMessage('partner', partnerUserId, data as ChatMessage).catch(() => {});
+  return data as ChatMessage;
 }

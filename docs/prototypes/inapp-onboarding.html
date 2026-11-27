@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anacan Onboarding Prototipi</title>
+<style>
+:root{
+  --bg:#ffe7e1;--surface:#fff;--soft:#fdefe6;--ink:#333;--ink-soft:#8c8177;--line:rgba(51,51,51,.08);
+  --coral:#ff5a5f;--coral-ink:#9e2b2e;--peach1:#ffdcdd;--lav1:#e9ddfc;--lav-ink:#5b3aa5;--green1:#ddf3e3;--green-ink:#1c7a4d;
+  --blue1:#d5edff;--blue-ink:#1c5a80;--yellow1:#fff2c8;--yellow-ink:#946200;--page:#f6f1ee;--page-ink:#4a403b;--shade:rgba(25,12,10,.62);
+}
+:root[data-theme="dark"]{
+  --bg:#161922;--surface:#3b3c41;--soft:#4b4c53;--ink:#fff;--ink-soft:#c7c8ce;--line:rgba(255,255,255,.1);
+  --coral-ink:#ffb3b0;--peach1:#5a3436;--lav1:#3f3757;--lav-ink:#d6c6ff;--green1:#263f31;--green-ink:#9fe0bb;--blue1:#24384a;--blue-ink:#a9d6f5;
+  --yellow1:#4a3f1e;--yellow-ink:#ffd98a;--page:#101218;--page-ink:#d9d9de;--shade:rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.45 Inter,Nunito,system-ui,-apple-system,sans-serif;min-height:100vh}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 40px;display:grid;grid-template-columns:1fr 390px;gap:28px;align-items:start}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}.phone-col{order:-1}}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.02em}
+.lead{margin:0 0 16px;color:var(--ink-soft);font-size:14px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--page-ink);font:inherit;font-size:13px;padding:7px 13px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--coral);color:#fff}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.steps li button{width:100%;text-align:left;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);background:var(--surface);color:var(--page-ink);border-radius:14px;padding:11px 13px;font:inherit;cursor:pointer}
+.steps li button[aria-current="step"]{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,90,95,.15)}
+.steps .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--coral-ink)}
+.steps b{display:block;font-size:14px}
+.steps span.d{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+.why{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 15px;font-size:13.5px}
+.why b{color:var(--coral-ink)}
+.nav{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.btn{border:0;border-radius:999px;padding:11px 18px;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
+.btn.primary{background:var(--coral);color:#fff}
+.btn.ghost{background:var(--surface);color:var(--page-ink);border:1px solid var(--line)}
+/* phone */
+.phone{position:relative;width:375px;max-width:100%;height:760px;margin:0 auto;border-radius:44px;background:var(--bg);overflow:hidden;border:10px solid #1d1d1f;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.status{height:44px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;font-size:13px;font-weight:600;color:var(--ink)}
+.screen{position:absolute;inset:44px 0 0 0;overflow:hidden}
+.home{padding:6px 16px 120px;height:100%;overflow-y:auto}
+.hello{display:flex;align-items:center;justify-content:space-between;margin:4px 2px 12px;color:var(--ink)}
+.hello small{display:block;color:var(--ink-soft);font-size:12px}
+.hello b{font-size:19px;letter-spacing:-.02em}
+.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#ffd0c4,#ff8d89)}
+.card{background:var(--surface);border-radius:22px;padding:16px;margin-bottom:12px;color:var(--ink)}
+.hero{background:linear-gradient(135deg,#ffe4e2 0%,#ffb4b1 52%,#ff8d89 100%);color:#5a1f1f}
+:root[data-theme="dark"] .hero{background:linear-gradient(135deg,#5a3436,#a8454a);color:#fff}
+.hero .k{font-size:12px;opacity:.8}
+.hero .t{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:3px 0 6px}
+.hero .s{font-size:13px;opacity:.9}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.quick div{background:var(--surface);border-radius:18px;padding:12px 4px;text-align:center;font-size:11.5px;color:var(--ink)}
+.quick i{display:grid;place-items:center;width:38px;height:38px;margin:0 auto 6px;border-radius:12px;font-style:normal;font-size:18px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini{border-radius:18px;padding:14px;font-size:12.5px;color:var(--ink)}
+.mini b{display:block;font-size:15px;margin-top:4px}
+.tabbar{position:absolute;left:14px;right:14px;bottom:16px;height:62px;border-radius:31px;background:rgba(255,255,255,.88);backdrop-filter:blur(20px);display:flex;justify-content:space-around;align-items:center;box-shadow:0 10px 30px -12px rgba(0,0,0,.25)}
+:root[data-theme="dark"] .tabbar{background:rgba(59,60,65,.85)}
+.tabbar span{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--ink-soft)}
+.tabbar span.on{background:var(--soft);color:var(--coral)}
+.tabbar svg{width:22px;height:22px}
+/* checklist */
+.check h3{margin:0 0 2px;font-size:16px}
+.check .bar{height:6px;border-radius:3px;background:var(--soft);margin:10px 0 6px;overflow:hidden}
+.check .bar i{display:block;height:100%;background:var(--coral);border-radius:3px;transition:width .4s}
+.check ul{list-style:none;margin:8px 0 0;padding:0}
+.check li{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:13.5px;cursor:pointer}
+.check li .c{flex:0 0 22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:#fff;font-size:12px}
+.check li.done .c{background:var(--green-ink);border-color:var(--green-ink)}
+.check li.done span.l{color:var(--ink-soft);text-decoration:line-through}
+.check li em{margin-left:auto;font-style:normal;font-size:11.5px;color:var(--coral-ink);text-align:right;max-width:42%}
+.check .x{float:right;border:0;background:transparent;color:var(--ink-soft);font-size:18px;cursor:pointer}
+/* overlays */
+.shade{position:absolute;inset:0;background:var(--shade);z-index:20;animation:fade .25s}
+.spot{position:absolute;border-radius:24px;box-shadow:0 0 0 2000px var(--shade);z-index:21;pointer-events:none;transition:all .35s}
+.spot::after{content:"";position:absolute;inset:-6px;border-radius:28px;border:2px solid rgba(255,255,255,.9);animation:pulse 1.6s infinite}
+.tip{position:absolute;left:18px;right:18px;z-index:22;background:var(--surface);color:var(--ink);border-radius:20px;padding:15px 16px;box-shadow:0 20px 40px -20px rgba(0,0,0,.5);animation:up .3s}
+.tip .p{font-size:11.5px;color:var(--ink-soft);margin-bottom:3px}
+.tip b{display:block;font-size:16px;margin-bottom:4px}
+.tip p{margin:0 0 12px;font-size:13.5px;color:var(--ink-soft)}
+.tip .a{display:flex;justify-content:space-between;align-items:center}
+.tip .skip{border:0;background:none;color:var(--ink-soft);font:inherit;font-size:13px;cursor:pointer}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:22;background:var(--surface);color:var(--ink);border-radius:28px 28px 0 0;padding:22px 20px 30px;animation:up .3s}
+.sheet .grab{width:40px;height:5px;border-radius:3px;background:var(--line);margin:-8px auto 14px}
+.sheet h2{margin:0 0 6px;font-size:21px;letter-spacing:-.02em}
+.sheet p{margin:0 0 14px;color:var(--ink-soft);font-size:14px}
+.pill-list{display:grid;gap:8px;margin:12px 0 18px}
+.pill-list div{display:flex;gap:10px;align-items:center;background:var(--soft);border-radius:14px;padding:10px 12px;font-size:13.5px}
+.pill-list i{font-style:normal;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--surface)}
+.full{width:100%;border:0;border-radius:16px;padding:15px;font:600 15px/1 inherit;font-family:inherit;cursor:pointer;background:var(--coral);color:#fff}
+.link{display:block;margin:12px auto 0;border:0;background:none;color:var(--ink-soft);font:inherit;font-size:13.5px;cursor:pointer}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 16px}
+.opts button{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:16px;padding:14px 4px;font:inherit;font-size:13px;cursor:pointer}
+.opts button.on{border-color:var(--coral);background:var(--peach1)}
+.opts i{display:block;font-style:normal;font-size:22px;margin-bottom:4px}
+.done-burst{text-align:center}
+.done-burst .ok{width:74px;height:74px;border-radius:50%;margin:4px auto 12px;background:var(--green1);color:var(--green-ink);display:grid;place-items:center;font-size:34px;animation:pop .45s}
+.perm{margin-top:14px;background:var(--soft);border-radius:18px;padding:14px;text-align:left}
+.perm b{display:block;font-size:14.5px;margin-bottom:3px}
+.perm p{margin:0 0 10px;font-size:13px}
+.perm .two{display:flex;gap:8px}
+.perm .two button{flex:1;border:0;border-radius:12px;padding:11px;font:600 13.5px/1 inherit;font-family:inherit;cursor:pointer}
+.perm .two .y{background:var(--coral);color:#fff}.perm .two .n{background:var(--surface);color:var(--ink)}
+.lock{position:absolute;inset:0;background:linear-gradient(160deg,#3a2a3f,#a0566a);z-index:30;color:#fff;padding:70px 14px}
+.lock .time{text-align:center;font-size:64px;font-weight:300;letter-spacing:-.03em}
+.lock .date{text-align:center;opacity:.8;margin-bottom:40px}
+.push{background:rgba(255,255,255,.22);backdrop-filter:blur(20px);border-radius:20px;padding:12px 14px;display:flex;gap:10px;margin-bottom:10px;animation:up .4s}
+.push .ic{flex:0 0 36px;height:36px;border-radius:9px;background:#fff;display:grid;place-items:center}
+.push b{font-size:13.5px}.push small{float:right;opacity:.75}.push p{margin:2px 0 0;font-size:13px;opacity:.95}
+.toast{position:absolute;left:16px;right:16px;bottom:94px;z-index:22;background:var(--ink);color:var(--bg);border-radius:16px;padding:12px 14px;font-size:13px;animation:up .3s}
+@keyframes fade{from{opacity:0}}@keyframes up{from{transform:translateY(16px);opacity:0}}
+@keyframes pulse{50%{opacity:.25}}@keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.08)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.legend{margin-top:16px;font-size:12.5px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section>
+    <h1>Tətbiqdaxili onboarding (ilk açılış səyahəti)</h1>
+    <p class="lead">Qeydiyyatdan sonra ilk tam açılış. Yuxarıda rejimi və görünüşü seçin, solda addıma klikləyin və ya telefonun içində düymələri basın.</p>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Mərhələ">
+        <button data-mode="mommy" aria-pressed="true">Ana</button><button data-mode="bump" aria-pressed="false">Hamilə</button><button data-mode="flow" aria-pressed="false">Dövr</button>
+      </div>
+      <div class="seg" role="group" aria-label="Görünüş">
+        <button data-theme-btn="light" aria-pressed="true">Light</button><button data-theme-btn="dark" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+    <ol class="steps" id="steps"></ol>
+    <div class="why" id="why"></div>
+    <p class="legend">Qayda: ilk sessiyada ən çox 3 ipucu, 1 əsas hərəkət, 1 icazə sorğusu. Qalan hər şey "Başlanğıc" siyahısında və lazım olan anda (kontekstual) göstərilir.</p>
+  </section>
+  <section class="phone-col">
+    <div class="phone" id="phone">
+      <div class="status"><span>9:41</span><span>●●● 100%</span></div>
+      <div class="screen" id="screen"></div>
+    </div>
+    <div class="nav"><button class="btn ghost" id="prev">← Geri</button><button class="btn primary" id="next">Növbəti →</button></div>
+  </section>
+</div>
+<script>
+const ICON={home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
+grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>',
+ai:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>',
+chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg>',
+user:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>'};
+const M={
+ mommy:{name:'Leyla',kid:'Aylin',heroK:'Aylin · 4 ay 12 gün',heroT:'Bu həftə: əlləri ilə oynayır',heroS:'Bu gün üçün 3 oyun ideyası və yuxu pəncərəsi hazırdır',
+  quick:[['🍼','Qidalanma','var(--peach1)'],['😴','Yuxu','var(--lav1)'],['🧷','Bez','var(--blue1)'],['📏','Boy-çəki','var(--green1)']],
+  minis:[['Növbəti yuxu','~13:40','var(--lav1)'],['Bu gün','5 qidalanma','var(--yellow1)']],
+  welcome:['Aylinin yaşına uyğun gündəlik plan','Qidalanma və yuxu qeydi bir toxunuşla','Gecə də yanında: Anacan AI'],
+  t1:['Hər gün burada','Aylinin bu həftəki inkişafı, yuxu pəncərəsi və sizə uyğun məsləhətlər. Hər səhər yenilənir.'],
+  t2:['Bir toxunuşla qeyd','Qidalanma, yuxu, bez. Qeyd etdikcə Anacan körpənizin ritmini öyrənir və proqnoz verir.'],
+  action:{title:'İlk qeydi edək',sub:'Son qidalanma nə idi?',opts:[['🤱','Sol döş'],['🤱','Sağ döş'],['🍼','Butulka']],btn:'Qeyd et'},
+  doneT:'Əla, ilk qeyd hazırdır!',doneS:'Növbəti qidalanma təxminən 15:10-da.',permT:'Vaxtı çatanda xatırladaq?',permS:'Yalnız qidalanma və yuxu xatırlatmaları. İstədiyiniz an söndürə bilərsiniz.',
+  list:[['Planınız hazırdır',1,''],['İlk qeyd',1,''],['Partnyoru dəvət edin',0,'birgə izləyin'],['Anacan AI-dan soruşun',0,'gecə də cavab verir'],['Ana ekrana vidcet',0,'1 saniyədə qeyd']],
+  tipTool:['Ən çox istifadə olunanlar','Yuxu, qidalanma və inkişaf alətləri yuxarıdadır. Qalanlarını axtarışla tapın.'],
+  push:[['Anacan','Aylinin dünənki günü: 6 qidalanma, 14 saat yuxu. Həftəlik ritm hazırlanır.','indi'],['Anacan','Bu axşam 20:30 yuxu pəncərəsidir. Sakit musiqi açaq?','2 dəq']]},
+ bump:{name:'Nigar',kid:'Körpə',heroK:'24-cü həftə · 3-cü trimestrə 4 həftə',heroT:'Körpə qarğıdalı boydadır',heroS:'Bu həftə: səsləri eşidir. Ona danışın və mahnı oxuyun.',
+  quick:[['👣','Təpik say','var(--peach1)'],['⚖️','Çəki','var(--green1)'],['🩺','Təzyiq','var(--blue1)'],['🎒','Çanta','var(--yellow1)']],
+  minis:[['Doğuşa','112 gün','var(--peach1)'],['Növbəti həkim','12 noyabr','var(--blue1)']],
+  welcome:['Həftə-həftə körpənin inkişafı','Təpik, çəki və təzyiq izləmə','Xəstəxana çantası və doğuş planı'],
+  t1:['Hər həftə yeni bir mərhələ','Körpənizin ölçüsü, bu həftə nə dəyişir və sizə nə lazımdır. Hər bazar ertəsi yenilənir.'],
+  t2:['Təpikləri sayın','Gündə bir dəfə 10 təpik vaxtını ölçün. Fərq olsa, Anacan sizə xəbər verəcək.'],
+  action:{title:'Bu günkü vəziyyət',sub:'Özünüzü necə hiss edirsiniz?',opts:[['😊','Yaxşı'],['😴','Yorğun'],['🤢','Ürəkbulanma']],btn:'Qeyd et'},
+  doneT:'Qeyd olundu!',doneS:'Bu həftə yorğunluq normaldır. Sizə 3 kiçik məsləhət hazırladıq.',permT:'Həftəlik yenilikləri xatırladaq?',permS:'Hər həftənin başlanğıcı və həkim görüşləri. Başqa heç nə.',
+  list:[['Planınız hazırdır',1,''],['İlk qeyd',1,''],['Partnyoru dəvət edin',0,'o da həftəni görsün'],['Xəstəxana çantası',0,'hazır siyahı'],['Anacan AI-dan soruşun',0,'istənilən sual']],
+  tipTool:['Hamiləlik alətləri','Təpik sayğacı, sancı ölçən və çanta siyahısı burada.'],
+  push:[['Anacan','25-ci həftəyə xoş gəldiniz! Körpə artıq gözlərini açıb-yumur.','indi'],['Anacan','Bu gün təpikləri saydınızmı? 2 dəqiqə çəkir.','1 saat']]},
+ flow:{name:'Səbinə',kid:'',heroK:'Dövrün 9-cu günü',heroT:'Növbəti period: 19 gün sonra',heroS:'Ovulyasiya pəncərəsi 4 gün sonra başlayır',
+  quick:[['🩸','Period','var(--peach1)'],['🙂','Əhval','var(--yellow1)'],['💊','Vitamin','var(--green1)'],['📝','Simptom','var(--lav1)']],
+  minis:[['Bu dövr','28 gün','var(--peach1)'],['Su','5 / 8 stəkan','var(--blue1)']],
+  welcome:['Dövr və ovulyasiya proqnozu','Əhval və simptom gündəliyi','Vaxtında xatırlatmalar'],
+  t1:['Dövrünüz bir baxışda','Proqnoz hər qeydlə dəqiqləşir. Gecikmə və ya fərqlilik olsa, burada görəcəksiniz.'],
+  t2:['Gündə 5 saniyə','Əhvalı və simptomu qeyd edin. 2 dövrdən sonra sizə xas qanunauyğunluqları göstərəcəyik.'],
+  action:{title:'Bu gün necəsiniz?',sub:'Bir seçim kifayətdir',opts:[['😊','Yaxşı'],['😣','Sancı'],['😔','Əhvalsız']],btn:'Qeyd et'},
+  doneT:'Qeyd olundu!',doneS:'Proqnozunuz bir az da dəqiqləşdi.',permT:'Period yaxınlaşanda xəbər verək?',permS:'Yalnız dövr xatırlatmaları. Mətn məxfi qalır: kilid ekranında "Anacan" görünür.',
+  list:[['Planınız hazırdır',1,''],['İlk qeyd',1,''],['Son period tarixini dəqiqləşdirin',0,'proqnoz dəqiqləşir'],['Anacan AI-dan soruşun',0,'məxfi'],['Ana ekrana vidcet',0,'gün sayğacı']],
+  tipTool:['Sizin alətlər','Dövr təqvimi, əhval gündəliyi və vitamin izləyici yuxarıdadır.'],
+  push:[['Anacan','Periodunuz 2 gün sonra gözlənilir. Çantanıza lazım olanları qoyun.','indi'],['Anacan','Bu ay əhvalınız ovulyasiya günlərində yaxşı olub.','dünən']]}
+};
+const STEPS=[
+ ['welcome','Xoş gəldin vərəqi','1 ekran: nə hazırladığımızı göstəririk, seçim: başla və ya sonra','İstifadəçi funneldə 10-15 sual cavablayıb. İlk ekran ona "sizi eşitdik" deyir: adı, körpənin adı/həftəsi və 3 fayda. Uzun slayd yoxdur, "Sonra" həmişə var.'],
+ ['spot1','İpucu 1: əsas kart','Spotlight ana karta, 1/2','Ən dəyərli yer ana kartdır. Bir cümlə ilə nə olduğunu və nə vaxt yeniləndiyini deyirik ki, sabah geri qayıtsın.'],
+ ['spot2','İpucu 2: sürətli qeyd','Spotlight sürətli düymələrə, 2/2','"Aha" anı: ilk qeyd. İpucu yalnız hərəkətə çağırır, izah etmir.'],
+ ['action','İlk hərəkət','Böyük düymələrlə 1 toxunuşluq qeyd','Aktivləşmə metrikası: ilk 24 saatda 1 qeyd. Forma deyil, 3 böyük seçim.'],
+ ['done','Təbrik + bildiriş icazəsi','Dəyərdən dərhal sonra yumşaq sorğu','Sistem bildiriş pəncərəsini dəyər görünəndən sonra açırıq. "İndi yox" deyən istifadəçidən 3 gün sonra kontekstdə yenidən soruşulur.'],
+ ['home','Başlanğıc siyahısı','Ana ekranda bağlana bilən kart: 2/5 tamamlandı','Qalan addımlar zorla göstərilmir: siyahıda durur, hər biri 1 toxunuşdur. Elementlərə klikləyin, tamamlanır.'],
+ ['tools','Kontekstual ipucu','İlk dəfə Alətlər açılanda 1 cümlə','Hər bölmənin öz ipucu ilk açılışda bir dəfə çıxır. Bir anda bir ipucu, ardıcıl iki yox.'],
+ ['push','Günlər 1-7: xatırlatmalar','Kilid ekranında nümunə bildirişlər','Gündə ən çox 1 onboarding bildirişi, sakit saatlarda heç biri. Premium təklifi 1-ci gündə deyil: funneldə artıq görüb; 3-5-ci gündə dəyərlə bağlı.']
+];
+let mode='mommy',step=0,checked=null,theme='light';
+const $=s=>document.querySelector(s);
+const tabbar=a=>`<div class="tabbar">${['home','grid','ai','chat','user'].map(k=>`<span class="${k===a?'on':''}">${ICON[k]}</span>`).join('')}</div>`;
+function home(withCheck){const m=M[mode];
+ const list=checked||m.list.map(x=>x[1]);const n=list.filter(Boolean).length;
+ return `<div class="home"><div class="hello"><div><small>Sabahınız xeyir</small><b>${m.name}</b></div><div class="avatar"></div></div>
+ <div class="card hero" id="hero"><div class="k">${m.heroK}</div><div class="t">${m.heroT}</div><div class="s">${m.heroS}</div></div>
+ <div class="quick" id="quick">${m.quick.map(q=>`<div><i style="background:${q[2]}">${q[0]}</i>${q[1]}</div>`).join('')}</div>
+ ${withCheck?`<div class="card check"><button class="x" title="Bağla" onclick="toast('Siyahı gizlədildi. Profil → Başlanğıc bələdçisi bölməsindən yenidən açılır.')">×</button><h3>${n===list.length?'Hər şey hazırdır! 🎉':'Başlanğıc'}</h3><div style="font-size:12.5px;color:var(--ink-soft)">${n} / ${list.length} tamamlandı · 2 dəqiqə</div>
+  <div class="bar"><i style="width:${n/list.length*100}%"></i></div><ul>${m.list.map((x,i)=>`<li class="${list[i]?'done':''}" onclick="tick(${i})"><span class="c">${list[i]?'✓':''}</span><span class="l">${x[0]}</span>${!list[i]&&x[2]?`<em>${x[2]}</em>`:''}</li>`).join('')}</ul></div>`:''}
+ <div class="row2">${m.minis.map(x=>`<div class="mini" style="background:${x[2]}">${x[0]}<b>${x[1]}</b></div>`).join('')}</div>
+ <div class="card" style="margin-top:12px;font-size:13px"><b style="font-size:14px">Bloq</b><div style="color:var(--ink-soft);margin-top:4px">Sizin mərhələyə uyğun 3 yazı</div></div>
+ </div>${tabbar('home')}`;}
+function render(){const m=M[mode],id=STEPS[step][0];let h='';
+ if(id==='welcome')h=home(false)+`<div class="shade"></div><div class="sheet"><div class="grab"></div><h2>Xoş gəldin, ${m.name}! Planın hazırdır</h2><p>Cavablarına görə hazırladıq:</p><div class="pill-list">${m.welcome.map((w,i)=>`<div><i>${['✨','⏱️','💬'][i]}</i>${w}</div>`).join('')}</div><button class="full" onclick="go(1)">30 saniyəlik tanışlıq</button><button class="link" onclick="go(5)">Sonra, özüm baxaram</button></div>`;
+ if(id==='spot1')h=home(false)+`<div class="spot" style="left:12px;right:12px;top:58px;height:118px"></div><div class="tip" style="top:190px"><div class="p">1 / 2</div><b>${m.t1[0]}</b><p>${m.t1[1]}</p><div class="a"><button class="skip" onclick="go(5)">Keç</button><button class="btn primary" onclick="go(2)">Növbəti</button></div></div>`;
+ if(id==='spot2')h=home(false)+`<div class="spot" style="left:12px;right:12px;top:186px;height:92px"></div><div class="tip" style="top:292px"><div class="p">2 / 2</div><b>${m.t2[0]}</b><p>${m.t2[1]}</p><div class="a"><button class="skip" onclick="go(5)">Keç</button><button class="btn primary" onclick="go(3)">İndi sınayım</button></div></div>`;
+ if(id==='action')h=home(false)+`<div class="shade"></div><div class="sheet"><div class="grab"></div><h2>${m.action.title}</h2><p>${m.action.sub}</p><div class="opts">${m.action.opts.map((o,i)=>`<button class="${i===0?'on':''}" onclick="pick(this)"><i>${o[0]}</i>${o[1]}</button>`).join('')}</div><button class="full" onclick="go(4)">${m.action.btn}</button><button class="link" onclick="go(5)">İndi yox</button></div>`;
+ if(id==='done')h=home(false)+`<div class="shade"></div><div class="sheet done-burst"><div class="ok">✓</div><h2>${m.doneT}</h2><p>${m.doneS}</p><div class="perm"><b>${m.permT}</b><p style="color:var(--ink-soft)">${m.permS}</p><div class="two"><button class="n" onclick="go(5);toast('Yaxşı. 3 gün sonra, uyğun anda yenidən soruşacağıq.')">İndi yox</button><button class="y" onclick="go(5);toast('Burada sistem icazə pəncərəsi açılır (iOS / Android).')">Bəli, xatırlat</button></div></div></div>`;
+ if(id==='home')h=home(true);
+ if(id==='tools')h=`<div class="home"><div class="hello"><div><small>Alətlər</small><b>Sizin üçün</b></div></div>${[0,1,2].map(i=>`<div class="card" style="display:flex;gap:12px;align-items:center"><i style="font-style:normal;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:${m.quick[i][2]};font-size:20px">${m.quick[i][0]}</i><div><b style="font-size:14.5px">${m.quick[i][1]}</b><div style="font-size:12px;color:var(--ink-soft)">Ən çox istifadə olunan</div></div></div>`).join('')}<div class="card" style="color:var(--ink-soft);font-size:13px">+ 40 alət</div></div>${tabbar('grid')}
+ <div class="tip" style="bottom:96px"><b>${m.tipTool[0]}</b><p>${m.tipTool[1]}</p><div class="a"><span></span><button class="btn primary" onclick="go(7)">Aydındır</button></div></div>`;
+ if(id==='push')h=`<div class="lock"><div class="time">9:41</div><div class="date">Cümə axşamı, 6 noyabr</div>${m.push.map(p=>`<div class="push"><div class="ic"><img alt="" width="22" height="22" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23ff5a5f'/%3E%3C/svg%3E"></div><div><b>${p[0]}</b><small>${p[2]}</small><p>${p[1]}</p></div></div>`).join('')}</div>`;
+ $('#screen').innerHTML=h;
+ $('#steps').innerHTML=STEPS.map((s,i)=>`<li><button aria-current="${i===step?'step':'false'}" onclick="go(${i})"><span class="n">${i+1}</span><span><b>${s[1]}</b><span class="d">${s[2]}</span></span></button></li>`).join('');
+ $('#why').innerHTML=`<b>Niyə belə:</b> ${STEPS[step][3]}`;
+ $('#prev').disabled=step===0;$('#next').textContent=step===STEPS.length-1?'Yenidən →':'Növbəti →';
+}
+function go(i){step=i;render();}
+function pick(el){el.parentNode.querySelectorAll('button').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
+function tick(i){const m=M[mode];checked=checked||m.list.map(x=>x[1]);checked[i]=checked[i]?0:1;render();if(checked.every(Boolean))toast('Bütün başlanğıc addımları tamamlandı. Kart 1 gün sonra özü gizlənir.');}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;$('#screen').appendChild(d);setTimeout(()=>d.remove(),2600);}
+$('#prev').onclick=()=>go(Math.max(0,step-1));
+$('#next').onclick=()=>go(step===STEPS.length-1?0:step+1);
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;checked=null;document.querySelectorAll('[data-mode]').forEach(x=>x.setAttribute('aria-pressed',x===b));render();});
+document.querySelectorAll('[data-theme-btn]').forEach(b=>b.onclick=()=>{theme=b.dataset.themeBtn;document.documentElement.dataset.theme=theme;document.querySelectorAll('[data-theme-btn]').forEach(x=>x.setAttribute('aria-pressed',x===b));});
+render();
+</script>
+</body>
+</html>

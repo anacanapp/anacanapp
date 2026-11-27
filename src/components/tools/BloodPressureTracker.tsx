@@ -9,6 +9,11 @@ import { useUserStore } from '@/store/userStore';
 import { hapticFeedback } from '@/lib/native';
 import { toast } from 'sonner';
 import { tr } from '@/lib/tr';
+import { fillEmergencyNumber } from '@/lib/emergency';
+import { useEmergencyNumber } from '@/hooks/useEmergencyNumber';
+import { SafetyStrip } from '@/components/tools/anacan/SafetyStrip';
+import { isEarlyPostpartum } from '@/lib/postpartum-window';
+import { useChildren } from '@/hooks/useChildren';
 
 /**
  * Qan Təzyiqi İzləyicisi — preeklampsiya nəzarəti ilə.
@@ -21,7 +26,14 @@ interface Props {
 
 const BloodPressureTracker = ({ onBack }: Props) => {
   const lifeStage = useUserStore((s) => s.lifeStage);
-  const isPregnant = lifeStage === 'bump';
+  const babyBirthDate = useUserStore((s) => s.babyBirthDate);
+  const isBump = lifeStage === 'bump';
+  // Preeclampsia can start or worsen in the first 6 weeks after birth (ACOG/NHS): same ≥140/90 and ≥160/110 alerts.
+  // Youngest baby counts (twins/siblings): any child, plus the onboarding birth date in the store.
+  const { children } = useChildren();
+  const isPostpartum = lifeStage === 'mommy' && isEarlyPostpartum([babyBirthDate, ...children.map((c) => c.birth_date)]);
+  const isPregnant = isBump || isPostpartum;
+  const emergency = useEmergencyNumber();
 
   const { data: logs = [], isLoading } = useBloodPressureLogs();
   const addLog = useAddBpLog();
@@ -56,8 +68,8 @@ const BloodPressureTracker = ({ onBack }: Props) => {
       setSystolic('');
       setDiastolic('');
       setPulse('');
-      // Health inteqrasiyası aktivdirsə → Apple Health / Health Connect-ə də yaz (arxa planda)
-      import('@/lib/healthVitals').then((m) => m.writeBloodPressureToHealth(sys, dia)).catch(() => {});
+      // Health copy is on → copy the saved record to Apple Health / Health Connect (background, no duplicates)
+      import('@/lib/healthVitals').then((m) => m.syncVitalsInBackground(useUserStore.getState().userId)).catch(() => {});
     } catch (e) {
       console.error(e);
       toast.error(tr('bp_save_error', 'Saxlanılmadı — bazanın hazır olduğundan əmin olun'));
@@ -93,7 +105,7 @@ const BloodPressureTracker = ({ onBack }: Props) => {
     <ToolPage>
       <ToolHeader
         title={tr('bp_title', 'Qan Təzyiqi')}
-        eyebrow={isPregnant ? tr('bp_eyebrow_bump', 'Preeklampsiya nəzarəti') : tr('bp_eyebrow', 'Ürək sağlamlığı')}
+        eyebrow={isBump ? tr('bp_eyebrow_bump', 'Preeklampsiya nəzarəti') : isPostpartum ? tr('safety_bp_eyebrow_postpartum', 'Doğuşdan sonra preeklampsiya nəzarəti') : tr('bp_eyebrow', 'Ürək sağlamlığı')}
         onBack={onBack} />
 
       <div className="space-y-3.5">
@@ -115,8 +127,8 @@ const BloodPressureTracker = ({ onBack }: Props) => {
                 {latest?.systolic}/{latest?.diastolic} mmHg. {tr('bp_urgent_text', 'Gözləməyin — dərhal həkiminizə və ya təcili yardıma müraciət edin.')}
               </p>
               <div className="flex gap-2 mt-1">
-                <a href="tel:103" className="a-cta-btn" style={{ background: 'var(--a-pink-ink)', flex: 1, justifyContent: 'center' }}>
-                  <Phone size={14} strokeWidth={2.2} /> 103
+                <a href={`tel:${emergency}`} className="a-cta-btn" style={{ background: 'var(--a-pink-ink)', flex: 1, justifyContent: 'center' }}>
+                  <Phone size={14} strokeWidth={2.2} /> {emergency}
                 </a>
               </div>
             </motion.div>
@@ -130,7 +142,9 @@ const BloodPressureTracker = ({ onBack }: Props) => {
             style={{ background: 'var(--a-yellow-1)', borderRadius: 16, padding: 14 }}>
               <Info size={16} className="mt-0.5 shrink-0" style={{ color: 'var(--a-warn-ink)' }} />
               <p style={{ fontSize: 12.5, fontWeight: 600, color: 'var(--a-warn-ink)', lineHeight: 1.5 }}>
-                {isPregnant ?
+                {isPostpartum ?
+              tr('safety_bp_warning_postpartum', 'Son ölçmə ≥140/90. Doğuşdan sonrakı ilk 6 həftədə bu, preeklampsiya əlaməti ola bilər. Bu gün həkiminizlə əlaqə saxlayın.') :
+              isPregnant ?
               tr('bp_warning_preeclampsia', 'Son ölçmə ≥140/90 — hamiləlikdə bu, preeklampsiya əlaməti ola bilər. Bu gün həkiminizlə əlaqə saxlayın.') :
               tr('bp_warning_stage2', 'Son ölçməniz yüksəkdir. Bu gün həkiminizlə əlaqə saxlamağı tövsiyə edirik.')}
               </p>
@@ -218,7 +232,7 @@ const BloodPressureTracker = ({ onBack }: Props) => {
               </div>
             </div>
             <p className="mt-3 leading-relaxed" style={{ fontSize: 12.5, color: 'var(--a-body-text)' }}>
-              {latestAssessment.guidance}
+              {fillEmergencyNumber(latestAssessment.guidance, emergency)}
             </p>
           </div>
         }
@@ -262,6 +276,10 @@ const BloodPressureTracker = ({ onBack }: Props) => {
           </div>
         }
 
+        <SafetyStrip signs={isPregnant ?
+          tr('safety_bp_signs_pregnancy', 'Dərhal zəng edin: güclü baş ağrısı, görmə dəyişikliyi, qabırğaaltı ağrı, təngnəfəslik') :
+          tr('safety_bp_signs', 'Dərhal zəng edin: döş ağrısı, güclü baş ağrısı, bir tərəfdə zəiflik, nitq pozulması')} />
+
         {/* ── Hədlər ── */}
         <div style={{ background: 'var(--a-disclaimer-bg)', border: '1px solid var(--a-disclaimer-border)', borderRadius: 'var(--a-radius-md)', padding: 16 }}>
           <p style={{ fontSize: 11.5, fontWeight: 800, color: 'var(--a-disclaimer-strong)', marginBottom: 8 }}>
@@ -271,9 +289,9 @@ const BloodPressureTracker = ({ onBack }: Props) => {
             <p>💚 {tr('bp_th_normal', 'Normal')}: {isPregnant ? '90–129 / 60–84' : '90–119 / 60–79'}</p>
             <p>🟡 {tr('bp_cat_elevated', 'Yüksəlmiş')}: {isPregnant ? '130–139 / 85–89' : '120–129 / <80'}</p>
             {!isPregnant && <p>🟠 {tr('bp_cat_monitor', 'Yüksəlmiş — izləyin')}: 130–139 / 80–89</p>}
-            <p>🔴 {tr('bp_cat_high_reading', 'Yüksək təzyiq')}: ≥140/90{isPregnant ? ` — ${tr('bp_th_preeclampsia', 'hamiləlikdə preeklampsiya riski, həkimə bildirin')}` : ''}</p>
-            {isPregnant && <p>🚨 {tr('bp_urgent_eyebrow', 'Təcili')}: ≥160/110 — {tr('bp_th_crisis', 'dərhal 103')}</p>}
-            <p>🚨 {tr('bp_cat_crisis', 'Hipertonik böhran')}: ≥180/120 — {tr('bp_th_crisis', 'dərhal 103')}</p>
+            <p>🔴 {tr('bp_cat_high_reading', 'Yüksək təzyiq')}: ≥140/90{isPostpartum ? ` — ${tr('safety_bp_th_postpartum', 'doğuşdan sonra preeklampsiya riski, həkimə bildirin')}` : isPregnant ? ` — ${tr('bp_th_preeclampsia', 'hamiləlikdə preeklampsiya riski, həkimə bildirin')}` : ''}</p>
+            {isPregnant && <p>🚨 {tr('bp_urgent_eyebrow', 'Təcili')}: ≥160/110 — {fillEmergencyNumber(tr('bp_th_crisis', 'dərhal {emergency}'), emergency)}</p>}
+            <p>🚨 {tr('bp_cat_crisis', 'Hipertonik böhran')}: ≥180/120 — {fillEmergencyNumber(tr('bp_th_crisis', 'dərhal {emergency}'), emergency)}</p>
           </div>
           <p className="mt-2" style={{ fontSize: 10, color: 'var(--a-disclaimer-ink)', opacity: 0.8 }}>
             {tr('bp_disclaimer', 'Bu alət həkim müayinəsini əvəz etmir.')}

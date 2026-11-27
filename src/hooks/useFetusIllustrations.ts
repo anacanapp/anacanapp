@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useUserStore } from '@/store/userStore';
 import { mapRowsTranslation } from '@/lib/tr';
+import { resolvePublicStorageUrl } from '@/lib/illustration-image';
 
 export interface FetusIllustration {
   id: string;
@@ -40,12 +41,13 @@ export const useFetusIllustrations = () => {
 // Verilmiş ay üçün fetus şəkli URL-i. Bazada yoxdursa və ya yüklənmə
 // xətası olarsa null qaytarır — çağıran tərəf daxili SVG fallback
 // göstərir (offline/köhnə versiyada heç nə sınmır).
+// URL köhnə (dayandırılmış Azure) hostdadırsa Google Storage-a yönləndirilir.
 export const useFetusIllustrationByMonth = (monthNumber: number) => {
   const { data: illustrations = [] } = useFetusIllustrations();
 
   return useMemo(() => {
     const illustration = illustrations.find((i) => i.month_number === monthNumber);
-    return illustration?.image_url || null;
+    return resolvePublicStorageUrl(illustration?.image_url);
   }, [illustrations, monthNumber]);
 };
 

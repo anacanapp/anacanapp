@@ -9,6 +9,7 @@ vi.mock('@/store/userStore', () => ({ useUserStore: selector => selector({ cycle
   getCycleData: () => ({ lastPeriodDate: new Date(2026, 8, 10) }) }) }));
 vi.mock('@/lib/tr', () => ({ tr: (_key, fallback) => fallback }));
 vi.mock('@/lib/date-utils', () => ({ getCurrentDateLocale: () => undefined }));
+vi.mock('@/hooks/useCycleHistory', () => ({ useEffectiveCycleLength: () => 28 }));
 vi.mock('sonner', () => ({ toast: { success: vi.fn(), error: vi.fn() } }));
 vi.mock('framer-motion', async () => {
   const { createElement } = await import('react');

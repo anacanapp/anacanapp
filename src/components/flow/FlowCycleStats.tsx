@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
 import { tr } from '@/lib/tr';
 import { Calendar, TrendingUp, Clock, Activity, BarChart3 } from 'lucide-react';
-import { format, parseISO, differenceInDays } from 'date-fns';
+import { format, differenceInDays } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
+import { storedCalendarDate } from '@/lib/stored-date-key';
 import { useCycleHistory, useCycleStats, CycleHistory } from '@/hooks/useCycleHistory';
+import { isAnomalousCycleLength } from '@/lib/cycle-predictions';
+import { feature37Text } from '@/lib/feature37-i18n';
 
 const FlowCycleStats = () => {
   const { data: cycles = [], isLoading } = useCycleHistory();
@@ -75,23 +78,33 @@ const FlowCycleStats = () => {
         </div>
       </div>
 
+      {stats.anomalousCycles > 0 &&
+      <p className="a-list-sub" style={{ margin: '10px 0 0' }}>
+          {feature37Text('cycle_anomaly_note').replace('{n}', String(stats.anomalousCycles))}
+        </p>
+      }
+
       {/* Recent Cycles */}
       {cycles.length > 0 &&
       <div style={{ marginTop: 14 }}>
           <p className="a-today-info-eyebrow" style={{ marginBottom: 4 }}>{tr("flowcyclestats_son_tsikller_7e7eb6", "Son Tsikllər")}</p>
           <div>
-            {cycles.slice(0, 3).map((cycle) =>
+            {cycles.slice(0, 3).map((cycle) => {
+          // Guard: a null/invalid stored date must not throw and break the whole dashboard.
+          const startDate = storedCalendarDate(cycle.start_date);
+          const endDate = storedCalendarDate(cycle.end_date);
+          return (
           <div key={cycle.id} className="a-rank-row">
                 <span className="a-rank-avatar" style={{ background: 'var(--a-surface-soft)', fontSize: 11.5, fontWeight: 800, color: 'var(--a-ink-soft)' }}>
                   #{cycle.cycle_number}
                 </span>
                 <div style={{ minWidth: 0 }}>
                   <p className="a-rank-title">
-                    {format(parseISO(cycle.start_date), 'd MMM', { locale: getCurrentDateLocale() })}
-                    {cycle.end_date &&
+                    {startDate ? format(startDate, 'd MMM', { locale: getCurrentDateLocale() }) : '—'}
+                    {endDate &&
                 <span style={{ color: 'var(--a-ink-soft)' }}>
                         {' – '}
-                        {format(parseISO(cycle.end_date), 'd MMM', { locale: getCurrentDateLocale() })}
+                        {format(endDate, 'd MMM', { locale: getCurrentDateLocale() })}
                       </span>
                 }
                   </p>
@@ -99,13 +112,18 @@ const FlowCycleStats = () => {
                     {cycle.cycle_length ? tr("flowcyclestats_gun_tsikl_f123bc", "{length} gün tsikl").replace("{length}", String(cycle.cycle_length)) : tr("flowcyclestats_davam_edir_f842cd", "Davam edir")}
                   </p>
                 </div>
+                {isAnomalousCycleLength(cycle.cycle_length) &&
+            <span className="a-rank-tag" style={{ background: 'var(--a-yellow-1)', color: 'var(--a-warn-ink)', marginInlineEnd: 6 }}>
+                    {feature37Text('cycle_anomaly_badge')}
+                  </span>
+            }
                 {cycle.period_length &&
             <span className="a-rank-tag intensive">
                     {cycle.period_length} {tr("flowcyclestats_gun_54e78d", "g\xFCn")}
                   </span>
             }
               </div>
-          )}
+          );})}
           </div>
         </div>
       }

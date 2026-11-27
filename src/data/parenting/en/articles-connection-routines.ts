@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Attachment: your child’s safe harbour',
+    summary: 'Secure attachment doesn’t come from perfect parenting, but from “good enough”, sensitive and reliable parenting.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby described attachment as a child’s instinct to seek closeness when in danger. Mary Ainsworth observed that children whose parents were sensitive and predictable used them as a “secure base”: they explored freely, and when frightened they came back and calmed down.',
+      'Secure attachment is linked in later years with better emotional regulation, friendship skills and self-confidence. Importantly, this doesn’t require responding instantly and perfectly to every cry. Research shows that a large part of interaction consists of “mismatched” moments — what matters is repairing them afterwards.',
+      'Attachment isn’t built once and done: at school age too, your child needs to know they can come back to you in hard moments. It’s just that now it happens less through cuddles and more through listening and a sense of “I’m on your side”.',
+    ],
+    tryToday: [
+      'When your child comes to you (happy or sad), give them your full attention for a few seconds: put the phone down, look them in the eye.',
+      'Create a short goodbye ritual that’s always the same: a hug, “see you this evening” — and then really go. Sneaking out damages trust.',
+      'Once a day, join in with their interests: whatever they’re playing, whatever they’re talking about.',
+      'Repair a moment when you lost your temper: “I was impatient this morning. Let’s start again.”',
+    ],
+    mistakes: [
+      'Leaving a baby to cry for fear they’ll “get used to being held”. In the early months, responding doesn’t reduce independence — it increases it.',
+      'Thinking attachment means “never leaving your child”. Children form secure bonds with grandparents, the other parent and carers too — and that’s a good thing.',
+      'Trying to be perfect. Your child doesn’t need an ideal parent, but a genuine one who can repair.',
+    ],
+    byAge: {
+      '0-1': 'Respond to crying, make eye contact, talk, sing. There’s no such thing as spoiling at this age.',
+      '1-3': 'Your child explores and comes back. Sitting in the park and saying “I’m here” is enough.',
+      '3-6': '10–15 minutes of special playtime a day strengthens attachment.',
+      '6-12': 'Listen without judging. If you’re there for their small problems, they’ll bring you their big ones too.',
+    },
+    specialist: [
+      'If your baby avoids eye contact, shows no interest in you or familiar people, or is almost impossible to soothe — see a doctor.',
+      'If your child attaches to everyone, even strangers, equally and indiscriminately (especially after difficult early years) — see a child psychologist.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'When your baby cries: the “you’ll spoil them” myth',
+    summary: 'Crying is your baby’s only language. Responding doesn’t create a spoiled child — it creates trust.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'The American Academy of Pediatrics says it plainly: you can’t spoil a baby in the first months. Responding kindly to crying calms the baby’s stress system and builds the belief that “the world is safe”.',
+      'At the same time, it’s normal for healthy babies to cry a lot in the first weeks: crying starts increasing at around 2 weeks, peaks at 6–8 weeks and eases off by 3–4 months. Sometimes there’s no cause to be found. That isn’t your failure.',
+      'The most important safety rule: when you reach your limit, never shake your baby. Shaking can cause brain injury. Putting your baby down on their back in the cot and leaving the room for a few minutes is absolutely the right thing to do.',
+    ],
+    tryToday: [
+      'Check the basics: hunger, nappy, too hot or too cold, wind, tiredness.',
+      'Try soothing techniques: swaddling (with hips free), rhythmic rocking, a “shhh” sound, walking around holding them, skin-to-skin contact.',
+      'Make a backup plan for the crying hours: take turns with your partner, a grandparent or a neighbour.',
+      'If your patience is running out: put your baby down somewhere safe, breathe for 5–10 minutes, drink some water, call someone, then come back.',
+    ],
+    mistakes: [
+      'Leaving a very young baby alone for a long time because “if you let them cry, they’ll get used to it”.',
+      'Blaming lots of crying on your own “bad parenting”. This phase passes.',
+      'Being embarrassed to ask for help.',
+    ],
+    specialist: [
+      'If the crying comes with fever (especially in a baby under 3 months), vomiting, diarrhoea, refusing feeds, unusual drowsiness or an unusual high-pitched cry — see a doctor straight away. If it’s serious, call {emergency}.',
+      'If you find yourself thinking about shaking or harming your baby, ask for help immediately. It doesn’t make you a bad person — it shows your exhaustion has reached its limit.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 minutes a day: special time',
+    summary: 'A short daily playtime led by your child is one of the most powerful tools for reducing behaviour problems.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'The first stage of PCIT (Parent–Child Interaction Therapy), one of the most researched parenting programmes, is built on exactly this: 5–10 minutes a day of play led by the child, while the parent praises, describes and imitates. Meta-analyses show these programmes significantly reduce behaviour problems.',
+      'The reason is simple: when a child’s need for attention is met in a positive way, they have less need to “earn” attention through negative behaviour.',
+    ],
+    tryToday: [
+      'Set a timer: 10 minutes. Phone in another room.',
+      'Your child chooses the game, you follow. No commands, no barrage of questions, no criticism.',
+      'Describe what they’re doing: “You put the red block on the very top.” Copy them, praise them: “You’re building so carefully!”',
+      'When you finish, say: “I really loved playing with you. Again tomorrow.”',
+    ],
+    mistakes: [
+      'Cancelling special time because of bad behaviour. It isn’t a punishment or a reward — it’s a daily vitamin.',
+      'Turning play into a “lesson”: “What colour is this? How many blocks are there?”',
+    ],
+    byAge: {
+      '1-3': '5 minutes is enough. Sit on the floor, at their level.',
+      '6-12': 'Give it a name: “mum-and-son time”. It could be a card game, cooking together or a walk.',
+    },
+    specialist: [
+      'If special time and other strategies bring no change at all after a few weeks, or behaviour problems are severe — see a specialist about PCIT or similar programmes.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Separation anxiety and settling into nursery',
+    summary: 'Crying at separation is a sign of attachment. A short, warm goodbye and a predictable return make settling in easier.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Separation anxiety starts at around 8–10 months, peaks at 15–18 months and usually eases towards age 3. It’s the period when a child doesn’t yet fully understand that the parent hasn’t “disappeared”.',
+      'What increases a child’s anxiety most is unpredictability. Sneaking away may reduce tears in the moment, but in the long run it makes the child cling more.',
+    ],
+    tryToday: [
+      'Create a short goodbye ritual that’s always the same: a hug, a kiss, “I’ll come after lunch” — then go.',
+      'Before starting nursery, do short practice separations: 15 minutes, then 1 hour.',
+      'Link your return to an event your child understands: “I’ll come after your nap, after snack time.”',
+      'A “transition object” from home — a small toy, a photo of you — can comfort them.',
+    ],
+    mistakes: [
+      'Not being able to leave a crying child, turning back at the door again and again.',
+      'Laughing at your child’s fear or saying “you’re a big kid, it’s embarrassing”.',
+    ],
+    specialist: [
+      'If separation anxiety is much stronger than expected for their age, disrupts sleep, eating and going to nursery for weeks, or has started again at school age — see a child psychologist.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Bedtime routine: the same three steps every evening',
+    summary: 'A simple routine repeated every evening helps your child fall asleep faster and wake less at night.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In a randomised study (Mindell and colleagues, 2009), a 3-step bedtime routine — bath, massage or lotion, a quiet activity (cuddles, a lullaby) — led to children falling asleep faster and waking less at night in just two weeks, and mothers’ mood improved too. Later reviews showed that bedtime routines are also linked with language development and emotional regulation.',
+      'Recommended sleep by age (including naps): 4–12 months — 12–16 hours, 1–2 years — 11–14 hours, 3–5 years — 10–13 hours, 6–12 years — 9–12 hours. In children, lack of sleep often shows up not as tiredness, but as irritability and hyperactivity.',
+      'Safe sleep rules matter for babies: on their back, on a firm, flat mattress, with no pillows or duvets, ideally in the same room as the parent but in their own bed.',
+    ],
+    tryToday: [
+      'Start a routine from this evening: for example, bath → pyjamas and teeth → book and lullaby. The same order every evening, at about the same time.',
+      'Turn off screens and dim the lights an hour before the routine.',
+      'Make a picture chart of the routine together, and let your child “tick off” each step themselves.',
+      'Keep the routine to no more than 20–30 minutes. The longer it gets, the more your child will try to stretch it.',
+    ],
+    mistakes: [
+      'A different time and a different order every evening. The brain is looking for predictable cues.',
+      'Exciting play, screens or shouting before bed.',
+      'Treating sleep methods as “mandatory”. Sitting beside them, not co-sleeping, gradually moving further away — choose what suits your family. No single method is essential for everyone.',
+    ],
+    byAge: {
+      '0-1': 'Keep the routine short: bath, feed, lullaby. You can try putting your baby down drowsy but awake — and don’t worry if it doesn’t work.',
+      '1-3': 'Offer a choice: “Shall we read this book or that one?” Bedtime isn’t up for negotiation — the book is.',
+      '3-6': 'The questions to “stretch out” bedtime begin. Build a “last question” or “last cuddle” moment into the routine.',
+      '6-12': 'Keep phones, tablets and TV out of the bedroom. Plan bedtime together, alongside homework and sport.',
+    },
+    specialist: [
+      'If your child snores, has pauses in breathing or breathes through their mouth while asleep, and is very sleepy during the day — see a doctor.',
+      'If sleep problems last more than a few weeks and seriously disrupt family life.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Night waking and night fears',
+    summary: 'Nightmares and night terrors are different things. Each needs a different approach.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Nightmares happen in the second half of the night, during dreaming (REM) sleep. Your child wakes up, says they’re scared, recognises you and needs comfort.',
+      'Night terrors (pavor nocturnus), on the other hand, usually happen 1–3 hours after falling asleep, in deep sleep. Your child may scream and have their eyes open, but they aren’t actually awake, don’t recognise you and remember nothing in the morning. They are common between ages 3 and 7 and are usually harmless.',
+    ],
+    tryToday: [
+      'After a nightmare: cuddle, comfort briefly, turn the light up a little. Don’t make them tell you all the details at night — talk about it tomorrow.',
+      'During a night terror: don’t try to wake your child, just keep them safe and stay calmly nearby. Once the episode passes, they’ll carry on sleeping.',
+      'Lack of sleep makes night terrors more likely: try moving bedtime 20–30 minutes earlier.',
+      'During the day, talk about fears through play: draw a “monster book” together and make the monsters funny.',
+    ],
+    mistakes: [
+      'Shaking your child awake during a night terror.',
+      'Mocking the fear: “There’s no such thing as monsters, don’t be silly.”',
+    ],
+    specialist: [
+      'If episodes happen very often (several times a week), last longer than 30 minutes, involve unusual movements (rhythmic jerking, wetting) or cause daytime sleepiness — see a doctor.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Picky eating: who’s responsible for what?',
+    summary: 'The parent decides what, when and where food is eaten; the child decides how much, and whether to eat at all. This division ends food battles.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Wariness of new foods (neophobia) is very common between ages 2 and 6 and makes evolutionary sense: it protects a young child from unknown, potentially dangerous food. It’s usually a passing phase.',
+      'Research shows that forcing a child to eat, saying “just one more spoonful” and rewarding with sweets all backfire: they increase dislike of that food and weaken the child’s ability to hear their own hunger and fullness signals. Instead, repeated offering without pressure — often 10–15 times — increases acceptance.',
+      'Dietitian Ellyn Satter’s “division of responsibility” model turns this evidence into a practical rule: the parent chooses the menu, the time and the place; the child chooses how much to eat.',
+    ],
+    tryToday: [
+      'At every meal, include at least one “safe” food your child likes, plus a small piece of a new food alongside.',
+      'Put the new food out without comment. If they don’t eat it, say nothing. Try again tomorrow, and the day after.',
+      'Eat together as a family, without screens. Your child needs to see you eating with enjoyment.',
+      'Get your child involved in the kitchen: washing vegetables, mixing a salad. Children taste more of what they’ve made themselves.',
+      'Set times for meals and snacks, with no “grazing” in between.',
+    ],
+    mistakes: [
+      'Forcing, bribing (“eat your broccoli and you’ll get chocolate”) or punishing.',
+      'Cooking a separate “restaurant menu” for your child at every meal.',
+      'Insisting on a clean plate. Your child needs to be able to hear their own feeling of fullness.',
+    ],
+    byAge: {
+      '1-3': 'Finger foods, small portions, letting them feed themselves. Getting messy is part of learning.',
+      '3-6': 'A “tasting rule”: tasting isn’t compulsory, but looking at, smelling and touching a new food can be a game.',
+      '6-12': 'Involve them in menu planning: once a week, let them choose a new vegetable.',
+    },
+    specialist: [
+      'If your child is losing weight, falling behind on the growth chart, accepts very few foods (for example, fewer than 15), or gags, chokes or feels pain while eating — see a doctor.',
+      'If there is strong panic around food, vomiting or complete refusal of certain textures — a feeding specialist can help.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Screen time: a smart plan for every age',
+    summary: 'At a young age, screens can’t replace real interaction. As children grow, the goal isn’t a ban but a family plan built together.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Young children learn very little from screens compared with a live person: language and social skills are built in face-to-face “serve and return” interaction. Even a TV on in the background reduces how much the parent talks with the child.',
+      'WHO (2019): screen time is not recommended for children under 1; at ages 2–4 it should be no more than 1 hour a day — less is better. American Academy of Pediatrics (2016): avoid screens (except video calls) until 18 months; at ages 2–5, up to 1 hour a day of high-quality content, watched with a parent whenever possible; from age 6, consistent rules that don’t get in the way of sleep, physical activity and social time.',
+      'Screens before bed delay falling asleep. Screens at mealtimes weaken a child’s ability to notice when they’re full.',
+    ],
+    tryToday: [
+      'Set screen-free zones: the dinner table and the bedroom.',
+      'Turn screens off an hour before bed.',
+      'Give advance warning that screen time is ending and use a timer: “When the timer goes off, the tablet goes for a rest.”',
+      'Watch something together once and talk about it: “Why do you think she did that?” This turns screen time into connection.',
+      'Keep an eye on your own phone too: turn off notifications when your child is with you.',
+    ],
+    mistakes: [
+      'Making the screen your main tool for stopping tantrums. Your child doesn’t learn to calm down.',
+      'Setting rules only for your child. Children copy their parents’ screen habits.',
+      'Seeing all screens as “bad”. Video calls, educational content watched together and creative apps are different.',
+    ],
+    byAge: {
+      '0-1': 'No screens, except video calls. Your baby’s best “screen” is your face.',
+      '1-3': 'As little as possible until age 2. If they watch, keep it short, slow-paced and with you.',
+      '3-6': 'Up to 1 hour a day of high-quality, ad-free content. Not at meals and not before bed.',
+      '6-12': 'Write a family media plan together: homework, sleep, sport and friends come first. Respect the age limits for social media accounts.',
+    },
+    specialist: [
+      'If your child becomes extremely aggressive when the screen is taken away, shows no interest in anything else, or their sleep and schoolwork are seriously disrupted — see a child psychologist.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Potty training: no rush',
+    summary: 'The most important step in potty training is waiting for signs of readiness. Most children are ready between ages 2 and 3.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'In the 1960s paediatrician T. Berry Brazelton proposed a “child-oriented” approach: start when the child shows signs of readiness, without pressure or punishment. This approach is still the basis of the American Academy of Pediatrics’ recommendations today.',
+      'Signs of readiness: staying dry for 2 hours or more, being bothered by a wet nappy, understanding simple instructions, being able to pull trousers up and down, showing interest in the toilet. Night-time dryness comes later: wetting at night is normal until age 5–6.',
+    ],
+    tryToday: [
+      'Check for signs of readiness. If they’re not there yet, wait — that’s normal.',
+      'Let your child choose the potty or toilet seat. At first, they can sit on it fully dressed and read a book.',
+      'After meals and naps, have a short “potty time”, and say thank you whatever the result.',
+      'Meet accidents calmly: “It happens. Come on, let’s clean up together.”',
+    ],
+    mistakes: [
+      'Punishing, shaming or comparing with other children. This can lead to constipation and fear of the toilet.',
+      'Starting during big changes (a new baby, moving house, starting nursery).',
+      'Making them sit for a long time.',
+    ],
+    byAge: {
+      '1-3': 'Play “potty” with toys and read books about it. Don’t rush to start.',
+      '3-6': 'Accidents are normal, especially when they’re absorbed in play. It’s fine to keep a night-time nappy for now.',
+    },
+    specialist: [
+      'Painful or very infrequent bowel movements (constipation), pain or burning when weeing, frequent daytime accidents after age 4.',
+      'If daytime or night-time wetting starts again after a long time of being dry — see a doctor.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'The morning rush: getting out without shouting',
+    summary: 'Most morning conflicts are solved the evening before. Preparation, a picture plan and a little spare time work wonders.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'In rushed, tense moments, the executive functions of both parent and child — planning, remembering, patience — get weaker. That’s why morning rules work better as a chart you can see than as words.',
+      'Routines that give a child a sense of control (steps they tick off themselves) increase cooperation and reduce the need for repeated reminders.',
+    ],
+    tryToday: [
+      'Get clothes, bag and shoes ready the evening before. Let your child choose their own clothes.',
+      'Make picture cards for the morning steps: get up → toilet → get dressed → breakfast → teeth → shoes.',
+      'Build in 15 minutes of spare time: write down an earlier leaving time for yourself.',
+      'Keep mornings screen-free, at least until everyone is ready.',
+    ],
+    mistakes: [
+      'Repeating the same thing dozens of times. Say it once, then point to the card.',
+      'Doing everything for your child because “it’s quicker that way”.',
+    ],
+    specialist: [
+      'If your child complains of tummy aches or headaches every morning, or persistently refuses to go to nursery or school — talk to a doctor or psychologist.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '“Serve and return”: the secret of language and the brain',
+    summary: 'Your child “serves” a signal — a look, a sound, a gesture — and you “return” it. This simple game builds the architecture of the brain.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Harvard University’s Center on the Developing Child compares this back-and-forth interaction to a game of tennis: the baby makes a sound, looks, points; the adult responds. As this “serve and return” is repeated, the neural pathways for language, attention and social skills grow stronger. Being left without a response, on the other hand, causes stress.',
+      'One fascinating study (Romeo and colleagues, 2018) showed that activity in the language areas of a child’s brain is better explained not by the number of words they hear, but by the number of conversational turns. In other words, what matters isn’t talking a lot — it’s talking with them.',
+    ],
+    tryToday: [
+      'Notice where your child’s attention goes and put it into words: “Yes, a dog! A big brown dog.”',
+      'Wait for an answer: staying quiet for 5 seconds after a question gives your child time to take their turn.',
+      'Copy your baby’s sounds and stretch them a little: they say “ba”, you say “ba-ba-ball!”',
+      'Narrate everyday tasks like a “sports commentator”: “I’m washing the potatoes, now I’m cutting them…”',
+    ],
+    mistakes: [
+      'Turning talking into a “lesson”: “Say ‘apple’! Say ‘apple’!” Pressure reduces speech.',
+      'Correcting your child’s words straight away. Instead, simply repeat the correct form: “Nana? Yes, a yellow, soft banana.”',
+      'Looking at your phone when you’re with your child. Every notification is a “ball that doesn’t come back”.',
+    ],
+    byAge: {
+      '0-1': 'Face to face: smile, sing, respond to your baby’s sounds.',
+      '1-3': 'Name the things your child points to, ask simple questions, stretch one word into two.',
+      '3-6': 'Explore “why?” questions together and ask open questions: “What do you think will happen next?”',
+    },
+    specialist: [
+      'If there are no gestures (waving, pointing) at 12 months, no words at 16–18 months, or no two-word phrases at 2 years — see a doctor or a speech and language therapist.',
+      'If at any age your child has lost words they used to say — don’t wait, see a doctor.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'The power of play: why play isn’t “wasted time”',
+    summary: 'Free play strengthens a child’s executive functions, creativity and resilience to stress.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'The American Academy of Pediatrics’ 2018 report (“The Power of Play”) calls play not a “luxury” but a necessity for child development. In play, children plan, keep to rules, negotiate with others and learn to tolerate frustration.',
+      'Pretend play (“shop”, “doctor”) is especially good practice for executive functions: the child has to stay in role, remember the rules and hold back their own impulses.',
+    ],
+    tryToday: [
+      'Keep at least an hour a day for unstructured play (it can be split up, depending on age).',
+      'Choose simple, open-ended toys: blocks, boxes, paints, dressing-up clothes. Fewer toys mean more creativity.',
+      'Once a week, free play outdoors: trees, sand, water, sticks.',
+      'Sometimes join the game in a “wrong” role: you’re the customer, they’re the shopkeeper.',
+    ],
+    mistakes: [
+      'Filling every minute with clubs and activities. Boredom is where creativity begins.',
+      'Always winning or always losing in games. Your child needs to learn both.',
+    ],
+    specialist: [
+      'If after age 2–3 your child still shows no interest at all in pretend play, their play is very repetitive and unchanging, or they have no interest in playing with other children — see a doctor for a developmental check.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Reading together: from day one',
+    summary: 'Reading books together from babyhood is one of the simplest and most powerful habits for language, attention and attachment.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'The American Academy of Pediatrics (2014) advises paediatricians to encourage parents at every check-up to read with their children from infancy. Reading together builds vocabulary, listening skills and later reading success.',
+      'The biggest benefit comes from “dialogic reading”: the parent asks questions, expands on the child’s answers and talks about the pictures. In other words, a book is also a tool for “serve and return”.',
+    ],
+    tryToday: [
+      '10–15 minutes of reading together a day, ideally as part of the bedtime routine.',
+      'Ask one question on every page: “What do you think the cat will do now?”',
+      'If your child wants the same book 20 times — read it. Repetition is one way of learning.',
+      'At school age, take turns reading: one page you, one page them.',
+    ],
+    mistakes: [
+      'Presenting reading as a compulsory lesson.',
+      'Stopping reading aloud once your child starts reading on their own. Reading aloud is beneficial right up to age 10–12.',
+    ],
+    specialist: [
+      'If at school age reading is much harder for your child than for their peers, they often mix up letters, or they’re not progressing despite effort — talk to their teacher and a specialist (speech and language therapist, psychologist).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

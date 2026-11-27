@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "Les 8 premières semaines",
+    "subtitle": "Comment la soutenir après l'accouchement",
+    "home_card": "Après la naissance · semaine {n}/8",
+    "open": "Ouvrir",
+    "week": "Semaine {n}",
+    "tab_week": "Cette semaine",
+    "tab_blues": "Baby blues",
+    "tab_signs": "Signes d'alerte",
+    "tab_support": "La soutenir",
+    "her_body": "Son corps",
+    "her_mind": "Ses émotions",
+    "you_do": "Ce que tu peux faire",
+    "you_say": "Ce que tu peux dire",
+    "avoid": "À éviter",
+    "send": "Envoyer",
+    "sent": "Envoyé 💌",
+    "phrases_title": "Envoie-lui quelques mots",
+    "phrases_sub": "Envoyé en message d'un simple toucher.",
+    "tasks_title": "Aujourd'hui, je m'en occupe",
+    "tasks_sub": "Envoie-lui ce que tu prends en charge pour qu'elle sache que c'est géré.",
+    "tasks_send": "Lui envoyer ma liste",
+    "tasks_message": "Aujourd'hui, je m'occupe de : {list} 💪 Toi, repose-toi.",
+    "signs_title": "Vérifier les signes",
+    "signs_sub": "Coche ce que tu as remarqué ces derniers temps. Ce n'est pas un diagnostic.",
+    "signs_none": "Aucun signe d'alerte coché pour le moment. Continue à la soutenir.",
+    "signs_some": "Si ces signes durent plus de 2 semaines, consultez un médecin ensemble.",
+    "signs_urgent": "Tu as coché un signe urgent. Ne la laisse pas seule et appelle les secours (112) maintenant.",
+    "mood_low_title": "Son moral est bas ces derniers temps",
+    "mood_low_body": "Elle a indiqué un moral bas {n} jours sur les 7 derniers. Accorde-lui plus de temps aujourd'hui et demande-lui comment elle se sent.",
+    "mood_low_long": "Si cela dure plus de 2 semaines, parlez-en ensemble à un médecin.",
+    "disclaimer": "Ces informations ne remplacent pas un avis médical."
+  },
+  "weeks": [
+    {
+      "title": "Les premiers jours à la maison",
+      "body": "Après l'accouchement, il y a des saignements (lochies), et les points de suture ou la cicatrice de césarienne font mal. La montée de lait arrive vers le 3e–5e jour, et ses seins peuvent gonfler et être douloureux.",
+      "mind": "Vers le 3e–5e jour, les hormones chutent brutalement. Pleurer sans raison, s'inquiéter et se sentir pas à la hauteur, c'est normal : c'est le baby blues.",
+      "do": ["Limite les visites au minimum cette semaine et sois celui qui ouvre la porte", "Apporte de l'eau et une collation à chaque tétée", "Prends en charge les couches, l'habillage et le bain du bébé", "Occupe-toi entièrement du ménage, des repas et des courses"],
+      "say": ["Tu es une maman merveilleuse. On apprend encore à se connaître", "Si tu as besoin de pleurer, pleure. Je suis là"],
+      "avoid": "Ne dis pas « Tout le monde a des enfants, ce n'est pas si grave ». Ne minimise pas ce qu'elle ressent."
+    },
+    {
+      "title": "La dette de sommeil s'accumule",
+      "body": "Les saignements commencent à diminuer. L'allaitement peut encore faire mal ; en cas de crevasses, de grosseur dure ou de rougeur, consultez un médecin ou une consultante en lactation.",
+      "mind": "Le baby blues passe généralement en 2 semaines. Si la tristesse, le désespoir ou la perte d'intérêt durent au-delà, il peut s'agir d'une dépression post-partum. Sois attentif.",
+      "do": ["Faites un planning de nuits pour qu'elle dorme au moins 4–5 heures d'affilée", "Emmène le bébé en promenade pour qu'elle ait la maison pour elle", "Trouve une consultante en lactation pour les questions d'alimentation", "Demande-lui chaque jour « Comment tu te sens ? » et écoute"],
+      "say": ["Cette nuit, je m'en occupe, toi tu dors", "Dis-moi ce dont tu as besoin ; on va tout gérer ensemble"],
+      "avoid": "Ne décide pas à sa place et ne l'accable pas de conseils. Écoute d'abord."
+    },
+    {
+      "title": "Un pic de croissance",
+      "body": "Le bébé peut vouloir téter très souvent (tétées groupées). Cela ne veut pas dire qu'il n'y a pas assez de lait : le bébé grandit.",
+      "mind": "Allaiter sans arrêt l'épuise et lui donne l'impression de ne rien arriver à faire. Ne la laisse pas se sentir seule.",
+      "do": ["Assieds-toi avec elle pendant les tétées du soir : apporte de l'eau, à manger et la télécommande", "Fais faire son rot au bébé après la tétée et endors-le", "Organise toi-même le linge et le ménage", "Cuisine ou commande son plat préféré"],
+      "say": ["Tu fais grandir notre bébé. C'est un travail difficile et tu y arrives", "Je suis là, tu n'es pas seule"],
+      "avoid": "Ne dis pas « Il mange encore ? » ou « Tu n'as peut-être pas assez de lait ». Ça brise sa confiance."
+    },
+    {
+      "title": "Un mois déjà",
+      "body": "Les points de suture sont généralement cicatrisés, mais il est encore trop tôt pour porter des charges lourdes, surtout après une césarienne.",
+      "mind": "La fatigue s'est accumulée. Elle peut se sentir loin de sa vie d'avant, comme si elle n'était plus « que maman ».",
+      "do": ["Offre-lui 1–2 heures rien que pour elle : une douche, une balade, ses amies", "Prépare une petite surprise : des fleurs, sa douceur préférée, un mot", "Organise toi-même les repas et l'aide de la famille et des amis", "Faites ensemble un album des premières photos du bébé"],
+      "say": ["Qu'est-ce que je peux faire aujourd'hui pour te rendre les choses un peu plus légères ?", "Je t'aime tellement. Depuis que tu es maman, je t'admire encore plus"],
+      "avoid": "Ne parle pas de son apparence ni de son poids."
+    },
+    {
+      "title": "Une routine se met en place",
+      "body": "Les saignements devraient maintenant être très légers. S'ils augmentent soudainement, ou en cas de fièvre ou de mauvaise odeur, consultez un médecin.",
+      "mind": "Une routine se met en place, mais refaire les mêmes choses chaque jour peut l'user. Si la tristesse dure plus de 2 semaines, il est temps de demander une aide professionnelle.",
+      "do": ["Prends en charge un rituel du soir chaque jour : le bain ou le coucher", "Prévois une courte sortie en famille le week-end", "Demande-lui ce qui est le plus dur en ce moment et règle une chose", "Surveille aussi ta propre fatigue et parles-en avec elle"],
+      "say": ["Repose-toi ce soir, je couche le bébé", "On est une équipe"],
+      "avoid": "Ne résume pas sa journée par « tu étais à la maison toute la journée »."
+    },
+    {
+      "title": "Le pic des pleurs et la visite",
+      "body": "La visite postnatale a généralement lieu vers cette période. Les bébés pleurent le plus vers 6–8 semaines ; ensuite, ça s'atténue.",
+      "mind": "Ne pas arriver à calmer le bébé est épuisant. Quand l'agacement monte, on peut coucher le bébé en sécurité dans son lit et respirer quelques minutes. Ne jamais secouer un bébé.",
+      "do": ["Allez ensemble à la visite et notez vos questions à l'avance", "Relayez-vous pour promener le bébé pendant les crises de pleurs", "Dis « Je prends le relais » et laisse-la souffler", "Encourage-la à dire aussi au médecin comment elle se sent"],
+      "say": ["Les pleurs ne sont pas ta faute ; les bébés sont comme ça", "On se relaie, toi fais une pause"],
+      "avoid": "Ne précipite pas l'intimité. Elle te dira quand elle sera prête."
+    },
+    {
+      "title": "Se retrouver",
+      "body": "Son corps récupère encore. Si le médecin a donné son accord, des marches douces et des exercices de respiration aident.",
+      "mind": "Elle réapprend à se connaître et peut s'inquiéter pour son corps, son travail ou ses amitiés. Ton soutien lui donne de la force.",
+      "do": ["Offre-lui chaque semaine une « heure libre » complète", "Prévoyez ensemble une petite balade ou un café", "Continuez à partager les nuits équitablement", "Dis merci à voix haute"],
+      "say": ["Tu es toujours toi, et je te choisis chaque jour", "Tu as accompli un travail immense ce mois-ci"],
+      "avoid": "Ne compare pas : ne dis pas « Une telle s'est vite remise »."
+    },
+    {
+      "title": "Deux mois : une nouvelle famille",
+      "body": "Beaucoup de mamans se sentent plus fortes à ce stade. Si la douleur, les saignements ou l'épuisement restent importants, parlez-en au médecin.",
+      "mind": "Son moral devrait s'améliorer. Si la tristesse, l'anxiété ou un sentiment de distance avec le bébé persistent, parlez-en ensemble à un médecin. De l'aide existe et cela se soigne.",
+      "do": ["Faites ensemble le bilan de ces deux mois : ce qui a bien marché, ce qui doit changer", "Revoyez ensemble la répartition des tâches ménagères", "Organisez une petite fête des « deux mois »", "Surveille aussi ton propre moral : les papas aussi peuvent faire une dépression post-partum"],
+      "say": ["Être parents avec toi est mon plus grand bonheur", "Qu'est-ce qu'on fera autrement le mois prochain ?"],
+      "avoid": "Ne réduis pas soudainement ton soutien parce que « tout va bien maintenant »."
+    }
+  ],
+  "blues": {
+    "title": "Qu'est-ce que le baby blues ?",
+    "intro": "Environ 50–80 % des femmes vivent un baby blues après l'accouchement. Les causes : la chute brutale des hormones, le manque de sommeil et les nouvelles responsabilités.",
+    "facts": ["Il commence généralement 2–5 jours après l'accouchement", "Pleurs sans raison, irritabilité, inquiétude et fatigue sont fréquents", "Il passe généralement tout seul en 2 semaines", "Le meilleur remède : sommeil, repas, soutien et compréhension"],
+    "help_title": "Ce que tu peux faire",
+    "help": ["Écoute-la ; n'essaie pas de « réparer » ses émotions", "Protège son sommeil : organisez des tours de nuit", "Prends en charge le ménage et les visites", "Félicite-la chaque jour et montre-lui que tu es là"],
+    "ppd_title": "La dépression post-partum, c'est différent",
+    "ppd_intro": "Elle touche environ 10–15 % des femmes et peut commencer à tout moment pendant la première année après l'accouchement. Ce n'est pas une faiblesse, et cela se soigne.",
+    "ppd_signs": ["Tristesse ou sentiment de vide pendant plus de 2 semaines", "Elle a perdu l'intérêt pour ce qu'elle aimait avant", "Elle n'arrive pas à dormir même quand le bébé dort", "Elle se sent inutile ou coupable", "Elle se sent distante du bébé", "Son appétit a fortement changé"],
+    "ppd_action": "Si tu vois ces signes, encourage-la à consulter (son gynécologue ou sa sage-femme, son médecin traitant ou un psychologue) et accompagne-la.",
+    "urgent_title": "Demander de l'aide immédiatement",
+    "urgent_signs": ["Pensées de se faire du mal ou de faire du mal au bébé", "Voir ou entendre des choses qui n'existent pas", "Confusion, sautes d'humeur extrêmes, plusieurs jours sans dormir"],
+    "urgent_action": "Dans ces cas, ne la laisse pas seule et appelle immédiatement les secours (112).",
+    "self_title": "Toi aussi, tu comptes",
+    "self": ["Les papas aussi peuvent faire une dépression post-partum (environ 10 %)", "Fais de courtes siestes et ne saute pas de repas", "Parle de ce que tu ressens avec elle ou un ami", "Demander de l'aide, c'est une force"]
+  },
+  "phrases": ["Tu es une maman incroyable 💛", "Quoi que tu aies besoin aujourd'hui, je suis là", "Allonge-toi un peu, je m'occupe du bébé", "Je t'aime tellement, tu n'es pas seule", "Tu es fatiguée et c'est tout à fait normal. On va y arriver ensemble", "Qu'est-ce que je t'apporte ? Un thé, à manger, ou juste un câlin ?", "Cette nuit, je m'en occupe, dors bien", "Merci pour tout ce que tu as fait aujourd'hui"],
+  "tasks": ["Un repas de nuit", "Les couches", "Le bain du bébé", "La cuisine", "La vaisselle", "La lessive", "Les courses", "Les visites", "Une balade avec le bébé", "La pharmacie"]
+}

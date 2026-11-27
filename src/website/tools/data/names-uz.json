@@ -1,0 +1,1633 @@
+[
+{
+"name": "Mohinur",
+"gender": "girl",
+"popularity": 75,
+"origin": "Arabcha-forscha",
+"meaning": "Oy nuri"
+},
+{
+"name": "Sevinch",
+"gender": "girl",
+"popularity": 80,
+"origin": "Turkiy",
+"meaning": "Quvonch, shodlik"
+},
+{
+"name": "Madina",
+"gender": "girl",
+"popularity": 78,
+"origin": "Arabcha",
+"meaning": "Shahar; Madina shahri nomi"
+},
+{
+"name": "Mubina",
+"gender": "girl",
+"popularity": 72,
+"origin": "Arabcha",
+"meaning": "Ravshan, aniq, ochiq"
+},
+{
+"name": "Zahro",
+"gender": "girl",
+"popularity": 65,
+"origin": "Arabcha",
+"meaning": "Nurli, yorqin, gullagan"
+},
+{
+"name": "Robiya",
+"gender": "girl",
+"popularity": 60,
+"origin": "Arabcha",
+"meaning": "Toʻrtinchi"
+},
+{
+"name": "Oysha",
+"gender": "girl",
+"popularity": 70,
+"origin": "Arabcha",
+"meaning": "Yashovchi, hayotga toʻla"
+},
+{
+"name": "Fotima",
+"gender": "girl",
+"popularity": 70,
+"origin": "Arabcha",
+"meaning": "Sutdan ajratilgan; Paygʻambar qizi nomi"
+},
+{
+"name": "Xadicha",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Muddatidan oldin tugʻilgan"
+},
+{
+"name": "Maryam",
+"gender": "girl",
+"popularity": 65,
+"origin": "Ibroniycha",
+"meaning": "Hazrati Isoning onasi nomi"
+},
+{
+"name": "Asal",
+"gender": "girl",
+"popularity": 70,
+"origin": "Arabcha",
+"meaning": "Bol, asal"
+},
+{
+"name": "Shahzoda",
+"gender": "girl",
+"popularity": 65,
+"origin": "Forscha",
+"meaning": "Shoh qizi, malika"
+},
+{
+"name": "Malika",
+"gender": "girl",
+"popularity": 60,
+"origin": "Arabcha",
+"meaning": "Qirolicha, hukmdor ayol"
+},
+{
+"name": "Dilnoza",
+"gender": "girl",
+"popularity": 55,
+"origin": "Forscha",
+"meaning": "Nozik qalbli"
+},
+{
+"name": "Dildora",
+"gender": "girl",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Koʻngilni oʻziga tortuvchi, sevikli"
+},
+{
+"name": "Gulnoza",
+"gender": "girl",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Nozik gul"
+},
+{
+"name": "Nilufar",
+"gender": "girl",
+"popularity": 55,
+"origin": "Forscha",
+"meaning": "Nilufar guli"
+},
+{
+"name": "Laylo",
+"gender": "girl",
+"popularity": 60,
+"origin": "Arabcha",
+"meaning": "Tun; qora sochli"
+},
+{
+"name": "Zarina",
+"gender": "girl",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Oltin, oltindek"
+},
+{
+"name": "Nodira",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Noyob, kamyob"
+},
+{
+"name": "Kamola",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Mukammal, yetuk"
+},
+{
+"name": "Feruza",
+"gender": "girl",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Feruza toshi; baxtli"
+},
+{
+"name": "Durdona",
+"gender": "girl",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Yagona dur, noyob gavhar"
+},
+{
+"name": "Gulshan",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Gulzor, gulbogʻ"
+},
+{
+"name": "Sitora",
+"gender": "girl",
+"popularity": 55,
+"origin": "Forscha",
+"meaning": "Yulduz"
+},
+{
+"name": "Yulduz",
+"gender": "girl",
+"popularity": 35,
+"origin": "Turkiy",
+"meaning": "Osmondagi yulduz"
+},
+{
+"name": "Oydin",
+"gender": "girl",
+"popularity": 35,
+"origin": "Turkiy",
+"meaning": "Yorugʻ, oydin"
+},
+{
+"name": "Oygul",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha-turkiy",
+"meaning": "Oy kabi gul"
+},
+{
+"name": "Gulnora",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Anor guli"
+},
+{
+"name": "Hilola",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Yangi oy, hilol"
+},
+{
+"name": "Muslima",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Musulmon ayol"
+},
+{
+"name": "Mushtariy",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Yupiter sayyorasi"
+},
+{
+"name": "Muxlisa",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Samimiy, sodiq"
+},
+{
+"name": "Mohira",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Mohir, usta"
+},
+{
+"name": "Munisa",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Hamdam, mehribon doʻst"
+},
+{
+"name": "Marjona",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Marjon, qimmatbaho tosh"
+},
+{
+"name": "Soliha",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Solih, taqvodor ayol"
+},
+{
+"name": "Samira",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Kechki suhbatdosh"
+},
+{
+"name": "Yasmina",
+"gender": "girl",
+"popularity": 55,
+"origin": "Forscha",
+"meaning": "Yasmin guli"
+},
+{
+"name": "Zilola",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Tiniq, musaffo suv"
+},
+{
+"name": "Shahnoza",
+"gender": "girl",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Shohona noz, erka"
+},
+{
+"name": "Nigora",
+"gender": "girl",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Sevikli, goʻzal"
+},
+{
+"name": "Nozima",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Tartibga soluvchi; nazm yozuvchi"
+},
+{
+"name": "Mehrinoz",
+"gender": "girl",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Mehr va noz"
+},
+{
+"name": "Sarvinoz",
+"gender": "girl",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Sarv kabi nozik"
+},
+{
+"name": "Aziza",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Aziz, qadrli"
+},
+{
+"name": "Zuhra",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Venera sayyorasi; yorqin"
+},
+{
+"name": "Zebo",
+"gender": "girl",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Goʻzal, chiroyli"
+},
+{
+"name": "Zebiniso",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Ayollar ziynati"
+},
+{
+"name": "Barno",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Navqiron, goʻzal"
+},
+{
+"name": "Gulruh",
+"gender": "girl",
+"popularity": 30,
+"origin": "Forscha",
+"meaning": "Gul yuzli"
+},
+{
+"name": "Dilfuza",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Koʻngilni ochuvchi"
+},
+{
+"name": "Rayhona",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Rayhon oʻsimligi"
+},
+{
+"name": "Ruxshona",
+"gender": "girl",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Yorqin yuzli"
+},
+{
+"name": "Nafisa",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Nafis, qimmatli"
+},
+{
+"name": "Nasiba",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Asl nasabli"
+},
+{
+"name": "Odina",
+"gender": "girl",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Juma kuni tugʻilgan"
+},
+{
+"name": "Parizod",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Pari zotli"
+},
+{
+"name": "Gulchehra",
+"gender": "girl",
+"popularity": 30,
+"origin": "Forscha",
+"meaning": "Gul chehrali"
+},
+{
+"name": "Sabohat",
+"gender": "girl",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Goʻzallik, chiroy"
+},
+{
+"name": "Saodat",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Baxt, saodat"
+},
+{
+"name": "Umida",
+"gender": "girl",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Umid, orzu"
+},
+{
+"name": "Xurshida",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Quyosh"
+},
+{
+"name": "Mahliyo",
+"gender": "girl",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Oy yuzli"
+},
+{
+"name": "Mahbuba",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Sevimli, suyukli"
+},
+{
+"name": "Muattar",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Xushboʻy"
+},
+{
+"name": "Iroda",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Iroda, qatʼiyat"
+},
+{
+"name": "Jamila",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Goʻzal"
+},
+{
+"name": "Kumush",
+"gender": "girl",
+"popularity": 35,
+"origin": "Turkiy",
+"meaning": "Kumush"
+},
+{
+"name": "Lola",
+"gender": "girl",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Lola guli"
+},
+{
+"name": "Lobar",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Nozanin, goʻzal"
+},
+{
+"name": "Maftuna",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Maftun boʻlgan, sehrlangan"
+},
+{
+"name": "Manzura",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Koʻzlangan, eʼtibordagi"
+},
+{
+"name": "Mavluda",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Tugʻilgan"
+},
+{
+"name": "Nargiza",
+"gender": "girl",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Nargis guli"
+},
+{
+"name": "Naima",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Neʼmatlarga toʻla, farovon"
+},
+{
+"name": "Ozoda",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Ozod, erkin"
+},
+{
+"name": "Ruqiya",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Yuksalgan, koʻtarilgan"
+},
+{
+"name": "Safiya",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Pok, sof"
+},
+{
+"name": "Sumayya",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Yuksak, oliy"
+},
+{
+"name": "Zaynab",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Xushboʻy daraxt"
+},
+{
+"name": "Asma",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Yuksak, oliy"
+},
+{
+"name": "Hafsa",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Arslon bolasi"
+},
+{
+"name": "Halima",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Yumshoq tabiatli, sabrli"
+},
+{
+"name": "Amina",
+"gender": "girl",
+"popularity": 60,
+"origin": "Arabcha",
+"meaning": "Ishonchli, omonatdor"
+},
+{
+"name": "Imona",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Iymon, eʼtiqod"
+},
+{
+"name": "Jannat",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Jannat, bogʻ"
+},
+{
+"name": "Kavsar",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Jannatdagi Kavsar havzasi; moʻl-koʻllik"
+},
+{
+"name": "Fazilat",
+"gender": "girl",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Fazilat, yaxshi xislat"
+},
+{
+"name": "Gavhar",
+"gender": "girl",
+"popularity": 30,
+"origin": "Forscha",
+"meaning": "Gavhar, qimmatbaho tosh"
+},
+{
+"name": "Husniya",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Goʻzal"
+},
+{
+"name": "Latofat",
+"gender": "girl",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Nafislik, latofat"
+},
+{
+"name": "Mahina",
+"gender": "girl",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Oydek, oyga xos"
+},
+{
+"name": "Malak",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Farishta"
+},
+{
+"name": "Munira",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Nurli, yorituvchi"
+},
+{
+"name": "Nurjahon",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arabcha-forscha",
+"meaning": "Dunyo nuri"
+},
+{
+"name": "Nurafshon",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha-forscha",
+"meaning": "Nur sochuvchi"
+},
+{
+"name": "Rahima",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Rahmdil, mehribon"
+},
+{
+"name": "Sanobar",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Qaragʻay daraxti"
+},
+{
+"name": "Shahlo",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Qoramtir koʻzli"
+},
+{
+"name": "Shirin",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Shirin, yoqimli"
+},
+{
+"name": "Tabassum",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Jilmayish, tabassum"
+},
+{
+"name": "Xonzoda",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha-turkiy",
+"meaning": "Xon qizi"
+},
+{
+"name": "Yorqinoy",
+"gender": "girl",
+"popularity": 30,
+"origin": "Turkiy",
+"meaning": "Yorqin oy"
+},
+{
+"name": "Zarnigor",
+"gender": "girl",
+"popularity": 30,
+"origin": "Forscha",
+"meaning": "Oltin bilan bezatilgan"
+},
+{
+"name": "Ziyoda",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Ortiqcha, koʻpaygan"
+},
+{
+"name": "Ezoza",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Eʼzozli, aziz"
+},
+{
+"name": "Gulbahor",
+"gender": "girl",
+"popularity": 30,
+"origin": "Forscha",
+"meaning": "Bahor guli"
+},
+{
+"name": "Muhabbat",
+"gender": "girl",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Sevgi, muhabbat"
+},
+{
+"name": "Dilshoda",
+"gender": "girl",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Xushchaqchaq qalbli"
+},
+{
+"name": "Shohista",
+"gender": "girl",
+"popularity": 25,
+"origin": "Forscha",
+"meaning": "Munosib, loyiq"
+},
+{
+"name": "Afruza",
+"gender": "girl",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Yorituvchi, porloq"
+},
+{
+"name": "Aliya",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Oliy, yuksak"
+},
+{
+"name": "Diyora",
+"gender": "girl",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Diyor, yurt"
+},
+{
+"name": "Bonu",
+"gender": "girl",
+"popularity": 30,
+"origin": "Forscha",
+"meaning": "Xonim, malika"
+},
+{
+"name": "Muhammad",
+"gender": "boy",
+"popularity": 90,
+"origin": "Arabcha",
+"meaning": "Maqtalgan"
+},
+{
+"name": "Muhammadali",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Maqtalgan va oliy"
+},
+{
+"name": "Abdulloh",
+"gender": "boy",
+"popularity": 75,
+"origin": "Arabcha",
+"meaning": "Allohning bandasi"
+},
+{
+"name": "Abdurahmon",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Rahmonning bandasi"
+},
+{
+"name": "Abdulaziz",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Azizning bandasi"
+},
+{
+"name": "Abdulqodir",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Qodirning bandasi"
+},
+{
+"name": "Abubakr",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Yosh tuyaning otasi"
+},
+{
+"name": "Umar",
+"gender": "boy",
+"popularity": 70,
+"origin": "Arabcha",
+"meaning": "Umr, hayot"
+},
+{
+"name": "Usmon",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Huboro qushi bolasi"
+},
+{
+"name": "Ali",
+"gender": "boy",
+"popularity": 65,
+"origin": "Arabcha",
+"meaning": "Oliy, yuksak"
+},
+{
+"name": "Hasan",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Yaxshi, goʻzal"
+},
+{
+"name": "Husayn",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Kichik goʻzal, yaxshi"
+},
+{
+"name": "Yusuf",
+"gender": "boy",
+"popularity": 70,
+"origin": "Ibroniycha",
+"meaning": "Koʻpaytiradi, ziyoda qiladi"
+},
+{
+"name": "Ibrohim",
+"gender": "boy",
+"popularity": 60,
+"origin": "Ibroniycha",
+"meaning": "Koʻp xalqlar otasi"
+},
+{
+"name": "Ismoil",
+"gender": "boy",
+"popularity": 55,
+"origin": "Ibroniycha",
+"meaning": "Xudo eshitadi"
+},
+{
+"name": "Yahyo",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Yashaydi, tirik boʻladi"
+},
+{
+"name": "Zakariyo",
+"gender": "boy",
+"popularity": 40,
+"origin": "Ibroniycha",
+"meaning": "Xudo eslaydi"
+},
+{
+"name": "Sulaymon",
+"gender": "boy",
+"popularity": 45,
+"origin": "Ibroniycha",
+"meaning": "Tinchlik, osoyishtalik"
+},
+{
+"name": "Dovud",
+"gender": "boy",
+"popularity": 40,
+"origin": "Ibroniycha",
+"meaning": "Sevikli"
+},
+{
+"name": "Yoqub",
+"gender": "boy",
+"popularity": 40,
+"origin": "Ibroniycha",
+"meaning": "Tovondan tutuvchi"
+},
+{
+"name": "Hamza",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Kuchli, mustahkam"
+},
+{
+"name": "Bilol",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Namlik, tetiklik"
+},
+{
+"name": "Anas",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Doʻstlik, samimiylik"
+},
+{
+"name": "Amir",
+"gender": "boy",
+"popularity": 60,
+"origin": "Arabcha",
+"meaning": "Amir, hukmdor"
+},
+{
+"name": "Aziz",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Aziz, qudratli"
+},
+{
+"name": "Akbar",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Eng ulugʻ"
+},
+{
+"name": "Asadbek",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha-turkiy",
+"meaning": "Sher bek"
+},
+{
+"name": "Asad",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Sher"
+},
+{
+"name": "Azizbek",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha-turkiy",
+"meaning": "Aziz bek"
+},
+{
+"name": "Bobur",
+"gender": "boy",
+"popularity": 60,
+"origin": "Forscha",
+"meaning": "Yoʻlbars"
+},
+{
+"name": "Behruz",
+"gender": "boy",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Baxtli kunli, omadli"
+},
+{
+"name": "Bekzod",
+"gender": "boy",
+"popularity": 50,
+"origin": "Forscha-turkiy",
+"meaning": "Bek zoti, bek avlodi"
+},
+{
+"name": "Bunyod",
+"gender": "boy",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Asos, poydevor"
+},
+{
+"name": "Doniyor",
+"gender": "boy",
+"popularity": 65,
+"origin": "Ibroniycha",
+"meaning": "Xudo mening hakamim"
+},
+{
+"name": "Diyorbek",
+"gender": "boy",
+"popularity": 45,
+"origin": "Forscha-turkiy",
+"meaning": "Yurt begi"
+},
+{
+"name": "Elbek",
+"gender": "boy",
+"popularity": 45,
+"origin": "Turkiy",
+"meaning": "El begi, xalq rahbari"
+},
+{
+"name": "Elyor",
+"gender": "boy",
+"popularity": 45,
+"origin": "Forscha-turkiy",
+"meaning": "Elga yor, xalqqa doʻst"
+},
+{
+"name": "Farrux",
+"gender": "boy",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Baxtli, omadli"
+},
+{
+"name": "Firdavs",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Jannat bogʻi"
+},
+{
+"name": "Hamid",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Hamd aytuvchi, maqtovchi"
+},
+{
+"name": "Hikmat",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Donolik, hikmat"
+},
+{
+"name": "Islom",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Itoat, taslim boʻlish"
+},
+{
+"name": "Jahongir",
+"gender": "boy",
+"popularity": 55,
+"origin": "Forscha",
+"meaning": "Jahonni egallovchi"
+},
+{
+"name": "Jasur",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Jasur, botir"
+},
+{
+"name": "Javohir",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Qimmatbaho toshlar"
+},
+{
+"name": "Kamron",
+"gender": "boy",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Muvaffaqiyatli, baxtli"
+},
+{
+"name": "Komil",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Komil, mukammal"
+},
+{
+"name": "Laziz",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Mazali, yoqimli"
+},
+{
+"name": "Mansur",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Gʻolib, gʻalaba qozongan"
+},
+{
+"name": "Mirzo",
+"gender": "boy",
+"popularity": 25,
+"origin": "Forscha",
+"meaning": "Amirzoda, amir oʻgʻli"
+},
+{
+"name": "Mustafo",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Tanlangan"
+},
+{
+"name": "Murod",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Murod, orzu"
+},
+{
+"name": "Nodir",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Noyob, kamyob"
+},
+{
+"name": "Otabek",
+"gender": "boy",
+"popularity": 50,
+"origin": "Turkiy",
+"meaning": "Ota bek"
+},
+{
+"name": "Oybek",
+"gender": "boy",
+"popularity": 35,
+"origin": "Turkiy",
+"meaning": "Oy kabi bek"
+},
+{
+"name": "Ozodbek",
+"gender": "boy",
+"popularity": 35,
+"origin": "Forscha-turkiy",
+"meaning": "Ozod bek"
+},
+{
+"name": "Rustam",
+"gender": "boy",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Shohnoma qahramoni; kuchli"
+},
+{
+"name": "Ravshan",
+"gender": "boy",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Yorugʻ, ravshan"
+},
+{
+"name": "Sardor",
+"gender": "boy",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Sardor, boshliq"
+},
+{
+"name": "Shahzod",
+"gender": "boy",
+"popularity": 50,
+"origin": "Forscha",
+"meaning": "Shoh oʻgʻli, shahzoda"
+},
+{
+"name": "Shohruh",
+"gender": "boy",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Shoh yuzli"
+},
+{
+"name": "Sherzod",
+"gender": "boy",
+"popularity": 45,
+"origin": "Forscha",
+"meaning": "Sher zotli"
+},
+{
+"name": "Sirojiddin",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Dinning chirogʻi"
+},
+{
+"name": "Nuriddin",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Dinning nuri"
+},
+{
+"name": "Jaloliddin",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Dinning ulugʻvorligi"
+},
+{
+"name": "Shamsiddin",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Dinning quyoshi"
+},
+{
+"name": "Kamoliddin",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Dinning kamoli"
+},
+{
+"name": "Zayniddin",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Dinning ziynati"
+},
+{
+"name": "Najmiddin",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Dinning yulduzi"
+},
+{
+"name": "Bahodir",
+"gender": "boy",
+"popularity": 35,
+"origin": "Turkiy",
+"meaning": "Botir, qahramon"
+},
+{
+"name": "Botir",
+"gender": "boy",
+"popularity": 30,
+"origin": "Turkiy",
+"meaning": "Botir, jasur"
+},
+{
+"name": "Temur",
+"gender": "boy",
+"popularity": 45,
+"origin": "Turkiy",
+"meaning": "Temir"
+},
+{
+"name": "Ulugʻbek",
+"gender": "boy",
+"popularity": 45,
+"origin": "Turkiy",
+"meaning": "Ulugʻ bek"
+},
+{
+"name": "Umid",
+"gender": "boy",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Umid, orzu"
+},
+{
+"name": "Xurshid",
+"gender": "boy",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Quyosh"
+},
+{
+"name": "Zafar",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Gʻalaba"
+},
+{
+"name": "Zubayr",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Kuchli, mustahkam"
+},
+{
+"name": "Solih",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Solih, yaxshi"
+},
+{
+"name": "Sodiq",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Sodiq, rostgoʻy"
+},
+{
+"name": "Said",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Baxtli, saodatli"
+},
+{
+"name": "Tolib",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Izlovchi, talab qiluvchi"
+},
+{
+"name": "Yosin",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Qurʼondagi Yosin surasi nomi"
+},
+{
+"name": "Abror",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arabcha",
+"meaning": "Yaxshilar, solihlar"
+},
+{
+"name": "Akmal",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Eng mukammal"
+},
+{
+"name": "Anvar",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Eng nurli"
+},
+{
+"name": "Asilbek",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha-turkiy",
+"meaning": "Asl zotli bek"
+},
+{
+"name": "Ahmad",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arabcha",
+"meaning": "Eng koʻp maqtalgan"
+},
+{
+"name": "Mahmud",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arabcha",
+"meaning": "Maqtovga sazovor"
+},
+{
+"name": "Muhsin",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Ezgulik qiluvchi"
+},
+{
+"name": "Sarvar",
+"gender": "boy",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Sardor, boshliq"
+},
+{
+"name": "Shukrullo",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Allohga shukr"
+},
+{
+"name": "Jamshid",
+"gender": "boy",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Afsonaviy shoh Jamshid nomi"
+},
+{
+"name": "Ilhom",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Ilhom"
+},
+{
+"name": "Haydar",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arabcha",
+"meaning": "Sher"
+},
+{
+"name": "Iskandar",
+"gender": "boy",
+"popularity": 35,
+"origin": "Yunoncha",
+"meaning": "Odamlar himoyachisi"
+},
+{
+"name": "Nurbek",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha-turkiy",
+"meaning": "Nurli bek"
+},
+{
+"name": "Oʻtkir",
+"gender": "boy",
+"popularity": 30,
+"origin": "Turkiy",
+"meaning": "Oʻtkir, keskin"
+},
+{
+"name": "Polvon",
+"gender": "boy",
+"popularity": 15,
+"origin": "Forscha",
+"meaning": "Pahlavon, kuchli"
+},
+{
+"name": "Qodir",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Qudratli"
+},
+{
+"name": "Rahim",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Rahmli, mehribon"
+},
+{
+"name": "Sobir",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Sabrli"
+},
+{
+"name": "Tohir",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arabcha",
+"meaning": "Pok, toza"
+},
+{
+"name": "Vali",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Doʻst, homiy; avliyo"
+},
+{
+"name": "Xusrav",
+"gender": "boy",
+"popularity": 25,
+"origin": "Forscha",
+"meaning": "Shoh, podshoh"
+},
+{
+"name": "Zohid",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Taqvodor, zohid"
+},
+{
+"name": "Shohjahon",
+"gender": "boy",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Jahon shohi"
+},
+{
+"name": "Dilshod",
+"gender": "boy",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Xursand qalbli"
+},
+{
+"name": "Doston",
+"gender": "boy",
+"popularity": 35,
+"origin": "Forscha",
+"meaning": "Doston, hikoya"
+},
+{
+"name": "Eldor",
+"gender": "boy",
+"popularity": 40,
+"origin": "Forscha-turkiy",
+"meaning": "El egasi, yurtdor"
+},
+{
+"name": "Ixtiyor",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Tanlov, ixtiyor"
+},
+{
+"name": "Kamol",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Kamolot, mukammallik"
+},
+{
+"name": "Lochin",
+"gender": "boy",
+"popularity": 30,
+"origin": "Turkiy",
+"meaning": "Lochin qushi"
+},
+{
+"name": "Navroʻz",
+"gender": "boy",
+"popularity": 30,
+"origin": "Forscha",
+"meaning": "Yangi kun"
+},
+{
+"name": "Shuhrat",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arabcha",
+"meaning": "Shuhrat, mashhurlik"
+},
+{
+"name": "Tursun",
+"gender": "boy",
+"popularity": 20,
+"origin": "Turkiy",
+"meaning": "Tursin, yashasin"
+},
+{
+"name": "Yodgor",
+"gender": "boy",
+"popularity": 25,
+"origin": "Forscha",
+"meaning": "Yodgorlik, esdalik"
+},
+{
+"name": "Zokir",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arabcha",
+"meaning": "Zikr qiluvchi"
+},
+{
+"name": "Behzod",
+"gender": "boy",
+"popularity": 40,
+"origin": "Forscha",
+"meaning": "Yaxshi zotli"
+}
+]

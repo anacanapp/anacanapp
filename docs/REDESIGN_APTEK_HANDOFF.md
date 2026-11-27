@@ -1,5 +1,15 @@
 # Redesign v3 + Anacan Aptek — operator handoff (2026-10-27)
 
+> **2026-10-29: redesign v3 UI reverted in source.** At the user's request every screen is back to
+> the pre-redesign design (`976bd00`). Kept and re-wired onto the old screens: Anacan Aptek (store
+> route, pregnancy/baby home offers, hospital-bag offer, product hits under the Tools search, Admin
+> card/fields), appointment add/edit sheet + server reminders (Calendar), Baby tracker and Sleep
+> training (Tools), Admin notification test-send, vitamin job changes, plus an Upcoming appointments
+> card on the three homes. Six screens keep the mojibake text repair and the home shortcuts keep the
+> corrected tool ids. `anacan-design.css` is the old file plus new-only tokens/classes used by the
+> kept components. No database or job change: everything below that is live stays live. The live web
+> serves this design since the 2026-10-29 deploy (last section); native 48 builds get it too.
+
 This change ports the approved prototype (`prototype/anacan-prototype.html`) into the app and adds
 **Anacan Aptek**, a baby-feeding store on the existing shop tables. Everything client-side ships with
 a normal web deploy and native build. One database migration must be applied by the operator.
@@ -449,3 +459,656 @@ was done.
   - 8 timers; no DNS or database change.
 - **Rollback:** `rollback-homes-web-plan.json` returns to the design-pass build (`dfd63929…`), followed by the
   earlier chain.
+
+## Original-design web deploy — 2026-10-29
+- **Contents:** commits `88a65fa` (redesign UI reverted, features kept) and `44130aa` (Upcoming
+  appointments card on the three homes), built with `npm run build` (Google mode).
+- **Image:** `gateway@sha256:1354acb417dda7be6381754d84c39b77bbdd8feebb4a04691895854a5b22a157`
+  (tag `revert-design-202610290733`, Cloud Build `0a54b733`, service account `anacan-build`), built
+  `FROM` live `487bce5c…`; adds only `index.html`, `assets/` and `aptek/`.
+- **Isolated test (:8089):** health, `index.html`, admission, `/brands`, `/blog/`, sitemap, auth,
+  REST and the website matched live; new and previous live assets both served (gzip).
+- **Deploy:** `deploy-current-web.py original-design-web-plan.json` returned `passed`;
+  `index.html` sha `eabd2670…`; previous container `anacan-gateway-before-refresh-1793259436`;
+  no DNS or database change. Public `app.anacan.az` serves the new `index.html`; `/?web=admin`
+  loads with no console errors.
+- **Rollback:** `rollback-original-design-web-plan.json` returns to the homes build (`487bce5c…`),
+  followed by the earlier chain.
+
+
+## Homes carousel web deploy — 2026-10-29
+- **Contents:** commit `c82c4bb`: Calendar card after the message sections, no related-articles
+  blocks on the homes, article carousel (up to 9, autoplay), My sleep removed, compact water row,
+  merged development card.
+- **Image:** `gateway@sha256:fb35ddc18328fd32d775980f9cd3e3a427c61d3c1e5da2145b037f0449bc0e1f`
+  (Cloud Build `790dda3c`, `anacan-build`), built `FROM` live `1354acb4…`; adds only `index.html`,
+  `assets/` and `aptek/`.
+- **Isolated test (:8089):** every checked path and the website matched live; index sha, admission
+  and the previous live assets verified before the deploy started.
+- **Deploy:** `deploy-current-web.py homes-carousel-web-plan.json` returned `passed`; `index.html`
+  sha `f75e75bf…`; previous container `anacan-gateway-before-refresh-1793270208`; no DNS or
+  database change. Public `/?web=admin` loads with no console errors.
+- **Rollback:** `rollback-homes-carousel-web-plan.json` returns to the original-design build
+  (`1354acb4…`), followed by the earlier chain.
+
+## Mommy period card web deploy — 2026-10-29
+- **Contents:** commit `2556f63`: Menstruasiya wording and the minimal period card on the baby home.
+- **Image:** `gateway@sha256:0c3804714f9438966417fee9c07f49b558b3c602033651a4c1a0b850e5226760`
+  (Cloud Build `a579b6e6`), built `FROM` live `fb35ddc1…`; adds only `index.html`, `assets/`, `aptek/`.
+- **Isolated test (:8089):** all checked paths and the website matched live; index sha, admission and
+  previous live assets verified first.
+- **Deploy:** `deploy-current-web.py mommy-period-web-plan.json` returned `passed`; `index.html` sha
+  `c6bd6755…`; no DNS or database change; public `/?web=admin` loads with no console errors.
+- **Rollback:** `rollback-mommy-period-web-plan.json` returns to the homes carousel build (`fb35ddc1…`).
+
+## Storage cache + upload compression web deploy — 2026-10-29
+- **Contents:** commit `f1d7c74` (photos are downscaled to 1600 px and re-encoded in the browser
+  before upload) and gateway `nginx.conf` marker `storage-cache-v1`: a `$storage_cache_control`
+  map sends `public, max-age=31536000, immutable` for GET/HEAD of public `community-media` and
+  `chat-media` objects, `public, max-age=86400` for public `assets` (admin uploads use upsert),
+  and the Storage API's own header everywhere else (private buckets, signed URLs, uploads).
+  Goal: cut load-balancer egress, which repeat downloads of uncached feed media dominated.
+- **Image:** `gateway@sha256:68576641eef72460788eadbd8f481e2ceea1c33ae415537c7312345b008b2332`
+  (Cloud Build `4c9f8772`), built `FROM` live `0c380471…`; replaces `nginx.conf` (live file plus
+  the map and two lines in `location /storage/v1/`) and adds `index.html`, `assets/`, `aptek/`.
+- **Isolated test (:8089):** `nginx -t` passed; all checked paths, website, admission, old and new
+  JS matched; public media returned the same bytes with the new headers; private unauthenticated
+  reads still 400; storage preflight still 204.
+- **Deploy:** `deploy-current-web.py storage-cache-web-plan.json` returned `passed`; `index.html`
+  sha `8b26124c…`; no DNS or database change; public `/?web=admin` loads with no console errors.
+- **Rollback:** `rollback-storage-cache-web-plan.json` returns to the mommy period build (`0c380471…`).
+
+## One-time recompression of stored images — 2026-10-29
+- **Scope:** JPEG/PNG objects over 500 KB in every bucket (1,740 objects, 3.05 GB). Tool image
+  `anacan-runtime/media-recompress@sha256:9448230f…` (Pillow): EXIF-oriented, max 1600 px, JPEG
+  q82 progressive or optimized PNG; same path, same type; replaced only when ≥20% smaller.
+- **Path:** each original was copied to
+  `gs://anacan-migration-ninth-park-492111-m4/gcp-backups/files/media-originals-20261029/<bucket>/<name>`
+  (2.65 GB, `ifGenerationMatch=0`) before an upsert through the Storage API with a short-lived
+  `service_role` JWT whose `sub` is the object's owner, so `owner_id` and `cacheControl` stay and
+  storage triggers/CDC run as for any upload. No direct database writes.
+- **Result:** 1,029 replaced, 530 left (not ≥20% smaller), 181 left unchanged: 155 moderation/ad
+  media refused by `community_ad_storage_guard_v1` (`MODERATION_MEDIA_IMMUTABLE`, intentional),
+  14 truncated files, 9 undecodable, 3 transient errors. 3.05 GB → 1.36 GB.
+- **Restore:** upload the backup object back to the same path with `x-upsert: true`.
+  Working files: `/var/tmp/media-recompress-20261029/` on the VM (`result.tsv`, `dry-result.tsv`).
+
+## Review PDF fixes web deploy — 2026-10-29
+- **Contents:** commits `99dc8ee` (period), `56651fd` (layout, pregnancy home, nutrition),
+  `5be44e2` (chat menu). SQL applied on Google first, each in one transaction with owner/ACL
+  unchanged: `supabase/duzelis/Duzelis65.sql` (record_period_days learns cycle length from
+  21–35 day cycles only) and `Duzelis66.sql` (chat_set_reaction_v2 and the
+  `chat_reaction_emoji_v2` CHECK accept 16 extra reactions).
+- **Image:** `gateway@sha256:8c7b11287998b988bbf6d0cadfef3321ea7203100c5e8b7c38e99f93e105e1c9` (Cloud Build `44915637`), built `FROM` live
+  `68576641…`; adds only `index.html`, `assets/`, `aptek/`.
+- **Isolated test (:8089):** nginx -t, paths, website, admission, old/new JS and storage headers matched.
+- **Deploy:** `deploy-current-web.py review-fixes-web-plan.json` returned `passed`; `index.html`
+  sha `4f3fd00a…`; public `/?web=admin` loads with no console errors.
+- **Rollback:** `rollback-review-fixes-web-plan.json` returns to the storage cache build (`68576641…`).
+- **Also on 2026-10-29:** deleted unused travelmatch leftovers in us-central1 (reserved IP
+  `travelmatchstatic`, snapshot schedule `default-schedule-1`, 14 snapshots of the deleted
+  `travelmatch` disk). Anacan disks have no snapshot schedule; backups stay in GCS.
+
+## Breastfeeding age web deploy and Cloud Armor removal — 2026-10-29
+- **Contents:** commit `8055305` (breastfeeding options until the child's second birthday).
+- **Image:** `gateway@sha256:a7ee8504319d12ee35871c3d1be93962a27b234945787963ed3eb3a5f7f1af55` (Cloud Build `1a049bc5`), built `FROM` live
+  `8c7b1128…`; adds only `index.html`, `assets/`, `aptek/`. Isolated test matched live.
+- **Deploy:** `deploy-current-web.py breastfeeding-web-plan.json` returned `passed`; `index.html`
+  sha `fac8db01…`. Rollback: `rollback-breastfeeding-web-plan.json` (`8c7b1128…`).
+- **Cloud Armor:** `anacan-preview` (only an allow-all default rule, ~$17/month at 14.5M
+  requests/30 days) was detached from `anacan-runtime-backend`; app, API, website and storage
+  answered as before, then the policy was deleted. Rate limits remain in the gateway; Google's
+  load balancer keeps its built-in L3/L4 DDoS protection.
+
+## Solid food guide web deploys — 2026-10-29
+- **First:** commits `6fb9599`, `54cb18c`; image `gateway@sha256:107983495d02d1e0c6a286c539907ce86b95838d6ddaad00c5cb74b9f29e6cf3` (Cloud Build
+  `271c07a7`) from `a7ee8504…`; plan `solid-food-web-plan.json` passed (index `336fed3f…`).
+  SQL first: `supabase/duzelis/Duzelis67.sql` adds recipe category `baby_food` / Körpə (21 languages)
+  and moves the 60 'Əlavə qida' recipes into it (70 active baby recipes).
+- **All languages:** commit `71a5689` (texts in `src/data/solid-food-guide/<lang>.json`, 21 languages);
+  image `gateway@sha256:adb697720abd1b28d1d15fc2881f68b18153d6c4f24153310a5265957a89f38a` (Cloud Build `f5639bdc`) from `10798349…`; plan
+  `sfg-i18n-web-plan.json` passed (index `91ec84f8…`); public `/?web=admin` has no console errors.
+- **Rollback:** `rollback-sfg-i18n-web-plan.json` (→ `10798349…`), then `rollback-solid-food-web-plan.json`.
+
+## Dark mode, Mommy period screen and chat edit web deploy — 2026-10-29
+- **Contents:** commits `96f594e` (dark-mode pastel mapping, CTA/switch/blog cover, trimester tips under
+  the hero, Mommy period screen: calendar first, cycle overview, phase tips, daily log, symptoms) and
+  `f138c91` (chat edit through `chat_edit_message_v1`; no SQL change).
+- **Image:** `gateway@sha256:d3678a34d2d5f36ef3b0fbf99e992289840ce7f7f1fb53dd722abf0397ac6f01` (Cloud Build `96e820f2`) from `adb69772…`; isolated test matched.
+- **Deploy:** `chat-edit-web-plan.json` passed; index `fb2e9a8b…`; no console errors.
+- **Rollback:** `rollback-chat-edit-web-plan.json` (→ `adb69772…`).
+
+## Partner rebuild phase 1 web deploy — 2026-10-30
+- **SQL first:** `supabase/duzelis/Duzelis68.sql` (applied on Google). `partner_can_see_v1` applies the woman's
+  `share_*` flags to partner reads of appointments, baby_logs, contractions, kick_sessions and
+  weight_entries. Partners can no longer read `daily_logs` or `daily_summaries` directly; they use the masked RPCs
+  `partner_daily_logs_v1` and `partner_daily_summaries_v1` instead (mood, symptoms and water only per flag; never notes,
+  temperature or bleeding). Old native clients (≤47) lose the partner mood view until the next native build.
+- **Contents:** commits `018f840` (real sign-out, newest-first feed, quick messages with push), `2cee7ed`
+  (client on masked RPCs, Google always uses secure pairing) and `ae90c91` (in-app re-link form on the not-linked home
+  and the profile, legacy pairing removed, a one-sided legacy link is cleared only after the server confirms
+  it is not mutual).
+- **Image:** `gateway@sha256:0b979ca713a451f75e5842cb341882674a2cb3fc098e9365c571112fdc571f92` (Cloud Build `a19b34b4`) from `d3678a34…`; isolated test matched.
+- **Deploy:** `partner-p1-web-plan.json` passed; index `29099c92…`; no console errors.
+- **Rollback:** `rollback-partner-p1-web-plan.json` (→ `d3678a34…`).
+
+## Partner rebuild phases 2–5 web deploy — 2026-10-30
+- **SQL first:** `supabase/duzelis/Duzelis69.sql` (applied on Google after a rolled-back dry run). New tables
+  `partner_night_shifts` and `birth_plans` (pgadmin, RLS on, no direct grants) are reachable only through
+  `partner_family_mother_v1`, `night_shifts_v1`, `night_shift_set_v1`, `birth_plan_get_v1`, `birth_plan_save_v1`
+  (mother, or her mutually linked partner). Both relations are enrolled in `_anacan_gcp_migration.guarded_relations`
+  with `anacan_gcp_writer_guard` / `anacan_gcp_change` / `anacan_gcp_truncate`; no cron or timer.
+- **Contents:** commits `e3226a6`, `0e6ab4a`, `d0f441f`: stage-aware partner missions (`src/data/partner-missions`, 50
+  missions, 21 languages), birth mode card from week 36, stage chips, grouped "Biz" with birth plan / night shift,
+  woman-side partner hub (invite, last 7 days, grouped sharing with preview, unlink), compact dashboard card,
+  Ata AI (partner persona, `chat_type='partner'` history, woman's stage, cycle dates only when shared), night shift
+  and birth plan screens, new partner profile; 131 new feature37 keys in 21 languages; dead partner files removed.
+- **Image:** `gateway@sha256:6f79504860a592b040c3526b4281bac170a07974df11d70c3f60a018b97c111c` (Cloud Build `aaaedb4f`) from `0b979ca7…`; isolated test matched.
+- **Deploy:** `partner-full-web-plan.json` passed; index `cb71cda9…`; no console errors.
+- **Rollback:** `rollback-partner-full-web-plan.json` (→ `0b979ca7…`). The new tables are additive.
+
+## Partner postpartum guide, notification choices and tour — 2026-10-30
+- **SQL first:** `supabase/duzelis/Duzelis70.sql` (rolled-back dry run, then applied). `user_preferences` (already
+  guarded) gains `push_partner_thanks`, `push_partner_shopping`, `push_partner_contractions` (default true). The original
+  claim function is kept as `claim_communication_notification_core_v2`; the new `claim_communication_notification_v2`
+  (same signature, pgadmin, service_role only) still writes the claim and in-app notification, then returns false for
+  a partner type the target turned off, so `send-push-notification` sends no push. SOS/birth alerts are never filtered.
+  The functions image is unchanged.
+- **Contents:** commit `5763ac9`: "İlk 8 həftə" partner guide (`src/data/postpartum-partner`, 21 languages; week guide,
+  baby blues vs postnatal depression, warning-sign checklist with the local emergency number, one-tap messages,
+  "today I've got this" task list), home card for babies under 8 weeks with a low-mood nudge from shared moods,
+  Biz tile, `PartnerNotificationsScreen`, tour v2 texts and Ata AI step.
+- **Image:** `gateway@sha256:f24217c2b5c0813489aa73d02892265e23258d0488e40671e586f124da207725` from `6f795048…`; isolated test matched.
+- **Deploy:** `partner-pp-web-plan.json` passed; index `102adcb0…`; no console errors.
+- **Rollback:** `rollback-partner-pp-web-plan.json` (→ `6f795048…`). To undo the claim filter: drop the wrapper and
+  rename `claim_communication_notification_core_v2` back.
+
+## Solid food guide alignment and Aptek offer frame — 2026-10-30
+- **Contents:** commit `00c6a30`. Guide chip rows (tabs, ages, food groups) start on the card edge
+  (`.sfg-chips`); the Aptek home offer uses a real border with `overflow: hidden`, so the full-width product
+  rail no longer paints over the green frame.
+- **Image:** `gateway@sha256:26fb99ea3ebb73bb99adf86c7cd350e3c0e8e972cbdde7b1eed151a7583d5e6b` from `f24217c2…`; isolated test matched.
+- **Deploy:** `fix-sfg-aptek-web-plan.json` passed; index `bb27c6dd…`; no console errors.
+- **Rollback:** `rollback-fix-sfg-aptek-web-plan.json` (→ `f24217c2…`).
+
+## Körpəmdən mesajlar — 2026-10-30
+- **Contents:** commit `3972fd6`. Pregnancy dashboard card + `baby-chat` screen: the baby's daily message (existing
+  `pregnancy_daily_content.baby_message`) arrives at a per-user/per-day time between 09:00 and 20:30; the mother's replies
+  get curated, week-aware baby answers (`src/data/baby-chat`, 21 languages; no AI, nothing medical). Threads stay on the
+  device (last 14 days). On-device local notifications for the next 7 arrivals (`src/lib/baby-chat-notifications.ts`;
+  tap → pushNav `baby_chat`). Share as a 1080×1920 photo or a recorded message-by-message video with pop sounds
+  (`src/lib/baby-chat-share.ts`). No SQL, server job or functions change.
+- **Image:** `gateway@sha256:c1ffe62e75275e1254692bd7942c1e555515a95dc39074202924ecccd02bc7d0` from `26fb99ea…`; isolated test matched.
+- **Deploy:** `baby-chat-web-plan.json` passed; index `094dff49…`; no console errors.
+- **Rollback:** `rollback-baby-chat-web-plan.json` (→ `26fb99ea…`).
+
+## Körpəmdən mesajlar: short messages and video sharing fix — 2026-10-31
+- **Contents:** commit `6564d37`. The baby's daily message is now our own short line (`weekly` 4–41 on two days of
+  each pregnancy week, a 14-line `daily` pool otherwise; 21 languages) instead of the long day content. Video recording
+  tries audio+video formats for real (Safari rejects a video-only codec with an audio track), then video only; the share
+  sheet opens from a fresh tap in a preview (Paylaş / Yadda saxla), so a long render cannot outlive the browser's share
+  permission; errors show a stage code (VIDEO_RECORDER, VIDEO_EMPTY, SAVE_FILE, SHARE_SHEET, PHOTO).
+- **Image:** `gateway@sha256:0f1bdb8e9181ae2d5708f573bc58c5b97b36187088cba5421aa64cb6d83ccaf3` from `c1ffe62e…`; isolated test matched.
+- **Deploy:** `baby-chat2-web-plan.json` passed; index `0e5f4a4d…`; no console errors.
+- **Rollback:** `rollback-baby-chat2-web-plan.json` (→ `c1ffe62e…`).
+
+## Körpəmdən mesajlar AI replies (off by default) — 2026-10-31
+- **SQL:** `supabase/duzelis/Duzelis71.sql` (rolled-back dry run, then applied): `usage_tracking` allows feature
+  `baby_chat_ai`; `app_settings.baby_chat_ai = {"enabled": false, "daily_limit": 20}` is the kill switch (Admin →
+  Premium → limits → "Körpəmdən mesajlar — AI cavablar"). Off = curated replies only.
+- **Function:** `supabase/functions/baby-chat-reply/index.ts`, route `baby-chat-reply` (user auth, provider google) added to
+  the image's `main/catalog.mjs` and to `ENABLED_FUNCTIONS`. Layers: kill switch + daily limit → per-language care
+  pre-filter (also in the app, `src/lib/baby-chat-safety.ts`; a test keeps the lists equal) → narrow JSON prompt with a
+  topic label (health/worry/what is safe → care card) → output filter (length, links, numbers, scary words, script) →
+  independent model check. Any failure returns `reply: null` and the app shows a curated line; logs hold outcomes only.
+  A throwaway-container harness ran 18 samples in 8 languages: playful replies, prompt injections deflected, health,
+  sadness, movement, medicine and food-safety questions routed to the care card.
+- **Functions image:** `functions@sha256:bc46f07f9be8ce2bc168cf83e2cfc5aa09dd32dada6b3ace1cd2ec6cc15efb01` (FROM `0a6bd203…`,
+  adds the route and file only). `/home/anacan-runner/functions-baby-chat-recreate.py` (based on the admin-premium
+  recreate) passed preflight and `verified`; previous container `anacan-functions-before-baby-chat-1793436663`, env backup
+  `runtime/secrets/functions.env.before-baby-chat`. Public `POST /functions/v1/baby-chat-reply` without auth → 401.
+- **Web:** commit `88f224b`; `gateway@sha256:4e4f84517e55e290fefed519f9ab45a6a01d15e4b974fe9a6db86575cc46d795` from `0f1bdb8e…`;
+  `baby-ai-web-plan.json` passed; index `b2dfa396…`; no console errors. Rollback `rollback-baby-ai-web-plan.json`.
+- **Functions rollback:** stop/remove `anacan-functions`, rename the previous container back, restore the env backup,
+  start it and reload the gateway (the recreate script's own rollback path does exactly this).
+
+## Pregnancy loss support — 2026-10-31
+- **Contents:** commit `2281ddc`. Profile → Hamiləliyim (bump) has dates, "Körpəm doğuldu" and a calm
+  "Hamiləliyim davam etmir" entry: one sheet, no reason asked, date + optional partner message. The 8-week
+  recovery mode (lavender `loss-scope`) replaces the home: week card, mood check-in (daily log), warning
+  signs, body check, Anacan.AI, EPDS, diary, memories (album, baby chat read/delete, private letter on the
+  device) and "Hazır olanda" (track cycle from the loss date / new pregnancy / stay). Partner: support card
+  and guide (4 phases, say/avoid, one-tap messages, tasks, his grief, warning signs); missions, tips, cycle
+  stats hidden. Baby chat local notifications are cancelled whenever the stage is not bump. 21 languages
+  (`src/data/pregnancy-loss/`, test checks shape, placeholders and emergency numbers).
+- **SQL:** `supabase/duzelis/Duzelis72.sql` (rolled-back dry run, then applied): `profiles.pregnancy_loss_date`,
+  `loss_recovery_active`, `loss_share_partner`; `pregnancy_loss_begin_v1(date, boolean)` (own bump profile →
+  flow, no cycle dates) and `pregnancy_loss_end_v1(boolean)`; definer, owner pgadmin, authenticated only.
+  `profiles` was already CDC/writer guarded. No new relation, cron or timer.
+- **Daily notifications:** the live job runs `notification-jobs` (`send-daily-notifications.mjs`), not the
+  Supabase function. `merge-pending/2026-10-31-pregnancy-loss/`: the profile query skips users in recovery and
+  their linked partners (the image build runs the job tests and requires `# fail 0`; one new test covers the query). Image
+  `notification-jobs@sha256:496787ef665c5ee6f395783c59faf2b062eaac9d4ed8f5f020501a85eb89c8eb` (FROM `133332019c…`,
+  only `send-daily-notifications.mjs` differs). Both `anacan-job-daily-notif-slots` and `-halfhour` switched;
+  backups `*.json.before-pregnancy-loss-20261031` (rollback: copy them back). The new query returned all
+  15307 profiles (nobody in recovery yet). Timers unchanged. The repo's Supabase function got the same filter.
+- **Web:** `gateway@sha256:92f4e1831b0d50b4571791c24f61a26ec4f7341d96b458e7d0099d48c226ae57` from `4e4f8451…`;
+  isolated test matched; `pregnancy-loss-web-plan.json` passed; index `30235881…`; no console errors.
+  Rollback `rollback-pregnancy-loss-web-plan.json`.
+
+## Dodo Payments web Premium (test mode) — 2026-10-31
+- **Purpose:** web funnels on `anacan.az` (not `app.anacan.az`) sell Premium through Dodo Payments (Merchant of
+  Record). Test mode only. Products (test): monthly `pdt_0NqwRg55cchf4cITkePee` $2.22, yearly
+  `pdt_0NqwRgF56gFbhesTuTjgh` $15.55 (recurring, 20-year term = renews until cancelled). Webhook endpoint
+  `ep_3LSyu2004YAuGgveLx9X7Ov3ptv` → `https://api.anacan.az/functions/v1/dodo-webhook`.
+- **SQL:** `supabase/duzelis/Duzelis73.sql` (rolled-back dry run, then applied): `web_checkouts`, `web_subscriptions`,
+  `web_payment_webhooks` (RLS, owner pgadmin, CDC/writer guarded); `web_subscription_link_user_v1`,
+  `web_subscription_link_email_v1`, `web_entitlement_v1` (service_role only). Linking uses only emails verified by
+  Google/Apple identities, because email sign-up is auto-confirmed (`mailer_autoconfirm: true`).
+- **Functions:** `dodo-checkout` (auth `public`, 30/min, anacan.az origins only, other origins 403) and `dodo-webhook`
+  (auth `signed-webhook`; Standard Webhooks signature in the function). Gate `ENABLE_WEB_PAYMENTS`. The image's
+  `catalog.mjs` gains both routes, the gate and `_shared/dodo.ts`. `_shared/revenuecat-sync.ts` in the repo is now the
+  live file (it had diverged) plus the web merge: the later-ending of store and web entitlement is written through
+  `azure_apply_revenuecat_states`, and an active web entitlement is written even when RevenueCat is unreachable.
+- **Image:** `functions@sha256:ed99f0832c7a1e7035089b12a197c55a06868885a9383186d2ea7fe40a740246` (FROM `bc46f07f…`).
+  `/home/anacan-runner/functions-dodo-recreate.py` passed check-only and `verified`; previous container
+  `anacan-functions-before-dodo-1793465499`, env backup `runtime/secrets/functions.env.before-dodo`. The env gained
+  exactly `DODO_PAYMENTS_API_KEY` (test key), `DODO_PAYMENTS_ENVIRONMENT=test_mode`, `DODO_PRODUCTS_JSON`,
+  `DODO_PAYMENTS_WEBHOOK_KEY`, `ENABLE_WEB_PAYMENTS=true` and the two routes in `ENABLED_FUNCTIONS`.
+- **End-to-end test:** public checkout → hosted Dodo checkout (test card) → return to `https://anacan.az/az/?premium=thanks`;
+  four signed webhooks stored once each; `web_subscriptions` row `active` until 2026-11-30, unlinked (the test email has
+  no account). Unsigned webhook → 401.
+- **Rollback:** set `ENABLE_WEB_PAYMENTS` off, or restore the env backup and the previous container (the recreate
+  script's rollback path). Going live needs a live key, live products/webhook and `DODO_PAYMENTS_ENVIRONMENT=live_mode`
+  (the key prefix must match the environment or the functions refuse to run).
+- **Not yet built:** the funnel pages on anacan.az and an in-app claim for email/password accounts.
+
+## E-mail code verification + Anacan-themed Dodo checkout + Premium funnel — 2026-10-31
+- **Contents:** commits `fff41c0`, `255f7dd`.
+- **SQL:** `supabase/duzelis/Duzelis74.sql` (rolled-back dry run, then applied): `email_verifications` (RLS, no client
+  access, owner pgadmin, CDC/writer guarded), `email_verification_state_v1()` (authenticated), switch
+  `app_settings.email_verification = {"enabled": false, "required_since": null}` (**off**), and the web Premium link
+  RPCs also accept an e-mail proven with the code.
+- **Function `email-verification`** (auth `user`): 6-digit code, salted SHA-256, 15 min, 5 attempts, 60 s cooldown,
+  5 per hour; Customer.io transactional EU (`/v1/send/email`, inline 21-language HTML + text, `tracked: false`,
+  `disable_message_retention: true`, `send_to_unsubscribed: true`). Verifying runs the entitlement sync (web Premium
+  attaches). Env names (not yet set): `CUSTOMERIO_APP_API_KEY`, `CUSTOMERIO_REGION` (default EU),
+  `EMAIL_VERIFICATION_FROM`. Without them `send` returns `send_failed`; that is why the switch stays off.
+- **App:** `EmailVerificationScreen` before onboarding/Premium offer for new e-mail/password accounts only (not
+  Google/Apple, not onboarded accounts, never queried for onboarded users).
+- **Functions image:** `functions@sha256:4c336b4f1e34aa23e8fb25a571e70b49f1baf06458bcdc5991815d9e7bfe69e2` (FROM
+  `ed99f083…`); `/home/anacan-runner/functions-email-recreate.py` verified; previous container
+  `anacan-functions-before-email-verify-1793468310`, env backup `functions.env.before-email-verify`.
+- **Dodo checkout:** session `customization.theme_config` (Anacan coral/peach, Inter, 14px), `force_language`
+  (az→tr, kk/uz→ru, hi/vi→en), return to the funnel, discount codes on.
+- **Funnel:** `https://anacan.az/website/premium/index.html?lang=<code>` (static in the gateway website root,
+  noindex; 21 languages; vendored Checkout SDK 2.0.1). Default: hosted Dodo page in the Anacan theme; `&checkout=inline`
+  embeds it on the page (inline did not complete a headless test payment; hosted did, end to end, twice).
+- **Gateway:** `gateway@sha256:9c80d707187cd9789b12bba9128f182fe340443c192f37f71949aa451c49f54b` (app index `583c4ad3…`),
+  plans `email-funnel-web-plan.json` then `funnel2-web-plan.json`; rollbacks `rollback-funnel2-web-plan.json`
+  (→ `c75bb121…`) and `rollback-email-funnel-web-plan.json` (→ `92f4e183…`).
+- **To turn e-mail codes on:** Customer.io sending domain verified (DKIM/return-path records in Cloudflare), App API key
+  and from-address added to the functions env, one real code test, then set
+  `{"enabled": true, "required_since": now()}`.
+
+## E-mail code verification turned on — 2026-11-01
+- **Customer.io:** App API key (EU) works; sender identity `Anacan <noreply@anacan.az>`; `email.anacan.az` points to
+  Customer.io tracking. A test code e-mail to info@anacan.az was delivered to the **Inbox** (user confirmed).
+- **Env:** `CUSTOMERIO_APP_API_KEY`, `CUSTOMERIO_REGION=eu`, `EMAIL_VERIFICATION_FROM` added with
+  `/home/anacan-runner/functions-cio-recreate.py` (same image; backup `functions.env.before-cio`).
+- **Function fix:** the router replaces non-2xx bodies with generic codes, so `email-verification` now answers
+  wrong/expired code, too many attempts, wait and send failure with 200 + `{ok:false,error}`. Image
+  `functions@sha256:0f941b2fd78d797efb0ae0c4f64ff43fcb4d0ecc955936fb864f9f5fea1de7f5`
+  (`functions-ev2-recreate.py`, backup `functions.env.before-email-verify2`, env unchanged).
+- **End-to-end:** throwaway account → code sent through Customer.io → the received code verified (`verified: true`),
+  a repeat send is refused as already verified, a code-less confirm returns `expired`; both throwaway accounts were
+  deleted with `delete-user-account` and their verification rows removed. The app screen was checked visually.
+- **Switch:** `app_settings.email_verification = {"enabled": true, "required_since": "2026-11-01T06:34:09Z"}`; only
+  e-mail/password accounts created after that moment are asked. Off again: set `"enabled": false`.
+
+## Illness journal, postpartum recovery, TTC goal — 2026-11-01
+
+- SQL `supabase/duzelis/Duzelis75.sql`: `baby_illness_episodes` / `baby_illness_entries` (family access only via
+  SECURITY DEFINER RPCs `illness_*_v1`, family = `partner_family_mother_v1()`), `postpartum_checkins` (RLS own rows),
+  `profiles.birth_type`, `profiles.flow_goal`, `profiles.ttc_state`. The three new relations are CDC/writer-guard enrolled
+  in the same migration (it refuses otherwise).
+- Illness journal (`illness` screen; mommy home active/entry cards, partner home cards): temperature dial + chart,
+  medicines with the doctor's dose/interval (never calculated), early-dose warning, next-dose countdown and local
+  reminder on each family phone, partner chat message on medicine/start, symptoms, emergency/doctor signs with the
+  country emergency number, PDF summary (Premium).
+- Postpartum recovery (`recovery`, `recovery/kegel`; mommy home card for 12 weeks): birth type, 6-week plan per birth
+  type, daily check-in (bleeding/pain/stitches/mood, 7-day history), warning signs with urgent/doctor alerts, 103 call
+  and SOS to partner, Kegel trainer (Premium), 6-week check-up questions → calendar.
+- TTC goal inside Flow (`FlowGoalSection` at the top of the Flow home): goal switch, tappable fertility ring with daily
+  chance, LH / BBT / intimacy (private) / pregnancy test log reusing `flow_daily_logs`, BBT chart with three-over-six
+  shift (Premium), months-trying guidance, pre-conception checklist, positive test → pregnancy mode (+ first visit).
+- Copy: `src/data/{illness,recovery,ttc}/<lang>.json`, 21 languages, shape test in `src/lib/care-features.test.ts`.
+- Deployed 2026-11-01: Duzelis75 applied on Google `anacan` (3 relations guarded, 9 triggers, 7 RPCs; rollback test as
+  a real mommy user passed). Web gateway `47.0-care` (`care-web-plan.json`, rollback `rollback-care-web-plan.json` →
+  funnel2) passed; it also carries the Health screen and mommy period-card order changes. Native apps need build 48.
+
+## Next-nap prediction + home-screen widgets — 2026-11-02
+
+- Sleep tool (`sleep-training`, Today tab) now starts with `src/components/sleep/NextNapSection.tsx`: wake-window
+  gauge learned from the last 7 days of logged sleeps (`src/lib/sleep-predict.ts`, age norms from `sleep-training.ts`),
+  sleepy cues, predicted day plan to bedtime, sleep-regression forecast, and local sleep notifications on the device
+  (`src/lib/nap-alerts.ts`, quiet hours). The hero card uses the prediction. Copy: `src/data/sleep-next` (21 languages).
+- Widgets (native build 48+): iOS `AnacanJourneyWidget` (free: pregnancy week / baby age; small, medium, lock screen)
+  and `AnacanCareWidget` (Premium: last feed, next nap, today, Feed/Sleep/Diaper deep-link buttons; without Premium it
+  shows "Get Anacan Premium" → paywall) in `ios/App/AnacanTimerWidgetExt/AnacanHomeWidgets.swift`; Android
+  `AnacanJourneyWidget` / `AnacanCareWidget` (`AnacanWidgets.kt`, `res/layout/widget_*.xml`). The app writes one localized
+  snapshot through the `AnacanWidgets` plugin (App Group `group.com.atlasoon.anacan` / shared prefs);
+  feeding/sleep data is never written without Premium. `AnacanWidgetsPlugin.swift` is App-only via the synchronized
+  folder exception sets in project.pbxproj. Settings + preview: Profile → `widgets`. Copy: `src/data/widgets`.
+- Widget buttons open `anacan://tool/<tool>?widget_action=feed|sleep|diaper`; Sleep starts the sleep timer, Feed/Diaper
+  open the matching tracker tab. The Swift code was not compiled in this environment — build in Xcode before release.
+- Deployed 2026-11-02: web gateway `47.0-sleep-widgets` (`sleep-web-plan.json`, rollback `rollback-sleep-web-plan.json` → care) passed.
+
+## Store review prompts — 2026-11-02
+
+- Removed the custom 5-star pre-prompt (`AppRatingPrompt`, `useAppRating`): it sent only 5-star users to the store
+  (review gating, App Store guideline 5.6.1). Replaced by the OS sheet only (`@capacitor-community/in-app-review`) at
+  positive moments: a new baby milestone marked (mommy home), a new pregnancy week viewed 8 s on the bump home, and
+  day 7+ after 20 s on Home. Logic and gates: `src/lib/review-prompt.ts` (tested).
+- Gates: remote switch `app_settings.review_prompts` (Duzelis76, seeded **disabled**; admin card "App Store / Play rəy
+  sorğusu" in Admin → Settings with min iOS/Android build and cooldown), app crash on this device in the last 7 days
+  (crashReporter → `noteAppCrash`), pregnancy-loss recovery, < 3 sessions, 60-day cooldown, max 3 per 365 days.
+  Requests are recorded in `app_rating_prompts.last_action = native_<moment>`.
+- Android: `@capacitor-community/in-app-review` added to `capacitor.config.json` android.includePlugins (it was missing,
+  so Play review never worked); generated gradle files re-synced. Needs native build 48.
+- Turn the switch on only after the crash-fix build is live; set min build to that build number.
+- Deployed 2026-11-02: Duzelis76 applied (review_prompts seeded disabled, RPC verified as an authenticated user); web
+  gateway `47.0-review` (`review-web-plan.json`, rollback `rollback-review-web-plan.json` → sleep) passed.
+- In-app feedback (2026-11-02): `FeedbackSheet` (Profile → "Fikrinizi bildirin", plus one auto ask from day 14) saves
+  stars + reasons + text as `support_tickets` (category `app_feedback`, priority by rating) for Admin → Support. It never
+  links to a store; store reviews stay OS-sheet only (owner chose this compliant hybrid over 4–5★ store gating).
+  Deployed: web gateway `47.0-feedback` (`feedback-web-plan.json`, rollback → review) passed; user ticket insert verified.
+
+## Store rating prompt restored (2026-11-01)
+
+- Reverted the native happy-moment review flow (de5da29): `review-prompt.ts`, Admin review switch,
+  Dashboard moments and crash gating are removed. The original custom `AppRatingPrompt`
+  (`useAppRating`: 3rd usage, 5★ → native review / store link) is back.
+- Kept: the in-app `FeedbackSheet` (Profile → feedback, plus one auto prompt from day 14, 5+ sessions,
+  native only). Sessions now come from `anacan_app_usage_count`; first open from `anacan.review.firstOpenAt`.
+- Kept: Android `@capacitor-community/in-app-review` plugin registration (used by the 5★ path).
+- Duzelis76 server objects (`review_prompts` setting, `get_review_prompt_config_v1`) stay but are unused.
+- Web deployed as `47.0-rating` (gateway `sha256:cb574750…`, index `e6dd8052…`); rollback plan `rollback-rating-web-plan.json` → 47.0-feedback.
+- One prompt per day (`src/lib/prompt-day.ts`): web `47.0-oneprompt` (gateway `sha256:939d312a…`, index `5a83646d…`); rollback → 47.0-rating.
+
+## "Döş" → "sinə" and first-run lock offer (2026-11-01)
+
+- Azerbaijani app copy uses "sinə" instead of "döş" (symptoms, feeding sides, widget labels, preemie,
+  postpartum, loss and recovery texts). Website copy and Word Garden lexicon words are unchanged.
+- `LockOfferSheet` (`src/lib/lock-offer.ts`, copy `src/data/lock-offer/*`, 21 languages): once per device,
+  native only, on the first Home visit after onboarding when the app lock is off. "Enable" opens
+  `AppLockSetupSheet` with `preferBio` (PIN, then the OS Face ID / fingerprint prompt). The sheet says it
+  can be turned off in Settings → Password protection. Shares the one-prompt-per-day marker.
+- Web `47.0-lockoffer` (gateway `sha256:0493242…`, index `47848de…`); rollback → 47.0-oneprompt.
+
+## "Who pays for Premium?" — spouse / family sponsor links (2026-11-01)
+
+- **Idea:** on the paywall, a user can have her Premium paid by herself (store), her spouse, or a family
+  member. Spouse/family get a shareable `anacan.az/website/p/?t=<token>` link (7-day expiry) and a
+  prefilled, editable message. When the sponsor pays (Dodo, test mode), Premium is granted to the
+  REQUESTER (not the payer) via the token; a linked partner shares it through the existing household
+  entitlement. The payer gets no app access and no personal/health data.
+- **Gated OFF** behind `app_settings.premium_sponsor = {"enabled": false}` (allowlisted in
+  get_public_app_setting). Turn on only after SQL + functions + the pay page are all live and tested.
+- **SQL** `supabase/duzelis/Duzelis77.sql`: `premium_sponsor_links` (RLS own-read, service_role writes,
+  CDC/writer guarded); `create_premium_sponsor_link_v1` (authenticated, reuses a fresh link),
+  `premium_sponsor_link_info_v1` + `web_subscription_link_sponsor_v1` (service_role); flag seed + allowlist.
+- **Functions:** `dodo-checkout` accepts `sponsor_token` (validates, sets metadata, sponsor return URL);
+  `dodo-webhook` grants to the requester via the token; new `sponsor-link-info` (public, anacan.az only).
+  Needs the functions image rebuild + `sponsor-link-info` added to ENABLED_FUNCTIONS/catalog.
+- **App:** `SponsorSheet` + `SponsorEntry` (native, flag-gated) under the paywall CTA; spouse has a
+  "also offer partner mode" toggle (switches the message variant); `src/lib/premium-sponsor.ts`;
+  copy `src/data/sponsor/*` (21 langs).
+- **Pay page:** static `public/website/p/` (index.html + pay.js + copy/*, 21 langs) served by nginx at
+  `/website/p/`; must be COPYd into the gateway website root on deploy (it is new, not in the base image).
+- **Decisions (user):** partner offer = woman's toggle; sponsor picks the plan on the page; test mode.
+
+## Premium sponsor links — deployed (test mode, flag OFF) 2026-11-01
+- **SQL** `Duzelis77.sql`: dry-run (ROLLBACK) clean, then applied as supabase_admin. Verified:
+  `premium_sponsor_links` (0 rows), `app_settings.premium_sponsor = {"enabled": false}`, RPCs
+  `create_premium_sponsor_link_v1` / `premium_sponsor_link_info_v1` / `web_subscription_link_sponsor_v1`.
+- **Functions:** image `functions@sha256:fc93af7d3da0ee1427704032ddf80707b8b0ffc35e129fd11880a64ddc09f08c`
+  (Cloud Build FROM `0f941b2f…`): updated dodo-checkout/dodo-webhook, new `sponsor-link-info`, patched
+  `main/catalog.mjs` (added the `sponsor-link-info` route). Swapped with `functions-sponsor-recreate.py`
+  (based on functions-dodo-recreate.py; NEW_NAMES empty; adds `sponsor-link-info` to ENABLED_FUNCTIONS).
+  Previous container `anacan-functions-before-sponsor-1793552304`; env backup `functions.env.before-sponsor`.
+  Smoke: OPTIONS 204, bogus token → `{found:false}`, bad format → 400.
+- **Gateway:** image `gateway@sha256:f1cc9b7bc7bc62e42415904f5f39449538cec6e3cc476450551a24767832784f`
+  (FROM `0493242…`, app bundle unchanged, index `47848de…`): COPYs `public/website/p` into the website
+  root. Plan `sponsorpay-web-plan.json` (version 47.0-sponsorpay) `passed`; rollback
+  `rollback-sponsorpay-web-plan.json` (→ `0493242…` / 47.0-lockoffer). Live: `/website/p/…` = 200, app
+  index unchanged on app./gcp.anacan.az.
+- **To turn ON:** set `app_settings.premium_sponsor = {"enabled": true}` after an end-to-end test (real
+  user generates a link → sponsor pays with a Dodo test card → requester's Premium activates). Going live
+  (real charges) still needs `DODO_PAYMENTS_ENVIRONMENT=live_mode` + live key/products (same as the funnel).
+- **Known follow-up:** share link is `anacan.az/website/p/?t=<token>`; the shorter `anacan.az/p/<token>`
+  needs a one-line nginx location (or a website-server route) on the next full website image rebuild.
+
+## Widgets redesign + Word-of-day + lock icon + sponsor pay (lang URL, inline) — deployed 2026-11-01
+- **App (committed 16421a1, 75cad47):** non-Premium home-screen care widget now shows a full LOCKED
+  sample preview + "Premium required" CTA (iOS HWCareView, Android AnacanWidgets.kt/widget_care.xml,
+  WidgetSettingsScreen); new free "Word of the day" widget (iOS AnacanWordWidget, Android
+  AnacanWordWidget + widget_word layout/info/manifest, content src/data/widgets 21 langs); Face ID
+  (scan-face) lock-screen icon on iOS. **Native widget visuals ship in native build 48** (not web).
+- **Functions:** `functions@sha256:e09f1778…` (FROM fc93af7): dodo-checkout return_url now
+  `anacan.az/<lang>/p/`, minimal fields (no phone/tax-id/full address; billing country stays — Dodo MoR
+  tax). Swapped via `functions-sponsorpay-recreate.py` (image-only, env unchanged). Previous container
+  `anacan-functions-before-sponsorpay-1793555205`.
+- **Website runtime:** `website@sha256:bf39a7b7…` (FROM f25e1c1a): adds the `/<lang>/p/` route to the
+  Node server. Deployed via `deploy-website-runtime.py` (plan image bumped; backup
+  `website-runtime-plan.json.before-sponsorp`). Live: `/az/p/`, `/en/p/` = 200; `/az/`, `/llms.txt` intact.
+  ⚠️ **Repo drift:** the live `/app/server/server.mjs` (161 lines, LLM/sitemap/IndexNow/markdown) is NEWER
+  than repo `scripts/website/server.mjs` (stale). The deploy patched the LIVE server.mjs, not the repo file.
+  A future website image built from the repo would REGRESS SEO/LLM infra — reconcile the repo server.mjs
+  with production before any repo-sourced website rebuild.
+- **Gateway:** `gateway@sha256:d4c49bfc…` (FROM f1cc9b7, index `58dded87…`): new app bundle (lock icon,
+  widget settings preview, sponsor sheet) + inline pay page (`/website/p/` pay.js/index.html/copy).
+  Plan `sponsorpay2-web-plan.json` (47.0-sponsorpay2); rollback `rollback-sponsorpay2-web-plan.json`.
+- **Pay page:** inline Dodo checkout on-site (falls back to hosted on SDK error), opens in the requester's
+  language at `anacan.az/<lang>/p/?t=<token>`. Sponsor feature still flag-OFF (`app_settings.premium_sponsor`).
+
+## Website runtime repo re-sync (2026-11-01)
+- Re-synced the hand-written website runtime from the live container into `scripts/website/`:
+  `server.mjs` (with the `/<lang>/p/` sponsor route), `prerender.mjs`, `indexnow.mjs`, `llm-policy.mjs`,
+  `llm-runtime.mjs` — the repo copies were stale / missing. See `scripts/website/RUNTIME_DRIFT.md`.
+- Still open: `renderer.mjs` is a build artifact whose `src/website/` LLM/SEO/markdown source is NOT in
+  this branch (live sha `02bc1985…`). Do NOT run `build-server.mjs` from this branch — it would build a
+  renderer without the LLM exports `server.mjs` imports and regress the live site. Recover the upstream
+  `src/website/` source before any repo-based website rebuild.
+
+## 2026-11-02 — Incident: community posts stuck in `checking` (≈17 h), scheduled jobs down
+
+- Symptom: on every app build, new Cəmiyyət posts never appeared (18 posts stuck at
+  `ad_moderation_state='checking'` from 2026-11-01 19:17 UTC). Push/e-mail jobs were failing too.
+- Cause: the post-deploy cleanup of the sponsor test (2026-11-01 17:03 UTC) ran `docker image prune -f`
+  on `anacan-gcp-candidate`. Job images in `/srv/anacan/runtime/jobs/*.json` are pulled **by digest
+  only** (no tag), so Docker treats them as dangling and the prune deleted them. root's Docker has no
+  Artifact Registry credentials, so `run-job.py` → `docker run` failed with exit 125 for 8 timers
+  (community-ad-moderation, customerio billing/source sync, daily-notif slots/halfhour, flow/vitamin
+  reminders, expire-partner-links).
+- Fix (no app update): pulled the 6 job image digests with the VM service account (`anacan-runtime@`)
+  using a throw-away `DOCKER_CONFIG`; all 18 posts were moderated and approved within a minute; timers
+  green; `systemctl reset-failed`. Each job image is now also tagged `anacan-pinned/<job>:<digest12>` so
+  a prune can no longer treat it as dangling.
+- Rule: **never run `docker image prune` / `docker system prune` on `anacan-gcp-candidate`.** Remove only
+  the specific image IDs you created. When a new job image digest is deployed, tag it
+  `anacan-pinned/<job>:<digest12>` the same way.
+
+## 2026-11-02 — Country from IP restored on Google (no app update)
+
+- Load balancer: backend service `anacan-runtime-backend` now adds request header
+  `X-Anacan-Geo-Country: {client_region}` (ISO-2 of the client IP). Backup of the previous backend
+  definition was taken before the change (no custom headers existed). The gateway forwards it unchanged.
+- Database: `supabase/duzelis/Duzelis79.sql` applied on Google — `capture_country_from_request()` +
+  `trg_capture_country` on `analytics_events` and `device_tokens` (existing, already CDC/writer-guarded
+  relations). It fills an EMPTY `profiles.country_code` once from `x-anacan-geo-country`
+  (fallback `cf-ipcountry`); a user-chosen country is never overwritten.
+- Verified end to end with a temporary anon RPC through `api.anacan.az` (returned `US` for the test
+  host), then dropped the probe function.
+- Future LB edits must keep this custom request header.
+
+## 2026-11-02 — AI free quota, campaign deep links, tool analytics
+
+- Functions image `92034c50…` then `8eb48c15…` (pinned `anacan-pinned/functions:*`):
+  `_shared/usage-limit.ts` counts server answers in `<feature>_srv` for features the app pre-consumes
+  (ai_chat, cry_translator, poop_scanner, horoscope) and parses `app_settings.free_limits` when it is a
+  JSON string (the admin panel saves it that way). Before: a free user got 1–2 AI answers instead of the
+  configured 3. Verified end to end with the free test account: 3 answers, 4th `429`.
+  `admin-notification-dispatch` forwards `data.deeplink`.
+- `supabase/duzelis/Duzelis80.sql` applied: `*_srv` allowed in usage_tracking check;
+  `admin_notification_create_v1(..., p_deeplink)` (anacan:// only, bound into payloadHash);
+  claim returns `deeplink`.
+- Repo function sources synced from the running image (15 files were older in the repo).
+- Gateway `a5e7ba27…` (version `47.0-campaignlink`, index `0db3af13…`): admin campaign "Toxunanda açılır"
+  picker; `tool_opened` logged for every real tool open (dashboard/deep link/push too); `baby-names`
+  alias. The gateway image was FLATTENED (123 → 5 layers) because the chain hit Docker's 127-layer
+  limit; runtime config and all nginx/website files verified identical to the previous image.
+  Future gateway builds can again use `FROM <digest>` on top of `a5e7ba27…`.
+- Universal links (https://app.anacan.az/…) still need native work for build 48: iOS Associated
+  Domains capability + entitlement and Android autoVerify intent filter + real assetlinks fingerprint.
+  AASA now carries the real team id `8B6976J8H7`. Until then campaigns use `anacan://` links.
+
+## 2026-11-02 — Manual single-user push, 21-language reminders
+
+- Functions `b5c917bf…`: `admin-notification-dispatch` accepts contract `anacan-admin-direct-v1`
+  `{email,title,body,deeplink?}` (admin only) → that account's devices; respects push_enabled.
+  Verified: two test pushes with `anacan://tool/cry-translator` and `anacan://tool/whitenoise` to the
+  owner's iPhone (FCM accepted 1/1 each).
+- Gateway `deb96a58…` (`47.0-directpush`, index `2859ccb0…`): campaign page has
+  "Bir istifadəçiyə göndər" (same title/text/link to one e-mail).
+- Notification jobs: flow `ad092e79…`, vitamin `19456c47…` — texts for zh, id, fr, es, pt, vi, hi, ja,
+  ko, pl, nl, sv added; language codes normalised (`pt-BR` → `pt`). Sources: `scripts/notification-jobs/`.
+
+## 2026-11-02 — Push links in-app, branded app-switcher cover (native 48)
+
+- Push `data.deeplink` (anacan://…, app.anacan.az) is parsed and routed by Index's own deeplink
+  router (kept pending for a cold start behind the PIN lock). Native 47 hands the link back to iOS
+  (`window.location.href`), which was lost behind the lock: tapping only showed the dashboard.
+  Needs native build 48 (bundled web); server side already sends the link.
+- ScreenshotGuard: the app-switcher/recording curtain is now Anacan's background (#FAF7F4) with the
+  launch artwork instead of black (iOS `Splash` asset; Android: cover + FLAG_SECURE lifted only while
+  paused, restored in onResume). Screenshot blocking in the foreground is unchanged. Native 48.
+- Country capture verified end to end: empty country filled from `X-Anacan-Geo-Country` on the next
+  analytics insert (test account restored afterwards).
+
+## 2026-11-02 — Crash audit (Play vitals + crash_reports) and fixes
+
+- Play vitals (user-perceived crash rate, Aug–Oct): v23 0.36%, v30 0.32%, v39 0.26%, **v45 0.16%**;
+  ANR v45 0.01% (bad-behaviour threshold 1.09% / 0.47%). Top v45 crash: `FilesystemPlugin …
+  NoClassDefFoundError kotlin.coroutines.jvm.internal.SpillingKt` (16 users); the same root cause crashed
+  Weather & Clothing via `GeolocationPlugin.getPosition` (v23/v39). Fixed for native 48 by the Kotlin
+  stdlib 2.2.20 alignment (e2837ce); verified `releaseRuntimeClasspath` resolves every stdlib to 2.2.20.
+- MainActivity: `onSaveInstanceState` no longer crashes when the Capacitor bridge is null (v45, 4 users).
+- ScreenshotGuardPlugin: the new branded pause cover merged with the existing capture-callback pause
+  handler (`:app:compileReleaseJavaWithJavac` passes).
+- Customer.io native SDK never initialised: the loader resolved a Promise with the Capacitor proxy,
+  whose `.then()` rejects ("not implemented"). The proxy is now wrapped (`{ sdk }`); regression test added.
+- `crash_reports` were ~95% push diagnostics (no_device_tokens / preferences_disabled / duplicate are
+  normal outcomes); the app no longer reports those (native 48 / web).
+- Functions `0b9959c5…`: group-message pushes accept a 15-minute window (was 120 s), so members late in
+  the client fan-out of large groups (up to 159 members) stop getting 403. A server-side fan-out (one
+  call per message) is still the proper fix for build 49.
+- Weather & Clothing server function verified live (az/ru, HTTP 200 in 3–6 s, no errors in 7 days).
+
+## 2026-11-03 — Postpartum card shown a year after birth
+
+- Cause: `profiles.baby_birth_date` kept the date of a child record that was later deactivated
+  (example account: children 2025-10-17 / 2022-03-09, profile 2026-10-30 → "4 days postpartum").
+  46 profiles pointed at no active child; 20 saw the recovery card wrongly.
+- `supabase/duzelis/Duzelis81.sql` applied on Google: `sync_profile_child_birth_date_v1` + trigger on
+  `user_children` (insert/delete/update of is_active, birth_date) moves the profile date to the youngest
+  active child only when it matches no active child; one-time repair fixed all 46 (0 left). Tested in a
+  rolled-back transaction (deactivate → falls back; deliberate selection of an active child kept).
+- App: recovery home card limited to the first 8 weeks after birth (`HOME_CARD_WEEKS = 8`, was 12).
+  Ships with native 48 / next web deploy.
+
+## 2026-11-03 — Partner saw a deleted child's name
+
+- Partner screens read `profiles.baby_name/baby_gender`; Duzelis81 only synced the date, so a deleted
+  child's name ("Alp") stayed while the date was the remaining child's ("Atlas").
+- `supabase/duzelis/Duzelis82.sql` applied: the same sync function now keeps name + date + gender on an
+  active child (name+date match → untouched; date match → that child's name/gender; else youngest
+  active child); trigger also fires on child rename/gender change. Repaired 101 profiles (1 odd row left).
+  Tested in a rolled-back transaction: delete → falls back to Atlas; rename follows; a selected older
+  child is kept.
+- Showing ALL children on the partner side would be an app change (partner screens show one child).
+
+## 2026-11-03 — Partner mode batch
+
+Server (live, no app update):
+- `Duzelis83.sql`: shared shopping list. Partner inserts used priority `medium`, which the check
+  rejected (partner items never saved) → `medium` allowed; RLS lets the linked couple see each other's
+  rows; BEFORE INSERT trigger fills `partner_id`; backfill from the mutual profile link (29 rows for the
+  reported pair). Verified both directions in a rolled-back transaction.
+  Note: `get_linked_partner_user_id(x)` only answers for `x = auth.uid()`; never use it in backfills.
+- `Duzelis83.sql`: `partner_children_v1()` (her active children, masked by share_baby_logs).
+- `Duzelis83.sql`: BEFORE INSERT trigger on `partner_messages` rewrites the `daily_summary` body by the
+  sender's stage (mommy: 🍼 feeds/ml | 😴 sleep | 🧷 diapers | mood | water; flow: 📅 cycle day; bump
+  unchanged), honouring sharing settings. Verified: `🍼 2 (210 ml) | 😴 1:35 | 🧷 1`.
+- `Duzelis84.sql`: `partner_day_stage_stats_v1(date)` for the partner summary screen.
+
+App (native 48 / next web deploy):
+- Partner home: all active children as chips; her profile photo instead of the stage emoji (home +
+  partner profile); the full crisis calendar (`BabyCrisisWidget`, opens calendar + detail sheets)
+  replaces the click-less `PartnerBabyCrisisCard` (deleted).
+- Level-up card restyled to Anacan tokens (white card, peach band, coral button, coral confetti).
+- Partner daily summary screen: mommy/flow cards show feeds/sleep/diapers or cycle day + water instead
+  of kicks/contractions.
+
+## 2026-11-03 — Partner conversation in the Messages list
+
+- Data was fine: partner→woman `text` messages exist, the link is mutual, `chat_messages_v2` returns
+  them to the woman, no direct_messages shadow the partner chat.
+- The Messages list built the partner row as `profile.partner_name || 'Partner'` (no such column) with
+  `avatar_url: null`, and previewed the newest partner_messages row of ANY type (daily summary / surprise
+  JSON). Both people therefore saw an unnamed "Partner" row. `usePartnerConversation` now loads the
+  linked person's name + photo and previews only chat types (text/love/image/audio/video). Native 48.
+
+## 2026-11-03 — Kyrgyz (ky) and Estonian (et)
+
+- App: 23 languages, see `docs/LOCALIZATION_23.md` (website/public blog/brand portal stay 21). Native 49.
+- SQL (live): Duzelis85 (`supabase/migrations/20261103180000_kyrgyz_estonian_languages.sql`) — language
+  allow-lists/contracts; Duzelis86 (`supabase/duzelis/Duzelis86.sql`) — `title_ky/body_ky/title_et/body_et`
+  on pregnancy_day/mommy_day/scheduled_notifications (294 + 4 370 + 20 rows filled from the bundles).
+  Existing guarded relations, nullable columns only (CDC row capture unchanged).
+- Functions `bb24700c…` (from `0b9959c5…`; recreate script `functions-kyet-recreate.py`, verified): AI reply
+  language names, server push/error copy, e-mail verification copy, fairy-tale titles, weather labels.
+- Jobs: flow `b61f6ad85498…`, vitamin `fb5dfe4c7e54…` (both ran exitCode 0), daily slots/halfhour `ccaa7bf6683f…`
+  (`shared/language.mjs` with ky/et; backups `*.json.before-kyet`).
+
+## Dodo Payments — LIVE mode (2026-11-10)
+- Owner confirmed the live account. Live products (USD, recurring, 20-year term): monthly `pdt_0Nrf0TB1EiUkAln6aHlXO`
+  $3.99, yearly `pdt_0Nrf0TFDtU5fXf60OKcI6` $29.99 (owner prices). Live webhook `ep_3LvSlqQ2laCsz7Tfb8kOSlyAggX`
+  → `https://api.anacan.az/functions/v1/dodo-webhook`. API key IP allowlist: 35.240.81.111 (server egress).
+- 11.11 discount: code `1111`, 62.95% off yearly only ($29.99 → $11.11), every renewal, expires 2026-11-11T19:59:59Z
+  (`dsc_0Nrf0j7MzFUrjSkFv4kzy`).
+- Functions container recreated with the same image `cf1f70f6…`; only the four DODO_* env values changed
+  (`/home/anacan-runner/functions-dodo-live.py`, backup `runtime/secrets/functions.env.before-dodo-live`; rollback =
+  restore that env file and recreate). Unsigned webhook still 401. Live key never in Git/logs.
+
+### 11.11 started early + foreign sign-in before payment (2026-11-10, owner request)
+
+- Campaign window now starts 2026-11-10T18:15:00Z (owner: "start now"); end unchanged 2026-11-11T19:59:59Z.
+  `app_settings.web_premium_campaign` / `dodo_campaign` `starts_at` updated; page `data-campaign-starts` matches.
+- Foreign 1111 pages (en/tr/kk/uz) now require the Anacan sign-in (same Google/Apple/email login as the az page) before
+  Dodo. `dodo-checkout` verifies the session token with the auth server, requires it for campaign checkouts
+  (401 otherwise), uses the account's own email for Dodo, refuses a second live web subscription (409) and stores
+  `web_checkouts.user_id`. `dodo-webhook` links by checkout first (`web_subscription_link_checkout_v1`, service role),
+  email matching stays only as the fallback (sponsor links, older funnels). Dodo returns to the 1111 page (`?done=1`),
+  which waits for Premium on that account.
+- SQL: `supabase/migrations/20261110190000_web_checkout_account_link.sql` (+ `.cdc.json`): nullable column on the
+  already guarded `web_checkouts`, partial index, one function. Applied after a rolled-back dry run; live link test
+  (rolled back) passed; live checkout with the QA account linked the checkout row.
+- `account.js` texts have en/tr/kk/uz versions (`AnacanAccount.setLang`); Azerbaijani output is unchanged.
+- The functions router replaces non-2xx bodies with a code per HTTP status (401 `unauthorized`, 409
+  `function_rejected`, 429 `rate_limit`), so pages must read the status, not `error`.
+- Images: gateway and functions images had reached 124 layers ("max depth exceeded" on the next COPY). Both were
+  flattened (`FROM scratch` + `COPY --from=live / /`, then the same ENV/EXPOSE/WORKDIR/ENTRYPOINT/CMD/STOPSIGNAL).
+  Live: gateway `61b9d46f…` (plan `c1111login2-web-plan.json`, rollback `rollback-c1111login2-web-plan.json`),
+  functions `7ce98857…` (`/home/anacan-runner/functions-dodo-login.py`, previous image `ba6d3524…`).
+  Build the next image FROM these (few layers now).

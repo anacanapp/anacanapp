@@ -1,0 +1,34 @@
+{
+  "country": "SE",
+  "locale": "sv-SE",
+  "names": {
+    "mother": "Elin",
+    "baby": "Alva",
+    "cycle": "Maja",
+    "partner": "Erik"
+  },
+  "appointments": [
+    "Ultraljud",
+    "BB Södra",
+    "Blodprov",
+    "Barnläkarbesök"
+  ],
+  "authors": [
+    "Sara Lindberg",
+    "Emma Johansson",
+    "Ida Karlsson"
+  ],
+  "posts": [
+    "Idag kände jag de första sparkarna! 🥹 Jag kan inte beskriva känslan. Vilken vecka var det för er? #graviditet",
+    "Att prata med Anacan.AI klockan 3 på natten när bebisen inte ville sova hjälpte verkligen. Rekommenderas till nyblivna mammor 💛",
+    "Vi är i vecka 24 och jag har börjat packa BB-väskan. Vad står på er lista? 🧳"
+  ],
+  "ai_question": "Vad hjälper mot illamående?",
+  "ai_answer": [
+    "3 enkla knep mot illamående:\n\n",
+    "1. **Ingefärste** — en kopp på morgonen på fastande mage.\n",
+    "2. **Små, täta måltider** — låt inte magen bli tom.\n",
+    "3. **Innan du kliver upp** kan du äta några torra kex.\n\n",
+    "Drick vatten under dagen 💧 Om kräkningarna blir värre, kontakta din läkare."
+  ]
+}

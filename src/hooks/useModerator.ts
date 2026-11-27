@@ -7,14 +7,17 @@ import { useUserStore } from '@/store/userStore';
 import { moderatorText } from '@/lib/moderator-i18n';
 import { moderatorError, type ModeratorAccess, type ModerationStatus, type ModeratorPage, type ModeratorContent, type ModeratorKind } from '@/lib/moderator';
 
+/** Moderation access/status: re-read on focus/resume (react-query focus manager) and reconnect once
+ * 60s stale, after moderator mutations (invalidateQueries), plus a slow 10 min foreground poll. */
+export const MODERATION_POLL = { staleTime: 60_000, refetchInterval: 10 * 60_000, refetchOnWindowFocus: true, refetchOnReconnect: true } as const;
 export function useModeratorAccess() {
   const { user, isModerator, isAdmin } = useAuth(), backend = getBackendConfig().url;
-  return useQuery({ queryKey: ['moderator-access', backend, user?.id], enabled: !!user && !!(isModerator || isAdmin), meta: { persist: false }, staleTime: 15000, refetchInterval: 30000, retry: false,
+  return useQuery({ queryKey: ['moderator-access', backend, user?.id], enabled: !!user && !!(isModerator || isAdmin), meta: { persist: false }, ...MODERATION_POLL, retry: false,
     queryFn: async ({ signal }) => { const { data, error } = await (supabase as any).rpc('get_moderator_access_v1').abortSignal(signal); if (error) throw error; return data as ModeratorAccess; } });
 }
 export function useMyModerationStatus() {
   const { user } = useAuth(), backend = getBackendConfig().url;
-  return useQuery({ queryKey: ['my-moderation-status', backend, user?.id], enabled: !!user, meta: { persist: false }, staleTime: 10000, refetchInterval: 15000, retry: false,
+  return useQuery({ queryKey: ['my-moderation-status', backend, user?.id], enabled: !!user, meta: { persist: false }, ...MODERATION_POLL, retry: false,
     queryFn: async ({ signal }) => {
       const { data, error } = await (supabase as any).rpc('get_my_moderation_status_v1', { p_actor: user?.id }).abortSignal(signal);
       if (error && ['PGRST202', '42883'].includes(error.code)) return null;

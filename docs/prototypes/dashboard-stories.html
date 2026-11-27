@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anacan Stories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Anacan dashboard stories prototype (2026-11-09).
+   Every story is plain data (StoryJson, see STORIES below). One renderer draws all templates and all
+   illustrations in code (SVG), so stories can be generated and scheduled automatically: variables such as
+   {week}, {fruit}, {babyMonths}, {cycleDay} are filled from the user's own data at render time. */
+:root{
+  --page:#F6F1EC; --panel:#FFFFFF; --ink:#24181A; --soft:#7A6E68; --line:#E8DED8; --chip:#F1E9E4; --accent:#FF5A5F;
+  --shadow:0 20px 50px rgba(36,24,26,.14);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --page:#141012; --panel:#1E191B; --ink:#F4ECE8; --soft:#A99C96; --line:#2E2729; --chip:#2A2325; --accent:#FF7A7E; --shadow:0 20px 50px rgba(0,0,0,.5);
+}}
+:root[data-theme="dark"]{ --page:#141012; --panel:#1E191B; --ink:#F4ECE8; --soft:#A99C96; --line:#2E2729; --chip:#2A2325; --accent:#FF7A7E; --shadow:0 20px 50px rgba(0,0,0,.5); }
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 60px}
+header.top h1{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:32px;line-height:1.05;margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
+header.top p{margin:0;color:var(--soft);font-size:15px;max-width:720px}
+.layout{display:grid;grid-template-columns:380px 1fr;gap:28px;margin-top:24px;align-items:start}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.seg{display:inline-flex;background:var(--chip);border-radius:999px;padding:4px}
+.seg button{border:0;background:transparent;color:var(--ink);font:600 14px 'Inter';padding:8px 14px;border-radius:999px;cursor:pointer}
+.seg button.on{background:var(--panel);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.ctx{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--soft);background:var(--chip);border-radius:999px;padding:6px 14px}
+.ctx input{accent-color:var(--accent);width:130px}
+.ctx b{color:var(--ink);min-width:66px}
+
+/* phone */
+.phone{width:100%;max-width:380px;margin:0 auto;aspect-ratio:380/780;background:#111;border-radius:46px;padding:12px;box-shadow:var(--shadow);position:relative}
+.screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#FFF8F4;color:#24181A}
+.dash{height:100%;overflow:auto;padding:18px 0 20px}
+.dash .hello{padding:8px 18px 4px;font-size:13px;color:#8A7C76}
+.dash .hello b{display:block;font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;font-size:22px;color:#24181A;letter-spacing:-.01em}
+.rings{display:flex;gap:12px;overflow-x:auto;padding:12px 18px 14px;scrollbar-width:none}
+.rings::-webkit-scrollbar{display:none}
+.ring{flex:0 0 auto;width:72px;text-align:center;cursor:pointer;border:0;background:none;padding:0;font:inherit;color:inherit}
+.ring .r{width:68px;height:68px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#FF5A5F,#FFB37A,#FFD84D,#FF5A5F)}
+.ring.seen .r{background:#E4D9D4}
+.ring .r i{display:block;width:100%;height:100%;border-radius:50%;border:3px solid #FFF8F4;overflow:hidden}
+.ring .r svg{width:100%;height:100%;display:block}
+.ring span{display:block;font-size:11px;font-weight:600;margin-top:5px;line-height:1.15;color:#3A2C2A}
+.card{margin:6px 18px 12px;background:#fff;border-radius:22px;padding:16px;box-shadow:0 2px 10px rgba(36,24,26,.05)}
+.card h4{margin:0 0 4px;font-size:15px}
+.card p{margin:0;color:#8A7C76;font-size:13px}
+.ghost{height:84px;background:linear-gradient(90deg,#F3EAE6,#FAF4F1);border-radius:18px;margin:10px 18px}
+
+/* story viewer */
+.viewer{position:absolute;inset:0;z-index:5;display:none;background:#000}
+.viewer.open{display:block}
+.story{position:absolute;inset:0;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.bars{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:4px;z-index:4}
+.bars i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}
+.bars i b{display:block;height:100%;width:0;background:#fff;border-radius:3px}
+.story.light .bars i{background:rgba(0,0,0,.15)} .story.light .bars i b{background:currentColor}
+.who{position:absolute;top:24px;left:14px;right:14px;display:flex;align-items:center;gap:8px;z-index:4;font-size:12.5px;font-weight:600}
+.who .av{width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#FF5A5F;font-weight:800;font-size:13px;box-shadow:0 0 0 2px rgba(0,0,0,.08)}
+.art.small{max-width:230px;align-self:center;width:72%}
+.who .tag{opacity:.7;font-weight:500}
+.who .x{margin-left:auto;width:30px;height:30px;border:0;background:transparent;color:inherit;font-size:22px;cursor:pointer;line-height:1}
+.tapL,.tapR{position:absolute;top:60px;bottom:90px;z-index:3}
+.tapL{left:0;width:32%} .tapR{right:0;width:68%}
+.slide{position:absolute;inset:0;padding:74px 22px 24px;display:flex;flex-direction:column}
+.kick{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
+.h{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.04;margin:0}
+.h.xl{font-size:40px}.h.l{font-size:33px}.h.m{font-size:27px}
+.serif .h{font-weight:800}
+.body{font-size:16px;line-height:1.38;margin-top:12px;opacity:.92}
+.hl{color:var(--pop)}
+.mark{background:var(--pop);color:var(--popInk);border-radius:10px;padding:0 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.art{margin-top:auto;position:relative}
+.art svg{display:block;width:100%;height:auto}
+.peek{margin:auto -22px -24px}
+.num{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:92px;font-weight:800;letter-spacing:-.03em;line-height:.9}
+.unit{font-size:22px;font-weight:700;margin-left:6px}
+.list{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:10px}
+.list li{display:flex;gap:12px;align-items:flex-start;background:var(--chipBg);border-radius:18px;padding:12px 14px;font-size:15.5px;line-height:1.3;font-weight:600}
+.list li em{font-style:normal;flex:0 0 28px;height:28px;border-radius:50%;background:var(--pop);color:var(--popInk);display:grid;place-items:center;font-weight:800;font-size:14px}
+.myth{margin-top:18px;border-radius:24px;padding:18px;background:var(--chipBg)}
+.myth .lbl{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;padding:4px 10px;border-radius:999px;background:var(--ink2);color:var(--bg2);margin-bottom:10px}
+.myth p{margin:0;font-size:19px;font-weight:700;line-height:1.25}
+.myth.fact .lbl{background:var(--pop);color:var(--popInk)}
+.quiz{display:flex;flex-direction:column;gap:10px;margin-top:20px;position:relative;z-index:4}
+.quiz button{border:2px solid currentColor;background:transparent;color:inherit;border-radius:18px;padding:14px 16px;text-align:left;font:700 16px 'Inter';cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.quiz button.ok{background:var(--pop);color:var(--popInk);border-color:var(--pop)}
+.quiz button.no{opacity:.45}
+.reveal{margin-top:12px;font-size:15px;line-height:1.35;font-weight:600;min-height:44px}
+.alert{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.alert div{display:flex;gap:10px;align-items:center;font-size:16px;font-weight:700;padding:11px 14px;border-radius:16px;background:var(--chipBg)}
+.alert div::before{content:'';flex:0 0 10px;height:10px;border-radius:50%;background:var(--pop)}
+.cta{position:relative;z-index:4;margin-top:16px;align-self:flex-start;border:0;border-radius:999px;padding:14px 20px;font:800 15px 'Inter';background:var(--ink2);color:var(--bg2);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.src{font-size:11px;opacity:.65;margin-top:10px;font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px;background:var(--chipBg);margin-bottom:12px;align-self:flex-start}
+.quote{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:26px;line-height:1.18;font-weight:800;margin:0}
+.quote::before{content:'\201C';display:block;font-size:70px;line-height:.6;color:var(--pop);margin-bottom:8px}
+.toast{position:absolute;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#24181A;color:#fff;padding:10px 14px;border-radius:14px;font-size:13px;font-weight:600;opacity:0;transition:.25s;z-index:9;white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* right side */
+.side h2{font-size:20px;margin:4px 0 10px;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.thumb{border:0;padding:0;cursor:pointer;border-radius:20px;overflow:hidden;aspect-ratio:9/14;position:relative;text-align:left;font:inherit;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.thumb .tt{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column}
+.thumb .mod{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.thumb .nm{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:17px;font-weight:800;line-height:1.05;margin-top:6px;letter-spacing:-.02em}
+.thumb .n{font-size:11px;font-weight:700;opacity:.7;margin-top:4px}
+.thumb svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
+.tabs2{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 10px}
+.tabs2 button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:7px 12px;font:600 13px 'Inter';cursor:pointer}
+.tabs2 button.on{background:var(--ink);color:var(--page);border-color:var(--ink)}
+pre.json{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;overflow:auto;max-height:420px;color:var(--ink);white-space:pre}
+.notes{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px 18px;font-size:14px;line-height:1.5;color:var(--ink)}
+.notes ul{margin:6px 0 0;padding-left:18px} .notes li{margin:4px 0}
+.notes b{font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Anacan Stories</h1>
+    <p>Dashboard üçün Instagram tipli qısa hekayələr. Hər story JSON-dur: şablon, rənglər, mətn və şəkil kodla çəkilir, dəyişənlər istifadəçinin öz məlumatından dolur. Mərhələni dəyişin, slayderlə həftəni, körpənin yaşını və ya tsikl gününü dəyişin: story-lər avtomatik yenilənir.</p>
+  </header>
+
+  <div class="controls">
+    <div class="seg" id="stageSeg">
+      <button data-s="bump" class="on">Hamiləlik</button>
+      <button data-s="mommy">Analıq</button>
+      <button data-s="flow">Dövr</button>
+    </div>
+    <label class="ctx" id="ctxBox"><span id="ctxLabel">Həftə</span><input id="ctxRange" type="range"><b id="ctxVal"></b></label>
+  </div>
+
+  <div class="layout">
+    <div>
+      <div class="phone"><div class="screen" id="screen">
+        <div class="dash">
+          <div class="hello">Sabahın xeyir,<b>Aysel 💛</b></div>
+          <div class="rings" id="rings"></div>
+          <div class="card"><h4 id="dashTitle">24-cü həftə</h4><p id="dashSub">Bu günün kartları burada qalır</p></div>
+          <div class="ghost"></div><div class="ghost"></div><div class="ghost"></div>
+        </div>
+        <div class="viewer" id="viewer"></div>
+        <div class="toast" id="toast"></div>
+      </div></div>
+    </div>
+
+    <div class="side">
+      <h2 id="gridTitle">Bütün story-lər</h2>
+      <div class="tabs2" id="gridTabs"><button class="on" data-m="all-items">Hamısı</button><button data-m="bump">Hamiləlik</button><button data-m="mommy">Analıq</button><button data-m="flow">Dövr</button><button data-m="all">Hamı üçün</button></div>
+      <div class="grid" id="grid"></div>
+      <div class="tabs2" id="jsonTabs"><button class="on" data-v="json">StoryJson</button><button data-v="auto">Avtomatlaşdırma</button></div>
+      <pre class="json" id="json"></pre>
+      <div class="notes" id="auto" hidden>
+        <b>Necə avtomatlaşır</b>
+        <ul>
+          <li><b>Mənbə:</b> story-lər <code>dashboard_stories</code> cədvəlində JSON kimi saxlanılır, admin paneldən əlavə olunur və ya AI ilə hazırlanıb redaktor təsdiqindən keçir.</li>
+          <li><b>Hədəf:</b> <code>audience</code> mərhələni, həftə və ya yaş aralığını, Premium və ya pulsuz statusu, dili seçir. Hər istifadəçi yalnız ona uyğun story-ləri görür.</li>
+          <li><b>Dəyişənlər:</b> <code>{week}</code>, <code>{fruit}</code>, <code>{babyName}</code>, <code>{babyMonths}</code>, <code>{cycleDay}</code>, <code>{phase}</code> istifadəçinin öz məlumatından cihazda doldurulur, serverə şəxsi məlumat getmir.</li>
+          <li><b>Cədvəl:</b> <code>schedule</code> göstərmə günlərini təyin edir: həftəlik story hər bazar ertəsi yenilənir, "Bu həftə" story-si həftə dəyişəndə özü dəyişir.</li>
+          <li><b>Ölçmə:</b> hər slaydın baxışı, quiz cavabı və CTA kliki <code>story_view</code>, <code>story_quiz</code>, <code>story_cta</code> hadisələri kimi yazılır.</li>
+          <li><b>Tərcümə:</b> mətnlər 23 dil üçün JSON-da saxlanılır. Tibbi mətnlər mütəxəssis yoxlamasından keçir, mənbə hər story-də göstərilir.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+/* ---------- palette ---------- */
+const T = {
+  coral:  { bg:'#FF5A5F', ink:'#FFFFFF', pop:'#FFE66B', popInk:'#3B1A10', chip:'rgba(255,255,255,.16)', ink2:'#FFFFFF', bg2:'#FF5A5F' },
+  lime:   { bg:'#1F9D55', ink:'#FFFFFF', pop:'#C8F560', popInk:'#123526', chip:'rgba(255,255,255,.14)', ink2:'#C8F560', bg2:'#123526' },
+  violet: { bg:'#5B4BDB', ink:'#FFFFFF', pop:'#FFD84D', popInk:'#2A2060', chip:'rgba(255,255,255,.14)', ink2:'#FFFFFF', bg2:'#5B4BDB' },
+  peach:  { bg:'#FFB199', ink:'#2B1B17', pop:'#FF5A5F', popInk:'#FFFFFF', chip:'rgba(43,27,23,.08)', ink2:'#2B1B17', bg2:'#FFB199', light:true },
+  cream:  { bg:'#FFF6EC', ink:'#22181A', pop:'#FF5A5F', popInk:'#FFFFFF', chip:'rgba(34,24,26,.06)', ink2:'#22181A', bg2:'#FFF6EC', light:true, serif:true },
+  navy:   { bg:'#2E2A7A', ink:'#FFFFFF', pop:'#7FE0FF', popInk:'#16133F', chip:'rgba(255,255,255,.12)', ink2:'#7FE0FF', bg2:'#16133F' },
+  lilac:  { bg:'#CDB8FF', ink:'#1E1838', pop:'#FF6B3D', popInk:'#FFFFFF', chip:'rgba(30,24,56,.08)', ink2:'#1E1838', bg2:'#CDB8FF', light:true, serif:true },
+  yellow: { bg:'#FFD84D', ink:'#2B1B17', pop:'#5B4BDB', popInk:'#FFFFFF', chip:'rgba(43,27,23,.08)', ink2:'#2B1B17', bg2:'#FFD84D', light:true },
+  mint:   { bg:'#BFF0D4', ink:'#123526', pop:'#FF5A5F', popInk:'#FFFFFF', chip:'rgba(18,53,38,.08)', ink2:'#123526', bg2:'#BFF0D4', light:true },
+  forest: { bg:'#0F4D32', ink:'#EFFFF5', pop:'#C8F560', popInk:'#0F4D32', chip:'rgba(239,255,245,.10)', ink2:'#C8F560', bg2:'#0F4D32' },
+};
+
+/* ---------- illustrations (all code, colour-parametrised) ---------- */
+const eyes = (cx, cy, gap = 70, s = 1, look = 6) => [cx - gap / 2, cx + gap / 2].map(x =>
+  `<ellipse cx="${x}" cy="${cy}" rx="${28*s}" ry="${17*s}" fill="#fff"/><ellipse cx="${x + look}" cy="${cy + 2}" rx="${12*s}" ry="${13*s}" fill="#111"/>`).join('');
+const spark = (x, y, r, c) => `<path d="M${x} ${y-r}C${x+r*.18} ${y-r*.18} ${x+r*.18} ${y-r*.18} ${x+r} ${y}C${x+r*.18} ${y+r*.18} ${x+r*.18} ${y+r*.18} ${x} ${y+r}C${x-r*.18} ${y+r*.18} ${x-r*.18} ${y+r*.18} ${x-r} ${y}C${x-r*.18} ${y-r*.18} ${x-r*.18} ${y-r*.18} ${x} ${y-r}Z" fill="${c}"/>`;
+const ILL = {
+  blob: (c, a) => `<svg viewBox="0 0 360 230">${spark(60,40,14,a)}${spark(300,70,9,a)}${spark(270,24,6,a)}
+    <path d="M40 230C40 140 100 92 180 92S320 140 320 230Z" fill="${c}"/><path d="M150 100C138 60 160 40 178 62C186 30 222 38 210 84Z" fill="${c}"/>${eyes(180,168,92,1.1)}</svg>`,
+  fruit: (c, a) => `<svg viewBox="0 0 360 250">${spark(56,70,13,a)}${spark(310,40,9,a)}
+    <circle cx="180" cy="150" r="96" fill="${c}"/><circle cx="148" cy="118" r="22" fill="#fff" opacity=".25"/>
+    <path d="M182 56C184 34 196 22 214 18C212 38 202 52 182 56Z" fill="${a}"/><rect x="176" y="40" width="8" height="24" rx="4" fill="#2B1B17"/>${eyes(180,160,64,.8)}</svg>`,
+  moon: (c, a) => `<svg viewBox="0 0 360 250">${spark(70,60,12,a)}${spark(290,40,8,a)}${spark(300,150,6,a)}${spark(48,170,7,a)}
+    <path d="M220 40A110 110 0 1 0 290 200A90 90 0 1 1 220 40Z" fill="${c}"/>
+    <path d="M140 150q14 12 28 0M188 150q14 12 28 0" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
+  heart: (c, a) => `<svg viewBox="0 0 360 250">${spark(60,56,12,a)}${spark(304,72,9,a)}
+    <path d="M180 226C80 160 60 118 60 90C60 56 86 34 118 34C146 34 166 50 180 72C194 50 214 34 242 34C274 34 300 56 300 90C300 118 280 160 180 226Z" fill="${c}"/>
+    <path d="M78 120H140L156 92L178 150L196 110L210 120H282" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  drop: (c, a) => `<svg viewBox="0 0 360 250">${spark(70,80,12,a)}${spark(296,52,9,a)}
+    <path d="M180 20C180 20 96 116 96 168C96 214 134 246 180 246S264 214 264 168C264 116 180 20 180 20Z" fill="${c}"/>
+    <path d="M136 168c0 20 12 34 30 40" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" opacity=".55"/>${eyes(180,178,60,.75,0)}</svg>`,
+  cycle: (c, a) => { const seg = Array.from({length: 28}, (_, i) => { const ang = (i / 28) * Math.PI * 2 - Math.PI / 2, r = 92;
+      const x = 180 + Math.cos(ang) * r, y = 140 + Math.sin(ang) * r;
+      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i < 5 ? 11 : 7}" fill="${i < 5 ? c : a}" opacity="${i < 5 ? 1 : (i > 11 && i < 17 ? 1 : .45)}"/>`; }).join('');
+    return `<svg viewBox="0 0 360 250">${seg}<circle cx="180" cy="140" r="54" fill="${c}"/>${eyes(180,140,42,.55,0)}</svg>`; },
+  bowl: (c, a) => `<svg viewBox="0 0 360 250">${spark(64,58,12,a)}${spark(300,44,9,a)}
+    <circle cx="150" cy="104" r="26" fill="${a}"/><circle cx="196" cy="96" r="30" fill="#FFB199"/><circle cx="226" cy="118" r="20" fill="${a}" opacity=".7"/>
+    <path d="M70 120H290C290 186 240 226 180 226S70 186 70 120Z" fill="${c}"/><rect x="60" y="112" width="240" height="18" rx="9" fill="${c}"/>${eyes(180,172,66,.7)}</svg>`,
+  shield: (c, a) => `<svg viewBox="0 0 360 250">${spark(70,64,12,a)}${spark(292,48,9,a)}
+    <path d="M180 18L282 56V122C282 182 236 222 180 240C124 222 78 182 78 122V56Z" fill="${c}"/>
+    <rect x="170" y="70" width="20" height="86" rx="10" fill="#fff"/><circle cx="180" cy="186" r="12" fill="#fff"/></svg>`,
+  chat: (c, a) => `<svg viewBox="0 0 360 250">${spark(52,48,11,a)}${spark(312,140,8,a)}
+    <rect x="44" y="40" width="200" height="110" rx="38" fill="${c}"/><path d="M90 140L76 186L130 148Z" fill="${c}"/>
+    <rect x="150" y="120" width="170" height="92" rx="34" fill="${a}"/><path d="M280 200L300 236L250 206Z" fill="${a}"/>
+    <circle cx="104" cy="96" r="10" fill="#fff"/><circle cx="144" cy="96" r="10" fill="#fff"/><circle cx="184" cy="96" r="10" fill="#fff"/></svg>`,
+  doc: (c, a) => `<svg viewBox="0 0 360 250">${spark(62,60,12,a)}${spark(300,70,9,a)}
+    <rect x="104" y="24" width="152" height="206" rx="20" fill="#fff"/><rect x="104" y="24" width="152" height="54" rx="20" fill="${c}"/>
+    <rect x="128" y="100" width="104" height="12" rx="6" fill="${c}" opacity=".35"/><rect x="128" y="126" width="80" height="12" rx="6" fill="${c}" opacity=".35"/>
+    <path d="M128 174l18 18 34-36" stroke="${c}" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  feet: (c, a) => `<svg viewBox="0 0 360 250">${spark(300,50,11,a)}${spark(50,190,8,a)}
+    <g transform="rotate(-14 130 140)"><ellipse cx="130" cy="150" rx="40" ry="62" fill="${c}"/>${[0,1,2,3,4].map(i=>`<circle cx="${100+i*15}" cy="${78-Math.abs(2-i)*4}" r="${10-i*.8}" fill="${c}"/>`).join('')}</g>
+    <g transform="rotate(14 240 120)"><ellipse cx="240" cy="130" rx="34" ry="54" fill="${a}"/>${[0,1,2,3,4].map(i=>`<circle cx="${214+i*13}" cy="${68-Math.abs(2-i)*3.5}" r="${8.5-i*.7}" fill="${a}"/>`).join('')}</g></svg>`,
+  baby: (c, a) => `<svg viewBox="0 0 360 250">${spark(60,52,12,a)}${spark(304,60,9,a)}
+    <circle cx="180" cy="150" r="98" fill="${c}"/><path d="M164 56c4-22 30-26 34-6" stroke="${c}" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <circle cx="130" cy="176" r="16" fill="#FF9AA2" opacity=".7"/><circle cx="230" cy="176" r="16" fill="#FF9AA2" opacity=".7"/>
+    <path d="M150 146q10-12 20 0M190 146q10-12 20 0" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M164 184q16 14 32 0" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
+  pill: (c, a) => `<svg viewBox="0 0 360 250">${spark(64,56,12,a)}${spark(300,64,9,a)}
+    <g transform="rotate(-30 180 140)"><rect x="90" y="100" width="180" height="80" rx="40" fill="${c}"/><path d="M180 100H230A40 40 0 0 1 230 180H180Z" fill="#fff"/></g>${eyes(160,150,50,.6,0)}</svg>`,
+  bag: (c, a) => `<svg viewBox="0 0 360 250">${spark(60,60,12,a)}${spark(300,52,9,a)}
+    <path d="M140 70V54a20 20 0 0 1 20-20h40a20 20 0 0 1 20 20v16" stroke="${a}" stroke-width="12" fill="none"/>
+    <rect x="80" y="70" width="200" height="160" rx="30" fill="${c}"/><rect x="80" y="120" width="200" height="16" fill="#fff" opacity=".35"/>${eyes(180,180,64,.7)}</svg>`,
+  cup: (c, a) => `<svg viewBox="0 0 360 250">${spark(70,60,12,a)}${spark(300,50,9,a)}
+    <path d="M150 40c-10 14 10 22 0 36M190 40c-10 14 10 22 0 36" stroke="${a}" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M96 96H256V170A60 60 0 0 1 196 230H156A60 60 0 0 1 96 170Z" fill="${c}"/><path d="M256 116h18a30 30 0 0 1 0 60h-22" stroke="${c}" stroke-width="16" fill="none"/>${eyes(176,160,60,.7)}</svg>`,
+  clock: (c, a) => `<svg viewBox="0 0 360 250">${spark(60,60,12,a)}${spark(304,60,9,a)}
+    <circle cx="180" cy="135" r="100" fill="${c}"/><circle cx="180" cy="135" r="78" fill="#fff" opacity=".9"/>
+    <path d="M180 135V85M180 135l34 22" stroke="#111" stroke-width="10" stroke-linecap="round"/><circle cx="180" cy="135" r="8" fill="${a}"/></svg>`,
+  bottle: (c, a) => `<svg viewBox="0 0 360 250">${spark(70,64,12,a)}${spark(296,48,9,a)}
+    <rect x="160" y="16" width="40" height="34" rx="16" fill="${a}"/><rect x="146" y="46" width="68" height="20" rx="8" fill="#fff"/>
+    <rect x="128" y="62" width="104" height="176" rx="40" fill="${c}"/><rect x="128" y="150" width="104" height="88" rx="40" fill="#fff" opacity=".35"/>${eyes(180,120,48,.55,0)}</svg>`,
+  thermo: (c, a) => `<svg viewBox="0 0 360 250">${spark(72,60,12,a)}${spark(296,70,9,a)}
+    <rect x="156" y="20" width="48" height="160" rx="24" fill="#fff"/><rect x="168" y="70" width="24" height="120" rx="12" fill="${c}"/>
+    <circle cx="180" cy="196" r="40" fill="${c}"/>${eyes(180,196,34,.42,0)}</svg>`,
+  tooth: (c, a) => `<svg viewBox="0 0 360 250">${spark(64,56,12,a)}${spark(300,64,9,a)}
+    <path d="M120 70C120 30 170 40 180 56C190 40 240 30 240 70C240 120 230 150 222 200C218 228 196 228 192 200L186 160H174L168 200C164 228 142 228 138 200C130 150 120 120 120 70Z" fill="#fff"/>
+    <ellipse cx="148" cy="118" rx="14" ry="10" fill="${c}" opacity=".35"/>${eyes(180,100,44,.5,0)}</svg>`,
+  sun: (c, a) => `<svg viewBox="0 0 360 250"><g fill="${a}">${Array.from({length:12},(_,i)=>{const g=i*Math.PI/6;return `<rect x="174" y="14" width="12" height="40" rx="6" transform="rotate(${i*30} 180 140)"/>`;}).join('')}</g>
+    <circle cx="180" cy="140" r="72" fill="${c}"/>${eyes(180,140,52,.6,0)}<path d="M160 168q20 16 40 0" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
+  book: (c, a) => `<svg viewBox="0 0 360 250">${spark(60,56,12,a)}${spark(304,60,9,a)}
+    <path d="M180 70C150 50 110 46 70 54V214C110 206 150 210 180 230Z" fill="${c}"/><path d="M180 70C210 50 250 46 290 54V214C250 206 210 210 180 230Z" fill="${a}"/>
+    <path d="M96 96h56M96 126h56M208 96h56M208 126h56" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".7"/></svg>`,
+  car: (c, a) => `<svg viewBox="0 0 360 250">${spark(60,56,12,a)}${spark(304,52,9,a)}
+    <path d="M110 40H210A40 40 0 0 1 250 80V200H110A30 30 0 0 1 80 170V70A30 30 0 0 1 110 40Z" fill="${c}"/>
+    <rect x="104" y="64" width="116" height="104" rx="26" fill="#fff" opacity=".35"/><path d="M134 92V190M190 92V190" stroke="${a}" stroke-width="10" stroke-linecap="round"/>
+    ${eyes(162,120,48,.55,0)}<rect x="96" y="200" width="168" height="18" rx="9" fill="${a}"/></svg>`,
+  phone: (c, a) => `<svg viewBox="0 0 360 250">${spark(64,60,12,a)}${spark(300,52,9,a)}
+    <rect x="124" y="20" width="112" height="216" rx="26" fill="${c}"/><rect x="136" y="44" width="88" height="150" rx="12" fill="#fff" opacity=".9"/>
+    <path d="M150 90L210 150M210 90L150 150" stroke="${a}" stroke-width="12" stroke-linecap="round"/></svg>`,
+};
+const illus = (name, c, a) => (ILL[name] || ILL.blob)(c, a);
+
+/* ---------- personal data (filled on the device in the app) ---------- */
+const WEEKS = [
+  [12,'laym',5,14,'Barmaqları ayrılır, refleksləri yaranır.'],
+  [16,'avokado',12,100,'Üz əzələləri işləyir, mimika yaranır.'],
+  [20,'banan',25,300,'Səsləri eşitməyə başlayır.'],
+  [24,'qarğıdalı',30,600,'Ağciyərlər nəfəsə hazırlaşır, yuxu ritmi yaranır.'],
+  [28,'badımcan',37,1000,'Gözlərini açıb-yumur, beyni sürətlə böyüyür.'],
+  [32,'ananas',42,1700,'Dərialtı piy yığır, hərəkətləri güclənir.'],
+  [36,'yemiş',47,2600,'Başı aşağı dönməyə hazırlaşır.'],
+  [40,'qarpız',51,3400,'Dünyaya gəlməyə hazırdır.'],
+];
+const MONTHS = [
+  [1,'Üzlərə baxır, səsə dönür.','Səsinə sakitləşir'],
+  [2,'Güləndə cavab verir, başını qaldırır.','İlk sosial təbəssüm'],
+  [4,'Başını dik saxlayır, "agu" deyir, əllərini ağzına aparır.','Səslərlə "danışır"'],
+  [6,'Dəstəklə oturur, adına reaksiya verir, oyuncağı əldən-ələ ötürür.','Əlavə qidaya hazırlıq'],
+  [9,'Dəstəksiz oturur, gizlənən oyuncağı axtarır, "bay-bay" edir.','Yad adamdan çəkinə bilər'],
+  [12,'Dəstəklə addımlayır, "ana" deyir, barmaqla göstərir.','İlk sözlər'],
+];
+const PHASES = [
+  [1,5,'menstruasiya','Bədən dincəlmək istəyir. Yüngül gəzinti və isti kompres sancını azalda bilər.'],
+  [6,12,'follikulyar faza','Estrogen artır, enerji və əhval adətən yaxşılaşır. Yeni vərdiş üçün yaxşı vaxtdır.'],
+  [13,16,'ovulyasiya pəncərəsi','Mayalanma ehtimalının ən yüksək olduğu günlər. Bu, kontrasepsiya üsulu deyil.'],
+  [17,35,'lüteal faza','Progesteron artır. Yuxu, su və duz balansına diqqət PMS əlamətlərini yüngülləşdirə bilər.'],
+];
+// Azerbaijani ordinal suffix: by the last non-zero digit, or by the tens when the number ends in 0.
+function ord(n) {
+  const d = n % 10, t = Math.floor(n / 10) % 10;
+  if (d) return { 1:'-ci', 2:'-ci', 5:'-ci', 7:'-ci', 8:'-ci', 3:'-cü', 4:'-cü', 6:'-cı', 9:'-cu' }[d];
+  if (n % 100 === 0) return '-cü';
+  return { 1:'-cu', 2:'-ci', 3:'-cu', 4:'-cı', 5:'-ci', 6:'-cı', 7:'-ci', 8:'-ci', 9:'-cı' }[t];
+}
+const ctx = { stage:'bump', week:24, babyMonths:4, cycleDay:12, name:'Aysel', babyName:'Nuray' };
+function vars() {
+  const w = [...WEEKS].reverse().find(x => ctx.week >= x[0]) || WEEKS[0];
+  const m = [...MONTHS].reverse().find(x => ctx.babyMonths >= x[0]) || MONTHS[0];
+  const p = PHASES.find(x => ctx.cycleDay >= x[0] && ctx.cycleDay <= x[1]) || PHASES[3];
+  return { week: ctx.week, fruit: w[1], lengthCm: w[2], weightG: w[3].toLocaleString('az'), weekNote: w[4], name: ctx.name, babyName: ctx.babyName,
+    babyMonths: ctx.babyMonths, milestone: m[1], milestoneShort: m[2], cycleDay: ctx.cycleDay, phase: p[2], phaseTip: p[3],
+    weekLabel: `${ctx.week}${ord(ctx.week)} həftə`, cycleLabel: `${ctx.cycleDay}${ord(ctx.cycleDay)} gün` };
+}
+const fill = s => typeof s === 'string' ? s.replace(/\{(\w+)\}/g, (_, k) => { const v = vars()[k]; return v === undefined ? `{${k}}` : String(v); }) : s;
+
+/* ---------- STORIES (StoryJson) ---------- */
+const STORIES = [
+ // ---- Hamiləlik ----
+ { id:'bump-this-week', module:'bump', title:'Bu həftə', theme:'coral', illus:'fruit',
+   audience:{ stage:'bump', weekFrom:12, weekTo:40 }, schedule:{ refresh:'weekly', day:'mon' }, source:'ACOG, NHS',
+   slides:[
+     { t:'cover', kicker:'{weekLabel}', title:'Körpən indi <span class="mark">{fruit}</span> boydadır', illus:'fruit' },
+     { t:'fact', kicker:'Təxmini ölçü', value:'{lengthCm}', unit:'sm', body:'Çəkisi təxminən {weightG} qram. Hər körpə öz tempində böyüyür.' },
+     { t:'cover', kicker:'Bu həftə', title:'{weekNote}', size:'m', illus:'blob' },
+     { t:'cta', kicker:'Daha ətraflı', title:'Həftəlik inkişafa bax', body:'Döl inkişafı alətində bu həftənin bütün dəyişiklikləri.', cta:{ label:'Döl inkişafı', tool:'fetal-growth' }, illus:'heart' } ] },
+ { id:'bump-kicks', module:'bump', title:'Hərəkətlər', theme:'violet', illus:'feet',
+   audience:{ stage:'bump', weekFrom:24 }, schedule:{ refresh:'once' }, source:'RCOG, NHS',
+   slides:[
+     { t:'cover', kicker:'Ekspert məsləhəti', title:'Körpənin <span class="hl">hərəkət ritmini</span> tanıyırsan?', illus:'feet' },
+     { t:'list', title:'Hər gün eyni vaxtda say', items:['Yemək yedikdən sonra rahat otur və ya sol böyrü üstə uzan.','Təpik, dönmə, itələmə: hamısı sayılır.','Öz körpənin normal ritmini öyrən.'] },
+     { t:'alert', kicker:'Vacib', title:'Hərəkətlər azalıbsa, səhəri gözləmə', items:['Doğum evinə və ya həkiminə zəng et','Saymağı başqa günə saxlama'], illus:'shield' },
+     { t:'cta', title:'Hərəkət sayğacını aç', body:'Bir toxunuşla say, ritmini qrafikdə gör.', cta:{ label:'Hərəkət sayğacı', tool:'kick' }, illus:'feet' } ] },
+ { id:'bump-eat-for-two', module:'bump', title:'Mif və fakt', theme:'cream', illus:'bowl',
+   audience:{ stage:'bump' }, schedule:{ refresh:'once' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Mif yoxsa fakt?', title:'Hamilə qadın <span class="hl">iki nəfərlik</span> yeməlidir.', illus:'bowl' },
+     { t:'myth', myth:'İki nəfərlik ye.', fact:'İlk trimestrdə əlavə kalori lazım deyil. İkinci trimestrdə gündə təxminən 340, üçüncüdə 450 kkal əlavə kifayətdir.' },
+     { t:'list', title:'Bir boşqab üçün sadə qayda', items:['Yarısı tərəvəz və meyvə','Dörddə biri zülal: ət, balıq, paxlalı','Dörddə biri tam taxıl'] },
+     { t:'cta', title:'Sənə uyğun qidalanma planı', body:'Trimestrə görə menyu və vacib vitaminlər.', cta:{ label:'Qidalanma', tool:'nutrition' }, illus:'bowl' } ] },
+ { id:'bump-danger', module:'bump', title:'Təcili əlamətlər', theme:'navy', illus:'shield',
+   audience:{ stage:'bump' }, schedule:{ refresh:'monthly' }, source:'ÜST, NHS',
+   slides:[
+     { t:'cover', kicker:'Təhlükəsizlik', title:'Bu əlamətlərdə <span class="hl">dərhal</span> həkimə', illus:'shield' },
+     { t:'alert', items:['Qanaxma və ya maye axması','Güclü baş ağrısı, görmənin bulanması','Üzdə, əllərdə qəfil şişkinlik','Hərəkətlərin azalması','Qızdırma və ya güclü qarın ağrısı'] },
+     { t:'cta', title:'Siyahını əlində saxla', body:'Təhlükəli əlamətlər bələdçisi oflayn da açılır.', cta:{ label:'Təhlükəli əlamətlər', tool:'danger-signs' }, illus:'shield' } ] },
+
+ // ---- Analıq ----
+ { id:'mom-this-month', module:'mommy', title:'{babyMonths} aylıq', theme:'peach', illus:'baby',
+   audience:{ stage:'mommy', monthsFrom:1, monthsTo:12 }, schedule:{ refresh:'monthly' }, source:'CDC, ÜST',
+   slides:[
+     { t:'cover', kicker:'{babyName} {babyMonths} aylıqdır', title:'<span class="mark">{milestoneShort}</span>', illus:'baby' },
+     { t:'cover', kicker:'Bu ayın yenilikləri', title:'{milestone}', size:'m', illus:'blob' },
+     { t:'quote', badge:'Ekspert məsləhəti', quote:'Hər körpə öz tempində inkişaf edir. Narahatlığın varsa, növbəti müayinəni gözləmədən pediatrla danış.', src:'CDC tövsiyəsi əsasında' },
+     { t:'cta', title:'İnkişaf mərhələlərini izlə', body:'Boy, çəki və mərhələlər bir yerdə.', cta:{ label:'Boy-çəki', tool:'baby-growth' }, illus:'baby' } ] },
+ { id:'mom-safe-sleep', module:'mommy', title:'Təhlükəsiz yuxu', theme:'navy', illus:'moon',
+   audience:{ stage:'mommy', monthsTo:12 }, schedule:{ refresh:'once' }, source:'AAP',
+   slides:[
+     { t:'cover', kicker:'Ekspert məsləhəti', title:'Təhlükəsiz yuxunun <span class="hl">ABC</span>-si', illus:'moon' },
+     { t:'list', title:'Hər yuxuda, hər dəfə', items:['<b>A</b>: tək, öz yatağında','<b>B</b>: arxası üstə','<b>C</b>: bərk döşək, boş yataq'] },
+     { t:'quiz', title:'Körpənin yatağına yastıq qoymaq olar?', options:['Bəli, rahat olsun','Xeyr, 1 yaşa qədər yox'], correct:1, explain:'1 yaşa qədər yataqda yastıq, yorğan və oyuncaq olmamalıdır.' },
+     { t:'cta', title:'Yuxu ritmini qur', body:'Növbəti yuxu vaxtı və ağ səs bir yerdə.', cta:{ label:'Yuxu', tool:'whitenoise' }, illus:'moon' } ] },
+ { id:'mom-solids-quiz', module:'mommy', title:'Əlavə qida', theme:'yellow', illus:'bowl',
+   audience:{ stage:'mommy', monthsFrom:4, monthsTo:8 }, schedule:{ refresh:'once' }, source:'ÜST',
+   slides:[
+     { t:'quiz', kicker:'Quiz', title:'Əlavə qidaya nə vaxt başlamaq tövsiyə olunur?', options:['3 ayda','Təxminən 6 ayda','9 ayda'], correct:1, explain:'ÜST ilk 6 ayda yalnız ana südü, sonra əlavə qida tövsiyə edir.' },
+     { t:'list', title:'Hazırlıq əlamətləri', items:['Başını dik saxlayır','Dəstəklə oturur','Yeməyə maraq göstərir','Qaşığı dili ilə itələmir'] },
+     { t:'cta', title:'Addım-addım bələdçi', body:'İlk qidalar, porsiyalar və allergen planı.', cta:{ label:'Əlavə qida bələdçisi', tool:'solid-food-guide', premium:true }, illus:'bowl' } ] },
+ { id:'mom-feelings', module:'mommy', title:'Sən necəsən?', theme:'lilac', illus:'heart',
+   audience:{ stage:'mommy', monthsTo:12 }, schedule:{ refresh:'monthly' }, source:'ÜST, ACOG',
+   slides:[
+     { t:'cover', kicker:'Sənin üçün', title:'Ana olmaq <span class="hl">yorur</span>. Bu normaldır.', illus:'heart' },
+     { t:'fact', kicker:'Doğuşdan sonra', value:'1/7', unit:'ana', body:'Hər 7 anadan biri doğuşdan sonrakı depressiya yaşayır. Kömək istəmək güclü olmaqdır.' },
+     { t:'list', title:'Bu hisslər 2 həftədən çox çəkirsə', items:['Həkiminlə danış','Yaxınına söylə','2 dəqiqəlik testi et'] },
+     { t:'cta', title:'Özünü yoxla', body:'Anonim test, nəticə yalnız sənə görünür.', cta:{ label:'Psixoloji sağlamlıq', tool:'mental-health' }, illus:'heart' } ] },
+
+ // ---- Dövr ----
+ { id:'flow-today', module:'flow', title:'{cycleLabel}', theme:'mint', illus:'cycle',
+   audience:{ stage:'flow' }, schedule:{ refresh:'daily' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Tsiklinin {cycleLabel}ü', title:'İndi <span class="mark">{phase}</span>', illus:'cycle' },
+     { t:'cover', kicker:'Bu günlər üçün', title:'{phaseTip}', size:'m', illus:'blob' },
+     { t:'cta', title:'Bugünkü hissini qeyd et', body:'Əlamətlərin növbəti tsikldə proqnozu daha dəqiq edir.', cta:{ label:'Dövr təqvimi', tool:'flow-home' }, illus:'cycle' } ] },
+ { id:'flow-sport', module:'flow', title:'Mif və fakt', theme:'forest', illus:'blob',
+   audience:{ stage:'flow' }, schedule:{ refresh:'once' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Mif yoxsa fakt?', title:'Dövr zamanı <span class="hl">idman olmaz</span>.', illus:'blob' },
+     { t:'myth', myth:'Menstruasiya vaxtı hərəkət etmə.', fact:'Yüngül hərəkət, məsələn gəzinti, yoqa və ya üzgüçülük, sancını və əhval dəyişkənliyini azalda bilər.' },
+     { t:'cta', title:'Sənə uyğun məşqlər', body:'Tsikl fazasına görə yüngül proqramlar.', cta:{ label:'Məşqlər', tool:'exercise' }, illus:'heart' } ] },
+ { id:'flow-pms', module:'flow', title:'PMS', theme:'peach', illus:'drop',
+   audience:{ stage:'flow' }, schedule:{ refresh:'monthly', phase:'luteal' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Ekspert məsləhəti', title:'PMS günlərini <span class="mark">yüngülləşdir</span>', illus:'drop' },
+     { t:'list', items:['Qarına isti kompres','Gündə 20 dəqiqə gəzinti','Duzu və kofeini azalt','7 ilə 9 saat yuxu'] },
+     { t:'alert', kicker:'Həkimə nə vaxt', title:'Ağrı gündəlik həyatını dayandırırsa', items:['Ağrıkəsici kömək etmirsə','Qanaxma çox güclüdürsə'], illus:'shield' } ] },
+ { id:'flow-normal', module:'flow', title:'Normal tsikl', theme:'coral', illus:'cycle',
+   audience:{ stage:'flow' }, schedule:{ refresh:'once' }, source:'ACOG',
+   slides:[
+     { t:'fact', kicker:'Bilirsən?', value:'21-35', unit:'gün', body:'Böyüklərdə normal tsikl bu aralıqdadır. Hər ay bir neçə gün fərq normaldır.' },
+     { t:'list', title:'Həkimlə danış, əgər', items:['Tsikl 21 gündən qısa və ya 35 gündən uzundursa','3 ay ardıcıl dövr gəlmirsə','Dövr 7 gündən çox çəkirsə'] },
+     { t:'cta', title:'Tsiklini izlə', body:'Qeyri-müntəzəmliyi Anacan özü göstərəcək.', cta:{ label:'Dövr təqvimi', tool:'flow-home' }, illus:'cycle' } ] },
+
+ // ---- Hamı üçün ----
+ { id:'all-water', module:'all', title:'Su', theme:'navy', illus:'drop',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'weekly' }, source:'ÜST, EFSA',
+   slides:[
+     { t:'cover', kicker:'Kiçik vərdiş', title:'Susuzluğu <span class="hl">gözləmə</span>', illus:'drop' },
+     { t:'fact', kicker:'Gündəlik maye', value:'2-3', unit:'litr', body:'Hamiləlikdə və əmizdirmədə ehtiyac artır. Sidiyin açıq rəngdə olması yaxşı göstəricidir.' },
+     { t:'list', title:'Asan yollar', items:['Hər yeməkdə bir stəkan','Əmizdirəndə yanında su','Telefonunda xatırlatma'] } ] },
+ { id:'all-ai', module:'all', title:'Anacan AI', theme:'violet', illus:'chat',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'once' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Gecə saat 3-dür', title:'Sualın var? <span class="mark">Anacan AI</span> oyaqdır.', illus:'chat' },
+     { t:'list', title:'Analar ən çox nə soruşur', items:['Körpə niyə gecə oyanır?','Bu səpgi normaldırmı?','Hansı vitaminləri içim?'] },
+     { t:'cta', title:'İlk sualını ver', body:'Təcili hallarda həkimə və ya 103-ə zəng et.', cta:{ label:'Anacan AI', tool:'ai' }, illus:'chat' } ] },
+ { id:'all-community', module:'all', title:'İcma', theme:'lime', illus:'chat',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'weekly', data:'community_top_topics' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Bu həftə icmada', title:'Analar ən çox <span class="hl">bunları</span> müzakirə etdi', illus:'chat' },
+     { t:'list', items:['Diş çıxarma gecələri','Hamiləlikdə ürək yanması','Bağçaya hazırlıq'] },
+     { t:'cta', title:'Söhbətə qoşul', body:'Sualını yaz, təcrübəni bölüş.', cta:{ label:'İcma', tool:'community' }, illus:'chat' } ] },
+ { id:'all-doctor-pdf', module:'all', title:'Həkimə hazır', theme:'cream', illus:'doc',
+   audience:{ stage:['bump','mommy'] }, schedule:{ refresh:'once' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Müayinədən əvvəl', title:'Həkimə <span class="hl">hazır</span> get', illus:'doc' },
+     { t:'list', title:'Özünlə götür', items:['Təzyiq və çəki qeydləri','Sualların siyahısı','Son analizlərin nəticəsi'] },
+     { t:'cta', title:'Bir toxunuşla PDF', body:'Bütün qeydlərin həkim üçün səliqəli hesabatda.', cta:{ label:'Həkim hesabatı', tool:'doctor-report', premium:true }, illus:'doc' } ] },
+ // ================= +44 (2026-11-09) =================
+ // ---- Hamiləlik ----
+ { id:'bump-folic', module:'bump', title:'Fol turşusu', theme:'lime', illus:'pill',
+   audience:{ stage:'bump', weekTo:14 }, schedule:{ refresh:'once' }, source:'ÜST',
+   slides:[
+     { t:'cover', kicker:'İlk 12 həftə', title:'Hər gün <span class="mark">fol turşusu</span>', illus:'pill' },
+     { t:'fact', kicker:'Gündəlik doza', value:'400', unit:'mkq', body:'Körpənin sinir borusunun düzgün formalaşmasına kömək edir. Dozanı həkiminlə dəqiqləşdir.' },
+     { t:'list', title:'Qidada harada var', items:['Ispanaq, brokkoli, kahı','Mərci, noxud, lobya','Portağal və digər sitruslar'] },
+     { t:'cta', title:'Vitaminini unutma', body:'Gündəlik xatırlatma və qeyd.', cta:{ label:'Vitamin izləyicisi', tool:'vitamin-tracker', premium:true }, illus:'pill' } ] },
+ { id:'bump-nausea', module:'bump', title:'Ürəkbulanma', theme:'mint', illus:'drop',
+   audience:{ stage:'bump', weekTo:16 }, schedule:{ refresh:'once' }, source:'NHS, ACOG',
+   slides:[
+     { t:'cover', kicker:'Səhər bulantısı', title:'Ürəkbulanmanı <span class="mark">yüngülləşdir</span>', illus:'drop' },
+     { t:'list', items:['Az-az, tez-tez ye','Yataqdan qalxmadan quru peçenye','Zəncəfilli çay və ya konfet','Kəskin iylərdən uzaq dur'] },
+     { t:'alert', kicker:'Həkimə nə vaxt', title:'Bunlar varsa, gözləmə', items:['Heç nə saxlaya bilmirsən','Sidik çox az və tünd rəngdədir','Çəki itirirsən'], illus:'shield' } ] },
+ { id:'bump-side-sleep', module:'bump', title:'Yan üstə yat', theme:'navy', illus:'moon',
+   audience:{ stage:'bump', weekFrom:26 }, schedule:{ refresh:'once' }, source:'RCOG',
+   slides:[
+     { t:'quiz', kicker:'Quiz', title:'28-ci həftədən sonra necə yatmaq tövsiyə olunur?', options:['Arxası üstə','Yan üstə','Fərqi yoxdur'], correct:1, explain:'Üçüncü trimestrdə yan üstə yatmaq körpəyə qan axınını yaxşılaşdırır. Gecə arxası üstə oyansan, narahat olma, sadəcə yanına çevril.' },
+     { t:'list', title:'Rahat yatmaq üçün', items:['Dizlərin arasına yastıq','Qarnın altına kiçik yastıq','Belinə dayaq'] },
+     { t:'cta', title:'Yuxunu izlə', body:'Gecə oyanmalarını qeyd et, həkiminə göstər.', cta:{ label:'Əhval gündəliyi', tool:'mood' }, illus:'moon' } ] },
+ { id:'bump-bag', module:'bump', title:'Doğum çantası', theme:'yellow', illus:'bag',
+   audience:{ stage:'bump', weekFrom:30 }, schedule:{ refresh:'weekly' }, source:'NHS',
+   slides:[
+     { t:'cover', kicker:'36-cı həftəyə qədər', title:'Doğum çantası <span class="hl">hazırdır?</span>', illus:'bag' },
+     { t:'list', title:'Üç bölmə', items:['Sənədlər: şəxsiyyət vəsiqəsi, mübadilə kartı','Ana üçün: xalat, gecəlik, gigiyena','Körpə üçün: bodi, papaq, bez'] },
+     { t:'cta', title:'Hazır siyahı', body:'Qeyd et, partnyorunla paylaş.', cta:{ label:'Xəstəxana çantası', tool:'hospital' }, illus:'bag' } ] },
+ { id:'bump-gdm', module:'bump', title:'Şəkər testi', theme:'peach', illus:'drop',
+   audience:{ stage:'bump', weekFrom:20, weekTo:30 }, schedule:{ refresh:'once' }, source:'ÜST, ACOG',
+   slides:[
+     { t:'fact', kicker:'Hamiləlik diabeti testi', value:'24-28', unit:'həftə', body:'Bu həftələrdə qlükoza testi tövsiyə olunur. Erkən aşkarlanan diabet asan idarə olunur.' },
+     { t:'list', title:'Testdən əvvəl', items:['Həkimin dediyi qədər ac qal','Rahat geyin, yanında su götür','Nəticəni Anacan-da qeyd et'] },
+     { t:'cta', title:'Qan şəkərini izlə', body:'Ac qarına və yeməkdən sonra ölçmələr bir qrafikdə.', cta:{ label:'Qan şəkəri', tool:'blood-sugar', premium:true }, illus:'drop' } ] },
+ { id:'bump-bp', module:'bump', title:'Təzyiq', theme:'coral', illus:'heart',
+   audience:{ stage:'bump', weekFrom:20 }, schedule:{ refresh:'monthly' }, source:'ÜST, NHS',
+   slides:[
+     { t:'fact', kicker:'Diqqət həddi', value:'140/90', unit:'', body:'20-ci həftədən sonra təzyiq bu həddə və ya yuxarı olarsa, həkimə xəbər ver. Bu preeklampsiyanın əlaməti ola bilər.' },
+     { t:'alert', title:'Təzyiqlə birlikdə bunlar varsa, təcili', items:['Güclü baş ağrısı','Gözlərdə parıltı, bulanma','Qabırğaların altında ağrı','Qəfil şişkinlik'] },
+     { t:'cta', title:'Təzyiqini qeyd et', body:'Ölçmələr həkim hesabatına avtomatik düşür.', cta:{ label:'Qan təzyiqi', tool:'blood-pressure' }, illus:'heart' } ] },
+ { id:'bump-move', module:'bump', title:'Hərəkət et', theme:'lime', illus:'feet',
+   audience:{ stage:'bump' }, schedule:{ refresh:'once' }, source:'ÜST',
+   slides:[
+     { t:'fact', kicker:'Həftəlik hədəf', value:'150', unit:'dəqiqə', body:'Həkimin icazə verirsə, həftədə 150 dəqiqə orta tempdə hərəkət tövsiyə olunur. Gündə 20 dəqiqəlik gəzinti kifayətdir.' },
+     { t:'list', title:'Təhlükəsiz seçimlər', items:['Gəzinti','Üzgüçülük','Hamilələr üçün yoqa və pilates'] },
+     { t:'alert', kicker:'Dayandır və həkimə', title:'Bunlar olarsa', items:['Qanaxma və ya maye','Baş gicəllənməsi, nəfəs darlığı','Döş qəfəsində ağrı'] },
+     { t:'cta', title:'Trimestrə uyğun məşqlər', body:'Video ilə addım-addım.', cta:{ label:'Məşqlər', tool:'exercise', premium:true }, illus:'feet' } ] },
+ { id:'bump-avoid', module:'bump', title:'Bunlardan qaç', theme:'cream', illus:'bowl',
+   audience:{ stage:'bump' }, schedule:{ refresh:'once' }, source:'ÜST, NHS',
+   slides:[
+     { t:'cover', kicker:'Qida təhlükəsizliyi', title:'Hamiləlikdə <span class="hl">bunlardan</span> qaç', illus:'bowl' },
+     { t:'list', items:['Çiy və az bişmiş ət, yumurta','Pasterizə olunmamış süd və pendir','Civəsi yüksək balıq: qılınc balığı, köpəkbalığı'] },
+     { t:'myth', myth:'Bir qədəh şərab zərərsizdir.', fact:'Hamiləlikdə təhlükəsiz alkoqol miqdarı məlum deyil. Ən təhlükəsiz seçim heç içməməkdir.' },
+     { t:'cta', title:'Bu qida təhlükəsizdirmi?', body:'Axtar, cavabı bir saniyədə gör.', cta:{ label:'Təhlükəsizlik yoxlaması', tool:'safety' }, illus:'bowl' } ] },
+ { id:'bump-caffeine', module:'bump', title:'Kofein', theme:'violet', illus:'cup',
+   audience:{ stage:'bump' }, schedule:{ refresh:'once' }, source:'ACOG',
+   slides:[
+     { t:'fact', kicker:'Gündəlik hədd', value:'200', unit:'mq', body:'Bu, təxminən 2 kiçik fincan kofedir. Çay, kola və şokoladda da kofein var.' },
+     { t:'quiz', title:'Hansında kofein yoxdur?', options:['Qara çay','Kola','Çobanyastığı çayı'], correct:2, explain:'Çobanyastığı çayında kofein yoxdur. Bitki çaylarını da ölçülü iç və həkiminlə məsləhətləş.' } ] },
+ { id:'bump-labor-signs', module:'bump', title:'Doğum başlayır?', theme:'coral', illus:'clock',
+   audience:{ stage:'bump', weekFrom:32 }, schedule:{ refresh:'weekly' }, source:'ACOG, NHS',
+   slides:[
+     { t:'cover', kicker:'Yalançı yoxsa əsl?', title:'Sancıları <span class="mark">ayırd et</span>', illus:'clock' },
+     { t:'myth', myth:'Hər sıxılma doğumdur.', fact:'Yalançı sancılar qeyri-müntəzəmdir və dincələndə keçir. Əsl sancılar müntəzəmdir, güclənir və tezləşir.' },
+     { t:'fact', kicker:'İlk doğuş üçün qayda', value:'5-1-1', unit:'', body:'Sancılar 5 dəqiqədən bir, hər biri 1 dəqiqə, 1 saat davam edirsə, doğum evinə zəng et. Suyun gəlməsi və qanaxma isə dərhal müraciət deməkdir.' },
+     { t:'cta', title:'Sancıları say', body:'Aralıq və müddət avtomatik hesablanır.', cta:{ label:'Sancı sayğacı', tool:'contraction', premium:true }, illus:'clock' } ] },
+ { id:'bump-partner', module:'bump', title:'Partnyor', theme:'lilac', illus:'chat',
+   audience:{ stage:'bump' }, schedule:{ refresh:'once' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Birlikdə daha asan', title:'Partnyorunu <span class="hl">Anacan-a</span> dəvət et', illus:'chat' },
+     { t:'list', title:'O nə görəcək', items:['Körpənin həftəlik inkişafı','Həkim görüşləri və alış-veriş siyahısı','Ona uyğun tapşırıqlar'] },
+     { t:'cta', title:'Bir linklə qoş', body:'Nəyi paylaşacağını sən seçirsən.', cta:{ label:'Partnyor', tool:'partner' }, illus:'chat' } ] },
+ { id:'bump-names', module:'bump', title:'Ad seçimi', theme:'yellow', illus:'baby',
+   audience:{ stage:'bump', weekFrom:16 }, schedule:{ refresh:'once' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Xoş sual', title:'Körpənin <span class="mark">adı</span> nə olacaq?', illus:'baby' },
+     { t:'list', title:'Seçməzdən əvvəl 3 sual', items:['Asan tələffüz olunur?','Mənası xoşuna gəlir?','Soyadla ahəngdardır?'] },
+     { t:'cta', title:'Mənası ilə adlar', body:'Bəyəndiklərini partnyorunla birlikdə səs ver.', cta:{ label:'Ad tapıcı', tool:'names' }, illus:'baby' } ] },
+
+ // ---- Analıq ----
+ { id:'mom-hunger', module:'mommy', title:'Aclıq siqnalı', theme:'peach', illus:'bottle',
+   audience:{ stage:'mommy', monthsTo:6 }, schedule:{ refresh:'once' }, source:'ÜST, UNICEF',
+   slides:[
+     { t:'cover', kicker:'Ekspert məsləhəti', title:'Ağlama <span class="mark">gec siqnaldır</span>', illus:'bottle' },
+     { t:'list', title:'Erkən aclıq siqnalları', items:['Ağzını açıb-yumur','Əllərini ağzına aparır','Başını döşə tərəf çevirir'] },
+     { t:'cta', title:'Qidalanmanı qeyd et', body:'Son qidalanma və növbəti vaxt bir baxışda.', cta:{ label:'Körpə izləyicisi', tool:'baby-tracker', premium:true }, illus:'bottle' } ] },
+ { id:'mom-diapers', module:'mommy', title:'Yaş bezlər', theme:'mint', illus:'drop',
+   audience:{ stage:'mommy', monthsTo:2 }, schedule:{ refresh:'once' }, source:'NHS',
+   slides:[
+     { t:'fact', kicker:'5-ci gündən sonra', value:'6+', unit:'bez', body:'Gündə ən azı 6 yaş bez körpənin kifayət qədər süd aldığını göstərir.' },
+     { t:'alert', kicker:'Həkimə zəng et', title:'Bunları görsən', items:['Yaş bez azdır','Körpə çox yuxuludur, əmmir','Dərisi və gözləri saralır'] },
+     { t:'cta', title:'Bezləri say', body:'Gündəlik say avtomatik hesablanır.', cta:{ label:'Körpə izləyicisi', tool:'baby-tracker', premium:true }, illus:'drop' } ] },
+ { id:'mom-fever', module:'mommy', title:'Qızdırma', theme:'coral', illus:'thermo',
+   audience:{ stage:'mommy', monthsTo:12 }, schedule:{ refresh:'monthly' }, source:'NHS, AAP',
+   slides:[
+     { t:'fact', kicker:'3 aydan kiçik körpədə', value:'38°', unit:'C', body:'Bu temperatur və ya yuxarısı dərhal həkimə müraciət deməkdir.' },
+     { t:'alert', title:'Hər yaşda təcili', items:['Səpgi basanda solmur','Nəfəs almaqda çətinlik','Çox yuxulu, oyanmır','Qıcolma'] },
+     { t:'cta', title:'Xəstəlik gündəliyi', body:'Temperatur, dərman və əlamətləri həkimə göstər.', cta:{ label:'Təhlükəli əlamətlər', tool:'danger-signs' }, illus:'thermo' } ] },
+ { id:'mom-tummy', module:'mommy', title:'Qarın üstə', theme:'lime', illus:'baby',
+   audience:{ stage:'mommy', monthsTo:6 }, schedule:{ refresh:'once' }, source:'ÜST, AAP',
+   slides:[
+     { t:'fact', kicker:'Gündəlik hədəf', value:'30', unit:'dəqiqə', body:'Oyaq ikən, nəzarət altında, gün ərzində bir neçə dəfəyə bölərək. 3-5 dəqiqədən başla.' },
+     { t:'list', title:'Nəyə kömək edir', items:['Boyun və kürək əzələləri güclənir','Başın arxası yastılaşmır','Sürünməyə hazırlıq'] },
+     { t:'quote', badge:'Ekspert məsləhəti', quote:'Arxası üstə yat, qarın üstə oyna.', src:'AAP tövsiyəsi əsasında' } ] },
+ { id:'mom-teething', module:'mommy', title:'Diş çıxarma', theme:'yellow', illus:'tooth',
+   audience:{ stage:'mommy', monthsFrom:4 }, schedule:{ refresh:'once' }, source:'AAP, NHS',
+   slides:[
+     { t:'cover', kicker:'Təxminən 6 ayda', title:'İlk diş <span class="hl">yoldadır</span>', illus:'tooth' },
+     { t:'list', title:'Rahatlatmaq üçün', items:['Soyudulmuş, dondurulmamış diş halqası','Təmiz barmaqla diş ətinə masaj','Ağız kənarını tez-tez sil'] },
+     { t:'alert', kicker:'Təhlükəsizlik', title:'Bunlardan istifadə etmə', items:['Kəhrəba boyunbağı: boğulma riski','Benzokainli gellər'] },
+     { t:'cta', title:'Dişləri izlə', body:'Hansı diş nə vaxt çıxdı, bir xəritədə.', cta:{ label:'Diş izləyicisi', tool:'teething', premium:true }, illus:'tooth' } ] },
+ { id:'mom-soothe', module:'mommy', title:'Sakitləşdirmə', theme:'lilac', illus:'baby',
+   audience:{ stage:'mommy', monthsTo:4 }, schedule:{ refresh:'once' }, source:'AAP',
+   slides:[
+     { t:'cover', kicker:'Gecə ağlamaları', title:'Ağlayan körpəni <span class="mark">sakitləşdir</span>', illus:'baby' },
+     { t:'list', items:['Bələ və ya yumşaq qucaqla','"Şşş" səsi və ya ağ səs','Yavaş yırğala','Əmizdir və ya əmzik ver'] },
+     { t:'alert', kicker:'Heç vaxt', title:'Körpəni silkələmə', items:['Əsəbiləşsən, körpəni təhlükəsiz yatağa qoy','Bir neçə dəqiqə nəfəs al, kömək istə'] },
+     { t:'cta', title:'Niyə ağlayır?', body:'Ağlamanın səbəbini təxmin et.', cta:{ label:'Ağlama tərcüməçisi', tool:'cry-translator', premium:true }, illus:'chat' } ] },
+ { id:'mom-wake-window', module:'mommy', title:'Oyaqlıq vaxtı', theme:'navy', illus:'clock',
+   audience:{ stage:'mommy', monthsTo:12 }, schedule:{ refresh:'monthly' }, source:'Pediatrik yuxu tövsiyələri',
+   slides:[
+     { t:'cover', kicker:'Yuxu sirri', title:'Yorğun körpə <span class="hl">çətin yatır</span>', illus:'clock' },
+     { t:'list', title:'Təxmini oyaqlıq vaxtı', items:['0-3 ay: 45-90 dəqiqə','4-6 ay: 1,5-2,5 saat','7-12 ay: 2-3,5 saat'] },
+     { t:'cta', title:'Növbəti yuxu nə vaxt?', body:'Anacan yaşa görə hesablayır.', cta:{ label:'Yuxu', tool:'sleep-training', premium:true }, illus:'moon' } ] },
+ { id:'mom-allergens', module:'mommy', title:'Allergenlər', theme:'forest', illus:'bowl',
+   audience:{ stage:'mommy', monthsFrom:5, monthsTo:12 }, schedule:{ refresh:'once' }, source:'AAP',
+   slides:[
+     { t:'myth', myth:'Allergen qidaları gec vermək daha təhlükəsizdir.', fact:'Əlavə qidaya başladıqdan sonra yumurta, fıstıq məhsulları kimi allergenləri gecikdirməyə ehtiyac yoxdur.' },
+     { t:'list', title:'Necə təqdim etməli', items:['Hər dəfə bir yeni qida','2-3 gün reaksiyanı izlə','Səpgi, qusma olarsa həkimə'] },
+     { t:'cta', title:'Allergen planı', body:'Addım-addım bələdçi.', cta:{ label:'Əlavə qida bələdçisi', tool:'solid-food-guide', premium:true }, illus:'bowl' } ] },
+ { id:'mom-choking', module:'mommy', title:'Boğulma riski', theme:'coral', illus:'shield',
+   audience:{ stage:'mommy', monthsFrom:6 }, schedule:{ refresh:'once' }, source:'AAP, NHS',
+   slides:[
+     { t:'cover', kicker:'Təhlükəsizlik', title:'Bu qidaları <span class="mark">kəsərək</span> ver', illus:'shield' },
+     { t:'list', items:['Üzüm və albalı: uzununa dördə böl','Bütöv qoz-fındıq vermə','Çiy yerkökü: bişir və ya rəndələ','Popkorn: 4 yaşa qədər yox'] },
+     { t:'cta', title:'Boğulmada nə etməli?', body:'İlk yardım addımları oflayn da açılır.', cta:{ label:'İlk yardım', tool:'first-aid' }, illus:'shield' } ] },
+ { id:'mom-recovery', module:'mommy', title:'Bərpa', theme:'peach', illus:'heart',
+   audience:{ stage:'mommy', monthsTo:3 }, schedule:{ refresh:'weekly' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Doğuşdan sonra', title:'Bədənin <span class="hl">6 həftəyə</span> ehtiyac duyur', illus:'heart' },
+     { t:'list', title:'Bu həftələrdə', items:['Kegel məşqləri hər gün','Körpədən ağır şey qaldırma','Qanaxma tədricən azalmalıdır'] },
+     { t:'alert', kicker:'Təcili', title:'Bunlar varsa, həkimə', items:['Qanaxma çoxalır, iri laxtalar','Qızdırma','Bir ayaqda ağrı, şişkinlik'] },
+     { t:'cta', title:'Bərpa planı', body:'Həftəlik məşqlər və yoxlama.', cta:{ label:'Doğuşdan sonra bərpa', tool:'recovery' }, illus:'heart' } ] },
+ { id:'mom-rest', module:'mommy', title:'Sən də dincəl', theme:'cream', illus:'moon',
+   audience:{ stage:'mommy', monthsTo:12 }, schedule:{ refresh:'weekly' }, source:'',
+   slides:[
+     { t:'quote', badge:'Sənin üçün', quote:'Körpə yatanda ev işləri gözləyə bilər. Sən gözləyə bilməzsən.', src:'Anacan' },
+     { t:'list', title:'Bu gün özünə 10 dəqiqə', items:['Bir stəkan su və isti çay','Pəncərəni aç, nəfəs al','Yaxınından kömək istə'] } ] },
+ { id:'mom-vitd', module:'mommy', title:'D vitamini', theme:'yellow', illus:'sun',
+   audience:{ stage:'mommy', monthsTo:12 }, schedule:{ refresh:'once' }, source:'AAP',
+   slides:[
+     { t:'fact', kicker:'Ana südü ilə qidalanan körpələrə', value:'400', unit:'BV', body:'Gündəlik D vitamini tövsiyə olunur. Dozanı və formanı pediatrla dəqiqləşdir.' },
+     { t:'cta', title:'Xatırlatma qur', body:'Hər gün eyni vaxtda bildiriş.', cta:{ label:'Vitamin izləyicisi', tool:'vitamin-tracker', premium:true }, illus:'sun' } ] },
+ { id:'mom-screens', module:'mommy', title:'Ekran vaxtı', theme:'violet', illus:'phone',
+   audience:{ stage:'mommy' }, schedule:{ refresh:'once' }, source:'ÜST, AAP',
+   slides:[
+     { t:'myth', myth:'Cizgi filmlər körpənin inkişafına kömək edir.', fact:'2 yaşa qədər ekran tövsiyə olunmur. Video zəng ilə yaxınları görmək istisnadır.' },
+     { t:'list', title:'Ekran yerinə', items:['Kitab oxu, şəkillərə bax','Mahnı oxu, əl çal','Gəzintidə gördüklərini adlandır'] },
+     { t:'cta', title:'Yaşa uyğun oyunlar', body:'Hər ay üçün inkişaf oyunları.', cta:{ label:'Oyunlar', tool:'mini-games' }, illus:'book' } ] },
+ { id:'mom-vaccine', module:'mommy', title:'Peyvəndlər', theme:'lime', illus:'shield',
+   audience:{ stage:'mommy' }, schedule:{ refresh:'monthly', data:'next_vaccine' }, source:'ÜST',
+   slides:[
+     { t:'cover', kicker:'Vaxtında qoruma', title:'Növbəti peyvənd <span class="mark">yaxındır</span>', illus:'shield' },
+     { t:'list', title:'Peyvənd günü', items:['Peyvənd kartını götür','Sonra yüngül qızdırma ola bilər','Çox əmizdir, qucaqla'] },
+     { t:'cta', title:'Peyvənd təqvimi', body:'Körpənin tarixinə görə xatırlatmalar.', cta:{ label:'Peyvənd təqvimi', tool:'vaccine-calendar' }, illus:'shield' } ] },
+
+ // ---- Dövr ----
+ { id:'flow-iron', module:'flow', title:'Dəmir', theme:'coral', illus:'bowl',
+   audience:{ stage:'flow' }, schedule:{ refresh:'monthly', phase:'menstruasiya' }, source:'ÜST',
+   slides:[
+     { t:'cover', kicker:'Ağır dövr günlərində', title:'Dəmirini <span class="mark">bərpa et</span>', illus:'bowl' },
+     { t:'list', items:['Qırmızı ət, qaraciyər, yumurta','Mərci, noxud, ispanaq','C vitamini ilə birlikdə ye: limon, bibər'] },
+     { t:'alert', kicker:'Analiz et', title:'Bunlar varsa, həkimə', items:['Daimi halsızlıq','Baş gicəllənməsi','Saç tökülməsi'] } ] },
+ { id:'flow-ovulation', module:'flow', title:'Ovulyasiya', theme:'mint', illus:'cycle',
+   audience:{ stage:'flow' }, schedule:{ refresh:'monthly', phase:'ovulyasiya pəncərəsi' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Bədənin siqnal verir', title:'Ovulyasiyanın <span class="hl">3 əlaməti</span>', illus:'cycle' },
+     { t:'list', items:['Şəffaf, uzanan ifrazat','Qarının bir tərəfində yüngül ağrı','Bazal temperaturun bir az artması'] },
+     { t:'cta', title:'Əlamətləri qeyd et', body:'Proqnoz hər ay daha dəqiq olur.', cta:{ label:'Dövr təqvimi', tool:'flow-home' }, illus:'cycle' } ] },
+ { id:'flow-fertile', module:'flow', title:'Hamiləlik planı', theme:'lilac', illus:'heart',
+   audience:{ stage:'flow', goal:'ttc' }, schedule:{ refresh:'monthly' }, source:'ACOG, ÜST',
+   slides:[
+     { t:'fact', kicker:'Fertil pəncərə', value:'6', unit:'gün', body:'Ovulyasiya günü və ondan əvvəlki 5 gün. Bu günlərdə hamilə qalma ehtimalı ən yüksəkdir.' },
+     { t:'list', title:'Planlaşdırırsansa', items:['Fol turşusuna indidən başla','Həkimlə ilkin müayinə','Siqareti və alkoqolu burax'] },
+     { t:'cta', title:'Hamiləlik planı rejimi', body:'LH testi, bazal temperatur və fertil günlər.', cta:{ label:'Hamiləlik planı', tool:'ttc' }, illus:'heart' } ] },
+ { id:'flow-tampon', module:'flow', title:'Gigiyena', theme:'navy', illus:'clock',
+   audience:{ stage:'flow' }, schedule:{ refresh:'once' }, source:'FDA',
+   slides:[
+     { t:'fact', kicker:'Tampon üçün maksimum', value:'8', unit:'saat', body:'Daha uzun saxlamaq nadir, amma təhlükəli toksik şok sindromu riskini artırır.' },
+     { t:'list', title:'Sadə qaydalar', items:['Ən az udma gücü olanı seç','Gecə üçün bez daha yaxşıdır','Qızdırma, səpgi olarsa çıxar və həkimə'] } ] },
+ { id:'flow-pcos', module:'flow', title:'PKOS', theme:'peach', illus:'cycle',
+   audience:{ stage:'flow' }, schedule:{ refresh:'once' }, source:'ÜST',
+   slides:[
+     { t:'fact', kicker:'Polikistoz yumurtalıq sindromu', value:'1/10', unit:'qadın', body:'Təxminən hər 10 qadından biri PKOS ilə yaşayır, çoxu bunu bilmir.' },
+     { t:'list', title:'Həkimlə danış, əgər', items:['Dövrlər çox qeyri-müntəzəmdir','Sızanaq və artıq tük artıb','Hamilə qalmaqda çətinlik var'] },
+     { t:'cta', title:'Həkim üçün hesabat', body:'Tsikl tarixçəni PDF kimi göstər.', cta:{ label:'Simptom hesabatı', tool:'doctor-report', premium:true }, illus:'doc' } ] },
+ { id:'flow-mood', module:'flow', title:'Əhval', theme:'violet', illus:'heart',
+   audience:{ stage:'flow' }, schedule:{ refresh:'monthly', phase:'lüteal faza' }, source:'ACOG',
+   slides:[
+     { t:'cover', kicker:'Lüteal faza', title:'Əhvalın dəyişir? <span class="hl">Səbəbi var</span>', illus:'heart' },
+     { t:'list', items:['Hormonlar əhvala təsir edir','Yuxu və hərəkət kömək edir','Qeyd et: təkrarlanan nümunəni gör'] },
+     { t:'alert', kicker:'PMDD ola bilər', title:'Ağır depressiv hisslər hər ay təkrarlanırsa', items:['Həkimə və ya psixoloqa müraciət et'] },
+     { t:'cta', title:'Əhvalını qeyd et', body:'5 saniyə, gündə bir dəfə.', cta:{ label:'Əhval gündəliyi', tool:'mood' }, illus:'heart' } ] },
+ { id:'flow-why-track', module:'flow', title:'Niyə izləməli', theme:'yellow', illus:'doc',
+   audience:{ stage:'flow' }, schedule:{ refresh:'once' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Kiçik vərdiş, böyük fayda', title:'Tsiklini izləmək <span class="mark">nə verir?</span>', illus:'doc' },
+     { t:'list', items:['Növbəti dövrü əvvəlcədən bil','Qeyri-müntəzəmliyi erkən gör','Həkimə dəqiq məlumat apar'] },
+     { t:'cta', title:'Bu günü qeyd et', body:'Bir toxunuş kifayətdir.', cta:{ label:'Dövr təqvimi', tool:'flow-home' }, illus:'cycle' } ] },
+ { id:'flow-bloating', module:'flow', title:'Şişkinlik', theme:'forest', illus:'drop',
+   audience:{ stage:'flow' }, schedule:{ refresh:'monthly', phase:'lüteal faza' }, source:'ACOG',
+   slides:[
+     { t:'myth', myth:'Şişkinlikdə su az içmək lazımdır.', fact:'Əksinə, kifayət qədər su içmək və duzu azaltmaq şişkinliyi yüngülləşdirə bilər.' },
+     { t:'list', title:'Kömək edənlər', items:['Duzlu qəlyanaltıları azalt','Gündə 20 dəqiqə gəzinti','Kalium: banan, qatıq'] } ] },
+ { id:'flow-sleep', module:'flow', title:'Yuxu', theme:'navy', illus:'moon',
+   audience:{ stage:'flow' }, schedule:{ refresh:'monthly', phase:'lüteal faza' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Dövrdən əvvəl', title:'Yuxun <span class="hl">pisləşir?</span>', illus:'moon' },
+     { t:'list', items:['Otağı sərin saxla','Axşam kofeindən qaç','Yatmazdan 1 saat əvvəl ekransız'] },
+     { t:'cta', title:'Sakitləşdirici səslər', body:'Yağış, dəniz, ağ səs.', cta:{ label:'Ağ səs', tool:'whitenoise', premium:true }, illus:'moon' } ] },
+
+ { id:'flow-pain', module:'flow', title:'Ağrı normaldır?', theme:'lilac', illus:'thermo',
+   audience:{ stage:'flow' }, schedule:{ refresh:'monthly', phase:'menstruasiya' }, source:'ACOG',
+   slides:[
+     { t:'quiz', kicker:'Quiz', title:'Dövr ağrısı nə vaxt normal deyil?', options:['İlk 1-2 gün yüngül sancı','Ağrıkəsici kömək etmir, işə gedə bilmirsən'], correct:1, explain:'Gündəlik həyatını dayandıran ağrı endometrioz kimi səbəblərin əlaməti ola bilər. Həkimə müraciət et.' },
+     { t:'list', title:'Rahatlatmaq üçün', items:['Qarın altına isti kompres','Yüngül dartınma və gəzinti','Həkimin tövsiyə etdiyi ağrıkəsici'] },
+     { t:'cta', title:'Ağrını qeyd et', body:'Şiddət və günlər həkim hesabatına düşür.', cta:{ label:'Dövr təqvimi', tool:'flow-home' }, illus:'cycle' } ] },
+ // ---- Hamı üçün ----
+ { id:'all-handwash', module:'all', title:'Əl yuma', theme:'mint', illus:'drop',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'monthly' }, source:'ÜST',
+   slides:[
+     { t:'fact', kicker:'Sadə, amma təsirli', value:'20', unit:'saniyə', body:'Əlləri sabunla ən azı 20 saniyə yu: ovuclar, barmaq araları, dırnaq altları və biləklər. Bu sadə qayda bir çox infeksiyanın qarşısını alır.' },
+     { t:'list', title:'Xüsusilə', items:['Körpəyə toxunmazdan əvvəl','Bez dəyişdikdən sonra','Yemək hazırlamadan əvvəl'] } ] },
+ { id:'all-sun', module:'all', title:'Günəş', theme:'yellow', illus:'sun',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'once', season:'summer' }, source:'AAP',
+   slides:[
+     { t:'cover', kicker:'Yay məsləhəti', title:'Günəşdən <span class="mark">ağıllı</span> qorun', illus:'sun' },
+     { t:'list', items:['6 aydan kiçik körpə birbaşa günəşdə olmasın','Papaq və yüngül, uzun geyim','Böyüklər üçün SPF 30+'] },
+     { t:'cta', title:'Bu gün nə geyinsin?', body:'Havaya görə geyim məsləhəti.', cta:{ label:'Hava və geyim', tool:'weather-clothing', premium:true }, illus:'sun' } ] },
+ { id:'all-car-seat', module:'all', title:'Avtomobildə', theme:'coral', illus:'car',
+   audience:{ stage:['bump','mommy'] }, schedule:{ refresh:'once' }, source:'AAP',
+   slides:[
+     { t:'cover', kicker:'Təhlükəsizlik', title:'Qucaqda yox, <span class="mark">oturacaqda</span>', illus:'car' },
+     { t:'list', items:['İlk gündən uşaq oturacağı','Mümkün qədər uzun arxaya baxan','Ön oturacaqda körpə olmasın'] },
+     { t:'cta', title:'Doğum çantası siyahısına əlavə et', body:'Evə dönüş üçün də hazır ol.', cta:{ label:'Xəstəxana çantası', tool:'hospital' }, illus:'bag' } ] },
+ { id:'all-room-temp', module:'all', title:'Otaq istiliyi', theme:'navy', illus:'thermo',
+   audience:{ stage:['mommy'] }, schedule:{ refresh:'once', season:'winter' }, source:'NHS',
+   slides:[
+     { t:'fact', kicker:'Körpənin yatdığı otaq', value:'16-20', unit:'°C', body:'Həddən artıq isti otaq ani körpə ölümü riskini artırır.' },
+     { t:'list', title:'Yoxla', items:['Ənsəsi tərləyibsə, isti geyinib','Əl-ayağın soyuq olması normaldır','Papaqla yatırtma'] },
+     { t:'cta', title:'Otaq səs-küyü də vacibdir', body:'Səs səviyyəsini ölç.', cta:{ label:'Səs ölçən', tool:'noise-meter', premium:true }, illus:'thermo' } ] },
+ { id:'all-breathe', module:'all', title:'2 dəqiqə sakitlik', theme:'lilac', illus:'blob',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'weekly' }, source:'',
+   slides:[
+     { t:'cover', kicker:'İndi, burada', title:'Gəl, birlikdə <span class="hl">nəfəs alaq</span>', illus:'blob' },
+     { t:'list', items:['4 saniyə burnundan al','4 saniyə saxla','6 saniyə ağzından ver','5 dəfə təkrarla'] },
+     { t:'quote', badge:'Kiçik xatırlatma', quote:'Hər şeyi bu gün etməli deyilsən.', src:'Anacan' } ] },
+ { id:'all-first-aid', module:'all', title:'İlk yardım', theme:'coral', illus:'shield',
+   audience:{ stage:['bump','mommy'] }, schedule:{ refresh:'monthly' }, source:'Qırmızı Xaç, AAP',
+   slides:[
+     { t:'cover', kicker:'Bilmək vacibdir', title:'1 yaşdan kiçik körpə <span class="mark">boğulursa</span>', illus:'shield' },
+     { t:'list', items:['Üzü aşağı qolunun üstünə qoy','Kürəyinə 5 zərbə','Arxası üstə çevir, 2 barmaqla 5 sinə təzyiqi','103-ə zəng et, təkrarla'] },
+     { t:'cta', title:'Bütün addımlar şəkillərlə', body:'İnternetsiz də açılır.', cta:{ label:'İlk yardım', tool:'first-aid' }, illus:'shield' } ] },
+ { id:'all-blog', module:'all', title:'Həftənin məqaləsi', theme:'cream', illus:'book',
+   audience:{ stage:['bump','mommy','flow'] }, schedule:{ refresh:'weekly', data:'blog_top_week' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Bu həftə ən çox oxunan', title:'<span class="hl">Ekspertlərdən</span> 5 dəqiqəlik oxu', illus:'book' },
+     { t:'list', title:'Bu həftə', items:['Körpə yuxusu: 4 aylıq reqressiya','Hamiləlikdə dəmir çatışmazlığı','Dövr ağrısı nə vaxt normal deyil'] },
+     { t:'cta', title:'Bloqu aç', body:'Yaşına və mərhələnə uyğun seçilmiş məqalələr.', cta:{ label:'Bloq', tool:'blog' }, illus:'book' } ] },
+ { id:'all-premium', module:'all', title:'Premium', theme:'violet', illus:'blob',
+   audience:{ stage:['bump','mommy','flow'], premium:false }, schedule:{ refresh:'weekly' }, source:'',
+   slides:[
+     { t:'cover', kicker:'Anacan Premium', title:'Hər şey <span class="mark">bir yerdə</span>', illus:'blob' },
+     { t:'list', items:['Limitsiz Anacan AI','Körpə izləyicisi və həftəlik analiz','Həkim üçün PDF hesabat','Reklamsız'] },
+     { t:'cta', title:'3 gün pulsuz sına', body:'İstədiyin vaxt ləğv et.', cta:{ label:'Premium', tool:'billing', premium:true }, illus:'blob' } ] },
+];
+const MOD = { bump:'Hamiləlik', mommy:'Analıq', flow:'Dövr', all:'Hamı üçün' };
+
+/* ---------- renderer ---------- */
+const $ = s => document.querySelector(s);
+let seen = new Set();
+try { seen = new Set(JSON.parse(localStorage.getItem('anacan-stories-seen') || '[]')); } catch {}
+const saveSeen = () => { try { localStorage.setItem('anacan-stories-seen', JSON.stringify([...seen])); } catch {} };
+
+// Automation in action: rings show only the stories whose audience matches this user right now.
+function matches(s) {
+  const a = s.audience || {};
+  if (!(s.module === ctx.stage || (s.module === 'all' && (!Array.isArray(a.stage) || a.stage.includes(ctx.stage))))) return false;
+  if (ctx.stage === 'bump' && ((a.weekFrom && ctx.week < a.weekFrom) || (a.weekTo && ctx.week > a.weekTo))) return false;
+  if (ctx.stage === 'mommy' && ((a.monthsFrom && ctx.babyMonths < a.monthsFrom) || (a.monthsTo && ctx.babyMonths > a.monthsTo))) return false;
+  if (ctx.stage === 'flow' && s.schedule && s.schedule.phase && s.schedule.phase !== vars().phase && s.schedule.phase !== 'luteal') return false;
+  return true;
+}
+const visible = () => STORIES.filter(matches);
+
+function slideHTML(story, sl) {
+  const th = T[story.theme];
+  const ill = sl.illus ? `<div class="art ${sl.t === 'cover' ? 'peek' : ''}">${illus(sl.illus, th.light ? th.pop : th.pop, th.light ? th.ink : '#fff')}</div>` : '';
+  const small = `<div class="art small">${illus(story.illus, th.pop, th.light ? th.ink : '#fff')}</div>`;
+  const kick = sl.kicker ? `<div class="kick">${fill(sl.kicker)}</div>` : '';
+  const title = sl.title ? `<h2 class="h ${sl.size || (sl.t === 'cover' ? 'xl' : 'l')}">${fill(sl.title)}</h2>` : '';
+  const src = story.source && (sl.t === 'list' || sl.t === 'alert' || sl.t === 'myth' || sl.t === 'fact') ? `<div class="src">Mənbə: ${story.source}</div>` : '';
+  switch (sl.t) {
+    case 'cover': return kick + title + ill;
+    case 'fact': return kick + `<div><span class="num">${fill(sl.value)}</span><span class="unit">${fill(sl.unit || '')}</span></div><p class="body">${fill(sl.body)}</p>` + src + (sl.illus ? ill : `<div class="art">${illus(story.illus, th.pop, th.light ? th.ink : '#fff')}</div>`);
+    case 'list': return kick + title + `<ul class="list">${sl.items.map((x, i) => `<li><em>${i + 1}</em><span>${fill(x)}</span></li>`).join('')}</ul>` + src + (sl.items.length <= 3 ? small : '');
+    case 'myth': return `<div class="kick">Mif və fakt</div><div class="myth"><span class="lbl">MİF</span><p>${fill(sl.myth)}</p></div><div class="myth fact"><span class="lbl">FAKT</span><p>${fill(sl.fact)}</p></div>` + src + small;
+    case 'quiz': return kick + title + `<div class="quiz">${sl.options.map((o, i) => `<button data-q="${i}"><span>${fill(o)}</span><span></span></button>`).join('')}</div><div class="reveal" data-reveal></div>`;
+    case 'alert': return kick + title + `<div class="alert">${sl.items.map(x => `<div>${fill(x)}</div>`).join('')}</div>` + src + (sl.illus ? ill : '');
+    case 'quote': return (sl.badge ? `<span class="badge">✦ ${sl.badge}</span>` : '') + `<p class="quote">${fill(sl.quote)}</p>` + (sl.src ? `<div class="src">${sl.src}</div>` : '') + `<div class="art">${illus('blob', th.pop, th.light ? th.ink : '#fff')}</div>`;
+    case 'cta': return kick + title + `<p class="body">${fill(sl.body)}</p><button class="cta" data-cta="${sl.cta.tool}">${sl.cta.premium ? '👑 ' : ''}${sl.cta.label} →</button>` + ill;
+  }
+  return '';
+}
+
+let cur = null, si = 0, timer = null, start = 0, elapsed = 0, paused = false;
+const DUR = 6500;
+const viewer = $('#viewer');
+
+function open(id) {
+  const list = visible();
+  cur = list.find(s => s.id === id) || STORIES.find(s => s.id === id);
+  if (!cur) return;
+  if (cur.module !== 'all' && cur.module !== ctx.stage) setStage(cur.module, false);
+  si = 0; viewer.classList.add('open'); render(); showJson(cur);
+}
+function close() { viewer.classList.remove('open'); cancelAnimationFrame(timer); cur = null; drawRings(); }
+function render() {
+  const th = T[cur.theme];
+  const sl = cur.slides[si];
+  viewer.innerHTML = `<div class="story ${th.light ? 'light' : ''} ${th.serif ? 'serif' : ''}" style="background:${th.bg};color:${th.ink};--pop:${th.pop};--popInk:${th.popInk};--chipBg:${th.chip};--ink2:${th.ink2};--bg2:${th.bg2}">
+    <div class="bars">${cur.slides.map((_, i) => `<i><b style="width:${i < si ? 100 : 0}%"></b></i>`).join('')}</div>
+    <div class="who"><span class="av">A</span><span>Anacan</span><span class="tag">· ${MOD[cur.module]}</span><button class="x" aria-label="Bağla">×</button></div>
+    <div class="slide">${slideHTML(cur, sl)}</div>
+    <div class="tapL"></div><div class="tapR"></div></div>`;
+  viewer.querySelector('.x').onclick = close;
+  viewer.querySelector('.tapL').onclick = prev;
+  viewer.querySelector('.tapR').onclick = next;
+  const hold = viewer.querySelector('.story');
+  hold.onpointerdown = e => { if (e.target.closest('button')) return; paused = true; };
+  hold.onpointerup = hold.onpointerleave = () => { if (paused) { paused = false; start = performance.now() - elapsed; } };
+  viewer.querySelectorAll('[data-q]').forEach(b => b.onclick = e => {
+    e.stopPropagation();
+    const ok = Number(b.dataset.q) === sl.correct;
+    viewer.querySelectorAll('[data-q]').forEach(x => { const c = Number(x.dataset.q) === sl.correct; x.classList.add(c ? 'ok' : 'no'); x.lastElementChild.textContent = c ? '✓' : ''; x.disabled = true; });
+    viewer.querySelector('[data-reveal]').textContent = (ok ? 'Düzdür! ' : 'Əslində: ') + sl.explain;
+    paused = true; setTimeout(() => { paused = false; start = performance.now() - elapsed; }, 2500);
+  });
+  viewer.querySelectorAll('[data-cta]').forEach(b => b.onclick = e => { e.stopPropagation(); toast(`→ ${b.textContent.replace(' →','')} açılır (tool: ${b.dataset.cta})`); });
+  start = performance.now(); elapsed = 0; paused = false;
+  cancelAnimationFrame(timer); tick();
+}
+function tick() {
+  timer = requestAnimationFrame(t => {
+    if (!cur) return;
+    if (!paused) elapsed = t - start;
+    const bar = viewer.querySelectorAll('.bars b')[si];
+    if (bar) bar.style.width = Math.min(100, elapsed / DUR * 100) + '%';
+    if (elapsed >= DUR) next(); else tick();
+  });
+}
+function next() {
+  if (si < cur.slides.length - 1) { si++; render(); return; }
+  seen.add(cur.id); saveSeen();
+  const list = visible(); const i = list.findIndex(s => s.id === cur.id);
+  if (i >= 0 && i < list.length - 1) { cur = list[i + 1]; si = 0; render(); showJson(cur); } else close();
+}
+function prev() {
+  if (si > 0) { si--; render(); return; }
+  const list = visible(); const i = list.findIndex(s => s.id === cur.id);
+  if (i > 0) { cur = list[i - 1]; si = 0; render(); showJson(cur); } else render();
+}
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 1800); }
+
+function ringSVG(s) { const th = T[s.theme]; return `<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="${th.bg}"/><g transform="translate(-30 22) scale(.45)">${illus(s.illus, th.pop, th.light ? th.ink : '#fff').replace(/^<svg[^>]*>|<\/svg>$/g, '')}</g></svg>`; }
+function drawRings() {
+  $('#rings').innerHTML = visible().sort((a, b) => seen.has(a.id) - seen.has(b.id))
+    .map(s => `<button class="ring ${seen.has(s.id) ? 'seen' : ''}" data-id="${s.id}"><div class="r"><i>${ringSVG(s)}</i></div><span>${fill(s.title)}</span></button>`).join('');
+  document.querySelectorAll('.ring').forEach(b => b.onclick = () => open(b.dataset.id));
+}
+let gridFilter = 'all-items';
+function drawGrid() {
+  const list = gridFilter === 'all-items' ? STORIES : STORIES.filter(s => s.module === gridFilter);
+  $('#gridTitle').textContent = `Bütün story-lər (${STORIES.length}) · bu istifadəçiyə uyğun: ${visible().length}`;
+  $('#grid').innerHTML = list.map(s => { const th = T[s.theme], c = s.slides[0];
+    const head = (c.title || c.kicker || '').replace(/<[^>]+>/g, '');
+    return `<button class="thumb ${th.serif ? 'serif' : ''}" data-id="${s.id}" style="background:${th.bg};color:${th.ink}"><div class="tt"><span class="mod">${MOD[s.module]}</span><span class="nm">${fill(head)}</span><span class="n">${s.slides.length} slayd · ${s.slides.map(x => x.t).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</span></div>${illus(s.illus, th.pop, th.light ? th.ink : '#fff')}</button>`; }).join('');
+  document.querySelectorAll('.thumb').forEach(b => b.onclick = () => open(b.dataset.id));
+}
+function showJson(s) { $('#json').textContent = JSON.stringify(s, null, 2); }
+
+/* ---------- controls ---------- */
+const CTX = {
+  bump: { label:'Həftə', min:12, max:40, key:'week', fmt: v => `${v}${ord(v)} həftə` },
+  mommy: { label:'Körpənin yaşı', min:1, max:12, key:'babyMonths', fmt: v => `${v} ay` },
+  flow: { label:'Tsikl günü', min:1, max:35, key:'cycleDay', fmt: v => `${v}${ord(v)} gün` },
+};
+function setStage(s, redraw = true) {
+  ctx.stage = s;
+  document.querySelectorAll('#stageSeg button').forEach(b => b.classList.toggle('on', b.dataset.s === s));
+  const c = CTX[s], r = $('#ctxRange');
+  $('#ctxLabel').textContent = c.label; r.min = c.min; r.max = c.max; r.value = ctx[c.key];
+  updateCtx(); if (redraw) drawRings();
+}
+function updateCtx() {
+  const c = CTX[ctx.stage]; ctx[c.key] = Number($('#ctxRange').value);
+  $('#ctxVal').textContent = c.fmt(ctx[c.key]);
+  $('#dashTitle').textContent = ctx.stage === 'bump' ? vars().weekLabel : ctx.stage === 'mommy' ? `${ctx.babyName} ${ctx.babyMonths} aylıqdır` : `Tsiklin ${vars().cycleLabel}ü`;
+  drawRings(); drawGrid();
+}
+document.querySelectorAll('#stageSeg button').forEach(b => b.onclick = () => setStage(b.dataset.s));
+$('#ctxRange').oninput = updateCtx;
+document.querySelectorAll('#jsonTabs button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#jsonTabs button').forEach(x => x.classList.toggle('on', x === b));
+  $('#json').hidden = b.dataset.v !== 'json'; $('#auto').hidden = b.dataset.v !== 'auto';
+});
+document.querySelectorAll('#gridTabs button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#gridTabs button').forEach(x => x.classList.toggle('on', x === b)); gridFilter = b.dataset.m; drawGrid();
+});
+setStage('bump'); showJson(STORIES[0]);
+})();
+</script>
+</body>
+</html>

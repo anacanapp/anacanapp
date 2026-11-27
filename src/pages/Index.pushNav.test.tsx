@@ -26,7 +26,10 @@ vi.mock('@/hooks/useAppSettings', () => ({ useAppSetting: () => false }));
 vi.mock('@/hooks/useDeviceToken', () => ({ useDeviceToken: () => {} }));
 vi.mock('@/hooks/usePendingTimerStops', () => ({ usePendingTimerStops: () => {} }));
 vi.mock('@/hooks/useForceUpdate', () => ({ useForceUpdate: () => ({ forceUpdate: null, isLoading: false }) }));
+vi.mock('@/hooks/useAppUpdate', () => ({ useAppUpdate: () => ({ decision: null, currentVersion: null, forceRequired: false, showSheet: false, showBanner: false, later: () => {}, openStore: () => {} }) }));
 vi.mock('@/hooks/useUserBlock', () => ({ useActiveBlock: () => ({ data: null }) }));
+vi.mock('@/hooks/useConsentGate', () => ({ useConsentGate: () => ({ status: 'skip', consent: null, markAccepted: () => {} }) }));
+vi.mock('@/components/consent/AiConsentGate', () => ({ default: ({ children }: any) => children }));
 vi.mock('@/hooks/useSwipeNavigation', () => ({ useSwipeNavigation: (options: any) => { mocks.swipe = options; } }));
 vi.mock('@/lib/native', () => ({ isNative: false }));
 vi.mock('@/lib/deeplink', () => ({ initDeeplinkListener: (handler: any) => { mocks.deeplink = handler; return () => {}; } }));
@@ -37,12 +40,15 @@ vi.mock('@/lib/analytics', () => ({ analytics: { logScreenView: vi.fn() } }));
 vi.mock('@/components/ErrorBoundary', () => ({ default: ({ children }: any) => children }));
 vi.mock('@/components/SplashScreen', () => ({ needsBrandSplash: () => true, default: ({ onComplete }: any) => <button onClick={onComplete}>Finish splash</button> }));
 vi.mock('@/components/AppIntroduction', () => ({ default: () => null }));
+vi.mock('@/components/onboarding/OnboardingTourHost', () => ({ default: () => null }));
 vi.mock('@/components/InitialLanguageScreen', () => ({ default: () => null }));
 vi.mock('@/components/AuthScreen', () => ({ default: () => null }));
 vi.mock('@/components/OnboardingScreen', () => ({ default: () => null }));
 vi.mock('@/components/BlockedScreen', () => ({ default: () => null }));
 vi.mock('@/components/CountryGate', () => ({ default: () => null }));
 vi.mock('@/components/AppRatingPrompt', () => ({ default: () => null }));
+vi.mock('@/components/security/LockOfferSheet', () => ({ default: () => null }));
+vi.mock('@/components/security/AppLockSetupSheet', () => ({ default: () => null }));
 vi.mock('@/components/FloatingTimerWidget', () => ({ default: () => null }));
 vi.mock('@/components/BottomNav', () => ({ default: ({ onTabChange }: any) =>
   <button onClick={() => onTabChange('home')}>Home tab</button>,
@@ -68,9 +74,6 @@ vi.mock('@/components/BillingScreen', () => ({ default: ({ onBack }: any) =>
 }));
 vi.mock('@/components/MessagesScreen', () => ({ default: ({ partnerProfileId, onBack }: any) =>
   <div data-testid="messages" data-partner-profile={partnerProfileId}><button onClick={onBack}>Chat back</button></div>,
-}));
-vi.mock('@/components/partner/PartnerChatScreen', () => ({ default: ({ onBack }: any) =>
-  <div data-testid="partner-chat"><button onClick={onBack}>Chat back</button></div>,
 }));
 vi.mock('@/components/community/CommunityScreen', () => ({ default: ({ deepLinkTarget, onDeepLinkConsumed }: any) =>
   <div data-testid="community" data-target={JSON.stringify(deepLinkTarget)}>

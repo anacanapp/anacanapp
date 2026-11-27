@@ -4,13 +4,14 @@ import { Check, Calendar, Sparkles, AlertCircle, Heart, Info, X } from 'lucide-r
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Textarea } from '@/components/ui/textarea';
-import { DatePickerWheel } from '@/components/ui/date-picker-wheel';
 import { useTeething, BabyTooth } from '@/hooks/useTeething';
 import { useChildren } from '@/hooks/useChildren';
 import ChildSelector from '@/components/mommy/ChildSelector';
 import { useScreenAnalytics } from '@/hooks/useScreenAnalytics';
 import { ToolPage, ToolHeader, ToolLoading } from './anacan/ToolKit';
 import { tr } from "@/lib/tr";
+import { todayKey } from '@/lib/local-date';
+import { SafetyStrip } from './anacan/SafetyStrip';
 
 interface TeethingTrackerProps {
   onBack: () => void;
@@ -50,7 +51,7 @@ const TeethingTracker = ({ onBack }: TeethingTrackerProps) => {
       setEmergedDate(log.emerged_date || '');
       setNotes(log.notes || '');
     } else {
-      setEmergedDate(new Date().toISOString().split('T')[0]);
+      setEmergedDate(todayKey());
       setNotes('');
     }
     setShowToothModal(true);
@@ -124,6 +125,8 @@ const TeethingTracker = ({ onBack }: TeethingTrackerProps) => {
               whileHover={{ scale: 1.1, y: position === 'upper' ? 2 : -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleToothClick(tooth)}
+              aria-label={tr("tooth_name_" + tooth.tooth_code, tooth.name)}
+              aria-pressed={emerged}
               className={`relative transition-all duration-200 ${baseSize} ${
               position === 'upper' ? 'rounded-t-lg rounded-b-[40%]' : 'rounded-b-lg rounded-t-[40%]'}`}
               style={{
@@ -351,6 +354,8 @@ const TeethingTracker = ({ onBack }: TeethingTrackerProps) => {
         </Tabs>
       </div>
 
+      <SafetyStrip signs={tr('safety_teething_signs', 'Zəng edin: 38°C+ hərarət (6 aydan kiçik), maye içməmə, səpgi. Diş yüksək hərarət vermir')} />
+
       {/* Tooth Detail Modal */}
       <Dialog open={showToothModal} onOpenChange={setShowToothModal}>
         <DialogContent className="a-scope max-w-sm rounded-[26px] max-h-[85dvh] overflow-y-auto" style={{ background: 'var(--a-surface)', border: '1px solid var(--a-line)' }}>
@@ -411,11 +416,13 @@ const TeethingTracker = ({ onBack }: TeethingTrackerProps) => {
                   <Calendar className="w-4 h-4" style={{ color: 'var(--a-ink-soft)' }} />
                   {tr("teethingtracker_cixma_tarixi_3c7ae9", "Çıxma tarixi")}
                 </label>
-                <DatePickerWheel
-                value={emergedDate ? new Date(emergedDate) : undefined}
-                onChange={(date) => setEmergedDate(date ? date.toISOString().split('T')[0] : '')}
-                minYear={new Date().getFullYear() - 5}
-                maxYear={new Date().getFullYear()} />
+                {/* Native picker: the wheel popup was cut off inside this sheet on iPhone. */}
+                <input
+                type="date"
+                className="a-input a-date-input"
+                value={emergedDate}
+                max={todayKey()}
+                onChange={(e) => setEmergedDate(e.target.value)} />
               
               </div>
 

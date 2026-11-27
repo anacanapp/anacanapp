@@ -1,0 +1,1507 @@
+[
+{
+"name": "Айша",
+"gender": "girl",
+"popularity": 95,
+"origin": "Араб тілінен шыққан",
+"meaning": "Тірі, өмірге құштар"
+},
+{
+"name": "Әлихан",
+"gender": "boy",
+"popularity": 95,
+"origin": "Араб және түркі текті",
+"meaning": "Асқақ, текті хан немесе билеуші"
+},
+{
+"name": "Мұхаммед",
+"gender": "boy",
+"popularity": 95,
+"origin": "Араб текті",
+"meaning": "Көп мақталған, мадақталған"
+},
+{
+"name": "Әмір",
+"gender": "boy",
+"popularity": 94,
+"origin": "Араб текті",
+"meaning": "Әмір етуші, билеуші"
+},
+{
+"name": "Медина",
+"gender": "girl",
+"popularity": 94,
+"origin": "Араб тілінен шыққан",
+"meaning": "Қала; қасиетті Мәдина қаласының атауы"
+},
+{
+"name": "Аяла",
+"gender": "girl",
+"popularity": 93,
+"origin": "Қазақ тілінен шыққан",
+"meaning": "Аялау, қорғау, қамқорлық жасау"
+},
+{
+"name": "Әли",
+"gender": "boy",
+"popularity": 93,
+"origin": "Араб текті",
+"meaning": "Асқақ, жоғары, текті"
+},
+{
+"name": "Кәусар",
+"gender": "girl",
+"popularity": 92,
+"origin": "Араб тілінен шыққан",
+"meaning": "Молшылық; жұмақтағы өзеннің атауы"
+},
+{
+"name": "Нұрәли",
+"gender": "boy",
+"popularity": 92,
+"origin": "Араб текті құрама есім",
+"meaning": "Асқақ нұр, Әлидің нұры"
+},
+{
+"name": "Айару",
+"gender": "girl",
+"popularity": 91,
+"origin": "Қазақ тілінде жасалған есім",
+"meaning": "Айдай сұлу"
+},
+{
+"name": "Айлин",
+"gender": "girl",
+"popularity": 91,
+"origin": "Түрік тілінен шыққан",
+"meaning": "Айдың айналасындағы жарық шеңбері"
+},
+{
+"name": "Айсұлтан",
+"gender": "boy",
+"popularity": 91,
+"origin": "Түркі және араб текті",
+"meaning": "Айдай жарқын билеуші"
+},
+{
+"name": "Омар",
+"gender": "boy",
+"popularity": 91,
+"origin": "Араб текті",
+"meaning": "Ұзақ ғұмырлы, өркендеуші"
+},
+{
+"name": "Аружан",
+"gender": "girl",
+"popularity": 90,
+"origin": "Қазақ тілінде жасалған есім",
+"meaning": "Сұлу, пәк жан"
+},
+{
+"name": "Әмірхан",
+"gender": "boy",
+"popularity": 90,
+"origin": "Араб және түркі текті",
+"meaning": "Әмір әрі хан, қуатты билеуші"
+},
+{
+"name": "Мариям",
+"gender": "girl",
+"popularity": 90,
+"origin": "Ивриттен, араб тілі арқылы енген",
+"meaning": "Мәриям есімі; пәктік пен имандылықтың нышаны"
+},
+{
+"name": "Раяна",
+"gender": "girl",
+"popularity": 90,
+"origin": "Араб тілінен шыққан",
+"meaning": "Суы мол, жайқалған"
+},
+{
+"name": "Әмина",
+"gender": "girl",
+"popularity": 89,
+"origin": "Араб тілінен шыққан",
+"meaning": "Сенімді, адал, иманды"
+},
+{
+"name": "Мансұр",
+"gender": "boy",
+"popularity": 89,
+"origin": "Араб текті",
+"meaning": "Жеңімпаз, жеңіске жеткен"
+},
+{
+"name": "Нұрай",
+"gender": "girl",
+"popularity": 89,
+"origin": "Араб-түркі негізді есім",
+"meaning": "Ай нұры, нұрлы ай"
+},
+{
+"name": "Нұрислам",
+"gender": "boy",
+"popularity": 89,
+"origin": "Араб текті",
+"meaning": "Исламның нұры"
+},
+{
+"name": "Томирис",
+"gender": "girl",
+"popularity": 89,
+"origin": "Ежелгі Орталық Азиядан шыққан",
+"meaning": "Аңызға айналған сақ патшайымының есімі"
+},
+{
+"name": "Айзере",
+"gender": "girl",
+"popularity": 88,
+"origin": "Түркі-парсы негізді есім",
+"meaning": "Алтын ай, айдай жарқын"
+},
+{
+"name": "Ислам",
+"gender": "boy",
+"popularity": 88,
+"origin": "Араб текті",
+"meaning": "Аллаға мойынсұну, бейбітшілік"
+},
+{
+"name": "Мирас",
+"gender": "boy",
+"popularity": 88,
+"origin": "Араб текті",
+"meaning": "Мұра, атадан қалған құндылық"
+},
+{
+"name": "Сафия",
+"gender": "girl",
+"popularity": 88,
+"origin": "Араб тілінен шыққан",
+"meaning": "Пәк, шынайы, таңдаулы дос"
+},
+{
+"name": "Айгерім",
+"gender": "girl",
+"popularity": 87,
+"origin": "Қазақ тілінде қалыптасқан есім",
+"meaning": "Айдай көрікті, ажарлы"
+},
+{
+"name": "Алинұр",
+"gender": "boy",
+"popularity": 87,
+"origin": "Араб текті құрама есім",
+"meaning": "Асқақ нұр, Әлидің нұры"
+},
+{
+"name": "Ахмет",
+"gender": "boy",
+"popularity": 87,
+"origin": "Араб текті",
+"meaning": "Ең көп мадақталған, мақтауға лайық"
+},
+{
+"name": "Бейбарыс",
+"gender": "boy",
+"popularity": 86,
+"origin": "Түркі текті",
+"meaning": "Бай, айбарлы барыс"
+},
+{
+"name": "Жансая",
+"gender": "girl",
+"popularity": 86,
+"origin": "Қазақ тілінде жасалған есім",
+"meaning": "Жанға сая, көңілге медет"
+},
+{
+"name": "Иман",
+"gender": "unisex",
+"popularity": 86,
+"origin": "Араб текті",
+"meaning": "Сенім, имандылық, рухани тазалық"
+},
+{
+"name": "Рамазан",
+"gender": "boy",
+"popularity": 86,
+"origin": "Араб текті",
+"meaning": "Қасиетті Рамазан айының атауы"
+},
+{
+"name": "Ибраһим",
+"gender": "boy",
+"popularity": 85,
+"origin": "Иврит текті, арабша нұсқа",
+"meaning": "Көп халықтың атасы"
+},
+{
+"name": "Сұлтан",
+"gender": "boy",
+"popularity": 85,
+"origin": "Араб текті",
+"meaning": "Билеуші, өкілет иесі"
+},
+{
+"name": "Фатима",
+"gender": "girl",
+"popularity": 85,
+"origin": "Араб тілінен шыққан",
+"meaning": "Емшектен шығарылған; исламда қадірлі есім"
+},
+{
+"name": "Әсел",
+"gender": "girl",
+"popularity": 84,
+"origin": "Араб тілінен шыққан",
+"meaning": "Бал; тәтті, сүйкімді"
+},
+{
+"name": "Данияр",
+"gender": "boy",
+"popularity": 84,
+"origin": "Иврит текті, шығыстық нұсқа",
+"meaning": "Құдай , менің төрешім"
+},
+{
+"name": "Інжу",
+"gender": "girl",
+"popularity": 84,
+"origin": "Түркі тілдерінде қолданылатын есім",
+"meaning": "Асыл меруерт"
+},
+{
+"name": "Хамза",
+"gender": "boy",
+"popularity": 84,
+"origin": "Араб текті",
+"meaning": "Күшті, берік, батыл"
+},
+{
+"name": "Айдана",
+"gender": "girl",
+"popularity": 83,
+"origin": "Түркі-парсы негізді есім",
+"meaning": "Айдай сұлу әрі дана"
+},
+{
+"name": "Арсен",
+"gender": "boy",
+"popularity": 83,
+"origin": "Грек текті",
+"meaning": "Ержүрек, қайратты, батыл"
+},
+{
+"name": "Ясмина",
+"gender": "girl",
+"popularity": 83,
+"origin": "Парсы тілінен шыққан",
+"meaning": "Жасмин гүлі"
+},
+{
+"name": "Дана",
+"gender": "girl",
+"popularity": 82,
+"origin": "Парсы тілінен шыққан",
+"meaning": "Ақылды, білімді, дана"
+},
+{
+"name": "Мұстафа",
+"gender": "boy",
+"popularity": 82,
+"origin": "Араб текті",
+"meaning": "Таңдалған, таңдаулы"
+},
+{
+"name": "Нұр",
+"gender": "unisex",
+"popularity": 82,
+"origin": "Араб текті",
+"meaning": "Жарық, сәуле, шуақ"
+},
+{
+"name": "Нұрайым",
+"gender": "girl",
+"popularity": 82,
+"origin": "Араб-түркі негізді есім",
+"meaning": "Менің нұрлы айым"
+},
+{
+"name": "Назерке",
+"gender": "girl",
+"popularity": 81,
+"origin": "Парсы-түркі негізді есім",
+"meaning": "Назды, нәзік, ерке қыз"
+},
+{
+"name": "Айым",
+"gender": "girl",
+"popularity": 80,
+"origin": "Түркі тілінен шыққан",
+"meaning": "Менің айым"
+},
+{
+"name": "Темір",
+"gender": "boy",
+"popularity": 80,
+"origin": "Түркі текті",
+"meaning": "Темір; беріктік пен күштің нышаны"
+},
+{
+"name": "Асылым",
+"gender": "girl",
+"popularity": 79,
+"origin": "Қазақ тілінде жасалған есім",
+"meaning": "Менің асылым, қымбаттым"
+},
+{
+"name": "Асыл",
+"gender": "unisex",
+"popularity": 78,
+"origin": "Араб текті",
+"meaning": "Текті, бекзат, бағалы"
+},
+{
+"name": "Динара",
+"gender": "girl",
+"popularity": 78,
+"origin": "Араб тілінен шыққан",
+"meaning": "Динар, көне алтын ақша"
+},
+{
+"name": "Зере",
+"gender": "girl",
+"popularity": 78,
+"origin": "Парсы тілінен шыққан",
+"meaning": "Алтын, алтын әшекей"
+},
+{
+"name": "Нұрсұлтан",
+"gender": "boy",
+"popularity": 78,
+"origin": "Араб текті құрама есім",
+"meaning": "Нұрлы билеуші"
+},
+{
+"name": "Қайсар",
+"gender": "boy",
+"popularity": 77,
+"origin": "Араб текті",
+"meaning": "Патша; сондай-ақ қайратты, жігерлі"
+},
+{
+"name": "Мерей",
+"gender": "girl",
+"popularity": 77,
+"origin": "Қазақ тіліндегі есім",
+"meaning": "Абырой, бедел, қуаныш"
+},
+{
+"name": "Дарын",
+"gender": "unisex",
+"popularity": 76,
+"origin": "Қазақ тілінен",
+"meaning": "Талант, туа біткен қабілет"
+},
+{
+"name": "Ерке",
+"gender": "girl",
+"popularity": 76,
+"origin": "Қазақ тілінен шыққан",
+"meaning": "Аяулы, ерке, сүйікті"
+},
+{
+"name": "Нұрдәулет",
+"gender": "boy",
+"popularity": 76,
+"origin": "Араб текті құрама есім",
+"meaning": "Нұр мен дәулет, жарқын ырыс"
+},
+{
+"name": "Балнұр",
+"gender": "girl",
+"popularity": 75,
+"origin": "Түркі-араб негізді есім",
+"meaning": "Балдай тәтті нұр"
+},
+{
+"name": "Әділет",
+"gender": "boy",
+"popularity": 74,
+"origin": "Араб текті",
+"meaning": "Әділдік, туралық, ақиқат"
+},
+{
+"name": "Нұржан",
+"gender": "unisex",
+"popularity": 74,
+"origin": "Араб-парсы құрамды",
+"meaning": "Нұрлы, жарық жан"
+},
+{
+"name": "Сезім",
+"gender": "girl",
+"popularity": 74,
+"origin": "Қазақ тілінен шыққан",
+"meaning": "Сезім, көңіл күй"
+},
+{
+"name": "Ақбота",
+"gender": "girl",
+"popularity": 73,
+"origin": "Қазақ тілінен шыққан",
+"meaning": "Ақ түсті бота; аяулы қызға айтылатын теңеу"
+},
+{
+"name": "Арай",
+"gender": "unisex",
+"popularity": 73,
+"origin": "Қазақ тілінен",
+"meaning": "Таң шапағы, нұрлы сәуле"
+},
+{
+"name": "Бекзат",
+"gender": "boy",
+"popularity": 72,
+"origin": "Түркі және парсы текті",
+"meaning": "Бек тұқымы, асыл текті"
+},
+{
+"name": "Көркем",
+"gender": "girl",
+"popularity": 72,
+"origin": "Қазақ тілінен шыққан",
+"meaning": "Сұлу, әсем, ажарлы"
+},
+{
+"name": "Қарақат",
+"gender": "girl",
+"popularity": 71,
+"origin": "Қазақ тілінен шыққан",
+"meaning": "Қарақат жемісі; қара көзді сұлуға айтылатын теңеу"
+},
+{
+"name": "Ақжол",
+"gender": "boy",
+"popularity": 70,
+"origin": "Қазақ текті",
+"meaning": "Ақ, сәтті жол; жарқын тағдыр"
+},
+{
+"name": "Аманат",
+"gender": "unisex",
+"popularity": 70,
+"origin": "Араб текті",
+"meaning": "Сеніп тапсырылған қымбат мұра"
+},
+{
+"name": "Мейір",
+"gender": "unisex",
+"popularity": 69,
+"origin": "Парсы текті",
+"meaning": "Мейірім, сүйіспеншілік, жанашырлық"
+},
+{
+"name": "Самат",
+"gender": "boy",
+"popularity": 69,
+"origin": "Араб текті",
+"meaning": "Мәңгі, берік, мұқтажсыз"
+},
+{
+"name": "Ардақ",
+"gender": "unisex",
+"popularity": 68,
+"origin": "Қазақ-түркі текті",
+"meaning": "Құрмет, абырой; аяулы жан"
+},
+{
+"name": "Елдос",
+"gender": "boy",
+"popularity": 68,
+"origin": "Түркі және парсы текті",
+"meaning": "Елдің, халықтың досы"
+},
+{
+"name": "Айдын",
+"gender": "unisex",
+"popularity": 67,
+"origin": "Түркі текті",
+"meaning": "Жарық, ашық, нұрлы"
+},
+{
+"name": "Бауыржан",
+"gender": "boy",
+"popularity": 66,
+"origin": "Қазақ және парсы текті",
+"meaning": "Аяулы бауыр, туған жан"
+},
+{
+"name": "Қуаныш",
+"gender": "unisex",
+"popularity": 66,
+"origin": "Қазақ-түркі текті",
+"meaning": "Шаттық, сүйініш, қуаныш"
+},
+{
+"name": "Бақыт",
+"gender": "unisex",
+"popularity": 65,
+"origin": "Парсы текті",
+"meaning": "Бақыт, құт, сәттілік"
+},
+{
+"name": "Ержан",
+"gender": "boy",
+"popularity": 64,
+"origin": "Түркі және парсы текті",
+"meaning": "Ержүрек әрі аяулы жан"
+},
+{
+"name": "Ақниет",
+"gender": "unisex",
+"popularity": 63,
+"origin": "Қазақ-араб құрамды",
+"meaning": "Ақ ниет, ізгі тілек"
+},
+{
+"name": "Бақытжан",
+"gender": "unisex",
+"popularity": 62,
+"origin": "Парсы түбірлерінен құралған",
+"meaning": "Бақытты, аяулы жан"
+},
+{
+"name": "Жасұлан",
+"gender": "boy",
+"popularity": 62,
+"origin": "Қазақ текті",
+"meaning": "Жас батыр, жас сарбаз"
+},
+{
+"name": "Жанат",
+"gender": "unisex",
+"popularity": 61,
+"origin": "Араб текті",
+"meaning": "Жұмақ, жәннат бағы"
+},
+{
+"name": "Шапағат",
+"gender": "unisex",
+"popularity": 60,
+"origin": "Араб текті",
+"meaning": "Мейірім, рақым, қамқорлық"
+},
+{
+"name": "Рахат",
+"gender": "unisex",
+"popularity": 59,
+"origin": "Араб текті",
+"meaning": "Жайлылық, тыныштық, игілік"
+},
+{
+"name": "Жанболат",
+"gender": "boy",
+"popularity": 58,
+"origin": "Қазақтың құрама есімі",
+"meaning": "Болаттай берік жан"
+},
+{
+"name": "Мереке",
+"gender": "unisex",
+"popularity": 58,
+"origin": "Қазақ-түркі текті",
+"meaning": "Мейрам, той, қуанышты күн"
+},
+{
+"name": "Үміт",
+"gender": "unisex",
+"popularity": 57,
+"origin": "Парсы текті",
+"meaning": "Үміт, болашаққа сенім"
+},
+{
+"name": "Алтын",
+"gender": "unisex",
+"popularity": 55,
+"origin": "Түркі текті",
+"meaning": "Алтын; қымбат әрі аяулы"
+},
+{
+"name": "Нұрлан",
+"gender": "boy",
+"popularity": 80,
+"origin": "Араб және қазақ тілдерінен",
+"meaning": "Нұрлы ұлан, жарқын жігіт"
+},
+{
+"name": "Арман",
+"gender": "boy",
+"popularity": 70,
+"origin": "Парсы тілінен",
+"meaning": "Асыл мақсат, арман"
+},
+{
+"name": "Ерлан",
+"gender": "boy",
+"popularity": 65,
+"origin": "Қазақ тілінен",
+"meaning": "Ер ұлан, батыр жігіт"
+},
+{
+"name": "Ерасыл",
+"gender": "boy",
+"popularity": 80,
+"origin": "Қазақ тілінен",
+"meaning": "Асыл ер, текті батыр"
+},
+{
+"name": "Ернұр",
+"gender": "boy",
+"popularity": 72,
+"origin": "Араб және қазақ тілдерінен",
+"meaning": "Нұрлы ер"
+},
+{
+"name": "Нұрасыл",
+"gender": "boy",
+"popularity": 75,
+"origin": "Араб және қазақ тілдерінен",
+"meaning": "Асыл нұр"
+},
+{
+"name": "Айбек",
+"gender": "boy",
+"popularity": 60,
+"origin": "Көне түркі тілінен",
+"meaning": "Айдай сұлу бек"
+},
+{
+"name": "Айбар",
+"gender": "boy",
+"popularity": 62,
+"origin": "Қазақ тілінен",
+"meaning": "Айбарлы, айбынды"
+},
+{
+"name": "Алмас",
+"gender": "boy",
+"popularity": 55,
+"origin": "Парсы тілінен",
+"meaning": "Алмас, асыл тас"
+},
+{
+"name": "Ансар",
+"gender": "boy",
+"popularity": 68,
+"origin": "Араб тілінен",
+"meaning": "Көмекшілер, жақтастар"
+},
+{
+"name": "Юсуф",
+"gender": "boy",
+"popularity": 75,
+"origin": "Еврей тілінен",
+"meaning": "Құдай көбейтеді"
+},
+{
+"name": "Исмаил",
+"gender": "boy",
+"popularity": 68,
+"origin": "Еврей тілінен",
+"meaning": "Құдай естіді"
+},
+{
+"name": "Иса",
+"gender": "boy",
+"popularity": 60,
+"origin": "Еврей тілінен",
+"meaning": "Құдай құтқарады"
+},
+{
+"name": "Яхья",
+"gender": "boy",
+"popularity": 62,
+"origin": "Араб тілінен",
+"meaning": "Тірі, өмір сүреді"
+},
+{
+"name": "Хасан",
+"gender": "boy",
+"popularity": 65,
+"origin": "Араб тілінен",
+"meaning": "Жақсы, көркем"
+},
+{
+"name": "Хусейн",
+"gender": "boy",
+"popularity": 62,
+"origin": "Араб тілінен",
+"meaning": "Кішкентай көркем"
+},
+{
+"name": "Рахым",
+"gender": "boy",
+"popularity": 50,
+"origin": "Араб тілінен",
+"meaning": "Мейірімді"
+},
+{
+"name": "Рахман",
+"gender": "boy",
+"popularity": 55,
+"origin": "Араб тілінен",
+"meaning": "Аса мейірімді"
+},
+{
+"name": "Ерсұлтан",
+"gender": "boy",
+"popularity": 62,
+"origin": "Араб және түркі тілдерінен",
+"meaning": "Ер сұлтан, батыр билеуші"
+},
+{
+"name": "Мейіржан",
+"gender": "boy",
+"popularity": 58,
+"origin": "Қазақ тілінен",
+"meaning": "Мейірімді жан"
+},
+{
+"name": "Ерболат",
+"gender": "boy",
+"popularity": 50,
+"origin": "Парсы және қазақ тілдерінен",
+"meaning": "Болаттай берік ер"
+},
+{
+"name": "Әлішер",
+"gender": "boy",
+"popularity": 65,
+"origin": "Араб және парсы тілдерінен",
+"meaning": "Асқақ арыстан"
+},
+{
+"name": "Шерхан",
+"gender": "boy",
+"popularity": 55,
+"origin": "Парсы және түркі тілдерінен",
+"meaning": "Арыстан хан"
+},
+{
+"name": "Арыстан",
+"gender": "boy",
+"popularity": 50,
+"origin": "Қазақ тілінен",
+"meaning": "Арыстандай батыл"
+},
+{
+"name": "Батыр",
+"gender": "boy",
+"popularity": 45,
+"origin": "Көне түркі тілінен",
+"meaning": "Батыр, ержүрек"
+},
+{
+"name": "Жандос",
+"gender": "boy",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Жан дос, жақын дос"
+},
+{
+"name": "Бекжан",
+"gender": "boy",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Мықты, берік жан"
+},
+{
+"name": "Нұрбол",
+"gender": "boy",
+"popularity": 55,
+"origin": "Араб және қазақ тілдерінен",
+"meaning": "Нұрлы бол"
+},
+{
+"name": "Абзал",
+"gender": "boy",
+"popularity": 62,
+"origin": "Араб тілінен",
+"meaning": "Ең жақсы, қадірлі"
+},
+{
+"name": "Азамат",
+"gender": "boy",
+"popularity": 58,
+"origin": "Араб тілінен",
+"meaning": "Ұлылық, абыройлы азамат"
+},
+{
+"name": "Айдос",
+"gender": "boy",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Айдай жарық дос"
+},
+{
+"name": "Ақылбек",
+"gender": "boy",
+"popularity": 45,
+"origin": "Араб және түркі тілдерінен",
+"meaning": "Ақылды бек"
+},
+{
+"name": "Бекнұр",
+"gender": "boy",
+"popularity": 62,
+"origin": "Араб және түркі тілдерінен",
+"meaning": "Нұрлы бек"
+},
+{
+"name": "Асхат",
+"gender": "boy",
+"popularity": 50,
+"origin": "Араб тілінен",
+"meaning": "Ең жомарт"
+},
+{
+"name": "Әсет",
+"gender": "boy",
+"popularity": 50,
+"origin": "Араб тілінен",
+"meaning": "Арыстан"
+},
+{
+"name": "Талғат",
+"gender": "boy",
+"popularity": 48,
+"origin": "Араб тілінен",
+"meaning": "Келбет, көрік"
+},
+{
+"name": "Ғабит",
+"gender": "boy",
+"popularity": 42,
+"origin": "Араб тілінен",
+"meaning": "Ғибадат етуші"
+},
+{
+"name": "Саят",
+"gender": "boy",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Құспен аң аулау, саятшылық"
+},
+{
+"name": "Ерхан",
+"gender": "boy",
+"popularity": 52,
+"origin": "Көне түркі тілінен",
+"meaning": "Ер хан"
+},
+{
+"name": "Ағзам",
+"gender": "boy",
+"popularity": 45,
+"origin": "Араб тілінен",
+"meaning": "Ең ұлы"
+},
+{
+"name": "Мұрат",
+"gender": "boy",
+"popularity": 55,
+"origin": "Араб тілінен",
+"meaning": "Мақсат, арман"
+},
+{
+"name": "Жансұлтан",
+"gender": "boy",
+"popularity": 62,
+"origin": "Араб және қазақ тілдерінен",
+"meaning": "Жан сұлтан"
+},
+{
+"name": "Ерсін",
+"gender": "boy",
+"popularity": 48,
+"origin": "Қазақ тілінен",
+"meaning": "Ер болсын"
+},
+{
+"name": "Мұхтар",
+"gender": "boy",
+"popularity": 50,
+"origin": "Араб тілінен",
+"meaning": "Таңдаулы"
+},
+{
+"name": "Әмірлан",
+"gender": "boy",
+"popularity": 68,
+"origin": "Араб және түркі тілдерінен",
+"meaning": "Әмірші ұлан"
+},
+{
+"name": "Халид",
+"gender": "boy",
+"popularity": 55,
+"origin": "Араб тілінен",
+"meaning": "Мәңгі, ұзақ жасайтын"
+},
+{
+"name": "Әділ",
+"gender": "boy",
+"popularity": 60,
+"origin": "Араб тілінен",
+"meaning": "Әділ, шыншыл"
+},
+{
+"name": "Кемел",
+"gender": "boy",
+"popularity": 45,
+"origin": "Араб тілінен",
+"meaning": "Кемел, толық"
+},
+{
+"name": "Ғалым",
+"gender": "boy",
+"popularity": 45,
+"origin": "Араб тілінен",
+"meaning": "Білімді"
+},
+{
+"name": "Нұрбек",
+"gender": "boy",
+"popularity": 55,
+"origin": "Араб және түркі тілдерінен",
+"meaning": "Нұрлы бек"
+},
+{
+"name": "Абдулла",
+"gender": "boy",
+"popularity": 55,
+"origin": "Араб тілінен",
+"meaning": "Алланың құлы"
+},
+{
+"name": "Абдурахман",
+"gender": "boy",
+"popularity": 50,
+"origin": "Араб тілінен",
+"meaning": "Аса Мейірімдінің құлы"
+},
+{
+"name": "Ихсан",
+"gender": "boy",
+"popularity": 52,
+"origin": "Араб тілінен",
+"meaning": "Ізгілік, жақсылық"
+},
+{
+"name": "Темірлан",
+"gender": "boy",
+"popularity": 70,
+"origin": "Көне түркі тілінен",
+"meaning": "Темірдей мықты ұлан"
+},
+{
+"name": "Дәулет",
+"gender": "boy",
+"popularity": 50,
+"origin": "Араб тілінен",
+"meaning": "Бақ, байлық"
+},
+{
+"name": "Абай",
+"gender": "boy",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Сақ, байқампаз"
+},
+{
+"name": "Мейрам",
+"gender": "boy",
+"popularity": 48,
+"origin": "Парсы тілінен",
+"meaning": "Мейрам, той"
+},
+{
+"name": "Қанат",
+"gender": "boy",
+"popularity": 48,
+"origin": "Қазақ тілінен",
+"meaning": "Қанат, сүйеніш"
+},
+{
+"name": "Серік",
+"gender": "boy",
+"popularity": 42,
+"origin": "Қазақ тілінен",
+"meaning": "Серік, дос"
+},
+{
+"name": "Болат",
+"gender": "boy",
+"popularity": 45,
+"origin": "Парсы тілінен",
+"meaning": "Болат, берік"
+},
+{
+"name": "Ерік",
+"gender": "boy",
+"popularity": 40,
+"origin": "Қазақ тілінен",
+"meaning": "Ерік, бостандық"
+},
+{
+"name": "Мақсат",
+"gender": "boy",
+"popularity": 48,
+"origin": "Араб тілінен",
+"meaning": "Мақсат, мұрат"
+},
+{
+"name": "Қасым",
+"gender": "boy",
+"popularity": 55,
+"origin": "Араб тілінен",
+"meaning": "Бөлуші, үлестіруші"
+},
+{
+"name": "Ғани",
+"gender": "boy",
+"popularity": 45,
+"origin": "Араб тілінен",
+"meaning": "Бай, ешкімге мұқтаж емес"
+},
+{
+"name": "Сүлеймен",
+"gender": "boy",
+"popularity": 58,
+"origin": "Еврей тілінен",
+"meaning": "Бейбіт, тыныштық"
+},
+{
+"name": "Дастан",
+"gender": "boy",
+"popularity": 55,
+"origin": "Парсы тілінен",
+"meaning": "Дастан, жыр"
+},
+{
+"name": "Аслан",
+"gender": "boy",
+"popularity": 58,
+"origin": "Көне түркі тілінен",
+"meaning": "Арыстан"
+},
+{
+"name": "Жігер",
+"gender": "boy",
+"popularity": 45,
+"origin": "Қазақ тілінен",
+"meaning": "Жігер, қайрат"
+},
+{
+"name": "Ерұлан",
+"gender": "boy",
+"popularity": 50,
+"origin": "Қазақ тілінен",
+"meaning": "Ер ұлан"
+},
+{
+"name": "Айбын",
+"gender": "boy",
+"popularity": 45,
+"origin": "Қазақ тілінен",
+"meaning": "Айбынды, сесті"
+},
+{
+"name": "Мейрамбек",
+"gender": "boy",
+"popularity": 42,
+"origin": "Парсы және қазақ тілдерінен",
+"meaning": "Мейрамдай қуанышты бек"
+},
+{
+"name": "Ерқанат",
+"gender": "boy",
+"popularity": 45,
+"origin": "Қазақ тілінен",
+"meaning": "Ердің қанаты"
+},
+{
+"name": "Аяулым",
+"gender": "girl",
+"popularity": 72,
+"origin": "Қазақ тілінен",
+"meaning": "Аяулы, қымбаттым"
+},
+{
+"name": "Жансұлу",
+"gender": "girl",
+"popularity": 60,
+"origin": "Қазақ тілінен",
+"meaning": "Жаны сұлу"
+},
+{
+"name": "Хадиша",
+"gender": "girl",
+"popularity": 65,
+"origin": "Араб тілінен",
+"meaning": "Мерзімінен бұрын туған"
+},
+{
+"name": "Зарина",
+"gender": "girl",
+"popularity": 55,
+"origin": "Парсы тілінен",
+"meaning": "Алтындай, алтын"
+},
+{
+"name": "Камила",
+"gender": "girl",
+"popularity": 60,
+"origin": "Араб тілінен",
+"meaning": "Кемел, толық"
+},
+{
+"name": "Малика",
+"gender": "girl",
+"popularity": 65,
+"origin": "Араб тілінен",
+"meaning": "Патшайым"
+},
+{
+"name": "Ләйлә",
+"gender": "girl",
+"popularity": 55,
+"origin": "Араб тілінен",
+"meaning": "Түн"
+},
+{
+"name": "Нұрсұлу",
+"gender": "girl",
+"popularity": 62,
+"origin": "Араб және қазақ тілдерінен",
+"meaning": "Нұрлы сұлу"
+},
+{
+"name": "Айсұлу",
+"gender": "girl",
+"popularity": 62,
+"origin": "Қазақ тілінен",
+"meaning": "Айдай сұлу"
+},
+{
+"name": "Айнұр",
+"gender": "girl",
+"popularity": 62,
+"origin": "Араб және қазақ тілдерінен",
+"meaning": "Ай нұры"
+},
+{
+"name": "Ақерке",
+"gender": "girl",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Ақ ерке, аяулы қыз"
+},
+{
+"name": "Аққу",
+"gender": "girl",
+"popularity": 45,
+"origin": "Қазақ тілінен",
+"meaning": "Аққу құс, сұлулық белгісі"
+},
+{
+"name": "Гүлназ",
+"gender": "girl",
+"popularity": 48,
+"origin": "Парсы тілінен",
+"meaning": "Нәзік гүл"
+},
+{
+"name": "Гүлнұр",
+"gender": "girl",
+"popularity": 45,
+"origin": "Араб және парсы тілдерінен",
+"meaning": "Нұрлы гүл"
+},
+{
+"name": "Гүлжан",
+"gender": "girl",
+"popularity": 40,
+"origin": "Парсы және қазақ тілдерінен",
+"meaning": "Гүлдей жан"
+},
+{
+"name": "Мөлдір",
+"gender": "girl",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Мөлдір, таза"
+},
+{
+"name": "Ажар",
+"gender": "girl",
+"popularity": 50,
+"origin": "Қазақ тілінен",
+"meaning": "Ажар, көрік"
+},
+{
+"name": "Ақмарал",
+"gender": "girl",
+"popularity": 50,
+"origin": "Қазақ тілінен",
+"meaning": "Ақ марал"
+},
+{
+"name": "Сая",
+"gender": "girl",
+"popularity": 45,
+"origin": "Қазақ тілінен",
+"meaning": "Сая, пана"
+},
+{
+"name": "Жұлдыз",
+"gender": "girl",
+"popularity": 50,
+"origin": "Қазақ тілінен",
+"meaning": "Жұлдыз"
+},
+{
+"name": "Шолпан",
+"gender": "girl",
+"popularity": 45,
+"origin": "Қазақ тілінен",
+"meaning": "Шолпан жұлдызы"
+},
+{
+"name": "Сәуле",
+"gender": "girl",
+"popularity": 50,
+"origin": "Қазақ тілінен",
+"meaning": "Сәуле, нұр"
+},
+{
+"name": "Айжан",
+"gender": "girl",
+"popularity": 50,
+"origin": "Қазақ тілінен",
+"meaning": "Айдай жан"
+},
+{
+"name": "Аяжан",
+"gender": "girl",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Аяулы жан"
+},
+{
+"name": "Еркежан",
+"gender": "girl",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Ерке жан"
+},
+{
+"name": "Әлия",
+"gender": "girl",
+"popularity": 62,
+"origin": "Араб тілінен",
+"meaning": "Биік, асқақ"
+},
+{
+"name": "Сабина",
+"gender": "girl",
+"popularity": 50,
+"origin": "Латын тілінен",
+"meaning": "Сабин тайпасынан шыққан"
+},
+{
+"name": "Сара",
+"gender": "girl",
+"popularity": 50,
+"origin": "Еврей тілінен",
+"meaning": "Ханым, ханшайым"
+},
+{
+"name": "Самира",
+"gender": "girl",
+"popularity": 52,
+"origin": "Араб тілінен",
+"meaning": "Кешкі әңгіменің серігі"
+},
+{
+"name": "Нұрия",
+"gender": "girl",
+"popularity": 48,
+"origin": "Араб тілінен",
+"meaning": "Нұрлы, жарық"
+},
+{
+"name": "Назым",
+"gender": "girl",
+"popularity": 45,
+"origin": "Араб тілінен",
+"meaning": "Тізуші, өлең құрастырушы"
+},
+{
+"name": "Гаухар",
+"gender": "girl",
+"popularity": 50,
+"origin": "Парсы тілінен",
+"meaning": "Гауһар, асыл тас"
+},
+{
+"name": "Райхан",
+"gender": "girl",
+"popularity": 55,
+"origin": "Араб тілінен",
+"meaning": "Райхан гүлі, хош иіс"
+},
+{
+"name": "Әсем",
+"gender": "girl",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Әсем, сұлу"
+},
+{
+"name": "Жібек",
+"gender": "girl",
+"popularity": 50,
+"origin": "Қазақ тілінен",
+"meaning": "Жібектей нәзік"
+},
+{
+"name": "Маржан",
+"gender": "girl",
+"popularity": 48,
+"origin": "Араб тілінен",
+"meaning": "Маржан, асыл тас"
+},
+{
+"name": "Ару",
+"gender": "girl",
+"popularity": 55,
+"origin": "Қазақ тілінен",
+"meaning": "Сұлу қыз"
+},
+{
+"name": "Наргиз",
+"gender": "girl",
+"popularity": 45,
+"origin": "Парсы тілінен",
+"meaning": "Нарцисс гүлі"
+},
+{
+"name": "Дария",
+"gender": "girl",
+"popularity": 55,
+"origin": "Парсы тілінен",
+"meaning": "Теңіз, дария"
+},
+{
+"name": "Іңкәр",
+"gender": "girl",
+"popularity": 58,
+"origin": "Қазақ тілінен",
+"meaning": "Сағыныш, ынтызар"
+},
+{
+"name": "Ләззат",
+"gender": "girl",
+"popularity": 40,
+"origin": "Араб тілінен",
+"meaning": "Ләззат, рахат"
+},
+{
+"name": "Нәзира",
+"gender": "girl",
+"popularity": 45,
+"origin": "Араб тілінен",
+"meaning": "Тең, теңдес"
+},
+{
+"name": "Балжан",
+"gender": "girl",
+"popularity": 48,
+"origin": "Қазақ тілінен",
+"meaning": "Балдай тәтті жан"
+},
+{
+"name": "Ботагөз",
+"gender": "girl",
+"popularity": 48,
+"origin": "Қазақ тілінен",
+"meaning": "Ботаның көзіндей көзді"
+},
+{
+"name": "Перизат",
+"gender": "girl",
+"popularity": 45,
+"origin": "Парсы тілінен",
+"meaning": "Перінің ұрпағы, сұлу"
+},
+{
+"name": "Сымбат",
+"gender": "girl",
+"popularity": 52,
+"origin": "Қазақ тілінен",
+"meaning": "Сымбатты, келбетті"
+},
+{
+"name": "Сафина",
+"gender": "girl",
+"popularity": 50,
+"origin": "Араб тілінен",
+"meaning": "Кеме"
+},
+{
+"name": "Халима",
+"gender": "girl",
+"popularity": 52,
+"origin": "Араб тілінен",
+"meaning": "Сабырлы, жұмсақ мінезді"
+},
+{
+"name": "Сұлтана",
+"gender": "girl",
+"popularity": 50,
+"origin": "Араб тілінен",
+"meaning": "Патшайым, сұлтан әйел"
+},
+{
+"name": "Гүлім",
+"gender": "girl",
+"popularity": 42,
+"origin": "Парсы тілінен",
+"meaning": "Менің гүлім"
+},
+{
+"name": "Шұғыла",
+"gender": "girl",
+"popularity": 48,
+"origin": "Қазақ тілінен",
+"meaning": "Шұғыла, сәуле"
+},
+{
+"name": "Тұмар",
+"gender": "unisex",
+"popularity": 40,
+"origin": "Араб тілінен",
+"meaning": "Тұмар, қорғаныш"
+},
+{
+"name": "Нұрым",
+"gender": "unisex",
+"popularity": 40,
+"origin": "Араб және қазақ тілдерінен",
+"meaning": "Менің нұрым"
+}
+]

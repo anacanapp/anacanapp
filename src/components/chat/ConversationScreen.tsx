@@ -1,6 +1,8 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, Check, CheckCheck, ChevronDown, ImagePlus, Loader2, Mic, MoreHorizontal, Plus, Reply, Send, Smile, Square, Trash2, Video, X } from 'lucide-react';
+import { ArrowLeft, Check, CheckCheck, ChevronDown, Copy, ImagePlus, Pencil, Loader2, Mic, MoreHorizontal, Plus, Reply, Send, Smile, Square, Sticker, Trash2, Video, X } from 'lucide-react';
+import StickerPicker, { StickerImage } from '@/components/stickers/StickerPicker';
+import { stickerFromMessage, stickerMessage, stickerText } from '@/lib/stickers';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useChatMessages } from '@/hooks/useChatMessages';
 import { useFullScreenChat } from '@/hooks/useChatChrome';
@@ -8,7 +10,7 @@ import { useAdSafetyBlock } from '@/components/ads/AdExperienceProvider';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/useAuth';
 import { createAudioRecorder, getAudioErrorToast, openMicrophone, releaseAudioRecording } from '@/lib/audioRecording';
-import { CHAT_REACTIONS, chatError, chatPreview, discardChatAttachment, reactionColumn, resolveChatMedia, uploadChatMedia, type ChatAttachment, type ChatKind, type ChatMessage, type ChatMediaType } from '@/lib/chat';
+import { CHAT_MORE_REACTIONS, CHAT_REACTIONS, chatError, chatPreview, discardChatAttachment, reactionColumn, resolveChatMedia, uploadChatMedia, type ChatAttachment, type ChatKind, type ChatMessage, type ChatMediaType } from '@/lib/chat';
 import { getLocaleTag } from '@/lib/i18n';
 import { pushBackHandler } from '@/lib/backButton';
 import { tr } from '@/lib/group-i18n';
@@ -19,6 +21,7 @@ import CommentText from '@/components/community/CommentText';
 import '@/styles/chat.css';
 import { useMyModerationStatus } from '@/hooks/useModerator';
 import RestrictionNote from '@/components/moderation/RestrictionNote';
+import { feature37Text } from '@/lib/feature37-i18n';
 
 const UserProfile = lazy(() => import('@/components/community/UserProfileScreen'));
 interface Props { kind: ChatKind; target: string; title: string; avatar?: string | null; subtitle?: string;
@@ -39,8 +42,9 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
   const [text, setText] = useState(''), [reply, setReply] = useState<ChatMessage | null>(null);
   const [attachment, setAttachment] = useState<ChatAttachment | null>(null), [attachmentUrl, setAttachmentUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false), [recording, setRecording] = useState(false), [recordedSeconds, setRecordedSeconds] = useState(0);
-  const [showAttachments, setShowAttachments] = useState(false), [emojiComposer, setEmojiComposer] = useState(false);
+  const [showAttachments, setShowAttachments] = useState(false), [emojiComposer, setEmojiComposer] = useState(false), [stickers, setStickers] = useState(false);
   const [actionsFor, setActionsFor] = useState<string | null>(null), [profile, setProfile] = useState<string | null>(null);
+  const [moreReactions, setMoreReactions] = useState(false), [editing, setEditing] = useState<ChatMessage | null>(null);
   const [photo, setPhoto] = useState<{ id: string; url: string } | null>(null), [newMessages, setNewMessages] = useState(0);
   const [viewport, setViewport] = useState(() => ({ height: window.visualViewport?.height ?? window.innerHeight, top: window.visualViewport?.offsetTop ?? 0 }));
   const scroller = useRef<HTMLDivElement>(null), input = useRef<HTMLTextAreaElement>(null), imageInput = useRef<HTMLInputElement>(null), videoInput = useRef<HTMLInputElement>(null);
@@ -92,6 +96,16 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
     } else setNewMessages(count => count + 1);
     lastMessage.current = latest.id;
   }, [chat.messages, chat.actor]);
+  // Stay pinned to the newest message while images/voice load, reactions appear or the keyboard
+  // resizes the list; previously a message sent at the bottom ended up hidden below the fold.
+  useEffect(() => {
+    const element = scroller.current, inner = element?.firstElementChild;
+    if (!element || !inner || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(() => { if (atBottom.current) element.scrollTop = element.scrollHeight; });
+    observer.observe(inner); observer.observe(element);
+    return () => observer.disconnect();
+  }, [profile, chat.loading]);
+  useEffect(() => { if (!actionsFor) setMoreReactions(false); }, [actionsFor]);
   useEffect(() => {
     const element = input.current;
     if (element) { element.style.height = 'auto'; element.style.height = `${Math.min(130, element.scrollHeight)}px`; }
@@ -154,6 +168,14 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
   };
   const stopRecording = () => { try { if (recorder.current?.state === 'recording') recorder.current.stop(); } catch (error) { cancelRecording(); toast(getAudioErrorToast(error, 'audio')); } };
   const send = async () => {
+    if (editing) {
+      if (!text.trim() || chat.editing) return;
+      try {
+        await chat.edit({ message: editing, content: text.trim() });
+        if (alive.current) { setEditing(null); setText(''); }
+      } catch (error) { if (alive.current) reportFailure(error); }
+      return;
+    }
     if (uploading || chat.sending || readOnly || (!text.trim() && !attachment)) return;
     const payload = { text: text.trim(), attachment, replyTo: reply?.id ?? null };
     const fingerprint = JSON.stringify(payload);
@@ -165,6 +187,14 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
       if (!alive.current) return;
       setText(''); setReply(null); setAttachment(null); setAttachmentUrl(null); attachmentRef.current = null; retry.current = null; atBottom.current = true;
       input.current?.focus();
+    } catch (error) { if (alive.current) reportFailure(error); }
+  };
+  const sendSticker = async (id: string) => {
+    if (uploading || chat.sending || readOnly || editing) return;
+    try {
+      await chat.send({ id: crypto.randomUUID(), text: stickerMessage(id), attachment: null, replyTo: reply?.id ?? null });
+      if (!alive.current) return;
+      setReply(null); setStickers(false); atBottom.current = true;
     } catch (error) { if (alive.current) reportFailure(error); }
   };
   const renew = async (message: ChatMessage) => {
@@ -180,7 +210,10 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
     setText(value => value.slice(0, start) + emoji + value.slice(end)); input.current?.focus();
   };
   const content = profile ? <Suspense fallback={<div className="chat-empty"><Loader2 className="animate-spin" /></div>}>
-    <UserProfile userId={profile} onBack={() => setProfile(null)} onUserClick={setProfile} />
+    {/* The chat overlay is full screen; only its own top bar had the status-bar inset. */}
+    <div style={{ paddingTop: 'env(safe-area-inset-top, 0px)', overflowY: 'auto', height: '100%' }}>
+      <UserProfile userId={profile} onBack={() => setProfile(null)} onUserClick={setProfile} />
+    </div>
   </Suspense> : <>
     <header className="chat-topbar">
       <button type="button" className="chat-icon-button" aria-label={tr('common_geri', 'Geri')} onClick={() => { cancelRecording(); onBack(); }}><ArrowLeft size={21} className="rtl:rotate-180" /></button>
@@ -202,6 +235,7 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
           <strong>{title}</strong><p>{tr('chat_empty', 'İlk mesajı göndərin. Söhbət buradan başlayır.')}</p></div> : null}
         {chat.messages.map((message, index) => {
           const own = message.sender_id === chat.actor, quoted = message.reply_to_id ? chat.allMessages.get(message.reply_to_id) : null;
+          const deleted = !!message.deleted_at;
           const author = chat.authors[message.sender_id], url = chat.media[message.id];
           const created = new Date(message.created_at);
           const previous = chat.messages[index - 1];
@@ -213,35 +247,52 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
             <div className={`chat-message-row ${own ? 'chat-message-row-own' : ''}`}>
               {kind === 'group' && !own && <button type="button" onClick={() => setProfile(message.sender_id)} aria-label={tr('chat_view_profile', 'Profilə bax')}><Avatar className="h-7 w-7"><AvatarImage src={author?.avatar_url || undefined} /><AvatarFallback>{author?.name?.charAt(0) || '•'}</AvatarFallback></Avatar></button>}
               <div className="chat-message-stack">
-                <div className={`chat-message ${own ? 'chat-message-own' : ''}`} onContextMenu={event => { event.preventDefault(); setActionsFor(message.id); }}>
+                {deleted ? <div className={`chat-message chat-message-deleted ${own ? 'chat-message-own' : ''}`}><p className="chat-message-text">{feature37Text('chat_deleted')}</p></div> :
+                <div className={`chat-message ${own ? 'chat-message-own' : ''}${message.message_type === 'text' && stickerFromMessage(message.content) ? ' chat-message-sticker' : ''}`} onContextMenu={event => { event.preventDefault(); setActionsFor(message.id); }}>
                   {kind === 'group' && !own && <button type="button" className="chat-message-author" onClick={() => setProfile(message.sender_id)}>{author?.name || tr('chat_member', 'Üzv')}</button>}
                   {quoted && <button type="button" className="chat-reply-preview w-full text-start" onClick={() => document.getElementById(`chat-message-${quoted.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
                     <strong>{quoted.sender_id === chat.actor ? tr('chat_you', 'Siz') : chat.authors[quoted.sender_id]?.name || title}</strong><p>{chatPreview(quoted)}</p></button>}
                   {['image', 'video', 'audio'].includes(message.message_type) ? url ?
                     <ChatMediaAttachment src={url} type={message.message_type as ChatMediaType} own={own} onRenew={() => renew(message)} onPhoto={source => setPhoto({ id: message.id, url: source })} />
                     : <button type="button" className="chat-notice" onClick={() => renew(message).catch(reportFailure)}>{tr('chat_load_media', 'Faylı yüklə')}</button>
+                    : message.message_type === 'text' && stickerFromMessage(message.content) ? <StickerImage id={stickerFromMessage(message.content)!} size={140} />
                     : <p className="chat-message-text" dir="auto"><CommentText content={message.message_type === 'love' ? '❤️' : message.content || ''} allowLinks /></p>}
                   {!!message.media_path && !!message.content && <p className="chat-message-text mt-1" dir="auto"><CommentText content={message.content} allowLinks /></p>}
-                  <div className="chat-message-meta"><time>{timeFormat.format(created)}</time>
+                  <div className="chat-message-meta">{message.edited_at && <span className="chat-edited">{feature37Text('chat_edited')}</span>}<time>{timeFormat.format(created)}</time>
                     {own && kind !== 'group' && (message.is_read ? <CheckCheck size={13} className="text-sky-600" /> : <Check size={12} />)}
                     <button type="button" className="chat-icon-button chat-icon-button-small" onClick={() => setActionsFor(actionsFor === message.id ? null : message.id)} aria-label={tr('chat_message_actions', 'Mesaj seçimləri')}><MoreHorizontal size={15} /></button>
                   </div>
-                </div>
+                </div>}
                 {grouped.length > 0 && <div className="chat-reactions">{grouped.map(emoji => {
                   const selected = reactions.some(reaction => reaction.user_id === chat.actor && reaction.emoji === emoji);
                   return <button type="button" key={emoji} className="chat-reaction" data-selected={selected} disabled={chat.reacting}
                     onClick={() => chat.react({ message: message.id, emoji: selected ? null : emoji }).catch(reportFailure)}>{emoji} {reactions.filter(reaction => reaction.emoji === emoji).length}</button>;
                 })}</div>}
-                {actionsFor === message.id && <div className="chat-reaction-picker" role="group" aria-label={tr('chat_react', 'Reaksiya ver')}>
-                  <button type="button" aria-label={tr('chat_reply', 'Cavab ver')} onClick={() => { setReply(message); setActionsFor(null); input.current?.focus(); }}><Reply size={18} /></button>
-                  {CHAT_REACTIONS.map(emoji => <button type="button" key={emoji} disabled={chat.reacting} aria-label={emoji} onClick={() => {
-                    const selected = reactions.some(reaction => reaction.user_id === chat.actor && reaction.emoji === emoji);
-                    void chat.react({ message: message.id, emoji: selected ? null : emoji }).then(() => setActionsFor(null)).catch(reportFailure);
-                  }}>{emoji}</button>)}
-                  {kind === 'group' && (own || canModerate) && <button type="button" className="text-destructive" aria-label={tr('group_delete_message')} disabled={chat.removing} onClick={() => {
-                    if (confirm(tr('group_delete_message') + '?')) void chat.remove(message.id).then(() => { setActionsFor(null); if (reply?.id === message.id) setReply(null); }).catch(reportFailure);
-                  }}><Trash2 size={17}/></button>}
-                </div>}
+                {actionsFor === message.id && !deleted && <>
+                  <div className="chat-menu-backdrop" onClick={() => setActionsFor(null)} />
+                  <div className={`chat-menu ${own ? 'chat-menu-own' : ''}`}>
+                    <div className="chat-reaction-picker" role="group" aria-label={tr('chat_react', 'Reaksiya ver')}>
+                      {(moreReactions ? [...CHAT_REACTIONS, ...CHAT_MORE_REACTIONS] : CHAT_REACTIONS.slice(0, 6)).map(emoji => <button type="button" key={emoji} disabled={chat.reacting} aria-label={emoji} onClick={() => {
+                        const selected = reactions.some(reaction => reaction.user_id === chat.actor && reaction.emoji === emoji);
+                        void chat.react({ message: message.id, emoji: selected ? null : emoji }).then(() => setActionsFor(null)).catch(reportFailure);
+                      }}>{emoji}</button>)}
+                      {!moreReactions && <button type="button" className="chat-reaction-more" aria-label={feature37Text('chat_more_reactions')} onClick={() => setMoreReactions(true)}><Plus size={18} /></button>}
+                    </div>
+                    <div className="chat-action-list">
+                      <button type="button" onClick={() => { setReply(message); setActionsFor(null); input.current?.focus(); }}><Reply size={17} />{tr('chat_reply', 'Cavab ver')}</button>
+                      {own && message.message_type === 'text' && !!message.content && !stickerFromMessage(message.content) && <button type="button" onClick={() => {
+                        setEditing(message); setReply(null); setText(message.content || ''); setActionsFor(null); input.current?.focus();
+                      }}><Pencil size={17} />{feature37Text('chat_edit')}</button>}
+                      {!!message.content && message.message_type !== 'love' && !stickerFromMessage(message.content) && <button type="button" onClick={() => {
+                        void navigator.clipboard?.writeText(message.content || '').then(() => toast({ title: feature37Text('chat_copied') })).catch(() => {});
+                        setActionsFor(null);
+                      }}><Copy size={17} />{feature37Text('chat_copy')}</button>}
+                      {(own || (kind === 'group' && canModerate)) && <button type="button" className="chat-action-danger" disabled={chat.removing} onClick={() => {
+                        if (confirm(feature37Text('chat_delete_confirm'))) void chat.remove(message.id).then(() => { setActionsFor(null); if (reply?.id === message.id) setReply(null); }).catch(reportFailure);
+                      }}><Trash2 size={17} />{feature37Text('chat_delete')}</button>}
+                    </div>
+                  </div>
+                </>}
               </div>
             </div>
           </div>;
@@ -250,6 +301,8 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
     </div>
     {newMessages > 0 && <button type="button" className="chat-notice flex items-center justify-center gap-1" onClick={() => { if (scroller.current) scroller.current.scrollTop = scroller.current.scrollHeight; setNewMessages(0); }}><ChevronDown size={15} />{tr('chat_new_messages', 'Yeni mesajlar')} · {newMessages}</button>}
     {readOnly ? <footer className="chat-composer chat-notice">{moderationStatus?.message ? <RestrictionNote scope="message" /> : tr('group_admins_only')}</footer> : <footer className="chat-composer"><div className="chat-composer-inner">
+      {editing && <div className="flex items-center gap-2"><div className="chat-reply-preview flex-1"><strong>{feature37Text('chat_editing')}</strong><p>{chatPreview(editing)}</p></div>
+        <button type="button" className="chat-icon-button" aria-label={tr('common_legv_et', 'Ləğv et')} onClick={() => { setEditing(null); setText(''); }}><X size={18} /></button></div>}
       {reply && <div className="flex items-center gap-2"><div className="chat-reply-preview flex-1"><strong>{tr('chat_reply', 'Cavab ver')} · {reply.sender_id === chat.actor ? tr('chat_you', 'Siz') : chat.authors[reply.sender_id]?.name || title}</strong><p>{chatPreview(reply)}</p></div><button type="button" className="chat-icon-button" aria-label={tr('chat_cancel_reply', 'Cavabı ləğv et')} onClick={() => setReply(null)}><X size={18} /></button></div>}
       {attachment && <div className="flex items-center gap-2 pb-2"><div className="min-w-0 flex-1">
         {attachment.type === 'audio' && attachmentUrl ? <VoiceMessage src={attachmentUrl} /> : <p className="chat-notice text-start">{chatPreview({ message_type: attachment.type, content: '' })} · {tr('chat_ready_to_send', 'Göndərməyə hazırdır')}</p>}
@@ -258,6 +311,7 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
         attachmentRef.current = null; setAttachment(null); setAttachmentUrl(null);
       }}><X size={18} /></button></div>}
       {showAttachments && <div className="chat-attachment-options"><button type="button" onClick={() => imageInput.current?.click()}><ImagePlus size={18} />{tr('chat_image', 'Şəkil')}</button><button type="button" onClick={() => videoInput.current?.click()}><Video size={18} />{tr('chat_video', 'Video')}</button></div>}
+      {stickers && <div className="px-2"><StickerPicker onPick={id => void sendSticker(id)} onClose={() => setStickers(false)} disabled={chat.sending} /></div>}
       {emojiComposer && <div className="chat-reaction-picker">{['😊', '❤️', '😂', '👍', '🙏', '😘', '🥰', '🎉'].map(emoji => <button type="button" key={emoji} onClick={() => selectEmoji(emoji)}>{emoji}</button>)}</div>}
       <input type="file" ref={imageInput} accept="image/jpeg,image/png,image/webp,image/gif" className="hidden" onChange={event => { const file = event.target.files?.[0]; event.target.value = ''; if (file) void upload(file, 'image'); }} />
       <input type="file" ref={videoInput} accept="video/mp4,video/webm,video/quicktime" className="hidden" onChange={event => { const file = event.target.files?.[0]; event.target.value = ''; if (file) void upload(file, 'video'); }} />
@@ -267,9 +321,10 @@ function Conversation({ kind, target, title, avatar, subtitle, onBack, onDetails
           <button type="button" className="chat-icon-button" disabled={uploading || chat.sending || !!attachment} onClick={() => setShowAttachments(value => !value)} aria-label={tr('chat_attach', 'Fayl əlavə et')}><Plus size={23} /></button>
           <textarea ref={input} rows={1} maxLength={10000} value={text} disabled={chat.sending} onChange={event => setText(event.target.value)} className="chat-text-input" dir="auto"
             placeholder={tr('directmessagescreen_mesaj_yazin_e69f84', 'Mesaj yazın…')} onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); void send(); } }} />
-          <button type="button" className="chat-icon-button" disabled={chat.sending} onClick={() => setEmojiComposer(value => !value)} aria-label={tr('chat_emoji', 'Emoji')}><Smile size={21} /></button>
-          {!text.trim() && !attachment && !uploading ? <button type="button" className="chat-send" disabled={chat.sending} onClick={beginRecording} aria-label={tr('conversationlistscreen_ses_mesaji_acd8d9', '🎤 Səs mesajı')}><Mic size={20} /></button>
-            : <button type="button" className="chat-send" disabled={uploading || chat.sending || (!text.trim() && !attachment)} onClick={send} aria-label={tr('directmessagescreen_send', 'Göndər')}>{uploading || chat.sending ? <Loader2 size={19} className="animate-spin" /> : <Send size={18} />}</button>}
+          {!editing && <button type="button" className="chat-icon-button" disabled={chat.sending || uploading || !!attachment} onClick={() => { setStickers(value => !value); setEmojiComposer(false); setShowAttachments(false); }} aria-pressed={stickers} aria-label={stickerText('stickers')}><Sticker size={21} /></button>}
+          <button type="button" className="chat-icon-button" disabled={chat.sending} onClick={() => { setEmojiComposer(value => !value); setStickers(false); }} aria-label={tr('chat_emoji', 'Emoji')}><Smile size={21} /></button>
+          {!text.trim() && !attachment && !uploading && !editing ? <button type="button" className="chat-send" disabled={chat.sending} onClick={beginRecording} aria-label={tr('conversationlistscreen_ses_mesaji_acd8d9', '🎤 Səs mesajı')}><Mic size={20} /></button>
+            : <button type="button" className="chat-send" disabled={uploading || chat.sending || chat.editing || (!text.trim() && !attachment)} onClick={send} aria-label={tr('directmessagescreen_send', 'Göndər')}>{uploading || chat.sending ? <Loader2 size={19} className="animate-spin" /> : <Send size={18} />}</button>}
         </div>}
       {uploading && <p role="status" className="chat-notice">{tr('chat_uploading', 'Fayl yüklənir…')}</p>}
     </div></footer>}

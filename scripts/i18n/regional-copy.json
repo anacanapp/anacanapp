@@ -231,6 +231,50 @@
       "scheduleError": "Vaccinationsschemat kunde inte läsas in. Försök igen.",
       "retry": "Försök igen",
       "referenceNote": "Det länkade programmet anger undantag för vaccinprodukt, riskgrupp och kompletterande vaccination."
+    },
+    "ky": {
+      "conditional": "Атайын график",
+      "seasonal": "Мезгилдүү график",
+      "routine": "Пландуу график",
+      "interval": "Мурунку дозанын датасы керек",
+      "source": "Булак",
+      "countrySaveFailed": "Өлкөнү сактоо мүмкүн болгон жок. Сураныч, кайра аракет кылып көрүңүз.",
+      "scheduleError": "Эмдөө графигин жүктөө мүмкүн болгон жок. Сураныч, кайра аракет кылып көрүңүз.",
+      "retry": "Кайра аракет кылуу",
+      "referenceNote": "Байланышкан программа продукт, тобокелдик тобу жана кечиктирилген эмдөөлөр боюнча өзгөчө учурларды аныктайт."
+    },
+    "et": {
+      "conditional": "Erigraafik",
+      "seasonal": "Hooajaline graafik",
+      "routine": "Tavagraafik",
+      "interval": "Eelmise doosi kuupäev on vajalik",
+      "source": "Allikas",
+      "countrySaveFailed": "Riiki ei õnnestunud salvestada. Palun proovi uuesti.",
+      "scheduleError": "Vaktsineerimisgraafikut ei õnnestunud laadida. Palun proovi uuesti.",
+      "retry": "Proovi uuesti",
+      "referenceNote": "Seotud programm määratleb toote, riskirühma ja järelevaktsineerimise erandid."
+    },
+    "tk": {
+      "conditional": "Aýratyn tertip",
+      "seasonal": "Möwsümleýin tertip",
+      "routine": "Adaty tertip",
+      "interval": "Öňki dozanyň senesi gerek",
+      "source": "Çeşme",
+      "countrySaveFailed": "Ýurdy saklap bolmady. Gaýtadan synanyşyň.",
+      "scheduleError": "Sanjym tertibini ýükläp bolmady. Gaýtadan synanyşyň.",
+      "retry": "Gaýtadan synanyşmak",
+      "referenceNote": "Baglanyşykly programma önüm, töwekgelçilik topary we yzyny tutmak boýunça kadadan çykmalary kesgitleýär."
+    },
+    "uk": {
+      "conditional": "Особливий графік",
+      "seasonal": "Сезонний графік",
+      "routine": "Плановий графік",
+      "interval": "Потрібна дата попередньої дози",
+      "source": "Джерело",
+      "countrySaveFailed": "Не вдалося зберегти країну. Спробуйте ще раз.",
+      "scheduleError": "Не вдалося завантажити графік щеплень. Спробуйте ще раз.",
+      "retry": "Спробувати ще раз",
+      "referenceNote": "Пов’язана програма визначає винятки щодо препаратів, груп ризику та наздоганяльної вакцинації."
     }
   }
 }

@@ -1,0 +1,13 @@
+{
+  "title": "Protégez vos données",
+  "subtitle": "Vos notes de grossesse, de santé et sur bébé sont privées. Vous seule pourrez ouvrir l'application.",
+  "bio_ios": "Face ID",
+  "bio_android": "Empreinte digitale ou reconnaissance faciale",
+  "bio_line": "S'ouvre d'un regard ou d'une touche",
+  "pin_title": "Code PIN à 4 chiffres",
+  "pin_line": "Solution de secours : vous pouvez toujours déverrouiller avec votre code PIN",
+  "settings_title": "Désactivable à tout moment",
+  "settings_line": "Désactivez-le ou changez le code PIN dans {where}",
+  "enable": "Activer la protection",
+  "later": "Pas maintenant"
+}

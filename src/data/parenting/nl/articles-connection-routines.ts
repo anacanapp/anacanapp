@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Hechting: de veilige haven van je kind',
+    summary: 'Veilige hechting ontstaat niet door perfect ouderschap, maar door “goed genoeg”, sensitief en betrouwbaar ouderschap.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby beschreef hechting als het instinct van een kind om bij gevaar nabijheid te zoeken. Mary Ainsworth zag in haar observaties dat kinderen met een sensitieve en voorspelbare ouder die ouder gebruiken als “veilige basis”: ze gaan rustig op ontdekking, en als ze schrikken komen ze terug om tot rust te komen.',
+      'Veilige hechting hangt in de jaren daarna samen met betere emotieregulatie, sociale vaardigheden en zelfvertrouwen. Belangrijk: daarvoor hoef je niet op elke huilbui meteen en perfect te reageren. Onderzoek laat zien dat een groot deel van het contact uit momenten bestaat waarin je elkaar “mist”; waar het om gaat, is dat die momenten daarna worden hersteld.',
+      'Hechting is niet één keer klaar: ook op de basisschool moet je kind weten dat hij in moeilijke momenten bij jou terecht kan. Alleen gaat dat nu meer via luisteren en het gevoel “ik sta aan jouw kant” dan via knuffels.',
+    ],
+    tryToday: [
+      'Als je kind naar je toe komt (blij of verdrietig), geef hem een paar seconden je volle aandacht: leg je telefoon neer en kijk hem aan.',
+      'Maak een kort, vast afscheidsritueel: een knuffel, “tot vanavond”, en ga dan ook echt. Stiekem weggaan schaadt het vertrouwen.',
+      'Sluit één keer per dag aan bij zijn interesses: waar hij mee speelt, waar hij over praat.',
+      'Herstel achteraf een moment waarop je boos werd: “Ik was vanochtend ongeduldig. Kom, we beginnen opnieuw.”',
+    ],
+    mistakes: [
+      'Je baby laten huilen uit angst dat hij “aan de arm went”. In de eerste maanden maakt reageren hem niet minder zelfstandig, maar juist zelfstandiger.',
+      'Hechting opvatten als “nooit van je kind weggaan”. Kinderen bouwen ook veilige banden op met oma, papa of de leidster, en dat is goed.',
+      'Perfect willen zijn. Je kind heeft geen ideale ouder nodig, maar een oprechte ouder die dingen kan herstellen.',
+    ],
+    byAge: {
+      '0-1': 'Reageer op huilen, maak oogcontact, praat, zing. Op deze leeftijd bestaat verwennen niet.',
+      '1-3': 'Je kind gaat op ontdekking en komt terug. In de speeltuin op een bankje zitten en zeggen “ik ben hier” is genoeg.',
+      '3-6': 'Elke dag 10–15 minuten speciale speeltijd versterkt de hechting.',
+      '6-12': 'Luister zonder te oordelen. Als je er bij zijn kleine problemen bent, komt hij met zijn grote problemen ook naar jou.',
+    },
+    specialist: [
+      'Als je baby oogcontact vermijdt, geen enkele interesse toont in jou of in bekende mensen, of bijna niet te troosten is — ga naar een arts.',
+      'Als je kind zich aan iedereen, zelfs aan onbekenden, even sterk en zonder onderscheid hecht (vooral na moeilijke eerste jaren) — zoek hulp bij een kinderpsycholoog.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Als je baby huilt: de mythe van het “verwennen”',
+    summary: 'Huilen is de enige taal van je baby. Reageren zorgt niet voor verwennen, maar voor vertrouwen.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'De American Academy of Pediatrics zegt het duidelijk: in de eerste maanden kun je een baby niet verwennen. Liefdevol reageren op huilen kalmeert het stresssysteem van je baby en bouwt het vertrouwen op dat “de wereld veilig is”.',
+      'Tegelijk is het normaal dat ook gezonde baby’s in de eerste weken veel huilen: het neemt toe vanaf ongeveer 2 weken, piekt rond 6–8 weken en neemt af rond 3–4 maanden. Soms is er geen enkele oorzaak te vinden. Dat is niet jouw falen.',
+      'De belangrijkste veiligheidsregel: schud een baby nooit, ook niet als je op je tandvlees loopt. Schudden kan hersenletsel veroorzaken. Je baby op zijn rug in zijn bedje leggen en een paar minuten de kamer uitgaan is een volkomen goede stap.',
+    ],
+    tryToday: [
+      'Check de basisbehoeften: honger, luier, te warm of te koud, boertje, moeheid.',
+      'Probeer kalmerende technieken: inbakeren (heupen vrij), ritmisch wiegen, een “ssst”-geluid, rondlopen met je baby in je armen, huid-op-huidcontact.',
+      'Maak een hulpplan voor de huiluren: wissel af met je partner, oma of een buurvrouw.',
+      'Is je geduld op: leg je baby op een veilige plek, haal 5–10 minuten adem, drink water, bel iemand en ga dan terug.',
+    ],
+    mistakes: [
+      'Een heel jonge baby lang alleen laten met de gedachte “als je hem laat huilen, went hij er wel aan”.',
+      'Veel huilen toeschrijven aan je eigen “slechte ouderschap”. Deze periode gaat voorbij.',
+      'Je schamen om hulp te vragen.',
+    ],
+    specialist: [
+      'Als er naast het huilen koorts is (vooral bij een baby jonger dan 3 maanden), braken, diarree, weigeren te drinken, slapheid of ongewoon schel huilen — ga meteen naar een arts. Is het ernstig, bel {emergency}.',
+      'Als je de neiging krijgt je baby door elkaar te schudden of iets aan te doen, vraag dan meteen hulp. Dat maakt je geen slecht mens; het laat zien dat je vermoeidheid haar grens heeft bereikt.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 minuten per dag: speciale tijd',
+    summary: 'Korte, dagelijkse speeltijd waarin je kind de leiding heeft, is een van de krachtigste manieren om gedragsproblemen te verminderen.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'De eerste fase van PCIT (Parent-Child Interaction Therapy), een van de best onderzochte oudertrainingen, draait precies hierom: elke dag 5–10 minuten spel waarin je kind de leiding heeft, terwijl de ouder prijst, beschrijft en nadoet. Meta-analyses laten zien dat zulke programma’s gedragsproblemen duidelijk verminderen.',
+      'De reden is eenvoudig: als de behoefte aan aandacht op een positieve manier wordt vervuld, hoeft je kind die aandacht minder te “verdienen” met negatief gedrag.',
+    ],
+    tryToday: [
+      'Zet een timer: 10 minuten. Telefoon in een andere kamer.',
+      'Je kind kiest het spel, jij volgt. Geen opdrachten, geen spervuur aan vragen, geen kritiek.',
+      'Beschrijf wat hij doet: “Je zet het rode blok helemaal bovenop.” Doe hem na en prijs hem: “Wat bouw je dat zorgvuldig!”',
+      'Zeg aan het eind: “Ik vond het heel fijn om met je te spelen. Morgen weer.”',
+    ],
+    mistakes: [
+      'De speciale tijd schrappen vanwege slecht gedrag. Het is geen straf of beloning, maar een dagelijkse vitamine.',
+      'Het spel in een “les” veranderen: “Welke kleur is dit? Hoeveel blokken zijn er?”',
+    ],
+    byAge: {
+      '1-3': '5 minuten is genoeg. Ga op de grond zitten, op zijn hoogte.',
+      '6-12': 'Geef het een naam: “mama-zoontijd” of “papa-dochtertijd”. Het kan een kaartspel zijn, samen koken, een wandeling.',
+    },
+    specialist: [
+      'Als speciale tijd en andere methodes na een paar weken helemaal geen verandering brengen en de gedragsproblemen ernstig zijn — zoek een professional voor PCIT of een vergelijkbaar programma.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Verlatingsangst en wennen aan de opvang',
+    summary: 'Huilen bij afscheid is een teken van hechting. Een kort, oprecht afscheid en een voorspelbare terugkeer maken het wennen makkelijker.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Verlatingsangst begint rond 8–10 maanden, piekt rond 15–18 maanden en wordt meestal minder richting 3 jaar. In deze periode begrijpt je kind nog niet helemaal dat de ouder niet “verdwijnt”.',
+      'Wat de onrust van je kind het meest vergroot, is onvoorspelbaarheid. Stiekem weggaan kan de tranen op dat moment verminderen, maar zorgt er op lange termijn voor dat je kind zich meer aan je vastklampt.',
+    ],
+    tryToday: [
+      'Maak een kort, vast afscheidsritueel: een knuffel, een kus, “na het middageten kom ik”, en dan ga je.',
+      'Oefen voordat de opvang begint met korte proefscheidingen: 15 minuten, daarna 1 uur.',
+      'Koppel je terugkomst aan iets wat je kind begrijpt: “Na het slapen, na het fruit kom ik je halen.”',
+      'Een “overgangsknuffel” van thuis — een klein speeltje, een foto van jou — kan hem troosten.',
+    ],
+    mistakes: [
+      'Niet weg kunnen bij een huilend kind en bij de deur steeds weer terugkomen.',
+      'Lachen om de angst van je kind of zeggen: “Je bent al groot, foei.”',
+    ],
+    specialist: [
+      'Als de verlatingsangst veel sterker is dan bij de leeftijd past, slapen, eten en naar de opvang gaan wekenlang verstoort, of opnieuw begint op de basisschoolleeftijd — zoek hulp bij een kinderpsycholoog.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Slaapritueel: elke avond dezelfde drie stappen',
+    summary: 'Een eenvoudig ritueel dat elke avond terugkomt, helpt je kind sneller in slaap te vallen en ’s nachts minder vaak wakker te worden.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'In een gerandomiseerde studie (Mindell en collega’s, 2009) zorgde een avondritueel van 3 stappen — badje, massage of crème, een rustige activiteit (knuffelen, slaapliedje) — er binnen twee weken voor dat kinderen sneller in slaap vielen en ’s nachts minder wakker werden, en dat de stemming van moeders verbeterde. Latere overzichtsstudies lieten zien dat avondroutines ook samenhangen met taalontwikkeling en emotieregulatie.',
+      'Aanbevolen slaap per leeftijd (dutjes overdag meegerekend): 4–12 maanden — 12–16 uur, 1–2 jaar — 11–14 uur, 3–5 jaar — 10–13 uur, 6–12 jaar — 9–12 uur. Slaaptekort ziet er bij kinderen vaak niet uit als moeheid, maar als prikkelbaarheid en hyperactiviteit.',
+      'Voor baby’s zijn de regels voor veilig slapen belangrijk: op de rug, op een stevige, vlakke matras, zonder kussen en dekbed, idealiter in dezelfde kamer als de ouders, maar in een eigen bedje.',
+    ],
+    tryToday: [
+      'Begin vanavond met een ritueel: bijvoorbeeld badje → pyjama en tandenpoetsen → boekje en slaapliedje. Elke avond dezelfde volgorde, rond dezelfde tijd.',
+      'Zet een uur voor het ritueel de schermen uit en dim de lichten.',
+      'Maak samen een plaatjesschema van het ritueel en laat je kind elke stap zelf “afvinken”.',
+      'Laat het ritueel niet langer dan 20–30 minuten duren. Hoe langer het wordt, hoe meer je kind het gaat rekken.',
+    ],
+    mistakes: [
+      'Elke avond een andere tijd en een andere volgorde. De hersenen zoeken naar voorspelbare signalen.',
+      'Wild spel, schermen of geschreeuw vlak voor het slapengaan.',
+      'Slaapmethodes als “verplicht” zien. Naast het bed zitten, samen slapen of juist niet, geleidelijk afstand nemen — kies wat bij jullie gezin past. Geen enkele methode is voor iedereen nodig.',
+    ],
+    byAge: {
+      '0-1': 'Houd het ritueel kort: badje, voeding, slaapliedje. Je kunt proberen je baby slaperig maar nog wakker in bed te leggen; lukt het niet, maak je dan geen zorgen.',
+      '1-3': 'Geef keuzes: “Lezen we dit boekje of dat?” Over bedtijd valt niet te onderhandelen, over het boekje wel.',
+      '3-6': 'De vragen om het naar bed gaan te “rekken” beginnen. Bouw een moment voor “de laatste vraag” of “de laatste knuffel” in het ritueel in.',
+      '6-12': 'Laat telefoon, tablet en tv niet in de slaapkamer. Plan de bedtijd samen, in combinatie met huiswerk en sport.',
+    },
+    specialist: [
+      'Als je kind in zijn slaap snurkt, ademstops heeft of met open mond ademt en overdag erg slaperig is — ga naar een arts.',
+      'Als slaapproblemen langer dan een paar weken aanhouden en het dagelijks leven van het gezin ernstig verstoren.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Nachtelijk wakker worden en nachtangsten',
+    summary: 'Een nachtmerrie en nachtangst (pavor nocturnus) zijn verschillende dingen. Elk vraagt een andere aanpak.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Nachtmerries komen in de tweede helft van de nacht, tijdens de droomslaap. Je kind wordt wakker, zegt dat hij bang is, herkent je en heeft troost nodig.',
+      'Nachtangst (pavor nocturnus) komt meestal 1–3 uur na het inslapen, in de diepe slaap. Je kind kan schreeuwen en de ogen open hebben, maar is eigenlijk niet wakker, herkent je niet en weet er ’s ochtends niets meer van. Het komt vaak voor tussen 3 en 7 jaar en is meestal onschuldig.',
+    ],
+    tryToday: [
+      'Na een nachtmerrie: knuffel hem, troost hem kort, doe het licht een beetje aan. Laat hem de nachtmerrie ’s nachts niet in detail vertellen; praat er morgen over.',
+      'Bij nachtangst: probeer je kind niet wakker te maken, zorg alleen voor zijn veiligheid en blijf rustig bij hem. Als de episode voorbij is, slaapt hij gewoon verder.',
+      'Slaaptekort maakt nachtangst erger: probeer de bedtijd 20–30 minuten te vervroegen.',
+      'Praat overdag via spel over angsten: teken samen een “monsterboek” en maak de monsters grappig.',
+    ],
+    mistakes: [
+      'Je kind tijdens nachtangst door elkaar schudden om hem wakker te maken.',
+      'De angst belachelijk maken: “Monsters bestaan niet, doe niet zo dom.”',
+    ],
+    specialist: [
+      'Als de episodes heel vaak voorkomen (een paar keer per week), langer dan 30 minuten duren, er ongewone bewegingen zijn (ritmisch schokken, plassen) of je kind er overdag slaperig van is — ga naar een arts.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Kieskeurig eten: wie is waarvoor verantwoordelijk?',
+    summary: 'De ouder bepaalt wat, wanneer en waar er gegeten wordt; het kind bepaalt hoeveel en óf het eet. Die verdeling maakt een eind aan de strijd aan tafel.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Nieuw eten afwijzen (voedselneofobie) komt tussen 2 en 6 jaar heel vaak voor en is evolutionair logisch: het beschermt een jong kind tegen onbekend, mogelijk gevaarlijk voedsel. Meestal is het een fase die voorbijgaat.',
+      'Onderzoek laat zien dat een kind dwingen te eten, “nog één hapje” zeggen en belonen met snoep het omgekeerde effect hebben: de afkeer van dat eten wordt groter en je kind luistert minder goed naar zijn honger- en verzadigingssignalen. Herhaald aanbieden zonder druk — vaak 10–15 keer — vergroot juist de acceptatie.',
+      'Het model van de “verdeling van verantwoordelijkheid” van diëtist Ellyn Satter zet deze kennis om in een praktische regel: de ouder kiest het menu, het tijdstip en de plek, het kind kiest hoeveel het eet.',
+    ],
+    tryToday: [
+      'Zorg bij elke maaltijd voor minstens één “veilig” gerecht dat je kind lekker vindt, met daarnaast een klein stukje van iets nieuws.',
+      'Zet het nieuwe eten neer zonder commentaar. Eet hij het niet, zeg dan niets. Morgen en overmorgen gewoon weer.',
+      'Eet samen als gezin, zonder schermen. Je kind moet zien dat jij met smaak eet.',
+      'Betrek je kind in de keuken: laat hem groente wassen of de salade mengen. Wat hij zelf maakt, proeft hij eerder.',
+      'Leg vaste tijden vast voor maaltijden en tussendoortjes, zonder “grazen” daartussen.',
+    ],
+    mistakes: [
+      'Dwingen, omkopen (“eet je broccoli, dan krijg je chocola”) of straffen.',
+      'Bij elke maaltijd een apart “restaurantmenu” voor je kind maken.',
+      'Eisen dat het bord leeg moet. Je kind moet zijn verzadigingsgevoel leren horen.',
+    ],
+    byAge: {
+      '1-3': 'Vingerfood, kleine porties, laat hem zelf eten. Knoeien hoort bij het leren.',
+      '3-6': 'De “proefregel”: proeven hoeft niet, maar het nieuwe eten bekijken, eraan ruiken en het aanraken kan een spelletje zijn.',
+      '6-12': 'Betrek hem bij het plannen van het menu: laat hem één keer per week een nieuwe groente kiezen.',
+    },
+    specialist: [
+      'Als je kind afvalt, achterblijft op zijn groeicurve, heel weinig verschillende dingen eet (bijvoorbeeld minder dan 15), of kokhalst, zich verslikt of pijn heeft bij het eten — ga naar een arts.',
+      'Als er sterke paniek is rond eten, braken of volledige weigering van bepaalde structuren — een voedingsdeskundige of eetteam kan helpen.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Schermtijd: een slim plan per leeftijd',
+    summary: 'Op jonge leeftijd kan een scherm echt contact niet vervangen. Naarmate je kind ouder wordt, is het doel geen verbod, maar een gezinsplan dat jullie samen maken.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Jonge kinderen leren van een scherm veel minder dan van een echt mens: taal en sociale vaardigheden ontstaan in het heen-en-weercontact van gezicht tot gezicht. Zelfs een tv die op de achtergrond aanstaat, vermindert hoeveel een ouder met zijn kind praat.',
+      'WHO (2019): voor kinderen jonger dan 1 jaar wordt schermtijd niet aangeraden; van 2–4 jaar niet meer dan 1 uur per dag, en minder is beter. American Academy of Pediatrics (2016): tot 18 maanden schermen vermijden (videobellen uitgezonderd), van 2–5 jaar tot 1 uur per dag kwalitatief goede inhoud en zo veel mogelijk samen met een ouder kijken; vanaf 6 jaar vaste afspraken die slaap, beweging en contact niet in de weg zitten.',
+      'Een scherm voor het slapengaan vertraagt het inslapen. Een scherm tijdens het eten maakt dat je kind zijn verzadigingssignalen minder goed hoort.',
+    ],
+    tryToday: [
+      'Wijs schermvrije zones aan: de eettafel en de slaapkamer.',
+      'Zet het scherm een uur voor bedtijd uit.',
+      'Kondig het einde van de schermtijd vooraf aan en gebruik een timer: “Als de timer gaat, gaat de tablet uitrusten.”',
+      'Kijk een keer samen en praat erover: “Waarom denk jij dat hij dat deed?” Zo wordt het scherm een moment van contact.',
+      'Let ook op je eigen telefoon: zet meldingen uit als je kind bij je is.',
+    ],
+    mistakes: [
+      'Het scherm gebruiken als belangrijkste middel om een driftbui te stoppen. Dan leert je kind niet zelf tot rust te komen.',
+      'Alleen regels voor je kind maken. Kinderen nemen de schermgewoontes van hun ouders over.',
+      'Alle schermen als “slecht” zien. Videobellen, samen naar educatieve inhoud kijken en creatieve apps zijn iets anders.',
+    ],
+    byAge: {
+      '0-1': 'Geen scherm, behalve videobellen. Het beste “scherm” voor je baby is jouw gezicht.',
+      '1-3': 'Tot 2 jaar zo weinig mogelijk. Kijkt hij toch: kort, rustig tempo en met jou erbij.',
+      '3-6': 'Tot 1 uur per dag, goede inhoud zonder reclame. Niet tijdens het eten en niet voor het slapengaan.',
+      '6-12': 'Schrijf samen een mediaplan voor het gezin: school, slaap, sport en vrienden gaan voor. Houd je aan de leeftijdsgrenzen voor sociale media.',
+    },
+    specialist: [
+      'Als je kind extreem agressief wordt als je het scherm afpakt, nergens anders meer in geïnteresseerd is of slaap en school ernstig verstoord zijn — zoek hulp bij een kinderpsycholoog.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Zindelijk worden: zonder haast',
+    summary: 'De belangrijkste stap bij zindelijkheidstraining is wachten op tekenen dat je kind er klaar voor is. De meeste kinderen zijn tussen 2 en 3 jaar zover.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'In de jaren zestig stelde kinderarts T. Berry Brazelton een “kindgerichte” aanpak voor: beginnen als het kind tekenen van gereedheid laat zien, zonder druk en zonder straf. Die aanpak vormt nog steeds de basis van de aanbevelingen van de American Academy of Pediatrics.',
+      'Tekenen van gereedheid: 2 uur of langer droog blijven, het vervelend vinden als de luier nat is, eenvoudige opdrachten begrijpen, zelf de broek op en neer kunnen trekken, interesse tonen in de wc. ’s Nachts droog zijn komt later: tot 5–6 jaar ’s nachts nat zijn is normaal.',
+    ],
+    tryToday: [
+      'Kijk of je tekenen van gereedheid ziet. Zijn die er nog niet, wacht dan; dat is normaal.',
+      'Laat je kind zelf het potje of het wc-brilletje kiezen. Laat hem er eerst met kleren aan op zitten en een boekje lezen.',
+      'Plan na het eten en na het slapen een kort “wc-moment” en bedank hem, wat het resultaat ook is.',
+      'Reageer rustig op ongelukjes: “Dat gebeurt. Kom, we ruimen het samen op.”',
+    ],
+    mistakes: [
+      'Straffen, beschamen, vergelijken met andere kinderen. Dat kan leiden tot verstopping en angst voor de wc.',
+      'Beginnen tijdens grote veranderingen (een nieuwe baby, een verhuizing, de start op de opvang).',
+      'Je kind dwingen lang te blijven zitten.',
+    ],
+    byAge: {
+      '1-3': 'Speel “naar de wc” met een knuffel en lees boekjes. Haast je niet om te beginnen.',
+      '3-6': 'Ongelukjes zijn normaal, vooral als hij helemaal opgaat in zijn spel. ’s Nachts mag de luier nog even blijven.',
+    },
+    specialist: [
+      'Pijnlijke of heel zeldzame ontlasting (verstopping), pijn of branderigheid bij het plassen, overdag vaak ongelukjes na zijn vierde.',
+      'Als hij na lange tijd droog te zijn geweest overdag of ’s nachts weer nat is — ga naar een arts.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Ochtendstress: de deur uit zonder geschreeuw',
+    summary: 'De meeste ochtendconflicten los je de avond ervoor op. Voorbereiding, een plaatjesschema en wat extra tijd doen wonderen.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Op gehaaste en gespannen momenten worden de executieve functies — plannen, onthouden, geduld — van zowel ouder als kind zwakker. Daarom werken ochtendregels beter met een schema dat je kunt zien dan met woorden.',
+      'Routines die je kind een gevoel van controle geven (stappen die hij zelf afvinkt) vergroten de samenwerking en verminderen de noodzaak om steeds te herinneren.',
+    ],
+    tryToday: [
+      'Leg de avond ervoor kleren, tas en schoenen klaar. Laat je kind zelf zijn kleren kiezen.',
+      'Maak een plaatjeskaart voor de ochtendstappen: opstaan → wc → aankleden → ontbijt → tandenpoetsen → schoenen.',
+      'Plan 15 minuten extra tijd in: zet voor jezelf een vroegere vertrektijd.',
+      'Houd de ochtend schermvrij, in elk geval tot iedereen klaar is.',
+    ],
+    mistakes: [
+      'Hetzelfde tientallen keren herhalen. Zeg het één keer en wijs daarna naar de kaart.',
+      'Alles voor je kind doen, omdat “het zo sneller gaat”.',
+    ],
+    specialist: [
+      'Als je kind elke ochtend klaagt over buikpijn of hoofdpijn en hardnekkig weigert naar de opvang of school te gaan — praat met een arts of psycholoog.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '“Serve and return”: het geheim van taal en hersenen',
+    summary: 'Je kind “serveert” een signaal — een blik, een geluid, een gebaar — en jij “slaat terug”. Dit eenvoudige spel bouwt de architectuur van de hersenen.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Het Center on the Developing Child van Harvard University vergelijkt dit wederzijdse contact met tennis: de baby maakt een geluid, kijkt, wijst; de volwassene reageert. Hoe vaker dat heen-en-weer wordt herhaald, hoe sterker de zenuwbanen voor taal, aandacht en sociale vaardigheden worden. Geen antwoord krijgen veroorzaakt juist stress.',
+      'Een interessante studie (Romeo en collega’s, 2018) liet zien dat de activiteit in de taalgebieden van de hersenen van een kind beter wordt verklaard door het aantal beurtwisselingen in een gesprek dan door het aantal woorden dat het kind hoort. Het gaat er dus niet om veel tegen je kind te praten, maar mét hem.',
+    ],
+    tryToday: [
+      'Volg waar de aandacht van je kind naartoe gaat en zet het in woorden: “Ja, een hond! Een grote, bruine hond.”',
+      'Wacht op een antwoord: na een vraag 5 seconden stil zijn geeft je kind de tijd om zijn beurt te nemen.',
+      'Doe de geluidjes van je baby na en breid ze een beetje uit: hij zegt “ba”, jij zegt “ba-ba-bal!”',
+      'Vertel bij de dagelijkse klusjes wat je doet, als een “sportcommentator”: “Ik was de aardappels, nu snijd ik ze…”',
+    ],
+    mistakes: [
+      'Praten in een “les” veranderen: “Zeg eens: appel! Appel zeggen!” Druk zorgt ervoor dat je kind minder praat.',
+      'De woorden van je kind meteen verbeteren. Herhaal in plaats daarvan gewoon de juiste vorm: “Beer? Ja, een rode, zachte beer.”',
+      'Op je telefoon kijken als je bij je kind bent. Elke melding is een “bal die niet wordt teruggeslagen”.',
+    ],
+    byAge: {
+      '0-1': 'Gezicht tot gezicht: lach, zing, reageer op de geluidjes van je baby.',
+      '1-3': 'Benoem het voorwerp waar je kind naar wijst, stel eenvoudige vragen, maak van één woord twee woorden.',
+      '3-6': 'Zoek samen uit waarom dingen zo zijn als hij “waarom?” vraagt, en stel open vragen: “Wat denk jij dat er nu gebeurt?”',
+    },
+    specialist: [
+      'Als er met 12 maanden geen enkel gebaar is (zwaaien, wijzen), met 16–18 maanden geen enkel woord of met 2 jaar geen zinnetjes van twee woorden — ga naar een arts of logopedist.',
+      'Als hij op welke leeftijd dan ook woorden verliest die hij al zei — wacht niet af, ga naar een arts.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'De kracht van spel: waarom spelen geen “vrije tijd” is',
+    summary: 'Vrij spel versterkt de executieve functies, de creativiteit en de stressbestendigheid van je kind.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Het rapport van de American Academy of Pediatrics uit 2018 (“The Power of Play”) noemt spel geen “luxe” maar een noodzaak voor de ontwikkeling van kinderen. Tijdens het spelen plant je kind, houdt het zich aan regels, onderhandelt het met anderen en leert het teleurstelling te verdragen.',
+      'Rollenspel (“winkeltje”, “dokter”) traint vooral de executieve functies: je kind moet in zijn rol blijven, de regels onthouden en zijn eigen wensen even opzijzetten.',
+    ],
+    tryToday: [
+      'Houd elke dag minstens een uur ongestructureerde speeltijd vrij (afhankelijk van de leeftijd mag dat verdeeld over de dag).',
+      'Kies eenvoudig, open speelgoed: blokken, dozen, verf, verkleedkleren. Minder speelgoed betekent meer creativiteit.',
+      'Eén keer per week vrij buitenspelen: bomen, zand, water, takken.',
+      'Doe af en toe mee in een “omgekeerde” rol: jij bent de klant, hij de verkoper.',
+    ],
+    mistakes: [
+      'Elke minuut vullen met clubjes en lessen. Verveling is het begin van creativiteit.',
+      'Bij een spelletje altijd winnen of altijd verliezen. Je kind moet allebei leren.',
+    ],
+    specialist: [
+      'Als je kind na 2–3 jaar helemaal geen interesse heeft in fantasiespel, zijn spel heel herhalend en onveranderlijk is of hij geen interesse heeft in spelen met andere kinderen — ga naar een arts voor een ontwikkelingsonderzoek.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Samen lezen: vanaf de eerste dag',
+    summary: 'Vanaf de babytijd samen boekjes lezen is een van de eenvoudigste en krachtigste gewoontes voor taal, aandacht en hechting.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'De American Academy of Pediatrics (2014) adviseert kinderartsen om ouders bij elk consult aan te raden vanaf de babytijd voor te lezen. Samen lezen vergroot de woordenschat, het luistervermogen en het latere leessucces.',
+      'De meeste winst komt van “dialogisch lezen”: de ouder stelt vragen, breidt het antwoord van het kind uit en praat over de plaatjes. Een boek is dus ook een middel voor “serve and return”.',
+    ],
+    tryToday: [
+      'Elke dag 10–15 minuten samen een boek, het liefst als onderdeel van het slaapritueel.',
+      'Stel op elke bladzijde één vraag: “Wat denk jij dat de poes nu gaat doen?”',
+      'Wil je kind hetzelfde boek 20 keer horen — lees het. Herhaling is een manier van leren.',
+      'Lees op de basisschoolleeftijd om de beurt: jij een bladzijde, hij een bladzijde.',
+    ],
+    mistakes: [
+      'Lezen brengen als een verplichte les.',
+      'Stoppen met voorlezen zodra je kind zelf begint te lezen. Voorlezen is tot 10–12 jaar nuttig.',
+    ],
+    specialist: [
+      'Als lezen op de basisschool veel moeilijker gaat dan bij leeftijdsgenoten, hij vaak letters door elkaar haalt of ondanks inspanning niet vooruitgaat — overleg met de leerkracht en een specialist (logopedist, psycholoog).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

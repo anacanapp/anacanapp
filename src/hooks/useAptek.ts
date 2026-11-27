@@ -6,6 +6,7 @@ import { mapRowsTranslation } from '@/lib/tr';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserStore } from '@/store/userStore';
 import { regionalCountry } from '@/lib/vaccine-schedule';
+import { invalidateQaygiCash } from '@/hooks/useQaygiCash';
 import { computeAptekTotals, isAptekAvailable, parseAptekConfig, type AptekConfig, type AptekCoupon } from '@/lib/aptek-pricing';
 
 export interface AptekProduct {
@@ -26,6 +27,8 @@ export interface AptekProduct {
   sales_count: number;
   stock: number | null;
   source_url: string | null;
+  /** Anacan-brand product: earns the QayğıCash own_shop rate (partner products earn nothing). */
+  cashback_own: boolean;
 }
 
 export interface AptekCartLine { id: string; product_id: string; quantity: number; product: AptekProduct }
@@ -87,6 +90,7 @@ export const useAptekProducts = (enabled = true) => {
         images: Array.isArray(r.images) && r.images.length ? (r.images as string[]) : r.image_url ? [String(r.image_url)] : [],
         tags: Array.isArray(r.tags) ? (r.tags as string[]) : [],
         sales_count: Number(r.sales_count) || 0,
+        cashback_own: r.cashback_own === true,
       }));
     },
   });
@@ -177,6 +181,8 @@ export interface PlaceOrderInput {
   address: { line: string; name?: string };
   phone: string;
   notes?: string;
+  /** QayğıCash bonus to apply, in AZN (server re-checks max share, minimum and balance). */
+  cashback?: number;
 }
 
 export function usePlaceAptekOrder() {
@@ -187,15 +193,18 @@ export function usePlaceAptekOrder() {
       const { data, error } = await db.rpc('place_aptek_order', {
         p_items: input.items, p_coupon: input.coupon || null, p_slot: input.slot, p_payment: input.payment,
         p_address: input.address, p_phone: input.phone, p_notes: input.notes || null,
+        ...(input.cashback && input.cashback > 0 ? { p_cashback: input.cashback } : {}),
       });
       if (error) throw error;
-      return data as { order_id: string; order_number: string; total: number };
+      return data as { order_id: string; order_number: string; total: number; cashback?: number };
     },
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ['aptek-cart', backendKey(), user?.id] });
       void qc.invalidateQueries({ queryKey: ['aptek-orders', backendKey(), user?.id] });
       void qc.invalidateQueries({ queryKey: ['aptek-products'] });
+      void invalidateQaygiCash(qc);
     },
+    onError: () => { void invalidateQaygiCash(qc); },
   });
 }
 

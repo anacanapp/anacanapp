@@ -1,0 +1,12 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261111150000_app_update_rules.sql",
+  "runtime": "google-app-update-centre",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls app_update_rules and checks its three triggers",
+  "relations": [
+    { "relation": "public.app_update_rules", "change": "created", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "admin-defined update prompts (mode, platform, version range, languages, audience, per-language texts); admins only via RLS" },
+    { "relation": "public.app_settings", "change": "row store_versions added", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "version each store serves; already guarded" }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261113130000_book_checkout_nudge.sql",
+  "runtime": "google-books",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; the new relation is registered in guarded_relations with the three standard triggers (the migration refuses without the guard catalog and verifies 1 relation / 3 triggers)",
+  "preserve": [
+    "book_orders / book_entitlements unchanged (20261104150000_printable_books.sql)",
+    "no new timer: the existing 15-minute anacan-web-premium-nudge timer calls web-premium-renew {\"mode\":\"nudge\"}, which now also runs the book reminder"
+  ],
+  "relations": [
+    { "relation": "public.book_checkout_nudges", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "one row per abandoned book order reminded (user_id, order_id unique, push_sent, created_at, sent_at); RLS on, no client grants; written only by the service-role RPCs below" }
+  ],
+  "functions": [
+    { "name": "public.book_checkout_nudges_due_v1(integer)", "security": "definer", "grant": ["service_role"], "note": "latest book order failed at Epoint 60 min to 24 h ago (amount >= 1, az); no paid/pending book order since, not all books owned, no reminder in 7 days; claims rows" },
+    { "name": "public.book_checkout_nudge_sent_v1(uuid, integer)", "security": "definer", "grant": ["service_role"], "note": "records delivery" },
+    { "name": "public.admin_banner_measured_stats_v1()", "security": "definer", "grant": ["authenticated (admin role checked inside)", "service_role"], "note": "read-only sums of ad_metrics_daily per creative for the admin banner list" }
+  ]
+}

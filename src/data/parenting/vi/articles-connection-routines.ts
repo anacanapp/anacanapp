@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Sự gắn bó: bến đỗ an toàn của con',
+    summary: 'Gắn bó an toàn không đến từ việc làm cha mẹ hoàn hảo, mà từ những cha mẹ “đủ tốt”, nhạy bén và đáng tin cậy.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby mô tả sự gắn bó là bản năng tìm kiếm sự gần gũi của trẻ khi gặp nguy hiểm. Còn Mary Ainsworth qua quan sát đã thấy rằng những đứa trẻ có cha mẹ nhạy bén và dễ đoán trước sẽ dùng cha mẹ như một “căn cứ an toàn”: thoải mái khám phá, và khi sợ thì quay về để được vỗ về.',
+      'Gắn bó an toàn gắn liền với khả năng điều chỉnh cảm xúc, kỹ năng kết bạn và sự tự tin tốt hơn trong những năm sau. Điều quan trọng: không cần đáp lại mọi tiếng khóc ngay lập tức và hoàn hảo. Nghiên cứu cho thấy phần lớn các tương tác là những khoảnh khắc “lệch nhịp”, và điều cốt lõi là sau đó hàn gắn lại những khoảnh khắc ấy.',
+      'Sự gắn bó không phải xây một lần là xong: ở tuổi đi học, con vẫn cần biết rằng lúc khó khăn con có thể quay về với bạn. Chỉ là giờ đây điều đó thể hiện qua sự lắng nghe và cảm giác “bố mẹ luôn đứng về phía con” nhiều hơn là những cái ôm.',
+    ],
+    tryToday: [
+      'Khi con đến với bạn (dù vui hay buồn), hãy dành trọn vài giây chú ý cho con: đặt điện thoại xuống, nhìn vào mắt con.',
+      'Trước khi xa nhau, hãy tạo một nghi thức chào tạm biệt ngắn và luôn giống nhau: ôm, “tối gặp lại nhé”, rồi thật sự rời đi. Lén lút bỏ đi làm tổn hại niềm tin.',
+      'Mỗi ngày một lần, hãy tham gia vào điều con quan tâm: con chơi gì, con kể gì.',
+      'Hàn gắn lại một lúc bạn đã nổi nóng: “Sáng nay bố mẹ thiếu kiên nhẫn. Mình bắt đầu lại nhé.”',
+    ],
+    mistakes: [
+      'Để bé khóc vì sợ bé “quen hơi”. Trong những tháng đầu, việc đáp lại không làm giảm mà ngược lại còn tăng tính tự lập.',
+      'Hiểu gắn bó là “không bao giờ rời con”. Con cũng xây dựng được mối gắn bó an toàn với bà, với bố, với cô giáo, và điều đó rất tốt.',
+      'Cố gắng trở nên hoàn hảo. Con không cần cha mẹ lý tưởng, mà cần cha mẹ chân thành và biết sửa sai.',
+    ],
+    byAge: {
+      '0-1': 'Đáp lại tiếng khóc, giao tiếp bằng mắt, trò chuyện, hát cho bé nghe. Ở tuổi này không có chuyện “chiều hư”.',
+      '1-3': 'Con đi khám phá rồi quay lại. Ngồi ở sân chơi và nói “bố mẹ ở đây” là đủ.',
+      '3-6': 'Mỗi ngày 10–15 phút chơi riêng đặc biệt giúp tăng cường sự gắn bó.',
+      '6-12': 'Lắng nghe mà không phán xét. Nếu bạn ở bên con trong những chuyện nhỏ, con sẽ mang cả những chuyện lớn đến với bạn.',
+    },
+    specialist: [
+      'Nếu bé tránh giao tiếp bằng mắt, hoàn toàn không quan tâm đến bạn hay những người quen thuộc, gần như không thể dỗ được — hãy đưa bé đi khám.',
+      'Nếu con gắn bó với tất cả mọi người như nhau, kể cả người lạ, không phân biệt (nhất là sau những năm đầu đời khó khăn) — hãy tìm đến chuyên gia tâm lý trẻ em.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Khi bé khóc: lầm tưởng “bế nhiều sẽ hư”',
+    summary: 'Tiếng khóc là ngôn ngữ duy nhất của bé. Đáp lại không làm bé hư, mà tạo nên niềm tin.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'Viện Hàn lâm Nhi khoa Hoa Kỳ nói rõ: trong những tháng đầu, không thể làm hư em bé. Dịu dàng đáp lại tiếng khóc giúp làm dịu hệ thống căng thẳng của bé và xây dựng niềm tin “thế giới này an toàn”.',
+      'Đồng thời, em bé khỏe mạnh khóc nhiều trong những tuần đầu cũng là bình thường: tiếng khóc bắt đầu tăng từ khoảng 2 tuần tuổi, đạt đỉnh lúc 6–8 tuần và giảm dần khi 3–4 tháng. Đôi khi không tìm ra lý do nào cả. Đó không phải là thất bại của bạn.',
+      'Quy tắc an toàn quan trọng nhất: khi cơn bực bội lên đến đỉnh điểm, tuyệt đối không bao giờ lắc em bé. Lắc có thể gây tổn thương não. Đặt bé nằm ngửa trong cũi rồi ra khỏi phòng vài phút là một việc hoàn toàn đúng đắn.',
+    ],
+    tryToday: [
+      'Kiểm tra các nhu cầu cơ bản: đói, tã, nóng hay lạnh, ợ hơi, mệt.',
+      'Thử các cách dỗ bé: quấn chũn (để hông được thoải mái), đung đưa nhịp nhàng, tiếng “suỵt suỵt”, bế bé đi lại, tiếp xúc da kề da.',
+      'Lập kế hoạch hỗ trợ cho những giờ bé hay khóc: thay phiên với bạn đời, bà hoặc hàng xóm.',
+      'Nếu cạn kiệt kiên nhẫn: đặt bé vào chỗ an toàn, hít thở 5–10 phút, uống nước, gọi cho ai đó, rồi quay lại.',
+    ],
+    mistakes: [
+      'Để em bé còn rất nhỏ một mình thật lâu vì nghĩ “cứ để khóc rồi sẽ quen”.',
+      'Gán việc bé khóc nhiều cho việc mình là “cha mẹ tồi”. Giai đoạn này rồi sẽ qua.',
+      'Ngại ngùng khi nhờ giúp đỡ.',
+    ],
+    specialist: [
+      'Nếu bé khóc kèm sốt (nhất là bé dưới 3 tháng), nôn, tiêu chảy, bỏ bú, li bì, khóc thét the thé bất thường — hãy đưa bé đi khám ngay. Nếu nghiêm trọng, gọi {emergency}.',
+      'Nếu bạn nảy ra ý nghĩ lắc bé hoặc làm hại bé, hãy tìm sự giúp đỡ ngay. Điều đó không biến bạn thành người xấu, mà cho thấy sự mệt mỏi của bạn đã đến giới hạn.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: 'Mỗi ngày 10 phút: thời gian đặc biệt',
+    summary: 'Một khoảng chơi ngắn mỗi ngày do con dẫn dắt là một trong những công cụ mạnh mẽ nhất để giảm vấn đề hành vi.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Giai đoạn đầu của PCIT (Liệu pháp Tương tác Cha mẹ – Con cái), một trong những chương trình dành cho cha mẹ được nghiên cứu nhiều nhất, dựa chính vào điều này: mỗi ngày 5–10 phút chơi do con dẫn dắt, còn cha mẹ khen ngợi, mô tả, bắt chước. Các phân tích tổng hợp cho thấy những chương trình này giảm đáng kể các vấn đề hành vi.',
+      'Lý do rất đơn giản: khi nhu cầu được chú ý của con được đáp ứng theo cách tích cực, con ít cần “giành” sự chú ý bằng hành vi tiêu cực.',
+    ],
+    tryToday: [
+      'Đặt hẹn giờ: 10 phút. Điện thoại để ở phòng khác.',
+      'Con chọn trò chơi, bạn đi theo. Không ra lệnh, không hỏi dồn, không phê bình.',
+      'Mô tả những gì con làm: “Con đặt khối màu đỏ lên trên cùng rồi.” Bắt chước và khen: “Con xếp cẩn thận quá!”',
+      'Khi kết thúc, hãy nói: “Chơi với con vui lắm. Mai mình chơi tiếp nhé.”',
+    ],
+    mistakes: [
+      'Hủy thời gian đặc biệt vì con cư xử chưa ngoan. Đây không phải hình phạt hay phần thưởng, mà là vitamin hằng ngày.',
+      'Biến trò chơi thành “giờ học”: “Đây là màu gì? Có mấy khối?”',
+    ],
+    byAge: {
+      '1-3': '5 phút là đủ. Ngồi xuống sàn, ngang tầm con.',
+      '6-12': 'Đặt cho nó một cái tên: “giờ của mẹ và con trai”. Có thể là chơi bài, cùng nấu ăn, đi dạo.',
+    },
+    specialist: [
+      'Nếu thời gian đặc biệt và các cách khác sau vài tuần vẫn không mang lại thay đổi nào, và vấn đề hành vi nghiêm trọng — hãy tìm đến chuyên gia để tham gia PCIT hoặc chương trình tương tự.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Lo âu khi xa cách và làm quen với nhà trẻ',
+    summary: 'Khóc khi xa cách là dấu hiệu của sự gắn bó. Lời tạm biệt ngắn gọn, chân thành và sự trở về có thể đoán trước giúp con thích nghi dễ dàng hơn.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Lo âu khi xa cách bắt đầu vào khoảng 8–10 tháng tuổi, đạt đỉnh lúc 15–18 tháng và thường dịu đi khi gần 3 tuổi. Đây là giai đoạn con chưa hiểu trọn vẹn rằng bố mẹ không “biến mất”.',
+      'Điều làm con lo lắng nhất là sự khó đoán. Lén bỏ đi có thể giảm nước mắt trong chốc lát, nhưng về lâu dài lại khiến con bám dính hơn.',
+    ],
+    tryToday: [
+      'Tạo nghi thức chào tạm biệt ngắn và luôn giống nhau: ôm, hôn, “ăn trưa xong bố mẹ sẽ đến”, rồi đi.',
+      'Trước khi bắt đầu đi nhà trẻ, hãy thử những lần xa nhau ngắn: 15 phút, rồi 1 tiếng.',
+      'Gắn thời điểm bạn quay lại với sự việc con hiểu được: “Ngủ trưa xong, ăn bữa phụ xong là bố mẹ đến.”',
+      'Một “đồ vật chuyển tiếp” từ nhà — món đồ chơi nhỏ, tấm ảnh của bạn — có thể an ủi con.',
+    ],
+    mistakes: [
+      'Không dứt ra được khỏi đứa trẻ đang khóc, quay lại ở cửa hết lần này đến lần khác.',
+      'Cười nỗi sợ của con hoặc nói “lớn rồi, xấu hổ quá”.',
+    ],
+    specialist: [
+      'Nếu nỗi sợ xa cách mạnh hơn mức phù hợp với tuổi, làm xáo trộn giấc ngủ, ăn uống và việc đi nhà trẻ trong nhiều tuần, hoặc quay trở lại ở tuổi đi học — hãy tìm đến chuyên gia tâm lý trẻ em.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Nghi thức trước khi ngủ: ba bước giống nhau mỗi tối',
+    summary: 'Một nghi thức đơn giản lặp lại mỗi tối giúp con ngủ nhanh hơn và ít thức giấc ban đêm hơn.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Trong một nghiên cứu ngẫu nhiên có đối chứng (Mindell và cộng sự, 2009), nghi thức buổi tối 3 bước — tắm, mát-xa hoặc thoa kem dưỡng, hoạt động yên tĩnh (ôm ấp, hát ru) — chỉ sau hai tuần đã giúp trẻ ngủ nhanh hơn, ít thức giấc ban đêm hơn, và tâm trạng của các bà mẹ cũng tốt lên. Các tổng quan sau đó cho thấy nếp sinh hoạt buổi tối còn gắn với sự phát triển ngôn ngữ và khả năng điều chỉnh cảm xúc.',
+      'Thời lượng ngủ khuyến nghị theo tuổi (gồm cả giấc ngủ ngày): 4–12 tháng — 12–16 giờ, 1–2 tuổi — 11–14 giờ, 3–5 tuổi — 10–13 giờ, 6–12 tuổi — 9–12 giờ. Ở trẻ em, thiếu ngủ thường không biểu hiện là mệt mỏi, mà là cáu kỉnh và hiếu động thái quá.',
+      'Với em bé, quy tắc ngủ an toàn rất quan trọng: nằm ngửa, trên nệm cứng và phẳng, không gối, không chăn, lý tưởng nhất là ngủ cùng phòng với bố mẹ nhưng trên giường riêng.',
+    ],
+    tryToday: [
+      'Bắt đầu nghi thức ngay từ tối nay: ví dụ tắm → mặc đồ ngủ và đánh răng → đọc sách và hát ru. Mỗi tối cùng một thứ tự, gần cùng một giờ.',
+      'Tắt màn hình, giảm ánh sáng một tiếng trước khi bắt đầu nghi thức.',
+      'Cùng con làm bảng nghi thức bằng hình ảnh, để con tự “đánh dấu” từng bước.',
+      'Nghi thức không nên kéo dài quá 20–30 phút. Càng dài, con sẽ càng cố kéo dài thêm.',
+    ],
+    mistakes: [
+      'Mỗi tối một giờ khác, một thứ tự khác. Não bộ tìm kiếm những tín hiệu có thể đoán trước.',
+      'Chơi đùa kích động, xem màn hình hoặc la hét trước khi ngủ.',
+      'Coi các phương pháp ngủ là “bắt buộc”. Ngồi cạnh con, ngủ chung hay ngủ riêng, rời xa dần dần — hãy chọn điều phù hợp với gia đình bạn. Không có phương pháp nào là bắt buộc với mọi người.',
+    ],
+    byAge: {
+      '0-1': 'Nghi thức ngắn thôi: tắm, bú, hát ru. Bạn có thể thử đặt bé lên giường khi bé buồn ngủ nhưng còn thức; không được cũng đừng lo.',
+      '1-3': 'Cho con lựa chọn: “Mình đọc cuốn này hay cuốn kia?” Giờ đi ngủ không phải bàn, chỉ có sách là được chọn.',
+      '3-6': 'Bắt đầu có những câu hỏi để “kéo dài” giờ đi ngủ. Hãy đưa vào nghi thức một khoảnh khắc “câu hỏi cuối cùng” hoặc “cái ôm cuối cùng”.',
+      '6-12': 'Điện thoại, máy tính bảng và tivi không để trong phòng ngủ. Cùng con lên kế hoạch giờ ngủ, kết hợp với bài tập và thể thao.',
+    },
+    specialist: [
+      'Nếu con ngáy khi ngủ, có lúc ngừng thở, thở bằng miệng, còn ban ngày thì buồn ngủ quá mức — hãy đưa con đi khám.',
+      'Nếu vấn đề giấc ngủ kéo dài hơn vài tuần và làm xáo trộn nghiêm trọng sinh hoạt gia đình.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Thức giấc ban đêm và nỗi sợ về đêm',
+    summary: 'Ác mộng và hoảng sợ ban đêm là hai chuyện khác nhau. Mỗi chuyện cần một cách xử lý riêng.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Ác mộng xảy ra ở nửa sau của đêm, trong giai đoạn mơ. Con thức dậy, nói rằng con sợ, nhận ra bạn và cần được an ủi.',
+      'Hoảng sợ ban đêm (pavor nocturnus) thường xảy ra 1–3 giờ sau khi ngủ, trong giấc ngủ sâu. Con có thể la hét, mắt mở, nhưng thực ra không tỉnh, không nhận ra bạn và sáng hôm sau không nhớ gì. Tình trạng này hay gặp ở trẻ 3–7 tuổi và thường vô hại.',
+    ],
+    tryToday: [
+      'Sau cơn ác mộng: ôm con, an ủi ngắn gọn, bật đèn sáng hơn một chút. Đừng bắt con kể chi tiết ác mộng lúc nửa đêm, để sáng mai nói chuyện.',
+      'Khi con hoảng sợ ban đêm: đừng cố đánh thức con, chỉ cần đảm bảo an toàn và lặng lẽ ở bên. Khi cơn qua đi, con sẽ ngủ tiếp.',
+      'Thiếu ngủ làm tăng hoảng sợ ban đêm: hãy thử cho con đi ngủ sớm hơn 20–30 phút.',
+      'Ban ngày, hãy nói về nỗi sợ qua trò chơi: cùng vẽ một “cuốn sách quái vật” và biến chúng thành buồn cười.',
+    ],
+    mistakes: [
+      'Lay con dậy trong lúc con đang hoảng sợ ban đêm.',
+      'Chế giễu nỗi sợ: “Làm gì có quái vật, đừng ngốc thế.”',
+    ],
+    specialist: [
+      'Nếu các cơn xảy ra quá thường xuyên (vài lần mỗi tuần), kéo dài hơn 30 phút, có cử động bất thường (run giật nhịp nhàng, tiểu dầm) hoặc khiến con buồn ngủ ban ngày — hãy đưa con đi khám.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Kén ăn: ai chịu trách nhiệm điều gì?',
+    summary: 'Cha mẹ quyết định ăn gì, khi nào và ở đâu; con quyết định ăn bao nhiêu và có ăn hay không. Sự phân chia này chấm dứt những cuộc chiến bên mâm cơm.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Né tránh món ăn mới (chứng sợ thức ăn mới) rất phổ biến ở trẻ 2–6 tuổi và hợp lý về mặt tiến hóa: nó bảo vệ trẻ nhỏ khỏi những thức ăn lạ, có thể nguy hiểm. Đây thường là một giai đoạn tạm thời.',
+      'Nghiên cứu cho thấy ép con ăn, nói “ăn thêm một thìa nữa” và thưởng bằng đồ ngọt lại phản tác dụng: làm con càng ghét món đó và làm yếu đi khả năng nhận biết tín hiệu đói – no của con. Thay vào đó, cho con tiếp xúc lặp lại mà không gây áp lực — thường là 10–15 lần — sẽ giúp con chấp nhận món ăn nhiều hơn.',
+      'Mô hình “phân chia trách nhiệm” của chuyên gia dinh dưỡng Ellyn Satter biến kiến thức này thành quy tắc thực tế: cha mẹ quyết định thực đơn, giờ giấc và địa điểm, còn con chọn ăn bao nhiêu.',
+    ],
+    tryToday: [
+      'Mỗi bữa ăn hãy có ít nhất một món “an toàn” con thích, bên cạnh là một miếng nhỏ món mới.',
+      'Đặt món mới lên mà không bình luận. Con không ăn cũng đừng nói gì. Mai, ngày kia lại cho tiếp.',
+      'Cả nhà cùng ăn, không có màn hình. Con cần thấy bạn ăn ngon lành.',
+      'Cho con vào bếp cùng: rửa rau, trộn salad. Món tự tay làm, con sẽ nếm thử nhiều hơn.',
+      'Đặt giờ cho bữa chính và bữa phụ, giữa các bữa không “ăn vặt lai rai”.',
+    ],
+    mistakes: [
+      'Ép buộc, mua chuộc (“ăn bông cải đi rồi bố mẹ mua sô-cô-la cho”) hoặc phạt.',
+      'Bữa nào cũng nấu riêng một “thực đơn nhà hàng” cho con.',
+      'Bắt con phải ăn sạch đĩa. Con cần lắng nghe được cảm giác no của mình.',
+    ],
+    byAge: {
+      '1-3': 'Đồ ăn cầm tay, khẩu phần nhỏ, để con tự xúc ăn. Lem luốc cũng là một phần của việc học.',
+      '3-6': '“Luật nếm thử”: nếm không bắt buộc, nhưng nhìn, ngửi, chạm vào món mới có thể thành một trò chơi.',
+      '6-12': 'Cho con tham gia lên thực đơn: mỗi tuần một lần, con chọn một loại rau mới.',
+    },
+    specialist: [
+      'Nếu con sụt cân, tụt khỏi đường tăng trưởng chiều cao – cân nặng, số món con chịu ăn quá ít (ví dụ dưới 15 món), hay ọe, sặc hoặc đau khi ăn — hãy đưa con đi khám.',
+      'Nếu con hoảng sợ dữ dội trước đồ ăn, nôn ói hoặc hoàn toàn từ chối một số kết cấu thức ăn — chuyên gia về ăn uống có thể giúp đỡ.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Thời gian màn hình: kế hoạch thông minh theo tuổi',
+    summary: 'Khi còn nhỏ, màn hình không thể thay thế sự giao tiếp thật. Khi con lớn lên, mục tiêu không phải cấm đoán, mà là một kế hoạch gia đình cùng nhau xây dựng.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Trẻ nhỏ học được từ màn hình ít hơn rất nhiều so với từ người thật: ngôn ngữ và kỹ năng xã hội được xây dựng qua giao tiếp “cho và nhận” mặt đối mặt. Ngay cả tivi bật làm nền cũng khiến cha mẹ ít trò chuyện với con hơn.',
+      'WHO (2019): không khuyến nghị màn hình cho trẻ dưới 1 tuổi; trẻ 2–4 tuổi không quá 1 giờ mỗi ngày, càng ít càng tốt. Viện Hàn lâm Nhi khoa Hoa Kỳ (2016): tránh màn hình đến 18 tháng tuổi (trừ gọi video), trẻ 2–5 tuổi xem tối đa 1 giờ mỗi ngày nội dung chất lượng và càng nhiều càng tốt là xem cùng cha mẹ; sau 6 tuổi, cần những quy tắc ổn định, không ảnh hưởng đến giấc ngủ, vận động và giao tiếp.',
+      'Màn hình trước khi ngủ làm con ngủ muộn hơn. Màn hình trong bữa ăn làm yếu đi khả năng nhận biết tín hiệu no của con.',
+    ],
+    tryToday: [
+      'Đặt ra những khu vực không màn hình: bàn ăn và phòng ngủ.',
+      'Tắt màn hình một tiếng trước khi ngủ.',
+      'Báo trước khi thời gian màn hình sắp hết và dùng hẹn giờ: “Khi chuông reo, máy tính bảng đi nghỉ nhé.”',
+      'Thử một lần cùng xem và trò chuyện: “Theo con, vì sao bạn ấy làm vậy?” Như thế màn hình trở thành cuộc trò chuyện.',
+      'Hãy để ý cả điện thoại của bạn: khi ở cạnh con, hãy tắt thông báo.',
+    ],
+    mistakes: [
+      'Dùng màn hình làm công cụ chính để dập tắt cơn ăn vạ. Con sẽ không học được cách tự bình tĩnh.',
+      'Chỉ đặt quy tắc cho con. Con lặp lại thói quen dùng màn hình của cha mẹ.',
+      'Coi mọi màn hình đều “xấu”. Gọi video, nội dung giáo dục cùng xem, ứng dụng sáng tạo là khác nhau.',
+    ],
+    byAge: {
+      '0-1': 'Không màn hình, trừ gọi video. “Màn hình” tốt nhất của bé là khuôn mặt bạn.',
+      '1-3': 'Đến 2 tuổi càng ít càng tốt. Nếu xem thì ngắn, nhịp chậm, có bạn ngồi cùng.',
+      '3-6': 'Tối đa 1 giờ mỗi ngày, nội dung chất lượng, không quảng cáo. Không xem khi ăn và trước khi ngủ.',
+      '6-12': 'Cùng nhau viết kế hoạch truyền thông của gia đình: học, ngủ, thể thao, bạn bè được ưu tiên trước. Tuân thủ giới hạn độ tuổi cho tài khoản mạng xã hội.',
+    },
+    specialist: [
+      'Nếu khi bị lấy màn hình con trở nên quá hung hăng, không còn hứng thú với bất cứ điều gì khác, giấc ngủ và việc học bị ảnh hưởng nghiêm trọng — hãy tìm đến chuyên gia tâm lý trẻ em.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Sẵn sàng bỏ bỉm: không vội vàng',
+    summary: 'Bước quan trọng nhất khi tập cho con đi vệ sinh là chờ dấu hiệu sẵn sàng. Hầu hết trẻ sẵn sàng trong khoảng 2–3 tuổi.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Những năm 1960, bác sĩ nhi khoa T. Berry Brazelton đề xuất cách tiếp cận “lấy trẻ làm trung tâm”: bắt đầu khi con có dấu hiệu sẵn sàng, không áp lực và không trừng phạt. Cách tiếp cận này đến nay vẫn là nền tảng cho các khuyến nghị của Viện Hàn lâm Nhi khoa Hoa Kỳ.',
+      'Dấu hiệu sẵn sàng: giữ khô từ 2 giờ trở lên, khó chịu khi tã ướt, hiểu được yêu cầu đơn giản, tự kéo quần lên xuống được, tỏ ra quan tâm đến nhà vệ sinh. Khô ráo ban đêm đến muộn hơn: tè dầm ban đêm đến 5–6 tuổi là bình thường.',
+    ],
+    tryToday: [
+      'Kiểm tra các dấu hiệu sẵn sàng. Nếu chưa có, hãy chờ, điều đó là bình thường.',
+      'Để con tự chọn bô hoặc bệ ngồi thu nhỏ. Lúc đầu cứ để con mặc nguyên quần áo ngồi lên và đọc sách.',
+      'Sau bữa ăn và giấc ngủ, đặt một “giờ đi vệ sinh” ngắn, và cảm ơn con dù kết quả thế nào.',
+      'Đón nhận những lần “sự cố” một cách bình tĩnh: “Không sao. Mình cùng dọn nhé.”',
+    ],
+    mistakes: [
+      'Trừng phạt, làm con xấu hổ, so sánh với trẻ khác. Điều này có thể gây táo bón và sợ đi vệ sinh.',
+      'Bắt đầu vào lúc có thay đổi lớn (em bé mới chào đời, chuyển nhà, bắt đầu đi nhà trẻ).',
+      'Bắt con ngồi bô quá lâu.',
+    ],
+    byAge: {
+      '1-3': 'Chơi “trò đi vệ sinh” với đồ chơi, đọc sách về chủ đề này. Đừng vội bắt đầu.',
+      '3-6': 'Sự cố là bình thường, nhất là khi con mải chơi. Vẫn có thể cho con dùng bỉm ban đêm.',
+    },
+    specialist: [
+      'Đi ngoài đau hoặc rất thưa (táo bón), đau hoặc buốt khi đi tiểu, thường xuyên tè dầm ban ngày sau 4 tuổi.',
+      'Nếu sau thời gian dài đã khô ráo, con lại bắt đầu tè dầm ban ngày hoặc ban đêm — hãy đưa con đi khám.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Buổi sáng vội vã: ra khỏi nhà không cần quát',
+    summary: 'Phần lớn xung đột buổi sáng được giải quyết từ tối hôm trước. Chuẩn bị sẵn, bảng kế hoạch bằng hình và một chút thời gian dự phòng sẽ tạo nên điều kỳ diệu.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Trong những lúc vội vàng và căng thẳng, chức năng điều hành của cả cha mẹ lẫn con — lập kế hoạch, ghi nhớ, kiên nhẫn — đều yếu đi. Vì vậy quy tắc buổi sáng hiệu quả hơn khi được thể hiện bằng bảng biểu nhìn thấy được, chứ không phải bằng lời.',
+      'Những nếp sinh hoạt cho con cảm giác chủ động (các bước con tự đánh dấu) làm tăng sự hợp tác và giảm việc phải nhắc đi nhắc lại.',
+    ],
+    tryToday: [
+      'Chuẩn bị quần áo, cặp sách và giày từ tối hôm trước. Để con tự chọn quần áo.',
+      'Cùng làm thẻ hình cho các bước buổi sáng: dậy → đi vệ sinh → mặc quần áo → ăn sáng → đánh răng → đi giày.',
+      'Dành 15 phút dự phòng: tự ghi giờ xuất phát sớm hơn cho chính mình.',
+      'Buổi sáng không màn hình, ít nhất là cho đến khi chuẩn bị xong.',
+    ],
+    mistakes: [
+      'Nhắc một điều hàng chục lần. Hãy nói một lần, sau đó chỉ vào thẻ.',
+      'Làm hết mọi thứ thay con vì “như vậy nhanh hơn”.',
+    ],
+    specialist: [
+      'Nếu sáng nào con cũng kêu đau bụng hoặc đau đầu, kiên quyết không chịu đi nhà trẻ hoặc đi học — hãy nói chuyện với bác sĩ hoặc chuyên gia tâm lý.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '“Cho và nhận”: bí mật của ngôn ngữ và não bộ',
+    summary: 'Con “đưa ra” một tín hiệu — ánh nhìn, âm thanh, cử chỉ — và bạn “đáp lại”. Trò chơi đơn giản này xây dựng cấu trúc não bộ.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Trung tâm Phát triển Trẻ em của Đại học Harvard ví sự tương tác qua lại này như một trận quần vợt: em bé phát ra âm thanh, nhìn, chỉ tay; người lớn đáp lại. Sự “cho và nhận” này càng lặp lại, các đường dẫn thần kinh cho ngôn ngữ, sự chú ý và kỹ năng xã hội càng vững chắc. Còn khi không được đáp lại, con sẽ bị căng thẳng.',
+      'Một nghiên cứu thú vị (Romeo và cộng sự, 2018) cho thấy hoạt động của các vùng ngôn ngữ trong não trẻ được giải thích tốt hơn bởi số lượt trao đổi qua lại trong cuộc trò chuyện chứ không phải đơn thuần số từ con nghe được. Tức là điều quan trọng không phải nói nhiều, mà là nói chuyện cùng con.',
+    ],
+    tryToday: [
+      'Theo dõi xem sự chú ý của con hướng về đâu và gọi tên nó: “À, con chó! Con chó to, màu nâu.”',
+      'Chờ con trả lời: im lặng 5 giây sau khi hỏi cho con thời gian để đến lượt mình.',
+      'Nhại lại âm thanh của bé và mở rộng thêm một chút: bé nói “ba”, bạn nói “ba-ba-bóng!”',
+      'Kể lại việc hằng ngày như một “bình luận viên thể thao”: “Bố mẹ đang rửa khoai tây, giờ thì thái nhé…”',
+    ],
+    mistakes: [
+      'Biến trò chuyện thành “giờ học”: “Nói đi: quả táo! Nói quả táo đi!” Áp lực làm con ít nói hơn.',
+      'Sửa lời con ngay lập tức. Thay vào đó, chỉ cần nhắc lại dạng đúng: “Dâu tây? Ừ, quả dâu tây đỏ mềm.”',
+      'Nhìn điện thoại khi đang ở bên con. Mỗi thông báo là một “quả bóng không được đánh trả”.',
+    ],
+    byAge: {
+      '0-1': 'Mặt đối mặt, mỉm cười, hát, đáp lại âm thanh của bé.',
+      '1-3': 'Gọi tên đồ vật con chỉ vào, hỏi những câu đơn giản, mở rộng một từ của con thành hai từ.',
+      '3-6': 'Cùng tìm hiểu những câu hỏi “tại sao?”, đặt câu hỏi mở: “Theo con, sau đó chuyện gì sẽ xảy ra?”',
+    },
+    specialist: [
+      'Nếu 12 tháng chưa có cử chỉ nào (vẫy tay, chỉ tay), 16–18 tháng chưa nói được từ nào, 2 tuổi chưa nói được cụm hai từ — hãy tìm đến bác sĩ hoặc chuyên gia âm ngữ trị liệu.',
+      'Nếu ở bất kỳ tuổi nào con mất đi những từ đã từng nói — đừng chờ đợi, hãy đưa con đi khám.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Sức mạnh của trò chơi: vì sao chơi không phải là “thời gian rảnh vô ích”',
+    summary: 'Chơi tự do giúp tăng cường chức năng điều hành, sự sáng tạo và khả năng chịu đựng căng thẳng của con.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Báo cáo năm 2018 của Viện Hàn lâm Nhi khoa Hoa Kỳ (“The Power of Play”) gọi vui chơi là nhu cầu thiết yếu chứ không phải “xa xỉ” đối với sự phát triển của trẻ. Khi chơi, con lập kế hoạch, giữ quy tắc, thương lượng với người khác và học cách chịu đựng thất vọng.',
+      'Trò chơi đóng vai (“bán hàng”, “bác sĩ”) đặc biệt rèn luyện chức năng điều hành: con phải giữ vai, nhớ quy tắc và kiềm chế mong muốn của mình.',
+    ],
+    tryToday: [
+      'Mỗi ngày dành ít nhất một giờ chơi tự do không theo khuôn khổ (tùy tuổi có thể chia nhỏ).',
+      'Chọn đồ chơi đơn giản, mở: khối xếp, hộp giấy, màu vẽ, trang phục hóa trang. Ít đồ chơi hơn nghĩa là sáng tạo nhiều hơn.',
+      'Mỗi tuần một lần chơi tự do ngoài trời: cây cối, cát, nước, que gậy.',
+      'Đôi khi hãy tham gia trò chơi với vai “ngược”: bạn làm khách hàng, con làm người bán.',
+    ],
+    mistakes: [
+      'Lấp đầy mọi phút bằng các lớp học thêm. Sự buồn chán là khởi đầu của sáng tạo.',
+      'Lúc nào cũng thắng hoặc lúc nào cũng thua khi chơi. Con cần học cả hai.',
+    ],
+    specialist: [
+      'Nếu sau 2–3 tuổi con vẫn hoàn toàn không hứng thú với trò chơi đóng vai, trò chơi lặp đi lặp lại và không thay đổi, không quan tâm đến việc chơi với trẻ khác — hãy đưa con đi khám để kiểm tra sự phát triển.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Cùng nhau đọc sách: ngay từ ngày đầu',
+    summary: 'Cùng đọc sách từ khi còn bé là một trong những thói quen đơn giản nhất mà mạnh mẽ nhất cho ngôn ngữ, sự chú ý và sự gắn bó.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Viện Hàn lâm Nhi khoa Hoa Kỳ (2014) khuyên các bác sĩ nhi trong mỗi lần khám nên khuyến khích cha mẹ đọc sách cho con từ khi còn nhỏ. Cùng đọc sách giúp tăng vốn từ, kỹ năng lắng nghe và thành công trong việc đọc sau này.',
+      'Lợi ích lớn nhất đến từ “đọc đối thoại”: cha mẹ đặt câu hỏi, mở rộng câu trả lời của con, nói chuyện về các bức tranh. Tức là sách cũng là một công cụ cho “cho và nhận”.',
+    ],
+    tryToday: [
+      'Mỗi ngày 10–15 phút cùng đọc sách, lý tưởng nhất là như một phần của nghi thức trước khi ngủ.',
+      'Mỗi trang hỏi một câu: “Theo con, bạn mèo sẽ làm gì bây giờ?”',
+      'Nếu con muốn đọc một cuốn sách 20 lần — cứ đọc. Lặp lại là một cách học.',
+      'Ở tuổi đi học, hãy thay phiên nhau đọc: bạn một trang, con một trang.',
+    ],
+    mistakes: [
+      'Biến việc đọc thành bài học bắt buộc.',
+      'Ngừng đọc to cho con khi con bắt đầu tự đọc. Đọc to cho con vẫn có ích đến tận 10–12 tuổi.',
+    ],
+    specialist: [
+      'Nếu ở tuổi đi học con thấy việc đọc khó hơn nhiều so với bạn cùng tuổi, hay nhầm lẫn chữ cái, cố gắng mãi mà không tiến bộ — hãy trao đổi với giáo viên và chuyên gia (âm ngữ trị liệu, tâm lý).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

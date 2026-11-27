@@ -1,7 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { usePartnerNotifications } from './usePartnerNotifications';
+import { todayKey } from '@/lib/local-date';
+import { retainOutboxUser, saveWithOutbox, subscribeOutbox } from '@/lib/offline-outbox';
+import { DAILY_LOG_OUTBOX_TABLE } from '@/lib/daily-log-rpc';
+import { WATER_OUTBOX_TABLE, addWater, displayedWater } from '@/lib/water-intake';
 
 export interface DailyLog {
   id: string;
@@ -20,15 +24,35 @@ export interface DailyLog {
   sleep_quality?: number | null;
 }
 
+/** Fields a caller may write for one day. Only the keys present are saved; the rest of the row is kept. */
+export type DailyLogPatch = Partial<Omit<DailyLog, 'id' | 'user_id' | 'created_at'>>;
+
+/**
+ * Row for the `daily_logs` upsert (on user_id,log_date). PostgREST merge-duplicates updates only the columns in the
+ * payload, so leaving a field out keeps what is already stored for that day (water from the home screen, sleep,
+ * symptoms and notes from the diary). Undefined values are dropped; an explicit null still clears a field.
+ * `log_date` defaults to the phone's local day, so 00:00-04:00 in Baku is not saved on yesterday.
+ */
+export function dailyLogUpsertRow(userId: string, patch: DailyLogPatch, today: string = todayKey()): DailyLogPatch & { user_id: string; log_date: string } {
+  const row: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(patch)) if (value !== undefined) row[key] = value;
+  return { ...(row as DailyLogPatch), user_id: userId, log_date: patch.log_date || today };
+}
+
 export const useDailyLogs = () => {
   const { user } = useAuth();
   const { notifyMoodUpdate, notifyWaterGoal } = usePartnerNotifications();
   const [logs, setLogs] = useState<DailyLog[]>([]);
   const [todayLog, setTodayLog] = useState<DailyLog | null>(null);
   const [loading, setLoading] = useState(true);
+  const [, setOutboxVersion] = useState(0);
+  /** Bumped by every confirmed water total, so an older in-flight fetch cannot overwrite it. */
+  const waterGeneration = useRef(0);
+  const userId = user?.id ?? null;
 
   const fetchLogs = async () => {
     if (!user) return;
+    const generation = waterGeneration.current;
 
     try {
       const { data, error } = await supabase
@@ -42,10 +66,16 @@ export const useDailyLogs = () => {
       
       setLogs(data || []);
       
-      // Check for today's log
-      const today = new Date().toISOString().split('T')[0];
+      // Check for today's log (local calendar day)
+      const today = todayKey();
       const todayData = data?.find(log => log.log_date === today) || null;
-      setTodayLog(todayData);
+      setTodayLog((previous) => {
+        // A water tap was confirmed while this read was in flight: keep its newer total.
+        if (generation !== waterGeneration.current && previous?.log_date === today) {
+          return todayData ? { ...todayData, water_intake: previous.water_intake } : previous;
+        }
+        return todayData;
+      });
     } catch (error) {
       console.error('Error fetching daily logs:', error);
     } finally {
@@ -53,67 +83,76 @@ export const useDailyLogs = () => {
     }
   };
 
-  const addLog = async (log: Omit<DailyLog, 'id' | 'user_id' | 'created_at'>) => {
-    if (!user) return { error: 'No user logged in' };
-
-    try {
-      const { data, error } = await supabase
-        .from('daily_logs')
-        .upsert({
-          ...log,
-          user_id: user.id,
-          log_date: log.log_date || new Date().toISOString().split('T')[0]
-        }, {
-          onConflict: 'user_id,log_date'
-        })
-        .select()
-        .single();
-
-      if (error) throw error;
-      
-      await fetchLogs();
-      return { data, error: null };
-    } catch (error) {
-      console.error('Error adding daily log:', error);
-      return { data: null, error };
-    }
+  /** Reflect a queued patch in today's row until the outbox syncs it (water is never touched here). */
+  const applyLocalPatch = (row: DailyLogPatch & { user_id: string; log_date: string }) => {
+    const today = todayKey();
+    if (row.log_date !== today) return;
+    const { user_id: _uid, ...fields } = row;
+    setTodayLog((previous) => {
+      const base: DailyLog = previous?.log_date === today ? previous
+        : { id: '', user_id: row.user_id, log_date: today, mood: null, symptoms: null, water_intake: null,
+            temperature: null, bleeding: null, notes: null, created_at: new Date().toISOString() };
+      return { ...base, ...fields };
+    });
+    setLogs((previous) => {
+      const index = previous.findIndex((l) => l.log_date === today);
+      if (index === -1) return previous;
+      const next = [...previous];
+      next[index] = { ...next[index], ...fields };
+      return next;
+    });
   };
 
-  const updateWaterIntake = async (amount: number) => {
-    const today = new Date().toISOString().split('T')[0];
-    const currentIntake = todayLog?.water_intake || 0;
-    const newIntake = currentIntake + amount;
-    
-    const result = await addLog({
-      log_date: today,
-      water_intake: newIntake,
-      mood: todayLog?.mood || null,
-      symptoms: todayLog?.symptoms || null,
-      temperature: todayLog?.temperature || null,
-      bleeding: todayLog?.bleeding || null,
-      notes: todayLog?.notes || null
-    });
+  /**
+   * Saves only the given fields for the day (see dailyLogUpsertRow); other columns of an existing row
+   * are kept. Queued in the offline outbox first (merge-upsert on user_id,log_date, idempotent
+   * replay), so offline or a timeout keeps the mood/symptoms/sleep/notes instead of losing them.
+   */
+  const addLog = async (log: DailyLogPatch) => {
+    if (!user) return { error: 'No user logged in' };
 
-    // Notify partner when water goal reached (8 glasses = 2000ml)
-    if (newIntake >= 2000 && currentIntake < 2000) {
-      notifyWaterGoal();
+    const row = dailyLogUpsertRow(user.id, log);
+    const outcome = await saveWithOutbox(user.id, DAILY_LOG_OUTBOX_TABLE, row as unknown as Record<string, unknown>);
+    if (outcome.status === 'error') {
+      console.error('Error adding daily log:', outcome.error);
+      return { data: null, error: outcome.error };
     }
+    if (outcome.status === 'queued') {
+      applyLocalPatch(row);
+      return { data: outcome.data, error: null };
+    }
+    await fetchLogs();
+    return { data: outcome.data, error: null };
+  };
 
-    return result;
+  /**
+   * Adds `amount` glasses to the phone's current local day as an atomic server delta (see
+   * lib/water-intake). Shown at once (queued taps count), kept offline and replayed once.
+   */
+  const updateWaterIntake = async (amount: number) => {
+    if (!user) return { data: null, error: 'No user logged in' };
+    const day = todayKey();
+    const outcome = await addWater(user.id, amount, {
+      day,
+      onServerTotal: (total, totalDay, applied) => {
+        waterGeneration.current++;
+        setTodayLog((previous) => previous?.log_date === totalDay
+          ? { ...previous, water_intake: total }
+          : { id: '', user_id: user.id, log_date: totalDay, mood: null, symptoms: null, water_intake: total,
+              temperature: null, bleeding: null, notes: null, created_at: new Date().toISOString() });
+        // Notify partner when water goal reached (8 glasses = 2000ml)
+        if (applied && total >= 2000 && total - amount < 2000) notifyWaterGoal();
+      },
+    });
+    if (outcome.status === 'error') {
+      console.error('Error adding water:', outcome.error);
+      return { data: null, error: outcome.error };
+    }
+    return { data: outcome.data, error: null };
   };
 
   const updateMood = useCallback(async (mood: number) => {
-    const today = new Date().toISOString().split('T')[0];
-    
-    const result = await addLog({
-      log_date: today,
-      mood,
-      water_intake: todayLog?.water_intake || 0,
-      symptoms: todayLog?.symptoms || null,
-      temperature: todayLog?.temperature || null,
-      bleeding: todayLog?.bleeding || null,
-      notes: todayLog?.notes || null
-    });
+    const result = await addLog({ log_date: todayKey(), mood });
 
     // Notify partner about mood update
     if (result.data) {
@@ -121,61 +160,45 @@ export const useDailyLogs = () => {
     }
 
     return result;
-  }, [todayLog, addLog, notifyMoodUpdate]);
+  }, [addLog, notifyMoodUpdate]);
 
-  const updateSymptoms = async (symptoms: string[]) => {
-    const today = new Date().toISOString().split('T')[0];
-    
-    return addLog({
-      log_date: today,
-      symptoms,
-      mood: todayLog?.mood || null,
-      water_intake: todayLog?.water_intake || 0,
-      temperature: todayLog?.temperature || null,
-      bleeding: todayLog?.bleeding || null,
-      notes: todayLog?.notes || null
-    });
-  };
+  const updateSymptoms = async (symptoms: string[]) => addLog({ log_date: todayKey(), symptoms });
 
   /** Qanaxma/ləkələnmə qeydi (bump: hamiləlik dövründə ləkələnmə, mommy: doğuşdan sonra lokia izləmə) */
-  const updateBleeding = async (bleeding: 'light' | 'medium' | 'heavy' | 'spotting' | null) => {
-    const today = new Date().toISOString().split('T')[0];
-
-    return addLog({
-      log_date: today,
-      bleeding,
-      mood: todayLog?.mood || null,
-      water_intake: todayLog?.water_intake || 0,
-      symptoms: todayLog?.symptoms || null,
-      temperature: todayLog?.temperature || null,
-      notes: todayLog?.notes || null
-    });
-  };
+  const updateBleeding = async (bleeding: 'light' | 'medium' | 'heavy' | 'spotting' | null) =>
+    addLog({ log_date: todayKey(), bleeding });
 
   /** Ananın öz yuxusunu qeyd et (Mommy/Bump — Flow-da bunun ekvivalenti flow_daily_logs-dadır) */
-  const updateSleep = async (sleepHours: number, sleepQuality: number | null) => {
-    const today = new Date().toISOString().split('T')[0];
-
-    return addLog({
-      log_date: today,
-      sleep_hours: sleepHours,
-      sleep_quality: sleepQuality,
-      mood: todayLog?.mood || null,
-      water_intake: todayLog?.water_intake || 0,
-      symptoms: todayLog?.symptoms || null,
-      temperature: todayLog?.temperature || null,
-      bleeding: todayLog?.bleeding || null,
-      notes: todayLog?.notes || null
-    });
-  };
+  const updateSleep = async (sleepHours: number, sleepQuality: number | null) =>
+    addLog({ log_date: todayKey(), sleep_hours: sleepHours, sleep_quality: sleepQuality });
 
   useEffect(() => {
     fetchLogs();
-  }, [user]);
+  }, [user?.id]);
+
+  // Offline outbox: flush queued water taps (mount, online, resume), re-render when the queue
+  // changes, reload the day after a background flush delivered water.
+  useEffect(() => {
+    if (!userId) return;
+    const unsubscribe = subscribeOutbox((event) => {
+      if (event.userId !== userId) return;
+      setOutboxVersion((v) => v + 1);
+      if (event.sentTables.includes(WATER_OUTBOX_TABLE) || event.sentTables.includes(DAILY_LOG_OUTBOX_TABLE)) void fetchLogs();
+    });
+    const release = retainOutboxUser(userId);
+    return () => { unsubscribe(); release(); };
+  }, [userId]);
+
+  // "Today" is evaluated on every render: a row loaded before midnight is not today's row.
+  const today = todayKey();
+  const waterToday = displayedWater(userId, todayLog, today);
+  const visibleTodayLog = todayLog?.log_date === today ? { ...todayLog, water_intake: waterToday } : null;
 
   return {
     logs,
-    todayLog,
+    todayLog: visibleTodayLog,
+    /** Glasses for the phone's current local day, including taps still queued offline. */
+    waterToday,
     loading,
     addLog,
     updateWaterIntake,

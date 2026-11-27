@@ -1,0 +1,43 @@
+/* Free calculator pages (CalcPages.tsx). Reuses the calculator, guide and FAQ styles of website.css. */
+.site-tool-breadcrumb { margin-bottom:6px; flex-wrap:wrap; }
+.site-tool-grid-new { margin-top:var(--site-grid-gap); }
+.site-tool-choice { border:0; padding:0; margin:14px 0 0; min-width:0; }
+.site-tool-choice legend { font-size:13.5px; font-weight:500; margin-bottom:6px; padding:0; }
+.site-calculator-form .site-tool-choice label { display:inline-flex; align-items:center; gap:8px; margin:0 6px 6px 0; padding:7px 12px; border:1px solid rgba(8,48,76,.19); border-radius:999px; font-weight:400; cursor:pointer; }
+.site-calculator-form .site-tool-choice label:has(input:checked) { border-color:var(--site-accent); background:var(--site-peach); }
+.site-calculator-form .site-tool-choice input { width:auto; min-height:0; margin:0; padding:0; appearance:auto; accent-color:var(--site-accent); }
+.site-tool-disclaimer { margin:18px 0 0; font-size:13px; color:var(--site-muted); border-inline-start:3px solid var(--site-accent); padding-inline-start:12px; }
+.site-tool-table { overflow-x:auto; margin-top:14px; border:1px solid var(--site-line); border-radius:var(--site-radius-sm); }
+.site-tool-table table { width:100%; border-collapse:collapse; font-size:14px; }
+.site-tool-table th,.site-tool-table td { text-align:start; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--site-line); line-height:1.5; }
+.site-tool-table tr:last-child>* { border-bottom:0; }
+.site-tool-table th[scope=row] { width:42%; font-weight:500; }
+.site-tool-table thead th { font-size:12px; color:var(--site-muted); font-weight:500; white-space:nowrap; }
+.site-tool-cycles td { white-space:nowrap; }
+.site-results .site-tool-table { margin:14px 0 16px; }
+.site-tool-guide>div+div { margin-top:28px; }
+.site-tool-doctor ul { margin:12px 0 0; padding-inline-start:20px; line-height:1.65; }
+.site-tool-doctor li+li { margin-top:6px; }
+.site-tool-position { margin-top:4px!important; padding:10px 12px; border-radius:var(--site-radius-sm); background:var(--site-mint); color:var(--site-ink)!important; }
+.site-tool-position-below,.site-tool-position-above { background:var(--site-peach); }
+.site-tool-app { flex-wrap:wrap; }
+.site-tool-app>div:nth-child(2) { flex:1 1 260px; }
+.site-tool-app-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.site-tool-related h2 { font-size:22px; }
+.site-tool-related>div { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.site-tool-related a { font-size:13.5px; }
+.site-tool-chart { margin:8px 0 0; }
+.site-tool-chart svg { width:100%; height:auto; display:block; font:11px var(--site-body); fill:var(--site-muted); }
+.site-tool-chart figcaption { font-size:12px; color:var(--site-muted); margin-top:4px; }
+.site-tool-chart-grid { stroke:var(--site-line); stroke-width:1; }
+.site-tool-chart-axis { font-size:11px; }
+.site-tool-curve polyline { stroke:#c9b8b0; stroke-width:1.4; }
+.site-tool-curve-p15 polyline,.site-tool-curve-p85 polyline { stroke:#e9a49f; }
+.site-tool-curve-p3 polyline,.site-tool-curve-p97 polyline { stroke-dasharray:4 3; }
+.site-tool-curve-p50 polyline { stroke:var(--site-accent); stroke-width:2.2; }
+.site-tool-chart-point { fill:var(--site-ink); stroke:#fff; stroke-width:2; }
+@media(max-width:640px) {
+  .site-tool-table th[scope=row] { width:auto; }
+  .site-tool-table th,.site-tool-table td { padding:9px 10px; font-size:13.5px; }
+  .site-tool-app-actions { width:100%; }
+}

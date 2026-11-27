@@ -1,4 +1,3 @@
-/// <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { callGeminiSmart } from "../_shared/vertex-ai.ts";
@@ -95,6 +94,10 @@ Deno.serve(async (req) => {
       pl: { geo: 'pl', unknown: 'Nieznane', outLang: EXPANDED_LANGUAGE_NAMES.pl },
       nl: { geo: 'nl', unknown: 'Onbekend', outLang: EXPANDED_LANGUAGE_NAMES.nl },
       sv: { geo: 'sv', unknown: 'Okänd', outLang: EXPANDED_LANGUAGE_NAMES.sv },
+      ky: { geo: 'ky', unknown: 'Белгисиз', outLang: EXPANDED_LANGUAGE_NAMES.ky },
+      et: { geo: 'et', unknown: 'Teadmata', outLang: EXPANDED_LANGUAGE_NAMES.et },
+      tk: { geo: 'tk', unknown: 'Näbelli', outLang: EXPANDED_LANGUAGE_NAMES.tk },
+      uk: { geo: 'uk', unknown: 'Невідомо', outLang: EXPANDED_LANGUAGE_NAMES.uk },
     };
     const langConf = LANG_CONF[language] ?? LANG_CONF.az;
 

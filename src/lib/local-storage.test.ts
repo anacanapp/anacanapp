@@ -69,6 +69,21 @@ describe('storage pressure recovery', () => {
     expect(() => storage.setItem('sb-source-auth-token', 's'.repeat(200_000))).not.toThrow();
   });
 
+  it('never evicts the offline children/profile cache for a translation cache', () => {
+    const storage = new QuotaStorage();
+    storage.limit = 5 * 1024 * 1024;
+    expect(writeStorageCache(storage, 'anacan_ocache_v1:children', JSON.stringify({ userId: 'u', data: ['x'.repeat(300_000)] }))).toBe(true);
+    expect(writeStorageCache(storage, 'anacan_i18n_cache:ru', 'x'.repeat(500_000))).toBe(true);
+    // Over the shared budget: older translations go, the user's offline data stays.
+    expect(writeStorageCache(storage, 'anacan_i18n_cache:en', 'x'.repeat(500_000))).toBe(true);
+    expect(storage.getItem('anacan_i18n_cache:ru')).toBeNull();
+    expect(writeStorageCache(storage, 'anacan_i18n_cache:tr', 'x'.repeat(800_000))).toBe(false);
+    expect(storage.getItem('anacan_ocache_v1:children')).not.toBeNull();
+    // Offline data may still displace translations.
+    expect(writeStorageCache(storage, 'anacan_ocache_v1:profile', 'x'.repeat(300_000))).toBe(true);
+    expect(storage.getItem('anacan_i18n_cache:en')).toBeNull();
+  });
+
   it('rejects oversized optional caches without deleting existing data', () => {
     const storage = new QuotaStorage();
     storage.setItem('anacan_i18n_cache:az', 'usable-cache');

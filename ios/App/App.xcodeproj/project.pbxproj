@@ -17,6 +17,8 @@
 		18A584623037396800A66DF5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A584613037396800A66DF5 /* WidgetKit.framework */; };
 		18A584643037396800A66DF5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A584633037396800A66DF5 /* SwiftUI.framework */; };
 		18A584733037396B00A66DF5 /* AnacanTimerWidgetExtExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 18A5845F3037396800A66DF5 /* AnacanTimerWidgetExtExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		45B162EDBDA646BA0D0AAD67 /* AnacanNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 30105183292AACE5137C3B7C /* AnacanNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C8F60A7CEC0D46A148B7E4F3 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B6D563135ACB25097EE4C /* NotificationService.swift */; };
 		2FAD9763203C412B000D30F8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD9762203C412B000D30F8 /* config.xml */; };
 		4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 4D22ABE82AF431CB00220026 /* CapApp-SPM */; };
 		50379B232058CBB4000EE86E /* capacitor.config.json in Resources */ = {isa = PBXBuildFile; fileRef = 50379B222058CBB4000EE86E /* capacitor.config.json */; };
@@ -37,6 +39,13 @@
 			remoteGlobalIDString = 18A5845E3037396800A66DF5;
 			remoteInfo = AnacanTimerWidgetExtExtension;
 		};
+		4BF944EB71894579689F0FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 504EC2FC1FED79650016851F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D314D3E7315562B7914D5018;
+			remoteInfo = AnacanNotificationService;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +56,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				18A584733037396B00A66DF5 /* AnacanTimerWidgetExtExtension.appex in Embed Foundation Extensions */,
+				45B162EDBDA646BA0D0AAD67 /* AnacanNotificationService.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +72,9 @@
 		18A584563037390900A66DF5 /* HealthVitalsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthVitalsPlugin.swift; sourceTree = "<group>"; };
 		18A584593037391100A66DF5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		18A5845F3037396800A66DF5 /* AnacanTimerWidgetExtExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnacanTimerWidgetExtExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		30105183292AACE5137C3B7C /* AnacanNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnacanNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF8B6D563135ACB25097EE4C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		9CC0C199E992E5F4C7957545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18A584613037396800A66DF5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		18A584633037396800A66DF5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		18A5848430373B0D00A66DF5 /* AnacanTimerWidgetExtExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnacanTimerWidgetExtExtension.entitlements; sourceTree = "<group>"; };
@@ -83,6 +96,22 @@
 		A6CB94097988676E73E2F6DC /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A767237328120DB8E1EA9A8E /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2FA6330A8DB46052C655AF36 /* ka */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ka; path = ka.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		26B926A16FB0A64509C344BC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh-Hans; path = zh-Hans.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CA2A3177AD2799C7E7BB24F8 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2D3F6FF4DECEB3F093F9B4E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2A628621A8BC6BB2955F5671 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8F2266C731A90120ABC482C3 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt-PT; path = pt-PT.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FC1A4F4C49A264FE1AAE4162 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		055BA19FF403CAFFA1BCFA6C /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7AA64878F4488CDE1E58970B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		56206A671A9143EC74512A8D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6C5A9894FE352C64E1125CC5 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3ABBDB1B469453DA57B9186 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		55535FB1E529ED90B3E8BCA9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B79F0C21A2E4C8D9E0F1A21 /* ky */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ky; path = ky.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B79F0C21A2E4C8D9E0F1A22 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = et.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B79F0C21A2E4C8D9E0F1A23 /* tk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tk; path = tk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B79F0C21A2E4C8D9E0F1A24 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -90,6 +119,7 @@
 		18A584743037396B00A66DF5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				AnacanWidgetsPlugin.swift,
 				Info.plist,
 			);
 			target = 18A5845E3037396800A66DF5 /* AnacanTimerWidgetExtExtension */;
@@ -99,6 +129,7 @@
 			membershipExceptions = (
 				AnacanTimerAttributes.swift,
 				AnacanTimerStopIntent.swift,
+				AnacanWidgetsPlugin.swift,
 			);
 			target = 504EC3031FED79650016851F /* App */;
 		};
@@ -109,6 +140,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F9E0A26896886D39D1B7F758 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18A5845C3037396800A66DF5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -130,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		478F465DD42D06C29FC049B1 /* AnacanNotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				DF8B6D563135ACB25097EE4C /* NotificationService.swift */,
+				9CC0C199E992E5F4C7957545 /* Info.plist */,
+			);
+			path = AnacanNotificationService;
+			sourceTree = "<group>";
+		};
 		18A584603037396800A66DF5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +193,7 @@
 				958DCC722DB07C7200EA8C5F /* debug.xcconfig */,
 				504EC3061FED79650016851F /* App */,
 				18A584653037396800A66DF5 /* AnacanTimerWidgetExt */,
+				478F465DD42D06C29FC049B1 /* AnacanNotificationService */,
 				18A584603037396800A66DF5 /* Frameworks */,
 				504EC3051FED79650016851F /* Products */,
 			);
@@ -156,6 +204,7 @@
 			children = (
 				504EC3041FED79650016851F /* App.app */,
 				18A5845F3037396800A66DF5 /* AnacanTimerWidgetExtExtension.appex */,
+				30105183292AACE5137C3B7C /* AnacanNotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,6 +257,25 @@
 			productReference = 18A5845F3037396800A66DF5 /* AnacanTimerWidgetExtExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		D314D3E7315562B7914D5018 /* AnacanNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DF8DCD6C2767117481EAA22 /* Build configuration list for PBXNativeTarget "AnacanNotificationService" */;
+			buildPhases = (
+				F84E411531013DF6B7C52F1A /* Sources */,
+				F9E0A26896886D39D1B7F758 /* Frameworks */,
+				ACB5229CE7D8F12459821C53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnacanNotificationService;
+			packageProductDependencies = (
+			);
+			productName = AnacanNotificationService;
+			productReference = 30105183292AACE5137C3B7C /* AnacanNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		504EC3031FED79650016851F /* App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 504EC3161FED79650016851F /* Build configuration list for PBXNativeTarget "App" */;
@@ -221,6 +289,7 @@
 			);
 			dependencies = (
 				18A584723037396B00A66DF5 /* PBXTargetDependency */,
+				6311E30365A4B9FB327A5351 /* PBXTargetDependency */,
 			);
 			name = App;
 			packageProductDependencies = (
@@ -244,6 +313,9 @@
 						CreatedOnToolsVersion = 26.2;
 						LastSwiftMigration = 2620;
 					};
+					D314D3E7315562B7914D5018 = {
+						CreatedOnToolsVersion = 26.2;
+					};
 					504EC3031FED79650016851F = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1100;
@@ -265,6 +337,22 @@
 				ar,
 				uz,
 				ka,
+				"zh-Hans",
+				id,
+				fr,
+				es,
+				"pt-PT",
+				vi,
+				hi,
+				ja,
+				ko,
+				pl,
+				nl,
+				sv,
+				ky,
+				et,
+				tk,
+				uk,
 				Base,
 			);
 			mainGroup = 504EC2FB1FED79650016851F;
@@ -278,11 +366,19 @@
 			targets = (
 				504EC3031FED79650016851F /* App */,
 				18A5845E3037396800A66DF5 /* AnacanTimerWidgetExtExtension */,
+				D314D3E7315562B7914D5018 /* AnacanNotificationService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		ACB5229CE7D8F12459821C53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18A5845D3037396800A66DF5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -329,6 +425,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F84E411531013DF6B7C52F1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8F60A7CEC0D46A148B7E4F3 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -336,6 +440,11 @@
 			isa = PBXTargetDependency;
 			target = 18A5845E3037396800A66DF5 /* AnacanTimerWidgetExtExtension */;
 			targetProxy = 18A584713037396B00A66DF5 /* PBXContainerItemProxy */;
+		};
+		6311E30365A4B9FB327A5351 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D314D3E7315562B7914D5018 /* AnacanNotificationService */;
+			targetProxy = 4BF944EB71894579689F0FBF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -368,6 +477,22 @@
 				A6CB94097988676E73E2F6DC /* ar */,
 				A767237328120DB8E1EA9A8E /* uz */,
 				2FA6330A8DB46052C655AF36 /* ka */,
+				26B926A16FB0A64509C344BC /* zh-Hans */,
+				CA2A3177AD2799C7E7BB24F8 /* id */,
+				2D3F6FF4DECEB3F093F9B4E6 /* fr */,
+				2A628621A8BC6BB2955F5671 /* es */,
+				8F2266C731A90120ABC482C3 /* pt-PT */,
+				FC1A4F4C49A264FE1AAE4162 /* vi */,
+				055BA19FF403CAFFA1BCFA6C /* hi */,
+				7AA64878F4488CDE1E58970B /* ja */,
+				56206A671A9143EC74512A8D /* ko */,
+				6C5A9894FE352C64E1125CC5 /* pl */,
+				A3ABBDB1B469453DA57B9186 /* nl */,
+				55535FB1E529ED90B3E8BCA9 /* sv */,
+				4B79F0C21A2E4C8D9E0F1A21 /* ky */,
+				4B79F0C21A2E4C8D9E0F1A22 /* et */,
+				4B79F0C21A2E4C8D9E0F1A23 /* tk */,
+				4B79F0C21A2E4C8D9E0F1A24 /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -375,6 +500,83 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2F051EDC06135AC9C0B97CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 24.0;
+				DEVELOPMENT_TEAM = 8B6976J8H7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnacanNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AnacanNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 24;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atlasoon.anacan.AnacanNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7C97BD469914F781C9A4C7C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 24.0;
+				DEVELOPMENT_TEAM = 8B6976J8H7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnacanNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AnacanNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 24;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atlasoon.anacan.AnacanNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		18A584763037396B00A66DF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -646,6 +848,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3DF8DCD6C2767117481EAA22 /* Build configuration list for PBXNativeTarget "AnacanNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F051EDC06135AC9C0B97CBC /* Debug */,
+				7C97BD469914F781C9A4C7C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		18A584753037396B00A66DF5 /* Build configuration list for PBXNativeTarget "AnacanTimerWidgetExtExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

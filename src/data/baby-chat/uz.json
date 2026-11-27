@@ -1,0 +1,293 @@
+{
+  "ui": {
+    "title": "Chaqalogʻim",
+    "typing": "yozmoqda…",
+    "placeholder": "Xabar yozing…",
+    "week": "{n}-hafta",
+    "size": "{fruit} kattaligida",
+    "today": "Bugun",
+    "card_new": "Chaqalogʻingiz sizga yozdi 💬",
+    "card_wait": "Chaqalogʻingiz bugun hali yozmadi… tez orada 👀",
+    "card_cta": "Javob berish",
+    "share_title": "Bu suhbatni ulashing",
+    "share_sub": "Rasm yoki xabarma-xabar video sifatida. Dugonalaringiz ham koʻrsin 💛",
+    "share_photo": "Rasm",
+    "share_video": "Video",
+    "share_making": "Video tayyorlanmoqda…",
+    "share_text": "Chaqalogʻim hali tugʻilmagan, lekin menga xabar yozadi 💛 Anacan",
+    "share_error": "Ulashib boʻlmadi. Qaytadan urinib koʻring.",
+    "hook": "Chaqalogʻim hali tugʻilmagan… lekin menga xabar yozadi.",
+    "end_line1": "Chaqalogʻingiz sizga",
+    "end_line2": "har kuni yozadi.",
+    "notif_title": "Chaqalogʻim 💛",
+    "about": "Shunchaki qiziqish uchun: xabarlarni Anacan chaqalogʻingizning haftasiga mos yozadi.",
+    "share_ready_video": "Videongiz tayyor 🎉",
+    "share_ready_photo": "Rasmingiz tayyor 🎉",
+    "share_now": "Ulashish",
+    "save": "Saqlash",
+    "care_text": "Buni shifokoringiz bilan ham boʻlishing, oyijon. Har bir savolingiz muhim 💛",
+    "care_cta": "Anacan.AI’dan soʻrash"
+  },
+  "openers": [
+    "Oyijon! Bilasizmi nima? 🖐",
+    "Oyijon, uygʻoqmisiz? 👀",
+    "Pss… oyijon! 🤫",
+    "Oyijon, sizga bir gap aytsam maylimi? 💛",
+    "Salom, oyijon! 👋"
+  ],
+  "notifications": [
+    "Oyijon! Bilasizmi nima? 🖐",
+    "Sizga bir narsa yozdim 💬",
+    "Pss… oyijon, qarang! 👀",
+    "Bugun nima demoqchiligimga ishonmaysiz! 💛"
+  ],
+  "replies": {
+    "love": [
+      "Men ham sizni yaxshi koʻraman, oyijon 💛",
+      "Sizni hali koʻrmadim, lekin allaqachon juda yaxshi koʻraman 🥰",
+      "Men bir {fruit} kattaligidaman, lekin yuragim sizga toʻla 💛"
+    ],
+    "how": [
+      "Zoʻr! Bu yer issiq va shinam 😌",
+      "Yaxshiman, oyijon. Bugun yana ozgina oʻsdim 🌱",
+      "Juda yaxshi! Yurak urishingizni tinglayapman 💓"
+    ],
+    "size": [
+      "Hozir men taxminan bir {fruit} kattaligidaman 😄",
+      "Men allaqachon {cm} sm boʻldim! Oʻsyapman 📏",
+      "Men {week}-haftadaman va har kuni ozgina oʻsyapman 🌱"
+    ],
+    "kick_early": [
+      "Men allaqachon qimirlayapman, lekin hali shunchalik kichkinamanki, sezmaysiz 🤭",
+      "Bu yerda kichkina umbaloq oshyapman 🤸 Tez orada sezasiz!"
+    ],
+    "kick": [
+      "Sezdingizmi? Bu men edim 🦶",
+      "Bugun raqs tushdim, sezdingizmi? 💃",
+      "Bu tepkim sizga salom edi 👋🦶"
+    ],
+    "hear_early": [
+      "Quloqlarim hali tayyorlanyapti, lekin tez orada sizni eshitaman 👂",
+      "Yana ozgina oʻsay, keyin ovozingizni eshitaman 🥰"
+    ],
+    "hear": [
+      "Sizni eshityapman, oyijon! Yana gaplashing 🥰",
+      "Ovozingiz mening eng sevimli musiqam 🎶",
+      "Menga qoʻshiq aytib bering, tinglayman 🎵"
+    ],
+    "food": [
+      "Siz nima yesangiz, men ham tatib koʻraman 😋",
+      "Bugun meva yeymizmi? 🍎",
+      "Mmm, mazali ekan! Yana ozgina? 😄"
+    ],
+    "sleep": [
+      "Men ham uxlagim kelyapti 😴 Birga dam olamiz",
+      "Siz yotsangiz, men ham tinchlanaman 😌",
+      "Kechasi raqs tushsam, kechirasiz 🙈"
+    ],
+    "dad": [
+      "Dadamga mendan salom ayting! 👋",
+      "Dadamning ovozini ham taniyman 😊",
+      "Dadam qorningizga gapirganda juda yoqadi 🥰"
+    ],
+    "meet": [
+      "Yana {weeks_left} hafta, keyin uchrashamiz! 🤗",
+      "Men ham sizni koʻrgim keladi! Yana ozgina oʻsay 🌱",
+      "Uchrashuvimizga koʻp qolmadi 💛"
+    ],
+    "meet_soon": [
+      "Oz qoldi, oyijon! Men ham tayyorlanyapman 🤗",
+      "Tez orada quchogʻingizda boʻlaman 💛"
+    ],
+    "name": [
+      "Menga qanday ism qoʻyasiz? 😊 Chiroyli ism tanlang!",
+      "Sizning ovozingizda har qanday ism chiroyli eshitiladi 💛"
+    ],
+    "hello": [
+      "Salom, oyijon! 👋",
+      "Salo-o-om! Sizni kutib turgandim 💛"
+    ],
+    "thanks": [
+      "Arzimaydi, oyijon! 😊",
+      "Meni koʻtarib yurganingiz uchun rahmat 💛"
+    ],
+    "generic": [
+      "Oyijon, siz eng zoʻrisiz 💛",
+      "Tinglayapman 👂😊",
+      "Hmm… buni kattaroq boʻlganimda soʻrayman 😄",
+      "Hali kichkinaman, lekin bu menga juda yoqdi 😄",
+      "Menga yana yozing, oyijon! 🥰"
+    ],
+    "care": [
+      "Sizni juda yaxshi koʻraman, oyijon 💛",
+      "Men doim siz bilanman 🤗"
+    ]
+  },
+  "keywords": {
+    "thanks": [
+      "rahmat",
+      "raxmat",
+      "tashakkur",
+      "sagʻ boʻl",
+      "sogʻ boʻl"
+    ],
+    "love": [
+      "yaxshi koʻraman",
+      "yaxshi ko'raman",
+      "yaxshi koraman",
+      "sevaman",
+      "jonim",
+      "asalim",
+      "qoʻzim",
+      "oʻpich",
+      "❤",
+      "💛",
+      "😘",
+      "🥰"
+    ],
+    "name": [
+      "ism",
+      "ismi",
+      "ataymiz",
+      "qoʻyamiz",
+      "nom"
+    ],
+    "dad": [
+      "dada",
+      "dadang",
+      "ota",
+      "papa",
+      "dadajon"
+    ],
+    "kick": [
+      "tep",
+      "qimirla",
+      "harakat",
+      "raqs",
+      "oʻyna",
+      "umbaloq",
+      "turt"
+    ],
+    "hear": [
+      "eshit",
+      "ovoz",
+      "musiqa",
+      "qoʻshiq",
+      "kuyla",
+      "gapir",
+      "alla",
+      "qo'shiq"
+    ],
+    "size": [
+      "kattalik",
+      "katta",
+      "kichik",
+      "kichkina",
+      "oʻs",
+      "sm",
+      "vazn",
+      "ogʻir",
+      "malina",
+      "noʻxat"
+    ],
+    "food": [
+      "ye",
+      "ovqat",
+      "och",
+      "taʼm",
+      "ta'm",
+      "meva",
+      "shokolad",
+      "sut",
+      "shirin"
+    ],
+    "sleep": [
+      "uxla",
+      "uyqu",
+      "tun",
+      "kecha",
+      "charcha",
+      "toʻshak",
+      "dam ol"
+    ],
+    "meet": [
+      "uchrash",
+      "koʻrish",
+      "qachon",
+      "kut",
+      "tugʻil",
+      "chiqasan",
+      "tug'il"
+    ],
+    "how": [
+      "qalaysan",
+      "qandaysan",
+      "yaxshimisan",
+      "nima qilyapsan",
+      "ahvol"
+    ],
+    "hello": [
+      "salom",
+      "assalom",
+      "hayrli tong",
+      "xayrli tong",
+      "qalay"
+    ]
+  },
+  "weekly": {
+    "4": "Oyijon, men hali koʻknori urugʻidekman, lekin rejalarim katta 🌱",
+    "5": "Yuragim ura boshladi! Duk-duk… eshityapsizmi? 💓",
+    "6": "Bu hafta burnim shakllanyapti 👃 Hidingizni albatta yaxshi koʻraman!",
+    "7": "Qoʻllarim kichkina eshkaklarga oʻxshaydi 🤲 Hali qarsak chalolmayman",
+    "8": "Barmoqlarim chiqyapti 🖐 Sanashni boshladim: 1, 2, 3… yana sanaymi?",
+    "9": "Endi kichkina mushaklarim bor 💪 Yashirincha mashq qilyapman",
+    "10": "Tirnoqlarim oʻsa boshladi 💅 Manikyur haqida keyin gaplashamiz",
+    "11": "Hiqichoq tutishni oʻrgandim! Hiq! 😅",
+    "12": "Bugun bosh barmogʻimni ogʻzimga soldim 👍 Mazali!",
+    "13": "Endi barmoq izlarim bor ☝️ Men yagonaman!",
+    "14": "Yuz ifodalarini mashq qilyapman: qovoq solish, jilmayish… 😄",
+    "15": "Yorugʻlikni sezyapman ☀️ Quyoshli kunlarni yaxshi koʻraman!",
+    "16": "Koʻzlarim sekin harakatlanyapti 👀 Hali yumuq, lekin juda qiziq",
+    "17": "Yonoqlarim uchun ozgina yogʻ yigʻyapman 😊 Oʻpichlar uchun!",
+    "18": "Quloqlarim tayyor 👂 Ovozingizni eshitishga hozirlanyapman",
+    "19": "Umbaloq oshishni oʻrganyapman 🤸 Sezdingizmi?",
+    "20": "Yarim yoʻlga yetdik! 🎉 Bugun oʻzimga qarsak chaldim",
+    "21": "Tepishlarim kuchayyapti 🦶 Bu “salom” degani!",
+    "22": "Qoshlarim chiqdi 🤨 Endi ifodaliroqman",
+    "23": "Musiqa tinglayapman 🎶 Qoʻshigʻingiz juda yoqdi",
+    "24": "Nafas olishni mashq qilyapman 🌬 Hali suv ostidaman, lekin ustaman!",
+    "25": "Sochlarim oʻsyapti 💇 Rangi syurpriz boʻladi!",
+    "26": "Koʻzlarimni ocha olaman! 👀 Bu yerda hamma narsa pushti",
+    "27": "Tush koʻryapman 💭 Albatta sizni",
+    "28": "Koʻz qisa olaman 😉 Bu men sizga koʻz qisyapman",
+    "29": "Joy torayib qoldi, lekin baribir raqs tushyapman 💃",
+    "30": "Kundan kunga aqlliroq boʻlyapman 🧠 Xuddi sizdek!",
+    "31": "Boshimni bura olaman ↔️ Ovozingiz tomonga qarayman",
+    "32": "Tirnoqlarim barmoq uchlarigacha yetdi 💅 Tayyorlanyapman!",
+    "33": "Kundan kunga kuchliroq boʻlyapman 💪 Quchoqlarga tayyorlanyapman",
+    "34": "Yonoqlarim dumboqlashyapti 😊 Oʻpichlarga tayyor",
+    "35": "Bu yer juda shinam 🙈 Faqat oyoqlarimni qoʻyishga joy kerak",
+    "36": "Deyarli tayyorman! Faqat soʻnggi pardozlar ✨",
+    "37": "Koʻzlarim, quloqlarim, yuragim: hammasi sizni kutyapti 💛",
+    "38": "Bagʻringizni orzu qilyapman 🤗 Oz qoldi",
+    "39": "Sumkangizni yigʻdingizmi? 😄 Men tayyorman",
+    "40": "Balki bugun, balki ertaga 😄 Sizni hayron qoldiraman!",
+    "41": "Bu yer juda qulay, yana biroz qolsam maylimi? 🙈💛"
+  },
+  "daily": [
+    "Bugun men {fruit} kattaligidaman! Oʻsyapman 🌱",
+    "Yuragingiz urishi mening allam 💓",
+    "Bu yer issiq va shinam, xavotir olmang 😌",
+    "Bugun biroz dam oling, men ham dam olaman 😴",
+    "Suv ichishni unutmang, menga ham yoqadi 💧",
+    "Bugun nima yeymiz? 😋",
+    "Jilmaying, oyijon! Siz jilmaysangiz, men ham tinchlanaman 😊",
+    "Dadamga mendan salom ayting! 👋",
+    "Men kichkinaman, lekin sizni juda yaxshi koʻraman 💛",
+    "Bugun ozgina oʻsdim, sezdingizmi? 📏",
+    "Sizni har kuni biroz koʻproq yaxshi koʻraman 🥰",
+    "Menga ertak aytib berasizmi? 📖",
+    "Bugun juda chiroylisiz, oyijon! ✨",
+    "Men sizni kutyapman, siz esa meni 🤗"
+  ]
+}

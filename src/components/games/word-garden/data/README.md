@@ -3,8 +3,8 @@
 `az.json` Söz bağı oyununun ayrıca, offline söz məlumat paketidir.
 
 - **Dil:** Azərbaycan / `az-AZ`.
-- **Versiya:** `az-202610-v2`.
-- **Sözlər:** 6 857 lüğət sözü; bunlardan 2 921-i əsas tapmaca üçün,
+- **Versiya:** `az-202611-v3` (əvvəlki nəşrlər `az-v2.json`, `az-v1.json` dəyişməz saxlanır).
+- **Sözlər:** 7 745 lüğət sözü; bunlardan 5 606-sı əsas tapmaca üçün,
   qalanları əlavə düzgün sözlərin yoxlanması üçün istifadə olunur.
 - **Əsas mənbə:** [Wiktionary → Kaikki.org Azerbaijani](https://kaikki.org/dictionary/Azerbaijani/).
 - **Tezlik sıralaması:** [Subhan Gadirli — aosp-dict-az](https://github.com/subhangadirli/aosp-dict-az/tree/c68c85cb297510d19cee04787e445e2a558b1f70),
@@ -24,3 +24,8 @@ v2 eyni verified Kaikki snapshot-ından911 əlavə corpus-confirmedlemmanı
 əsas seçimə daxil edir (frequency40+);daha müxtəlif başlanğıcracks vədeterministik
 deck istifadə olunur. Publishedv1`az-v1.json`baytları saxlanır ki yarımçıqsave
 originalsözlərlə açılsın. Lüğətin tərcüməsi və süni söz generasiyası yoxdur.
+
+v3 v2 baytlarını saxlayır və `scripts/word-garden/az-editorial-v3.json`-dakı əl ilə
+yazılmış/yoxlanmış Azərbaycan baş sözlərini əlavə edir və ya hədəfə keçirir
+(`expand-az-v3.mjs --from-v2`). Tezlik eyni pinned korpus snapshot-ından götürülür;
+maşın tərcüməsi, xüsusi ad və başqa dilin lüğəti istifadə edilmir.

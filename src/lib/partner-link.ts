@@ -39,6 +39,18 @@ export async function linkPartnerByCode(value: string): Promise<void> {
   }
 }
 
+/**
+ * Old pairing could leave a one-sided pointer (mine set, theirs empty). It grants no
+ * access but blocks a new link with PAIRING_CONFLICT. Clear it only when the server
+ * confirms the link is not mutual; unlink_partners then clears just my side.
+ */
+export async function clearStaleOneSidedLink(userId: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc('get_user_linked_partner_id', { _user_id: userId });
+  if (error || data) return false;
+  const { error: unlinkError } = await (supabase.rpc as any)('unlink_partners');
+  return !unlinkError;
+}
+
 export async function getPartnerCodeForSharing(currentCode: string): Promise<string> {
   if (!isAzurePartnerPairingEnabled()) return currentCode;
   const { data, error } = await supabase.rpc('ensure_secure_partner_code');

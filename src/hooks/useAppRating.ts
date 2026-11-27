@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { Capacitor } from '@capacitor/core';
+import { markPromptShown, promptShownToday } from '@/lib/prompt-day';
+import { safeGetItem, safeSetItem } from '@/lib/safe-storage';
 
 interface AppRatingState {
   shouldShowPrompt: boolean;
@@ -31,35 +33,41 @@ export const useAppRating = (): AppRatingState => {
     }
 
     // Check if already rated
-    const ratingDone = localStorage.getItem(RATING_DONE_KEY);
+    const ratingDone = safeGetItem('localStorage', RATING_DONE_KEY);
     if (ratingDone === 'true') {
       setLoading(false);
       return;
     }
 
     // Track usage count
-    const currentCount = parseInt(localStorage.getItem(USAGE_COUNT_KEY) || '0', 10) + 1;
-    localStorage.setItem(USAGE_COUNT_KEY, String(currentCount));
+    const currentCount = parseInt(safeGetItem('localStorage', USAGE_COUNT_KEY) || '0', 10) + 1;
+    safeSetItem('localStorage', USAGE_COUNT_KEY, String(currentCount));
 
     // Show on 3rd usage
     if (currentCount >= 3) {
       // Check DB if already rated
+      // Not on a day the feedback form already appeared.
+      const showOnce = () => {
+        if (promptShownToday()) return;
+        markPromptShown();
+        setShouldShowPrompt(true);
+      };
       const checkDb = async () => {
         try {
           const { data } = await supabase
             .from('app_rating_prompts')
             .select('last_action')
             .eq('user_id', user.id)
-            .single();
+            .maybeSingle();
 
           if (data?.last_action === 'rated' || data?.last_action === 'never') {
-            localStorage.setItem(RATING_DONE_KEY, 'true');
+            safeSetItem('localStorage', RATING_DONE_KEY, 'true');
             setLoading(false);
             return;
           }
-          setShouldShowPrompt(true);
+          showOnce();
         } catch {
-          setShouldShowPrompt(true);
+          showOnce();
         }
         setLoading(false);
       };
@@ -80,7 +88,7 @@ export const useAppRating = (): AppRatingState => {
         .from('app_rating_prompts')
         .select('id, show_count')
         .eq('user_id', user.id)
-        .single();
+        .maybeSingle();
 
       if (existing) {
         await supabase
@@ -106,7 +114,7 @@ export const useAppRating = (): AppRatingState => {
       }
 
       if (action === 'rated' || action === 'never') {
-        localStorage.setItem(RATING_DONE_KEY, 'true');
+        safeSetItem('localStorage', RATING_DONE_KEY, 'true');
       }
 
       setShouldShowPrompt(false);

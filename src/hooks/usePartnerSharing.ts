@@ -92,6 +92,7 @@ export const usePartnerSharing = () => {
       from('partner_sharing_settings').
       upsert({ user_id: user.id, ...next, updated_at: new Date().toISOString() }, { onConflict: 'user_id' });
       if (error) throw error;
+      invalidateSharingCache(); // events sent from this device follow the new choice immediately
       return true;
     } catch (e) {
       console.error('updateSetting failed:', e);

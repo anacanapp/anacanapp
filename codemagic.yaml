@@ -1,0 +1,161 @@
+# Codemagic CI: signed Anacan store packages (Capacitor 8).
+# No triggers: builds start only from "Start new build", so the free 500 macOS
+# minutes are not spent on every push. Setup and private values: docs/CODEMAGIC.md
+
+definitions:
+  scripts:
+    - &install
+      name: Install dependencies
+      script: npm ci
+    - &web_build
+      name: Build native web bundle
+      script: |
+        export VITE_NATIVE_BUILD=true VITE_APP_VERSION="$APP_VERSION"
+        # 23-language bundles need more than the default Node heap during the Rollup pass
+        export NODE_OPTIONS="--max-old-space-size=6144"
+        node scripts/codemagic/check-native-env.mjs
+        # The Customer.io write key is native-only (apply-native-config.mjs), never Vite input
+        env -u VITE_CUSTOMERIO_CDP_WRITE_KEY npx vite build --mode google
+        # Marketing website files stay out of native packages
+        rm -rf dist/website dist/anacan-pitch-deck.html dist/anacan-pitch-deck.md
+        # Content packs are downloaded from https://app.anacan.az/content-packs/ (never shipped natively)
+        rm -rf dist/content-packs
+
+workflows:
+  ios-store:
+    name: iOS App Store (TestFlight upload)
+    instance_type: mac_mini_m2
+    max_build_duration: 90
+    environment:
+      node: 22
+      xcode: latest
+      groups:
+        - anacan_native
+        - anacan_ios_signing
+      vars:
+        APP_VERSION: "52.0"
+    scripts:
+      - *install
+      - *web_build
+      - name: Resolve iOS build number (50.0.0, 50.0.1, …)
+        script: |
+          # Next build number = last TestFlight build of this version + 1; the first build of 50.0 is 50.0.0.
+          if OUT=$(app-store-connect get-latest-testflight-build-number 6758301924 --pre-release-version "$APP_VERSION" 2>/dev/null); then
+            LATEST=$(echo "$OUT" | tail -n 1 | tr -d '[:space:]')
+          else
+            LATEST="lookup-failed"
+          fi
+          if echo "$LATEST" | grep -Eq "^${APP_VERSION//./\\.}\.[0-9]+$"; then
+            NEXT="$APP_VERSION.$(( ${LATEST##*.} + 1 ))"
+          elif [ "$LATEST" = "lookup-failed" ]; then
+            # Could not ask App Store Connect: fall back to Codemagic's own counter so the upload never clashes.
+            NEXT="$APP_VERSION.$BUILD_NUMBER"
+          else
+            NEXT="$APP_VERSION.0"
+          fi
+          echo "Latest TestFlight build for $APP_VERSION: ${LATEST:-none} -> building $NEXT"
+          echo "IOS_BUILD_VERSION=$NEXT" >> "$CM_ENV"
+      - name: Sync Capacitor iOS and apply live native config
+        script: |
+          npx cap sync ios
+          node scripts/codemagic/apply-native-config.mjs ios
+      - name: Fetch App Store certificate and profiles (app + widget + notification service)
+        script: |
+          # Uses APP_STORE_CONNECT_* and CERTIFICATE_PRIVATE_KEY from anacan_ios_signing
+          keychain initialize
+          # Notification Service Extension App ID: create once; "already exists" is ignored.
+          app-store-connect bundle-ids create com.atlasoon.anacan.AnacanNotificationService \
+            --name "Anacan Notification Service" --platform IOS || true
+          for BUNDLE_ID in com.atlasoon.anacan com.atlasoon.anacan.AnacanTimerWidgetExt com.atlasoon.anacan.AnacanNotificationService; do
+            app-store-connect fetch-signing-files "$BUNDLE_ID" --type IOS_APP_STORE --create
+          done
+          keychain add-certificates
+          echo "Signing identities in the build keychain:"; security find-identity -v -p codesigning || true
+          xcode-project use-profiles --project ios/App/App.xcodeproj
+          # Fail here (not later in archive) when a target got no App Store profile. That happens when the fetched
+          # profiles belong to a distribution certificate that is not in the keychain, e.g. an expired/revoked one,
+          # or when CERTIFICATE_PRIVATE_KEY does not match any active Apple Distribution certificate.
+          SETTINGS=$(xcodebuild -project ios/App/App.xcodeproj -alltargets -configuration Release -showBuildSettings 2>/dev/null)
+          MISSING=0
+          for T in App AnacanTimerWidgetExtExtension AnacanNotificationService; do
+            SPEC=$(echo "$SETTINGS" | awk -v t="$T" '/^Build settings for action build and target /{cur=$NF; sub(/:$/,"",cur)} cur==t && $1=="PROVISIONING_PROFILE_SPECIFIER"{print $3; exit}')
+            echo "$T -> profile: ${SPEC:-<none>}"
+            [ -n "$SPEC" ] || MISSING=1
+          done
+          if [ "$MISSING" = 1 ]; then
+            echo "No App Store provisioning profile was applied. Check that CERTIFICATE_PRIVATE_KEY in anacan_ios_signing"
+            echo "belongs to an active Apple Distribution certificate (App Store Connect > Certificates) for team 8B6976J8H7."
+            exit 1
+          fi
+      - name: Resolve Swift packages
+        script: |
+          # build-ipa only prints "Failed to show build settings" when Swift Package resolution fails
+          # (GitHub fetch of capacitor-swift-pm / Firebase / Facebook SDK). Retry and show the real error.
+          for attempt in 1 2 3; do
+            if xcodebuild -resolvePackageDependencies -project ios/App/App.xcodeproj -scheme App; then break; fi
+            [ "$attempt" = 3 ] && exit 1
+            echo "Package resolution failed (attempt $attempt), retrying in 30s"; sleep 30
+          done
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -showBuildSettings > /dev/null
+      - name: Build IPA
+        script: |
+          xcode-project build-ipa \
+            --project ios/App/App.xcodeproj \
+            --scheme App \
+            --archive-xcargs "MARKETING_VERSION=$APP_VERSION CURRENT_PROJECT_VERSION=$IOS_BUILD_VERSION"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        submit_to_testflight: false
+
+  android-store:
+    name: Android Google Play (AAB)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      node: 22
+      java: 21
+      groups:
+        - anacan_native
+        - anacan_android_signing
+      vars:
+        APP_VERSION: "52.0"
+        # Build sequence inside 52.0: 0 -> versionName 52.0.0 / versionCode 5200, 1 -> 52.0.1 / 5201, …
+        # Raise it by one before every new Play upload (Play rejects a versionCode it has seen).
+        # 51.0 (2026-11-13): iOS 50.0 is released on the App Store, so the next submission needs a new version;
+        # 5100+ is above every 50.0.x code (5000+).
+        # 52.0 (2026-11-25): stability phase 2 (docs/STABILITY_PHASE2.md); 5200+ is above every 51.0.x code.
+        ANDROID_BUILD_SEQ: "0"
+    scripts:
+      - *install
+      - *web_build
+      - name: Sync Capacitor Android and apply live native config
+        script: |
+          npx cap sync android
+          node scripts/codemagic/apply-native-config.mjs android
+      - name: Write upload keystore and keystore.properties
+        script: |
+          # CM_KEYSTORE (base64) and passwords come from anacan_android_signing
+          KEYSTORE_PATH="$CM_BUILD_DIR/anacan-upload.jks"
+          echo "$CM_KEYSTORE" | base64 --decode > "$KEYSTORE_PATH"
+          cat > android/keystore.properties <<EOF
+          storeFile=$KEYSTORE_PATH
+          storePassword=$CM_KEYSTORE_PASSWORD
+          keyAlias=$CM_KEY_ALIAS
+          keyPassword=$CM_KEY_PASSWORD
+          EOF
+      - name: Build signed AAB and APK
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew bundleRelease assembleRelease \
+            -PanacanVersionCode="$(( 5200 + ANDROID_BUILD_SEQ ))" \
+            -PanacanVersionName="$APP_VERSION.$ANDROID_BUILD_SEQ"
+    artifacts:
+      - android/app/build/outputs/bundle/release/*.aab
+      - android/app/build/outputs/apk/release/*.apk

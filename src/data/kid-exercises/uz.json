@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Bola mashqlari",
+    "tileDesc": "0–5 yosh uchun rasmli harakat mashqlari",
+    "title": "Bola mashqlari",
+    "eyebrow": "Harakat va rivojlanish",
+    "ageFor": "{name} uchun",
+    "today": "Bugun",
+    "doneCount": "{n} mashq",
+    "weekHint": "Soʻnggi 7 kun: har bir nuqta mashq qilgan kuningiz.",
+    "picksTitle": "Bugungi mashqlar",
+    "picksSub": "Har kuni yoshga mos uchta yangi mashq.",
+    "allTitle": "Barcha mashqlar",
+    "count": "{n} mashq",
+    "nowBadge": "Hozirgi yosh",
+    "search": "Mashq qidirish",
+    "all": "Hammasi",
+    "favs": "Sevimlilar",
+    "noFavs": "Yurakchani bosib, mashqlarni sevimlilarga qoʻshing.",
+    "noResults": "Mos mashq topilmadi.",
+    "rules": "Umumiy qoidalar",
+    "safetyNote": "Bu mashqlar umumiy maʼlumot boʻlib, shifokor koʻrigining oʻrnini bosmaydi. Muddatidan oldin tugʻilgan, sogʻligʻida muammo bor yoki rivojlanishi sizni xavotirga solayotgan bola uchun avval pediatr yoki bolalar fizioterapevti bilan maslahatlashing.",
+    "age": "Yosh",
+    "duration": "Davomiyligi",
+    "how": "Qanday bajariladi",
+    "benefit": "Foydasi",
+    "caution": "Diqqat",
+    "timer": "Sekundomer",
+    "start": "Boshlash",
+    "pause": "Pauza",
+    "reset": "Qaytadan",
+    "done": "Bajardik",
+    "doneToday": "Bugun bajardik",
+    "prev": "Oldingi",
+    "next": "Keyingi",
+    "fav": "Sevimlilarga qoʻshish",
+    "unfav": "Sevimlilardan olib tashlash",
+    "close": "Yopish"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 yosh",
+      "months": "0–12 oy",
+      "rules": [
+        "Mashqlarni chaqaloq uygʻoq, xotirjam va qorni toʻq boʻlmagan paytda bajaring (ovqatdan kamida 30–40 daqiqa keyin).",
+        "Qattiq, tekis va toza yuzada (polda gilam yoki gilamcha ustida) mashq qiling; chaqaloqni baland joyda yolgʻiz qoldirmang.",
+        "Harakatlar sekin va yumshoq boʻlishi kerak. Hech qachon kuch ishlatmang, qoʻl-oyoqlarini tortmang.",
+        "Chaqaloq yigʻlasa, bezovtalansa yoki charchasa, darhol toʻxtang.",
+        "Yosh oraliqlari taxminiy; har bir chaqaloq oʻz surʼatida rivojlanadi.",
+        "Muddatidan oldin tugʻilgan yoki sogʻligʻida muammo bor chaqaloqlar uchun avval pediatr bilan maslahatlashing."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 yosh",
+      "months": "12–24 oy",
+      "rules": [
+        "Bu yoshda mashq bu oʻyin: bolani majburlamang, harakatni oʻzingiz koʻrsating va birga bajaring.",
+        "Kun davomida kamida 30 daqiqa yoʻnaltirilgan va 1 soat hamda undan koʻp erkin harakatli oʻyin tavsiya etiladi.",
+        "Xonani xavfsiz qiling: oʻtkir burchaklar, sirpanchiq gilamlar, agʻdarilib ketadigan mebel boʻlmasin. Yalangoyoq yoki sirpanmaydigan paypoqda mashq qilish yaxshiroq.",
+        "Zina, tepalik (gorka), tirmashish va sakrash paytida doim qoʻlingiz yetadigan masofada boʻling.",
+        "Mayda buyumlar (toʻp, kubik) bilan oʻynaganda ularning oʻlchamiga eʼtibor bering: bolaning ogʻziga sigʻadigan buyum berish mumkin emas.",
+        "Yosh oraliqlari taxminiy. Bola 18 oygacha mustaqil yurmasa, pediatrga murojaat qiling."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 yosh",
+      "months": "24–36 oy",
+      "rules": [
+        "Bu yoshda mashq bu oʻyin: harakatni oʻzingiz koʻrsating, birga bajaring, qoʻshiq va ertak bilan joʻr qiling.",
+        "Kun davomida kamida 1 soat yoʻnaltirilgan va 2 soat hamda undan koʻp erkin harakatli oʻyin tavsiya etiladi.",
+        "Xona va hovlini xavfsiz qiling: sirpanchiq pol, oʻtkir burchaklar, agʻdarilib ketadigan buyumlar boʻlmasin.",
+        "Sakrash, tirmashish, osilish va tepalikdan sirpanish paytida qoʻlingiz yetadigan masofada boʻling; yumshoq yuza tanlang.",
+        "Bolani charchatmang: qisqa oʻyinlar, tez-tez tanaffus va suv.",
+        "Yosh oraliqlari taxminiy; har bir bola oʻz surʼatida rivojlanadi. Xavotiringiz boʻlsa, pediatrga murojaat qiling."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 yosh",
+      "months": "36–48 oy",
+      "rules": [
+        "Mashq hali ham oʻyin: harakatni oʻzingiz koʻrsating, birga bajaring, musobaqa va ertak elementlarini qoʻshing.",
+        "Kun davomida kamida 1 soat yoʻnaltirilgan va 2 soat hamda undan koʻp erkin harakatli oʻyin tavsiya etiladi; iloji boricha ochiq havoda.",
+        "Xavfsiz joy tanlang: sirpanmaydigan pol, yumshoq gilamcha, atrofda oʻtkir burchaklar boʻlmasin.",
+        "Gʻildirakli vositalarda (samokat, velosiped) doim dubulgʻa kiydiring.",
+        "Umbaloq, muvozanat taxtasi va tirmashish kabi mashqlarda yonida boʻling.",
+        "Bolani charchatmang: qisqa oʻyinlar, tez-tez tanaffus va suv.",
+        "Yosh oraliqlari taxminiy; har bir bola oʻz surʼatida rivojlanadi. Xavotiringiz boʻlsa, pediatrga murojaat qiling."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 yosh",
+      "months": "48–60 oy",
+      "rules": [
+        "Mashq oʻyin kabi oʻtishi kerak: harakatni oʻzingiz koʻrsating, birga bajaring, kichik musobaqalar va \"rekordlar\" qoʻshing.",
+        "Kun davomida kamida 1 soat yoʻnaltirilgan va 2 soat hamda undan koʻp erkin harakatli oʻyin tavsiya etiladi; iloji boricha ochiq havoda.",
+        "Xavfsiz joy tanlang: sirpanmaydigan pol, yumshoq gilamcha, atrofda oʻtkir burchaklar boʻlmasin.",
+        "Velosiped va samokatda doim dubulgʻa va yopiq poyabzal kiydiring.",
+        "Umbaloq, balanddan sakrash, tirmashish va osilish paytida yonida boʻling.",
+        "Kuch mashqlarida (plank, choʻkkalash) davomiylik emas, sifat muhim: holat buzilganda toʻxtang.",
+        "Yosh oraliqlari taxminiy; har bir bola oʻz surʼatida rivojlanadi. Xavotiringiz boʻlsa, pediatrga murojaat qiling."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 oy",
+    "3–6 ay": "3–6 oy",
+    "6–9 ay": "6–9 oy",
+    "9–12 ay": "9–12 oy",
+    "12–15 ay": "12–15 oy",
+    "15–18 ay": "15–18 oy",
+    "18–24 ay": "18–24 oy",
+    "Hoppanma və tarazlıq": "Sakrash va muvozanat",
+    "Yerimə, qaçış və dırmaşma": "Yurish, yugurish va tirmashish",
+    "Topla oyunlar": "Toʻp oʻyinlari",
+    "Gimnastika və təqlid oyunları": "Gimnastika va taqlid oʻyinlari",
+    "Hoppanma": "Sakrash",
+    "Tarazlıq": "Muvozanat",
+    "Təkərli vasitələr və qaçış": "Gʻildirakli vositalar va yugurish",
+    "Güc və gimnastika": "Kuch va gimnastika",
+    "Ritm və koordinasiya": "Ritm va muvofiqlik",
+    "Hoppanma və tullanma": "Sakrash va hatlash",
+    "Qaçış, velosiped və ritm oyunları": "Yugurish, velosiped va ritm oʻyinlari"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Qorin bilan yotish",
+      "age": "Tugʻilgandan boshlab",
+      "how": "Chaqaloqni gilamcha ustiga qorni bilan yotqizing, qoʻllarini tirsakdan bukib, boshining yoniga qoʻying. Bir qoʻlingizni yelkasiga, ikkinchisini dumbasiga yumshoq qoʻying. U bilan gaplashing, shunda u boshini koʻtarishga harakat qiladi.",
+      "duration": "Kuniga 2–3 marta, 1–3 daqiqadan; asta-sekin oshiring.",
+      "benefit": "Boʻyin, yelka va orqa mushaklarini mustahkamlaydi, ensaning yassilanib qolishining oldini oladi.",
+      "caution": "Faqat bola uygʻoq paytida va nazorat ostida. Uxlatish uchun chaqaloqni doim chalqancha yotqizing."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Ota-onaning koʻksida qorin bilan",
+      "age": "0–2 oy",
+      "how": "Yostiqqa suyanib, yarim yotgan holatda oʻtiring. Chaqaloqni koʻksingizga qorni bilan yotqizing, bir qoʻlingiz bilan orqasini, ikkinchisi bilan dumbasini ushlang. Yuzingizga qarashi uchun u bilan gaplashing.",
+      "duration": "Kuniga bir necha marta, 2–5 daqiqadan.",
+      "benefit": "Qorin bilan yotishga oʻrgatishning eng yumshoq usuli; boshini koʻtarishga undaydi, oʻzaro bogʻliqlikni mustahkamlaydi.",
+      "caution": "Agar oʻzingiz uyqusirab turgan boʻlsangiz, bu mashqni qilmang."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Tizzada qorin bilan",
+      "age": "0–3 oy",
+      "how": "Oʻtiring va chaqaloqni sonlaringiz ustiga koʻndalang, qorni bilan yotqizing. Bir qoʻlingiz orqasida, ikkinchisi dumbasida boʻlsin. Orqasini yumshoq silashingiz mumkin.",
+      "duration": "2–3 daqiqa.",
+      "benefit": "Boʻyin mushaklarini ishlatadi, gazlar chiqishiga yordam beradi, chaqaloqni tinchlantiradi."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Oʻyinchoqni koʻz bilan kuzatish",
+      "age": "0–3 oy",
+      "how": "Chaqaloq chalqancha yotadi. Yorqin oʻyinchoqni yuzidan 20–30 sm uzoqlikda ushlab, sekin-asta oʻngga va chapga suring. Chaqaloq uni koʻzi va boshi bilan kuzatishini kuting.",
+      "duration": "1–2 daqiqa, har tomonga 4–5 marta.",
+      "benefit": "Koʻrish diqqatini, koʻz va bosh harakatlarining muvofiqligini hamda boʻyinning ikki tomonga burilishini rivojlantiradi."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Barmoqni ushlash",
+      "age": "0–4 oy",
+      "how": "Koʻrsatkich barmogʻingizni chaqaloqning kaftiga qoʻying va uni siqishini kuting. Barmogʻingizni biroz yuqori-pastga harakatlantiring. Ikkala qoʻl bilan takrorlang.",
+      "duration": "Har bir qoʻl uchun 3–5 marta.",
+      "benefit": "Ushlash refleksini va qoʻl mushaklarini mustahkamlaydi, teginish sezgisini rivojlantiradi.",
+      "caution": "Chaqaloqni barmogʻingizdan ushlatib yuqoriga koʻtarmang."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Tizzalarni qoringa olib kelish",
+      "age": "0–6 oy",
+      "how": "Chaqaloq chalqancha yotadi. Ikkala boldiridan ushlab, tizzalarini birga sekin qorniga tomon buking, 3–5 soniya ushlab turing va qoʻyib yuboring.",
+      "duration": "5–8 marta takrorlang.",
+      "benefit": "Gaz va sanchiqni yengillashtiradi, chanoq-son boʻgʻimlarining harakatchanligini oshiradi.",
+      "caution": "Qattiq bosmang; qarshilik sezsangiz, toʻxtang."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "\"Velosiped\"",
+      "age": "1–6 oy",
+      "how": "Chaqaloq chalqancha yotadi. Boldirlaridan ushlab, oyoqlarini navbat bilan velosiped haydayotgandek harakatlantiring: bir tizza qoringa, ikkinchi oyoq oldinga.",
+      "duration": "10–15 aylana, orada tanaffus bilan.",
+      "benefit": "Oyoq va qorin mushaklarini ishlatadi, ichak faoliyatiga yordam beradi, navbatma-navbat harakat muvofiqligini oʻrgatadi."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Qoʻllarni ochib-yopish",
+      "age": "1–6 oy",
+      "how": "Chaqaloq chalqancha yotadi. Bosh barmoqlaringizni uning kaftlariga qoʻying yoki bilaklaridan yumshoq ushlang. Qoʻllarini yon tomonga oching, soʻng koʻksida chalishtiring (oʻzini quchoqlayotgandek).",
+      "duration": "5–8 marta takrorlang.",
+      "benefit": "Koʻkrak va yelka mushaklarini ochadi, qoʻllarni tananing oʻrta chizigʻiga olib kelishni oʻrgatadi.",
+      "caution": "Qoʻllarini tortmang, faqat chaqaloq imkon bergan darajada oching."
+    },
+    "0-1/09_kicking": {
+      "title": "Kaftga tepish",
+      "age": "1–4 oy",
+      "how": "Chaqaloq chalqancha yotadi. Kaftlaringizni uning oyoq tagiga tirang va yengil qarshilik koʻrsating; chaqaloq oyoqlari bilan itaradi.",
+      "duration": "1–2 daqiqa.",
+      "benefit": "Oyoq mushaklarini mustahkamlaydi, itarish harakatini (kelajakda emaklash va oyoqqa turish uchun) tayyorlaydi."
+    },
+    "0-1/10_side_lying": {
+      "title": "Yonboshlab oʻynash",
+      "age": "1–4 oy",
+      "how": "Chaqaloqni yonboshiga yotqizing, orqasiga oʻralgan sochiq qoʻying. Ikkala qoʻli oldinda boʻlsin; qarshisiga oʻyinchoq qoʻying. Soʻng ikkinchi yonboshiga oʻgiring.",
+      "duration": "Har tomonga 2–3 daqiqa.",
+      "benefit": "Qoʻllarning bir-biriga tegishini osonlashtiradi, agʻdarilishga tayyorlaydi, boshning bir tomonga qiyshayib qolishining oldini oladi.",
+      "caution": "Faqat bola uygʻoq paytida va nazorat ostida; chaqaloqni bu holatda uxlatmang."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Sochiq tayanchida qorin bilan yotish",
+      "age": "2–4 oy",
+      "how": "Oʻralgan sochiqni chaqaloqning koʻkragi ostiga (qoʻltiq chizigʻida) qoʻying, qoʻllari sochiqning oldida boʻlsin. Boshini koʻtarib qarashi uchun qarshisiga oʻyinchoq qoʻying.",
+      "duration": "3–5 daqiqa, kuniga bir necha marta.",
+      "benefit": "Boshni koʻtarishni osonlashtiradi, tirsaklarga tayanishga tayyorlaydi."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Oʻtirgan holatga tortish",
+      "age": "3–5 oy (chaqaloq boshini tuta olgandan keyin)",
+      "how": "Chaqaloq chalqancha yotadi. Bosh barmoqlaringizni uning kaftlariga bering, bilaklaridan ushlang va uni sekin oʻtirgan holatga tomon koʻtaring, soʻng xuddi shunday sekin orqaga yotqizing.",
+      "duration": "3–5 marta takrorlang.",
+      "benefit": "Qorin, boʻyin va qoʻl mushaklarini mustahkamlaydi.",
+      "caution": "Agar boshi orqaga osilib qolsa, mashqni keyinroqqa qoldiring. Tez tortmang."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Oʻyinchoqqa qoʻl choʻzish",
+      "age": "3–5 oy",
+      "how": "Chaqaloq chalqancha yotadi. Oʻyinchoqni koʻkragi ustida, qoʻli yetadigan masofada ushlab turing va qoʻl choʻzib olishini kuting. Oʻyinchoqni goh oʻngga, goh chapga suring.",
+      "duration": "2–3 daqiqa.",
+      "benefit": "Koʻz va qoʻl muvofiqligini, yelka mushaklarini va maqsadli ushlashni rivojlantiradi."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Tirsakka tayanib qoʻl choʻzish",
+      "age": "4–6 oy",
+      "how": "Chaqaloq qorni bilan yotib, tirsaklariga tayanadi. Bir qoʻlini choʻzishi uchun oʻyinchoqni biroz oldinga va yonga qoʻying. Qoʻllaringiz bilan chanogʻini yengil ushlab turishingiz mumkin.",
+      "duration": "3–5 daqiqa.",
+      "benefit": "Tana ogʻirligini bir qoʻldan ikkinchisiga oʻtkazishni oʻrgatadi, orqa va yelka kamarini mustahkamlaydi, emaklashga tayyorlaydi."
+    },
+    "0-1/15_rolling": {
+      "title": "Agʻdarilishga yordam",
+      "age": "4–6 oy",
+      "how": "Chaqaloq chalqancha yotadi. Oʻyinchoqni yon tomonga qoʻying. Bir qoʻlingiz bilan sonidan, ikkinchisi bilan chanogʻidan ushlab, ustki oyogʻini qarama-qarshi tomonga oʻtkazing; tanasi oʻzi ortidan buriladi. Ikkala tomonga bajaring.",
+      "duration": "Har tomonga 3–4 marta.",
+      "benefit": "Tana mushaklarini va gavdaning burilish harakatini rivojlantiradi, mustaqil agʻdarilishni oʻrgatadi.",
+      "caution": "Chaqaloqni qoʻlidan tortib agʻdarmang."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Oyoqlarni ushlash",
+      "age": "4–6 oy",
+      "how": "Chaqaloq chalqancha yotadi. Tizzalarini bukib, oyoqlarini qoʻllariga yaqinlashtiring, u ularni ushlab olsin. Ushlagandan keyin oʻngga-chapga yengil tebranishiga imkon bering.",
+      "duration": "1–2 daqiqa.",
+      "benefit": "Qorin mushaklarini mustahkamlaydi, tanani his qilishni va chanoq-son egiluvchanligini oshiradi."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Tayanch bilan oʻtirish",
+      "age": "5–7 oy",
+      "how": "Chaqaloqni gilamcha ustiga oʻtqazing, orqasidan chanogʻi yoki belidan ushlang. Qoʻliga oʻyinchoq bering. Muvozanati yaxshilangan sari tayanchni kamaytiring.",
+      "duration": "3–5 daqiqa.",
+      "benefit": "Tana mushaklarini va oʻtirishdagi muvozanatni rivojlantiradi, qoʻllarini oʻyin uchun boʻshatadi.",
+      "caution": "Orqasi bukchayib, charchasa, yotqizing; yostiqlar bilan majburan oʻtqazmang."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Tayanch bilan oyoqda prujinalanish",
+      "age": "5–8 oy",
+      "how": "Chaqaloqni qoʻltigʻi ostidan, tanasidan mahkam ushlang va oyoqlarini qattiq yuzaga qoʻying. Ogʻirligining bir qismini oyoqlariga berishiga va tizzalarini bukib-yozib prujinalanishiga imkon bering.",
+      "duration": "1–2 daqiqa.",
+      "benefit": "Oyoq mushaklarini mustahkamlaydi, oyoqqa turishga tayyorlaydi.",
+      "caution": "Ogʻirlikning asosiy qismini oʻzingiz ushlab turing; chaqaloqni oyoqlari ustida qoʻyib yubormang."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Oʻtirib oʻyinchoqqa qoʻl choʻzish",
+      "age": "6–8 oy",
+      "how": "Chaqaloq oʻzi oʻtiradi, bir qoʻli bilan yerga tayanadi. Oʻyinchoqni oldinga va yon tomonlarga, biroz uzoqroqqa qoʻying, u qoʻl choʻzib olsin va yana tik oʻtirsin. Atrofiga yostiqlar qoʻying.",
+      "duration": "5 daqiqa.",
+      "benefit": "Oʻtirishdagi muvozanatni, gavdaning burilishini va yiqilayotganda qoʻl bilan tayanish refleksini rivojlantiradi."
+    },
+    "0-1/20_peekaboo": {
+      "title": "\"Ku-ku\" (bekinmachoq)",
+      "age": "4–12 oy",
+      "how": "Chaqaloq oʻtiradi. Yengil matoni yuzingiz (yoki uning yuzi) oldida ushlab turing, soʻng tushirib \"ku-ku!\" deng. Kattalashgan sari matoni oʻzi tortib olishiga imkon bering.",
+      "duration": "Chaqaloq qiziqib turguncha.",
+      "benefit": "Narsalarning doimiyligi tushunchasini, diqqatni, muloqot va kulgini rivojlantiradi; qoʻllarning faol harakatini ragʻbatlantiradi."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Chapak chalish oʻyini",
+      "age": "7–12 oy",
+      "how": "Chaqaloq bilan yuzma-yuz oʻtiring. Qoʻshiq yoki sanoq bilan kaftlaringizni uning kaftlariga uring, soʻng oʻzi chapak chalishini koʻrsating.",
+      "duration": "2–3 daqiqa.",
+      "benefit": "Ikki qoʻlning birgalikdagi ishini, ritm hissini, taqlid qilish va muloqotni rivojlantiradi."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Emaklashga yordam",
+      "age": "7–9 oy",
+      "how": "Chaqaloq qoʻllari va tizzalariga tayanib turadi, oldida oʻyinchoq bor. Kaftlaringizni oyoq tagiga tirang, u ulardan itarilib oldinga harakatlansin.",
+      "duration": "3–5 daqiqa.",
+      "benefit": "Emaklash harakatini, qoʻl-oyoq muvofiqligini va tana kuchini rivojlantiradi.",
+      "caution": "Chaqaloqni itarmang, faqat tayanch bering."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Toʻsiq ustidan emaklash",
+      "age": "8–10 oy",
+      "how": "Gilamcha ustiga past yostiq yoki oʻralgan koʻrpa qoʻying, narigi tomoniga oʻyinchoq joylang. Chaqaloq toʻsiqdan oshib oʻtishiga imkon bering.",
+      "duration": "5 daqiqa.",
+      "benefit": "Kuch, muvozanat va harakatni rejalashtirishni rivojlantiradi, tirmashishga tayyorlaydi."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Toʻpni dumalatish",
+      "age": "8–12 oy",
+      "how": "Chaqaloq oyoqlarini kerib oʻtiradi. Yumshoq toʻpni unga qarab dumalating, ushlab, qaytarib itarishini kuting.",
+      "duration": "5 daqiqa.",
+      "benefit": "Oʻtirishdagi muvozanatni, koʻz va qoʻl muvofiqligini hamda navbat bilan oʻynash koʻnikmasini rivojlantiradi."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Ushlanib oʻrnidan turish",
+      "age": "8–10 oy",
+      "how": "Oʻyinchoqni past, mustahkam divan ustiga qoʻying. Chaqaloq tizzalab koʻtarilib, bir oyogʻini yerga bosgan holda oʻrnidan turishga harakat qiladi. Kerak boʻlsa, chanogʻidan yengil qoʻllab turing.",
+      "duration": "3–5 urinish.",
+      "benefit": "Oyoq va dumba mushaklarini mustahkamlaydi, mustaqil oʻrnidan turishni oʻrgatadi.",
+      "caution": "Mebel agʻdarilib ketmasligiga va oʻtkir burchaklari yoʻqligiga ishonch hosil qiling."
+    },
+    "0-1/26_cruising": {
+      "title": "Mebel boʻylab yon qadam",
+      "age": "9–11 oy",
+      "how": "Chaqaloq divandan ushlab turadi. Oʻyinchoqni undan biroz nariroqqa qoʻying, u yon qadamlar bilan unga yetib borsin. Ikkala yoʻnalishda bajaring.",
+      "duration": "5 daqiqa.",
+      "benefit": "Ogʻirlikni bir oyoqdan ikkinchisiga oʻtkazishni va muvozanatni oʻrgatadi; yurishga bevosita tayyorgarlik."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Choʻkkalab oʻyinchoq olish",
+      "age": "10–12 oy",
+      "how": "Chaqaloq bir qoʻli bilan divandan ushlab turadi. Oʻyinchoqni oyogʻining yoniga, yerga qoʻying. Choʻkkalab olishini va yana turishini kuting.",
+      "duration": "5–6 marta takrorlang.",
+      "benefit": "Oyoq mushaklarini va muvozanatni mustahkamlaydi, oʻtirib-turishni boshqarishni oʻrgatadi."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Tayanch bilan yurish",
+      "age": "10–12 oy",
+      "how": "Chaqaloqning orqasida turing va tanasidan (koʻkrak balandligida) ushlang. Qadam tashlashiga imkon bering; muvozanati yaxshilangan sari tayanchni kamaytiring.",
+      "duration": "3–5 daqiqa.",
+      "benefit": "Qadam tashlash koʻnikmasini va muvozanatni rivojlantiradi.",
+      "caution": "Qoʻllaridan yuqoriga tortib yurgizgandan koʻra, tanasidan ushlash yelkalar uchun xavfsizroq."
+    },
+    "0-1/29_push_walker": {
+      "title": "Aravachani itarib yurish",
+      "age": "11–12 oy",
+      "how": "Chaqaloqqa mustahkam, ogʻir itariladigan aravacha bering. Ikkala qoʻli bilan dastasidan ushlab oldinga qadam tashlasin. Yonida boʻling.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Mustaqil yurishga ishonch uygʻotadi, qadam uzunligi va yoʻnalishni boshqarishni mashq qildiradi.",
+      "caution": "Aravacha juda tez yurib ketmasligi kerak; oʻrindiqli yurgichlar (xodunok) tavsiya etilmaydi."
+    },
+    "1-2/01_first_steps": {
+      "title": "Ilk mustaqil qadamlar",
+      "age": "12–15 oy",
+      "how": "Bolani oyoqqa turgʻizing, oʻzingiz 2–3 qadam narida tiz choʻkib, qoʻllaringizni ochib uni chaqiring. Uddalagan sari masofani oshiring.",
+      "duration": "5–10 urinish.",
+      "benefit": "Mustaqil yurishga ishonch va muvozanat hosil qiladi."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Bir qoʻlidan ushlab yurish",
+      "age": "12–15 oy",
+      "how": "Bolaning faqat bir qoʻlidan ushlang va uning surʼatida yuring. Qoʻlingizni uning yelkasi balandligida tuting, yuqoriga tortmang. Qoʻllarni almashtiring.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Ikki qoʻlli tayanchdan mustaqil yurishga oʻtish bosqichi; muvozanatni mustahkamlaydi."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Yerdan tayanchsiz turish",
+      "age": "12–15 oy",
+      "how": "Bola xona oʻrtasida oʻtirganda, qiziqarli oʻyinchoqni uning boshi balandligida ushlab turing. Qoʻl va oyoqlarini yerga tirab, dumbasini koʻtarib oʻzi qaddini rostlashini kuting.",
+      "duration": "5–6 marta takrorlang.",
+      "benefit": "Oyoq, dumba va tana mushaklarini mustahkamlaydi; mebelga suyanmasdan turishni oʻrgatadi."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Tayanchsiz choʻkkalash",
+      "age": "13–18 oy",
+      "how": "Yerga toʻp yoki oʻyinchoq qoʻying. Bolani hech narsaga ushlanmasdan choʻkkalab uni olishga va yana turishga undang.",
+      "duration": "6–8 marta takrorlang.",
+      "benefit": "Oyoq kuchini, muvozanatni va harakatni boshqarishni rivojlantiradi."
+    },
+    "1-2/07_push_basket": {
+      "title": "Savatni itarish",
+      "age": "12–18 oy",
+      "how": "Yengil kir savatiga bir nechta oʻyinchoq soling. Bola savatni ikkala qoʻli bilan xona boʻylab itarsin.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Oyoq va tana mushaklarini mustahkamlaydi, yurishni barqarorlashtiradi."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Past divan yoki yostiqqa tirmashish",
+      "age": "12–18 oy",
+      "how": "Tizza balandligidagi mustahkam yostiq yoki past divan tanlang. Bola qorni bilan suyanib, bir tizzasini ustiga koʻtarib chiqsin. Qoʻllaringiz dumbasining orqasida tayyor tursin. Tushishni ham oʻrgating: qorni bilan, oyoqlari oldin.",
+      "duration": "4–5 marta takrorlang.",
+      "benefit": "Butun tana kuchini va harakatni rejalashtirishni rivojlantiradi.",
+      "caution": "Bolani baland joyda yolgʻiz qoldirmang."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Zinaga tirmashib chiqish",
+      "age": "12–18 oy",
+      "how": "2–3 ta past zinada bola qoʻllarini yuqori zinaga qoʻyib chiqsin. Siz orqasida turing, qoʻllaringiz dumbasi yonida boʻlsin. Tushayotganda orqasi bilan, oyoqlari oldin tushishni oʻrgating.",
+      "duration": "3–4 marta yuqoriga va pastga.",
+      "benefit": "Oyoq kuchini, muvofiqlikni va zinada xavfsiz harakat qilish koʻnikmasini shakllantiradi.",
+      "caution": "Faqat nazorat ostida; boshqa paytlarda zina eshikchasi yopiq boʻlsin."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Toʻpni dumalatish",
+      "age": "12–18 oy",
+      "how": "Yuzma-yuz oʻtiring yoki choʻkkalang. Toʻpni bir-biringizga dumalating; bola uni ikkala qoʻli bilan ushlab, qaytarib itarsin.",
+      "duration": "5 daqiqa.",
+      "benefit": "Koʻz va qoʻl muvofiqligini, navbat bilan oʻynashni va tana muvozanatini rivojlantiradi."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Kubiklardan minora",
+      "age": "12–18 oy",
+      "how": "Bolaga katta yogʻoch kubiklar bering va 2–4 kubikdan minora qurishni koʻrsating. Qulasa, yana quring.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Mayda motorikani, qoʻl aniqligini va sabrni rivojlantiradi."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Toʻplarni qutiga solish",
+      "age": "12–18 oy",
+      "how": "Bola tizzalab yoki oʻtirib toʻplarni birma-bir olib, qutiga solsin. Soʻng qutini boʻshatib, yana boshlang.",
+      "duration": "5 daqiqa.",
+      "benefit": "Ushlash va qoʻyib yuborish koʻnikmasini, koʻz va qoʻl muvofiqligini hamda tizzada muvozanatni rivojlantiradi."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Oʻyinchoqni koʻtarib yurish",
+      "age": "15–18 oy",
+      "how": "Bolaga katta, yengil oʻyinchoq bering va uni xonaning narigi chetiga olib borishini soʻrang.",
+      "duration": "5 daqiqa.",
+      "benefit": "Qoʻllar band boʻlganda muvozanatni saqlashni oʻrgatadi, tana mushaklarini mustahkamlaydi."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Ipli oʻyinchoqni ortidan sudrash",
+      "age": "15–20 oy",
+      "how": "Gʻildirakli oʻyinchoqni qisqa ip bilan bolaning qoʻliga bering. Yurayotib oʻyinchoqni ortidan sudrasin va oʻgirilib unga qarasin.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Yurayotganda bosh va tanani burishni, diqqatni taqsimlashni oʻrgatadi.",
+      "caution": "Ip qisqa boʻlsin (taxminan 30 sm); bolani ip bilan yolgʻiz qoldirmang."
+    },
+    "1-2/10_tunnel": {
+      "title": "Tunneldan emaklab oʻtish",
+      "age": "12–24 oy",
+      "how": "Katta karton qutining ikki tomonini ochib, tunnel yasang. Narigi uchidan bolani chaqiring yoki oʻyinchoq qoʻying.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Yelka va tana kuchini, fazoni his qilishni rivojlantiradi."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Yostiq yoʻlakchasi",
+      "age": "15–20 oy",
+      "how": "Yerga bir nechta yassi yostiq tering. Bola bir qoʻlingizdan ushlab, ularning ustidan yursin.",
+      "duration": "3–5 marta oʻtish.",
+      "benefit": "Beqaror yuzada muvozanatni va boldir-oshiq mushaklarini mustahkamlaydi."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Toʻpni savatga otish",
+      "age": "15–24 oy",
+      "how": "Boladan 1 qadam narida savat qoʻying. Yumshoq toʻpni savatga otishni koʻrsating; uddalagan sari masofani oshiring.",
+      "duration": "8–10 otish.",
+      "benefit": "Otish harakatini, koʻz va qoʻl muvofiqligini hamda yelka kuchini rivojlantiradi."
+    },
+    "1-2/15_dance": {
+      "title": "Musiqa ostida raqs",
+      "age": "12–24 oy",
+      "how": "Ritmik musiqa qoʻying va bola bilan birga raqs tushing: tizzalarni bukib prujinalaning, chapak chaling, aylaning.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Ritm hissini, muvozanat va chidamlilikni oshiradi, kayfiyatni koʻtaradi."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Oʻyinchoqlarni yigʻishtirish",
+      "age": "15–24 oy",
+      "how": "Oʻyinchoqlarni yerga sochib yuboring. Bola engashib yoki choʻkkalab ularni birma-bir olib, savatga solsin.",
+      "duration": "Oʻyinchoqlar tugaguncha.",
+      "benefit": "Takroriy engashib-turish oyoq va bel mushaklarini mustahkamlaydi; tartib koʻnikmasini shakllantiradi."
+    },
+    "1-2/24_ride_on": {
+      "title": "Gʻildirakli mashinada oyoq bilan itarilish",
+      "age": "15–24 oy",
+      "how": "Bolani pedalsiz, past gʻildirakli oʻyinchoqqa oʻtqazing; oyoqlari yerga toʻliq yetishi kerak. Oyoqlari bilan itarilib oldinga yursin.",
+      "duration": "10 daqiqa.",
+      "benefit": "Oyoq kuchini, tananing ikki tomoni muvofiqligini va yoʻnalishni boshqarishni rivojlantiradi."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Toʻpni tepish",
+      "age": "18–24 oy",
+      "how": "Yengil toʻpni bolaning oyogʻi oldiga qoʻying va tepishni koʻrsating. Avvaliga bir qoʻlidan ushlab turishingiz mumkin.",
+      "duration": "8–10 zarba.",
+      "benefit": "Bir oyoqda qisqa muvozanatni va oyoq-koʻz muvofiqligini rivojlantiradi."
+    },
+    "1-2/16_bubbles": {
+      "title": "Pufakchalarni tutish",
+      "age": "18–24 oy",
+      "how": "Sovun pufakchalarini puflang. Bola oyoq uchida koʻtarilib, choʻzilib, yugurib ularni yorsin.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Oyoq uchida turish, yuqoriga choʻzilish va koʻz-qoʻl muvofiqligini mashq qildiradi."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Qoʻldan ushlab zinadan chiqish",
+      "age": "18–24 oy",
+      "how": "Bola tik turib, bir qoʻlingizdan (yoki tutqichdan) ushlab zinadan chiqsin. Har bir zinaga avval bir oyogʻini, soʻng ikkinchisini qoʻyishi normal holat.",
+      "duration": "2–3 marta yuqoriga va pastga.",
+      "benefit": "Oyoq kuchini va bir oyoqda muvozanatni oshiradi.",
+      "caution": "Tushayotganda doim boladan bir zina pastda turing."
+    },
+    "1-2/21_jump": {
+      "title": "Joyida sakrash",
+      "age": "20–24 oy",
+      "how": "Sakrashni oʻzingiz koʻrsating: tizzalarni buking va ikki oyoq bilan yerdan koʻtariling. Avvaliga qoʻllaridan ushlab turishingiz yoki past yostiq ustidan tushirishingiz mumkin.",
+      "duration": "5–8 sakrash.",
+      "benefit": "Oyoqlarning portlovchi kuchini, suyaklar va muvofiqlikni mustahkamlaydi.",
+      "caution": "Yumshoq yuzada bajaring; ikki oyoqlab sakrash koʻpincha 2 yoshga yaqin chiqadi."
+    },
+    "1-2/22_run": {
+      "title": "Yugurish",
+      "age": "18–24 oy",
+      "how": "Keng, toʻsiqsiz joyda \"meni tut\" oʻynang yoki bolani uzoqdan chaqiring.",
+      "duration": "Qisqa tanaffuslar bilan 5–10 daqiqa.",
+      "benefit": "Chidamlilik, tezlik va yurak-qon tomir tizimini rivojlantiradi."
+    },
+    "1-2/23_balance_line": {
+      "title": "Chiziq boʻylab yurish",
+      "age": "20–24 oy",
+      "how": "Yerga keng rangli lenta yopishtiring. Bola bir qoʻlingizdan ushlab, oyoqlarini lenta ustiga qoʻyib yursin.",
+      "duration": "3–5 marta oʻtish.",
+      "benefit": "Muvozanatni va tor tayanch ustida yurishni rivojlantiradi."
+    },
+    "1-2/25_bear_walk": {
+      "title": "\"Ayiq yurishi\"",
+      "age": "18–24 oy",
+      "how": "Qoʻl va oyoqlar yerda, tizzalar yerga tegmasdan, dumba yuqorida oldinga yurishni koʻrsating. Birga \"ayiqdek\" yuring.",
+      "duration": "Xona boʻylab 2–3 marta oʻtish.",
+      "benefit": "Yelka, qoʻl va tana mushaklarini mustahkamlaydi, muvofiqlikni oshiradi."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Yuqoriga choʻzil, barmoqlarga tegin",
+      "age": "18–24 oy",
+      "how": "Bola bilan yuzma-yuz turing. Avval oyoq uchida koʻtarilib, qoʻllarni yuqoriga choʻzing, soʻng engashib oyoq barmoqlariga tekkizing. Qoʻshiq bilan joʻr qiling.",
+      "duration": "5–6 marta takrorlang.",
+      "benefit": "Egiluvchanlik, muvozanat va harakatga taqlid qilishni rivojlantiradi; tana qismlarini oʻrgatadi."
+    },
+    "1-2/27_slide": {
+      "title": "Past tepalikdan sirpanish",
+      "age": "18–24 oy",
+      "how": "Bola past tepalik (gorka) boshida oʻtirib, oyoqlari oldinda sirpanib tushsin. Qoʻllaringiz bilan tanasidan ushlang, soʻng tayanchni kamaytiring.",
+      "duration": "5–6 marta.",
+      "benefit": "Tirmashish, oʻtirishdagi muvozanat va jasoratni rivojlantiradi.",
+      "caution": "Bolani quchogʻingizga olib sirpanmang; oyogʻi ilinib, jarohat olishi mumkin."
+    },
+    "1-2/28_back_walk": {
+      "title": "Orqaga yurish",
+      "age": "18–24 oy",
+      "how": "Bola aravacha yoki ipli oʻyinchoqni oʻziga tortib, orqaga qadam tashlasin. Avvaliga qoʻllaridan ushlab, birga orqaga yuring.",
+      "duration": "3–4 marta oʻtish.",
+      "benefit": "Muvozanatni, tanani his qilishni va harakat yoʻnalishini oʻzgartirishni oʻrgatadi.",
+      "caution": "Orqada toʻsiq yoʻqligiga ishonch hosil qiling."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Ikki oyoqlab oldinga sakrash",
+      "age": "24–30 oy",
+      "how": "Yerga rangli lenta yopishtiring. Bola tizzalarini bukib, ikki oyogʻini birga qoʻyib lenta ustidan sakrasin. Avval oʻzingiz koʻrsating.",
+      "duration": "6–8 sakrash.",
+      "benefit": "Oyoq kuchini, ikki oyoqning birgalikdagi ishini va yerga yumshoq tushishni rivojlantiradi."
+    },
+    "2-3/02_jump_down": {
+      "title": "Past zinadan sakrab tushish",
+      "age": "24–30 oy",
+      "how": "Bola 10–15 sm balandlikdagi mustahkam zinadan bir qoʻlingizdan ushlab, yumshoq gilamchaga sakrasin. Tizzalarni bukib tushishni koʻrsating.",
+      "duration": "5–6 marta.",
+      "benefit": "Jasorat, oyoq kuchi va tushish paytidagi muvozanatni rivojlantiradi.",
+      "caution": "Balandlikni oshirmang; zina sirpanmasligi kerak."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Bir oyoqda turish",
+      "age": "30–36 oy",
+      "how": "\"Laylakdek tur\" deng. Bola bir qoʻlingizdan ushlab, bir oyogʻini koʻtarsin va 2–3 soniya tursin. Oyoqlarni almashtiring, soʻng tayanchsiz sinab koʻring.",
+      "duration": "Har bir oyoq uchun 3–4 marta.",
+      "benefit": "Muvozanatni va boldir-oshiq mushaklarini mustahkamlaydi."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Oyoq uchida yurish",
+      "age": "24–36 oy",
+      "how": "\"Jim mushukdek yuramiz\" deng va oyoq uchida xona boʻylab yuring.",
+      "duration": "2–3 marta oʻtish.",
+      "benefit": "Boldir mushaklarini, oyoq gumbazini va muvozanatni mustahkamlaydi.",
+      "caution": "Agar bola doim oyoq uchida yursa, bu haqda pediatrga ayting."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Taxta ustida yurish",
+      "age": "24–36 oy",
+      "how": "Yerga keng, past taxta qoʻying. Bola bir qoʻlingizdan ushlab uning ustidan yursin; uddalagan sari tayanchni qoʻyib yuboring.",
+      "duration": "4–5 marta oʻtish.",
+      "benefit": "Muvozanatni, diqqatni va oyoqlarni bir chiziq boʻylab qoʻyishni rivojlantiradi."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Boshda xaltacha bilan yurish",
+      "age": "30–36 oy",
+      "how": "Bolaning boshiga kichik mato xaltacha (guruch yoki noʻxat solingan) qoʻying. Tushirib yubormaslik uchun sekin va tik yursin.",
+      "duration": "3–4 marta oʻtish.",
+      "benefit": "Qomat, muvozanat va diqqatni rivojlantiradi."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Dogʻdan dogʻga sakrash",
+      "age": "30–36 oy",
+      "how": "Yerga rangli doirachalar (rezina dogʻlar, qogʻoz, yostiqchalar) tering. Bola biridan ikkinchisiga sakrasin yoki katta qadam tashlasin.",
+      "duration": "3–4 marta oʻtish.",
+      "benefit": "Sakrash aniqligini, muvozanatni va harakatni rejalashtirishni rivojlantiradi.",
+      "caution": "Doirachalar sirpanmasligi kerak."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Zinadan oyoq almashtirib chiqish",
+      "age": "30–36 oy",
+      "how": "Bola tutqichdan ushlab, har bir zinaga bitta oyogʻini qoʻyib chiqsin. Tushayotganda hali har zinaga ikki oyogʻini qoʻyishi normal holat.",
+      "duration": "2–3 marta yuqoriga va pastga.",
+      "benefit": "Oyoq kuchini va bir oyoqda muvozanatni oshiradi.",
+      "caution": "Tushayotganda boladan bir zina pastda turing."
+    },
+    "2-3/14_marching": {
+      "title": "Marsh yurishi",
+      "age": "24–36 oy",
+      "how": "Musiqa qoʻying va \"parad\" oʻtkazing: tizzalarni baland koʻtarib, qoʻllarni silkitib yuring. Orada \"aylan\", \"sakra\", \"toʻxta\" kabi buyruqlar bering.",
+      "duration": "5 daqiqa.",
+      "benefit": "Muvofiqlikni, ritm hissini va koʻrsatmaga amal qilishni rivojlantiradi."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Yugur va toʻxta",
+      "age": "24–36 oy",
+      "how": "\"Yashil chiroq\" deganingizda bola yuguradi, \"qizil chiroq\" deganingizda joyida qotib qoladi. Chiziq chizib, uning oldida toʻxtashni ham topshirishingiz mumkin.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Tezlik, tormozlanish, tanani boshqarish va diqqatni rivojlantiradi."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Aravachani tortish",
+      "age": "24–36 oy",
+      "how": "Aravachaga oʻyinchoqlar yuklang; bola uni dastasidan ushlab tortsin, burilishlardan olib oʻtsin.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Tana va oyoq mushaklarini mustahkamlaydi, yoʻnalishni boshqarishni oʻrgatadi."
+    },
+    "2-3/07_tricycle": {
+      "title": "Uch gʻildirakli velosiped",
+      "age": "30–36 oy",
+      "how": "Bolani uch gʻildirakli velosipedga oʻtqazing, oyoqlarini pedallarga qoʻying. Avval orqadan yengil itaring, shunda pedallarning harakatini his qiladi.",
+      "duration": "10–15 daqiqa.",
+      "benefit": "Oyoqlarning navbatma-navbat ishini, kuchni va rulni boshqarishni rivojlantiradi.",
+      "caution": "Dubulgʻa kiydiring; yoʻldan uzoqda, tekis yuzada haydang."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Stol ostidan emaklab oʻtish",
+      "age": "24–36 oy",
+      "how": "Past stol, stul yoki karton qutidan \"tunnel\" quring. Bola boshini egib, ostidan emaklab oʻtsin.",
+      "duration": "4–5 marta oʻtish.",
+      "benefit": "Yelka va tana kuchini, oʻz tanasining oʻlchamini his qilishni rivojlantiradi."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Tirmashish narvoni",
+      "age": "24–36 oy",
+      "how": "Past tirmashish uchburchagida yoki oʻyin maydonchasida bola qoʻllari bilan ushlab, oyoqlarini pogʻonama-pogʻona qoʻyib chiqsin. Qoʻllaringiz dumbasining orqasida tayyor tursin.",
+      "duration": "4–5 marta.",
+      "benefit": "Butun tana kuchini, ushlash kuchini va jasoratni rivojlantiradi.",
+      "caution": "Ostida yumshoq yuza boʻlsin; bolani yolgʻiz qoldirmang."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Tepalikdan mustaqil sirpanish",
+      "age": "24–36 oy",
+      "how": "Bola narvondan oʻzi chiqib, oʻtirgan holda, oyoqlari oldinda sirpanib tushsin. Siz pastda kutib turing.",
+      "duration": "6–8 marta.",
+      "benefit": "Tirmashish, oʻtirishdagi muvozanat va mustaqillikni rivojlantiradi.",
+      "caution": "Boshi pastga yoki qorni bilan sirpanishiga ruxsat bermang."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Turnikda osilish",
+      "age": "30–36 oy",
+      "how": "Bola past turnikdan (oyoqlari yerdan bir necha santimetr balandda) ikki qoʻli bilan ushlab, 3–5 soniya osilsin. Qoʻllaringiz bilan belidan ushlab turing.",
+      "duration": "3–4 marta.",
+      "benefit": "Qoʻl va yelka kuchini, ushlashni mustahkamlaydi.",
+      "caution": "Bolani qoʻllaridan ushlab koʻtarmang va tebratmang; ostida gilamcha boʻlsin."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Toʻpni yuqoridan otish",
+      "age": "24–36 oy",
+      "how": "1–2 m narida turing. Bola kichik yumshoq toʻpni yelkasi ustidan sizga otsin.",
+      "duration": "8–10 otish.",
+      "benefit": "Otish texnikasini, yelka kuchini va nishonga moʻljal olishni rivojlantiradi."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Toʻpni ilib olish",
+      "age": "30–36 oy",
+      "how": "Katta, yengil toʻpni 1 m masofadan sekin bolaning koʻkragiga qarab oting. U qoʻllarini oldinga choʻzib, toʻpni koʻkragiga bosib ilib olsin.",
+      "duration": "8–10 marta.",
+      "benefit": "Koʻz va qoʻl muvofiqligini hamda reaksiyani rivojlantiradi."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Yugurib kelib toʻpni tepish",
+      "age": "24–36 oy",
+      "how": "Ikkita konus yoki qutidan \"darvoza\" yasang. Bola toʻpga bir-ikki qadam tashlab kelib, tepsin.",
+      "duration": "8–10 zarba.",
+      "benefit": "Bir oyoqda muvozanatni, oyoq-koʻz muvofiqligini va kuchni rivojlantiradi."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Xaltachani halqaga otish",
+      "age": "24–36 oy",
+      "how": "Yerga halqa yoki togʻora qoʻying. Bola 1 qadam masofadan xaltachalarni pastdan otib, ichiga tushirsin; uddalagan sari masofani oshiring.",
+      "duration": "8–10 otish.",
+      "benefit": "Nishonga otish aniqligini va kuchni moʻljallashni oʻrgatadi."
+    },
+    "2-3/27_bowling": {
+      "title": "Uy boulingi",
+      "age": "24–36 oy",
+      "how": "6 ta boʻsh plastik butilkani uchburchak shaklida tering. Bola choʻkkalab, toʻpni ikki qoʻli bilan dumalatib, ularni yiqitsin.",
+      "duration": "5–6 raund.",
+      "benefit": "Nishonga moʻljal olish, choʻkkalash kuchi va navbat kutishni rivojlantiradi."
+    },
+    "2-3/24_balloon": {
+      "title": "Sharni havoda ushlab turish",
+      "age": "24–36 oy",
+      "how": "Sharni havoga oting. Bola uni qoʻli bilan urib, yerga tushishiga yoʻl qoʻymasin.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Koʻz va qoʻl muvofiqligini, yuqoriga choʻzilishni va reaksiyani rivojlantiradi.",
+      "caution": "Yorilgan shar boʻlaklarini darhol yigʻishtiring (boʻgʻilib qolish xavfi)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "\"Bosh, yelka, tizza, barmoq\"",
+      "age": "24–36 oy",
+      "how": "Qoʻshiq bilan navbat bilan qoʻllarni boshga, yelkalarga, tizzalarga va oyoq barmoqlariga tekkizing. Asta-sekin tezlikni oshiring.",
+      "duration": "3–4 marta.",
+      "benefit": "Egiluvchanlikni, muvofiqlikni va tana qismlarini tanishni rivojlantiradi."
+    },
+    "2-3/15_spin": {
+      "title": "Aylanish",
+      "age": "24–36 oy",
+      "how": "Bola qoʻllarini yon tomonga ochib, joyida sekin-asta aylansin; soʻng teskari yoʻnalishda.",
+      "duration": "Har tomonga 2–3 aylana.",
+      "benefit": "Muvozanat (vestibulyar) tizimini va tanani boshqarishni rivojlantiradi.",
+      "caution": "Atrofda toʻsiq boʻlmasin; boshi aylansa, toʻxtasin."
+    },
+    "2-3/17_frog_jump": {
+      "title": "\"Qurbaqa\" sakrashi",
+      "age": "30–36 oy",
+      "how": "Bola chuqur choʻkkalab, qoʻllarini tizzalari orasidan yerga qoʻysin, soʻng qurbaqadek oldinga sakrasin.",
+      "duration": "5–6 sakrash.",
+      "benefit": "Oyoq va dumba mushaklari kuchini, chanoq-son harakatchanligini oshiradi."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "\"Qoʻl aravasi\"",
+      "age": "30–36 oy",
+      "how": "Bola qoʻllarini yerga qoʻyadi. Siz uni sonlaridan (tizzadan yuqorida) ushlab, oyoqlarini koʻtaring; u qoʻllari bilan bir necha \"qadam\" tashlasin.",
+      "duration": "3–5 qadam, 2–3 marta.",
+      "benefit": "Qoʻl, yelka va tana mushaklarini mustahkamlaydi.",
+      "caution": "Toʻpiqlaridan emas, sonlaridan ushlang; beli egilib ketsa yoki charchasa, toʻxtang."
+    },
+    "2-3/21_log_roll": {
+      "title": "\"Toʻnka\"dek dumalash",
+      "age": "24–36 oy",
+      "how": "Bola gilamcha ustida toʻgʻri yotib, qoʻllarini boshi ustiga choʻzsin va yonboshlab dumalasin; soʻng teskari tomonga.",
+      "duration": "Har tomonga 3–4 aylanish.",
+      "benefit": "Tana mushaklarini, tanani his qilishni va muvozanat tizimini rivojlantiradi."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "\"Kapalak\" choʻzilishi",
+      "age": "24–36 oy",
+      "how": "Bola oʻtirib, oyoq kaftlarini bir-biriga juftlasin, qoʻllari bilan oyoqlarini ushlasin va tizzalarini \"qanot\"dek yengil yuqori-pastga harakatlantirsin.",
+      "duration": "20–30 soniya.",
+      "benefit": "Chanoq-son egiluvchanligini oshiradi, mashqdan keyin tinchlantiradi.",
+      "caution": "Tizzalarga qoʻl bilan bosmang."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Bir oyoqda sakrash",
+      "age": "3,5–4 yosh",
+      "how": "Bola bir oyogʻini orqaga bukib, ikkinchi oyogʻida joyida yoki oldinga sakrasin. Avvaliga qoʻlidan ushlang. Oyoqlarni almashtiring.",
+      "duration": "Har bir oyoqda 3–5 sakrash.",
+      "benefit": "Oyoq kuchini, muvozanat va muvofiqlikni rivojlantiradi."
+    },
+    "3-4/02_long_jump": {
+      "title": "Joydan uzunlikka sakrash",
+      "age": "3–4 yosh",
+      "how": "Yerga chiziq chizing. Bola tizzalarini bukib, qoʻllarini silkitib, ikki oyoqlab imkon qadar uzoqqa sakrasin. Tushgan joyini belgilab, \"rekord\"ni yangilang.",
+      "duration": "5–6 urinish.",
+      "benefit": "Oyoqlarning portlovchi kuchini va qoʻl-oyoq uygʻunligini oshiradi."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Toʻsiq ustidan sakrash",
+      "age": "3–4 yosh",
+      "how": "10–15 sm balandlikda yumshoq toʻsiq (koʻpik tayoqcha, oʻralgan sochiq) qoʻying. Bola ikki oyoqlab uning ustidan sakrasin.",
+      "duration": "6–8 marta.",
+      "benefit": "Sakrash balandligini, jasoratni va yumshoq tushishni rivojlantiradi.",
+      "caution": "Toʻsiq ilinganda oson yiqiladigan boʻlishi kerak."
+    },
+    "3-4/04_hopscotch": {
+      "title": "\"Klassik\" oʻyini",
+      "age": "3,5–4 yosh",
+      "how": "Boʻr bilan yerga kataklar chizing: bitta katak, soʻng yonma-yon ikkita katak. Bola yakka katakka bir oyoqda, juft kataklarga ikki oyoqda sakrasin. Avvaliga hammasini ikki oyoqda bajarishi mumkin.",
+      "duration": "4–5 marta oʻtish.",
+      "benefit": "Muvozanatni, ritmni va oyoq almashtirishni oʻrgatadi."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Halqadan halqaga sakrash",
+      "age": "3–4 yosh",
+      "how": "Yerga 3–5 ta halqa tering. Bola ikki oyoqlab biridan ikkinchisiga sakrasin.",
+      "duration": "4–5 marta oʻtish.",
+      "benefit": "Ketma-ket sakrashni, aniqlikni va chidamlilikni rivojlantiradi."
+    },
+    "3-4/19_leap_river": {
+      "title": "\"Daryo\" ustidan sakrab oʻtish",
+      "age": "3–4 yosh",
+      "how": "Yerga koʻk mato yoki ikkita arqon qoʻyib, \"daryo\" yasang. Bola yugurib kelib, bir oyogʻi bilan depsinib, ikkinchi oyogʻiga tushib, uning ustidan sakrab oʻtsin. \"Daryo\"ni asta-sekin kengaytiring.",
+      "duration": "6–8 marta.",
+      "benefit": "Katta qadam bilan sakrashni, kuchni va masofani chamalashni rivojlantiradi."
+    },
+    "3-4/25_star_jump": {
+      "title": "\"Yulduz\" sakrashi",
+      "age": "3,5–4 yosh",
+      "how": "Bola sakrab, havoda qoʻl va oyoqlarini yon tomonga ochsin (\"yulduz\"), soʻng oyoqlarini birlashtirib tushsin.",
+      "duration": "5–8 marta.",
+      "benefit": "Qoʻl va oyoqlarning bir vaqtda ishlashini, chidamlilikni rivojlantiradi."
+    },
+    "3-4/05_gallop": {
+      "title": "\"Ot choptirish\"",
+      "age": "3–4 yosh",
+      "how": "Bir oyoq doim oldinda, ikkinchisi uning ortidan: \"otdek chopamiz\". Soʻng oldingi oyoqni almashtiring.",
+      "duration": "Xona boʻylab 3–4 marta oʻtish.",
+      "benefit": "Ritm, muvofiqlik va chidamlilikni rivojlantiradi."
+    },
+    "3-4/06_tree_balance": {
+      "title": "\"Daraxt\" holati",
+      "age": "3–4 yosh",
+      "how": "Bola bir oyogʻining kaftini ikkinchi oyogʻining boldiriga tirasin, qoʻllarini yon tomonga ochsin va 3–5 soniya tursin. Oyoqlarni almashtiring.",
+      "duration": "Har bir oyoq uchun 3 marta.",
+      "benefit": "Muvozanat, diqqat va boldir-oshiq mushaklarini mustahkamlaydi."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Chiziq boʻylab tovondan barmoqqa yurish",
+      "age": "3,5–4 yosh",
+      "how": "Yerga lenta yopishtiring. Bola oldingi oyogʻining tovonini orqadagi oyogʻining barmoqlariga tekkizib-tekkizib, lenta ustidan yursin.",
+      "duration": "3–4 marta oʻtish.",
+      "benefit": "Nozik muvozanatni va tanani boshqarishni rivojlantiradi."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Muvozanat taxtasi",
+      "age": "3–4 yosh",
+      "how": "Bola yerdan 10 sm balandlikdagi keng taxta ustidan qoʻllarini ochib, mustaqil yursin. Yonida yuring.",
+      "duration": "4–5 marta oʻtish.",
+      "benefit": "Muvozanat, jasorat va diqqatni rivojlantiradi.",
+      "caution": "Ostida yumshoq gilamcha boʻlsin."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Zinadan oyoq almashtirib tushish",
+      "age": "3,5–4 yosh",
+      "how": "Bola tutqichdan ushlab, har bir zinaga bitta oyogʻini qoʻyib tushsin.",
+      "duration": "2–3 marta.",
+      "benefit": "Oyoq kuchini, muvozanatni va nazoratli tushishni rivojlantiradi.",
+      "caution": "Siz bir zina pastda turing."
+    },
+    "3-4/10_scooter": {
+      "title": "Samokat",
+      "age": "3–4 yosh",
+      "how": "Uch gʻildirakli samokatda bola bir oyogʻini taxtachaga qoʻyib, ikkinchisi bilan yerdan depsinsin. Oyoqlarni almashtirishni oʻrgating.",
+      "duration": "10–15 daqiqa.",
+      "benefit": "Muvozanatni, oyoq kuchini va yoʻnalishni boshqarishni rivojlantiradi.",
+      "caution": "Dubulgʻa va yopiq poyabzal shart; yoʻldan uzoqda, tekis yuzada haydang."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Muvozanat velosipedi (begovel)",
+      "age": "3–4 yosh",
+      "how": "Pedalsiz velosipedda bola oʻtirib, oyoqlari bilan yerdan depsinib yursin. Tezlik olganda oyoqlarini koʻtarib, muvozanatni saqlashga harakat qilsin.",
+      "duration": "10–15 daqiqa.",
+      "benefit": "Muvozanatni rivojlantiradi, pedalli velosipedga oʻtishni osonlashtiradi.",
+      "caution": "Dubulgʻa va yopiq poyabzal shart; oʻrindiq oyoqlar yerga toʻliq yetadigan balandlikda boʻlsin."
+    },
+    "3-4/17_tag": {
+      "title": "Quvlashmachoq",
+      "age": "3–4 yosh",
+      "how": "Bolani quvlang va yengil tegib oling; soʻng u sizni quvlasin. Yoʻnalishni tez-tez oʻzgartiring.",
+      "duration": "Tanaffuslar bilan 5–10 daqiqa.",
+      "benefit": "Tezlik, chaqqonlik, chidamlilik va reaksiyani rivojlantiradi."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Yerdan sakragan toʻpni ilib olish",
+      "age": "3–4 yosh",
+      "how": "Toʻpni bolaning oldida yerga uring, u bir marta sakrab qoʻllariga kelsin. Bola uni ikki qoʻli bilan ilib olsin.",
+      "duration": "8–10 marta.",
+      "benefit": "Koʻz va qoʻl muvofiqligini hamda toʻp harakatini oldindan koʻrishni rivojlantiradi."
+    },
+    "3-4/13_target_throw": {
+      "title": "Nishonga otish",
+      "age": "3–4 yosh",
+      "how": "Devorga yoki tirgakka rangli doira shaklidagi nishon osing. Bola 1,5–2 m masofadan yumshoq toʻpni nishonga otsin.",
+      "duration": "8–10 otish.",
+      "benefit": "Otish aniqligini, yelka kuchini va diqqatni rivojlantiradi."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Toʻpni konuslar orasidan olib oʻtish",
+      "age": "3,5–4 yosh",
+      "how": "3–4 ta konusni (yoki butilkani) bir qatorga tering. Bola toʻpni oyogʻi bilan yengil urib, ular orasidan ilonizi qilib olib oʻtsin.",
+      "duration": "3–4 marta oʻtish.",
+      "benefit": "Oyoq-koʻz muvofiqligini, toʻpni boshqarishni va yoʻnalish oʻzgartirishni rivojlantiradi."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Toʻpni yerga urib ilib olish",
+      "age": "3,5–4 yosh",
+      "how": "Bola oʻrtacha kattalikdagi toʻpni ikki qoʻli bilan yerga ursin va sakraganda ilib olsin.",
+      "duration": "8–10 marta.",
+      "benefit": "Qoʻl kuchini chamalashni, ritmni va koʻz-qoʻl muvofiqligini rivojlantiradi."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Likopcha bilan shar oʻyini",
+      "age": "3–4 yosh",
+      "how": "Bola qogʻoz likopchani raketka kabi ushlab, sharni yuqoriga ursin va yerga tushirmasin. Soʻng bir-biringizga oshiring.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Buyum bilan urish koʻnikmasini, koʻz-qoʻl muvofiqligini va reaksiyani rivojlantiradi.",
+      "caution": "Yorilgan shar boʻlaklarini darhol yigʻishtiring."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Yordam bilan oldinga umbaloq",
+      "age": "3,5–4 yosh",
+      "how": "Qalin gilamchada bola choʻkkalab, qoʻllarini yerga qoʻysin, iyagini koʻkragiga bossin va dumbasini koʻtarsin. Bir qoʻlingiz bilan ensasini himoya qiling, ikkinchisi bilan dumbasidan yengil oshiring, u orqasi bilan dumalab ketsin.",
+      "duration": "3–4 marta.",
+      "benefit": "Tanani his qilish, jasorat va tana mushaklarini rivojlantiradi.",
+      "caution": "Ogʻirlik boshning tepasiga tushmasligi kerak; iyak doim koʻkrakda boʻlsin. Faqat yumshoq gilamchada va yordam bilan."
+    },
+    "3-4/21_crab_walk": {
+      "title": "\"Qisqichbaqa\" yurishi",
+      "age": "3,5–4 yosh",
+      "how": "Bola oʻtirib, qoʻllarini orqada, oyoqlarini oldinda yerga qoʻysin, dumbasini koʻtarsin va shu holatda oldinga-orqaga yursin.",
+      "duration": "2–3 ta qisqa oʻtish.",
+      "benefit": "Qoʻl, yelka, dumba va tana mushaklarini mustahkamlaydi."
+    },
+    "3-4/22_bridge": {
+      "title": "\"Koʻprik\"",
+      "age": "3–4 yosh",
+      "how": "Bola chalqancha yotib, tizzalarini bukib, oyoqlarini yerga bossin va dumbasini yuqoriga koʻtarib, 3–5 soniya ushlab tursin. Ostidan oʻyinchoq mashina oʻtkazishingiz mumkin.",
+      "duration": "5–6 marta takrorlang.",
+      "benefit": "Dumba, bel va son orqa mushaklarini mustahkamlaydi."
+    },
+    "3-4/23_superman": {
+      "title": "\"Supermen\"",
+      "age": "3–4 yosh",
+      "how": "Bola qorni bilan yotib, qoʻllarini oldinga choʻzsin, soʻng qoʻl va oyoqlarini bir vaqtda yerdan biroz koʻtarib, 3 soniya \"uchsin\".",
+      "duration": "4–5 marta takrorlang.",
+      "benefit": "Orqa mushaklarini mustahkamlaydi, toʻgʻri qomatni qoʻllab-quvvatlaydi."
+    },
+    "3-4/24_downward_dog": {
+      "title": "\"Pastga qaragan it\" holati",
+      "age": "3–4 yosh",
+      "how": "Bola qoʻl va oyoqlarini yerga qoʻyib, dumbasini yuqoriga koʻtarsin (\"togʻ\" yoki \"itdek kerishamiz\"). 5 soniya ushlab tursin.",
+      "duration": "3–4 marta takrorlang.",
+      "benefit": "Qoʻl va yelkalarni mustahkamlaydi, oyoqlarning orqa mushaklarini choʻzadi."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Arqon tortish",
+      "age": "3–4 yosh",
+      "how": "Yumshoq arqonning bir uchidan bola, ikkinchisidan siz ushlang. Bola tizzalarini bukib, orqaga tashlanib tortsin; kuchingizni uning kuchiga moslang.",
+      "duration": "3–4 raund.",
+      "benefit": "Qoʻl, orqa, tana va oyoq mushaklarini mustahkamlaydi.",
+      "caution": "Arqonni birdaniga qoʻyib yubormang va qoʻlga oʻramang."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Chapak chal, oyoq tep",
+      "age": "3–4 yosh",
+      "how": "Qoʻshiq bilan harakat qiling: \"xursand boʻlsang, chapak chal\", \"oyogʻingni yerga ur\", \"aylan\", \"sakra\". Harakatlarni navbat bilan almashtiring.",
+      "duration": "5 daqiqa.",
+      "benefit": "Ritm hissini, koʻrsatmaga amal qilishni va muvofiqlikni rivojlantiradi."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Lenta bilan doiralar",
+      "age": "3–4 yosh",
+      "how": "Tayoqchaga bogʻlangan uzun lentani bola qoʻlida ushlab, havoda katta doiralar, toʻlqinlar va \"sakkizlar\" chizsin. Qoʻllarni almashtiring.",
+      "duration": "3–5 daqiqa.",
+      "benefit": "Yelka harakatchanligini, bilakni boshqarishni va tananing ikki tomoni muvofiqligini rivojlantiradi."
+    },
+    "4-5/01_skipping": {
+      "title": "Hakkalab yurish",
+      "age": "4,5–5 yosh",
+      "how": "\"Qadam tashla, sakra\" ritmini koʻrsating: bir oyoq bilan qadam tashlab, oʻsha oyoqda sakrang, soʻng ikkinchi oyoq bilan. Qoʻl ushlashib, birga bajaring.",
+      "duration": "Xona yoki hovli boʻylab 3–4 marta oʻtish.",
+      "benefit": "Ritmni, tananing ikki tomonining navbatma-navbat ishini va muvofiqlikni rivojlantiradi."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Arqon bilan sakrash",
+      "age": "4,5–5 yosh",
+      "how": "Avval arqonni yerga qoʻyib, ustidan sakrashni, soʻng arqonni bosh ustidan oldinga tashlab, ustidan oʻtishni oʻrgating. Ketma-ket sakrash asta-sekin chiqadi.",
+      "duration": "5–10 urinish.",
+      "benefit": "Ritmni, qoʻl-oyoq uygʻunligini va chidamlilikni rivojlantiradi.",
+      "caution": "Arqon uzunligi bolaga mos boʻlsin (oʻrtasini bosganda dastalari qoʻltiqqacha yetishi kerak)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Chiziq ustidan yon tomonga sakrash",
+      "age": "4–5 yosh",
+      "how": "Yerga lenta yopishtiring. Bola ikki oyogʻini birga qoʻyib, lentaning bir tomonidan ikkinchisiga ketma-ket sakrasin.",
+      "duration": "8–10 sakrash.",
+      "benefit": "Yon yoʻnalishdagi chaqqonlikni, boldir-oshiq kuchini va ritmni rivojlantiradi."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Halqalardan bir oyoqda sakrash",
+      "age": "4–5 yosh",
+      "how": "4–5 ta halqani bir qatorga tering. Bola bir oyoqda halqadan halqaga sakrasin; qaytayotganda oyogʻini almashtirsin.",
+      "duration": "Har bir oyoqda 2–3 marta oʻtish.",
+      "benefit": "Bir oyoqdagi kuchni, muvozanatni va aniqlikni rivojlantiradi."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Qutidan sakrab yumshoq tushish",
+      "age": "4–5 yosh",
+      "how": "Bola tizza balandligidagi mustahkam qutidan qalin gilamchaga sakrasin va tizzalarini bukib, ikki oyogʻiga \"jimgina\" tushsin. Qoʻllar oldinga.",
+      "duration": "5–6 marta.",
+      "benefit": "Toʻgʻri tushish texnikasini, oyoq kuchini va jasoratni rivojlantiradi.",
+      "caution": "Quti sirpanmasligi kerak; balandlikni oshirmang."
+    },
+    "4-5/06_bicycle": {
+      "title": "Yordamchi gʻildirakli velosiped",
+      "age": "4–5 yosh",
+      "how": "Bola pedallarni aylantirib haydasin, burilish va tormozlashni oʻrgansin. Muvozanati yaxshilangan sari yordamchi gʻildiraklarni olib qoʻyish mumkin.",
+      "duration": "15–20 daqiqa.",
+      "benefit": "Oyoq kuchini, chidamlilikni, muvozanatni va yoʻl hissini rivojlantiradi.",
+      "caution": "Dubulgʻa va yopiq poyabzal shart; yoʻldan uzoqda, tekis yuzada haydang."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Moki yugurish",
+      "age": "4–5 yosh",
+      "how": "4–5 m narida chelak va bir nechta xaltacha qoʻying. Bola yugurib borib bitta xaltachani olsin, orqaga yugurib chelakka tashlasin va hammasi tugaguncha davom etsin.",
+      "duration": "2–3 raund.",
+      "benefit": "Tezlikni, yoʻnalishni tez oʻzgartirishni, engashib-turishni va chidamlilikni rivojlantiradi."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "\"Qot\" oʻyini",
+      "age": "4–5 yosh",
+      "how": "Musiqa chalayotganda bola raqs tushadi yoki yuguradi; musiqa toʻxtaganda haykaldek qotib qoladi va qimirlamaslikka harakat qiladi.",
+      "duration": "5–10 daqiqa.",
+      "benefit": "Tanani boshqarishni, muvozanatni, diqqatni va oʻzini tutishni rivojlantiradi."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "\"Oyogʻingni ichkariga, oyogʻingni tashqariga\"",
+      "age": "4–5 yosh",
+      "how": "Yerga halqa qoʻying. Qoʻshiq bilan bola navbat bilan bir oyogʻini, qoʻlini, boshini halqa ichiga choʻzib, chiqarsin, soʻng aylansin.",
+      "duration": "5 daqiqa.",
+      "benefit": "Bir oyoqda muvozanatni, oʻng-chap tushunchasini va koʻrsatmaga amal qilishni rivojlantiradi."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Kichik toʻpni qoʻl bilan ilib olish",
+      "age": "4–5 yosh",
+      "how": "1,5–2 m masofadan kichik yumshoq toʻpni sekin oting. Bola uni koʻkragiga bosmasdan, faqat qoʻllari bilan ilib olsin.",
+      "duration": "10 marta.",
+      "benefit": "Koʻz va qoʻl muvofiqligini hamda barmoqlar chaqqonligini rivojlantiradi."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Yuqoriga otib ilib olish",
+      "age": "4–5 yosh",
+      "how": "Bola xaltacha yoki yumshoq toʻpni oʻzi yuqoriga otsin va ikki qoʻli bilan ilib olsin. Soʻng orada bir marta chapak chalishni qoʻshing.",
+      "duration": "10 marta.",
+      "benefit": "Kuchni chamalash, kuzatish va reaksiyani rivojlantiradi."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Toʻpni qoʻl bilan yerga urish",
+      "age": "4,5–5 yosh",
+      "how": "Bola tizzalarini biroz bukib, toʻpni bir qoʻli bilan ketma-ket yerga ursin. Avval 2–3 marta, soʻng koʻproq. Qoʻllarni almashtiring.",
+      "duration": "Har bir qoʻl bilan 3–4 urinish.",
+      "benefit": "Ritmni, qoʻl kuchini boshqarishni va koʻz-qoʻl muvofiqligini rivojlantiradi."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Darvozaga zarba",
+      "age": "4–5 yosh",
+      "how": "Kichik darvoza quring (yoki ikkita buyum qoʻying). Bola 2–3 m masofadan toʻpni darvozaga tepsin; soʻng dumalab kelayotgan toʻpni tepishni sinab koʻring.",
+      "duration": "10 zarba.",
+      "benefit": "Oyoq-koʻz muvofiqligini, muvozanatni va zarba aniqligini rivojlantiradi."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Tirgakdagi toʻpni tayoq bilan urish",
+      "age": "4–5 yosh",
+      "how": "Yumshoq toʻpni past tirgak ustiga qoʻying. Bola yonlama turib, yengil plastik tayoqni ikki qoʻli bilan ushlab, toʻpni ursin.",
+      "duration": "8–10 zarba.",
+      "benefit": "Gavdaning burilishini, koʻz-qoʻl muvofiqligini va buyum bilan urish koʻnikmasini rivojlantiradi.",
+      "caution": "Atrofda boshqa bolalar boʻlmasin; faqat yumshoq toʻp va plastik tayoq."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Toʻpni savatga tashlash",
+      "age": "4–5 yosh",
+      "how": "Bola boʻyidan biroz balandroq savatga yengil toʻpni ikki qoʻli bilan tashlasin. Uddalagan sari bir qadam orqaga chekinsin.",
+      "duration": "10 tashlash.",
+      "benefit": "Yuqoriga otish kuchini, aniqlikni va oyoq-qoʻl uygʻunligini rivojlantiradi."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Halqa otish",
+      "age": "4–5 yosh",
+      "how": "Bola 1–1,5 m masofadan halqalarni tik tayoqchaga kiydirishga harakat qilsin.",
+      "duration": "2–3 raund.",
+      "benefit": "Nozik aniqlikni, bilakni boshqarishni va sabrni rivojlantiradi."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "\"Samolyot\" holati",
+      "age": "4–5 yosh",
+      "how": "Bola bir oyoqda turib, gavdasini oldinga egsin, ikkinchi oyogʻini orqaga choʻzsin, qoʻllarini qanotdek ochsin. 3–5 soniya ushlab tursin, oyogʻini almashtirsin.",
+      "duration": "Har bir oyoq uchun 3 marta.",
+      "benefit": "Muvozanatni, tana va dumba mushaklarini mustahkamlaydi."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Taxta ustida toʻsiqdan oʻtish",
+      "age": "4–5 yosh",
+      "how": "Past muvozanat taxtasi ustiga xaltacha qoʻying. Bola taxta boʻylab yurib, xaltacha ustidan hatlab oʻtsin.",
+      "duration": "4–5 marta oʻtish.",
+      "benefit": "Dinamik muvozanatni, diqqatni va oyoqni baland koʻtarishni rivojlantiradi.",
+      "caution": "Ostida yumshoq gilamcha boʻlsin, yonida yuring."
+    },
+    "4-5/19_stork_stand": {
+      "title": "\"Laylak\" holati",
+      "age": "4–5 yosh",
+      "how": "Bola qoʻllarini beliga qoʻyib, bir oyoqda tursin, ikkinchi oyogʻini tizzasi oldiga koʻtarsin. 8–10 gacha sanashga harakat qiling.",
+      "duration": "Har bir oyoq uchun 2–3 marta.",
+      "benefit": "Statik muvozanatni va diqqatni rivojlantiradi."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Halqani belda aylantirish",
+      "age": "4,5–5 yosh",
+      "how": "Bola halqani beliga tirab aylantirsin va dumbasini oldinga-orqaga harakatlantirib, uni ushlab turishga harakat qilsin. Avvaliga bir necha aylanish kifoya.",
+      "duration": "5 daqiqa.",
+      "benefit": "Tana mushaklarini, ritm va muvofiqlikni rivojlantiradi."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Mustaqil oldinga umbaloq",
+      "age": "4–5 yosh",
+      "how": "Qalin gilamchada bola choʻkkalab, qoʻllarini yerga qoʻysin, iyagini koʻkragiga bossin, oyoqlari bilan depsinib, yumaloq orqasi bilan dumalasin va choʻkkalagan holatda tursin.",
+      "duration": "3–5 marta.",
+      "benefit": "Tanani his qilish, chaqqonlik va tana mushaklarini rivojlantiradi.",
+      "caution": "Ogʻirlik boshning tepasiga tushmasligi kerak; iyak doim koʻkrakda. Avval yordam bilan oʻrgating."
+    },
+    "4-5/21_plank": {
+      "title": "Plank",
+      "age": "4–5 yosh",
+      "how": "Bola tirsaklari va oyoq barmoqlariga tayanib tursin, tanasi boshdan tovongacha toʻgʻri chiziq boʻlsin. 5–10 soniya ushlab tursin.",
+      "duration": "2–3 marta.",
+      "benefit": "Qorin, orqa va yelka mushaklarini mustahkamlaydi.",
+      "caution": "Beli egilib ketsa, toʻxtasin."
+    },
+    "4-5/22_chair_squat": {
+      "title": "\"Koʻrinmas stul\" choʻkkalashi",
+      "age": "4–5 yosh",
+      "how": "Bola oyoqlarini yelka kengligida ochib, qoʻllarini oldinga choʻzib, stulga oʻtirayotgandek choʻkkalasin va tursin. Tovonlar yerda qolsin.",
+      "duration": "6–8 marta takrorlang.",
+      "benefit": "Oyoq va dumba mushaklarini mustahkamlaydi."
+    },
+    "4-5/23_boat_pose": {
+      "title": "\"Qayiq\" holati",
+      "age": "4–5 yosh",
+      "how": "Bola oʻtirib, biroz orqaga egilsin, tizzalarini bukib, oyoqlarini yerdan koʻtarsin, qoʻllarini oldinga choʻzsin. 5 soniya muvozanatni saqlasin.",
+      "duration": "3–4 marta takrorlang.",
+      "benefit": "Qorin mushaklarini va muvozanatni mustahkamlaydi."
+    },
+    "4-5/24_cobra": {
+      "title": "\"Kobra\" choʻzilishi",
+      "age": "4–5 yosh",
+      "how": "Bola qorni bilan yotib, qoʻllarini yelkalari ostiga qoʻysin va koʻkragini yuqoriga koʻtarsin; dumbasi yerda qolsin. 5 soniya ushlab tursin.",
+      "duration": "3–4 marta takrorlang.",
+      "benefit": "Orqa mushaklarini mustahkamlaydi, qorin va koʻkrakni choʻzadi.",
+      "caution": "Belini zoʻrlab egmang."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Oyoqlarni kerib oʻtirib oldinga choʻzilish",
+      "age": "4–5 yosh",
+      "how": "Bola oyoqlarini keng ochib oʻtirsin va qoʻllarini yer boʻylab oldinga surib, choʻzilsin. 10 soniya ushlab tursin, tebranmasdan.",
+      "duration": "3 marta takrorlang.",
+      "benefit": "Son ichki va orqa mushaklarining egiluvchanligini oshiradi."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Gorizontal narvonda osilib oldinga siljish",
+      "age": "4,5–5 yosh",
+      "how": "Bola past gorizontal narvondan osilib, qoʻllarini navbat bilan keyingi tayoqchaga oʻtkazsin. Belidan ushlab, ogʻirligining bir qismini oʻzingiz koʻtaring.",
+      "duration": "2–3 urinish.",
+      "benefit": "Qoʻl, bilak va yelka kuchini, ushlashni rivojlantiradi.",
+      "caution": "Ostida yumshoq yuza boʻlsin; qoʻllari hoʻl boʻlmasin."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Arqon toʻrga tirmashish",
+      "age": "4–5 yosh",
+      "how": "Oʻyin maydonchasida yoki uyda past toʻr ustida bola qoʻllari bilan yuqoridan ushlab, oyoqlarini navbat bilan qoʻyib tirmashsin va xuddi shu yoʻl bilan tushsin.",
+      "duration": "3–4 marta.",
+      "benefit": "Butun tana kuchini, muvofiqlik va jasoratni rivojlantiradi.",
+      "caution": "Ostida yumshoq yuza boʻlsin; yonida turing."
+    }
+  }
+}

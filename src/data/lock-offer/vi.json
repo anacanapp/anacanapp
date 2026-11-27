@@ -1,0 +1,13 @@
+{
+  "title": "Bảo vệ dữ liệu của bạn",
+  "subtitle": "Ghi chú thai kỳ, sức khỏe và em bé là riêng tư. Chỉ bạn mới mở được ứng dụng.",
+  "bio_ios": "Face ID",
+  "bio_android": "Vân tay hoặc nhận diện khuôn mặt",
+  "bio_line": "Mở chỉ bằng một cái nhìn hoặc chạm",
+  "pin_title": "Mã PIN 4 số",
+  "pin_line": "Dự phòng: bạn luôn có thể mở bằng mã PIN",
+  "settings_title": "Tắt bất cứ lúc nào",
+  "settings_line": "Bạn có thể tắt hoặc đổi mã PIN trong {where}",
+  "enable": "Bật bảo vệ",
+  "later": "Để sau"
+}

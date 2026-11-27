@@ -1,0 +1,13 @@
+{
+  "title": "Məlumatlarını qoru",
+  "subtitle": "Hamiləlik, sağlamlıq və körpə qeydlərin şəxsidir. Tətbiqi yalnız sən aça biləsən.",
+  "bio_ios": "Face ID",
+  "bio_android": "Barmaq izi və ya üz tanıma",
+  "bio_line": "Bir baxışla və ya toxunuşla açılır",
+  "pin_title": "4 rəqəmli PIN",
+  "pin_line": "Ehtiyat üsul: həmişə PIN ilə də aça bilərsən",
+  "settings_title": "İstədiyin vaxt söndür",
+  "settings_line": "{where} bölməsindən söndürə və ya PIN-i dəyişə bilərsən",
+  "enable": "Qorunmanı aktivləşdir",
+  "later": "İndi yox"
+}

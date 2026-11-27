@@ -69,8 +69,12 @@ public class HealthVitalsPlugin: CAPPlugin, CAPBridgedPlugin {
 
     private func parseDate(_ str: String?) -> Date {
         guard let str = str else { return Date() }
-        let iso = ISO8601DateFormatter()
-        return iso.date(from: str) ?? Date()
+        // JS sends "2026-10-31T10:00:00.000Z"; the default formatter rejects fractional seconds and
+        // silently stamped every copied record with the current time.
+        let fractional = ISO8601DateFormatter()
+        fractional.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        if let date = fractional.date(from: str) { return date }
+        return ISO8601DateFormatter().date(from: str) ?? Date()
     }
 
     /// writeWeight({ kg: number, date?: 'ISO8601' })

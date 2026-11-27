@@ -1,0 +1,3407 @@
+{
+ "source": "rossmann.az",
+ "captured": "2026-11-20",
+ "collections": {
+  "bag": [
+   "002704",
+   "002708",
+   "014387",
+   "019951",
+   "004222",
+   "019924",
+   "003967",
+   "002703",
+   "003423",
+   "032019",
+   "029069",
+   "029068",
+   "029063",
+   "019965",
+   "003192",
+   "002712",
+   "002705",
+   "002706",
+   "002710",
+   "002715",
+   "002753",
+   "005534",
+   "014388",
+   "024426",
+   "019954",
+   "003295",
+   "002720",
+   "019950",
+   "029058",
+   "029057",
+   "029039",
+   "029054",
+   "029042",
+   "029041",
+   "029040",
+   "002722",
+   "004367"
+  ],
+  "pregnant": [
+   "019920",
+   "019923",
+   "004366"
+  ],
+  "newmom": [
+   "019951",
+   "003967",
+   "002715",
+   "005534",
+   "019915",
+   "007004",
+   "007014",
+   "007024",
+   "007048",
+   "006965",
+   "006976",
+   "033407"
+  ],
+  "baby": [
+   "002704",
+   "002708",
+   "014387",
+   "004222",
+   "019924",
+   "002703",
+   "003423",
+   "032019",
+   "029069",
+   "029068",
+   "029063",
+   "019965",
+   "003192",
+   "002712",
+   "002705",
+   "002706",
+   "002710",
+   "002753",
+   "004366",
+   "002749",
+   "025321",
+   "002700",
+   "013613",
+   "004164",
+   "019961",
+   "013614",
+   "014388",
+   "019906",
+   "024426",
+   "019959",
+   "005105",
+   "003648",
+   "019954",
+   "005118",
+   "003319",
+   "004365",
+   "005013",
+   "029845",
+   "004212",
+   "019973",
+   "024432",
+   "002748",
+   "018973",
+   "013627",
+   "025328",
+   "019931",
+   "025327",
+   "004224",
+   "004269",
+   "004270",
+   "003652",
+   "019962",
+   "032101",
+   "002709",
+   "002737",
+   "002948",
+   "003295",
+   "032030",
+   "013625",
+   "013469",
+   "002720",
+   "002881",
+   "019950",
+   "002735",
+   "003654",
+   "003663",
+   "029055",
+   "029065",
+   "029064",
+   "029062",
+   "029061",
+   "029060",
+   "029059",
+   "029058",
+   "029057",
+   "029056",
+   "029039",
+   "029054",
+   "029053",
+   "029052",
+   "029051",
+   "029050",
+   "029049",
+   "029048",
+   "029047",
+   "029046",
+   "029045",
+   "029044",
+   "029043",
+   "029042",
+   "029041",
+   "029040",
+   "032086",
+   "004265",
+   "002719",
+   "002723",
+   "003209",
+   "019937",
+   "019960",
+   "003384",
+   "003605",
+   "005306",
+   "019918",
+   "004160",
+   "002722",
+   "005117",
+   "002736",
+   "003314",
+   "003315",
+   "003316",
+   "003317",
+   "003318",
+   "004367",
+   "003312",
+   "013629",
+   "013780",
+   "013781",
+   "003650",
+   "014282",
+   "002675",
+   "002679",
+   "003651",
+   "004161",
+   "004209",
+   "004852",
+   "019912",
+   "019933",
+   "003655",
+   "013471",
+   "018971",
+   "029072",
+   "003376",
+   "002725",
+   "010818",
+   "002732",
+   "004094",
+   "002743",
+   "004919",
+   "002750"
+  ],
+  "kid": [
+   "019944",
+   "019941",
+   "019942",
+   "004069",
+   "003649",
+   "004251",
+   "019913",
+   "013623",
+   "014254",
+   "013622",
+   "013624",
+   "013620",
+   "013619",
+   "013618",
+   "013616",
+   "013474",
+   "013473",
+   "017873",
+   "004746",
+   "018497",
+   "029841",
+   "029067",
+   "029066",
+   "013306",
+   "019914",
+   "018971",
+   "029072",
+   "002744",
+   "002745"
+  ],
+  "cycle": [
+   "006983",
+   "006985",
+   "007004",
+   "007012",
+   "007013",
+   "007014",
+   "007024",
+   "007041",
+   "007048",
+   "007049",
+   "006965",
+   "006976",
+   "007061",
+   "007062",
+   "033407"
+  ],
+  "gift": [
+   "019941",
+   "019942",
+   "004069",
+   "003649",
+   "004251",
+   "004746",
+   "003376",
+   "002725",
+   "010818",
+   "002732",
+   "004094",
+   "002743",
+   "004919",
+   "002744",
+   "002745",
+   "002750"
+  ]
+ },
+ "products": [
+  {
+   "sku": "002704",
+   "name": "Babydream nəm salfet ekstra həssas 4x80, 320 ədəd",
+   "full_name": "BABYDREAM NEM SALFET EKSTRA HESSAS 4X80 320ED",
+   "price": 12.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-nem-salfet-ekstra-hessas-4x80-320ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/002704.webp",
+   "sort": 0
+  },
+  {
+   "sku": "002708",
+   "name": "Babydream nəm salfet, 80 ədəd",
+   "full_name": "BABYDREAM NEM SALFET 80ED",
+   "price": 4.49,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-nem-salfet-80ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/002708.webp",
+   "sort": 1
+  },
+  {
+   "sku": "014387",
+   "name": "Babydream nəm salfet 99%, 30 ədəd",
+   "full_name": "BABYDREAM NEM SALFET 99% 30ED",
+   "price": 2.49,
+   "original_price": 2.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-nem-salfet-99-30ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/014387.webp",
+   "sort": 2
+  },
+  {
+   "sku": "019951",
+   "name": "Mamas Babydream vegan sinə ucu kremi",
+   "full_name": "BABYDREAM SINE UCU KREMI",
+   "price": 4.99,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1222/babydream-sine-ucu-kremi",
+   "collections": [
+    "bag",
+    "newmom"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: əmizdirmənin ilk günləri üçün",
+    "newmom": "Sinə ucunda çatlara qarşı yumşaq baxım"
+   },
+   "image": "/rossmann/019951.webp",
+   "sort": 3
+  },
+  {
+   "sku": "004222",
+   "name": "Babydream nəm salfet Med, 80 ədəd",
+   "full_name": "BABYDREAM NEM SALFET MED 80ED",
+   "price": 4.99,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-nem-salfet-med-80ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/004222.webp",
+   "sort": 4
+  },
+  {
+   "sku": "019924",
+   "name": "Babydream nəm salfet qənaət paket 6x60 ədəd",
+   "full_name": "BABYDREAM NEM SALFET QENAET PAKET 6X60 EDED",
+   "price": 17.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-nem-salfet-qenaet-paket-6x60-eded",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/019924.webp",
+   "sort": 5
+  },
+  {
+   "sku": "003967",
+   "name": "Mamas Babydream süd içliyi, ultra incə, 30 ədəd",
+   "full_name": "BABYDREAM BUSTQALTER UCUN ICLIK ULTRA INCE 30ED",
+   "price": 8.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1220/babydream-bustqalter-ucun-iclik-ultra-ince-30ed",
+   "collections": [
+    "bag",
+    "newmom"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: süd sızmasına qarşı",
+    "newmom": "Əmizdirmə dövründə gündəlik rahatlıq"
+   },
+   "image": "/rossmann/003967.webp",
+   "sort": 6
+  },
+  {
+   "sku": "002703",
+   "name": "Babydream nəm salfet ekstra həssas, 30 ədəd",
+   "full_name": "BABYDREAM NEM SALFET EKSTRA HESSAS 30ED",
+   "price": 1.79,
+   "original_price": 1.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-nem-salfet-ekstra-hessas-30ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/002703.webp",
+   "sort": 7
+  },
+  {
+   "sku": "003423",
+   "name": "Babydream qorumalı pambıq çöplər, 72 ədəd",
+   "full_name": "BABYDREAM QORUMALI PAMBIQ COPLER 72ED",
+   "price": 1.79,
+   "original_price": 2.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1228/babydream-qorumali-pambiq-copler-72ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Körpənin ilk gigiyenası üçün",
+    "baby": "Göz, qulaq və burun baxımı üçün"
+   },
+   "image": "/rossmann/003423.webp",
+   "sort": 8
+  },
+  {
+   "sku": "032019",
+   "name": "Babydream 99% su tərkibli nəm salfetlər 3x60 ədəd",
+   "full_name": "BABYDREAM 99% SU TERKIBLI NEM SALFETLER 3X60 ED",
+   "price": 9.69,
+   "original_price": 12.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-988/babydream-99-su-terkibli-nem-salfetler-3x60-ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/032019.webp",
+   "sort": 9
+  },
+  {
+   "sku": "029069",
+   "name": "Chicco körpə üçün qulaq çöpü, 90 ədəd",
+   "full_name": "CHICCO KORPE UCUN QULAQ COPU 90ED",
+   "price": 6.9,
+   "original_price": 8.7,
+   "url": "https://rossmann.az/mehsullar/mehsul-991/chicco-korpe-ucun-qulaq-copu-90ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Körpənin ilk gigiyenası üçün",
+    "baby": "Göz, qulaq və burun baxımı üçün"
+   },
+   "image": "/rossmann/029069.webp",
+   "sort": 10
+  },
+  {
+   "sku": "029068",
+   "name": "Chicco körpə üçün qulaq çöpü, 60 ədəd",
+   "full_name": "CHICCO KORPE UCUN QULAQ COPU 60ED",
+   "price": 6.1,
+   "original_price": 7.6,
+   "url": "https://rossmann.az/mehsullar/mehsul-991/chicco-korpe-ucun-qulaq-copu-60ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Körpənin ilk gigiyenası üçün",
+    "baby": "Göz, qulaq və burun baxımı üçün"
+   },
+   "image": "/rossmann/029068.webp",
+   "sort": 11
+  },
+  {
+   "sku": "029063",
+   "name": "Chicco körpə üçün nəm salfet, 72 ədəd",
+   "full_name": "CHICCO KORPE UCUN NEM SALFET 72ED",
+   "price": 7.9,
+   "original_price": 9.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-988/chicco-korpe-ucun-nem-salfet-72ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/029063.webp",
+   "sort": 12
+  },
+  {
+   "sku": "019965",
+   "name": "Babydream baxım salfeti XXL, 180 ədəd",
+   "full_name": "BABYDREAM BAXIM SALFET 180 EDED XXL",
+   "price": 7.39,
+   "original_price": 8.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-baxim-salfet-180-eded-xxl",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/019965.webp",
+   "sort": 13
+  },
+  {
+   "sku": "003192",
+   "name": "Babydream molton örtük 80x80, 2 ədəd",
+   "full_name": "BABYDREAM MOLTON ORTUK 80X80 2ED",
+   "price": 16.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1008/babydream-molton-ortuk-80x80-2ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Xəstəxanada və evdə bez dəyişmək üçün",
+    "baby": "Gündəlik bez dəyişmə üçün"
+   },
+   "image": "/rossmann/003192.webp",
+   "sort": 14
+  },
+  {
+   "sku": "002712",
+   "name": "Babydream bez dəyişmə altlığı 60×60 sm, 10 ədəd",
+   "full_name": "BABYDREAM BEZ DEYISDIRMEK UCUN ALTLIQ 60x60SM 10ED",
+   "price": 8.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-981/babydream-bez-deyisdirmek-ucun-altliq-60x60sm-10ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Xəstəxanada və evdə bez dəyişmək üçün",
+    "baby": "Gündəlik bez dəyişmə üçün"
+   },
+   "image": "/rossmann/002712.webp",
+   "sort": 15
+  },
+  {
+   "sku": "002705",
+   "name": "Babydream nəm salfet qutu ekstra həssas, 80 ədəd",
+   "full_name": "BABYDREAM NEM SALFET QUTU EKSTRA HESSAS 80ED",
+   "price": 6.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-nem-salfet-qutu-ekstra-hessas-80ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/002705.webp",
+   "sort": 16
+  },
+  {
+   "sku": "002706",
+   "name": "Babydream yağlı losyonlu nəm salfet, 80 ədəd",
+   "full_name": "BABYDREAM YAGLI LOSYONLU NEM SALFET 80ED",
+   "price": 6.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-yagli-losyonlu-nem-salfet-80ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/002706.webp",
+   "sort": 17
+  },
+  {
+   "sku": "002710",
+   "name": "Babydream pambıq disklər, 60 ədəd",
+   "full_name": "BABYDREAM PAMBIQ DISKLER 60ED",
+   "price": 4.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-1227/babydream-pambiq-diskler-60ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Körpənin ilk gigiyenası üçün",
+    "baby": "Göz, qulaq və burun baxımı üçün"
+   },
+   "image": "/rossmann/002710.webp",
+   "sort": 18
+  },
+  {
+   "sku": "002715",
+   "name": "Mamas Babydream sinə ucu kremi, 30 ml",
+   "full_name": "BABYDREAM ANA UCUN SINE UCU KREMI 30ML",
+   "price": 4.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-1222/babydream-ana-ucun-sine-ucu-kremi-30ml",
+   "collections": [
+    "bag",
+    "newmom"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: əmizdirmənin ilk günləri üçün",
+    "newmom": "Sinə ucunda çatlara qarşı yumşaq baxım"
+   },
+   "image": "/rossmann/002715.webp",
+   "sort": 19
+  },
+  {
+   "sku": "002753",
+   "name": "Babydream nəm salfet aloe və çobanyastığı, 15 ədəd",
+   "full_name": "BABYDREAM NEM SALFET ALOE VE COBANYASTIGI 15ED",
+   "price": 1.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-nem-salfet-aloe-ve-cobanyastigi-15ed",
+   "collections": [
+    "bag",
+    "baby"
+   ],
+   "why": {
+    "bag": "Doğum çantasına: həssas dəri üçün salfetlər",
+    "baby": "Hər bez dəyişməsində"
+   },
+   "image": "/rossmann/002753.webp",
+   "sort": 20
+  },
+  {
+   "sku": "019920",
+   "name": "Mamas Babydream sərinləşdirici ayaq spreyi",
+   "full_name": "BABYDREAM AYAQ SPREYI",
+   "price": 3.79,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1222/babydream-ayaq-spreyi",
+   "collections": [
+    "pregnant"
+   ],
+   "why": {
+    "pregnant": "Hamiləlikdə yorğun və şişkin ayaqlar üçün sərinlik"
+   },
+   "image": "/rossmann/019920.webp",
+   "sort": 21
+  },
+  {
+   "sku": "019923",
+   "name": "Mamas Babydream gecə yağı, natural",
+   "full_name": "BABYDREAM GECE YAGI NATURAL",
+   "price": 9.99,
+   "original_price": 12.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-961/babydream-gece-yagi-natural",
+   "collections": [
+    "pregnant"
+   ],
+   "why": {
+    "pregnant": "Axşam rahatlaması üçün təbii baxım yağı"
+   },
+   "image": "/rossmann/019923.webp",
+   "sort": 22
+  },
+  {
+   "sku": "004366",
+   "name": "Babydream təbii badam yağı, 250 ml",
+   "full_name": "BABYDREAM TEBII BADAM YAGI 250ML",
+   "price": 9.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-962/babydream-tebii-badam-yagi-250ml",
+   "collections": [
+    "pregnant",
+    "baby"
+   ],
+   "why": {
+    "pregnant": "Dəri dartıldıqca təbii nəmləndirmə",
+    "baby": "Körpə masajı üçün təbii yağ"
+   },
+   "image": "/rossmann/004366.webp",
+   "sort": 23
+  },
+  {
+   "sku": "005534",
+   "name": "Lansinoh ana südü saxlama paketi, 25 ədəd",
+   "full_name": "LANSINOH SUD SAXLAMA PAKETI 25ED",
+   "price": 13.9,
+   "original_price": 18.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-997/lansinoh-sud-saxlama-paketi-25ed",
+   "collections": [
+    "newmom",
+    "bag"
+   ],
+   "why": {
+    "newmom": "Ana südünü təhlükəsiz saxlamaq üçün",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/005534.webp",
+   "sort": 24
+  },
+  {
+   "sku": "019915",
+   "name": "Mamas Babydream isti-soyuq sinə kompresi",
+   "full_name": "BABYDREAM ANA UCUN SINE KOMPRESS",
+   "price": 29.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-1223/babydream-ana-ucun-sine-kompress",
+   "collections": [
+    "newmom"
+   ],
+   "why": {
+    "newmom": "Əmizdirmədə sinə ağrısı və şişkinlik üçün isti-soyuq kompres"
+   },
+   "image": "/rossmann/019915.webp",
+   "sort": 25
+  },
+  {
+   "sku": "002749",
+   "name": "Babydream uşaq üçün dayaz qab",
+   "full_name": "BABYDREAM USAQ UCUN DAYAZ QAB",
+   "price": 6.99,
+   "original_price": 11.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-996/babydream-usaq-ucun-dayaz-qab",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/002749.webp",
+   "sort": 26
+  },
+  {
+   "sku": "025321",
+   "name": "Dove Baby körpə losyonu, 400 ml intensiv nəmləndirici",
+   "full_name": "DOVE BABY BEBEK LOSYONU 400 ML YOGUN NEMLENDIRICI",
+   "price": 9.99,
+   "original_price": 16.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-963/dove-baby-bebek-losyonu-400-ml-yogun-nemlendirici",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/025321.webp",
+   "sort": 27
+  },
+  {
+   "sku": "002700",
+   "name": "Babydream uşaq pudrası ekstra həssas, 100 q",
+   "full_name": "BABYDREAM USAQ PUDRASI EKSTRA HESSAS 100Q",
+   "price": 4.49,
+   "original_price": 6.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-964/babydream-usaq-pudrasi-ekstra-hessas-100q",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/002700.webp",
+   "sort": 28
+  },
+  {
+   "sku": "013613",
+   "name": "Bübchen Baby yağı, 200 ml",
+   "full_name": "BUBCHEN BABY OL 200ML",
+   "price": 6.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-961/bubchen-baby-ol-200ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013613.webp",
+   "sort": 29
+  },
+  {
+   "sku": "004164",
+   "name": "Babydream şampun həssas, 250 ml",
+   "full_name": "BABYDREAM SAMPUN HESSAS 250ML",
+   "price": 4.99,
+   "original_price": 6.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/babydream-sampun-hessas-250ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/004164.webp",
+   "sort": 30
+  },
+  {
+   "sku": "019961",
+   "name": "Babydream duş kremi",
+   "full_name": "BABYDREAM DUS KREMI",
+   "price": 1.79,
+   "original_price": 2.49,
+   "url": "https://rossmann.az/mehsullar/mehsul-1222/babydream-dus-kremi",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/019961.webp",
+   "sort": 31
+  },
+  {
+   "sku": "013614",
+   "name": "Bübchen uşaq şampun, 200 ml",
+   "full_name": "BUBCHEN  USAQ SHAMPUN 200 ML",
+   "price": 6.99,
+   "original_price": 8.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/bubchen-usaq-shampun-200-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013614.webp",
+   "sort": 32
+  },
+  {
+   "sku": "014388",
+   "name": "Babydream uşaq üçün orqanik daraq",
+   "full_name": "BABYDREAM USAQ UCUN ORQANIK DARAQ ",
+   "price": 5.49,
+   "original_price": 6.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1022/babydream-usaq-ucun-orqanik-daraq",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Körpənin saç və dırnaq baxımı",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/014388.webp",
+   "sort": 33
+  },
+  {
+   "sku": "019906",
+   "name": "Babydream bez torbası, 100 ədəd",
+   "full_name": "BABYDREAM BEZ TORBASI 100 EDED",
+   "price": 3.99,
+   "original_price": 4.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-bez-torbasi-100-eded",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "İstifadə olunmuş bezlər üçün gigiyenik torba"
+   },
+   "image": "/rossmann/019906.webp",
+   "sort": 34
+  },
+  {
+   "sku": "024426",
+   "name": "Bübchen uşaq yara qoruyucu krem, 150 ml",
+   "full_name": "BUBCHEN USAQ YARA QORUYUCU KREM 150ML",
+   "price": 7.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-962/bubchen-usaq-yara-qoruyucu-krem-150ml",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Bez altında qızartıya qarşı qoruma",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/024426.webp",
+   "sort": 35
+  },
+  {
+   "sku": "019959",
+   "name": "Babydream şampun və duş geli ekstra həssas",
+   "full_name": "BABYDREAM SAMPUN VE DUS GELI EKSTRA HESSAS",
+   "price": 6.49,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/babydream-sampun-ve-dus-geli-ekstra-hessas",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/019959.webp",
+   "sort": 36
+  },
+  {
+   "sku": "005105",
+   "name": "Babydream baxım losyonu, 250 ml",
+   "full_name": "BABYDREAM BAXIM LOSYONU 250ML",
+   "price": 6.49,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-963/babydream-baxim-losyonu-250ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/005105.webp",
+   "sort": 37
+  },
+  {
+   "sku": "003648",
+   "name": "Babydream butulka, 240 ml",
+   "full_name": "BABYDREAM BUTULKA 240ML",
+   "price": 6.59,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-butulka-240ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Qidalandırma üçün rahat və təhlükəsiz"
+   },
+   "image": "/rossmann/003648.webp",
+   "sort": 38
+  },
+  {
+   "sku": "019954",
+   "name": "Babydream burun aspiratoru",
+   "full_name": "BABYDREAM BURUN ASPIRATORU",
+   "price": 16.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1028/babydream-burun-aspiratoru",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Soyuqdəymə və qızdırma vaxtı lazım olur",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/019954.webp",
+   "sort": 39
+  },
+  {
+   "sku": "005118",
+   "name": "Babydream uşaq bezi Premium Jumbo 5, 68 ədəd",
+   "full_name": "BABYDREAM USAQ BEZI PREMIUM JUMBO 5 68ED ",
+   "price": 29.9,
+   "original_price": 34.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-971/babydream-usaq-bezi-premium-jumbo-5-68ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Gecə-gündüz quru və rahat"
+   },
+   "image": "/rossmann/005118.webp",
+   "sort": 40
+  },
+  {
+   "sku": "003319",
+   "name": "Babydream əmzik simmetrik silikon 18+, 2 ədəd",
+   "full_name": "BABYDREAM EMZIK SIMMETRIK SILIKON 18+ 2 ED",
+   "price": 6.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-simmetrik-silikon-18-2-ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003319.webp",
+   "sort": 41
+  },
+  {
+   "sku": "004365",
+   "name": "Babydream yuyucu gel və şampun təbii, 250 ml",
+   "full_name": "BABYDREAM YUYUCU GEL VE SAMPUN TEBII 250ML",
+   "price": 7.99,
+   "original_price": 8.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-962/babydream-yuyucu-gel-ve-sampun-tebii-250ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/004365.webp",
+   "sort": 42
+  },
+  {
+   "sku": "005013",
+   "name": "Babydream üz kremi ekstra həssas, 100 ml",
+   "full_name": "BABYDREAM UZ KREMI EKTRA HESSAS 100ML",
+   "price": 7.99,
+   "original_price": 8.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-966/babydream-uz-kremi-ektra-hessas-100ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/005013.webp",
+   "sort": 43
+  },
+  {
+   "sku": "029845",
+   "name": "Bübchen külək və soyuğa qarşı krem, 75 ml",
+   "full_name": "BUBCHEN KULEK VE SOYUGA QARSI KREM 75ML",
+   "price": 8.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-965/bubchen-kulek-ve-soyuga-qarsi-krem-75ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Gəzintidə külək və soyuqdan qoruma"
+   },
+   "image": "/rossmann/029845.webp",
+   "sort": 44
+  },
+  {
+   "sku": "004212",
+   "name": "Babydream Med yuyucu krem dəri və saç üçün, 200 ml",
+   "full_name": "BABYDREAM MED YUYUCU KREM DERI VE SAC UCUN 200ML",
+   "price": 8.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-963/babydream-med-yuyucu-krem-deri-ve-sac-ucun-200ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/004212.webp",
+   "sort": 45
+  },
+  {
+   "sku": "019973",
+   "name": "Babydream orqanik banan püresi, kokos südü ilə, 190 q",
+   "full_name": "BABYDREAM ORQANIK PURE KOKOS SUDU ILE BANAN 190GR",
+   "price": 4.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-988/babydream-orqanik-pure-kokos-sudu-ile-banan-190gr",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Yaşa uyğun əlavə qida"
+   },
+   "image": "/rossmann/019973.webp",
+   "sort": 46
+  },
+  {
+   "sku": "024432",
+   "name": "Bübchen şampun Bad Sensitive, 400 ml",
+   "full_name": "BUBCHEN SAMPUN BAD SENSITIVE 400 ML",
+   "price": 14.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/bubchen-sampun-bad-sensitive-400-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/024432.webp",
+   "sort": 47
+  },
+  {
+   "sku": "002748",
+   "name": "Babydream uşaq üçün dərin qab",
+   "full_name": "BABYDREAM USAQ UCUN DERIN QAB",
+   "price": 6.99,
+   "original_price": 11.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-996/babydream-usaq-ucun-derin-qab",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/002748.webp",
+   "sort": 48
+  },
+  {
+   "sku": "018973",
+   "name": "Babydream duş geli və şampun, 500 ml ehtiyat paket",
+   "full_name": "BABYDREAM DUS GELI VE SAMPUN 500 ML REFILL",
+   "price": 5.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/babydream-dus-geli-ve-sampun-500-ml-refill",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/018973.webp",
+   "sort": 49
+  },
+  {
+   "sku": "013627",
+   "name": "Bübchen şampun Kinder, 400 ml həssas",
+   "full_name": "BUBCHEN SAMPUN KINDER 400 ML HESSAS",
+   "price": 8.99,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/bubchen-sampun-kinder-400-ml-hessas",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013627.webp",
+   "sort": 50
+  },
+  {
+   "sku": "025328",
+   "name": "Dove Baby şampun, 400 ml həssas və quru dəri",
+   "full_name": "DOVE BABY SAMPUN 400 ML HESSAS VE QURU DERI",
+   "price": 8.99,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/dove-baby-sampun-400-ml-hessas-ve-quru-deri",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/025328.webp",
+   "sort": 51
+  },
+  {
+   "sku": "019931",
+   "name": "Babydream əmzik lateks yumru, 2 ədəd",
+   "full_name": "BABYDREAM EMZIK LATEX YUMRU 2 ED",
+   "price": 6.99,
+   "original_price": 10.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-latex-yumru-2-ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/019931.webp",
+   "sort": 52
+  },
+  {
+   "sku": "025327",
+   "name": "Dove Baby şampun, 200 ml həssas və quru dəri",
+   "full_name": "DOVE BABY SAMPUN 200 ML HESSAS VE QURU DERI",
+   "price": 6.99,
+   "original_price": 10.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/dove-baby-sampun-200-ml-hessas-ve-quru-deri",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/025327.webp",
+   "sort": 53
+  },
+  {
+   "sku": "004224",
+   "name": "Babydream baxım kremi üz və bədən, 150 ml",
+   "full_name": "BABYDREAM BAXIM KREMI UZ VE BEDEN 150ML",
+   "price": 5.99,
+   "original_price": 8.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-962/babydream-baxim-kremi-uz-ve-beden-150ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/004224.webp",
+   "sort": 54
+  },
+  {
+   "sku": "004269",
+   "name": "Babydream gecə uşaq bezi M, 10 ədəd",
+   "full_name": "BABYDREAM USAQ BEZI GECE M 10ED ",
+   "price": 10.9,
+   "original_price": 16.2,
+   "url": "https://rossmann.az/mehsullar/mehsul-977/babydream-usaq-bezi-gece-m-10ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Gecə-gündüz quru və rahat"
+   },
+   "image": "/rossmann/004269.webp",
+   "sort": 55
+  },
+  {
+   "sku": "004270",
+   "name": "Babydream gecə uşaq bezi L, 10 ədəd",
+   "full_name": "BABYDREAM USAQ BEZI GECE L 10ED ",
+   "price": 10.9,
+   "original_price": 16.2,
+   "url": "https://rossmann.az/mehsullar/mehsul-978/babydream-usaq-bezi-gece-l-10ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Gecə-gündüz quru və rahat"
+   },
+   "image": "/rossmann/004270.webp",
+   "sort": 56
+  },
+  {
+   "sku": "003652",
+   "name": "Babydream butulka işıqlı, 300 ml",
+   "full_name": "BABYDREAM BUTULKA ISIQLI 300ML",
+   "price": 10.9,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-butulka-isiqli-300ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Qidalandırma üçün rahat və təhlükəsiz"
+   },
+   "image": "/rossmann/003652.webp",
+   "sort": 57
+  },
+  {
+   "sku": "019962",
+   "name": "Babydream silikon mat",
+   "full_name": "BABYDREAM SILIKON MAT",
+   "price": 10.9,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1002/babydream-silikon-mat",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/019962.webp",
+   "sort": 58
+  },
+  {
+   "sku": "032101",
+   "name": "Penaten qulluq losyonu, 400 ml",
+   "full_name": "PENATEN QULLUQ LASYONU 400 ML",
+   "price": 13.9,
+   "original_price": 18.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-963/penaten-qulluq-lasyonu-400-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/032101.webp",
+   "sort": 59
+  },
+  {
+   "sku": "002709",
+   "name": "Babydream kağız salfet, 100 ədəd",
+   "full_name": "BABYDREAM KAGIZ SALFET 100ED",
+   "price": 4.49,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1225/babydream-kagiz-salfet-100ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/002709.webp",
+   "sort": 60
+  },
+  {
+   "sku": "002737",
+   "name": "Babydream barmağa taxılan diş fırçası, 2 ədəd",
+   "full_name": "BABYDREAM BARMAGA TAXILAN DIS FIRCASI 2ED",
+   "price": 4.49,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1024/babydream-barmaga-taxilan-dis-fircasi-2ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "İlk dişlər çıxanda"
+   },
+   "image": "/rossmann/002737.webp",
+   "sort": 61
+  },
+  {
+   "sku": "002948",
+   "name": "Babydream külək və soyuğa qarşı baxım kremi, 50 ml",
+   "full_name": "BABYDREAM KULEK VE SOYUGA QARSI BAXIM KREMI 50ML",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-966/babydream-kulek-ve-soyuga-qarsi-baxim-kremi-50ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Gəzintidə külək və soyuqdan qoruma"
+   },
+   "image": "/rossmann/002948.webp",
+   "sort": 62
+  },
+  {
+   "sku": "003295",
+   "name": "Babydream yara qoruyucu krem ekstra həssas, 75 ml",
+   "full_name": "BABYDREAM YARA QORUYUCU KREM EKSTRA HESSAS 75ML",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-965/babydream-yara-qoruyucu-krem-ekstra-hessas-75ml",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Bez altında qızartıya qarşı qoruma",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/003295.webp",
+   "sort": 63
+  },
+  {
+   "sku": "032030",
+   "name": "Babydream əmzik anatomik 0-6 ay, 2 ədəd",
+   "full_name": "BABYDREAM EMZIK ANATOMIK 0-6 AY 2 EDED",
+   "price": 7.69,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-anatomik-0-6-ay-2-eded",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/032030.webp",
+   "sort": 64
+  },
+  {
+   "sku": "013625",
+   "name": "Bübchen uşaq bədən südü, 400 ml",
+   "full_name": "BUBCHEN USAQ SUD 400 ML",
+   "price": 9.99,
+   "original_price": 12.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-963/bubchen-usaq-sud-400-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013625.webp",
+   "sort": 65
+  },
+  {
+   "sku": "013469",
+   "name": "Bübchen baxım losyonu, 400 ml",
+   "full_name": "BUBCHEN BAXIM LOSYONU 400ML",
+   "price": 9.99,
+   "original_price": 12.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-956/bubchen-baxim-losyonu-400ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013469.webp",
+   "sort": 66
+  },
+  {
+   "sku": "002720",
+   "name": "Babydream burun aspiratoru",
+   "full_name": "BABYDREAM BURUN ASPIRATORU",
+   "price": 5.49,
+   "original_price": 6.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1028/babydream-burun-aspirator",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Soyuqdəymə və qızdırma vaxtı lazım olur",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/002720.webp",
+   "sort": 67
+  },
+  {
+   "sku": "002881",
+   "name": "Babydream su keçirməyən önlük, 2 ədəd",
+   "full_name": "BABYDREAM SU QOVUCU ONLUK 2ED",
+   "price": 11.5,
+   "original_price": 14.5,
+   "url": "https://rossmann.az/mehsullar/mehsul-998/babydream-su-qovucu-onluk-2ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/002881.webp",
+   "sort": 68
+  },
+  {
+   "sku": "019950",
+   "name": "Babydream uşaq üçün silikon dırnaq pilkası",
+   "full_name": "BABYDREAM USAQ UCUN SILIKON DIRNAQ PILKASI",
+   "price": 5.49,
+   "original_price": 6.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1023/babydream-usaq-ucun-silikon-dirnaq-pilkasi",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Körpənin saç və dırnaq baxımı",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/019950.webp",
+   "sort": 69
+  },
+  {
+   "sku": "002735",
+   "name": "Babydream uşaq üçün qaşıqlar uzun, 3 ədəd",
+   "full_name": "BABYDREAM USAQ UCUN QASIQLAR UZUN 3ED",
+   "price": 3.99,
+   "original_price": 4.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-996/babydream-usaq-ucun-qasiqlar-uzun-3ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/002735.webp",
+   "sort": 70
+  },
+  {
+   "sku": "003654",
+   "name": "Babydream qida qabı üçün əmzik M, 0+",
+   "full_name": "BABYDREAM QIDA QABLARI UCUN EMZIK M 0+",
+   "price": 4.79,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-qida-qablari-ucun-emzik-m-0",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003654.webp",
+   "sort": 71
+  },
+  {
+   "sku": "003663",
+   "name": "Babydream süd tozu porsiya ayırıcı",
+   "full_name": "BABYDREAM SUD TOZU PORSIYA AYIRICI",
+   "price": 9.49,
+   "original_price": 11.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-997/babydream-sud-tozu-porsiya-ayirici",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Qidalandırma üçün rahat və təhlükəsiz"
+   },
+   "image": "/rossmann/003663.webp",
+   "sort": 72
+  },
+  {
+   "sku": "029055",
+   "name": "Chicco körpə üçün pudra, 150 q",
+   "full_name": "CHICCO KORPE UCUN BM PUDRA 150GR",
+   "price": 10.3,
+   "original_price": 12.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-964/chicco-korpe-ucun-bm-pudra-150gr",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029055.webp",
+   "sort": 73
+  },
+  {
+   "sku": "029065",
+   "name": "Chicco körpə diş pastası, alma, 6-24 ay, 50 ml",
+   "full_name": "CHICCO KORPE UCUN DIS PASTASI ALMA 50ML 6-24AY+",
+   "price": 9.5,
+   "original_price": 11.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1217/chicco-korpe-ucun-dis-pastasi-alma-50ml-6-24ay",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "İlk dişlər çıxanda"
+   },
+   "image": "/rossmann/029065.webp",
+   "sort": 74
+  },
+  {
+   "sku": "029064",
+   "name": "Chicco körpə diş pastası, çiyələk, 12 ay+, 50 ml",
+   "full_name": "CHICCO KORPE UCUN DIS PASTASI CIELEK 50ML 12AY+",
+   "price": 9.5,
+   "original_price": 11.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1217/chicco-korpe-ucun-dis-pastasi-cielek-50ml-12ay",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "İlk dişlər çıxanda"
+   },
+   "image": "/rossmann/029064.webp",
+   "sort": 75
+  },
+  {
+   "sku": "029062",
+   "name": "Chicco körpə bədən süngəri",
+   "full_name": "CHICCO KORPE UCUN BM BEDEN UCUN SUNGER",
+   "price": 14.3,
+   "original_price": 17.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1009/chicco-korpe-ucun-bm-beden-ucun-sunger",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029062.webp",
+   "sort": 76
+  },
+  {
+   "sku": "029061",
+   "name": "Chicco körpə üçün ləkə təmizləyən sprey, 500 ml",
+   "full_name": "CHICCO KORPE UCUN LEKEAPARAN SPRAY 500ML",
+   "price": 12.7,
+   "original_price": 15.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1012/chicco-korpe-ucun-lekeaparan-spray-500ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpə paltarı üçün yumşaq yuma"
+   },
+   "image": "/rossmann/029061.webp",
+   "sort": 77
+  },
+  {
+   "sku": "029060",
+   "name": "Chicco körpə üçün paltar yumşaldıcı maye, 1.5 l",
+   "full_name": "CHICCO KORPE UCUN PALTAR YUMUSALDICI MAYE 1.5L",
+   "price": 12.2,
+   "original_price": 15.3,
+   "url": "https://rossmann.az/mehsullar/mehsul-1012/chicco-korpe-ucun-paltar-yumusaldici-maye-15l",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpə paltarı üçün yumşaq yuma"
+   },
+   "image": "/rossmann/029060.webp",
+   "sort": 78
+  },
+  {
+   "sku": "029059",
+   "name": "Chicco körpə üçün paltar yuyucu maye, 1.5 l",
+   "full_name": "CHICCO KORPE UCUN PALTAR YUYUCU MAYE 1.5L",
+   "price": 16.7,
+   "original_price": 20.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1012/chicco-korpe-ucun-paltar-yuyucu-maye-15l",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpə paltarı üçün yumşaq yuma"
+   },
+   "image": "/rossmann/029059.webp",
+   "sort": 79
+  },
+  {
+   "sku": "029058",
+   "name": "Chicco körpə üçün elektron termometr",
+   "full_name": "CHICCO KORPE UCUN ELEKTRON TERMOMETR",
+   "price": 14.3,
+   "original_price": 17.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1014/chicco-korpe-ucun-elektron-termometr",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Soyuqdəymə və qızdırma vaxtı lazım olur",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/029058.webp",
+   "sort": 80
+  },
+  {
+   "sku": "029057",
+   "name": "Chicco körpə burun aspiratoru",
+   "full_name": "CHICCO KORPE UCUN ASPIRATOR BURUN UCUN",
+   "price": 19.9,
+   "original_price": 24.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1028/chicco-korpe-ucun-aspirator-burun-ucun",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Soyuqdəymə və qızdırma vaxtı lazım olur",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/029057.webp",
+   "sort": 81
+  },
+  {
+   "sku": "029056",
+   "name": "Chicco körpə üçün masaj yağı həssas, 200 ml",
+   "full_name": "CHICCO KORPE UCUN BM MASAJ YAGI HESSAS 200ML",
+   "price": 11.9,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-961/chicco-korpe-ucun-bm-masaj-yagi-hessas-200ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029056.webp",
+   "sort": 82
+  },
+  {
+   "sku": "029039",
+   "name": "Chicco körpə üçün daraq çəhrayı",
+   "full_name": "CHICCO KORPE UCUN DARAQ CEHRAI",
+   "price": 15.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1025/chicco-korpe-ucun-daraq-cehrai",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Körpənin saç və dırnaq baxımı",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/029039.webp",
+   "sort": 83
+  },
+  {
+   "sku": "029054",
+   "name": "Chicco körpə üçün bezaltı kremi, 100 ml",
+   "full_name": "CHICCO KORPE UCUN BM BEZALTI KREMI 100ML",
+   "price": 15.2,
+   "original_price": 18.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-966/chicco-korpe-ucun-bm-bezalti-kremi-100ml",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Bez altında qızartıya qarşı qoruma",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/029054.webp",
+   "sort": 84
+  },
+  {
+   "sku": "029053",
+   "name": "Chicco körpə üçün qidalandırıcı krem, 100 ml",
+   "full_name": "CHICCO KORPE UCUN BM QIDALANDIRICI KREM 100ML",
+   "price": 12.7,
+   "original_price": 15.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-966/chicco-korpe-ucun-bm-qidalandirici-krem-100ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029053.webp",
+   "sort": 85
+  },
+  {
+   "sku": "029052",
+   "name": "Chicco körpə üçün sabun, 100 q",
+   "full_name": "CHICCO KORPE UCUN BM SABUN 100GR",
+   "price": 4.7,
+   "original_price": 5.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-956/chicco-korpe-ucun-bm-sabun-100gr",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029052.webp",
+   "sort": 86
+  },
+  {
+   "sku": "029051",
+   "name": "Chicco körpə üçün şampun və duş geli saf, 200 ml",
+   "full_name": "CHICCO KORPE UCUN BM SAMPUN VE DUS GELI SAF 200ML",
+   "price": 16.7,
+   "original_price": 20.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/chicco-korpe-ucun-bm-sampun-ve-dus-geli-saf-200ml-029051",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029051.webp",
+   "sort": 87
+  },
+  {
+   "sku": "029050",
+   "name": "Chicco körpə üçün şampun və duş geli saf, 200 ml",
+   "full_name": "CHICCO KORPE UCUN BM SAMPUN VE DUS GELI SAF 200ML",
+   "price": 10.3,
+   "original_price": 12.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/chicco-korpe-ucun-bm-sampun-ve-dus-geli-saf-200ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029050.webp",
+   "sort": 88
+  },
+  {
+   "sku": "029049",
+   "name": "Chicco körpə üçün şampun və duş geli, 750 ml",
+   "full_name": "CHICCO KORPE UCUN BM SAMPUN VE DUS GELI 750ML",
+   "price": 18.3,
+   "original_price": 22.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/chicco-korpe-ucun-bm-sampun-ve-dus-geli-750ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029049.webp",
+   "sort": 89
+  },
+  {
+   "sku": "029048",
+   "name": "Chicco körpə üçün şampun və duş geli, 500 ml",
+   "full_name": "CHICCO KORPE UCUN BM SAMPUN VE DUS GELI 500ML",
+   "price": 14.8,
+   "original_price": 18.5,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/chicco-korpe-ucun-bm-sampun-ve-dus-geli-500ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029048.webp",
+   "sort": 90
+  },
+  {
+   "sku": "029047",
+   "name": "Chicco körpə üçün şampun və duş geli, 200 ml",
+   "full_name": "CHICCO KORPE UCUN BM SAMPUN VE DUS GELI 200ML",
+   "price": 10.3,
+   "original_price": 12.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/chicco-korpe-ucun-bm-sampun-ve-dus-geli-200ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029047.webp",
+   "sort": 91
+  },
+  {
+   "sku": "029046",
+   "name": "Chicco körpə üçün şampun, 500 ml",
+   "full_name": "CHICCO KORPE UCUN BM SAMPUN 500ML",
+   "price": 13.5,
+   "original_price": 16.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/chicco-korpe-ucun-bm-sampun-500ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029046.webp",
+   "sort": 92
+  },
+  {
+   "sku": "029045",
+   "name": "Chicco körpə üçün şampun, 200 ml",
+   "full_name": "CHICCO KORPE UCUN BM SAMPUN 200ML",
+   "price": 8.7,
+   "original_price": 10.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/chicco-korpe-ucun-bm-sampun-200ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029045.webp",
+   "sort": 93
+  },
+  {
+   "sku": "029044",
+   "name": "Chicco körpə üçün duş geli, 750 ml",
+   "full_name": "CHICCO KORPE UCUN BM DUS GELI 750ML",
+   "price": 15.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/chicco-korpe-ucun-bm-dus-geli-750ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029044.webp",
+   "sort": 94
+  },
+  {
+   "sku": "029043",
+   "name": "Chicco körpə üçün duş geli, 500 ml",
+   "full_name": "CHICCO KORPE UCUN BM DUS GELI 500ML",
+   "price": 12.7,
+   "original_price": 15.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/chicco-korpe-ucun-bm-dus-geli-500ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/029043.webp",
+   "sort": 95
+  },
+  {
+   "sku": "029042",
+   "name": "Chicco körpə üçün qayçı çəhrayı",
+   "full_name": "CHICCO KORPE UCUN QAYCI CEHRAI",
+   "price": 13.5,
+   "original_price": 16.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1023/chicco-korpe-ucun-qayci-cehrai",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Körpənin saç və dırnaq baxımı",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/029042.webp",
+   "sort": 96
+  },
+  {
+   "sku": "029041",
+   "name": "Chicco körpə üçün qayçı mavi",
+   "full_name": "CHICCO KORPE UCUN QAYCI MAVI",
+   "price": 13.5,
+   "original_price": 16.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1023/chicco-korpe-ucun-qayci-mavi",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Körpənin saç və dırnaq baxımı",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/029041.webp",
+   "sort": 97
+  },
+  {
+   "sku": "029040",
+   "name": "Chicco körpə üçün daraq mavi",
+   "full_name": "CHICCO KORPE UCUN DARAQ MAVI",
+   "price": 15.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1025/chicco-korpe-ucun-daraq-mavi",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Körpənin saç və dırnaq baxımı",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/029040.webp",
+   "sort": 98
+  },
+  {
+   "sku": "032086",
+   "name": "NUK klassik əmzik gecə-gündüz 0-6 ay, 2 ədəd",
+   "full_name": "NUK KLASSIK EMZIK GUN VE GECE0-6 AY 2 EDED",
+   "price": 11.9,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/nuk-klassik-emzik-gun-ve-gece0-6-ay-2-eded",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/032086.webp",
+   "sort": 99
+  },
+  {
+   "sku": "004265",
+   "name": "Babydream uşaq üçün hamam lifi, 2 ədəd",
+   "full_name": "BABYDREAM USAQ UCUN HAMAM LIFI 2ED",
+   "price": 6.49,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1009/babydream-usaq-ucun-hamam-lifi-2ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/004265.webp",
+   "sort": 100
+  },
+  {
+   "sku": "002719",
+   "name": "Babydream uşaq üçün qaşıqlar, 5 ədəd",
+   "full_name": "BABYDREAM USAQ UCUN QASIQLAR 5ED",
+   "price": 3.29,
+   "original_price": 3.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-996/babydream-usaq-ucun-qasiqlar-5ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/002719.webp",
+   "sort": 101
+  },
+  {
+   "sku": "002723",
+   "name": "Babydream diş fırçalamağı öyrənmə dəsti, 2 ədəd",
+   "full_name": "BABYDREAM DIS FIRCALAMA OYRENME 2LI SETI ",
+   "price": 6.59,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1024/babydream-dis-fircalama-oyrenme-2li-seti",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "İlk dişlər çıxanda"
+   },
+   "image": "/rossmann/002723.webp",
+   "sort": 102
+  },
+  {
+   "sku": "003209",
+   "name": "Babydream qollu önlük",
+   "full_name": "BABYDREAM QOLLU ONLUK",
+   "price": 11.9,
+   "original_price": 14.5,
+   "url": "https://rossmann.az/mehsullar/mehsul-998/babydream-qollu-onluk",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/003209.webp",
+   "sort": 103
+  },
+  {
+   "sku": "019937",
+   "name": "Babydream baxım kremi 2-si 1-də, 200 ml",
+   "full_name": "BABYDREAM BAXIM KREMI 2SI-1DE 200 ML",
+   "price": 8.99,
+   "original_price": 10.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1222/babydream-baxim-kremi-2si-1de-200-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/019937.webp",
+   "sort": 104
+  },
+  {
+   "sku": "019960",
+   "name": "Babydream baxım balzamı intensiv",
+   "full_name": "BABYDREAM BAXIM BALZAMI INTENSIV",
+   "price": 6.99,
+   "original_price": 8.48,
+   "url": "https://rossmann.az/mehsullar/mehsul-963/babydream-baxim-balzami-intensiv",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/019960.webp",
+   "sort": 105
+  },
+  {
+   "sku": "003384",
+   "name": "Babydream sərin diş qaşıma halqası",
+   "full_name": "BABYDREAM SERIN DIS QASIMA HALQASI",
+   "price": 4.99,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1027/babydream-serin-dis-qasima-halqasi",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "İlk dişlər çıxanda"
+   },
+   "image": "/rossmann/003384.webp",
+   "sort": 106
+  },
+  {
+   "sku": "003605",
+   "name": "Babydream yuyucu köpük ekstra həssas, 250 ml",
+   "full_name": "BABYDREAM YUYUCU KOPUK EKTRA HESSAS 250ML",
+   "price": 4.99,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/babydream-yuyucu-kopuk-ektra-hessas-250ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/003605.webp",
+   "sort": 107
+  },
+  {
+   "sku": "005306",
+   "name": "Babydream butulka və əmzik fırçası",
+   "full_name": "BABYDREAM BUTULKA VE EMZIK  FIRCASI",
+   "price": 4.99,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1022/babydream-butulka-ve-emzik-fircasi",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/005306.webp",
+   "sort": 108
+  },
+  {
+   "sku": "019918",
+   "name": "Babydream uşaq bezi Premium 4+ Maxi Jumbo, 72 ədəd",
+   "full_name": "BABYDREAM USAQ BEZI PREMIUM 4+MAXI JUMBO 72ED",
+   "price": 37.9,
+   "original_price": 44.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-972/babydream-usaq-bezi-premium-4maxi-jumbo-72ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Gecə-gündüz quru və rahat"
+   },
+   "image": "/rossmann/019918.webp",
+   "sort": 109
+  },
+  {
+   "sku": "004160",
+   "name": "Babydream baxım yağı həssas, 250 ml",
+   "full_name": "BABYDREAM BAXIM YAGI HESSAS 250ML",
+   "price": 6.79,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-961/babydream-baxim-yagi-hessas-250ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/004160.webp",
+   "sort": 110
+  },
+  {
+   "sku": "002722",
+   "name": "Babydream vanna üçün termometr",
+   "full_name": "BABYDREAM VANNA UCUN TERMOMETR",
+   "price": 5.99,
+   "original_price": 6.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1011/babydream-vanna-ucun-termometr",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Soyuqdəymə və qızdırma vaxtı lazım olur",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/002722.webp",
+   "sort": 111
+  },
+  {
+   "sku": "005117",
+   "name": "Babydream uşaq bezi Premium Maxi 4, 80 ədəd",
+   "full_name": "BABYDREAM USAQ BEZI PREMIUM MAXI 4 80ED ",
+   "price": 29.9,
+   "original_price": 34.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-972/babydream-usaq-bezi-premium-maxi-4-80ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Gecə-gündüz quru və rahat"
+   },
+   "image": "/rossmann/005117.webp",
+   "sort": 112
+  },
+  {
+   "sku": "002736",
+   "name": "Babydream uşaq üçün qab çəngəl və qaşıq ilə",
+   "full_name": "BABYDREAM USAQ UCUN QAB CENGEL VE QASIQ ILE",
+   "price": 12.9,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-996/babydream-usaq-ucun-qab-cengel-ve-qasiq-ile",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/002736.webp",
+   "sort": 113
+  },
+  {
+   "sku": "003314",
+   "name": "Babydream əmzik 0-3 ay",
+   "full_name": "BABYDREAM EMZIK 0-3 AY",
+   "price": 6.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-0-3-ay",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003314.webp",
+   "sort": 114
+  },
+  {
+   "sku": "003315",
+   "name": "Babydream əmzik slim silikon 3-18 ay",
+   "full_name": "BABYDREAM EMZIK SLIM SILIKON 3-18 AY",
+   "price": 6.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-slim-silikon-3-18-ay",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003315.webp",
+   "sort": 115
+  },
+  {
+   "sku": "003316",
+   "name": "Babydream əmzik slim silikon 18+",
+   "full_name": "BABYDREAM EMZIK SLIM SILIKON 18+",
+   "price": 6.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-slim-silikon-18",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003316.webp",
+   "sort": 116
+  },
+  {
+   "sku": "003317",
+   "name": "Babydream əmzik simmetrik silikon 0+, 2 ədəd",
+   "full_name": "BABYDREAM EMZIK SIMMETRIK SILIKON 0+ 2 ED",
+   "price": 6.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-simmetrik-silikon-0-2-ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003317.webp",
+   "sort": 117
+  },
+  {
+   "sku": "003318",
+   "name": "Babydream əmzik simmetrik silikon 3-18 ay, 2 ədəd",
+   "full_name": "BABYDREAM EMZIK SIMMETRIK SILIKON 3-18 AY 2 ED",
+   "price": 6.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-simmetrik-silikon-3-18-ay-2-ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003318.webp",
+   "sort": 118
+  },
+  {
+   "sku": "004367",
+   "name": "Babydream təbii yara qoruyucu krem, 75 ml",
+   "full_name": "BABYDREAM TEBII YARA QORUYUCU KREM 75ML",
+   "price": 6.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-962/babydream-tebii-yara-qoruyucu-krem-75ml",
+   "collections": [
+    "baby",
+    "bag"
+   ],
+   "why": {
+    "baby": "Bez altında qızartıya qarşı qoruma",
+    "bag": "Doğum çantasına"
+   },
+   "image": "/rossmann/004367.webp",
+   "sort": 119
+  },
+  {
+   "sku": "003312",
+   "name": "Babydream əmzik anatomik silikon 3-18 ay, 2 ədəd",
+   "full_name": "BABYDREAM EMZIK ANATOMIK SILIKON 3-18 AY 2 ED",
+   "price": 6.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-995/babydream-emzik-anatomik-silikon-3-18-ay-2-ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003312.webp",
+   "sort": 120
+  },
+  {
+   "sku": "013629",
+   "name": "Bübchen yuma duş kremi, 230 ml klassik",
+   "full_name": "BUBCHEN YUMA DUS KREMI 230 ML KLASSIK",
+   "price": 6.49,
+   "original_price": 7.49,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/bubchen-yuma-dus-kremi-230-ml-klassik",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013629.webp",
+   "sort": 121
+  },
+  {
+   "sku": "013780",
+   "name": "Penaten uşaq şampun, 400 ml",
+   "full_name": "PENATEN USAQ SAMPUN 400 ML",
+   "price": 9.49,
+   "original_price": 10.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/penaten-usaq-sampun-400-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013780.webp",
+   "sort": 122
+  },
+  {
+   "sku": "013781",
+   "name": "Penaten uşaq duş kremi və yuma, 400 ml",
+   "full_name": "PENATEN USAQ DUS KREMI VE YUMA 400 ML",
+   "price": 9.49,
+   "original_price": 10.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/penaten-usaq-dus-kremi-ve-yuma-400-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013781.webp",
+   "sort": 123
+  },
+  {
+   "sku": "003650",
+   "name": "Babydream klassik butulka, 300 ml, 0+",
+   "full_name": "BABYDREAM BUTULKA KLASSIK 300ML0+",
+   "price": 8.89,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-butulka-klassik-300ml0",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Qidalandırma üçün rahat və təhlükəsiz"
+   },
+   "image": "/rossmann/003650.webp",
+   "sort": 124
+  },
+  {
+   "sku": "014282",
+   "name": "Babydream Med uşaq üz kremi, 50 ml",
+   "full_name": "BABYDREAM MED USAQ  UZ KREMI 50 ML",
+   "price": 7.99,
+   "original_price": 8.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-963/babydream-med-usaq-uz-kremi-50-ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/014282.webp",
+   "sort": 125
+  },
+  {
+   "sku": "002675",
+   "name": "Babydream alma şirəsi 4 ay+, 500 ml",
+   "full_name": "BABYDREAM MEYVE SIRESI ALMA 4AY 500ML",
+   "price": 3.49,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-990/babydream-meyve-siresi-alma-4ay-500ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Yaşa uyğun əlavə qida"
+   },
+   "image": "/rossmann/002675.webp",
+   "sort": 126
+  },
+  {
+   "sku": "002679",
+   "name": "Babydream mini suxarı 7 ay+, 100 q",
+   "full_name": "BABYDREAM MINI SUXARI 100QR 7+AY",
+   "price": 3.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-1230/babydream-mini-suxari-100qr-7ay",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Yaşa uyğun əlavə qida"
+   },
+   "image": "/rossmann/002679.webp",
+   "sort": 127
+  },
+  {
+   "sku": "003651",
+   "name": "Babydream şüşə butulka, 230 ml",
+   "full_name": "BABYDREAM SUSE BUTULKA 230ML",
+   "price": 14.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-suse-butulka-230ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Qidalandırma üçün rahat və təhlükəsiz"
+   },
+   "image": "/rossmann/003651.webp",
+   "sort": 128
+  },
+  {
+   "sku": "004161",
+   "name": "Babydream baxım yağı ekstra həssas, 250 ml",
+   "full_name": "BABYDREAM BAXIM YAGI EKSTRA HESSAS 250ML",
+   "price": 7.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-961/babydream-baxim-yagi-ekstra-hessas-250ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/004161.webp",
+   "sort": 129
+  },
+  {
+   "sku": "004209",
+   "name": "Babydream Med baxım losyonu, 200 ml",
+   "full_name": "BABYDREAM MED BAXIM LOSYONU 200ML",
+   "price": 7.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-963/babydream-med-baxim-losyonu-200ml",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/004209.webp",
+   "sort": 130
+  },
+  {
+   "sku": "004852",
+   "name": "Babydream silikon önlük",
+   "full_name": "BABYDREAM SILIKON ONLUK ",
+   "price": 14.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-998/babydream-silikon-onluk",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Əlavə qidaya keçid üçün, 6 aydan"
+   },
+   "image": "/rossmann/004852.webp",
+   "sort": 131
+  },
+  {
+   "sku": "019912",
+   "name": "Babydream üzmək üçün uşaq bezi S, 12 ədəd",
+   "full_name": "BABYDREAM USAQ UZMEK UCUN BEZ S  12 ED",
+   "price": 14.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-982/babydream-usaq-uzmek-ucun-bez-s-12-ed",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Gecə-gündüz quru və rahat"
+   },
+   "image": "/rossmann/019912.webp",
+   "sort": 132
+  },
+  {
+   "sku": "019933",
+   "name": "Babydream orqanik armud peçenyesi, 125 q",
+   "full_name": "BABYDREAM PECENYE ORQANIK ARMUD 125 QR",
+   "price": 4.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-1230/babydream-pecenye-orqanik-armud-125-qr",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Yaşa uyğun əlavə qida"
+   },
+   "image": "/rossmann/019933.webp",
+   "sort": 133
+  },
+  {
+   "sku": "003655",
+   "name": "Babydream su qabı üçün əmzik 6+",
+   "full_name": "BABYDREAM SU QABI UCUN EMZIK 6+",
+   "price": 5.99,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-999/babydream-su-qabi-ucun-emzik-6",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Körpənin yaşına uyğun ölçüdə"
+   },
+   "image": "/rossmann/003655.webp",
+   "sort": 134
+  },
+  {
+   "sku": "013471",
+   "name": "Bübchen duş gel, 1 l",
+   "full_name": "BUBCHEN DUS GEL 1L ",
+   "price": 10.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/bubchen-dus-gel-1l",
+   "collections": [
+    "baby"
+   ],
+   "why": {
+    "baby": "Həssas körpə dərisi üçün yumşaq baxım"
+   },
+   "image": "/rossmann/013471.webp",
+   "sort": 135
+  },
+  {
+   "sku": "019944",
+   "name": "Babydream uşaq bezi Premium Junior 5, 102 ədəd",
+   "full_name": "BABYDREAM USAQ BEZI PREMIUM JUNIOR 5 102 ED",
+   "price": 39.9,
+   "original_price": 59.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-971/babydream-usaq-bezi-premium-junior-5-102-ed",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Böyüyən uşaq üçün quru və rahat"
+   },
+   "image": "/rossmann/019944.webp",
+   "sort": 136
+  },
+  {
+   "sku": "019941",
+   "name": "Babydream paslanmaz polad termos, 300 ml",
+   "full_name": "BABYDREAM PASLANMAZ POLAD TERMOS 300 ML",
+   "price": 35.9,
+   "original_price": 49.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-paslanmaz-polad-termos-300-ml",
+   "collections": [
+    "kid",
+    "gift"
+   ],
+   "why": {
+    "kid": "Gəzintidə və bağçada",
+    "gift": "Faydalı hədiyyə"
+   },
+   "image": "/rossmann/019941.webp",
+   "sort": 137
+  },
+  {
+   "sku": "019942",
+   "name": "Babydream su butulkası, 240 ml",
+   "full_name": "BABYDREAM SU BUTULKASI 240 ML",
+   "price": 18.9,
+   "original_price": 24.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-su-butulkasi-240-ml",
+   "collections": [
+    "kid",
+    "gift"
+   ],
+   "why": {
+    "kid": "Gəzintidə və bağçada",
+    "gift": "Faydalı hədiyyə"
+   },
+   "image": "/rossmann/019942.webp",
+   "sort": 138
+  },
+  {
+   "sku": "004069",
+   "name": "Babydream paslanmaz polad termos, 500 ml",
+   "full_name": "BABYDREAM PASLANMAZ POLAD TERMOS 500ML",
+   "price": 15.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-paslanmaz-polad-termos-500ml",
+   "collections": [
+    "kid",
+    "gift"
+   ],
+   "why": {
+    "kid": "Gəzintidə və bağçada",
+    "gift": "Faydalı hədiyyə"
+   },
+   "image": "/rossmann/004069.webp",
+   "sort": 139
+  },
+  {
+   "sku": "003649",
+   "name": "Babydream su butulkası, 150 ml",
+   "full_name": "BABYDREAM SU BUTULKASI 150ML",
+   "price": 9.49,
+   "original_price": 10.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-su-butulkasi-150ml",
+   "collections": [
+    "kid",
+    "gift"
+   ],
+   "why": {
+    "kid": "Gəzintidə və bağçada",
+    "gift": "Faydalı hədiyyə"
+   },
+   "image": "/rossmann/003649.webp",
+   "sort": 140
+  },
+  {
+   "sku": "004251",
+   "name": "Babydream su butulkası, 540 ml",
+   "full_name": "BABYDREAM SU BUTULKASI 540ML",
+   "price": 19.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-su-butulkasi-540ml",
+   "collections": [
+    "kid",
+    "gift"
+   ],
+   "why": {
+    "kid": "Gəzintidə və bağçada",
+    "gift": "Faydalı hədiyyə"
+   },
+   "image": "/rossmann/004251.webp",
+   "sort": 141
+  },
+  {
+   "sku": "019913",
+   "name": "Babydream uşaq tuman bezi Premium 5, 20 ədəd",
+   "full_name": "BABYDREAM USAQ TUMAN BEZI PREMIUM  5  20ED",
+   "price": 12.9,
+   "original_price": 17.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-984/babydream-usaq-tuman-bezi-premium-5-20ed",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Böyüyən uşaq üçün quru və rahat"
+   },
+   "image": "/rossmann/019913.webp",
+   "sort": 142
+  },
+  {
+   "sku": "013623",
+   "name": "Bübchen şampun və duş geli, 230 ml dəniz sehri",
+   "full_name": "BUBCHEN SAMPUN VE DUS GELI 230 ML DENIZ SEHRI",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/bubchen-sampun-ve-dus-geli-230-ml-deniz-sehri",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013623.webp",
+   "sort": 143
+  },
+  {
+   "sku": "014254",
+   "name": "Bübchen şampun və duş geli, 230 ml Monster Fun",
+   "full_name": "BUBCHEN SAMPUN VE DUS GELI 230 ML MONSTER FUN",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/bubchen-sampun-ve-dus-geli-230-ml-monster-fun",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/014254.webp",
+   "sort": 144
+  },
+  {
+   "sku": "013622",
+   "name": "Bübchen şampun və duş geli, 230 ml pələng",
+   "full_name": "BUBCHEN SAMPUN VE DUS GELI 230 ML PELENG",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/bubchen-sampun-ve-dus-geli-230-ml-peleng",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013622.webp",
+   "sort": 145
+  },
+  {
+   "sku": "013624",
+   "name": "Bübchen şampun və saç kremi, 230 ml Rosalea",
+   "full_name": "BUBCHEN SAMPUN VE SAC KREMI 230 ML ROSALEA",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/bubchen-sampun-ve-sac-kremi-230-ml-rosalea",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013624.webp",
+   "sort": 146
+  },
+  {
+   "sku": "013620",
+   "name": "Bübchen şampun və duş geli, 230 ml zərif sevimlilər",
+   "full_name": "BUBCHEN SAMPUN VE DUS GELI 230 ML ZERIF SEVIMLILER",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/bubchen-sampun-ve-dus-geli-230-ml-zerif-sevimliler",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013620.webp",
+   "sort": 147
+  },
+  {
+   "sku": "013619",
+   "name": "Bübchen şampun və duş geli, 230 ml idman dostu",
+   "full_name": "BUBCHEN SAMPUN VE DUS GELI 230 ML IDMAN DOSTU",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/bubchen-sampun-ve-dus-geli-230-ml-idman-dostu",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013619.webp",
+   "sort": 148
+  },
+  {
+   "sku": "013618",
+   "name": "Bübchen şampun və duş geli, 230 ml moruq",
+   "full_name": "BUBCHEN SAMPUN VE DUS GELI 230 ML  MORUQ",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/bubchen-sampun-ve-dus-geli-230-ml-moruq",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013618.webp",
+   "sort": 149
+  },
+  {
+   "sku": "013616",
+   "name": "Bübchen şampun və saç kremi, 230 ml Bibi&Tina",
+   "full_name": "BUBCHEN SAMPUN VE SAC KREMI 230 ML BIBI&TINA",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/bubchen-sampun-ve-sac-kremi-230-ml-bibitina",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013616.webp",
+   "sort": 150
+  },
+  {
+   "sku": "013474",
+   "name": "Bübchen duş gel və şampun 2-si 1-də, 230 ml Pokemon",
+   "full_name": "BUBCHEN DUS GEL VE SAMPUN 2IN1 230ML POKEMIN",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/bubchen-dus-gel-ve-sampun-2in1-230ml-pokemin",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013474.webp",
+   "sort": 151
+  },
+  {
+   "sku": "013473",
+   "name": "Bübchen duş gel və şampun 2-si 1-də, 230 ml Pikachu",
+   "full_name": "BUBCHEN DUS GEL VE SAMPUN 2IN1 230ML PIKACHU",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/bubchen-dus-gel-ve-sampun-2in1-230ml-pikachu",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013473.webp",
+   "sort": 152
+  },
+  {
+   "sku": "017873",
+   "name": "Johnson's asan darama uşaq şampun, 200 ml",
+   "full_name": "JOHNSONS ASAN DARAMA USAQ SAMPUN 200 ML",
+   "price": 5.99,
+   "original_price": 7.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/johnsons-asan-darama-usaq-sampun-200-ml",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/017873.webp",
+   "sort": 153
+  },
+  {
+   "sku": "004746",
+   "name": "Babydream su butulkası 12+",
+   "full_name": "BABYDREAM SU BUTULKASI 12+",
+   "price": 11.5,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-994/babydream-su-butulkasi-12",
+   "collections": [
+    "kid",
+    "gift"
+   ],
+   "why": {
+    "kid": "Gəzintidə və bağçada",
+    "gift": "Faydalı hədiyyə"
+   },
+   "image": "/rossmann/004746.webp",
+   "sort": 154
+  },
+  {
+   "sku": "018497",
+   "name": "Johnson's uşaq saç sprey, 200 ml asan darama",
+   "full_name": "JOHNSONS USAQ SAC SPREY 200 ML ASAN DARAMA",
+   "price": 10.49,
+   "original_price": 13.5,
+   "url": "https://rossmann.az/mehsullar/mehsul-954/johnsons-usaq-sac-sprey-200-ml-asan-darama",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/018497.webp",
+   "sort": 155
+  },
+  {
+   "sku": "029841",
+   "name": "Bübchen Kids Bluey şampun və duş geli, 250 ml",
+   "full_name": "BUBCHEN KIDS BLUEY SAMPUN VE DUS GELI 250ML",
+   "price": 7.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-955/bubchen-kids-bluey-sampun-ve-dus-geli-250ml",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/029841.webp",
+   "sort": 156
+  },
+  {
+   "sku": "029067",
+   "name": "Chicco uşaq üçün diş fırçası pələng 3-6 yaş",
+   "full_name": "CHICCO USAQ UCUN DIS FIRCASI PELENG 3-6 YAS",
+   "price": 4.8,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1024/chicco-usaq-ucun-dis-fircasi-peleng-3-6-yas",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşağın gündəlik diş baxımı üçün"
+   },
+   "image": "/rossmann/029067.webp",
+   "sort": 157
+  },
+  {
+   "sku": "029066",
+   "name": "Chicco uşaq üçün diş fırçası begemot 3-6 yaş",
+   "full_name": "CHICCO USAQ UCUN DIS FIRCASI BEGEMOT 3-6 YAS",
+   "price": 4.8,
+   "original_price": 5.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1024/chicco-usaq-ucun-dis-fircasi-begemot-3-6-yas",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşağın gündəlik diş baxımı üçün"
+   },
+   "image": "/rossmann/029066.webp",
+   "sort": 158
+  },
+  {
+   "sku": "013306",
+   "name": "Bübchen uşaq vanna köpüyü, 40 ml Pokemon",
+   "full_name": "BUBCHEN USAQ VANNA KOPUYU 40 ML POKEMON",
+   "price": 2.49,
+   "original_price": 2.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-959/bubchen-usaq-vanna-kopuyu-40-ml-pokemon",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Uşaqların sevdiyi əyləncəli çimmə"
+   },
+   "image": "/rossmann/013306.webp",
+   "sort": 159
+  },
+  {
+   "sku": "019914",
+   "name": "Babydream uşaq tuman bezi Premium 7 XXL, 16 ədəd",
+   "full_name": "BABYDREAM USAQ TUMAN BEZI PREMIUM  7 XXL 16ED",
+   "price": 12.9,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-979/babydream-usaq-tuman-bezi-premium-7-xxl-16ed",
+   "collections": [
+    "kid"
+   ],
+   "why": {
+    "kid": "Böyüyən uşaq üçün quru və rahat"
+   },
+   "image": "/rossmann/019914.webp",
+   "sort": 160
+  },
+  {
+   "sku": "018971",
+   "name": "Babydream uşaq günəş spreyi SPF 50, 200 ml",
+   "full_name": "BABYDREAM USAQ GUNES SPREYI 200 ML 50 SPF",
+   "price": 19.9,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-967/babydream-usaq-gunes-spreyi-200-ml-50-spf",
+   "collections": [
+    "kid",
+    "baby"
+   ],
+   "why": {
+    "kid": "Günəşdə uşaq dərisini qoruyur",
+    "baby": "Yay gəzintiləri üçün"
+   },
+   "image": "/rossmann/018971.webp",
+   "sort": 161
+  },
+  {
+   "sku": "029072",
+   "name": "Chicco körpə günəş spreyi SPF 50, 150 ml",
+   "full_name": "CHICCO KORPE UCUN BM GUNESH SPREYI 50SPF 150ML",
+   "price": 46.1,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-967/chicco-korpe-ucun-bm-gunesh-spreyi-50spf-150ml",
+   "collections": [
+    "kid",
+    "baby"
+   ],
+   "why": {
+    "kid": "Günəşdə uşaq dərisini qoruyur",
+    "baby": "Yay gəzintiləri üçün"
+   },
+   "image": "/rossmann/029072.webp",
+   "sort": 162
+  },
+  {
+   "sku": "006983",
+   "name": "Always Ultra Eko gigiyenik bez, Normal N2, 20 ədəd",
+   "full_name": "ALWAYS ULTRA GIGIYENIK BEZ EKO NORMAL. N2. 20 EDED",
+   "price": 5.89,
+   "original_price": 7.89,
+   "url": "https://rossmann.az/mehsullar/mehsul-81/always-ultra-gigiyenik-bez-eko-normal-n2-20-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Aybaşı günlərində gündəlik rahatlıq"
+   },
+   "image": "/rossmann/006983.webp",
+   "sort": 163
+  },
+  {
+   "sku": "006985",
+   "name": "Always Ultra Eko gigiyenik bez, Super N3, 16 ədəd",
+   "full_name": "ALWAYS ULTRA GIGIYENIK BEZ EKO SUPER. N3. 16 EDED",
+   "price": 5.89,
+   "original_price": 7.89,
+   "url": "https://rossmann.az/mehsullar/mehsul-81/always-ultra-gigiyenik-bez-eko-super-n3-16-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Aybaşı günlərində gündəlik rahatlıq"
+   },
+   "image": "/rossmann/006985.webp",
+   "sort": 164
+  },
+  {
+   "sku": "007004",
+   "name": "Always Ultra Eko gigiyenik bez, gecə N4, 14 ədəd",
+   "full_name": "ALWAYS ULTRA GIGIYENIK BEZ EKO GECE. N4. 14 EDED",
+   "price": 5.89,
+   "original_price": 7.89,
+   "url": "https://rossmann.az/mehsullar/mehsul-82/always-ultra-gigiyenik-bez-eko-gece-n4-14-eded",
+   "collections": [
+    "cycle",
+    "newmom"
+   ],
+   "why": {
+    "cycle": "Ağır günlər və gecə üçün etibarlı qoruma",
+    "newmom": "Doğuşdan sonrakı ilk həftələr üçün gecə bezi"
+   },
+   "image": "/rossmann/007004.webp",
+   "sort": 165
+  },
+  {
+   "sku": "007012",
+   "name": "Always Ultra gigiyenik bez, Normal N2, 10 ədəd",
+   "full_name": "ALWAYS ULTRA GIGIYENIK BEZ NORMAL. N2. 10 EDED",
+   "price": 3.29,
+   "original_price": 4.39,
+   "url": "https://rossmann.az/mehsullar/mehsul-81/always-ultra-gigiyenik-bez-normal-n2-10-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Aybaşı günlərində gündəlik rahatlıq"
+   },
+   "image": "/rossmann/007012.webp",
+   "sort": 166
+  },
+  {
+   "sku": "007013",
+   "name": "Always Ultra gigiyenik bez, Super+ N3, 8 ədəd",
+   "full_name": "ALWAYS ULTRA GIGIYENIK BEZ SUPER+. N3. 8 EDED",
+   "price": 3.29,
+   "original_price": 4.39,
+   "url": "https://rossmann.az/mehsullar/mehsul-81/always-ultra-gigiyenik-bez-super-n3-8-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Aybaşı günlərində gündəlik rahatlıq"
+   },
+   "image": "/rossmann/007013.webp",
+   "sort": 167
+  },
+  {
+   "sku": "007014",
+   "name": "Always Ultra gigiyenik bez, gecə N4, 7 ədəd",
+   "full_name": "ALWAYS ULTRA GIGIYENIK BEZ GECE. N4. 7 EDED",
+   "price": 3.29,
+   "original_price": 4.39,
+   "url": "https://rossmann.az/mehsullar/mehsul-82/always-ultra-gigiyenik-bez-gece-n4-7-eded",
+   "collections": [
+    "cycle",
+    "newmom"
+   ],
+   "why": {
+    "cycle": "Ağır günlər və gecə üçün etibarlı qoruma",
+    "newmom": "Doğuşdan sonrakı ilk həftələr üçün gecə bezi"
+   },
+   "image": "/rossmann/007014.webp",
+   "sort": 168
+  },
+  {
+   "sku": "007024",
+   "name": "Always Platinum Eko gigiyenik bez, gecə N4, 12 ədəd",
+   "full_name": "ALWAYS PLATINUM GIGIYENIK BEZ EKO GECE. N4.12 EDED",
+   "price": 5.89,
+   "original_price": 7.89,
+   "url": "https://rossmann.az/mehsullar/mehsul-82/always-platinum-gigiyenik-bez-eko-gece-n412-eded",
+   "collections": [
+    "cycle",
+    "newmom"
+   ],
+   "why": {
+    "cycle": "Ağır günlər və gecə üçün etibarlı qoruma",
+    "newmom": "Doğuşdan sonrakı ilk həftələr üçün gecə bezi"
+   },
+   "image": "/rossmann/007024.webp",
+   "sort": 169
+  },
+  {
+   "sku": "007041",
+   "name": "Always Platinum Eko gigiyenik bez, Super+ N3, 14 ədəd",
+   "full_name": "ALWAYS PLATINUM GIGIYENIK BEZ EKO SUPER+. N3.14 ED",
+   "price": 5.89,
+   "original_price": 7.89,
+   "url": "https://rossmann.az/mehsullar/mehsul-81/always-platinum-gigiyenik-bez-eko-super-n314-ed",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Aybaşı günlərində gündəlik rahatlıq"
+   },
+   "image": "/rossmann/007041.webp",
+   "sort": 170
+  },
+  {
+   "sku": "007048",
+   "name": "Always Platinum gigiyenik bez, gecə N4, 6 ədəd",
+   "full_name": "ALWAYS PLATINUM GIGIYENIK BEZ GECE. N4. 6 EDED",
+   "price": 3.29,
+   "original_price": 4.39,
+   "url": "https://rossmann.az/mehsullar/mehsul-82/always-platinum-gigiyenik-bez-gece-n4-6-eded",
+   "collections": [
+    "cycle",
+    "newmom"
+   ],
+   "why": {
+    "cycle": "Ağır günlər və gecə üçün etibarlı qoruma",
+    "newmom": "Doğuşdan sonrakı ilk həftələr üçün gecə bezi"
+   },
+   "image": "/rossmann/007048.webp",
+   "sort": 171
+  },
+  {
+   "sku": "007049",
+   "name": "Always Platinum gigiyenik bez, Super+ N3, 7 ədəd",
+   "full_name": "ALWAYS PLATINUM GIGIYENIK BEZ SUPER+. N3. 7 EDED",
+   "price": 3.29,
+   "original_price": 4.39,
+   "url": "https://rossmann.az/mehsullar/mehsul-81/always-platinum-gigiyenik-bez-super-n3-7-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Aybaşı günlərində gündəlik rahatlıq"
+   },
+   "image": "/rossmann/007049.webp",
+   "sort": 172
+  },
+  {
+   "sku": "006965",
+   "name": "Always Ultra gigiyenik bez, gecə N4, 26 ədəd",
+   "full_name": "ALWAYS GIGIYENIK BEZ ULTRA GECE N4. 26 EDED",
+   "price": 13.1,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-82/always-gigiyenik-bez-ultra-gece-n4-26-eded",
+   "collections": [
+    "cycle",
+    "newmom"
+   ],
+   "why": {
+    "cycle": "Ağır günlər və gecə üçün etibarlı qoruma",
+    "newmom": "Doğuşdan sonrakı ilk həftələr üçün gecə bezi"
+   },
+   "image": "/rossmann/006965.webp",
+   "sort": 173
+  },
+  {
+   "sku": "006976",
+   "name": "Always Platinum gigiyenik bez, gecə N4, 22 ədəd",
+   "full_name": "ALWAYS PLATINUM GIGIYENIK BEZ ULTRA GECE N4 22EDED",
+   "price": 13.1,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-82/always-platinum-gigiyenik-bez-ultra-gece-n4-22eded",
+   "collections": [
+    "cycle",
+    "newmom"
+   ],
+   "why": {
+    "cycle": "Ağır günlər və gecə üçün etibarlı qoruma",
+    "newmom": "Doğuşdan sonrakı ilk həftələr üçün gecə bezi"
+   },
+   "image": "/rossmann/006976.webp",
+   "sort": 174
+  },
+  {
+   "sku": "007061",
+   "name": "Always gündəlik gigiyenik bez, Large, 24 ədəd",
+   "full_name": "ALWAYS GUN. GIGIYENIK BEZ LARGE EXTRA QORU 24 EDED",
+   "price": 8.79,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-90/always-gun-gigiyenik-bez-large-extra-qoru-24-eded",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Aybaşı günlərində gündəlik rahatlıq"
+   },
+   "image": "/rossmann/007061.webp",
+   "sort": 175
+  },
+  {
+   "sku": "007062",
+   "name": "Always gündəlik gigiyenik bez, Normal, 30 ədəd",
+   "full_name": "ALWAYS GUN. GIGIYENIK BEZ NORMAL FERAH&QORU. 30 ED",
+   "price": 8.79,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-88/always-gun-gigiyenik-bez-normal-ferahqoru-30-ed",
+   "collections": [
+    "cycle"
+   ],
+   "why": {
+    "cycle": "Aybaşı günlərində gündəlik rahatlıq"
+   },
+   "image": "/rossmann/007062.webp",
+   "sort": 176
+  },
+  {
+   "sku": "033407",
+   "name": "Always Platinum Eko gigiyenik bez, gecə N5, 10 ədəd",
+   "full_name": "ALWAYS PLATINUM BEZ ECO GECE N5. 10 ED",
+   "price": 7.89,
+   "original_price": null,
+   "url": "https://rossmann.az/mehsullar/mehsul-82/always-platinum-bez-eco-gece-n5-10-ed",
+   "collections": [
+    "cycle",
+    "newmom"
+   ],
+   "why": {
+    "cycle": "Ağır günlər və gecə üçün etibarlı qoruma",
+    "newmom": "Doğuşdan sonrakı ilk həftələr üçün gecə bezi"
+   },
+   "image": "/rossmann/033407.webp",
+   "sort": 177
+  },
+  {
+   "sku": "003376",
+   "name": "Babydream vanna oyuncaqları heyvanlar, 4 ədəd",
+   "full_name": "BABYDREAM VANNA OYUNCAQLARI HEYVANLAR 4ED",
+   "price": 10.9,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1004/babydream-vanna-oyuncaqlari-heyvanlar-4ed",
+   "collections": [
+    "gift",
+    "baby"
+   ],
+   "why": {
+    "gift": "Körpənin inkişafı üçün oyun",
+    "baby": "Oyunla inkişaf"
+   },
+   "image": "/rossmann/003376.webp",
+   "sort": 178
+  },
+  {
+   "sku": "002725",
+   "name": "Babydream uşaq arabası üçün yağışlıq sport",
+   "full_name": "BABYDREAM USAQ ARABASI UCUN YAGISLIQ SPORT",
+   "price": 15.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1031/babydream-usaq-arabasi-ucun-yagisliq-sport",
+   "collections": [
+    "gift",
+    "baby"
+   ],
+   "why": {
+    "gift": "Gəzinti üçün faydalı hədiyyə",
+    "baby": "Gəzintilər üçün"
+   },
+   "image": "/rossmann/002725.webp",
+   "sort": 179
+  },
+  {
+   "sku": "010818",
+   "name": "Babydream asılan oyuncaq kitab",
+   "full_name": "BABYDREAM ASILAN QOYUNCAQ KITAB",
+   "price": 10.9,
+   "original_price": 12.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1002/babydream-asilan-qoyuncaq-kitab",
+   "collections": [
+    "gift",
+    "baby"
+   ],
+   "why": {
+    "gift": "Körpənin inkişafı üçün oyun",
+    "baby": "Oyunla inkişaf"
+   },
+   "image": "/rossmann/010818.webp",
+   "sort": 180
+  },
+  {
+   "sku": "002732",
+   "name": "Babydream aktiv kub oyuncaq",
+   "full_name": "BABYDREAM AKTIV KUB OYUNCAQ",
+   "price": 12.9,
+   "original_price": 14.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1005/babydream-aktiv-kub-oyuncaq",
+   "collections": [
+    "gift",
+    "baby"
+   ],
+   "why": {
+    "gift": "Körpənin inkişafı üçün oyun",
+    "baby": "Oyunla inkişaf"
+   },
+   "image": "/rossmann/002732.webp",
+   "sort": 181
+  },
+  {
+   "sku": "004094",
+   "name": "Babydream uşaq arabası üçün asılqan, 2 ədəd",
+   "full_name": "BABYDREAM USAQ ARABASI UCUN ASILQAN 2ED",
+   "price": 8.79,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1030/babydream-usaq-arabasi-ucun-asilqan-2ed",
+   "collections": [
+    "gift",
+    "baby"
+   ],
+   "why": {
+    "gift": "Gəzinti üçün faydalı hədiyyə",
+    "baby": "Gəzintilər üçün"
+   },
+   "image": "/rossmann/004094.webp",
+   "sort": 182
+  },
+  {
+   "sku": "002743",
+   "name": "Babydream başlıqlı dəsmal 80x80, 1 ədəd",
+   "full_name": "BABYDREAM BASLIQLI DESMAL 80X80 1 ED",
+   "price": 17.9,
+   "original_price": 19.9,
+   "url": "https://rossmann.az/mehsullar/mehsul-1008/babydream-basliqli-desmal-80x80-1-ed",
+   "collections": [
+    "gift",
+    "baby"
+   ],
+   "why": {
+    "gift": "Yeni doğulan üçün yumşaq hədiyyə",
+    "baby": "Çimmədən sonra isti saxlayır"
+   },
+   "image": "/rossmann/002743.webp",
+   "sort": 183
+  },
+  {
+   "sku": "004919",
+   "name": "Babydream əl yumaq üçün dəsmal",
+   "full_name": "BABYDREAM EL YUMAQ UCUN DESMAL",
+   "price": 8.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1009/babydream-el-yumaq-ucun-desmal",
+   "collections": [
+    "gift",
+    "baby"
+   ],
+   "why": {
+    "gift": "Yeni doğulan üçün yumşaq hədiyyə",
+    "baby": "Çimmədən sonra isti saxlayır"
+   },
+   "image": "/rossmann/004919.webp",
+   "sort": 184
+  },
+  {
+   "sku": "002744",
+   "name": "Babydream yun uşaq ayaqqabısı 18/19",
+   "full_name": "BABYDREAM USAQ UCUN AYAQQABI YUN 18/19",
+   "price": 8.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1238/babydream-usaq-ucun-ayaqqabi-yun-1819",
+   "collections": [
+    "gift",
+    "kid"
+   ],
+   "why": {
+    "gift": "İlk addımlar üçün isti hədiyyə",
+    "kid": "İlk addımlar üçün"
+   },
+   "image": "/rossmann/002744.webp",
+   "sort": 185
+  },
+  {
+   "sku": "002745",
+   "name": "Babydream yun uşaq ayaqqabısı 20/22",
+   "full_name": "BABYDREAM USAQ UCUN AYAQQABI YUN 20/22",
+   "price": 8.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1238/babydream-usaq-ucun-ayaqqabi-yun-2022",
+   "collections": [
+    "gift",
+    "kid"
+   ],
+   "why": {
+    "gift": "İlk addımlar üçün isti hədiyyə",
+    "kid": "İlk addımlar üçün"
+   },
+   "image": "/rossmann/002745.webp",
+   "sort": 186
+  },
+  {
+   "sku": "002750",
+   "name": "Babydream uşaq corabı 0-6 ay, 3 cüt",
+   "full_name": "BABYDREAM USAQ UCUN CORAB 0-6AY 3CUT",
+   "price": 8.99,
+   "original_price": 9.99,
+   "url": "https://rossmann.az/mehsullar/mehsul-1233/babydream-usaq-ucun-corab-0-6ay-3cut",
+   "collections": [
+    "gift",
+    "baby"
+   ],
+   "why": {
+    "gift": "Yeni doğulan üçün yumşaq hədiyyə",
+    "baby": "Çimmədən sonra isti saxlayır"
+   },
+   "image": "/rossmann/002750.webp",
+   "sort": 187
+  }
+ ]
+}

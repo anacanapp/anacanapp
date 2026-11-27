@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan memerlukan akses kamera untuk foto profil, album kehamilan, dan pemindai feses.";
+"NSPhotoLibraryUsageDescription" = "Anacan mengakses foto Anda untuk foto profil dan album kehamilan.";
+"NSPhotoLibraryAddUsageDescription" = "Izin diperlukan untuk menyimpan foto bayi yang dibuat dan kenangan album ke galeri Anda.";
+"NSMicrophoneUsageDescription" = "Mikrofon digunakan untuk analisis tangisan bayi dan catatan suara.";
+"NSLocationWhenInUseUsageDescription" = "Lokasi Anda diperlukan untuk menampilkan rekomendasi pakaian sesuai cuaca dan tempat ramah ibu di sekitar Anda.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Lokasi Anda diperlukan untuk menampilkan rekomendasi pakaian sesuai cuaca dan tempat ramah ibu di sekitar Anda.";
+"NSFaceIDUsageDescription" = "Face ID digunakan untuk masuk ke aplikasi dengan aman.";
+"NSContactsUsageDescription" = "Mengakses kontak untuk mengundang pasangan Anda.";
+"NSCalendarsUsageDescription" = "Izin diperlukan untuk menambahkan janji temu dokter dan pengingat ke kalender Anda.";
+"NSMotionUsageDescription" = "Sensor gerak digunakan untuk melacak aktivitas harian dan jumlah langkah.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan dapat menggunakan Bluetooth untuk terhubung dengan perangkat pintar (misalnya monitor bayi).";
+"NSLocalNetworkUsageDescription" = "Aplikasi memerlukan izin untuk terhubung dengan perangkat di jaringan lokal Anda.";
+"NSUserTrackingUsageDescription" = "Izin Anda membantu kami mengukur efektivitas iklan kami dan menampilkan konten yang lebih relevan bagi Anda. Data pribadi Anda tidak dibagikan kepada pihak ketiga.";

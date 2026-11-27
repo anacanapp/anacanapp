@@ -1,0 +1,18 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261107170000_parenting_tool.sql",
+  "runtime": "google-parenting",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; no new relation, app_settings already carries the standard CDC/writer triggers (the migration refuses otherwise)",
+  "preserve": [
+    "cron0, no timer added: programme progress is local on the phone",
+    "8 enabled business timers",
+    "public allowlist RPC keeps every earlier key (through weaning_tool) and only adds parenting_tool"
+  ],
+  "relations": [
+    { "relation": "public.app_settings", "change": "row parenting_tool added", "cdc": true, "writer_guard": true, "private": false, "pii": false,
+      "note": "parenting_tool='off' (Admin → Tənzimləmələr switch), in the public allowlist RPC; existing guarded relation" }
+  ],
+  "functions": [
+    { "name": "public.get_public_app_setting(text)", "security": "definer", "grant": ["anon", "authenticated"], "note": "allowlist gains parenting_tool; body otherwise unchanged from 20261106090000_weaning.sql" }
+  ]
+}

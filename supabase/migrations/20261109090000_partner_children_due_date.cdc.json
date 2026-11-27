@@ -1,0 +1,21 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261109090000_partner_children_due_date.sql",
+  "runtime": "google-partner-children",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; function only, no new or changed relation; the migration refuses without user_children.due_date, get_linked_partner_user_id(uuid) or partner_can_see_v1(uuid, text) and verifies SECURITY DEFINER, the due_date result column and the grants before COMMIT",
+  "preserve": [
+    "cron0, no timer added",
+    "8 enabled business timers",
+    "user_children and profiles unchanged (read only), CDC and writer guarding of both unchanged",
+    "partner_can_see_v1 and partner_sharing_settings unchanged (share_baby_logs masks the whole result as in Duzelis83)"
+  ],
+  "relations": [],
+  "functions": [
+    {
+      "name": "public.partner_children_v1()",
+      "security": "definer",
+      "grant": ["authenticated"],
+      "note": "dropped and recreated in one transaction (RETURNS TABLE column list); owner pgadmin, search_path pg_catalog, EXECUTE revoked from PUBLIC and anon; returns id, name, birth_date, gender, avatar_emoji, sort_order, due_date, is_current of the linked woman's active children, nothing unless she shares baby logs"
+    }
+  ]
+}

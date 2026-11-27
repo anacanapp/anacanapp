@@ -13,14 +13,21 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { useToast } from '@/hooks/use-toast';
 import { usePrivacyPreferences, type PrivacyPrefs } from '@/hooks/usePrivacyPreferences';
 import { tr } from "@/lib/tr";
+import ConsentControls from '@/components/privacy/ConsentControls';
+import ConsentSettings from '@/components/privacy/ConsentSettings';
+import { usePrivacyText } from '@/components/privacy/privacyCopy';
+import { setPrivacyConsent, usePrivacyConsent } from '@/lib/privacyConsent';
+import { todayKey } from '@/lib/local-date';
 
 interface PrivacyScreenProps {
   onBack: () => void;
+  onOpenAdSettings?: () => void;
+  onOpenLegal?: (documentType: string) => void;
 }
 
 const SWITCH_CLS = "data-[state=checked]:bg-[var(--a-peach-2)]";
 
-const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
+const PrivacyScreen = ({ onBack, onOpenAdSettings, onOpenLegal }: PrivacyScreenProps) => {
   useScrollToTop();
 
   const { user, signOut } = useAuth();
@@ -30,6 +37,13 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
 
   // DB-persist privacy ayarları (əvvəllər yalnız local state idi)
   const { prefs, updatePref, loading: prefsLoading } = usePrivacyPreferences();
+  const consent = usePrivacyConsent();
+  const pt = usePrivacyText();
+  const changeConsent = async (next: { analytics: boolean; ads: boolean; attribution: boolean }) => {
+    await setPrivacyConsent(next);
+    if (next.analytics !== prefs.privacy_share_analytics) void updatePref('privacy_share_analytics', next.analytics);
+    toast({ title: pt('saved') });
+  };
 
   const handleToggle = async (key: keyof PrivacyPrefs, value: boolean) => {
     const ok = await updatePref(key, value);
@@ -62,7 +76,7 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `anacan-data-export-${new Date().toISOString().split('T')[0]}.json`;
+      a.download = `anacan-data-export-${todayKey()}.json`;
       a.click();
       URL.revokeObjectURL(url);
 
@@ -77,11 +91,13 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
 
     setDeleting(true);
     try {
-      // Delete user data from various tables
-      await supabase.from('daily_logs').delete().eq('user_id', user.id);
-      await supabase.from('notifications').delete().eq('user_id', user.id);
-      await supabase.from('appointments').delete().eq('user_id', user.id);
-      await supabase.from('profiles').delete().eq('user_id', user.id);
+      // Same server-side deletion as Settings: removes all user data and the auth user.
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) throw new Error(tr("settingsscreen_sessiya_tapilmadi_2d6594", "Sessiya tapılmadı"));
+      const { error } = await supabase.functions.invoke('delete-user-account', {
+        headers: { Authorization: `Bearer ${session.access_token}` }
+      });
+      if (error) throw error;
 
       // Sign out
       await signOut();
@@ -117,14 +133,8 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
     description: tr("privacyscreen_diger_istifadeciler_size_mesaj_gondere_b_c1b1fc", 'Digər istifadəçilər sizə mesaj göndərə bilər'),
     key: 'privacy_allow_messages' as const,
     bg: 'var(--a-pink-1)', ink: 'var(--a-pink-ink)'
-  },
-  {
-    icon: Shield,
-    title: tr("privacyscreen_analitik_melumat_paylas_7971ff", 'Analitik məlumat paylaş'),
-    description: tr("privacyscreen_anonim_istifade_melumatlarini_paylasin_835e3a", 'Anonim istifadə məlumatlarını paylaşın'),
-    key: 'privacy_share_analytics' as const,
-    bg: 'var(--a-green-1)', ink: 'var(--a-green-ink)'
-  }];
+  }
+  ];
 
 
   return (
@@ -133,12 +143,12 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{tr("privacyscreen_melumatlarinizi_idare_edin_efbcdb", "Məlumatlarınızı idarə edin")}</p>
-              <p className="a3-tool-title">{tr("privacyscreen_gizlilik_tehlukesizlik_67bec6", "Gizlilik & Təhlükəsizlik")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("privacyscreen_gizlilik_tehlukesizlik_67bec6", "Gizlilik & Təhlükəsizlik")}</p>
             </div>
           </div>
         </header>
@@ -179,6 +189,19 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
 
               })}
             </div>
+          </motion.div>
+
+          {/* Legal consents (health data / marketing / Terms acceptance) — docs/CONSENT_GATE.md */}
+          <ConsentSettings />
+
+          {/* Consent (analytics / ads / attribution) */}
+          <motion.div className="a-card" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.05 }}>
+            <h3 className="a-card-title flex items-center gap-2" style={{ marginBottom: 4 }}>
+              <Shield size={16} style={{ color: 'var(--a-accent-ink)' }} />
+              {pt('section_title')}
+            </h3>
+            <p style={{ fontSize: 11, color: 'var(--a-ink-soft)', marginBottom: 6 }}>{pt('section_desc')}</p>
+            <ConsentControls value={consent} onChange={changeConsent} onOpenAdSettings={onOpenAdSettings} />
           </motion.div>
 
           {/* Data Management */}
@@ -235,7 +258,7 @@ const PrivacyScreen = ({ onBack }: PrivacyScreenProps) => {
 
             <p className="text-center" style={{ fontSize: 12.5, color: 'var(--a-disclaimer-ink)' }}>
               {tr("privacyscreen_gizlilik_siyasetimiz_ve_istifa_8c585b", "Gizlilik siyas\u0259timiz v\u0259 istifad\u0259 \u015F\u0259rtl\u0259rimiz haqq\u0131nda \u0259trafl\u0131 m\u0259lumat \xFC\xE7\xFCn")}{' '}
-              <a href="#" style={{ color: 'var(--a-disclaimer-strong)', fontWeight: 700 }}>{tr("privacyscreen_buraya_klikleyin_c20d44", "buraya klikləyin")}</a>.
+              <a href="#" onClick={(event) => { event.preventDefault(); onOpenLegal?.('privacy_policy'); }} style={{ color: 'var(--a-disclaimer-strong)', fontWeight: 700 }}>{tr("privacyscreen_buraya_klikleyin_c20d44", "buraya klikləyin")}</a>.
             </p>
           </motion.div>
         </div>

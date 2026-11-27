@@ -1,0 +1,13 @@
+"NSCameraUsageDescription" = "Anacan behöver åtkomst till kameran för profilbilder, graviditetsalbum och avföringsskannern.";
+"NSPhotoLibraryUsageDescription" = "Anacan använder dina bilder för profilbilder och graviditetsalbum.";
+"NSPhotoLibraryAddUsageDescription" = "Behörighet behövs för att spara genererade bebisbilder och albumminnen i ditt galleri.";
+"NSMicrophoneUsageDescription" = "Mikrofonen används för analys av bebisens gråt och röstanteckningar.";
+"NSLocationWhenInUseUsageDescription" = "Din plats behövs för att visa klädtips anpassade efter vädret och mammavänliga platser i närheten.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Din plats behövs för att visa klädtips anpassade efter vädret och mammavänliga platser i närheten.";
+"NSFaceIDUsageDescription" = "Face ID används för att logga in säkert i appen.";
+"NSContactsUsageDescription" = "Använder dina kontakter för att bjuda in din partner.";
+"NSCalendarsUsageDescription" = "Behörighet behövs för att lägga till läkarbesök och påminnelser i din kalender.";
+"NSMotionUsageDescription" = "Rörelsesensorn används för att följa daglig aktivitet och antal steg.";
+"NSBluetoothAlwaysUsageDescription" = "Anacan kan använda Bluetooth för att ansluta till smarta enheter (t.ex. babyvakter).";
+"NSLocalNetworkUsageDescription" = "Appen behöver behörighet för att ansluta till enheter i ditt lokala nätverk.";
+"NSUserTrackingUsageDescription" = "Ditt tillstånd hjälper oss att mäta hur effektiva våra annonser är och visa dig mer relevant innehåll. Dina personuppgifter delas inte med tredje parter.";

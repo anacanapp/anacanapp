@@ -1,10 +1,15 @@
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
+import { useBackClosableRoot } from "@/hooks/useOverlayBackHandler";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-const AlertDialog = AlertDialogPrimitive.Root;
+// Android back cancels the top-most open alert dialog before any screen navigation.
+const AlertDialog = (props: React.ComponentProps<typeof AlertDialogPrimitive.Root>) => (
+  <AlertDialogPrimitive.Root {...useBackClosableRoot(props)} />
+);
+AlertDialog.displayName = "AlertDialog";
 
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 

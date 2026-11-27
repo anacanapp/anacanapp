@@ -1,0 +1,7 @@
+172c172,175
+<       : await query(`SELECT user_id, life_stage, role, due_date, last_period_date FROM profiles`);
+---
+>       // Pregnancy loss recovery (Duzelis72): no daily content for her, nor for her linked partner.
+>       : await query(`SELECT p.user_id, p.life_stage, p.role, p.due_date, p.last_period_date FROM profiles p
+>           WHERE NOT p.loss_recovery_active
+>             AND NOT EXISTS (SELECT 1 FROM profiles w WHERE w.id = p.linked_partner_id AND w.loss_recovery_active)`);

@@ -26,6 +26,7 @@ it('leaves the current source backend, key and SDK auth options unchanged', asyn
   expect(authStorage.storageKey).toBe(OLD);
   expect(mocks.createClient).toHaveBeenCalledExactlyOnceWith(SOURCE_AUTH_REALM, 'synthetic-publishable-key', {
     auth: { storage: localStorage, storageKey: OLD, persistSession: true, autoRefreshToken: true },
+    global: { fetch: expect.any(Function) },
   });
 });
 
@@ -43,7 +44,8 @@ it('selects the legacy key before construction only for explicit first-party opt
   expect(authStorage).toMatchObject({ storageKey: OLD, realm: SOURCE_AUTH_REALM, allowLegacyFallback: true });
   expect(mocks.createClient.mock.calls[0]).toEqual([
     AZURE, 'synthetic-publishable-key',
-    { auth: { storage: localStorage, storageKey: OLD, persistSession: true, autoRefreshToken: true } },
+    { auth: { storage: localStorage, storageKey: OLD, persistSession: true, autoRefreshToken: true },
+      global: { fetch: expect.any(Function) } },
   ]);
 });
 

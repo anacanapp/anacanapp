@@ -12,17 +12,22 @@ const bytes = await readFile(join(root, 'src/components/games/word-garden/data/a
 const data = JSON.parse(bytes), lexicon = engine.compileLexicon(data, 'az');
 const receipt = JSON.parse(await readFile(join(root, 'scripts/word-garden/az-import-receipt.json'), 'utf8'));
 const report = { at: new Date().toISOString(), passed: false, language: 'az', revision: data.revision,
-  words: lexicon.words.size, targets: lexicon.targets.length, generated: 0, failures: [], wordCounts: {}, variants: {}, variety: {}, timeLimits: {} };
+  words: lexicon.words.size, targets: lexicon.targets.length, generated: 0, failures: [], wordCounts: {}, variants: {}, variety: {}, timeLimits: {}, crossPlayer: {} };
 const assert = (value, code) => { if (!value) throw new Error(code); };
 try {
   assert(createHash('sha256').update(bytes).digest('hex') === receipt.librarySha256, 'WORD_GARDEN_LIBRARY_RECEIPT_CHANGED');
-  for (const mode of ['calm', 'timed']) {
+  // Seeded revisions are verified for two independent players; level N must
+  // differ between them while each player's sequence is reproducible.
+  const seeds = [0, 2026110601], answersBySeed = new Map();
+  for (const seed of seeds) for (const mode of ['calm', 'timed']) {
+    const label = `${mode}:${seed}`, answers = [];
     const variants = new Set(), opening = new Set(), encountered = new Set();
     let previous = null, adjacentRepeatedWords = 0, adjacentRepeatedRacks = 0, repeatedPuzzles = 0;
     let minTime = Infinity, maxTime = 0;
     for (const level of [...Array.from({ length: 2400 }, (_, index) => index + 1), 10000, 1000000, 2147483647]) {
-      const puzzle = engine.generateGardenLevel(lexicon, level, mode);
+      const puzzle = engine.generateGardenLevel(lexicon, level, mode, seed);
       assert(engine.validateGardenLevel(puzzle, lexicon), 'WORD_GARDEN_GENERATED_LEVEL_INVALID');
+      if (level <= 2400) answers.push(puzzle.words.map(word => word.word).sort().join('|'));
       const cells = new Map(puzzle.cells.map(cell => [`${cell.row}:${cell.column}`, cell]));
       // Every horizontal/vertical run must be a placed answer, not an accidental
       // adjacent sequence. Validate independently of generator placement code.
@@ -53,11 +58,18 @@ try {
       report.wordCounts[key] = (report.wordCounts[key] || 0) + 1;
       if (level > 220) variants.add(puzzle.words.map(word => word.word).sort().join('|'));
     }
-    report.variants[mode] = variants.size;
-    report.variety[mode] = { distinctFirstTwenty: opening.size, encounteredTargetWords: encountered.size,
+    report.variants[label] = variants.size;
+    report.variety[label] = { distinctFirstTwenty: opening.size, encounteredTargetWords: encountered.size,
       adjacentRepeatedWords, adjacentRepeatedRacks, repeatedPuzzles };
-    assert(opening.size === 20 && adjacentRepeatedRacks === 0 && repeatedPuzzles === 0, 'WORD_GARDEN_VARIETY_REQUIRED');
-    if (mode === 'timed') report.timeLimits = { minimum: minTime, maximum: maxTime, firstLevel: engine.generateGardenLevel(lexicon, 1, mode).timeLimit };
+    assert(opening.size === 20 && adjacentRepeatedRacks === 0 && adjacentRepeatedWords === 0 && repeatedPuzzles === 0, 'WORD_GARDEN_VARIETY_REQUIRED');
+    assert(JSON.stringify(engine.generateGardenLevel(lexicon, 777, mode, seed)) === JSON.stringify(engine.generateGardenLevel(lexicon, 777, mode, seed)), 'WORD_GARDEN_SEED_NOT_REPRODUCIBLE');
+    if (mode === 'timed') report.timeLimits[label] = { minimum: minTime, maximum: maxTime, firstLevel: engine.generateGardenLevel(lexicon, 1, mode, seed).timeLimit };
+    const other = answersBySeed.get(mode);
+    if (other) {
+      const differing = answers.filter((value, index) => value !== other[index]).length;
+      report.crossPlayer = { ...report.crossPlayer, [mode]: { levels: answers.length, differingLevels: differing } };
+      assert(differing >= answers.length * 0.9, 'WORD_GARDEN_PLAYERS_SHARE_LEVELS');
+    } else answersBySeed.set(mode, answers);
   }
   report.passed = true;
 } catch (error) {

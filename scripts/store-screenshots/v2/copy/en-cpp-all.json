@@ -1,0 +1,133 @@
+{
+ "lang": "en",
+ "badge": "Free · 25 languages",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Period · Pregnancy · Motherhood",
+   "title": [
+    "from your period",
+    "to your baby"
+   ],
+   "hl": "one app",
+   "sub": "Period calendar, pregnancy week by week and a mom-and-baby tracker in one place",
+   "cta": "Download free",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Period",
+   "title": [
+    "know your cycle"
+   ],
+   "hl": "precisely",
+   "sub": "Your next period, ovulation and fertile days, predicted"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Pregnancy",
+   "title": [
+    "today your baby is"
+   ],
+   "hl": "the size of a tomato",
+   "sub": "Follow your pregnancy week by week: size, weight and days to go",
+   "chips": [
+    [
+     "142",
+     "days to go"
+    ],
+    [
+     "19",
+     "weeks, 4 days"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Motherhood",
+   "title": [
+    "every day of",
+    "your baby"
+   ],
+   "hl": "in one place",
+   "sub": "Daily tips, a message for mom, development and doctor reminders",
+   "chips": [
+    [
+     "245",
+     "days together"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "got a question?"
+   ],
+   "hl": "here's the answer",
+   "sub": "A 24/7 assistant for your period, pregnancy and baby questions",
+   "chips": [
+    [
+     "24/7",
+     "any question"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Community",
+   "title": [
+    "46,000+ women"
+   ],
+   "hl": "are here",
+   "sub": "Share your question and get support from moms on the same journey",
+   "chips": [
+    [
+     "46,000+",
+     "women"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "What moms say",
+   "title": [
+    "moms"
+   ],
+   "hl": "love Anacan",
+   "sub": "Real user reviews, unedited",
+   "cta": "Download free",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4.84",
+    "ratingSub": "App Store rating",
+    "stats": [
+     [
+      "46,000+",
+      "downloads"
+     ],
+     [
+      "560+",
+      "five-star reviews"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "App Store review"
+     ]
+    ]
+   }
+  }
+ ]
+}

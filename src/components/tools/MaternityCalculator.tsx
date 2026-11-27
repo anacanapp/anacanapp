@@ -28,6 +28,7 @@ import { REGIONAL_MATERNITY_COUNTRIES, isRegionalMaternityCountry } from '@/lib/
 import { localizedCountryName } from '@/lib/app-languages';
 import { regionalCountry } from '@/lib/vaccine-schedule';
 import RegionalMaternityCalculator from './RegionalMaternityCalculator';
+import { storedDateKey } from '@/lib/stored-date-key';
 
 const maternityCountryCodes = [...new Set([...maternityRules.map(rule => rule.code), ...REGIONAL_MATERNITY_COUNTRIES])];
 
@@ -71,9 +72,9 @@ const MaternityCalculator = ({ onBack }: MaternityCalculatorProps) => {
   useEffect(() => {
     if (eddDate) return;
     const knownDueDate = (profile as any)?.due_date;
-    if (knownDueDate) {
-      setEddDate(new Date(knownDueDate).toISOString().split('T')[0]);
-    }
+    // Stored YYYY-MM-DD: keep the day as written (storedDateKey also avoids a RangeError on a bad value).
+    const known = storedDateKey(knownDueDate);
+    if (known) setEddDate(known);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile?.id]);
 
@@ -262,12 +263,12 @@ const MaternityCalculator = ({ onBack }: MaternityCalculatorProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.9 }}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.9 }} aria-label={tr("common_back", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
               <p className="a-eyebrow">{localizedCountryName(selectedCountryCode, language)} {selectedRule.flag}</p>
-              <p className="a3-tool-title">{tr("maternitycalculator_title_3c7a2d", "Dekret Kalkulyatoru")}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("maternitycalculator_title_3c7a2d", "Dekret Kalkulyatoru")}</p>
             </div>
           </div>
         </header>
@@ -458,7 +459,6 @@ const MaternityCalculator = ({ onBack }: MaternityCalculatorProps) => {
                 
                   {/* Total Result Card (anacan-demo CTA) */}
                   <div className="a-cta" style={{ background: 'var(--a-grad-green)' }}>
-                    <span className="a-cta-shape" style={{ width: 120, height: 120, top: -40, insetInlineEnd: -30, background: 'rgba(255,255,255,0.35)' }} />
                     <div className="a-cta-top">
                       <span className="a-cta-badge" style={{ background: 'var(--a-chip-overlay)', color: 'var(--a-green-ink)' }}>
                         {result.rule.flag} {isAZ ? result.rule.name_az : result.rule.name_en} · {tr("maternitycalculator_cemi_mezuniyyet_93196a", "Cəmi məzuniyyət")}

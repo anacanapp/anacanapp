@@ -1,0 +1,32 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261117150000_shop_partner_tracking.sql",
+  "runtime": "google-shop-partner-tracking",
+  "requires": ["20261117090000_shop_partners.sql"],
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate after 20261117090000_shop_partners.sql; enrolls shop_partner_clicks and shop_partner_orders in guarded_relations with the three standard triggers (the migration refuses without the guard catalog or shop_partners and verifies 2 relations / 6 triggers and that the conversion RPC is not executable by anon/authenticated)",
+  "preserve": [
+    "shop_partners keeps its CDC/writer guard and every existing column; five columns are added (tracking_key, tracking_secret_hash, tracking_secret_set_at, attribution_days default 30, tracking_coupons default '{}') and every partner gets a public tracking key",
+    "the raw server secret is never stored: only its sha256; it is returned once to the owner",
+    "orders without an Anacan click (inside the attribution window, same partner) or an Anacan coupon are not stored"
+  ],
+  "relations": [
+    { "relation": "public.shop_partners", "change": "altered", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "+ tracking_key (public pk_…), tracking_secret_hash (sha256 hex), tracking_secret_set_at, attribution_days, tracking_coupons" },
+    { "relation": "public.shop_partner_clicks", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "one row per outbound click to a partner site: random token from the device, partner, product, user, placement, internal flag" },
+    { "relation": "public.shop_partner_orders", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": false, "primary_key": ["id"],
+      "note": "attributed partner orders: external order id, click or coupon, amount, currency, line items (sku, name, quantity, price), status, commission %, source pixel|server|manual, verified, test" }
+  ],
+  "functions": [
+    "shop_partner_click_v1(uuid, text, text) (authenticated)",
+    "shop_partner_conversion_v1(text, text, text, jsonb) (service_role only; called by the partner-conversion edge function)",
+    "shop_partner_tracking_v1(uuid, date, date, boolean)", "shop_partner_tracking_secret_v1(uuid)",
+    "shop_partner_tracking_settings_v1(uuid, jsonb)", "shop_partner_order_status_v1(uuid, uuid, text)",
+    "_shop_partner_host(text), _shop_partner_new_key() (service_role only)"
+  ],
+  "edge_functions": [
+    "partner-conversion: public POST/OPTIONS route, no JWT; needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in its catalog.mjs entry and a line in ENABLED_FUNCTIONS"
+  ],
+  "static": ["public/sdk/anacan-partner.js served at https://app.anacan.az/sdk/anacan-partner.js"],
+  "tests": "supabase/tests/shop_partner_tracking.sql (transaction, rolled back; prints PARTNER_TRACKING_OK) and src/lib/partner-tracking.test.ts"
+}

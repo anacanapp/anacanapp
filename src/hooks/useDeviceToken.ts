@@ -1,4 +1,5 @@
-import { tr } from "@/lib/tr";import { useState, useEffect, useCallback, useRef } from 'react';
+import { tr } from "@/lib/tr";import { isNewAccount, PUSH_GRANTED_EVENT } from '@/lib/onboardingTour';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { isNative, isIOS, isAndroid } from '@/lib/native';
@@ -17,6 +18,85 @@ const replaceFirebasePushListeners = (next: Array<Promise<PushListenerHandle>>) 
     void handle.then((h) => h.remove()).catch(() => {});
   }
 };
+
+let fallbackRegistrationHandles: Array<Promise<PushListenerHandle>> = [];
+
+/**
+ * Explains why before the OS prompt. 'prompt' (never asked): the toast's "Allow" opens the OS prompt.
+ * 'denied': the OS no longer prompts, so it points to the device settings.
+ */
+function showPermissionToast(receive: string, ask: () => Promise<void>) {
+  const title = tr("usedevicetoken_bildirislere_icaze_verin", "Bildirişlərə icazə verin");
+  if (receive === 'denied') {
+    toast(title, {
+      description: tr("usedevicetoken_bildiris_izah", "Vacib məlumatları və xatırlatmaları almaq üçün cihaz ayarlarından tətbiqə bildiriş göndərməyə icazə verin."),
+      duration: 8000,
+    });
+    return;
+  }
+  if (receive !== 'prompt' && receive !== 'prompt-with-rationale') return;
+  toast(title, {
+    description: tr("pushperm_reason", "Peyvənd və digər xatırlatmaları, yeni mesajları vaxtında almaq üçün bildirişlərə icazə verin."),
+    duration: 12000,
+    action: { label: tr("pushperm_allow", "İcazə ver"), onClick: () => { void ask().catch(() => {}); } },
+  });
+}
+
+// The token this device last committed for an account. Logout runs outside this hook
+// (AuthContext.signOut), so the row/token are tracked at module level.
+let committedDeviceToken: { token: string; userId: string } | null = null;
+
+const settleWithin = <T,>(work: Promise<T>, ms: number): Promise<T | undefined> =>
+  Promise.race([work.catch(() => undefined), new Promise<undefined>((resolve) => setTimeout(() => resolve(undefined), ms))]);
+
+/**
+ * Logout privacy cleanup. Runs BEFORE the session is cleared (RLS needs it): removes this
+ * device's push row for this account, drops the FCM token and the push listeners so a
+ * later token refresh cannot re-attach the device to the signed-out account. Every step is
+ * bounded and best-effort; it never throws and never blocks logout for long.
+ */
+export async function unregisterDeviceForLogout(userId: string, timeoutMs = 2500): Promise<void> {
+  if (!userId) return;
+  // Stop tokenReceived from re-saving a refreshed token for the old account.
+  replaceFirebasePushListeners([]);
+  const known = committedDeviceToken?.userId === userId ? committedDeviceToken.token : null;
+  committedDeviceToken = null;
+  if (!isNative) return;
+  let token = known;
+  if (!token) {
+    // Registered in an earlier app run: read the current token only when push is already
+    // allowed (never prompts the user during logout).
+    token = (await settleWithin((async () => {
+      const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
+      const permission = await FirebaseMessaging.checkPermissions();
+      if (permission.receive !== 'granted') return null;
+      return (await FirebaseMessaging.getToken()).token || null;
+    })(), timeoutMs)) ?? null;
+  }
+  if (token) {
+    await settleWithin(Promise.resolve(supabase.from('device_tokens').delete().eq('user_id', userId).eq('token', token))
+      .then(({ error }) => { if (error) console.warn('[DeviceToken] Logout unregister failed'); }), timeoutMs);
+  }
+  await settleWithin((async () => {
+    try {
+      const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
+      await FirebaseMessaging.deleteToken();
+    } catch {
+      const { PushNotifications } = await import('@capacitor/push-notifications');
+      await PushNotifications.unregister();
+    }
+  })(), timeoutMs);
+  // Delivered pushes of the signed-out account leave the notification centre too.
+  await settleWithin((async () => {
+    try {
+      const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
+      await FirebaseMessaging.removeAllDeliveredNotifications();
+    } catch {
+      const { PushNotifications } = await import('@capacitor/push-notifications');
+      await PushNotifications.removeAllDeliveredNotifications();
+    }
+  })(), timeoutMs);
+}
 
 export const useDeviceToken = () => {
   const { user } = useAuth();
@@ -73,6 +153,7 @@ export const useDeviceToken = () => {
         console.warn('[DeviceToken] Stale-token cleanup warning:', cleanupError);
       }
 
+      committedDeviceToken = { token: deviceToken, userId };
       console.log('[DeviceToken] Token saved successfully');
       return true;
     } catch (err) {
@@ -108,27 +189,22 @@ export const useDeviceToken = () => {
     try {
       const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
 
-      let permStatus = await FirebaseMessaging.checkPermissions();
+      const permStatus = await FirebaseMessaging.checkPermissions();
       console.log('[DeviceToken] Current permission:', permStatus.receive);
 
       const today = new Date().toDateString();
       const lastPrompt = localStorage.getItem('last_push_prompt_date');
 
-      if (permStatus.receive !== 'granted') {
-        if (lastPrompt !== today) {
-          localStorage.setItem('last_push_prompt_date', today);
-          
-          if (permStatus.receive === 'prompt') {
-            console.log('[DeviceToken] Requesting permissions...');
-            permStatus = await FirebaseMessaging.requestPermissions();
-            console.log('[DeviceToken] Permission result:', permStatus.receive);
-          } else if (permStatus.receive === 'denied') {
-            toast(tr("usedevicetoken_bildirislere_icaze_verin", "Bildirişlərə icazə verin"), {
-              description: tr("usedevicetoken_bildiris_izah", "Vacib məlumatları və xatırlatmaları almaq üçün cihaz ayarlarından tətbiqə bildiriş göndərməyə icazə verin."),
-              duration: 8000,
-            });
-          }
-        }
+      // Never shows the OS prompt on its own (this runs at app start). New accounts (< 24h): the onboarding
+      // notifications step and the in-app tour explain and ask. Older accounts that were never asked get a
+      // daily toast that explains why first; the OS prompt opens only when they tap "Allow". Devices that
+      // already allowed register silently.
+      if (permStatus.receive !== 'granted' && !isNewAccount(user.created_at) && lastPrompt !== today) {
+        localStorage.setItem('last_push_prompt_date', today);
+        showPermissionToast(permStatus.receive, async () => {
+          const result = await FirebaseMessaging.requestPermissions();
+          if (result.receive === 'granted') window.dispatchEvent(new Event(PUSH_GRANTED_EVENT));
+        });
       }
 
       if (permStatus.receive !== 'granted') {
@@ -173,19 +249,9 @@ export const useDeviceToken = () => {
         const title = notification?.notification?.title || tr("usedevicetoken_yeni_bildiris_c68787", "Yeni bildiri\u015F");
         const body = notification?.notification?.body || '';
         toast(title, { description: body });
-      }),
-
-      FirebaseMessaging.addListener('notificationActionPerformed', (action) => {
-        console.log('[DeviceToken] Push action performed:', action);
-        // data.type → state-əsaslı naviqasiya (Index dinləyir).
-        // Əvvəlki hash yanaşması heç nə etmirdi — heç kim hash-ı oxumurdu.
-        try {
-          const data: any = action?.notification?.data || {};
-          import('@/lib/pushNav').then((m) => m.navigateFromPush(data)).catch(() => {});
-        } catch (e) {
-          console.warn('[DeviceToken] Routing failed:', e);
-        }
-      })]);
+      })
+      // Taps (notificationActionPerformed) are handled from app start by notification-taps.ts.
+      ]);
 
       setLoading(false);
       return deviceToken;
@@ -198,20 +264,16 @@ export const useDeviceToken = () => {
       try {
         const { PushNotifications } = await import('@capacitor/push-notifications');
 
-        let permStatus = await PushNotifications.checkPermissions();
+        const permStatus = await PushNotifications.checkPermissions();
         const today = new Date().toDateString();
         const lastPrompt = localStorage.getItem('last_push_prompt_date');
 
-        if (permStatus.receive !== 'granted' && lastPrompt !== today) {
+        if (permStatus.receive !== 'granted' && !isNewAccount(user.created_at) && lastPrompt !== today) {
           localStorage.setItem('last_push_prompt_date', today);
-          if (permStatus.receive === 'prompt') {
-            permStatus = await PushNotifications.requestPermissions();
-          } else if (permStatus.receive === 'denied') {
-            toast(tr("usedevicetoken_bildirislere_icaze_verin", "Bildirişlərə icazə verin"), {
-              description: tr("usedevicetoken_bildiris_izah", "Vacib məlumatları və xatırlatmaları almaq üçün cihaz ayarlarından tətbiqə bildiriş göndərməyə icazə verin."),
-              duration: 8000,
-            });
-          }
+          showPermissionToast(permStatus.receive, async () => {
+            const result = await PushNotifications.requestPermissions();
+            if (result.receive === 'granted') window.dispatchEvent(new Event(PUSH_GRANTED_EVENT));
+          });
         }
 
         if (permStatus.receive !== 'granted') {
@@ -220,7 +282,9 @@ export const useDeviceToken = () => {
           return null;
         }
 
-        await PushNotifications.removeAllListeners();
+        // Only this hook's own registration listeners are replaced: removeAllListeners() would also drop
+        // the app-start tap listener (notification-taps.ts).
+        for (const handle of fallbackRegistrationHandles.splice(0)) void handle.then((h) => h.remove()).catch(() => {});
 
         return new Promise<string | null>((resolve) => {
           const timeout = setTimeout(() => {
@@ -229,7 +293,7 @@ export const useDeviceToken = () => {
             resolve(null);
           }, 15000);
 
-          PushNotifications.addListener('registration', async (tokenData) => {
+          fallbackRegistrationHandles.push(PushNotifications.addListener('registration', async (tokenData) => {
             clearTimeout(timeout);
             const fallbackToken = tokenData.value;
             console.log('[DeviceToken] Fallback token received: ...' + fallbackToken.slice(-12));
@@ -237,15 +301,15 @@ export const useDeviceToken = () => {
             await saveTokenToDatabase(fallbackToken, user.id);
             setLoading(false);
             resolve(fallbackToken);
-          });
+          }));
 
-          PushNotifications.addListener('registrationError', (regErr) => {
+          fallbackRegistrationHandles.push(PushNotifications.addListener('registrationError', (regErr) => {
             clearTimeout(timeout);
             console.error('[DeviceToken] Fallback registration error:', regErr);
             setError(regErr.error || 'Registration failed');
             setLoading(false);
             resolve(null);
-          });
+          }));
 
           PushNotifications.register();
         });
@@ -258,37 +322,21 @@ export const useDeviceToken = () => {
     }
   }, [user, token, saveTokenToDatabase]);
 
-  // Remove device token on logout
+  // Remove device token on logout (AuthContext.signOut calls unregisterDeviceForLogout directly)
   const unregisterDevice = useCallback(async () => {
-    if (!user || !token) return;
-
-    console.log('[DeviceToken] Unregistering device...');
-    try {
-      const { error } = await supabase.
-      from('device_tokens').
-      delete().
-      eq('user_id', user.id).
-      eq('token', token);
-
-      if (error) {
-        console.error('[DeviceToken] Unregister error:', error);
-      } else {
-        console.log('[DeviceToken] Device unregistered');
-      }
-
-      try {
-        const { FirebaseMessaging } = await import('@capacitor-firebase/messaging');
-        await FirebaseMessaging.deleteToken();
-      } catch {
-
-        // Ignore if Firebase Messaging not available
-      }
-      setToken(null);
-      registrationAttempted.current = false;
-    } catch (err) {
-      console.error('[DeviceToken] Unregister exception:', err);
-    }
+    if (!user) return;
+    if (token && committedDeviceToken?.token !== token) committedDeviceToken = { token, userId: user.id };
+    await unregisterDeviceForLogout(user.id);
+    setToken(null);
+    registrationAttempted.current = false;
   }, [user, token]);
+
+  // The in-app tour asked for push and the user allowed it: register this device now.
+  useEffect(() => {
+    const onGranted = () => { if (!isNative || !user) return; registrationAttempted.current = false; void registerDevice(); };
+    window.addEventListener(PUSH_GRANTED_EVENT, onGranted);
+    return () => window.removeEventListener(PUSH_GRANTED_EVENT, onGranted);
+  }, [user, registerDevice]);
 
   // Auto-register on mount if native and user exists; reset on user change
   useEffect(() => {
@@ -303,6 +351,8 @@ export const useDeviceToken = () => {
       console.log('[DeviceToken] User changed, resetting registration');
       registrationAttempted.current = false;
     }
+    // On-device reminders belong to this account; another account's leftovers are cancelled.
+    if (isNative) void import('@/lib/local-notification-scheduler').then((m) => m.bindLocalNotificationOwner(user.id)).catch(() => {});
     if (isNative && !registrationAttempted.current) {
       registeredUserId.current = user.id;
       registerDevice();

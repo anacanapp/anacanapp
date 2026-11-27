@@ -5,18 +5,19 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient } from "@tanstack/react-query";
-import { PersistQueryClientProvider, removeOldestQuery } from "@tanstack/react-query-persist-client";
-import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { createDeferredStoragePersister } from "@/lib/deferred-persister";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { safeStorage } from "@/lib/safe-storage";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "next-themes";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import AppLockGate from "@/components/security/AppLockGate";
-import Index from "./pages/Index";
+const Index = lazy(() => import("./pages/Index"));
 import BlogLink from './pages/BlogLink';
 import ResetPassword from "./pages/ResetPassword";
 import LegalPage from "./pages/LegalPage";
-import NotFound from "./pages/NotFound";
+import AppPathLink, { PendingAppLink } from "./pages/AppPathLink";
 import PaymentSuccess from "./components/payment/PaymentSuccess";
 import PaymentError from "./components/payment/PaymentError";
 import RevenueCatDebug from "./pages/RevenueCatDebug";
@@ -24,6 +25,7 @@ import PartnerVerifyPage from "./pages/PartnerVerifyPage";
 import MiniGamesPage from "./pages/MiniGamesPage";
 import { initRevenueCat } from "@/lib/revenuecat";
 import { loadTranslations } from "@/lib/i18n";
+import { installContentTranslationRefresh, useContentTranslationsVersion } from "@/lib/content-pack-refresh";
 import { DirectionProvider } from "@radix-ui/react-direction";
 import { applyDocumentDirection, isRtlLang } from "@/lib/rtl";
 import { useUserStore } from "@/store/userStore";
@@ -32,17 +34,27 @@ import { shouldPersistQuery } from '@/lib/query-persist-policy';
 import { AdExperienceProvider } from '@/components/ads/AdExperienceProvider';
 import '@/styles/ads.css';
 import '@/styles/keyboard.css';
+import '@/styles/game-surface.css';
 import { installKeyboardViewport } from '@/lib/keyboard-viewport';
 import { PremiumEntitlementMonitor } from '@/hooks/usePremiumEntitlement';
 import ScreenCaptureGuard from '@/components/security/ScreenCaptureGuard';
 import { Capacitor } from '@capacitor/core';
-import ModeratorEnforcement from '@/components/moderation/ModeratorEnforcement';
+// ModeratorEnforcement statically imports the 25-language moderator copy (~350KB via
+// useModerator/moderator-i18n). Lazy-loading it keeps that copy out of the startup/App
+// chunk; the routed app renders immediately as the Suspense fallback while it loads.
+const ModeratorEnforcement = lazy(() => import('@/components/moderation/ModeratorEnforcement'));
+import PrivacyConsentSheet from '@/components/privacy/PrivacyConsentSheet';
 import CustomerIoSession from '@/components/CustomerIoSession';
+import TikTokSession from '@/components/TikTokSession';
 import ThemeStatusBarSync from '@/components/ThemeStatusBarSync';
 import StartupScreen from '@/components/StartupScreen';
+import OfflineSyncIndicator from '@/components/OfflineSyncIndicator';
 const AdmobAdminPage = lazy(() => import('./pages/AdmobAdminPage'));
 const AdminPage = lazy(() => import('./pages/AdminPage'));
 const ModeratorPage = lazy(() => import('./pages/ModeratorPage'));
+import { PromoRedeemer } from './components/promo/PromoRedeemer';
+const PartnerPage = lazy(() => import('./pages/PartnerPage'));
+const PromoLanding = lazy(() => import('./pages/PromoLanding'));
 const PublicBlogPage = lazy(() => import('./public-blog/BlogPage'));
 
 // Offline-first: sorğu cache-i localStorage-da saxlanılır ki, şəbəkəsiz açılışda
@@ -63,14 +75,16 @@ const queryClient = new QueryClient({
   }
 });
 
-const persister = createSyncStoragePersister({
-  storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+// Cache is written when the app goes to the background (and at most every 2 min when idle), never while the user
+// scrolls or navigates: serialising a multi-MB cache every 10 s froze mid-range Android phones.
+const persister = createDeferredStoragePersister({
+  // Blocked storage (private mode) must not crash module init: no storage = no offline cache.
+  storage: safeStorage('localStorage') ?? undefined,
   key: 'anacan-rq-cache',
-  // Böyük cache-in tez-tez serializasiyası zəif cihazlarda main thread-i bloklayır
-  throttleTime: 10_000,
-  // localStorage dolarsa ən köhnə sorğunu silib yenidən cəhd et
-  retry: removeOldestQuery
 });
+
+// Content-pack shards arrive after the first render: re-map cached rows that used the en/ru fallback.
+installContentTranslationRefresh(queryClient);
 
 const persistOptions = {
   persister,
@@ -88,8 +102,14 @@ const persistOptions = {
 // Zəif cihazlarda (≤4 nüvə / ≤4GB RAM) ağır effektlər söndürülür: CSS `html.a-lite`
 // qaydaları backdrop-filter/sonsuz CSS animasiyaları dayandırır, framer-motion isə
 // transform/layout animasiyalarını atlayır. Digər cihazlarda sistem "reduce motion" ayarına hörmət edilir.
-const LITE_DEVICE = isLowEndDevice();
+// Android phones also get the light mode (no endless animations or blur, simpler transitions): a mid-range Samsung
+// A51 (8 cores, so not 'low end' by the numbers) stuttered on scroll and screen changes.
+const IS_ANDROID = typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent);
+const LITE_DEVICE = isLowEndDevice() || IS_ANDROID;
 if (LITE_DEVICE && typeof document !== 'undefined') document.documentElement.classList.add('a-lite');
+// Android WebView repaints backdrop-filter under fixed bars on every scroll frame; mid-range phones (e.g. Samsung A51,
+// 8 cores, so not "lite") froze with the glass nav. Fixed glass surfaces get a solid fill on Android instead.
+if (IS_ANDROID && typeof document !== 'undefined') document.documentElement.classList.add('a-noblur');
 
 // Initialize RevenueCat on app startup
 initRevenueCat().catch(console.error);
@@ -118,6 +138,8 @@ const App = () => {
   // language. tr() reads language synchronously from the store, but without a
   // subscription nothing would re-render and translations would appear "stuck".
   const language = useUserStore((s) => s.language);
+  // Re-render rows translated during render once their content-pack shard is ready.
+  useContentTranslationsVersion();
 
   useEffect(() => {
     if (language) {
@@ -129,6 +151,37 @@ const App = () => {
     }
   }, [language]);
 
+  // Routed app content. Rendered as the Suspense fallback while the lazy
+  // ModeratorEnforcement chunk loads, and again as its children once loaded, so the
+  // app is visible immediately and the moderator copy never blocks first paint.
+  const routedContent = (
+    <>
+      <PendingAppLink />
+      <Routes>
+        <Route path="/" element={<Suspense fallback={<StartupScreen />}><Index /></Suspense>} />
+        <Route path="/blog/:slug" element={<BlogLink />} />
+        <Route path="/blog" element={<Suspense fallback={<StartupScreen />}><PublicBlogPage /></Suspense>} />
+        <Route path="/blog/:language/:slug" element={<BlogLink />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/legal/:docType" element={<LegalPage />} />
+        <Route path="/payment/success" element={<PaymentSuccess />} />
+        <Route path="/payment/error" element={<PaymentError />} />
+        <Route path="/debug/revenuecat" element={<RevenueCatDebug />} />
+        <Route path="/revenuecat-debug" element={<RevenueCatDebug />} />
+        <Route path="/p/v/:token" element={<PartnerVerifyPage />} />
+        <Route path="/mini-games" element={<MiniGamesPage />} />
+        <Route path="/admin/ads" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdmobAdminPage /></Suspense>} />
+        <Route path="/admin" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
+        <Route path="/admin/:section" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
+        <Route path="/h/:code" element={<Suspense fallback={<StartupScreen />}><PromoLanding /></Suspense>} />
+        <Route path="/partner" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><PartnerPage /></Suspense>} />
+        <Route path="/moderator" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><ModeratorPage /></Suspense>} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<AppPathLink />} />
+      </Routes>
+    </>
+  );
+
   return (
     <ErrorBoundary>
       <MotionConfig reducedMotion={LITE_DEVICE ? 'always' : 'user'}>
@@ -139,37 +192,24 @@ const App = () => {
           <DirectionProvider dir={isRtlLang(language) ? 'rtl' : 'ltr'}>
           <AuthProvider>
             <CustomerIoSession />
+            <TikTokSession />
+            <PrivacyConsentSheet />
             <PremiumEntitlementMonitor />
+            <PromoRedeemer />
             <TooltipProvider>
               <Toaster />
               <Sonner />
               {/* Təhlükəsizlik kilidi — bütün ekranların üstündə (z-400) */}
               <AppLockGate />
               <ScreenCaptureGuard />
+              <OfflineSyncIndicator />
               <BrowserRouter>
                 <AdExperienceProvider>
+                <Suspense fallback={routedContent}>
                 <ModeratorEnforcement>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/blog/:slug" element={<BlogLink />} />
-                  <Route path="/blog" element={<Suspense fallback={<StartupScreen />}><PublicBlogPage /></Suspense>} />
-                  <Route path="/blog/:language/:slug" element={<BlogLink />} />
-                  <Route path="/reset-password" element={<ResetPassword />} />
-                  <Route path="/legal/:docType" element={<LegalPage />} />
-                  <Route path="/payment/success" element={<PaymentSuccess />} />
-                  <Route path="/payment/error" element={<PaymentError />} />
-                  <Route path="/debug/revenuecat" element={<RevenueCatDebug />} />
-                  <Route path="/revenuecat-debug" element={<RevenueCatDebug />} />
-                  <Route path="/p/v/:token" element={<PartnerVerifyPage />} />
-                  <Route path="/mini-games" element={<MiniGamesPage />} />
-                  <Route path="/admin/ads" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdmobAdminPage /></Suspense>} />
-                  <Route path="/admin" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
-                  <Route path="/admin/:section" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><AdminPage /></Suspense>} />
-                  <Route path="/moderator" element={<Suspense fallback={<div className="p-8 text-center">Yüklənir…</div>}><ModeratorPage /></Suspense>} />
-                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                {routedContent}
                 </ModeratorEnforcement>
+                </Suspense>
                 </AdExperienceProvider>
               </BrowserRouter>
             </TooltipProvider>

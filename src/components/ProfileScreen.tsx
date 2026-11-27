@@ -1,12 +1,14 @@
-import { Mascot } from '@/components/anacan/Mascot';
 import { useState } from 'react';
+import { useFeedbackText } from '@/data/feedback';
+import FeedbackSheet from '@/components/FeedbackSheet';
+import { useWidgetText } from '@/data/widgets';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Settings, Shield, HelpCircle, LogOut,
   ChevronRight, Crown, Copy, Share2,
   Heart, Calendar, Palette, ShieldCheck, Edit, CreditCard, Info, ArrowLeft, X,
   MessageCircle, Baby, ShoppingCart, TrendingUp, Gift, Plus, Trash2, Users,
-  FileText, Scale, AlertCircle, RotateCcw, Database, Sparkles, HeartPulse } from
+  FileText, Scale, AlertCircle, RotateCcw, Database, Sparkles, HeartPulse , LayoutGrid, Coins, Clapperboard, Ticket } from
 'lucide-react';
 import { useUserStore } from '@/store/userStore';
 import { useShallow } from 'zustand/react/shallow';
@@ -18,6 +20,7 @@ import { useChildren, Child } from '@/hooks/useChildren';
 import { PremiumModal } from '@/components/PremiumModal';
 import { useSubscription } from '@/hooks/useSubscription';
 import { nativeShare } from '@/lib/native';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { getPartnerCodeForSharing, getPartnerLinkErrorMessage, isAzurePartnerPairingEnabled } from '@/lib/partner-link';
 import BannerSlot from '@/components/banners/BannerSlot';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -25,11 +28,32 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { DateField } from '@/components/ui/date-field';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle } from
+'@/components/ui/alert-dialog';
 
 import countriesData from '../../countries.json';
 import { tr } from "@/lib/tr";
 import { lifeStageName } from '@/lib/stage-names';
+import ProfilePregnancyCard from '@/components/pregnancy-loss/ProfilePregnancyCard';
 import { moderatorText } from '@/lib/moderator-i18n';
+import QaygiCashProfileCard from '@/components/qaygicash/QaygiCashProfileCard';
+import PromoCodeDialog from '@/components/promo/PromoCodeDialog';
+import { usePromoText } from '@/data/promo';
+import ProfileTabs, { ProfileRows, type ProfileRow, type ProfileTab } from '@/components/profile/ProfileTabs';
+import { useAppSetting } from '@/hooks/useAppSettings';
+import { useQaygiCashWallet } from '@/hooks/useQaygiCash';
+import { useRecapProfileRow } from '@/components/recap/RecapEntry';
+import { QC_BRAND, formatQc } from '@/lib/qaygicash';
+import { qf } from '@/lib/qaygicash-copy';
+import { todayKey } from '@/lib/local-date';
 
 interface ProfileScreenProps {
   onNavigate?: (screen: string) => void;
@@ -54,12 +78,21 @@ const dueDateFromGestWeeks = (birthDate: string, weeks: number): string => {
 type ChildForm = {name: string;birth_date: string;gender: 'boy' | 'girl';gest_weeks: number | null;};
 const emptyChildForm: ChildForm = { name: '', birth_date: '', gender: 'boy', gest_weeks: null };
 
-const MENU_TONES = ['c-peach', 'c-lav', 'c-blue', 'c-green', 'c-yellow', 'c-pink'];
-
 const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   useScrollToTop();
   useScreenAnalytics('Profile', 'Profile');
   const language = useUserStore(state => state.language);
+  const widgetText = useWidgetText(language);
+  const feedbackText = useFeedbackText(language);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const promoText = usePromoText(language);
+  const [promoOpen, setPromoOpen] = useState(false);
+  // Profile layout: 'tabs' (Mən · Ailə · Ayarlar, default) or 'classic' (previous long page), from app_settings.
+  const tabsLayout = useAppSetting('profile_layout') !== 'classic';
+  const [profileTab, setProfileTab] = useState<ProfileTab>(() => {
+    try { const v = sessionStorage.getItem('anacan_profile_tab'); return v === 'family' || v === 'settings' ? v : 'me'; } catch { return 'me'; }
+  });
+  const chooseProfileTab = (tab: ProfileTab) => { setProfileTab(tab); try { sessionStorage.setItem('anacan_profile_tab', tab); } catch { /* ignore */ } };
 
   const { name, email, lifeStage, role } = useUserStore(
     useShallow((s) => ({ name: s.name, email: s.email, lifeStage: s.lifeStage, role: s.role }))
@@ -68,10 +101,15 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   const { toast } = useToast();
   const { children, addChild, updateChild, deleteChild, getChildAge } = useChildren();
   const { isPremium } = useSubscription();
+  // QayğıCash bonus wallet: listed only where the programme is on for this account.
+  const { wallet: qcWallet } = useQaygiCashWallet();
+  // Anacan Recap 2026: listed only while the server says it is available for this person.
+  const recapRow = useRecapProfileRow();
   const [partnerCode, setPartnerCode] = useState(profile?.partner_code || 'ANACAN-XXXX');
   const [showPremiumModal, setShowPremiumModal] = useState(false);
   const [showPartnerInfo, setShowPartnerInfo] = useState(false);
   const [showChildModal, setShowChildModal] = useState(false);
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false);
   const [editingChild, setEditingChild] = useState<Child | null>(null);
   const [childForm, setChildForm] = useState<ChildForm>(emptyChildForm);
   // Həftə seçilməyibsə (null) due_date göndərilmir — mövcud dəyər qorunur.
@@ -132,13 +170,18 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
 
   const menuItems = [
   { id: 'billing', icon: CreditCard, label: tr("profilescreen_abuneliyim_f6c8ed", 'Abunəliyim') },
+  ...(recapRow ? [{ id: recapRow.id, icon: Clapperboard, label: recapRow.label, badge: '✨' }] : []),
+  ...(qcWallet ? [{ id: 'qaygicash', icon: Coins, label: QC_BRAND, badge: formatQc(qcWallet.available_minor, language) }] : []),
   { id: 'referral', icon: Gift, label: tr("profilescreen_referral", 'Dostunu dəvət et'), badge: tr("profilescreen_referral_badge", '+7 gün') },
+  ...(promoText ? [{ id: 'gift-code', icon: Ticket, label: promoText.profile_title }] : []),
   { id: 'partners', icon: Sparkles, label: tr("profilescreen_partnyor_endirimleri_e44036", "Partnyor Endirimləri"), badge: tr("profilescreen_badge_yeni", "Yeni") },
   { id: 'doctor-report', icon: FileText, label: tr("profilescreen_hekim_hesabati", 'Həkim Hesabatı (PDF)') },
   { id: 'health-sync', icon: HeartPulse, label: tr("settingsscreen_health_sync", "Sağlamlıq inteqrasiyası") },
+  ...(widgetText && (lifeStage === 'bump' || lifeStage === 'mommy') ? [{ id: 'widgets', icon: LayoutGrid, label: widgetText.settings_title }] : []),
   { id: 'appearance', icon: Palette, label: tr("profilescreen_gorunus_165fe3", 'Görünüş') },
   { id: 'calendar', icon: Calendar, label: tr("profilescreen_teqvim_ayarlari_012790", 'Təqvim Ayarları') },
   { id: 'privacy', icon: Shield, label: tr("profilescreen_gizlilik", "Gizlilik") },
+  ...(feedbackText ? [{ id: 'feedback', icon: MessageCircle, label: feedbackText.menu }] : []),
   { id: 'help', icon: HelpCircle, label: tr("profilescreen_yardim_da857a", 'Yardım') },
   { id: 'moderation-history', icon: Shield, label: moderatorText('user_history', language) },
   ...(isModerator || isAdmin ? [{ id: 'moderator', icon: ShieldCheck, label: moderatorText('open_panel', language) }] : []),
@@ -147,6 +190,37 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   { id: 'admin', icon: ShieldCheck, label: tr("profilescreen_admin_panel", "Admin Panel"), badge: 'Admin' }] :
   [])];
 
+
+  const T = (bg: string, ink: string): [string, string] => [bg, ink];
+  const meRows: ProfileRow[] = [
+  { id: 'billing', icon: CreditCard, label: tr("profilescreen_abuneliyim_f6c8ed", 'Abunəliyim'), sub: isPremium ? tr("profilescreen_premium_abuneliyiniz_aktivdir_9f6e62", "Premium abunəliyiniz aktivdir") : tr("profilescreen_butun_xususiyyetleri_acin_a7583b", "Bütün xüsusiyyətləri açın"), tint: T('var(--a-yellow-1)', 'var(--a-warn-ink)') },
+  ...(recapRow ? [{ id: recapRow.id, icon: Clapperboard, label: recapRow.label, sub: recapRow.sub, tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') }] : []),
+  ...(qcWallet ? [{ id: 'qaygicash', icon: Coins, label: QC_BRAND, sub: qf('qc_profile_sub', { amount: formatQc(qcWallet.available_minor, language) }), tint: T('var(--a-peach-1)', 'var(--a-accent-ink)') }] : []),
+  { id: 'referral', icon: Gift, label: tr("profilescreen_referral", 'Dostunu dəvət et'), badge: tr("profilescreen_referral_badge", '+7 gün'), tint: T('var(--a-green-1)', 'var(--a-green-ink)') },
+  ...(promoText ? [{ id: 'gift-code', icon: Ticket, label: promoText.profile_title, sub: promoText.profile_sub, tint: T('var(--a-peach-1)', 'var(--a-accent-ink)') }] : []),
+  { id: 'partners', icon: Sparkles, label: tr("profilescreen_partnyor_endirimleri_e44036", "Partnyor Endirimləri"), badge: tr("profilescreen_badge_yeni", "Yeni"), tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') },
+  { id: 'doctor-report', icon: FileText, label: tr("profilescreen_hekim_hesabati", 'Həkim Hesabatı (PDF)'), tint: T('var(--a-blue-1)', 'var(--a-blue-ink)') }];
+  const settingsRows: ProfileRow[] = [
+  { id: 'appearance', icon: Palette, label: tr("profilescreen_gorunus_165fe3", 'Görünüş'), sub: tr('profiletabs_appearance_sub', 'Tema və şrift ölçüsü'), tint: T('var(--a-lilac-1, var(--a-surface-soft))', 'var(--a-lilac-ink, var(--a-ink-soft))') },
+  { id: 'calendar', icon: Calendar, label: tr("profilescreen_teqvim_ayarlari_012790", 'Təqvim Ayarları'), sub: tr('profiletabs_calendar_sub', 'Xatırlatmalar və tarixlər'), tint: T('var(--a-yellow-1)', 'var(--a-warn-ink)') },
+  { id: 'health-sync', icon: HeartPulse, label: tr("settingsscreen_health_sync", "Sağlamlıq inteqrasiyası"), tint: T('var(--a-pink-1)', 'var(--a-pink-ink)') },
+  ...(widgetText && (lifeStage === 'bump' || lifeStage === 'mommy') ? [{ id: 'widgets', icon: LayoutGrid, label: widgetText.settings_title, tint: T('var(--a-blue-1)', 'var(--a-blue-ink)') }] : []),
+  { id: 'privacy', icon: Shield, label: tr("profilescreen_gizlilik", "Gizlilik"), sub: tr('profiletabs_privacy_sub', 'Razılıq, analitika, məlumatlar'), tint: T('var(--a-green-1)', 'var(--a-green-ink)') },
+  ...(feedbackText ? [{ id: 'feedback', icon: MessageCircle, label: feedbackText.menu }] : []),
+  { id: 'help', icon: HelpCircle, label: tr("profilescreen_yardim_da857a", 'Yardım') },
+  { id: 'moderation-history', icon: Shield, label: moderatorText('user_history', language) },
+  ...(isModerator || isAdmin ? [{ id: 'moderator', icon: ShieldCheck, label: moderatorText('open_panel', language) }] : []),
+  ...(isAdmin ? [
+  { id: 'shop', icon: ShoppingCart, label: tr("profilescreen_magaza_test_72b060", 'Mağaza (Test)'), badge: 'Beta' },
+  { id: 'admin', icon: ShieldCheck, label: tr("profilescreen_admin_panel", "Admin Panel"), badge: 'Admin' }] : [])];
+  const legalRows: ProfileRow[] = [
+  { id: 'legal/privacy_policy', icon: FileText, label: tr("profilescreen_gizlilik_siyaseti_dc3f28", 'Gizlilik Siyasəti') },
+  { id: 'legal/terms_of_service', icon: Scale, label: tr("profilescreen_i_stifade_sertleri_fbbe3d", 'İstifadə Şərtləri') },
+  { id: 'legal/disclaimer', icon: AlertCircle, label: tr("profilescreen_mesuliyyetden_i_mtina_beyanati_857abd", 'Məsuliyyətdən İmtina Bəyanatı') },
+  { id: 'legal/refund_policy', icon: RotateCcw, label: tr("profilescreen_geri_qaytarma_siyaseti_767324", 'Geri Qaytarma Siyasəti') },
+  { id: 'legal/gdpr_ccpa', icon: Shield, label: 'GDPR / CCPA' },
+  { id: 'legal/data_usage', icon: Database, label: tr("profilescreen_melumat_i_stifadesi_af1211", 'Məlumat İstifadəsi') }];
+  const pickRow = (id: string) => id === 'feedback' ? setFeedbackOpen(true) : id === 'gift-code' ? setPromoOpen(true) : onNavigate?.(id);
 
   const copyPartnerCode = async () => {
     let code = partnerCode;
@@ -195,6 +269,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
   };
 
   const handleLogout = async () => {
+    setShowLogoutDialog(false);
     await signOut();
     toast({
       title: tr("profilescreen_cixis_edildi_fb4a43", 'Çıxış edildi'),
@@ -228,42 +303,15 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
     visible: { opacity: 1, x: 0 }
   };
 
-  return (
-    <div className="a-scope pb-8 overflow-x-hidden" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
-      <div className="a-shell">
-      {/* Top bar */}
-      <motion.header
-        className="a-topbar"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}>
-        
-        <div>
-          <p className="a-eyebrow">{stageInfo.name}</p>
-          <h1 className="a3-page-title">{tr("untranslated_profil_v8b0sk", "Profil")}</h1>
-        </div>
-        <div className="a-topbar-actions">
-          <motion.button
-            onClick={() => onNavigate?.('settings')}
-            className="a-icon-btn"
-            whileTap={{ scale: 0.9 }}>
-            
-            <Settings size={16} strokeWidth={2} />
-          </motion.button>
-        </div>
-      </motion.header>
-
-      {/* Top Banner Slot */}
-      <BannerSlot placement="profile_top" onNavigate={onNavigate} className="mb-3" />
-
+  const block_hero = <>
       {/* Profile Card (anacan-demo CTA hero) */}
       <motion.div
-        className="a-cta a-fade-in a3-profile-card"
-        style={{ background: 'var(--a-coral-soft)' }}
+        className="a-cta a-fade-in"
+        style={{ background: 'var(--a-grad-peach)' }}
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.1 }}>
         
-        <Mascot stage={(lifeStage === 'bump' || lifeStage === 'mommy' ? lifeStage : 'flow')} pose="mode" width={92} className="a3-profile-mascot" />
         <div className="relative z-10 flex items-center gap-3">
           <div
             className="w-14 h-14 flex items-center justify-center text-3xl overflow-hidden flex-shrink-0"
@@ -305,6 +353,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </div>
       </motion.div>
 
+</>;
+  const block_premium = <>
       {/* Premium Banner */}
       <motion.button
         onClick={() => isPremium ? onNavigate?.('billing') : setShowPremiumModal(true)}
@@ -329,6 +379,9 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </div>
       </motion.button>
 
+</>;
+  const block_qaygicash = <QaygiCashProfileCard onOpen={onNavigate ? () => onNavigate('qaygicash') : undefined} />;
+  const block_partner = <>
       {/* Partner Code */}
       {role === 'woman' &&
       <motion.div
@@ -404,8 +457,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
             <ChevronRight size={15} className="rtl:rotate-180 a-list-chevron" />
           </motion.button>
 
-          {/* Paylaşım ayarları — yalnız bağlı partnyor olduqda */}
-          {profile?.linked_partner_id &&
+          {/* Partnyor bölməsi: dəvət, paylaşım ayarları, bağlantı */}
           <motion.button
           onClick={() => onNavigate?.('partner-sharing')}
           className="a-teaser w-full"
@@ -413,13 +465,14 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
           whileTap={{ scale: 0.98 }}>
 
               <Shield size={15} style={{ color: 'var(--a-blue-2)', flexShrink: 0 }} />
-              <span style={{ flex: 1 }}>{tr("partnerv2_partnyor_nleri_gorur", "Partnyor nələri görür?")}</span>
+              <span style={{ flex: 1 }}>{profile?.linked_partner_id ? tr("partnerv2_partnyor_nleri_gorur", "Partnyor nələri görür?") : feature37Text('ph_what_sees')}</span>
               <ChevronRight size={15} className="rtl:rotate-180 a-list-chevron" />
             </motion.button>
-          }
         </motion.div>
       }
 
+</>;
+  const block_partnerInfo = <>
       {/* Partner Info Modal */}
       <AnimatePresence>
         {showPartnerInfo &&
@@ -512,6 +565,13 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         }
       </AnimatePresence>
 
+</>;
+  const block_pregnancy = <>
+      {/* Hamiləliyim: dates, birth, and the calm pregnancy loss entry (bump); recovery links (loss) */}
+      <ProfilePregnancyCard onNavigate={onNavigate} />
+
+</>;
+  const block_children = <>
       {/* Children Management Section - Only for mommy stage */}
       {lifeStage === 'mommy' &&
       <motion.div
@@ -587,6 +647,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </motion.div>
       }
 
+</>;
+  const block_childModal = <>
       {/* Add/Edit Child Modal */}
       <Dialog open={showChildModal || !!editingChild} onOpenChange={(open) => {
         if (!open) {
@@ -612,7 +674,7 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
               <DateField
                 value={childForm.birth_date}
                 onChange={(v) => setChildForm((p) => ({ ...p, birth_date: v }))}
-                max={new Date().toISOString().split('T')[0]} />
+                max={todayKey()} />
               
             </div>
             <div>
@@ -689,6 +751,8 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </DialogContent>
       </Dialog>
 
+</>;
+  const block_menu = <>
       {/* Menu Items */}
       <motion.div
         className="a-list-card a-fade-in"
@@ -703,11 +767,11 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
             <motion.button
               key={item.id}
               variants={itemVariants}
-              onClick={() => onNavigate?.(item.id)}
+              onClick={() => pickRow(item.id)}
               className="a-list-row w-full"
               style={{ width: '100%', textAlign: 'start', background: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: 'none', cursor: 'pointer' }}>
               
-              <span className={`a-list-icon a3-ico-sq sm ${MENU_TONES[menuItems.indexOf(item) % MENU_TONES.length]}`}>
+              <span className="a-list-icon" style={{ background: 'var(--a-surface-soft)', color: 'var(--a-ink-soft)' }}>
                 <Icon size={17} strokeWidth={2} />
               </span>
               <p className="a-list-title" style={{ flex: 1 }}>{item.label}</p>
@@ -722,6 +786,13 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         })}
       </motion.div>
 
+</>;
+  const block_feedback = <>
+      <FeedbackSheet open={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
+      <PromoCodeDialog open={promoOpen} onClose={() => setPromoOpen(false)} />
+
+</>;
+  const block_language = <>
       {/* Dil seçimi — əlçatan yerdə (Settings-də deyil) */}
       <motion.div
         style={{ marginTop: 12 }}
@@ -731,20 +802,47 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         <LanguageSelector />
       </motion.div>
 
+</>;
+  const block_logout = <>
       {/* Logout */}
       <motion.button
-        onClick={handleLogout}
+        onClick={() => setShowLogoutDialog(true)}
         className="a-cta-btn"
         style={{ width: '100%', justifyContent: 'center', marginTop: 12, background: 'var(--a-pink-1)', color: 'var(--a-pink-ink)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
         whileTap={{ scale: 0.98 }}>
-        
+
         <LogOut size={16} strokeWidth={2.2} />
         {tr("profilescreen_cixis_c2de5c", "\xC7\u0131x\u0131\u015F")}
       </motion.button>
 
+      <AlertDialog open={showLogoutDialog} onOpenChange={setShowLogoutDialog}>
+        <AlertDialogContent className="a-scope max-w-sm mx-4 rounded-[22px]">
+          <AlertDialogHeader>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-12 h-12 flex items-center justify-center" style={{ borderRadius: 16, background: 'var(--a-pink-1)' }}>
+                <LogOut className="w-6 h-6" style={{ color: 'var(--a-pink-ink)' }} />
+              </div>
+              <AlertDialogTitle className="text-lg" style={{ color: 'var(--a-ink)' }}>{tr("profilescreen_logout_confirm_title", "\xC7\u0131x\u0131\u015F edilsin?")}</AlertDialogTitle>
+            </div>
+            <AlertDialogDescription className="text-sm">
+              {tr("profilescreen_logout_confirm_body", "Hesab\u0131n\u0131zdan \xE7\u0131x\u0131\u015F etm\u0259k ist\u0259diyiniz\u0259 \u0259minsiniz?")}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="gap-2">
+            <AlertDialogCancel className="rounded-full">{tr("profilescreen_logout_cancel", "L\u0259\u011Fv et")}</AlertDialogCancel>
+            <AlertDialogAction onClick={handleLogout} className="rounded-full">
+              <LogOut className="w-4 h-4 me-2" />
+              {tr("profilescreen_cixis_c2de5c", "\xC7\u0131x\u0131\u015F")}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+</>;
+  const block_legal = <>
       {/* Legal Links */}
       <section className="a-section">
         <div className="a-section-head">
@@ -784,10 +882,67 @@ const ProfileScreen = ({ onNavigate }: ProfileScreenProps) => {
         </motion.div>
       </section>
 
+</>;
+  const block_premiumModal = <>
       {/* Premium Modal */}
       <PremiumModal
         isOpen={showPremiumModal}
         onClose={() => setShowPremiumModal(false)} />
+</>;
+  return (
+    <div className="a-scope pb-8 overflow-x-hidden" style={{ background: 'var(--a-bg)', minHeight: '100%' }}>
+      <div className="a-shell">
+      {/* Top bar */}
+      <motion.header
+        className="a-topbar"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}>
+        
+        <div>
+          <p className="a-eyebrow">{stageInfo.name}</p>
+          <p className="a-wordmark" style={{ fontSize: 18 }}>{tr("untranslated_profil_v8b0sk", "Profil")}</p>
+        </div>
+        <div className="a-topbar-actions">
+          <motion.button
+            onClick={() => onNavigate?.('settings')}
+            className="a-icon-btn"
+            whileTap={{ scale: 0.9 }}>
+            
+            <Settings size={16} strokeWidth={2} />
+          </motion.button>
+        </div>
+      </motion.header>
+
+      {/* Top Banner Slot */}
+      <BannerSlot placement="profile_top" onNavigate={onNavigate} className="mb-3" />
+
+      {tabsLayout ? <ProfileTabs
+        tab={profileTab} onTab={chooseProfileTab}
+        name={profile?.name || name || tr("profilescreen_i_stifadeci_b6bdd6", "\u0130stifad\u0259\xE7i")}
+        avatarUrl={profile?.avatar_url || null} emoji={stageInfo.emoji}
+        badge={`${isPremium ? 'Premium · ' : ''}${stageInfo.name}`}
+        onEdit={() => onNavigate?.('edit-profile')}
+        me={<>{block_premium}{block_qaygicash}{block_pregnancy}<ProfileRows rows={meRows} onPick={pickRow} /></>}
+        family={<>{lifeStage === 'mommy' ? block_children : null}{block_partner}</>}
+        showFamily={lifeStage === 'mommy' || role === 'woman'}
+        settings={<><ProfileRows rows={settingsRows} onPick={pickRow} />{block_language}<ProfileRows rows={legalRows} onPick={pickRow} compact title={tr("profilescreen_huquqi_ceb5d3", "Hüquqi")} />{block_logout}</>}
+      /> : <>
+      {block_hero}
+      {block_premium}
+      {block_qaygicash}
+      {block_partner}
+      {block_partnerInfo}
+      {block_pregnancy}
+      {block_children}
+      {block_childModal}
+      {block_menu}
+      {block_feedback}
+      {block_language}
+      {block_logout}
+      {block_legal}
+      {block_premiumModal}
+      </>}
+      {tabsLayout && <>{block_partnerInfo}{block_childModal}{block_feedback}{block_premiumModal}</>}
       
       </div>
     </div>);

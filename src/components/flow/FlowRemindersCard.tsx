@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Bell, ChevronRight, Clock, Check, X } from 'lucide-react';
 import { useFlowReminders, useToggleReminder, useInitializeFlowReminders, REMINDER_TYPE_INFO, ReminderType } from '@/hooks/useFlowReminders';
 import { Switch } from '@/components/ui/switch';
+import { feature37Text } from '@/lib/feature37-i18n';
 
 const FlowRemindersCard = () => {
   const { data: reminders = [], isLoading } = useFlowReminders();
@@ -65,7 +66,8 @@ const FlowRemindersCard = () => {
                 <div style={{ minWidth: 0 }}>
                   <p className="a-list-title">
                     {reminder.reminder_type !== 'custom'
-                    ? tr(`useflowreminders_title_${reminder.reminder_type}`, reminder.title || info?.labelAz || info?.label || '')
+                    // Saved titles keep the language of the day they were created; show the current one.
+                    ? feature37Text(`reminder_${reminder.reminder_type}` as Parameters<typeof feature37Text>[0])
                     : reminder.title}
                   </p>
                   <p className="a-list-sub" style={{ display: 'flex', alignItems: 'center', gap: 5 }}>

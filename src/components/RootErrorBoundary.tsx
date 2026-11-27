@@ -1,6 +1,6 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
 import { startupText, storedStartupLanguage } from '@/lib/startup-i18n';
-import { isChunkLoadError, reloadOnceForChunkError } from '@/lib/chunk-reload';
+import { isChunkLoadError, reloadOnceForChunkError, retryAfterChunkError } from '@/lib/chunk-reload';
 import { reportComponentCrash } from '@/lib/crashReporter';
 
 /** Outermost boundary around <App/>. The inner ErrorBoundary is a child of App,
@@ -28,7 +28,7 @@ export default class RootErrorBoundary extends Component<{ children: ReactNode }
           gap: 16, padding: 32, textAlign: 'center', background: 'hsl(var(--background, 35 35% 97%))', color: 'hsl(var(--foreground, 20 30% 15%))', fontFamily: 'system-ui, sans-serif' }}>
         <img src="/brand-mark.png" alt="" width={72} height={72} />
         <h1 style={{ fontSize: 20, fontWeight: 700, margin: 0 }}>Anacan</h1>
-        <button type="button" onClick={() => window.location.reload()}
+        <button type="button" onClick={() => { retryAfterChunkError(); }}
           style={{ padding: '12px 24px', borderRadius: 12, border: 0, background: '#FF5A5F', color: '#fff', fontSize: 15, fontWeight: 600 }}>
           {startupText(language, 'retry', 'Yenidən cəhd et')}
         </button>

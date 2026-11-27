@@ -4,6 +4,7 @@
  * any vendor code from node_modules. Without these, the app white-screens on
  * Android 11 stock WebView (which ships Chrome 90 — no Object.hasOwn, etc.).
  */
+import { installStorageFallbacks } from './safe-storage';
 
 // Object.hasOwn — added in Chrome 93 / Safari 15.4
 if (typeof (Object as any).hasOwn !== 'function') {
@@ -72,5 +73,9 @@ if (typeof (globalThis as any).structuredClone !== 'function') {
     return JSON.parse(JSON.stringify(value));
   };
 }
+
+// Private mode / blocked site data: reading window.sessionStorage or window.localStorage throws
+// ("Access is denied"). Swap in an in-memory Storage before any other module touches storage.
+installStorageFallbacks();
 
 export {};

@@ -1,0 +1,41 @@
+# Stabillik, Mərhələ 2 (növbəti native build, 51.0-dan sonra)
+
+2026-11-25 auditinin (Anacan-Problemler-ve-Hell-Yollari.pdf) build tələb edən hissəsi.
+
+| # | Dəyişiklik | Əsas fayllar |
+| --- | --- | --- |
+| 5 | 16 dilin məzmun paketləri native bundle-dan çıxdı (native dist ~211 MB → 67 MB); serverdən hissə-hissə yüklənir, IndexedDB-də saxlanır, sha256 ilə yoxlanır; yüklənənə qədər en/ru | `src/lib/content-packs.ts`, `content-i18n.ts`, `scripts/i18n/content-packs.mjs`, `docs/LOCALIZATION_25.md` |
+| 5 | Açılış: ayarlar və dil seed-i sessiya bərpası ilə paralel; məzmun açılışı gözlətmir | `src/bootstrap-app.tsx`, `src/lib/i18n.ts` |
+| 11 | Vaxtı keçmiş sessiya + internet yox: tətbiq son məlumatla açılır, şəbəkə gələndə yenilənir və outbox göndərilir | `src/contexts/AuthContext.tsx`, `src/lib/offline-session.ts`, `OfflineSyncIndicator.tsx` |
+| 12 | Captive portal cavabı native açılışı bloklamır | `backend-bootstrap.ts` |
+| 13 | Bütün sorğulara vaxt limiti (REST 20 s, Auth 15 s, AI 90 s, upload 120 s); AI native-də axınla gəlir, Dayandır işləyir | `src/lib/network-timeout.ts`, `AIChatScreen.tsx` |
+| 6 | Çıxışda push qeydləri, çatdırılmış bildirişlər və bütün yerli xatırlatmalar silinir | `logout-cleanup.ts`, `useDeviceToken.ts` |
+| 20 | Bildiriş icazəsi açılışda soruşulmur; köhnə hesablara izahlı toast | `useDeviceToken.ts`, `useNotificationSettings.ts` |
+| 21 | Push toxunuş dinləyiciləri `main.tsx`-də dərhal qoşulur, router hazır olana qədər növbədə | `src/lib/notification-taps.ts` |
+| 22 | Mərkəzi yerli bildiriş planlaşdırıcısı: həmişə ən yaxın 60 (iOS 64 limiti) | `src/lib/local-notification-scheduler.ts` |
+| 23 | Android geri düyməsi: əvvəl dialog/sheet, sonra ekran | `src/lib/backButton.ts`, `useOverlayBackHandler.ts`, `components/ui/*` |
+| 24 | iOS ağ səs: Web Audio ilə səs səviyyəsi, `.playback` audio session, kilid ekranı | `whiteNoiseStore.ts`, `white-noise-audio.ts`, `AppDelegate.swift` |
+| 26 | Google girişi köhnə Android-də brauzer ilə ehtiyat yol; Apple 1001 səssiz, 1000 aydın mesaj | `social-auth-errors.ts`, `native-auth.ts` |
+
+## Yayımdan əvvəl lazım olanlar
+
+1. **Veb deploy (edildi 2026-11-25):** gateway `c29d7a97fa9b…` (plan `p2-web-plan.json`, rollback
+   `rollback-p2-web-plan.json`) `dist/content-packs/`-ı da daşıyır; `/content-packs/<lang>/manifest.json` gzip ilə 200.
+   Gələcək gateway build-ləri `content-packs/`-ı kopyalamağa davam etməlidir.
+2. **Google brauzer ehtiyat yolu (yoxlandı):** auth-da `GOTRUE_URI_ALLOW_LIST` artıq `com.atlasoon.anacan://**`
+   daxildir, Google provider aktivdir; `/auth/v1/authorize?provider=google&redirect_to=com.atlasoon.anacan://auth-callback`
+   Google-a 302 verir. Server dəyişikliyi lazım olmadı.
+3. **Cihazda yoxlama (TestFlight / internal testing):** məzmun paketlərinin CapacitorHttp ilə yüklənməsi,
+   iOS AI axını (`capacitor://app.anacan.az` CORS), push toxunuşu soyuq açılışda, ağ səs kilid ekranında və
+   səssiz düymə ilə, Android geri düyməsi dialoqlarda, internetsiz açılış vaxtı keçmiş sessiya ilə.
+
+## Yoxlamalar
+- Bütün test dəsti: 349 fayl, 3 480 test keçdi (2 skip).
+- `tsc` təmiz; `npm run build` (veb) və `VITE_NATIVE_BUILD=true` build exit 0, `verify-bundle` keçir.
+- Brauzer smoke testi: veb build xətasız açılır.
+
+## Əlavə düzəlişlər (2026-11-25, canlı)
+Audit 16 (su sayğacı, atomik server artımı, `water_intake_ops` CDC/guard ilə), 17 (pulsuz limitlər istifadəçinin yerli günü ilə,
+atomik `usage_consume_v1`), 18 (DST-safe təqvim tarixləri), 25 (məlum tətbiq yolları 404 əvəzinə ekranı açır).
+Migration `20261125190000_water_and_limits_atomic.sql` canlı bazaya tətbiq olundu, SQL testi canlıda keçdi (rollback).
+Gateway `cd76bcc75fbf…` (plan `p3-web-plan.json`, rollback `rollback-p3-web-plan.json`).

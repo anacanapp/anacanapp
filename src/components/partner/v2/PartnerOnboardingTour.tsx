@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HeartHandshake, Home, Users, BellRing, Shield, ChevronRight, X } from 'lucide-react';
+import { HeartHandshake, Home, Users, BellRing, Shield, ChevronRight, X, Sparkles } from 'lucide-react';
+import { feature37Text } from '@/lib/feature37-i18n';
 import { hapticFeedback } from '@/lib/native';
 import { tr } from '@/lib/tr';
 import { useIsRtl, rtlX } from '@/lib/rtl';
@@ -11,7 +12,8 @@ import { useIsRtl, rtlX } from '@/lib/rtl';
  * Mavi partnyor vurğusu, addım-addım bottom sheet.
  */
 
-export const PARTNER_TOUR_KEY = 'anacan_partner_tour_v1';
+// v2: the rebuilt partner module (missions on Bu gün, shared tools, Ata AI) is shown once more.
+export const PARTNER_TOUR_KEY = 'anacan_partner_tour_v2';
 
 // Dark mode düzəlişi: hardcode #153e57 dark modda --a-grad-blue-in tünd
 // tint-inə qarşı demək olar oxunmurdu (icon görünmürdü).
@@ -44,13 +46,19 @@ const PartnerOnboardingTour = ({ onClose }: Props) => {
     icon: Home,
     emoji: '🏠',
     title: tr('ptour_home_title', '"Bu gün" ekranı'),
-    text: tr('ptour_home_text', 'Körpənin həftəlik inkişafı, xanımınızın əhvalı və sürətli sevgi mesajları — hamısı ana ekranda.')
+    text: feature37Text('ptour2_home_text')
   },
   {
     icon: Users,
     emoji: '🤝',
     title: tr('ptour_together_title', '"Birlikdə" bölməsi'),
-    text: tr('ptour_together_text', 'Gündəlik missiyalar, aktivlik lenti, alış-veriş siyahısı və həkim görüşləri — birgə idarə edin, xal qazanın.')
+    text: feature37Text('ptour2_together_text')
+  },
+  {
+    icon: Sparkles,
+    emoji: '🤖',
+    title: feature37Text('pm_ata_ai'),
+    text: feature37Text('ptour2_ai_text')
   },
   {
     icon: BellRing,

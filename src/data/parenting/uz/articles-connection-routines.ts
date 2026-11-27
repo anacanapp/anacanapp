@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'Bogʻlanish: bolaning xavfsiz bandargohi',
+    summary: 'Xavfsiz bogʻlanish mukammal ota-onalikdan emas, “yetarlicha yaxshi”, sezgir va ishonchli ota-onalikdan paydo boʻladi.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Jon Boulbi bogʻlanishni bolaning xavf paytida yaqinlik izlash instinkti sifatida tasvirlagan. Meri Eynsvort esa kuzatuvlarida ota-onasi sezgir va oldindan bilsa boʻladigan bolalar uni “xavfsiz baza” sifatida ishlatishini koʻrgan: bemalol olamni kashf etadi, qoʻrqqanda esa qaytib kelib tinchlanadi.',
+      'Xavfsiz bogʻlanish keyingi yillarda hislarni yaxshiroq boshqarish, doʻstlik koʻnikmalari va oʻziga ishonch bilan bogʻlanadi. Muhim jihat: buning uchun har bir yigʻiga darhol va mukammal javob berish shart emas. Tadqiqotlar muloqotning katta qismi “mos kelmagan” lahzalardan iboratligini koʻrsatadi, asosiysi esa oʻsha lahzalarni keyin tuzatishdir.',
+      'Bogʻlanish bir marta qurilib, tugab qolmaydi: maktab yoshida ham bola qiyin paytda senga qaytib kela olishini bilishi kerak. Faqat endi bu quchoqdan koʻra koʻproq tinglash va “men sening tarafingdaman” hissi orqali boʻladi.',
+    ],
+    tryToday: [
+      'Bola oldingga kelganda (xursand yoki xafa boʻlib) bir necha soniya butun eʼtiboringni unga qarat: telefonni qoʻy, koʻzlariga qara.',
+      'Ajralishdan oldin qisqa va bir xil xayrlashuv odatini qil: quchoq, “kechqurun koʻrishamiz”, va rostdan ham ket. Bildirmasdan chiqib ketish ishonchga putur yetkazadi.',
+      'Kuniga bir marta uning qiziqishlariga qoʻshil: u nima oʻynasa, nima haqida gapirsa.',
+      'Asabiylashgan lahzangni keyin tuzat: “Ertalab sabrsiz edim. Kel, qaytadan boshlaylik.”',
+    ],
+    mistakes: [
+      'Chaqaloqni “qoʻlga oʻrganib qoladi” degan qoʻrquv bilan yigʻlashga tashlab qoʻyish. Ilk oylarda javob berish mustaqillikni kamaytirmaydi, aksincha, oshiradi.',
+      'Bogʻlanishni “boladan hech ajralmaslik” deb tushunish. Buvi, ota, tarbiyachi bilan ham xavfsiz rishtalar quriladi va bu yaxshi.',
+      'Mukammal boʻlishga urinish. Bolaga ideal emas, samimiy va xatosini tuzata oladigan ota-ona kerak.',
+    ],
+    byAge: {
+      '0-1': 'Yigʻisiga javob ber, koʻziga qara, gapir, qoʻshiq ayt. Bu yoshda erkalatib buzish degan narsa yoʻq.',
+      '1-3': 'Bola olamni kashf etadi va qaytib keladi. Bogʻda oʻtirib “shu yerdaman” deyishing kifoya.',
+      '3-6': 'Kuniga 10–15 daqiqalik maxsus oʻyin vaqti bogʻlanishni mustahkamlaydi.',
+      '6-12': 'Hukm qilmasdan tingla. Kichik muammolarida yonida boʻlsang, katta muammolarini ham senga olib keladi.',
+    },
+    specialist: [
+      'Chaqaloq koʻz bilan aloqadan qochsa, senga yoki tanish odamlarga umuman qiziqmasa, uni tinchlantirish deyarli imkonsiz boʻlsa — shifokorga murojaat qil.',
+      'Bola hammaga, hatto begonalarga ham bir xil darajada va farqlamasdan bogʻlansa (ayniqsa qiyin oʻtgan ilk yillardan keyin) — bolalar psixologiga murojaat qil.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Chaqaloq yigʻlaganda: “erka boʻlib qoladi” afsonasi',
+    summary: 'Chaqaloqning yigʻisi uning yagona tili. Javob berish erkalikni emas, ishonchni yaratadi.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'Amerika Pediatriya Akademiyasi ochiq aytadi: ilk oylarda chaqaloqni erkalatib buzib boʻlmaydi. Yigʻiga mehribonlik bilan javob berish chaqaloqning stress tizimini tinchlantiradi va “dunyo xavfsiz” degan ishonchni quradi.',
+      'Shu bilan birga, sogʻlom chaqaloqlarning ham ilk haftalarda koʻp yigʻlashi normal: taxminan 2 haftalikdan koʻpaya boshlaydi, 6–8 haftada choʻqqiga chiqadi va 3–4 oylikda kamayadi. Baʼzan hech qanday sabab topib boʻlmaydi. Bu sening muvaffaqiyatsizliging emas.',
+      'Eng muhim xavfsizlik qoidasi: asabing chegaraga yetganda chaqaloqni hech qachon silkitma. Silkitish miya shikastlanishiga olib kelishi mumkin. Chaqaloqni beshigiga chalqancha yotqizib, xonadan bir necha daqiqaga chiqib ketish mutlaqo toʻgʻri qadam.',
+    ],
+    tryToday: [
+      'Asosiy ehtiyojlarni tekshir: ochlik, taglik, issiq-sovuq, kekirish, charchoq.',
+      'Tinchlantiruvchi usullarni sinab koʻr: yoʻrgaklash (sonlari erkin), bir maromda tebratish, “shsh” tovushi, quchoqda koʻtarib yurish, teri-teriga tegish.',
+      'Yigʻi soatlari uchun yordamchi reja tuz: turmush oʻrtogʻing, buvi yoki qoʻshni bilan navbatlashinglar.',
+      'Sabring tugayotgan boʻlsa: chaqaloqni xavfsiz joyga yotqiz, 5–10 daqiqa nafas ol, suv ich, kimgadir qoʻngʻiroq qil, keyin qayt.',
+    ],
+    mistakes: [
+      '“Yigʻlashga qoʻyib bersang, koʻnikadi” deb juda kichkina chaqaloqni uzoq vaqt yolgʻiz qoldirish.',
+      'Koʻp yigʻlashni oʻzingning “yomon ota-onaliging”ga bogʻlash. Bu davr oʻtkinchi.',
+      'Yordam soʻrashdan uyalish.',
+    ],
+    specialist: [
+      'Yigʻi bilan birga isitma (ayniqsa 3 oylikdan kichik chaqaloqda), qusish, ich ketishi, ovqatdan bosh tortish, holsizlik, gʻayrioddiy chinqiroq yigʻi boʻlsa — darhol shifokorga murojaat qil. Jiddiy holatda {emergency}.',
+      'Chaqaloqni silkitish yoki unga zarar yetkazish haqida fikr paydo boʻlsa, darhol yordam soʻra. Bu seni yomon odam qilmaydi, charchoging chegaraga yetganini koʻrsatadi.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: 'Kuniga 10 daqiqa: maxsus vaqt',
+    summary: 'Bola boshqaradigan qisqa, kundalik oʻyin vaqti xulq muammolarini kamaytirishning eng kuchli vositalaridan biri.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Eng koʻp oʻrganilgan ota-onalar dasturlaridan biri — PCIT (Ota-ona va bola oʻzaro taʼsiri terapiyasi)ning birinchi bosqichi aynan shunga asoslangan: kuniga 5–10 daqiqa bola boshqaradigan oʻyin, ota-ona esa maqtaydi, tasvirlaydi, taqlid qiladi. Meta-tahlillar bu dasturlar xulq muammolarini sezilarli darajada kamaytirishini koʻrsatadi.',
+      'Sababi oddiy: bolaning eʼtiborga ehtiyoji ijobiy yoʻl bilan qondirilganda, eʼtiborni salbiy xatti-harakat bilan “qozonish”ga ehtiyoj kamayadi.',
+    ],
+    tryToday: [
+      'Taymer qoʻy: 10 daqiqa. Telefon boshqa xonada.',
+      'Bola oʻyinni tanlaydi, sen ergashasan. Buyruq, savollar yomgʻiri, tanqid yoʻq.',
+      'Nima qilayotganini tasvirla: “Qizil gʻishtchani eng tepaga qoʻyding.” Taqlid qil, maqta: “Qanday diqqat bilan quryapsan!”',
+      'Tugatganda ayt: “Sen bilan oʻynash juda yoqimli boʻldi. Ertaga yana.”',
+    ],
+    mistakes: [
+      'Maxsus vaqtni yomon xulq uchun bekor qilish. Bu jazo yoki mukofot emas, kundalik vitamin.',
+      'Oʻyinni “dars”ga aylantirish: “Bu qaysi rang? Nechta gʻishtcha bor?”',
+    ],
+    byAge: {
+      '1-3': '5 daqiqa yetarli. Polda, uning boʻyi baravarida oʻtir.',
+      '6-12': 'Nom qoʻyinglar: “ona-oʻgʻil vaqti”. Karta oʻyini, birga ovqat pishirish, sayr boʻlishi mumkin.',
+    },
+    specialist: [
+      'Maxsus vaqt va boshqa usullar bir necha hafta ichida hech qanday oʻzgarish bermasa, xulq muammolari ogʻir boʻlsa — PCIT yoki shunga oʻxshash dasturlar uchun mutaxassisga murojaat qil.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'Ajralish qoʻrquvi va bogʻchaga moslashish',
+    summary: 'Ajralishda yigʻlash bogʻlanish belgisi. Qisqa, samimiy xayrlashuv va oldindan maʼlum qaytish moslashishni osonlashtiradi.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'Ajralish xavotiri taxminan 8–10 oylikda boshlanadi, 15–18 oylikda choʻqqiga chiqadi va odatda 3 yoshga borib yumshaydi. Bu bola ota-ona “yoʻq boʻlib ketmasligini” hali toʻliq tushunmagan davr.',
+      'Bolaning xavotirini eng koʻp oshiradigan narsa — kutilmaganlik. Bildirmasdan ketish bir lahzalik koʻz yoshini kamaytirsa ham, uzoq muddatda bolaning yanada koʻproq yopishib olishiga sabab boʻladi.',
+    ],
+    tryToday: [
+      'Qisqa va bir xil xayrlashuv odatini qil: quchoq, oʻpich, “tushlikdan keyin kelaman”, keyin ket.',
+      'Bogʻchani boshlashdan oldin qisqa sinov ajralishlarini qil: 15 daqiqa, keyin 1 soat.',
+      'Qaytishingni bola tushunadigan voqeaga bogʻla: “Uyqudan keyin, tamaddidan keyin kelaman.”',
+      'Uydan olingan “oʻtish buyumi” — kichik oʻyinchoq, sening rasming — unga tasalli berishi mumkin.',
+    ],
+    mistakes: [
+      'Yigʻlayotgan bolaning yonidan uzoq vaqt keta olmaslik, eshikdan qayta-qayta qaytib kelish.',
+      'Bolaning qoʻrquviga kulish yoki “kattasan, uyat” deyish.',
+    ],
+    specialist: [
+      'Ajralish qoʻrquvi yoshiga nomuvofiq darajada kuchli boʻlsa, haftalab uyqu, ovqat va bogʻchaga borishni izdan chiqarsa yoki maktab yoshida qayta boshlangan boʻlsa — bolalar psixologiga murojaat qil.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Uyqu odati: har kecha bir xil uch qadam',
+    summary: 'Oddiy, har kecha takrorlanadigan odat bolaning tezroq uxlab qolishiga va tunda kamroq uygʻonishiga yordam beradi.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Randomizatsiyalangan tadqiqotda (Mindell va hamkasblari, 2009) 3 qadamli kechki odat — choʻmilish, massaj yoki krem, tinch mashgʻulot (quchoq, alla) — atigi ikki haftada bolalarning tezroq uxlab qolishiga, tunda kamroq uygʻonishiga, onalarning kayfiyati esa yaxshilanishiga olib kelgan. Keyingi sharhlar kechki odatlar til rivojlanishi va hislarni boshqarish bilan ham bogʻliqligini koʻrsatdi.',
+      'Yoshga qarab tavsiya etiladigan uyqu (kunduzgi uyqular bilan birga): 4–12 oy — 12–16 soat, 1–2 yosh — 11–14 soat, 3–5 yosh — 10–13 soat, 6–12 yosh — 9–12 soat. Uyqusizlik bolalarda koʻpincha charchoq sifatida emas, asabiylik va giperaktivlik sifatida koʻrinadi.',
+      'Chaqaloqlar uchun xavfsiz uyqu qoidalari muhim: chalqancha, qattiq va tekis toʻshakda, yostiqsiz va koʻrpasiz, ideal holda ota-ona bilan bir xonada, lekin oʻz beshigida.',
+    ],
+    tryToday: [
+      'Shu kechadan odat yarat: masalan, choʻmilish → pijama va tish → kitob va alla. Har kecha bir xil tartib, bir xil soatga yaqin.',
+      'Odatdan bir soat oldin ekranlarni oʻchir, chiroqlarni xiralashtir.',
+      'Odatning rasmli jadvalini birga tayyorlanglar, bola har bir qadamni oʻzi “belgilasin”.',
+      'Odat 20–30 daqiqadan oshmasin. Choʻzilgan sari bola uni yanada choʻzishga urinadi.',
+    ],
+    mistakes: [
+      'Har kecha boshqa soat va boshqa tartib. Miya oldindan bilsa boʻladigan ishoralarni izlaydi.',
+      'Uxlashdan oldin hayajonli oʻyin, ekran yoki baqir-chaqir.',
+      'Uyqu usullarini “majburiy” deb hisoblash. Yonida oʻtirish, birga uxlamaslik, asta-sekin uzoqlashish — oilangga mosini tanla. Hech bir usul hamma uchun shart emas.',
+    ],
+    byAge: {
+      '0-1': 'Odat qisqa boʻlsin: choʻmilish, ovqatlantirish, alla. Chaqaloqni uyqusiragan, lekin uygʻoq holda yotqizib koʻrishing mumkin, chiqmasa ham xavotir olma.',
+      '1-3': 'Tanlov ber: “Bu kitobni oʻqiymizmi yoki anavisini?” Uxlash vaqti muhokama qilinmaydi, kitob tanlanadi.',
+      '3-6': 'Uxlashni “choʻzish” uchun savollar boshlanadi. Odatning ichiga “oxirgi savol” yoki “oxirgi quchoq” lahzasini qoʻsh.',
+      '6-12': 'Telefon, planshet va televizor yotoqxonada qolmasin. Uyqu vaqtini uy vazifasi va sport bilan birga rejalashtiringlar.',
+    },
+    specialist: [
+      'Bola uyquda xurrak otsa, nafasi toʻxtab qolsa, ogʻzini ochib nafas olsa, kunduzi esa haddan tashqari uyquchan boʻlsa — shifokorga murojaat qil.',
+      'Uyqu muammolari bir necha haftadan ortiq davom etib, oilaning kundalik hayotini jiddiy buzsa.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Tungi uygʻonishlar va tungi qoʻrquvlar',
+    summary: 'Qoʻrqinchli tush va tungi dahshat har xil narsalar. Ularning har biriga boshqacha yondashish kerak.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Qoʻrqinchli tushlar uyquning ikkinchi yarmida, tush koʻrish bosqichida boʻladi. Bola uygʻonadi, qoʻrqqanini aytadi, seni taniydi va tasalliga muhtoj boʻladi.',
+      'Tungi dahshat (pavor nocturnus) esa odatda uxlab qolgandan 1–3 soat keyin, chuqur uyquda boʻladi. Bola qichqirishi, koʻzlari ochiq boʻlishi mumkin, lekin aslida u uygʻoq emas, seni tanimaydi va ertalab hech narsani eslamaydi. Bu 3–7 yoshda tez-tez uchraydi va odatda zararsiz.',
+    ],
+    tryToday: [
+      'Qoʻrqinchli tushdan keyin: quchoqla, qisqa tasalli ber, chiroqni sal yoq. Tushni tunda batafsil gapirtirma, ertaga gaplashinglar.',
+      'Tungi dahshatda: bolani uygʻotishga urinma, faqat xavfsizligini taʼminla, jimgina yonida boʻl. Xuruj oʻtgach, uyqusini davom ettiradi.',
+      'Uyqusizlik tungi dahshatni kuchaytiradi: uxlash vaqtini 20–30 daqiqa erta qilib koʻr.',
+      'Kunduzi qoʻrquvlar haqida oʻyin orqali gaplashinglar: “maxluq kitobi” chizinglar, uni kulgili qilinglar.',
+    ],
+    mistakes: [
+      'Tungi dahshat paytida bolani silkitib uygʻotish.',
+      'Qoʻrquvni masxara qilish: “Maxluq yoʻq, ahmoq boʻlma.”',
+    ],
+    specialist: [
+      'Xurujlar juda tez-tez (haftada bir necha marta) boʻlsa, 30 daqiqadan uzoq davom etsa, gʻayrioddiy harakatlar (bir maromda titrash, siydik tutolmaslik) boʻlsa yoki kunduzi uyquchanlikka olib kelsa — shifokorga murojaat qil.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'Tanlab ovqatlanish: kim nimaga javobgar?',
+    summary: 'Ota-ona nima, qachon va qayerda yeyilishini belgilaydi; bola esa qancha yeyishini va yeyish-yemasligini. Bu taqsimot ovqat ustidagi janglarga barham beradi.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Yangi ovqatdan hadiksirash (neofobiya) 2–6 yosh orasida juda keng tarqalgan va evolyutsiya nuqtai nazaridan mantiqli: kichkina bolani notanish, ehtimoliy xavfli ovqatdan himoya qiladi. Bu odatda oʻtkinchi bosqich.',
+      'Tadqiqotlar koʻrsatadiki, bolani ovqatga majburlash, “yana bir qoshiq ye” deyish va shirinlik bilan mukofotlash teskari taʼsir qiladi: oʻsha ovqatga nisbatan jirkanishni oshiradi va bolaning ochlik-toqlik signallarini eshitishini susaytiradi. Buning oʻrniga bosimsiz takroriy taklif — koʻpincha 10–15 marta — qabul qilishni oshiradi.',
+      'Dietolog Ellin Satterning “masʼuliyat taqsimoti” modeli bu maʼlumotni amaliy qoidaga aylantiradi: ota-ona menyu, vaqt va joyni, bola esa qancha yeyishni tanlaydi.',
+    ],
+    tryToday: [
+      'Har bir ovqatda bola yaxshi koʻradigan kamida bitta “xavfsiz” taom boʻlsin, yonida esa yangi ovqatdan kichik boʻlak.',
+      'Yangi ovqatni izohlamasdan qoʻy. Yemasa ham hech narsa dema. Ertaga, indinga yana.',
+      'Oila bilan birga, ekransiz ovqatlaning. Bola sening ishtaha bilan ovqatlanayotganingni koʻrishi kerak.',
+      'Bolani oshxonaga jalb qil: sabzavotni yuvsin, salatni aralashtirsin. Oʻzi tayyorlagan narsani koʻproq tatib koʻradi.',
+      'Ovqat va tamaddi vaqtlarini belgila, oraliqda “chaynab yurish” boʻlmasin.',
+    ],
+    mistakes: [
+      'Majburlash, pora berish (“brokkolini yesang, shokolad olasan”) yoki jazolash.',
+      'Har bir ovqatda bola uchun alohida “restoran menyusi” tayyorlash.',
+      'Likopchani albatta tozalashni talab qilish. Bola toʻyganini sezishi kerak.',
+    ],
+    byAge: {
+      '1-3': 'Qoʻl bilan yeyiladigan ovqatlar, kichik porsiyalar, oʻzi yeyishiga ruxsat. Bulgʻanish oʻrganishning bir qismi.',
+      '3-6': '“Tatib koʻrish qoidasi”: tatib koʻrish majburiy emas, lekin yangi ovqatga qarash, hidlash, ushlab koʻrish oʻyin boʻlishi mumkin.',
+      '6-12': 'Menyuni rejalashtirishga jalb qil: haftada bir marta u yangi sabzavot tanlasin.',
+    },
+    specialist: [
+      'Bola vazn yoʻqotsa, boʻy-vazn egri chizigʻidan orqada qolsa, qabul qiladigan ovqatlari soni juda kam boʻlsa (masalan, 15 tadan kam), ovqatlanayotganda oʻqchisa, boʻgʻilsa yoki ogʻriq his qilsa — shifokorga murojaat qil.',
+      'Ovqat oldida kuchli vahima, qusish yoki maʼlum teksturalardan butunlay bosh tortish boʻlsa — ovqatlanish boʻyicha mutaxassis yordam berishi mumkin.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Ekran vaqti: yoshga qarab oqilona reja',
+    summary: 'Kichik yoshda ekran jonli muloqot oʻrnini bosa olmaydi. Bola ulgʻaygan sari maqsad taqiq emas, birga tuzilgan oilaviy reja.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Kichik bolalar ekrandan jonli odamga nisbatan juda kam narsa oʻrganadi: til va ijtimoiy koʻnikmalar yuzma-yuz “ber va qaytar” muloqotida quriladi. Hatto orqa fonda ishlab turgan televizor ham ota-onaning bola bilan gaplashishini kamaytiradi.',
+      'JSST (2019): 1 yoshgacha boʻlgan bolalar uchun ekran tavsiya etilmaydi; 2–4 yoshda kuniga 1 soatdan oshmasligi kerak, qancha kam boʻlsa, shuncha yaxshi. Amerika Pediatriya Akademiyasi (2016): 18 oylikkacha ekrandan (video qoʻngʻiroqdan tashqari) saqlanish, 2–5 yoshda kuniga 1 soatgacha sifatli kontent va imkon qadar ota-ona bilan birga koʻrish; 6 yoshdan keyin esa uyqu, harakat va muloqotga xalal bermaydigan barqaror qoidalar.',
+      'Uxlashdan oldin ekran uyquga ketishni kechiktiradi. Ovqat paytidagi ekran esa bolaning toʻqlik signallarini eshitishini susaytiradi.',
+    ],
+    tryToday: [
+      'Ekransiz hududlarni belgila: ovqat stoli va yotoqxona.',
+      'Ekranni uxlashdan bir soat oldin oʻchir.',
+      'Ekran vaqti tugashini oldindan ayt va taymerdan foydalan: “Taymer jiringlaganda planshet dam olishga ketadi.”',
+      'Bir marta birga koʻr va gaplash: “Sencha, u nega bunday qildi?” Bu ekranni muloqotga aylantiradi.',
+      'Oʻz telefoningni ham kuzat: bola yoningda boʻlganda bildirishnomalarni oʻchir.',
+    ],
+    mistakes: [
+      'Ekranni tantrumni toʻxtatishning asosiy vositasiga aylantirish. Bola tinchlanishni oʻrganmaydi.',
+      'Faqat bolaga qoida qoʻyish. Bola ota-onasining ekran odatlarini takrorlaydi.',
+      'Har qanday ekranni “yomon” deb hisoblash. Video qoʻngʻiroq, birga koʻriladigan taʼlimiy kontent, ijodiy ilovalar boshqa narsa.',
+    ],
+    byAge: {
+      '0-1': 'Ekran yoʻq, video qoʻngʻiroqdan tashqari. Chaqaloqning eng yaxshi “ekrani” — sening yuzing.',
+      '1-3': '2 yoshgacha imkon qadar kam. Koʻrsa, qisqa, sekin surʼatda, sening yoningda.',
+      '3-6': 'Kuniga 1 soatgacha, sifatli, reklamasiz kontent. Ovqatda va uxlashdan oldin emas.',
+      '6-12': 'Birga oilaviy media reja yozinglar: dars, uyqu, sport, doʻstlar birinchi oʻrinda. Ijtimoiy tarmoq akkauntlari uchun yosh chegaralariga amal qil.',
+    },
+    specialist: [
+      'Ekran qoʻlidan olinganda bola haddan tashqari tajovuzkor boʻlsa, boshqa hech narsaga qiziqmasa, uyqu va darslar jiddiy buzilgan boʻlsa — bolalar psixologiga murojaat qil.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'Hojatxonaga tayyorlik: shoshilmasdan',
+    summary: 'Hojatxonaga oʻrgatishning eng muhim qadami — tayyorlik belgilarini kutish. Koʻpchilik bolalar 2–3 yosh orasida tayyor boʻladi.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      '1960-yillarda pediatr Berri Brazelton “bolaga yoʻnaltirilgan” yondashuvni taklif qilgan: bola tayyorlik belgilarini koʻrsatganda, bosimsiz va jazosiz boshlash. Bu yondashuv bugun ham Amerika Pediatriya Akademiyasi tavsiyalarining asosi.',
+      'Tayyorlik belgilari: 2 soat va undan koʻp quruq yurish, tagligi hoʻl boʻlganidan bezovtalanish, oddiy topshiriqlarni tushunish, shimini pastga-yuqoriga torta olish, hojatxonaga qiziqish bildirish. Tungi quruqlik kechroq keladi: 5–6 yoshgacha tunda siyib qoʻyish normal.',
+    ],
+    tryToday: [
+      'Tayyorlik belgilarini tekshir. Hali boʻlmasa, kut, bu normal.',
+      'Bola tuvak yoki oʻtirgichni oʻzi tanlasin. Avval kiyimda oʻtirib, kitob oʻqisin.',
+      'Ovqat va uyqudan keyin qisqa “hojatxona vaqti” belgila, natijadan qatʼi nazar rahmat ayt.',
+      'Noxush hodisalarni xotirjam qarshi ol: “Boʻlib turadi. Kel, birga tozalaymiz.”',
+    ],
+    mistakes: [
+      'Jazolash, uyaltirish, boshqa bolalar bilan solishtirish. Bu ich qotishi va hojatxonadan qoʻrqishga olib kelishi mumkin.',
+      'Katta oʻzgarishlar (yangi chaqaloq, koʻchish, bogʻchani boshlash) paytida boshlash.',
+      'Uzoq vaqt oʻtirishga majburlash.',
+    ],
+    byAge: {
+      '1-3': 'Oʻyinchoq bilan “hojatxona oʻyini” oʻynanglar, kitoblar oʻqinglar. Boshlashga shoshilma.',
+      '3-6': 'Noxush hodisalar normal, ayniqsa oʻyinga berilib ketganda. Tungi taglikni hozircha qoldirsa boʻladi.',
+    },
+    specialist: [
+      'Ogʻriqli yoki juda kamdan-kam ich kelishi (ich qotishi), siyishda ogʻriq yoki achishish, 4 yoshdan keyin kunduzi tez-tez noxush hodisalar.',
+      'Uzoq vaqt quruq yurgandan keyin yana kunduzi yoki tunda siyib qoʻyish boshlangan boʻlsa — shifokorga murojaat qil.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'Ertalabki shoshilinch: baqiriqsiz chiqish',
+    summary: 'Ertalabki janjallarning koʻpi kechqurun hal boʻladi. Tayyorgarlik, rasmli reja va ozgina zaxira vaqt moʻjiza yaratadi.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Shoshilinch va asabiy paytlarda ham ota-onaning, ham bolaning ijro funksiyalari — rejalashtirish, eslab qolish, sabr — susayadi. Shuning uchun ertalabki qoidalar soʻz bilan emas, koʻz bilan koʻrinadigan jadval bilan yaxshiroq ishlaydi.',
+      'Bolaga nazorat hissini beradigan tartiblar (oʻzi belgilaydigan qadamlar) hamkorlikni oshiradi va qayta-qayta eslatishga ehtiyojni kamaytiradi.',
+    ],
+    tryToday: [
+      'Kechqurundan kiyim, sumka va oyoq kiyimni tayyorlab qoʻy. Bola kiyimini oʻzi tanlasin.',
+      'Ertalabki qadamlar uchun rasmli kartochka qilinglar: tur → hojatxona → kiyin → nonushta → tish → oyoq kiyim.',
+      '15 daqiqa zaxira vaqt qoldir: chiqish vaqtini oʻzing uchun ertaroq yozib qoʻy.',
+      'Ertalab ekransiz boʻlsin, hech boʻlmasa tayyor boʻlguncha.',
+    ],
+    mistakes: [
+      'Bir narsani oʻnlab marta takrorlash. Bir marta ayt, keyin kartochkaga ishora qil.',
+      'Hamma narsani bolaning oʻrniga qilish, chunki “shunday tezroq”.',
+    ],
+    specialist: [
+      'Ertalablari bola har kuni qorin yoki bosh ogʻrigʻidan shikoyat qilsa, bogʻcha yoki maktabga borishdan qatʼiy bosh tortsa — shifokor yoki psixolog bilan gaplash.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '“Ber va qaytar”: til va miyaning siri',
+    summary: 'Bola signal “beradi” — nigoh, tovush, imo-ishora — sen esa “qaytarasan”. Bu oddiy oʻyin miya arxitekturasini quradi.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Garvard universitetining Bola rivojlanishi markazi bu oʻzaro muloqotni tennis oʻyiniga oʻxshatadi: chaqaloq tovush chiqaradi, qaraydi, koʻrsatadi; katta odam esa javob beradi. Bu “ber-qaytar” takrorlangan sari til, diqqat va ijtimoiy koʻnikmalar uchun nerv yoʻllari mustahkamlanadi. Javobsiz qolish esa stress tugʻdiradi.',
+      'Qiziqarli bir tadqiqot (Romeo va hamkasblari, 2018) bola miyasidagi til sohalarining faolligini u eshitgan soʻzlar soni emas, suhbatdagi navbatlashishlar soni yaxshiroq tushuntirishini koʻrsatdi. Yaʼni koʻp gapirish emas, u bilan gaplashish muhim.',
+    ],
+    tryToday: [
+      'Bolaning eʼtibori qayerga ketayotganini kuzat va uni soʻz bilan nomla: “Ha, kuchuk! Katta, jigarrang kuchuk.”',
+      'Javobni kut: savol bergandan keyin 5 soniya jim turish bolaga navbatini olish uchun vaqt beradi.',
+      'Chaqaloqning tovushlariga taqlid qil va biroz kengaytir: u “ba” deydi, sen “ba-ba-bal!”',
+      'Kundalik ishlarni “sport sharhlovchisi” kabi gapirib bor: “Kartoshkani yuvyapman, endi toʻgʻrayapman…”',
+    ],
+    mistakes: [
+      'Gapirishni “dars”ga aylantirish: “Ayt: olma! Olma de!” Bosim nutqni kamaytiradi.',
+      'Bolaning soʻzini darhol tuzatish. Buning oʻrniga toʻgʻri shaklni shunchaki takrorla: “Kuchu? Ha, qizil yumshoq kuchuk.”',
+      'Bola bilan birga boʻlganda telefonga qarash. Har bir bildirishnoma — “qaytarilmagan toʻp”.',
+    ],
+    byAge: {
+      '0-1': 'Yuzma-yuz boʻl, jilmay, qoʻshiq ayt, chaqaloqning tovushlariga javob ber.',
+      '1-3': 'Bola koʻrsatgan narsani nomla, oddiy savollar ber, bitta soʻzini ikki soʻzga kengaytir.',
+      '3-6': '“Nega?” savollarini birga tadqiq qil, ochiq savollar ber: “Sencha, keyin nima boʻladi?”',
+    },
+    specialist: [
+      '12 oylikda hech qanday imo-ishora (qoʻl silkitish, koʻrsatish) boʻlmasa, 16–18 oylikda bitta ham soʻz boʻlmasa, 2 yoshda ikki soʻzli iboralar boʻlmasa — shifokor yoki logopedga murojaat qil.',
+      'Har qanday yoshda avval aytgan soʻzlarini yoʻqotgan boʻlsa — kutma, shifokorga murojaat qil.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Oʻyin kuchi: nega oʻyin “boʻsh vaqt” emas',
+    summary: 'Erkin oʻyin bolaning ijro funksiyalarini, ijodkorligini va stressga chidamliligini kuchaytiradi.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Amerika Pediatriya Akademiyasining 2018-yilgi hisoboti (“The Power of Play”) oʻyinni bola rivojlanishi uchun “hashamat” emas, zarurat deb ataydi. Oʻyin paytida bola rejalashtiradi, qoidalarga amal qiladi, boshqalar bilan kelishadi va hafsalasi pir boʻlishiga chidashni oʻrganadi.',
+      'Rolli oʻyinlar (“doʻkon”, “shifokor”) ayniqsa ijro funksiyalarini mashq qildiradi: bola rolda qolishi, qoidalarni eslab turishi va oʻz xohishini jilovlashi kerak.',
+    ],
+    tryToday: [
+      'Kuniga kamida bir soat tuzilmasiz oʻyin vaqtini saqla (yoshga qarab boʻlib-boʻlib boʻlishi mumkin).',
+      'Oddiy, ochiq oʻyinchoqlar tanla: gʻishtchalar, qutilar, boʻyoqlar, kostyumlar. Oʻyinchoq kam boʻlsa, ijod koʻproq boʻladi.',
+      'Haftada bir marta ochiq havoda erkin oʻyin: daraxt, qum, suv, choʻplar.',
+      'Baʼzan oʻyinga “teskari” rol bilan qoʻshil: sen xaridor boʻl, u sotuvchi.',
+    ],
+    mistakes: [
+      'Har daqiqani toʻgaraklar bilan toʻldirish. Zerikish — ijodkorlikning boshlanishi.',
+      'Oʻyinda doim yutish yoki doim yutqazish. Bola ikkalasini ham oʻrganishi kerak.',
+    ],
+    specialist: [
+      'Bola 2–3 yoshdan keyin ham rolli oʻyinlarga umuman qiziqmasa, oʻyinlari juda takroriy va oʻzgarmas boʻlsa, boshqa bolalar bilan oʻynashga qiziqish boʻlmasa — rivojlanishni tekshirish uchun shifokorga murojaat qil.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Birga oʻqish: birinchi kundan',
+    summary: 'Chaqaloqlikdan birga kitob oʻqish til, diqqat va bogʻlanish uchun eng oddiy va eng kuchli odatlardan biri.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Amerika Pediatriya Akademiyasi (2014) bolalar shifokorlariga har bir koʻrikda ota-onalarga chaqaloqlikdan kitob oʻqishni tavsiya qilishni maslahat beradi. Birga oʻqish soʻz boyligini, tinglash koʻnikmasini va keyingi oʻqish muvaffaqiyatini oshiradi.',
+      'Eng katta foyda “dialogli oʻqish”dan keladi: ota-ona savol beradi, bolaning javobini kengaytiradi, rasmlar haqida gapiradi. Yaʼni kitob ham “ber va qaytar” uchun vosita.',
+    ],
+    tryToday: [
+      'Kuniga 10–15 daqiqa birga kitob, ideal holda uyqu odatining bir qismi sifatida.',
+      'Har sahifada bitta savol ber: “Sencha, mushuk hozir nima qiladi?”',
+      'Bola bitta kitobni 20 marta soʻrasa — oʻqib ber. Takrorlash oʻrganishning bir yoʻli.',
+      'Maktab yoshida navbatma-navbat oʻqinglar: bir sahifani sen, bir sahifani u.',
+    ],
+    mistakes: [
+      'Oʻqishni majburiy dars sifatida taqdim etish.',
+      'Bola oʻzi oʻqiy boshlaganda unga ovoz chiqarib oʻqishni toʻxtatish. Ovoz chiqarib oʻqish 10–12 yoshgacha ham foydali.',
+    ],
+    specialist: [
+      'Maktab yoshida oʻqish tengdoshlariga nisbatan juda qiyin kechsa, harflarni tez-tez adashtirsa, harakatlarga qaramay oldinga siljimasa — oʻqituvchi va mutaxassis (logoped, psixolog) bilan maslahatlash.',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

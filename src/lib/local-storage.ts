@@ -6,7 +6,7 @@
 const CACHE_BUDGET_BYTES = 2 * 1024 * 1024;
 const CACHE_STORAGE_CEILING_BYTES = 4 * 1024 * 1024;
 const bytes = (key: string, value: string) => 2 * (key.length + value.length);
-const cachePriority = (key: string) => /^anacan_i18n_cache:(az|en|ru|tr|kk|de|ar|uz|ka|zh|id|fr|es|pt|vi|hi|ja|ko|pl|nl|sv)$/.test(key)
+const cachePriority = (key: string) => /^anacan_i18n_cache:(az|en|ru|tr|kk|de|ar|uz|ka|zh|id|fr|es|pt|vi|hi|ja|ko|pl|nl|sv|ky|et|tk|uk)$/.test(key)
   ? 0 : key.startsWith('anacan_ocache_v1:') ? 1 : -1;
 
 export function isStorageQuotaError(error: unknown): boolean {
@@ -45,7 +45,8 @@ export function writeStorageItem(storage: Storage, key: string, value: string): 
 
 /** Optional cache writes share a bounded budget and leave headroom for sessions. */
 export function writeStorageCache(storage: Storage, key: string, value: string): boolean {
-  if (cachePriority(key) < 0) throw new Error('NOT_A_DISPOSABLE_STORAGE_CACHE');
+  const priority = cachePriority(key);
+  if (priority < 0) throw new Error('NOT_A_DISPOSABLE_STORAGE_CACHE');
   try {
     const size = bytes(key, value);
     if (size > CACHE_BUDGET_BYTES) return false;
@@ -54,10 +55,13 @@ export function writeStorageCache(storage: Storage, key: string, value: string):
     let cached = items.filter(item => item.priority >= 0).reduce((sum, item) => sum + item.bytes, size);
     const essential = items.filter(item => item.priority < 0).reduce((sum, item) => sum + item.bytes, 0);
     if (essential + size > CACHE_STORAGE_CEILING_BYTES) return false;
-    for (const item of disposable(items, key)) {
+    // A translation cache (re-downloadable, bundled seeds on native) never evicts the
+    // offline user data cache (children, profile): that is what an offline open shows.
+    for (const item of disposable(items, key).filter(item => item.priority <= priority)) {
       if (total <= CACHE_STORAGE_CEILING_BYTES && cached <= CACHE_BUDGET_BYTES) break;
       storage.removeItem(item.key); total -= item.bytes; cached -= item.bytes;
     }
+    if (total > CACHE_STORAGE_CEILING_BYTES || cached > CACHE_BUDGET_BYTES) return false;
     storage.setItem(key, value);
     return true;
   } catch { return false; }

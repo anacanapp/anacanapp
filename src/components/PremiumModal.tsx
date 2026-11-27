@@ -20,9 +20,13 @@ interface PremiumModalProps {
   isOpen: boolean;
   onClose: () => void;
   feature?: string;
+  /** What opened the paywall for analytics (e.g. the tool id); `feature` only picks the label. */
+  analyticsSource?: string;
+  /** After a successful purchase/restore. Defaults to onClose; a tool's gate passes its own so the user stays in the tool. */
+  onPurchased?: () => void;
 }
 
-export function PremiumModal({ isOpen, onClose, feature }: PremiumModalProps) {
+export function PremiumModal({ isOpen, onClose, feature, analyticsSource, onPurchased }: PremiumModalProps) {
   useAdSafetyBlock(isOpen);
   const cfg = usePaywallConfig();
   const language = useUserStore(state => state.language);
@@ -42,7 +46,7 @@ export function PremiumModal({ isOpen, onClose, feature }: PremiumModalProps) {
   // Analytics + focus + esc
   useEffect(() => {
     if (!isOpen) return;
-    import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(feature || 'general')).catch(() => {});
+    import('@/lib/analytics').then((m) => m.analytics.logPaywallShown(analyticsSource || feature || 'general')).catch(() => {});
     setTimeout(() => closeButtonRef.current?.focus(), 100);
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -87,8 +91,12 @@ export function PremiumModal({ isOpen, onClose, feature }: PremiumModalProps) {
     flow_trend_chart: tr('pm_feat_flow_trend', 'Trend qrafiki'),
     flow_symptom_report: tr('pm_feat_flow_symptom', 'Simptom hesabatı'),
     flow_reminders: tr('pm_feat_flow_reminders', 'Xatırlatmalar'),
+    parenting_article: tr('pm_feat_par_article', 'Tərbiyə məqalələri'),
+    parenting_sos: tr('pm_feat_par_sos', 'Bütün SOS kartları'),
+    parenting_programme: tr('pm_feat_par_programme', 'Tərbiyə proqramları'),
+    parenting_quiz: tr('pm_feat_par_quiz', 'Testin ətraflı nəticəsi'),
   };
-  const featureLabel = feature ? (FEATURE_LABELS[feature] ?? feature) : '';
+  const featureLabel = feature ? (FEATURE_LABELS[feature] ?? tr('pm_feat_tool', 'Bu alət')) : '';
   const featureLockText = feature ? cfg.feature_lock_text.replace('{feature}', featureLabel) : '';
 
   // PORTAL: modal transform-lu kartların içindən çağırılır (stacking context tələsi)
@@ -186,7 +194,7 @@ export function PremiumModal({ isOpen, onClose, feature }: PremiumModalProps) {
             <div
             className="flex-1 overflow-y-auto overscroll-contain px-5 min-h-0 relative"
             style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)' }}>
-              <PaywallCore feature={feature} onPurchased={() => onClose()} />
+              <PaywallCore feature={feature} analyticsSource={analyticsSource} onPurchased={() => (onPurchased ?? onClose)()} />
             </div>
           </motion.div>
         </motion.div>

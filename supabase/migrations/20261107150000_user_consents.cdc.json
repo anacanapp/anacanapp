@@ -1,0 +1,23 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261107150000_user_consents.sql",
+  "runtime": "google-user-consents",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; enrolls the new relation and checks its three triggers; app_settings is already guarded (the migration refuses otherwise)",
+  "preserve": [
+    "cron0, no timer added",
+    "8 enabled business timers",
+    "public allowlist RPC unchanged: consent_gate is read server-side by my_consents_v1 / record_consents_v1"
+  ],
+  "relations": [
+    { "relation": "public.user_consents", "change": "created", "cdc": true, "writer_guard": true, "private": true, "pii": true,
+      "note": "append-only consent log per user: kind (terms | health_data | age_16 | marketing | child_data | ai_assistant | marketing_email | marketing_push | marketing_sms), granted, document_version, text_variant (default | kvkk_tr), source (ios/android/web), app_version, created_at; RLS: own rows select/insert only, no update (trigger), deletion only by account cascade" },
+    { "relation": "public.app_settings", "change": "row consent_gate added", "cdc": true, "writer_guard": true, "private": false, "pii": false,
+      "note": "consent_gate = {\"enabled\": true, \"version\": \"2.0\"}: switch and current legal document version; existing guarded relation" }
+  ],
+  "functions": [
+    { "name": "public.consent_gate_config_v1()", "security": "definer", "grant": ["service_role"], "note": "reads app_settings.consent_gate; malformed → disabled" },
+    { "name": "public.my_consents_v1()", "security": "definer", "grant": ["authenticated", "service_role"], "note": "gate config + latest row per kind for auth.uid()" },
+    { "name": "public.record_consents_v1(jsonb,text,text)", "security": "definer", "grant": ["authenticated", "service_role"], "note": "validates kinds, current version, source; terms/age_16 grant-only; inserts rows for auth.uid()" },
+    { "name": "public.user_consents_append_only()", "security": "invoker", "grant": [], "note": "BEFORE UPDATE trigger function: raises USER_CONSENTS_APPEND_ONLY" }
+  ]
+}

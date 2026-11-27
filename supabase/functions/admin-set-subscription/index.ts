@@ -19,7 +19,9 @@
 //
 // Auth: real admin istifadecisi teleb olunur (requireAdmin).
 // Body: { targetUserId: string, planType: 'free'|'premium'|'premium_plus',
-//         status?: 'active'|'cancelled'|'expired' }
+//         status?: 'active'|'cancelled'|'expired', expiresAt?: ISO string | null }
+// expiresAt: premium expiry; null/absent = lifetime. Always written, so an older expires_at
+// can never keep a fresh grant inactive.
 // Cavab: { success: true, subscription: {...} }
 // ============================================================
 import { createClient } from 'npm:@supabase/supabase-js@2';
@@ -58,14 +60,28 @@ Deno.serve(async (req) => {
       return json({ error: 'Etibarsız status' }, 400);
     }
 
+    let expiresAt: string | null = null;
+    if (body.expiresAt !== undefined && body.expiresAt !== null) {
+      const parsed = typeof body.expiresAt === 'string' ? Date.parse(body.expiresAt) : Number.NaN;
+      if (!Number.isFinite(parsed)) {
+        return json({ error: 'Etibarsız müddət' }, 400);
+      }
+      expiresAt = new Date(parsed).toISOString();
+    }
+
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL')!,
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     );
 
     const isPremium = planType === 'premium' || planType === 'premium_plus';
+    if (isPremium && expiresAt !== null && Date.parse(expiresAt) <= Date.now()) {
+      return json({ error: 'Müddət keçmiş tarix ola bilməz' }, 400);
+    }
+    const storedExpiresAt = isPremium ? expiresAt : null;
 
-    // Upsert subscriptions row (unique on user_id).
+    // Upsert subscriptions row (unique on user_id). This row is the entitlement source of truth:
+    // a profile flag alone never grants access.
     const { data: subscription, error: subError } = await supabase
       .from('subscriptions')
       .upsert(
@@ -73,6 +89,9 @@ Deno.serve(async (req) => {
           user_id: targetUserId,
           plan_type: planType,
           status,
+          expires_at: storedExpiresAt,
+          is_trial: false,
+          ...(status === 'active' ? { cancelled_at: null } : {}),
           updated_at: new Date().toISOString(),
         },
         { onConflict: 'user_id' }
@@ -88,7 +107,7 @@ Deno.serve(async (req) => {
     // Keep profiles.is_premium in sync (many screens still read this flag).
     const { error: profileError } = await supabase
       .from('profiles')
-      .update({ is_premium: isPremium })
+      .update({ is_premium: isPremium, premium_until: storedExpiresAt })
       .eq('user_id', targetUserId);
 
     if (profileError) {

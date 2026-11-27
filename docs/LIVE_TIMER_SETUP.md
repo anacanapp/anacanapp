@@ -8,6 +8,33 @@ Widget-dən dayandırılan sessiya itmir: native tərəf "pending stop" yazır, 
 
 ---
 
+## Hamiləlik alətləri: sancı və hərəkət sayğacı taymerləri
+
+Kod: `src/lib/tool-live-timer.ts` (çağıranlar: `useContractionLiveTimer` → `src/hooks/useContractions.ts`,
+`useKickLiveTimer` → `src/hooks/useKickSessions.ts`). Eyni `LiveActivity` plugin-i və eyni Android kanalı işlədilir.
+
+- **Növlər:** `type: 'contraction'` və `type: 'kick'`. Hər alətin bir "slotu" var; sayğac `startTime`-dan native
+  tərəfdə özü sayır, ekran kilidli olsa da işləyir.
+  - Sancı: aktiv sancı "Sancı" (alt mətn: bitəndə tətbiqdə qeyd edin); sonra "Son sancıdan bəri" (fasilə).
+    Bir saat sancı olmasa və ya tarixçə silinəndə gizlənir.
+  - Hərəkət: "Hərəkət · {count}", hər toxunuşda yenilənir; sessiya dayananda/sıfırlananda gizlənir.
+- **iOS:** başlıqda 🌊 (sancı) və 👣 (hərəkət) emojisi (`AnacanTimerAttributes.timerEmoji`). Düymə **"Gizlət"**
+  (`stopLabel`, lokallaşdırılmış `livetimer_hide`; ikon `eye.slash.fill`). Live Activity atributları dəyişmədiyi
+  üçün mətn dəyişəndə yeni activity başlanır, köhnəsi dərhal bağlanır.
+- **Android:** bildiriş başlığı emoji ilə: `🌊 <label>`, `👣 <label>` (`TimerForegroundService.titleFor`). Eyni id ilə
+  `startActivity` bildirişi yerində yeniləyir. Kanal ID-si dəyişmir; kanal adı "Taymerlər", təsviri ümumi
+  **"Aktiv taymerlər"** (süd vermə, yuxu, sancı, hərəkət üçün bir kanal).
+- **"Gizlət" sessiyanı dayandırmır:** yalnız kilid ekranı taymerini bağlayır. Sancı/hərəkət sessiyası tətbiqdə davam
+  edir; bu növlər üçün yazılan "pending stop" `usePendingTimerStops` tərəfindən nəzərə alınmır (yalnız `sleep` və
+  `feeding` `baby_logs`-a yazılır).
+- iOS-da Live Activities söndürülübsə native çağırış rədd olunur və heç nə göstərilmir (bu alətlər üçün adi
+  bildiriş fallback-i yoxdur). Web-də hər şey no-op.
+- **Native build lazımdır:** emoji, "Gizlət" düyməsi və yeni kanal təsviri native koddadır
+  (`ios/App/AnacanTimerWidgetExt/`, `android/.../TimerForegroundService.kt`, `TimerWidgetPlugin.kt`). Yalnız JS
+  bundle yenilənmiş köhnə build-lərdə bu fərqlər görünməyə bilər (məs. iOS-da ümumi ⏱ ikonu).
+
+---
+
 ## Android — heç bir manual addım YOXDUR ✅
 
 Hər şey kodda hazırdır: `TimerForegroundService.kt`, `TimerWidgetPlugin.kt`, manifest icazələri

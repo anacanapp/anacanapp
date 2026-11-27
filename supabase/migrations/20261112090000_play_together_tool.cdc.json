@@ -1,0 +1,10 @@
+{
+  "protocol": "anacan-cdc-enrollment-request-v1",
+  "migration": "20261112090000_play_together_tool.sql",
+  "runtime": "google-play-together-tool",
+  "install": "/home/anacan-runner/run-sql.py on anacan-gcp-candidate; data only, checks the tool_configs guard",
+  "relations": [
+    { "relation": "public.tool_configs", "change": "row play-together added (is_active=false, code tool)", "cdc": true, "writer_guard": true, "pii": false,
+      "note": "ordering/stage row for the Uşaqla oyun code tool; already guarded" }
+  ]
+}

@@ -1,5 +1,4 @@
-import { tr } from "@/lib/tr";import { LocalNotifications } from '@capacitor/local-notifications';
-import { isNative } from '@/lib/native';
+import { tr } from "@/lib/tr";import { isNative } from '@/lib/native';
 import type { TimerType } from '@/store/timerStore';
 
 const getTimerLabels = (): Record<TimerType, string> => ({
@@ -27,27 +26,20 @@ feedType?: 'left' | 'right')
   if (!isNative) return;
 
   try {
-    const perms = await LocalNotifications.checkPermissions();
-    if (perms.display !== 'granted') {
-      const req = await LocalNotifications.requestPermissions();
-      if (req.display !== 'granted') return;
-    }
-
     const title = label || getTimerLabels()[type] || 'Timer';
     const feedSuffix = feedType ? ` (${feedType === 'left' ? tr("timernotifications_sol", "Sol") : tr("timernotifications_sag_edbe12", "Sağ")})` : '';
 
-    await LocalNotifications.schedule({
-      notifications: [
-      {
-        id: hashTimerId(timerId),
-        title: `${title}${feedSuffix}`,
-        body: tr("timernotifications_timer_aktiv_geri_donmek_ucun_t_f7638a", "Timer aktiv \u2014 geri d\xF6nm\u0259k \xFC\xE7\xFCn toxunun"),
-        ongoing: true,
-        autoCancel: false,
-        smallIcon: 'ic_stat_icon'
-      }]
-
-    });
+    // Shown at once through the central scheduler (never a pending slot). Starting a timer is the user's
+    // own action, so it may ask for permission like before.
+    const { notifyNow } = await import('@/lib/local-notification-scheduler');
+    await notifyNow({
+      id: hashTimerId(timerId),
+      title: `${title}${feedSuffix}`,
+      body: tr("timernotifications_timer_aktiv_geri_donmek_ucun_t_f7638a", "Timer aktiv \u2014 geri d\xF6nm\u0259k \xFC\xE7\xFCn toxunun"),
+      ongoing: true,
+      autoCancel: false,
+      smallIcon: 'ic_stat_icon'
+    }, { ask: true });
   } catch (e) {
     console.warn('Timer notification error:', e);
   }
@@ -55,25 +47,16 @@ feedType?: 'left' | 'right')
 
 export async function clearTimerNotification(timerId: string) {
   if (!isNative) return;
-
-  try {
-    await LocalNotifications.cancel({
-      notifications: [{ id: hashTimerId(timerId) }]
-    });
-  } catch (e) {
-    console.warn('Clear timer notification error:', e);
-  }
+  const { cancelLocalNotificationIds } = await import('@/lib/local-notification-scheduler');
+  await cancelLocalNotificationIds([hashTimerId(timerId)]);
 }
 
-export async function clearAllTimerNotifications() {
-  if (!isNative) return;
-
-  try {
-    const pending = await LocalNotifications.getPending();
-    if (pending.notifications.length > 0) {
-      await LocalNotifications.cancel({ notifications: pending.notifications });
-    }
-  } catch (e) {
-    console.warn('Clear all timer notifications error:', e);
-  }
+/**
+ * Clears the notifications of these timers only. It used to cancel EVERY pending local notification,
+ * which also wiped vaccine, Tərbiyə and other reminders whenever the timers were reset.
+ */
+export async function clearAllTimerNotifications(timerIds: string[] = []) {
+  if (!isNative || !timerIds.length) return;
+  const { cancelLocalNotificationIds } = await import('@/lib/local-notification-scheduler');
+  await cancelLocalNotificationIds(timerIds.map(hashTimerId));
 }

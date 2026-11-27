@@ -1,11 +1,17 @@
-import { tr } from "@/lib/tr";import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { tr } from "@/lib/tr";import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { Crown, Sparkles, Check } from 'lucide-react';
+import { Crown, Sparkles, Check, RefreshCw, WifiOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useSubscription } from '@/hooks/useSubscription';
 import { PremiumModal } from '@/components/PremiumModal';
+import { usePartnerData } from '@/hooks/usePartnerData';
+import { useOnlineStatus } from '@/hooks/useOnlineStatus';
+import type { AIChatPartnerContext } from '@/components/AIChatScreen';
 
 const AIChatScreen = lazy(() => import('@/components/AIChatScreen'));
+
+/** After this long the Premium check counts as stuck: show retry instead of a spinner. */
+export const AI_GATE_SLOW_MS = 15_000;
 
 const fallback =
 <div className="a-scope min-h-screen flex items-center justify-center overflow-x-hidden" style={{ background: 'var(--a-bg)' }}>
@@ -13,10 +19,47 @@ const fallback =
   </div>;
 
 
-const PartnerAIPremiumGate = () => {
-  const { isPremium, loading } = useSubscription();
+/**
+ * Anacan.AI is Premium only. `self` is the woman's own assistant (no partner context); without it this is
+ * Ata AI for the partner. A free user who opens the tab sees the locked screen and the paywall opens at once.
+ */
+const PartnerAIPremiumGate = ({ self = false, children }: { self?: boolean; children?: ReactNode }) => {
+  const { isPremium, loading, entitlementReady, entitlementError, refetch } = useSubscription();
+  const online = useOnlineStatus();
+  const [slow, setSlow] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  useEffect(() => {
+    setSlow(false);
+    if (!loading) return;
+    const timer = setTimeout(() => setSlow(true), AI_GATE_SLOW_MS);
+    return () => clearTimeout(timer);
+  }, [loading, attempt]);
+  // No server answer and no confirmed grant: the check failed (or is paused offline). This
+  // is neither "free user" (no paywall) nor "loading" (no endless spinner).
+  const unresolved = !isPremium && entitlementReady === false && (entitlementError === true || !online);
+  const checkFailed = !isPremium && ((loading && slow) || (!loading && unresolved));
+  const { partnerProfile, sharing, getPregnancyWeek } = usePartnerData();
+  const stage = partnerProfile?.life_stage;
+  // Ata AI: the woman's stage and only what she shares (cycle dates need share_cycle).
+  const partnerContext: AIChatPartnerContext = {
+    lifeStage: stage === 'flow' || stage === 'mommy' ? stage : 'bump',
+    pregnancyWeek: stage === 'bump' ? getPregnancyWeek() || undefined : undefined,
+    womanName: partnerProfile?.name,
+    dueDate: partnerProfile?.due_date,
+    babyName: partnerProfile?.baby_name,
+    babyBirthDate: partnerProfile?.baby_birth_date,
+    lastPeriodDate: stage === 'flow' && !sharing.share_cycle ? null : partnerProfile?.last_period_date,
+    cycleLength: partnerProfile?.cycle_length,
+  };
   const [showModal, setShowModal] = useState(false);
   const hadPremium = useRef(false);
+  const autoOpened = useRef(false);
+
+  useEffect(() => {
+    if (!self || loading || isPremium || checkFailed || entitlementReady === false || autoOpened.current) return;
+    autoOpened.current = true;
+    setShowModal(true);
+  }, [self, loading, isPremium, checkFailed, entitlementReady]);
 
   useEffect(() => {
     if (isPremium) { hadPremium.current = true; return; }
@@ -26,12 +69,34 @@ const PartnerAIPremiumGate = () => {
     }
   }, [isPremium]);
 
+  if (checkFailed) {
+    return (
+      <div className="a-scope min-h-screen flex items-center justify-center px-5 overflow-x-hidden" style={{ background: 'var(--a-bg)' }}>
+        <div className="a-card text-center py-8 max-w-sm w-full" role="alert">
+          {online ? <RefreshCw size={28} className="mx-auto mb-3" style={{ color: 'var(--a-ink-soft)' }} />
+            : <WifiOff size={28} className="mx-auto mb-3" style={{ color: 'var(--a-ink-soft)' }} />}
+          <p className="font-bold text-base" style={{ color: 'var(--a-ink)' }}>
+            {online ? tr("aigate_check_failed", "Premium statusu yoxlanmadı") : tr("errorboundary_offline_retry", "İnternet yoxdur, yenidən cəhd et")}
+          </p>
+          <button type="button" className="a-btn-soft mt-4"
+            onClick={() => {
+              // Back to the spinner for one more bounded wait; the answer (or another failure) decides.
+              setAttempt((value) => value + 1);
+              void Promise.resolve(refetch?.()).catch(() => {});
+            }}>
+            <RefreshCw size={15} />{tr("errorboundary_yeniden_cehd_et_d273ac", "Yenidən cəhd et")}
+          </button>
+        </div>
+      </div>);
+  }
+
   if (loading) return fallback;
 
   if (isPremium) {
+    if (children) return <>{children}</>;
     return (
       <Suspense fallback={fallback}>
-        <AIChatScreen />
+        <AIChatScreen partner={self ? undefined : partnerContext} />
       </Suspense>);
 
   }
@@ -114,7 +179,7 @@ const PartnerAIPremiumGate = () => {
         </p>
       </motion.div>
 
-      <PremiumModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      <PremiumModal isOpen={showModal} onClose={() => setShowModal(false)} feature="ai_chat" analyticsSource={self ? 'ai_tab' : 'partner_ai_tab'} />
     </div>);
 
 };

@@ -1,0 +1,119 @@
+{
+  "ui": {
+    "title": "The first 8 weeks",
+    "subtitle": "How to support her after the birth",
+    "home_card": "After the birth · week {n}/8",
+    "open": "Open",
+    "week": "Week {n}",
+    "tab_week": "This week",
+    "tab_blues": "Baby blues",
+    "tab_signs": "Warning signs",
+    "tab_support": "Support her",
+    "her_body": "Her body",
+    "her_mind": "Her feelings",
+    "you_do": "What you can do",
+    "you_say": "What you can say",
+    "avoid": "Avoid this",
+    "send": "Send",
+    "sent": "Sent 💌",
+    "phrases_title": "Send her a few words",
+    "phrases_sub": "Sent as a message with one tap.",
+    "tasks_title": "Today I've got this",
+    "tasks_sub": "Send her what you're taking on so she knows it's handled.",
+    "tasks_send": "Send my list to her",
+    "tasks_message": "Today I'm taking care of: {list} 💪 You rest.",
+    "signs_title": "Check the signs",
+    "signs_sub": "Tick what you've noticed lately. This is not a diagnosis.",
+    "signs_none": "No warning signs ticked right now. Keep up your support.",
+    "signs_some": "If these signs last more than 2 weeks, see a doctor together.",
+    "signs_urgent": "You ticked an urgent sign. Don't leave her alone and call emergency services (112) now.",
+    "mood_low_title": "Her mood has been low lately",
+    "mood_low_body": "She logged a low mood on {n} of the last 7 days. Give her extra time today and ask how she feels.",
+    "mood_low_long": "If this lasts more than 2 weeks, talk to a doctor together.",
+    "disclaimer": "This information does not replace medical advice."
+  },
+  "weeks": [
+    {
+      "title": "The first days at home",
+      "body": "After the birth there is bleeding (lochia), and stitches or a caesarean wound hurt. Milk comes in around day 3–5, and her breasts may swell and ache.",
+      "mind": "Around day 3–5 hormones drop sharply. Crying for no reason, worry and feeling not good enough are normal: this is the baby blues.",
+      "do": ["Keep visitors to a minimum this week and be the one at the door", "Bring water and a snack to every feed", "Take over nappies, dressing and bathing the baby", "Handle the chores, meals and shopping completely"],
+      "say": ["You're a wonderful mum. We're still getting to know each other", "If you need to cry, cry. I'm here"],
+      "avoid": "Don't say \"Everyone has babies, what's the big deal?\" Don't play down her feelings."
+    },
+    {
+      "title": "The sleep debt builds up",
+      "body": "Bleeding starts to ease. Breastfeeding can still hurt; if there are cracks, a hard lump or redness, see a doctor or a lactation consultant.",
+      "mind": "The baby blues usually pass by 2 weeks. If sadness, hopelessness or loss of interest go on beyond that, it may be postnatal depression. Watch closely.",
+      "do": ["Make a night-shift plan so she sleeps at least 4–5 hours in a row", "Take the baby out for a walk so she has the home to herself", "Find a lactation consultant for feeding questions", "Ask \"How are you feeling?\" every day, and listen"],
+      "say": ["I've got tonight, you sleep", "Tell me what you need; we'll sort everything out together"],
+      "avoid": "Don't decide for her or pile on advice. Listen first."
+    },
+    {
+      "title": "A growth spurt",
+      "body": "The baby may want to feed very often (cluster feeding). It doesn't mean there isn't enough milk: the baby is growing.",
+      "mind": "Feeding non-stop wears her out and makes her feel she can't keep up with anything. Don't let her feel alone.",
+      "do": ["Sit with her during evening feeds: bring water, food and the remote", "Burp the baby after feeds and settle them to sleep", "Plan the laundry and cleaning yourself", "Cook or order her favourite meal"],
+      "say": ["You're growing our baby. It's hard work and you're doing it", "I'm here, you're not alone"],
+      "avoid": "Don't say \"Eating again?\" or \"Maybe you don't have enough milk\". It breaks her confidence."
+    },
+    {
+      "title": "One month in",
+      "body": "Stitches have usually healed, but heavy lifting is still too early, especially after a caesarean.",
+      "mind": "Tiredness has built up. She may feel far from her old life, like she is \"only a mum\" now.",
+      "do": ["Give her 1–2 hours just for herself: a shower, a walk, friends", "Plan a small surprise: flowers, her favourite treat, a note", "Organise meals and help from family and friends yourself", "Make an album of the baby's first photos together"],
+      "say": ["What can I do today to make things a bit lighter for you?", "I love you so much. Since you became a mum I admire you even more"],
+      "avoid": "Don't talk about her looks or her weight."
+    },
+    {
+      "title": "A routine takes shape",
+      "body": "Bleeding should be very light by now. If it suddenly gets heavier, or there is a fever or a bad smell, see a doctor.",
+      "mind": "A routine is forming, but doing the same things every day can wear her down. If sadness lasts more than 2 weeks, it's time for professional support.",
+      "do": ["Take over one evening routine every day: bath time or bedtime", "Plan a short family outing at the weekend", "Ask her what's hardest right now and solve one thing", "Keep an eye on your own tiredness and talk to her about it"],
+      "say": ["Rest tonight, I'll put the baby to bed", "We're a team"],
+      "avoid": "Don't sum up her day as \"you were home all day\"."
+    },
+    {
+      "title": "Peak crying and the check-up",
+      "body": "The postnatal check-up usually happens around now. Babies cry the most at 6–8 weeks; after that it eases.",
+      "mind": "Not being able to soothe the baby is exhausting. When frustration builds, it's fine to lay the baby safely in the cot and breathe for a few minutes. Never shake a baby.",
+      "do": ["Go to the check-up together and write questions down beforehand", "Take turns walking the baby during crying spells", "Say \"I've got this now\" and give her a break", "Encourage her to tell the doctor how she's feeling, too"],
+      "say": ["The crying isn't your fault; babies are like this", "Let's take turns, you take a break"],
+      "avoid": "Don't rush intimacy. She'll tell you when she's ready."
+    },
+    {
+      "title": "Finding herself again",
+      "body": "Her body is still recovering. If the doctor has cleared it, gentle walks and breathing exercises help.",
+      "mind": "She's getting to know herself again and may have worries about her body, work or friends. Your support gives her strength.",
+      "do": ["Give her one completely \"free hour\" each week", "Plan a short walk or a café visit together", "Keep sharing the night shifts fairly", "Say your thanks out loud"],
+      "say": ["You're still you, and I choose you every day", "You did huge work this month"],
+      "avoid": "Don't compare: don't say \"So-and-so bounced back quickly\"."
+    },
+    {
+      "title": "Two months: a new family",
+      "body": "Many mums feel stronger by now. If pain, bleeding or exhaustion are still heavy, tell the doctor.",
+      "mind": "Her mood should be improving. If sadness, anxiety or feeling distant from the baby continue, talk it through with a doctor together. Help is available and it is treatable.",
+      "do": ["Look back on these two months together: what went well, what should change", "Rework how you share the household tasks together", "Have a small \"two months\" celebration", "Check your own mood too: dads can have postnatal depression"],
+      "say": ["Being parents with you is my greatest happiness", "What shall we do differently next month?"],
+      "avoid": "Don't suddenly scale back your support because \"everything's fine now\"."
+    }
+  ],
+  "blues": {
+    "title": "What are the baby blues?",
+    "intro": "About 50–80% of women have the baby blues after giving birth. The causes are the sharp drop in hormones, lack of sleep and new responsibility.",
+    "facts": ["It usually starts 2–5 days after the birth", "Crying for no reason, irritability, worry and tiredness are common", "It usually passes on its own within 2 weeks", "The best medicine: sleep, food, support and understanding"],
+    "help_title": "What you can do",
+    "help": ["Listen to her; don't try to \"fix\" her feelings", "Protect her sleep: set up night shifts", "Take over the chores and the visitors", "Praise her every day and show you're there"],
+    "ppd_title": "Postnatal depression is different",
+    "ppd_intro": "It affects about 10–15% of women and can start any time in the first year after birth. It is not a weakness, and it is treatable.",
+    "ppd_signs": ["Sadness or emptiness lasting more than 2 weeks", "She has lost interest in things she used to enjoy", "She can't sleep even when the baby sleeps", "She feels worthless or guilty", "She feels distant from the baby", "Her appetite has changed sharply"],
+    "ppd_action": "If you see these signs, encourage her to see a doctor (her gynaecologist, GP or a psychologist) and go with her.",
+    "urgent_title": "Get help immediately",
+    "urgent_signs": ["Thoughts of harming herself or the baby", "Seeing or hearing things that aren't there", "Confusion, extreme mood swings, not sleeping for days"],
+    "urgent_action": "In these cases don't leave her alone, and call emergency services (112) immediately.",
+    "self_title": "You matter too",
+    "self": ["Dads can have postnatal depression too (about 10%)", "Take short naps and don't skip meals", "Talk about your feelings with her or a friend", "Asking for help is a strength"]
+  },
+  "phrases": ["You're an amazing mum 💛", "Whatever you need today, I'm here", "Lie down for a bit, I'll look after the baby", "I love you so much, you're not alone", "You're tired and that's completely normal. We'll manage together", "What can I bring you? Tea, food, or just a hug?", "I've got tonight, sleep well", "Thank you for everything you did today"],
+  "tasks": ["One night feed", "Nappies", "The baby's bath", "Cooking", "The dishes", "Laundry", "Grocery shopping", "Visitors", "A walk with the baby", "The pharmacy"]
+}

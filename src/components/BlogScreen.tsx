@@ -18,6 +18,7 @@ import { format } from 'date-fns';
 import { getCurrentDateLocale } from '@/lib/date-utils';
 import BlogPostDetail from '@/components/blog/BlogPostDetail';
 import { tr } from "@/lib/tr";
+import { formatCount } from '@/lib/count-plural';
 import { AdInlineAnchor, AdSurface } from '@/components/ads/AdExperienceProvider';
 import { followupText } from '@/lib/followup-i18n';
 import { blogMatchesStage } from '@/lib/blog-editorial';
@@ -127,7 +128,7 @@ const BlogScreen = ({ onBack, initialSlug, lifeStage }: BlogScreenProps) => {
 
   }
 
-  if (linkMissing) return <div className="a-scope a-shell py-8"><button className="a3-icon-btn" onClick={onBack}><ArrowLeft className="rtl:rotate-180" size={20} /></button>
+  if (linkMissing) return <div className="a-scope a-shell py-8"><button className="a-icon-btn" aria-label={tr('common_geri', 'Geri')} onClick={onBack}><ArrowLeft className="rtl:rotate-180" size={18} /></button>
     <p role="status" className="a-list-title mt-4">{followupText('blog_unavailable')}</p></div>;
 
   if (selectedPost) {
@@ -159,14 +160,14 @@ const BlogScreen = ({ onBack, initialSlug, lifeStage }: BlogScreenProps) => {
                 e.stopPropagation();
                 onBack();
               }}
-              className="a3-icon-btn"
+              className="a-icon-btn"
               whileTap={{ scale: 0.9 }}>
               
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
             <div>
-              <p className="a-eyebrow">{posts.length} {tr("blogscreen_meqale_63f1b2", "m\u0259qal\u0259")}</p>
-              <p className="a3-tool-title">{tr("blogscreen_ana_bloqu_28124b", "Qadın Bloqları")}</p>
+              <p className="a-eyebrow">{formatCount('count_articles', posts.length)}</p>
+              <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("blogscreen_ana_bloqu_28124b", "Qadın Bloqları")}</p>
             </div>
           </div>
         </header>
@@ -301,7 +302,7 @@ const BlogScreen = ({ onBack, initialSlug, lifeStage }: BlogScreenProps) => {
               }
             </h2>
             <span className="a-section-link">
-              {filteredPosts.length} {tr("blogscreen_meqale_63f1b2", "m\u0259qal\u0259")}
+              {formatCount('count_articles', filteredPosts.length)}
             </span>
           </div>
 

@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import type { PushEventData } from '@/lib/push';
 import { useAuth } from './useAuth';
 import { useToast } from './use-toast';
+import { compressImageForUpload } from '@/lib/image-compress';
 
 export interface DirectMessage {
   id: string;
@@ -184,8 +185,9 @@ export const useDirectMessages = (otherUserId?: string) => {
     }
   };
 
-  const uploadMedia = async (file: Blob, type: 'image' | 'video' | 'audio', signal?: AbortSignal) => {
+  const uploadMedia = async (original: Blob, type: 'image' | 'video' | 'audio', signal?: AbortSignal) => {
     if (!user || signal?.aborted) return null;
+    const file = type === 'image' ? await compressImageForUpload(original) : original;
     
     let ext = 'jpg';
     let contentType = 'image/jpeg';
@@ -204,6 +206,7 @@ export const useDirectMessages = (otherUserId?: string) => {
       const fileType = file.type || '';
       if (fileType.includes('png')) ext = 'png';
       else if (fileType.includes('gif')) ext = 'gif';
+      else if (fileType.includes('webp')) ext = 'webp';
       contentType = fileType || 'image/jpeg';
     }
 
@@ -224,8 +227,9 @@ export const useDirectMessages = (otherUserId?: string) => {
       }
       return null;
     }
-    const { data: { publicUrl } } = supabase.storage.from('chat-media').getPublicUrl(data.path);
-    return publicUrl;
+    // chat-media is private: return the storage object path, not a public URL.
+    // The message row stores this path; display signs it (see src/lib/chat-media.ts).
+    return data.path;
   };
 
   // Initial fetch

@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "title": "E-postanı doğrula",
+    "subtitle": "{email} adresine 6 haneli bir kod gönderdik. Aşağıya gir.",
+    "why": "Bu, hesabını korur ve alacağın Premium'un tam olarak senin hesabına bağlanmasını sağlar.",
+    "code_label": "Doğrulama kodu",
+    "confirm": "Doğrula",
+    "resend": "Kodu yeniden gönder",
+    "resend_in": "Yeniden gönder: {s} sn",
+    "sent": "Kod gönderildi",
+    "spam_hint": "E-posta gelmediyse Spam veya Promosyonlar klasörüne de bak.",
+    "wrong_code": "Kod yanlış. Kontrol edip tekrar dene.",
+    "expired": "Kodun süresi doldu. Yeni kod gönder.",
+    "too_many": "Çok fazla deneme yapıldı. Yeni kod gönder.",
+    "rate_limited": "Biraz bekle ve tekrar dene.",
+    "send_failed": "Kod gönderilemedi. İnternet bağlantını kontrol edip tekrar dene.",
+    "verified": "E-postan doğrulandı 🎉",
+    "wrong_email": "E-posta yanlış mı? Çıkış yap ve yeniden kaydol"
+  },
+  "email": {
+    "subject": "{code} — Anacan doğrulama kodun",
+    "preheader": "Hesabını doğrulamak için bu kodu gir.",
+    "heading": "Doğrulama kodun",
+    "intro": "Anacan hesabını doğrulamak için uygulamada bu kodu gir:",
+    "expires": "Kod 15 dakika geçerlidir.",
+    "ignore": "Bu isteği sen yapmadıysan bu e-postayı yok say — hesabında hiçbir şey değişmeyecek.",
+    "footer": "Anacan — her aşamada yanında"
+  }
+}

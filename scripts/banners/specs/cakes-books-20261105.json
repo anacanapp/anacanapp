@@ -1,0 +1,107 @@
+{
+ "banners": [
+  {
+   "id": "tort-1-foto",
+   "layout": "split",
+   "eyebrow": "Bento tortlar · Bakı",
+   "title": "Hər ay üçün *bir tort*",
+   "sub": "18 ₼-dan, Anacan qutusunda",
+   "cta": "Sifariş et",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/cakes/cake-1781894172506-8ipe.png"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/cakes"
+   }
+  },
+  {
+   "id": "tort-2-uclu",
+   "layout": "trio",
+   "bg": "#fdf6ee",
+   "eyebrow": "1, 2, 3… 12-ci ay",
+   "title": "Aylıq *bento* tortlar",
+   "sub": "48 saat qabaqcadan sifariş",
+   "cta": "Tortlara bax",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/cakes/cake-1781894172506-8ipe.png",
+    "https://gcp.anacan.az/storage/v1/object/public/assets/cakes/cake-1781894072808-snco.png",
+    "https://gcp.anacan.az/storage/v1/object/public/assets/cakes/cake-1781894137208-mnan.png"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/cakes"
+   }
+  },
+  {
+   "id": "tort-3-bir-yas",
+   "layout": "bold",
+   "eyebrow": "1 yaş paketi",
+   "title": "İlk ad günü *hazırdır*",
+   "sub": "Tort, bento və kapkeyklər · 149 ₼",
+   "cta": "Paketi gör",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/assets/cakes/cake-1793813000-pkg-bir-yas.jpg"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/cakes"
+   }
+  },
+  {
+   "id": "kitab-1-yelpik",
+   "layout": "fan",
+   "eyebrow": "PDF çap kitabları",
+   "title": "Yaşına uyğun *70 kitab*",
+   "sub": "6 ay – 6 yaş · 4 ₼-dan",
+   "cta": "Kataloqa bax",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/1_01_fermada.jpg",
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/1_03_bip-bip-neqliyyat.jpg",
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/1_02_meyveler-ve-terevezler.jpg"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/books"
+   }
+  },
+  {
+   "id": "kitab-2-sira",
+   "layout": "row",
+   "bg": "#f1f6f2",
+   "accent": "#2f7a55",
+   "eyebrow": "Boyama · say · hərflər",
+   "title": "Evdə çap et, *birgə oyna*",
+   "sub": "10+ kitab seçəndə hər biri 2 ₼",
+   "cta": "Kitab seç",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/1_05_bir-iki-uc.jpg",
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/3_01_reqemler-1-den-10-a.jpg",
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/4_01_elifba-1-a-dan-e-ye.jpg",
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/1_04_rengler-ve-formalar.jpg"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/books"
+   }
+  },
+  {
+   "id": "kitab-3-tek",
+   "layout": "card",
+   "bg": "#fff6e8",
+   "accent": "#c2702a",
+   "eyebrow": "Dərhal e-poçtla",
+   "title": "Bu axşam üçün *yeni kitab*",
+   "sub": "PDF gəlir, A4 vərəqə çap edirsiniz",
+   "cta": "Kitablara bax",
+   "images": [
+    "https://gcp.anacan.az/storage/v1/object/public/book-covers/4_01_elifba-1-a-dan-e-ye.jpg"
+   ],
+   "link": {
+    "link_type": "internal",
+    "link_url": "/books"
+   }
+  }
+ ],
+ "_note": "Rendered by scripts/banners/render-promo-banners.mjs; see docs/APP_PROMO_BANNERS.md. link = banners.link_type/link_url."
+}

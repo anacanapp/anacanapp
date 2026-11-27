@@ -1,7 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { useChildStore } from '@/store/childStore';
+import { readCache, writeCache } from '@/lib/offlineCache';
 import { getRealCalendarAge, getPrematurityInfo, type PrematurityInfo } from '@/lib/pregnancy-utils';
 
 export interface Child {
@@ -43,54 +45,69 @@ function loadActiveChildren(userId: string) {
   return request;
 }
 
+// Last successful children list per user (offline cache, cleared on logout).
+// Offline or on a failed fetch the app keeps showing these instead of an empty
+// "add child" state.
+const CHILDREN_CACHE_KEY = 'children_v1';
+export function readCachedChildren(userId: string): Child[] {
+  const cached = readCache<Child[]>(CHILDREN_CACHE_KEY, userId);
+  return Array.isArray(cached) ? cached : [];
+}
+function writeCachedChildren(userId: string, rows: Child[]) {
+  writeCache(CHILDREN_CACHE_KEY, userId, rows);
+}
+
 export const useChildren = () => {
   const { user } = useAuth();
-  const [children, setChildren] = useState<Child[]>([]);
-  const [loading, setLoading] = useState(true);
-  
+  const userId = user?.id ?? null;
+  const queryClient = useQueryClient();
+
   // Use Zustand store for global selectedChildId
   const { selectedChildId, setSelectedChildId } = useChildStore();
-  
-  // Derive selectedChild from children array and store's selectedChildId
-  const selectedChild = children.find(c => c.id === selectedChildId) || children[0] || null;
-  
-  // Wrapper to set selected child - updates the store
-  const setSelectedChild = useCallback((child: Child | null) => {
-    setSelectedChildId(child?.id || null);
-  }, [setSelectedChildId]);
 
-  const fetchChildren = useCallback(async () => {
-    if (!user) {
-      setLoading(false);
-      return;
-    }
-
-    try {
-      const { data, error } = await loadActiveChildren(user.id);
-
+  // user_children was re-SELECTed on every screen mount (manual useState+fetch). It is
+  // now cached by react-query so the ~7 parallel mounts (Dashboard, timer widget,
+  // histories…) share one request and a 5 min staleTime keeps later mounts free. The
+  // existing offline cache (offlineCache) still provides the instant cold/offline render
+  // and the on-error fallback; refetchOnReconnect (react-query default) replaces the old
+  // manual 'online' retry.
+  const query = useQuery<Child[]>({
+    queryKey: ['user-children', userId],
+    enabled: !!userId,
+    staleTime: 5 * 60 * 1000,
+    gcTime: 30 * 60 * 1000,
+    // Offline/server errors fall back to the cached list immediately; a retry storm on a
+    // captive network is not wanted (the 'online' reconnect refetch covers recovery).
+    retry: false,
+    // Seed from the durable offline cache so a cold/offline launch renders instantly,
+    // then refetch in the background (initialDataUpdatedAt: 0 marks it stale).
+    initialData: () => {
+      if (!userId) return undefined;
+      const cached = readCachedChildren(userId);
+      return cached.length > 0 ? cached : undefined;
+    },
+    initialDataUpdatedAt: 0,
+    queryFn: async () => {
+      const uid = userId!;
+      const { data, error } = await loadActiveChildren(uid);
       if (error) throw error;
-      // Seçim store-dan oxunur: asılılıqda olsaydı, uşaq dəyişəndə bütün instansiyalar yenidən sorğu göndərirdi
-      const selectedChildId = useChildStore.getState().selectedChildId;
+      let rows = (data || []) as Child[];
 
-      const rows = (data || []) as Child[];
-
-      // Backfill: if this user has baby fields on profile (from onboarding) but no user_children rows yet,
-      // create the first child automatically so Profile/Tools can show it.
-      // Guard modul-səviyyəlidir + upsert ignoreDuplicates → paralel instansiyalar dublikat yarada bilməz.
-      if (rows.length === 0 && !seedAttemptedUsers.has(user.id)) {
+      // Backfill: this user has baby fields on profile (from onboarding) but no
+      // user_children rows yet — create the first child so Profile/Tools can show it.
+      // Guard is module-level and the INSERT runs only when the list is empty, so
+      // parallel instances (react-query dedupes to one anyway) cannot duplicate.
+      if (rows.length === 0 && !seedAttemptedUsers.has(uid)) {
         const { data: profileRow, error: profileError } = await supabase
           .from('profiles')
           .select('baby_name, baby_birth_date, baby_gender, due_date')
-          .eq('user_id', user.id)
+          .eq('user_id', uid)
           .maybeSingle();
 
         if (!profileError && profileRow?.baby_name && profileRow?.baby_birth_date) {
           // Guard YALNIZ həqiqətən seed cəhdi ediləndə "yandırılır" — profil
-          // məlumatı hələ boşdursa (istifadəçi baby_name/baby_birth_date-i
-          // sonra dolduracaqsa), guard qoyulmur ki, növbəti fetchChildren()
-          // çağırışında YENIDƏN sınansın (əvvəllər guard buradan ƏVVƏL
-          // qoyulurdu — sessiya boyu əbədi bloklanırdı).
-          seedAttemptedUsers.add(user.id);
+          // məlumatı hələ boşdursa guard qoyulmur ki, növbəti sorğuda yenidən sınansın.
+          seedAttemptedUsers.add(uid);
           const normalizedGender: 'boy' | 'girl' =
             profileRow.baby_gender === 'girl' || profileRow.baby_gender === 'boy'
               ? profileRow.baby_gender
@@ -98,19 +115,13 @@ export const useChildren = () => {
 
           const avatarEmoji = normalizedGender === 'girl' ? '👧' : '👦';
 
-          // DÜZƏLİŞ: əvvəllər .upsert(..., {onConflict:'user_id,name,birth_date'})
-          // idi — user_children-in YEGANƏ unikal indeksi QİSMƏN-dir
-          // (WHERE is_active = true, bax Duzelis-dən əvvəlki
-          // 20260813150027_user_children_unique_guard.sql). Supabase-js-in
-          // .upsert() metodu ON CONFLICT-ə WHERE predikatı əlavə edə bilmir,
-          // buna görə Postgres bu qismən indeksi arbiter kimi tanıya bilmir
-          // və HƏR sətir 42P10 xətası ilə rədd olunurdu (səssizcə, heç yerdə
-          // göstərilmədən) — bu sətrin özü elə YALNIZ mövcud sətir sayı 0
-          // olanda işə düşür, ona görə sadə INSERT tam təhlükəsizdir.
+          // user_children-in yeganə unikal indeksi QİSMƏN-dir (WHERE is_active = true),
+          // supabase-js .upsert() bu arbiteri tanıya bilmir; bu kod yalnız sətir sayı 0
+          // olanda işə düşür, ona görə sadə INSERT təhlükəsizdir.
           const { error: insertError } = await supabase
             .from('user_children')
             .insert({
-              user_id: user.id,
+              user_id: uid,
               name: profileRow.baby_name,
               birth_date: profileRow.baby_birth_date,
               // Premature dəstəyi: profildə EDD hələ silinməyibsə, körpəyə köçür
@@ -128,50 +139,53 @@ export const useChildren = () => {
             const { data: reread } = await supabase
               .from('user_children')
               .select('*')
-              .eq('user_id', user.id)
+              .eq('user_id', uid)
               .eq('is_active', true)
               .order('sort_order');
             const seededRows = (reread || []) as Child[];
-            if (seededRows.length > 0) {
-              setChildren(seededRows);
-              if (!seededRows.some(c => c.id === selectedChildId)) {
-                setSelectedChildId(seededRows[0].id);
-              }
-              setLoading(false);
-              return;
-            }
+            if (seededRows.length > 0) rows = seededRows;
           }
         } else if (profileError) {
           console.error('Error fetching profile for child seeding:', profileError);
         }
       }
 
-      setChildren(rows);
+      writeCachedChildren(uid, rows);
+      return rows;
+    },
+  });
 
-      // Auto-select first child if none selected or selected child is not in the list
-      if (rows.length > 0) {
-        const currentlySelectedExists = rows.some(c => c.id === selectedChildId);
-        if (!currentlySelectedExists) {
-          setSelectedChildId(rows[0].id);
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching children:', error);
-    } finally {
-      setLoading(false);
-    }
-  }, [user, setSelectedChildId]);
+  // On an offline/server error react-query keeps the last data (seeded from the offline
+  // cache), so cached children stay on screen instead of an empty "add child" state.
+  const children: Child[] = query.data ?? [];
+  /** First load with nothing cached yet. */
+  const loading = query.isLoading;
+  /** Last fetch failed (offline/server error). Cached children, if any, are still shown. */
+  const loadError = query.isError;
 
+  const fetchChildren = useCallback(async () => { await query.refetch(); }, [query]);
+
+  // Derive selectedChild from children array and store's selectedChildId
+  const selectedChild = children.find(c => c.id === selectedChildId) || children[0] || null;
+
+  // Wrapper to set selected child - updates the store
+  const setSelectedChild = useCallback((child: Child | null) => {
+    setSelectedChildId(child?.id || null);
+  }, [setSelectedChildId]);
+
+  // Auto-select first child if none selected or the selected one is not in the list.
   useEffect(() => {
-    fetchChildren();
-  }, [fetchChildren]);
+    if (children.length === 0) return;
+    const current = useChildStore.getState().selectedChildId;
+    if (!children.some(c => c.id === current)) setSelectedChildId(children[0].id);
+  }, [children, setSelectedChildId]);
 
   // Profil redaktəsi kimi yerlərdən uşaq məlumatı dəyişəndə dərhal təzələ
   useEffect(() => {
-    const handler = () => fetchChildren();
+    const handler = () => { void queryClient.invalidateQueries({ queryKey: ['user-children', userId] }); };
     window.addEventListener('anacan:children-updated', handler);
     return () => window.removeEventListener('anacan:children-updated', handler);
-  }, [fetchChildren]);
+  }, [queryClient, userId]);
 
   const addChild = useCallback(async (childData: {
     name: string;
@@ -297,6 +311,7 @@ export const useChildren = () => {
     selectedChild,
     setSelectedChild,
     loading,
+    loadError,
     addChild,
     updateChild,
     deleteChild,

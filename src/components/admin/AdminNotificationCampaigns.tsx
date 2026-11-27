@@ -14,10 +14,35 @@ import { APP_LANGUAGES, localizedCountryName } from '@/lib/app-languages';
 import { getLocaleTag } from '@/lib/i18n';
 import { getPersistedLanguage, tr } from '@/lib/tr';
 
-interface Segment { languages: string[]; modules: string[]; countries: string[]; platforms: string[]; access: string; joinedFrom: string | null; joinedTo: string | null }
+interface Segment { languages: string[]; modules: string[]; countries: string[]; platforms: string[]; access: string; joinedFrom: string | null; joinedTo: string | null; appVersionBelow?: string | null }
 interface Preview { schema: string; fingerprint: string; users: number; eligibleUsers: number; devices: number; optedOut: number; quietHours: number; noDevice: number; quietTimezone: string }
-interface Campaign { id: string; title: string; body: string; segment: Segment; createdAt: string; total: number; pending: number; claimed: number; sent: number; failed: number; skipped: number; unknown: number; cancelled: boolean }
-const emptySegment = (): Segment => ({ languages: [], modules: [], countries: [], platforms: [], access: 'all', joinedFrom: null, joinedTo: null });
+interface Campaign { id: string; title: string; body: string; segment: Segment; createdAt: string; total: number; pending: number; claimed: number; sent: number; failed: number; skipped: number; unknown: number; cancelled: boolean; snapshot?: { deeplink?: string } }
+/** Where a tap on the push opens. Same in-app links the app already handles (src/lib/deeplink.ts). */
+const CAMPAIGN_LINKS: Array<{ value: string; label: string }> = [
+  { value: '', label: 'Tətbiqi açır (keçid yoxdur)' },
+  { value: 'anacan://ai', label: 'Anacan.AI söhbəti' },
+  { value: 'anacan://tool/cry-translator', label: 'Ağlama tərcüməçisi' },
+  { value: 'anacan://tool/fairy-tale', label: 'AI nağıl' },
+  { value: 'anacan://tool/whitenoise', label: 'Ağ səs' },
+  { value: 'anacan://tool/kick', label: 'Təpik sayğacı' },
+  { value: 'anacan://tool/contraction', label: 'Sancı taymeri' },
+  { value: 'anacan://tool/poop-scanner', label: 'Nəcis analizi' },
+  { value: 'anacan://tool/names', label: 'Ad tapıcı' },
+  { value: 'anacan://tool/baby-tracker', label: 'Körpə izləyicisi' },
+  { value: 'anacan://tool/sleep-training', label: 'Yuxu təlimi' },
+  { value: 'anacan://tool/vaccine-calendar', label: 'Peyvənd təqvimi' },
+  { value: 'anacan://tool/mini-games', label: 'Mini oyunlar' },
+  { value: 'anacan://community', label: 'Cəmiyyət' },
+  { value: 'anacan://blog', label: 'Bloq' },
+  { value: 'anacan://premium', label: 'Premium təklifi' },
+  { value: 'https://anacan.az/website/premium/kampaniya/index.html', label: 'Saytda Premium kampaniyası (yeni versiyada brauzerdə açılır)' },
+  { value: 'custom', label: 'Başqa keçid…' },
+];
+const isCampaignLink = (value: string) => /^(?:(?:anacan|com\.atlasoon\.anacan):\/\/|https:\/\/(?:www\.|app\.)?anacan\.az\/)[A-Za-z0-9/_?=&.%#-]{0,180}$/.test(value);
+const linkLabel = (value?: string) => !value ? '' : CAMPAIGN_LINKS.find(item => item.value === value)?.label || value;
+const emptySegment = (): Segment => ({ languages: [], modules: [], countries: [], platforms: [], access: 'all', joinedFrom: null, joinedTo: null, appVersionBelow: null });
+// "App version below" accepts 50, 50.0, 49.0.19 (the version the user's app last reported).
+export const APP_VERSION_RE = /^\d{1,4}(\.\d{1,4}){0,3}$/;
 const number = (value: number) => Number(value || 0).toLocaleString(getLocaleTag());
 const countryOptions = (countriesData as Array<{ isoAlpha2: string; name: string }>).map(item => ({ value: item.isoAlpha2, label: `${countryFlag(item.isoAlpha2)} ${localizedCountryName(item.isoAlpha2, getPersistedLanguage(), item.name)}` }));
 const languages = APP_LANGUAGES.map(language => ({ value: language.code, label: language.native_name }));
@@ -42,11 +67,16 @@ function Status({ campaign }: { campaign: Campaign }) {
 }
 export default function AdminNotificationCampaigns() {
   const { user, isAdmin } = useAuth(), backend = getBackendConfig(), client = useQueryClient();
+  const [versionText, setVersionText] = useState('');
   const [segment, setSegment] = useState<Segment>(emptySegment), [title, setTitle] = useState(''), [body, setBody] = useState('');
   const [preview, setPreview] = useState<{ value: Preview; key: string } | null>(null), [previewing, setPreviewing] = useState(false);
   const [campaign, setCampaign] = useState<Campaign | null>(null), [sending, setSending] = useState(false), [error, setError] = useState('');
   const running = useRef(false), mounted = useRef(true), campaignId = useRef<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [linkChoice, setLinkChoice] = useState(''), [customLink, setCustomLink] = useState('');
+  const deeplink = (linkChoice === 'custom' ? customLink : linkChoice).trim();
+  const [testEmail, setTestEmail] = useState(''), [testing, setTesting] = useState(false);
+  const linkInvalid = !!deeplink && !isCampaignLink(deeplink);
   const key = JSON.stringify(segment);
   const history = useQuery({ queryKey: ['admin-campaigns', backend.url, user?.id], queryFn: () => adminRpc<Campaign[]>('admin_notification_list_v1', { p_limit: 30 }), enabled: !!user && isAdmin, retry: false, refetchInterval: sending ? 5000 : 30000 });
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; running.current = false; }; }, []);
@@ -60,13 +90,13 @@ export default function AdminNotificationCampaigns() {
     } catch (failure) { setError(adminErrorText(failure)); } finally { setPreviewing(false); }
   };
   const dispatch = async (existing?: Campaign) => {
-    if (running.current || (!existing && (!preview || preview.key !== key || !preview.value.devices || !title.trim() || !body.trim()))) return;
+    if (running.current || (!existing && (!preview || preview.key !== key || !preview.value.devices || !title.trim() || !body.trim() || linkInvalid))) return;
     running.current = true; setSending(true); setError('');
     try {
       let current = existing;
       if (!current) {
         campaignId.current ??= crypto.randomUUID();
-        current = await adminRpc<Campaign>('admin_notification_create_v1', { p_id: campaignId.current, p_title: title.trim(), p_body: body.trim(), p_segment: segment, p_fingerprint: preview!.value.fingerprint });
+        current = await adminRpc<Campaign>('admin_notification_create_v1', { p_id: campaignId.current, p_title: title.trim(), p_body: body.trim(), p_segment: segment, p_fingerprint: preview!.value.fingerprint, ...(deeplink ? { p_deeplink: deeplink } : {}) });
       }
       campaignId.current = current.id; setCampaign(current); await reload();
       while (running.current && mounted.current && (current.pending > 0 || current.claimed > 0) && !current.cancelled) {
@@ -85,12 +115,27 @@ export default function AdminNotificationCampaigns() {
       await reload();
     } finally { running.current = false; if (mounted.current) setSending(false); }
   };
+  // Manual push to one account (by e-mail): same title, text and link; ignores the segment.
+  const sendTest = async () => {
+    const email = testEmail.trim();
+    if (testing || !email || !title.trim() || !body.trim() || linkInvalid || body.trim().length > 500) return;
+    setTesting(true); setError('');
+    try {
+      const { data, error: sendError } = await supabase.functions.invoke('admin-notification-dispatch', { body: { contract: 'anacan-admin-direct-v1', email, title: title.trim(), body: body.trim(), ...(deeplink ? { deeplink } : {}) } });
+      if (sendError || !data?.ok) {
+        const code = data?.error || (sendError as { context?: { status?: number } } | null)?.context?.status;
+        setError(code === 'direct_user_not_found' || code === 404 ? 'Bu e-poçtla hesab və ya qeydiyyatlı cihaz tapılmadı.' : code === 'direct_user_opted_out' || code === 409 ? 'Bu istifadəçi bildirişləri söndürüb.' : 'Test göndərişi alınmadı. Yenidən cəhd edin.');
+        return;
+      }
+      toast.success(`Göndərildi: ${data.sent}/${data.devices} cihaz`);
+    } catch { setError('Test göndərişi alınmadı. Yenidən cəhd edin.'); } finally { setTesting(false); }
+  };
   const cancel = async (value: Campaign) => {
     running.current = false;
     try { const next = await adminRpc<Campaign>('admin_notification_cancel_v1', { p_id: value.id }); setCampaign(next); await reload(); }
     catch (failure) { setError(adminErrorText(failure)); }
   };
-  const fresh = () => { if (sending) return; campaignId.current = null; setCampaign(null); setPreview(null); setTitle(''); setBody(''); setError(''); };
+  const fresh = () => { if (sending) return; campaignId.current = null; setCampaign(null); setPreview(null); setTitle(''); setBody(''); setLinkChoice(''); setCustomLink(''); setError(''); };
   const setField = (name: keyof Segment, value: Segment[keyof Segment]) => { setSegment(previous => ({ ...previous, [name]: value })); setError(''); };
   return <div className="admin-page" data-testid="admin-notification-campaigns">
     <div className="admin-page-heading"><div><h1>Bildiriş kampaniyaları</h1><p>Bir və ya bir neçə dil, modul və ölkə seçin. Hər qrupun daxilində istənilən seçim, qruplar arasında isə bütün şərtlər birlikdə tətbiq edilir.</p></div><Button variant="outline" onClick={fresh} disabled={sending}>Yeni kampaniya</Button></div>
@@ -102,25 +147,34 @@ export default function AdminNotificationCampaigns() {
       <label>Qeydiyyat · başlanğıc<Input aria-label="Auditoriya qeydiyyat başlanğıcı" type="date" value={segment.joinedFrom || ''} disabled={sending || !!campaign} onChange={event => setField('joinedFrom', event.target.value || null)} /></label>
       <label>Qeydiyyat · son gün<Input aria-label="Auditoriya qeydiyyat sonu" type="date" value={segment.joinedTo || ''} disabled={sending || !!campaign} onChange={event => setField('joinedTo', event.target.value || null)} /></label>
       <MultiFilter label="Platforma" options={[{ value: 'ios', label: 'iOS' }, { value: 'android', label: 'Android' }]} values={segment.platforms} onChange={value => setField('platforms', value)} disabled={sending || !!campaign} />
+      <label>App versiyası · bundan aşağı<Input aria-label="App versiyası bundan aşağı" placeholder="məs. 50.0" inputMode="decimal" value={versionText} disabled={sending || !!campaign}
+        onChange={event => { const value = event.target.value.replace(/[^\d.]/g, '').slice(0, 19); setVersionText(value); setField('appVersionBelow', APP_VERSION_RE.test(value) ? value : null); }} />
+        <span className="text-xs text-muted-foreground">Yalnız app-i bu versiyadan köhnə olanlar. Versiyası bilinməyənlər daxil edilmir.</span></label>
     </div><div className="rounded-xl bg-muted/50 p-3 text-xs leading-6"><strong>Seçilmiş auditoriya: </strong>
-      {segment.languages.length ? segment.languages.join(', ').toUpperCase() : 'Bütün dillər'} ∩ {segment.modules.length ? segment.modules.map(module => MODULE_LABELS[module]).join(', ') : 'Bütün modullar'} ∩ {segment.countries.length ? segment.countries.join(', ') : 'Bütün ölkələr'} · {ACCESS_LABELS[segment.access]}
+      {segment.languages.length ? segment.languages.join(', ').toUpperCase() : 'Bütün dillər'} ∩ {segment.modules.length ? segment.modules.map(module => MODULE_LABELS[module]).join(', ') : 'Bütün modullar'} ∩ {segment.countries.length ? segment.countries.join(', ') : 'Bütün ölkələr'} · {ACCESS_LABELS[segment.access]}{segment.appVersionBelow ? ` · app < ${segment.appVersionBelow}` : ''}
     </div><Button variant="outline" onClick={() => void checkAudience()} disabled={previewing || sending || !!campaign}>{previewing ? <Loader2 size={16} className="me-2 animate-spin" /> : <Users size={16} className="me-2" />}Auditoriyanı yoxla</Button>
       {preview?.key === key && <div data-testid="admin-audience-preview"><div className="admin-kpis">{[[tr('admin_audience_users', 'Uyğun istifadəçi'), preview.value.users], [tr('admin_audience_eligible', 'Göndərişə uyğun istifadəçi'), preview.value.eligibleUsers], [tr('admin_audience_devices', 'Cihaz'), preview.value.devices], [tr('admin_audience_opted_out', 'Bildirişi bağlayan'), preview.value.optedOut], [tr('admin_audience_quiet', 'Səssiz saat'), preview.value.quietHours], [tr('admin_audience_no_device', 'Uyğun cihazı olmayan'), preview.value.noDevice]].map(([label, count]) => <div className="admin-kpi" key={String(label)}><span className="metric-label">{label}</span><strong>{number(Number(count))}</strong></div>)}</div><p className="admin-panel-note mt-3">Bildiriş və gündəlik push seçimini bağlayanlar, səssiz saatda olanlar və cihazı olmayanlar göndərişdən çıxarılır. Səssiz saat zonası: {preview.value.quietTimezone}.</p></div>}
     </section>
     <div className="admin-two-columns"><section className="admin-panel space-y-4"><h2>Bildirişin məzmunu</h2><label className="block text-xs font-semibold">Başlıq<Input aria-label="Kampaniya başlığı" value={title} maxLength={120} disabled={sending || !!campaign} onChange={event => setTitle(event.target.value)} className="mt-2" /><span className="admin-panel-note">{title.length}/120</span></label>
       <label className="block text-xs font-semibold">Mətn<Textarea aria-label="Kampaniya mətni" value={body} maxLength={2000} rows={4} disabled={sending || !!campaign} onChange={event => setBody(event.target.value)} className="mt-2" /><span className="admin-panel-note">{body.length}/2000</span></label>
+      <label className="block text-xs font-semibold">Toxunanda açılır<select className="mt-2 h-10 w-full rounded-lg border bg-background px-3" aria-label="Bildirişə toxunanda açılan yer" value={linkChoice} disabled={sending || !!campaign} onChange={event => setLinkChoice(event.target.value)}>{CAMPAIGN_LINKS.map(item => <option key={item.value} value={item.value}>{item.label}</option>)}</select></label>
+      {linkChoice === 'custom' && <label className="block text-xs font-semibold">Keçid<Input aria-label="Xüsusi keçid" value={customLink} placeholder="anacan://tool/kick" maxLength={200} disabled={sending || !!campaign} onChange={event => setCustomLink(event.target.value)} className="mt-2" /></label>}
+      {linkInvalid ? <p className="admin-error" role="alert">Keçid anacan:// ilə başlamalıdır, məs. anacan://tool/kick</p> : <p className="admin-panel-note">Pulsuz istifadəçi Premium alətə gedəndə Premium təklifi açılır.</p>}
       {error && <div className="admin-error" role="alert">{error}</div>}
-      <div className="flex flex-wrap gap-2"><Button onClick={() => void dispatch()} disabled={sending || !!campaign || !preview || preview.key !== key || !preview.value.devices || !title.trim() || !body.trim()}>
+      <div className="flex flex-wrap gap-2"><Button onClick={() => void dispatch()} disabled={sending || !!campaign || !preview || preview.key !== key || !preview.value.devices || !title.trim() || !body.trim() || linkInvalid}>
         {sending ? <Loader2 size={16} className="animate-spin me-2" /> : <Send size={16} className="me-2" />}Seçilmiş auditoriyaya göndər</Button>
         {campaign && !campaign.cancelled && !!campaign.pending && <Button variant="outline" onClick={() => void cancel(campaign)}><Square size={14} className="me-2" />Qalanları dayandır</Button>}</div>
+      <div className="rounded-xl border p-3 space-y-2"><label className="block text-xs font-semibold">Bir istifadəçiyə göndər (test və ya dəstək)<Input aria-label="Test göndərişi e-poçtu" type="email" value={testEmail} placeholder="ad@example.com" maxLength={254} disabled={testing} onChange={event => setTestEmail(event.target.value)} className="mt-2" /></label>
+        <Button variant="outline" size="sm" onClick={() => void sendTest()} disabled={testing || !testEmail.trim() || !title.trim() || !body.trim() || linkInvalid || body.trim().length > 500}>{testing ? <Loader2 size={14} className="me-2 animate-spin" /> : <Send size={14} className="me-2" />}Yalnız bu hesaba göndər</Button>
+        <p className="admin-panel-note">Eyni başlıq, mətn və keçid yalnız bu hesabın cihazlarına gedir; seqment nəzərə alınmır. Mətn 500 simvola qədər.</p></div>
       <p className="admin-panel-note">Auditoriya yaradılarkən sabitlənir, göndərişdən əvvəl icazə və cihaz sahibi yenidən yoxlanır. Eyni cihaz bu kampaniyada təkrar göndəriş almır.</p>
-    </section><section className="admin-panel"><h2 className="mb-4">Önbaxış və nəticə</h2><div className="rounded-2xl border bg-muted/40 p-4 mb-5"><span className="text-[10px] uppercase tracking-wider text-muted-foreground">Anacan · Bildiriş</span><strong className="block mt-2 text-sm break-words">{campaign?.title || title || 'Bildiriş başlığı'}</strong><p className="text-xs mt-2 whitespace-pre-wrap break-words leading-6">{campaign?.body || body || 'Bildirişin mətni burada görünəcək.'}</p></div>
+    </section><section className="admin-panel"><h2 className="mb-4">Önbaxış və nəticə</h2><div className="rounded-2xl border bg-muted/40 p-4 mb-5"><span className="text-[10px] uppercase tracking-wider text-muted-foreground">Anacan · Bildiriş</span><strong className="block mt-2 text-sm break-words">{campaign?.title || title || 'Bildiriş başlığı'}</strong><p className="text-xs mt-2 whitespace-pre-wrap break-words leading-6">{campaign?.body || body || 'Bildirişin mətni burada görünəcək.'}</p>{(campaign?.snapshot?.deeplink || deeplink) && <p className="text-[11px] mt-3 text-muted-foreground">Toxunanda: {linkLabel(campaign?.snapshot?.deeplink || deeplink)}</p>}</div>
       {campaign ? <Status campaign={campaign} /> : <p className="admin-panel-note">Göndəriş başladıqdan sonra hər partiyanın nəticəsi burada görünür. FCM qəbulu telefonda oxunma təsdiqi deyil.</p>}
     </section></div>
     <section className="admin-panel"><div className="flex justify-between gap-3 mb-4"><h2>Kampaniya tarixçəsi</h2><Button size="sm" variant="ghost" disabled={history.isFetching} onClick={() => void history.refetch()} aria-label="Kampaniya tarixçəsini yenilə"><RefreshCw size={15} className={history.isFetching ? 'animate-spin' : ''} /></Button></div>
       {history.isError ? <div className="admin-error">{adminErrorText(history.error)}</div> : history.isLoading ? <p className="admin-empty">Tarixçə yüklənir…</p> : !history.data?.length ? <p className="admin-empty">Hələ seqmentli kampaniya yoxdur.</p> : <div className="space-y-3">{history.data.map(item => <article key={item.id} className="rounded-xl border p-4">
         <button className="flex items-start justify-between gap-3 w-full text-start" onClick={() => setExpanded(expanded === item.id ? null : item.id)} aria-expanded={expanded === item.id}><div className="min-w-0"><strong className="text-sm break-words">{item.title}</strong><p className="admin-panel-note">{new Date(item.createdAt).toLocaleString(getLocaleTag())} · {number(item.total)} cihaz · {number(item.sent)} FCM qəbulu</p></div><ChevronDown size={17} className={`shrink-0 ${expanded === item.id ? 'rotate-180' : ''}`} /></button>
-        {expanded === item.id && <div className="mt-4 space-y-4"><p className="text-xs whitespace-pre-wrap break-words">{item.body}</p><Status campaign={item} />{!item.cancelled && !!(item.pending || item.claimed) && <div className="flex flex-wrap gap-2"><Button size="sm" disabled={sending} onClick={() => void dispatch(item)}>Statusu yoxla / davam et</Button><Button variant="outline" size="sm" disabled={sending} onClick={() => void cancel(item)}>Qalanları dayandır</Button></div>}</div>}
+        {expanded === item.id && <div className="mt-4 space-y-4"><p className="text-xs whitespace-pre-wrap break-words">{item.body}</p>{item.snapshot?.deeplink && <p className="admin-panel-note">Toxunanda açılır: {linkLabel(item.snapshot.deeplink)}</p>}<Status campaign={item} />{!item.cancelled && !!(item.pending || item.claimed) && <div className="flex flex-wrap gap-2"><Button size="sm" disabled={sending} onClick={() => void dispatch(item)}>Statusu yoxla / davam et</Button><Button variant="outline" size="sm" disabled={sending} onClick={() => void cancel(item)}>Qalanları dayandır</Button></div>}</div>}
       </article>)}</div>}
     </section>
   </div>;

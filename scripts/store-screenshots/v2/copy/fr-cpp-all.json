@@ -1,0 +1,132 @@
+{
+ "lang": "fr",
+ "badge": "Gratuit · 25 langues",
+ "hero": "hero-photo-coral.jpg",
+ "heroH1": 52,
+ "heroH1Android": 38,
+ "slides": [
+  {
+   "key": "hero",
+   "shot": null,
+   "eyebrow": "Règles · Grossesse · Maternité",
+   "title": [
+    "des règles",
+    "à bébé"
+   ],
+   "hl": "une seule app",
+   "sub": "Calendrier des règles, grossesse semaine après semaine et suivi maman-bébé au même endroit",
+   "cta": "Télécharger gratuitement",
+   "ctaSub": ""
+  },
+  {
+   "key": "menstruation",
+   "shot": "flow-top",
+   "eyebrow": "Règles",
+   "title": [
+    "connais ton cycle"
+   ],
+   "hl": "avec précision",
+   "sub": "Tes prochaines règles, ton ovulation et tes jours fertiles, prévus"
+  },
+  {
+   "key": "pregnancy",
+   "shot": "bump-home",
+   "eyebrow": "Grossesse",
+   "title": [
+    "aujourd’hui, bébé a"
+   ],
+   "hl": "la taille d’une tomate",
+   "sub": "Suis ta grossesse semaine après semaine : taille, poids et jours restants",
+   "chips": [
+    [
+     "142",
+     "jours restants"
+    ],
+    [
+     "19",
+     "semaines, 4 jours"
+    ]
+   ]
+  },
+  {
+   "key": "mommy",
+   "shot": "mommy-home",
+   "eyebrow": "Maternité",
+   "title": [
+    "chaque jour de bébé"
+   ],
+   "hl": "au même endroit",
+   "sub": "Infos du jour, un message pour maman, développement et rappels médicaux",
+   "chips": [
+    [
+     "245",
+     "jours ensemble"
+    ]
+   ]
+  },
+  {
+   "key": "ai",
+   "shot": "ai-bump",
+   "eyebrow": "Anacan.AI",
+   "title": [
+    "une question ?"
+   ],
+   "hl": "voici la réponse",
+   "sub": "Une assistante 24h/24 pour tes questions sur les règles, la grossesse et bébé",
+   "chips": [
+    [
+     "24h/24",
+     "toutes tes questions"
+    ]
+   ]
+  },
+  {
+   "key": "community",
+   "shot": "community",
+   "eyebrow": "Communauté",
+   "title": [
+    "46 000+ femmes"
+   ],
+   "hl": "sont là",
+   "sub": "Pose ta question et reçois le soutien de mamans qui vivent la même chose",
+   "chips": [
+    [
+     "46 000+",
+     "femmes"
+    ]
+   ]
+  },
+  {
+   "key": "proof",
+   "shot": null,
+   "eyebrow": "Ce que disent les mamans",
+   "title": [
+    "les mamans"
+   ],
+   "hl": "adorent Anacan",
+   "sub": "De vrais avis, sans retouche",
+   "cta": "Télécharger gratuitement",
+   "ctaSub": "",
+   "proof": {
+    "rating": "4,84",
+    "ratingSub": "Note App Store",
+    "stats": [
+     [
+      "46 000+",
+      "téléchargements"
+     ],
+     [
+      "560+",
+      "avis 5 étoiles"
+     ]
+    ],
+    "reviews": [
+     [
+      "The best pregnancy app in the world. Price is cheaper than others, benefits is more than them.",
+      "Avis App Store"
+     ]
+    ]
+   }
+  }
+ ]
+}

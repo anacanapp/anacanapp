@@ -1,0 +1,34 @@
+{
+  "country": "AZ",
+  "locale": "az-AZ",
+  "names": {
+    "mother": "Leyla",
+    "baby": "Nərmin",
+    "cycle": "Aysel",
+    "partner": "Rauf"
+  },
+  "appointments": [
+    "USM müayinəsi",
+    "Doğum evi №5",
+    "Qan analizi",
+    "Pediatr müayinəsi"
+  ],
+  "authors": [
+    "Aynur Məmmədova",
+    "Lalə Kərimova",
+    "Günay Əliyeva"
+  ],
+  "posts": [
+    "Bu gün ilk təpikləri hiss etdim! 🥹 Bu hissi sözlə izah edə bilmirəm. Sizdə ilk dəfə neçənci həftədə oldu? #hamiləlik",
+    "Gecə saat 3-də körpəm yatmayanda Anacan.AI ilə danışmaq çox kömək etdi. Yeni analara tövsiyə edirəm 💛",
+    "24-cü həftədəyik, xəstəxana çantasını hazırlamağa başladım. Siyahınızda nələr var? 🧳"
+  ],
+  "ai_question": "Ürəkbulanmaya nə kömək edir?",
+  "ai_answer": [
+    "Ürəkbulanmaya qarşı sadə 3 üsul:\n\n",
+    "1. **Zəncefil çayı** — səhər ac qarına bir fincan.\n",
+    "2. **Az-az, tez-tez yeyin** — mədəni boş saxlamayın.\n",
+    "3. **Yataqdan qalxmadan** bir neçə quru peçenye yeyin.\n\n",
+    "Gün ərzində bol su için 💧 Qusma güclənsə, həkiminizə müraciət edin."
+  ]
+}

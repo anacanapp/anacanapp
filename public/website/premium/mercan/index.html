@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="az" dir="ltr" data-theme="light">
+<head>
+  <script>
+    /* Personal-plan funnel return (2026-11-24): a payment started on /website/premium/plan/ comes back to this page
+       (bank ?odenis=, Dodo ?done=1). This tab marked it, so send it back to the funnel with the query intact. */
+    try { if (sessionStorage.getItem('anacan_funnel') === 'plan' && /[?&](odenis|done)=/.test(location.search)) { window.ANACAN_FUNNEL_FWD = true; location.replace('/website/premium/plan/index.html' + location.search + location.hash); } } catch (e) {}
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#d93a42">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="color-scheme" content="light only">
+  <title>Mərcan Cümə · Anacan Premium</title>
+  <meta name="description" content="Mərcan Cümə: illik Anacan Premium cəmi $9.99, aylıq $1.99. Təklif 30 noyabra qədər.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    /* Language and payment path before anything renders.
+       Language: ?lang, then this tab's earlier choice (survives the Google/Apple sign-in round trip), then the
+       browser; visitors in Azerbaijan default to Azerbaijani. Payment: Epoint (AZN, saved card) for Azerbaijani and
+       for anyone in Azerbaijan (Asia/Baku or an -AZ locale) whatever the language; Dodo Payments (USD) elsewhere.
+       A bank return (?odenis) is always Epoint. */
+    (function () {
+      var ok = ['az', 'en', 'ru', 'tr', 'kk', 'de', 'ar', 'uz', 'ka', 'zh', 'id', 'fr', 'es', 'pt', 'vi', 'hi', 'ja', 'ko', 'pl', 'nl', 'sv'];
+      var q = new URLSearchParams(location.search), l = (q.get('lang') || '').toLowerCase();
+      var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+      var inAz = tz === 'Asia/Baku' || langs.some(function (x) { return /[-_]az$/i.test(String(x || '')); });
+      try { if (ok.indexOf(l) >= 0) sessionStorage.setItem('anacan_mercan_lang', l); else l = sessionStorage.getItem('anacan_mercan_lang') || ''; } catch (e) {}
+      if (ok.indexOf(l) < 0) {
+        l = inAz ? 'az' : 'en';
+        if (!inAz) for (var i = 0; i < langs.length; i++) {
+          var tag = String(langs[i] || '').toLowerCase().split(/[-_]/), m = tag[0];
+          if (m === 'ru' && (tag[1] === 'kz' || tag[1] === 'uz')) m = tag[1] === 'kz' ? 'kk' : 'uz';
+          if (m === 'nb' || m === 'no' || m === 'da') m = 'sv';
+          if (ok.indexOf(m) >= 0) { l = m; break; }
+        }
+      }
+      window.MERCAN_LANG = l;
+      window.MERCAN_PAY = (l === 'az' || inAz || q.get('odenis')) ? 'epoint' : 'dodo';
+      document.documentElement.lang = l;
+      document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+      // Scripts Plus Jakarta Sans does not cover get a matching Noto face.
+      var extra = { ru: 'Noto+Sans', kk: 'Noto+Sans', ka: 'Noto+Sans+Georgian', ar: 'Noto+Sans+Arabic', hi: 'Noto+Sans+Devanagari',
+        zh: 'Noto+Sans+SC', ja: 'Noto+Sans+JP', ko: 'Noto+Sans+KR' }[l];
+      var href = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800' +
+        (extra ? '&family=' + extra + ':wght@400;500;600;700;800' : '') + '&display=swap';
+      var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = href; document.head.appendChild(link);
+    })();
+  </script>
+  <link rel="stylesheet" href="/website/premium/account/account.css?v=1">
+  <link rel="stylesheet" href="/website/premium/mercan/mercan.css?v=3">
+  <script src="/website/analytics.js" async></script>
+</head>
+<body data-campaign-ends="2026-11-30T19:59:59Z">
+<div id="app" aria-busy="true"><div class="boot"><span class="spin"></span></div></div>
+<script src="/website/premium/vendor/supabase-js-2.90.1.js"></script>
+<script src="/website/premium/account/account.js?v=4"></script>
+<script src="/website/premium/mercan/mercan.js?v=3"></script>
+</body>
+</html>

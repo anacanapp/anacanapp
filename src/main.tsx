@@ -9,7 +9,8 @@ import { startupText, storedStartupLanguage } from './lib/startup-i18n';
 import { Capacitor } from '@capacitor/core';
 import { isBrandPortalPath } from './brand-portal/routing';
 import { isWebsitePath } from './website/routing';
-import { isChunkLoadError, reloadOnceForChunkError } from './lib/chunk-reload';
+import { installPreloadErrorReload, isChunkLoadError, reloadOnceForChunkError } from './lib/chunk-reload';
+import { installNotificationTapListeners } from './lib/notification-taps';
 
 // Catch dynamic import / chunk load errors (happens when a new version is deployed
 // and the browser tries to fetch old, deleted chunk hashes). Reload once to fetch
@@ -20,6 +21,12 @@ window.addEventListener("error", (e) => {
 window.addEventListener("unhandledrejection", (e) => {
   if (isChunkLoadError(e.reason)) reloadOnceForChunkError();
 });
+// Vite's own preload failure ("Unable to preload CSS", failed JS dependency): the same
+// guarded single reload, skipped while offline (reloads when the connection returns).
+installPreloadErrorReload();
+// Push / reminder taps: listeners exist before anything else awaits, so a tap that launched or resumed
+// the app is queued and routed once the app is ready (src/lib/notification-taps.ts). Native only.
+installNotificationTapListeners();
 // Keep app imports behind admission: i18n/native/crashReporter also import the
 // Supabase singleton and would otherwise refresh a source token on the wrong host.
 async function bootstrap() {

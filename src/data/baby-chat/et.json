@@ -1,0 +1,270 @@
+{
+ "ui": {
+  "title": "Minu beebi",
+  "typing": "kirjutab…",
+  "placeholder": "Kirjuta sõnum…",
+  "week": "{n}. nädal",
+  "size": "{fruit} suurune",
+  "today": "Täna",
+  "card_new": "Sinu beebi kirjutas sulle 💬",
+  "card_wait": "Sinu beebi pole täna veel kirjutanud… varsti 👀",
+  "card_cta": "Vasta",
+  "share_title": "Jaga seda vestlust",
+  "share_sub": "Foto või sõnumite kaupa videona. Lase ka sõpradel seda näha 💛",
+  "share_photo": "Foto",
+  "share_video": "Video",
+  "share_making": "Teen videot…",
+  "share_text": "Minu beebi pole veel sündinud, aga saadab mulle sõnumeid 💛 Anacan",
+  "share_error": "Jagamine ebaõnnestus. Palun proovi uuesti.",
+  "hook": "Minu beebi pole veel sündinud… aga saadab mulle sõnumeid.",
+  "end_line1": "Sinu beebi saadab sulle sõnumeid",
+  "end_line2": "iga päev.",
+  "notif_title": "Minu beebi 💛",
+  "about": "Lihtsalt lõbu pärast: Anacan koostab sõnumid vastavalt sinu beebi nädalale.",
+  "share_ready_video": "Sinu video on valmis 🎉",
+  "share_ready_photo": "Sinu foto on valmis 🎉",
+  "share_now": "Jaga",
+  "save": "Salvesta",
+  "care_text": "Jaga seda ka oma arstiga, emme. Iga küsimus on oluline 💛",
+  "care_cta": "Küsi Anacan.AI-lt"
+ },
+ "openers": [
+  "Emme! Arva ära 🖐",
+  "Emme, kas sa oled ärkvel? 👀",
+  "Psst… emme! 🤫",
+  "Emme, kas ma tohin sulle midagi öelda? 💛",
+  "Tere, emme! 👋"
+ ],
+ "notifications": [
+  "Emme! Arva ära 🖐",
+  "Kirjutasin sulle midagi 💬",
+  "Psst… emme, vaata! 👀",
+  "Sa ei usu, mida ma tahan sulle täna öelda! 💛"
+ ],
+ "replies": {
+  "love": [
+   "Mina armastan sind ka, emme 💛",
+   "Ma pole sind veel näinud, aga armastan sind juba nii väga 🥰",
+   "Võin küll olla {fruit} suurune, aga mu süda on sind täis 💛"
+  ],
+  "how": [
+   "Vahva! Siin on nii soe ja hubane 😌",
+   "Mul on kõik hästi, emme. Kasvasin täna natuke veel 🌱",
+   "Nii tore! Kuulan su südamelööke 💓"
+  ],
+  "size": [
+   "Praegu olen umbes {fruit} suurune 😄",
+   "Olen juba {cm} cm pikk! Kasvan 📏",
+   "Olen {week}. nädalas ja kasvan iga päev natuke 🌱"
+  ],
+  "kick_early": [
+   "Ma juba siputan, aga olen veel nii pisike, et sa ei tunne seda 🤭",
+   "Teen siin väikeseid kukerpalle 🤸 Varsti tunned neid!"
+  ],
+  "kick": [
+   "Kas tundsid seda? See olin mina 🦶",
+   "Tantsisin täna, kas tundsid? 💃",
+   "See müks oli minu viis öelda tere 👋🦶"
+  ],
+  "hear_early": [
+   "Mu kõrvad alles arenevad, aga varsti kuulen sind 👂",
+   "Lase mul veel natuke kasvada, siis kuulen su häält 🥰"
+  ],
+  "hear": [
+   "Ma kuulen sind, emme! Räägi minuga veel 🥰",
+   "Sinu hääl on mu lemmikmuusika 🎶",
+   "Laula mulle laulu ja ma kuulan 🎵"
+  ],
+  "food": [
+   "Mida iganes sa sööd, ma tunnen ka maitset 😋",
+   "Kas sööksime täna puuvilju? 🍎",
+   "Mmm, see oli maitsev! Veel natuke? 😄"
+  ],
+  "sleep": [
+   "Ma tahan ka magada 😴 Puhkame koos",
+   "Kui sina pikali heidad, lõdvestun minagi 😌",
+   "Vabandust, kui ma öösel tantsin 🙈"
+  ],
+  "dad": [
+   "Ütle issile minu poolt tere! 👋",
+   "Tunnen issi hääle ka ära 😊",
+   "Mulle meeldib, kui issi su kõhuga räägib 🥰"
+  ],
+  "meet": [
+   "Veel {weeks_left} nädalat ja siis me kohtume! 🤗",
+   "Ma tahan sind ka näha! Lase mul veel natuke kasvada 🌱",
+   "Kohtumiseni pole enam kaua jäänud 💛"
+  ],
+  "meet_soon": [
+   "Pole enam kaua, emme! Valmistun ka juba 🤗",
+   "Varsti olen su süles 💛"
+  ],
+  "name": [
+   "Kuidas sa mind kutsuma hakkad? 😊 Vali ilus nimi!",
+   "Iga nimi kõlab sinu häälega kaunilt 💛"
+  ],
+  "hello": [
+   "Tere, emme! 👋",
+   "Hiii! Ootasin sind 💛"
+  ],
+  "thanks": [
+   "Pole tänu väärt, emme! 😊",
+   "Aitäh, et mind endaga kaasas kannad 💛"
+  ],
+  "generic": [
+   "Emme, sa oled parim 💛",
+   "Ma kuulan 👂😊",
+   "Hmm… küsin selle kohta, kui olen suurem 😄",
+   "Olen veel väike, aga see meeldis mulle 😄",
+   "Kirjuta mulle veel, emme! 🥰"
+  ],
+  "care": [
+   "Armastan sind nii väga, emme 💛",
+   "Olen alati sinuga 🤗"
+  ]
+ },
+ "keywords": {
+  "thanks": [
+   "tänan",
+   "aitäh",
+   "tänud"
+  ],
+  "love": [
+   "armastan",
+   "kallis",
+   "musike",
+   "❤",
+   "💛",
+   "😘",
+   "🥰"
+  ],
+  "name": [
+   "nimi",
+   "nimeks",
+   "sind kutsuda"
+  ],
+  "dad": [
+   "isa",
+   "issi",
+   "paps",
+   "isa"
+  ],
+  "kick": [
+   "põtkida",
+   "liigutada",
+   "tantsida",
+   "siputada",
+   "kukerpall"
+  ],
+  "hear": [
+   "kuulda",
+   "hääl",
+   "muusika",
+   "laul",
+   "laulda",
+   "rääkida"
+  ],
+  "size": [
+   "suurus",
+   "suur",
+   "väike",
+   "pisike",
+   "kasvada",
+   "cm",
+   "kaaluda",
+   "vaarikas",
+   "hernes"
+  ],
+  "food": [
+   "süüa",
+   "toit",
+   "näljane",
+   "maitsta",
+   "puuvili",
+   "šokolaad",
+   "piim"
+  ],
+  "sleep": [
+   "magada",
+   "uinak",
+   "öö",
+   "väsinud",
+   "voodi"
+  ],
+  "meet": [
+   "kohtuda",
+   "välja tulla",
+   "millal",
+   "oodata",
+   "sündida"
+  ],
+  "how": [
+   "kuidas läheb",
+   "mis sa teed",
+   "kuidas on",
+   "kõik hästi"
+  ],
+  "hello": [
+   "tsau",
+   "tere",
+   "hei",
+   "tere hommikust"
+  ]
+ },
+ "weekly": {
+  "4": "Emme, ma olen alles mooniseemne suurune, aga mul on suured plaanid 🌱",
+  "5": "Mu süda hakkas lööma! Tuks-tuks… kas sa kuuled seda? 💓",
+  "6": "Sel nädalal areneb mu nina 👃 Olen kindel, et mulle meeldib sinu lõhn!",
+  "7": "Mu käed näevad välja nagu pisikesed mõlad 🤲 Ma ei oska veel plaksutada",
+  "8": "Mu sõrmed on kasvamas 🖐 Hakkasin lugema: 1, 2, 3… kas loen uuesti?",
+  "9": "Mul on nüüd pisikesed lihased 💪 Ma teen salaja trenni",
+  "10": "Mu küüned hakkavad kasvama 💅 Maniküürist räägime hiljem",
+  "11": "Ma õppisin luksuma! Luks! 😅",
+  "12": "Panin täna pöidla suhu 👍 Nämma!",
+  "13": "Mul on nüüd sõrmejäljed ☝️ Olen ainulaadne!",
+  "14": "Ma harjutan näoilmeid: kortsutan kulmu, naeratan… 😄",
+  "15": "Ma tajun valgust ☀️ Mulle hakkavad päikeselised päevad meeldima!",
+  "16": "Mu silmad liiguvad aeglaselt 👀 Veel kinni, aga see on põnev",
+  "17": "Kogun oma põskedele natuke rasva 😊 Muside jaoks!",
+  "18": "Mu kõrvad on valmis 👂 Valmistun sinu häält kuulma",
+  "19": "Ma õpin kukerpalle 🤸 Kas sa tundsid seda?",
+  "20": "Oleme poolel teel! 🎉 Plaksutasin täna endale",
+  "21": "Mu põtkimised muutuvad tugevamaks 🦶 See tähendab „tsau”!",
+  "22": "Mu kulmud kasvasid 🤨 Nüüd olen ilmekam",
+  "23": "Ma kuulan muusikat 🎶 Mulle meeldis sinu laul",
+  "24": "Ma harjutan hingamist 🌬 Ikka veel vee all, aga olen juba proff!",
+  "25": "Mu juuksed kasvavad 💇 Värv on üllatus!",
+  "26": "Ma saan silmad avada! 👀 Siin tundub kõik roosa",
+  "27": "Ma näen und 💭 Tõenäoliselt sinust",
+  "28": "Ma oskan pilgutada 😉 See olen mina sulle silma tegemas",
+  "29": "Ruumi jääb väheks, aga ma ikka tantsin 💃",
+  "30": "Ma saan iga päevaga targemaks 🧠 Täpselt nagu sina!",
+  "31": "Ma saan pead pöörata ↔️ Vaatan sinu hääle suunas",
+  "32": "Mu küüned ulatuvad sõrmeotsteni 💅 Valmistun!",
+  "33": "Ma saan iga päevaga tugevamaks 💪 Valmistun kaisutusteks",
+  "34": "Mu põsed lähevad priskeks 😊 Valmis musideks",
+  "35": "Siin on nii hubane 🙈 Mul on vaja kohta, kuhu oma jalad panna",
+  "36": "Olen peaaegu valmis! Veel vaid viimased lihvid ✨",
+  "37": "Mu silmad, mu kõrvad, mu süda: nad kõik ootavad sind 💛",
+  "38": "Ma unistan sinu käte vahel olemisest 🤗 Enam pole kaua jäänud",
+  "39": "Kas sul on kott pakitud? 😄 Mina olen valmis",
+  "40": "Võib olla täna, võib olla homme 😄 Ma üllatan sind!",
+  "41": "Siin on nii mugav, kas ma võin natuke kauemaks jääda? 🙈💛"
+ },
+ "daily": [
+  "Täna olen ma {fruit} suurune! Ma kasvan 🌱",
+  "Sinu südamelöögid on mu hällilaul 💓",
+  "Siin on soe ja mõnus, ära muretse 😌",
+  "Puhka täna veidi, puhkan ka mina 😴",
+  "Ära unusta vett juua, see meeldib mullegi 💧",
+  "Mida me täna sööme? 😋",
+  "Naerata, emme! Kui sina naeratad, siis lõõgastun ka mina 😊",
+  "Ütle issile minu poolt tere! 👋",
+  "Olen küll väike, aga armastan sind väga 💛",
+  "Kasvasin täna veidi, kas sa tundsid seda? 📏",
+  "Armastan sind iga päevaga üha rohkem 🥰",
+  "Kas sa jutustaksid mulle ühe loo? 📖",
+  "Sa näed täna imeline välja, emme! ✨",
+  "Mina ootan sind ja sina ootad mind 🤗"
+ ]
+}

@@ -1,0 +1,46 @@
+{
+  "menu": "Fikr bildirish",
+  "title": "Anacan qanday?",
+  "subtitle": "Fikringiz ilovani har bir ona uchun yanada yaxshi qilishga yordam beradi.",
+  "stars": [
+    "Juda yomon",
+    "Yomon",
+    "O‘rtacha",
+    "Yaxshi",
+    "A’lo"
+  ],
+  "low_title": "Nima yoqmadi?",
+  "low_sub": "Bir nechtasini tanlang — har birini o‘qiymiz.",
+  "high_title": "Sizga eng ko‘p nima yoqadi?",
+  "high_sub": "Tanlang, buni yanada yaxshilaymiz.",
+  "low_reasons": {
+    "crash": "Ilova yopilib qoladi / qotadi",
+    "bug": "Nimadir ishlamayapti",
+    "slow": "Sekin ishlaydi",
+    "missing": "Kerakli funksiya yo‘q",
+    "content": "Ma’lumot aniq emas",
+    "ads": "Reklama juda ko‘p",
+    "price": "Premium qimmat",
+    "hard": "Foydalanish qiyin",
+    "other": "Boshqa"
+  },
+  "high_reasons": {
+    "tracking": "Kuzatuv vositalari",
+    "content": "Kunlik ma’lumotlar",
+    "ai": "AI yordamchi",
+    "community": "Hamjamiyat",
+    "partner": "Hamkor rejimi",
+    "design": "Dizayn",
+    "other": "Boshqa"
+  },
+  "message_low": "Nima bo‘ldi? Nimani o‘zgartiraylik?",
+  "message_high": "Qo‘shimcha qilmoqchi bo‘lgan narsangiz bormi? (ixtiyoriy)",
+  "send": "Yuborish",
+  "sending": "Yuborilmoqda...",
+  "thanks_low": "Rahmat. Jamoamiz buni o‘qib chiqadi va tuzatishga harakat qiladi 💛",
+  "thanks_high": "Katta rahmat! Bu jamoamiz uchun katta motivatsiya 💛",
+  "close": "Yopish",
+  "later": "Keyinroq",
+  "error": "Yuborilmadi. Internetni tekshirib, qaytadan urinib ko‘ring.",
+  "subject": "Ilova haqida fikr"
+}

@@ -130,9 +130,17 @@ export function reportPushFailure(kind: string, reason: string, extra?: Record<s
   });
 }
 
+/** The user closed the sign-in sheet or has no account on the device: not an error worth a report.
+ * Same rule as public.crash_auth_cancel_v1 on the server (Apple AuthorizationError 1001 is localized). */
+export function isAuthCancellation(message: string): boolean {
+  if (/AuthorizationError/.test(message) && /(^|\D)1001(\D|$)/.test(message)) return true;
+  return /(user canceled|user cancelled|cancelled by (the )?user|canceled by (the )?user|popup_closed|12501|no credentials available|user disabled the feature)/i.test(message);
+}
+
 export function reportAuthError(provider: string, error: unknown) {
   const err = error as any;
   const message = err?.message || err?.errorMessage || String(error || 'Unknown auth error');
+  if (isAuthCancellation(String(message))) return;
   const code = err?.code || err?.error_code || err?.status || null;
   sendCrashReport({
     error_message: `[auth:${provider}] ${message}`,

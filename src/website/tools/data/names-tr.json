@@ -1,0 +1,2319 @@
+[
+{
+"name": "Defne",
+"gender": "girl",
+"popularity": 99,
+"origin": "Yunanca",
+"meaning": "Defne ağacı ve zafer simgesi olan defne dalı"
+},
+{
+"name": "Yusuf",
+"gender": "boy",
+"popularity": 99,
+"origin": "İbranice",
+"meaning": "Tanrı artırır, bereket verir"
+},
+{
+"name": "Zeynep",
+"gender": "girl",
+"popularity": 99,
+"origin": "Arapça",
+"meaning": "Değerli taş, mücevher"
+},
+{
+"name": "Asel",
+"gender": "girl",
+"popularity": 98,
+"origin": "Arapça",
+"meaning": "Bal"
+},
+{
+"name": "Elif",
+"gender": "girl",
+"popularity": 98,
+"origin": "Arapça",
+"meaning": "Arap alfabesinin ilk harfi; ince ve zarif"
+},
+{
+"name": "Mehmet",
+"gender": "boy",
+"popularity": 98,
+"origin": "Arapça",
+"meaning": "Övülmüş, övgüye layık kişi"
+},
+{
+"name": "Ömer",
+"gender": "boy",
+"popularity": 98,
+"origin": "Arapça",
+"meaning": "Uzun ömürlü, yaşam dolu"
+},
+{
+"name": "Lina",
+"gender": "girl",
+"popularity": 97,
+"origin": "Arapça ve Avrupa dilleri",
+"meaning": "Narin hurma fidanı; zarif"
+},
+{
+"name": "Muhammed",
+"gender": "boy",
+"popularity": 97,
+"origin": "Arapça",
+"meaning": "Çok övülen, övgüye değer kişi"
+},
+{
+"name": "Ada",
+"gender": "girl",
+"popularity": 96,
+"origin": "Türkçe",
+"meaning": "Etrafı sularla çevrili kara parçası"
+},
+{
+"name": "Ali",
+"gender": "boy",
+"popularity": 96,
+"origin": "Arapça",
+"meaning": "Yüce, yüksek, ulu"
+},
+{
+"name": "Aras",
+"gender": "boy",
+"popularity": 96,
+"origin": "Türkçe ve bölgesel kökenli",
+"meaning": "Türkiye'nin doğusundan geçen Aras Nehri'nin adı"
+},
+{
+"name": "Kerem",
+"gender": "boy",
+"popularity": 96,
+"origin": "Arapça",
+"meaning": "Cömertlik, asalet, iyilik"
+},
+{
+"name": "Mustafa",
+"gender": "boy",
+"popularity": 96,
+"origin": "Arapça",
+"meaning": "Seçilmiş, üstün tutulmuş kişi"
+},
+{
+"name": "Ahmet",
+"gender": "boy",
+"popularity": 95,
+"origin": "Arapça",
+"meaning": "Çok övülen, övgüye layık kişi"
+},
+{
+"name": "Atlas",
+"gender": "boy",
+"popularity": 95,
+"origin": "Yunanca",
+"meaning": "Yunan mitolojisinde gök kubbeyi taşıyan titan; ayrıca harita kitabı"
+},
+{
+"name": "Ela",
+"gender": "girl",
+"popularity": 95,
+"origin": "Türkçe",
+"meaning": "Yeşile çalan açık kahverengi göz rengi"
+},
+{
+"name": "Eren",
+"gender": "boy",
+"popularity": 95,
+"origin": "Türkçe",
+"meaning": "Olgun, bilge ve ermiş kişi"
+},
+{
+"name": "Eylül",
+"gender": "girl",
+"popularity": 95,
+"origin": "Arapça üzerinden Süryanice",
+"meaning": "Yılın dokuzuncu ayı"
+},
+{
+"name": "Zehra",
+"gender": "girl",
+"popularity": 95,
+"origin": "Arapça",
+"meaning": "Parlak, aydınlık ve çiçek gibi güzel"
+},
+{
+"name": "Can",
+"gender": "boy",
+"popularity": 94,
+"origin": "Farsça",
+"meaning": "Yaşam, ruh, içten ve sevilen kişi"
+},
+{
+"name": "Emir",
+"gender": "boy",
+"popularity": 94,
+"origin": "Arapça",
+"meaning": "Buyruk veren, hükümdar veya komutan"
+},
+{
+"name": "İbrahim",
+"gender": "boy",
+"popularity": 94,
+"origin": "İbranice",
+"meaning": "Çok sayıda halkın babası"
+},
+{
+"name": "Mert",
+"gender": "boy",
+"popularity": 94,
+"origin": "Farsça",
+"meaning": "Cesur, sözünün eri, güvenilir kişi"
+},
+{
+"name": "Meryem",
+"gender": "girl",
+"popularity": 94,
+"origin": "İbranice",
+"meaning": "Temiz, iffetli ve ibadete düşkün kadın"
+},
+{
+"name": "Mira",
+"gender": "girl",
+"popularity": 94,
+"origin": "Latince ve Slavca",
+"meaning": "Hayranlık uyandıran; barış"
+},
+{
+"name": "Nehir",
+"gender": "girl",
+"popularity": 94,
+"origin": "Arapça",
+"meaning": "Irmak, büyük akarsu"
+},
+{
+"name": "Yunus",
+"gender": "boy",
+"popularity": 94,
+"origin": "İbranice",
+"meaning": "Güvercin; bir peygamberin adı"
+},
+{
+"name": "Alp",
+"gender": "boy",
+"popularity": 93,
+"origin": "Türkçe",
+"meaning": "Yiğit, kahraman, cesur savaşçı"
+},
+{
+"name": "Azra",
+"gender": "girl",
+"popularity": 93,
+"origin": "Arapça",
+"meaning": "Saf, temiz, el değmemiş"
+},
+{
+"name": "Duru",
+"gender": "girl",
+"popularity": 93,
+"origin": "Türkçe",
+"meaning": "Berrak, temiz, saf"
+},
+{
+"name": "Eymen",
+"gender": "boy",
+"popularity": 93,
+"origin": "Arapça",
+"meaning": "Uğurlu, bereketli ve hayırlı"
+},
+{
+"name": "Abdullah",
+"gender": "boy",
+"popularity": 92,
+"origin": "Arapça",
+"meaning": "Allah'ın kulu"
+},
+{
+"name": "Alya",
+"gender": "girl",
+"popularity": 92,
+"origin": "Arapça",
+"meaning": "Yüksek, yüce"
+},
+{
+"name": "Ayaz",
+"gender": "boy",
+"popularity": 92,
+"origin": "Türkçe",
+"meaning": "Duru ve kuru havada oluşan keskin soğuk"
+},
+{
+"name": "Ayşe",
+"gender": "girl",
+"popularity": 92,
+"origin": "Arapça",
+"meaning": "Yaşayan, hayat dolu"
+},
+{
+"name": "Hüseyin",
+"gender": "boy",
+"popularity": 92,
+"origin": "Arapça",
+"meaning": "Güzel, iyi ve değerli kişi"
+},
+{
+"name": "Kaan",
+"gender": "boy",
+"popularity": 92,
+"origin": "Türkçe",
+"meaning": "Hükümdar, kağan"
+},
+{
+"name": "Leyla",
+"gender": "girl",
+"popularity": 92,
+"origin": "Arapça",
+"meaning": "Gece; siyah saçlı güzel kadın"
+},
+{
+"name": "Alparslan",
+"gender": "boy",
+"popularity": 91,
+"origin": "Türkçe",
+"meaning": "Aslan gibi yiğit ve cesur kişi"
+},
+{
+"name": "Arya",
+"gender": "girl",
+"popularity": 91,
+"origin": "Sanskritçe",
+"meaning": "Soylu, onurlu"
+},
+{
+"name": "Emre",
+"gender": "boy",
+"popularity": 91,
+"origin": "Türkçe",
+"meaning": "Dost, kardeş; âşık ve ozan"
+},
+{
+"name": "Enes",
+"gender": "boy",
+"popularity": 91,
+"origin": "Arapça",
+"meaning": "Dostluk, yakınlık ve cana yakınlık"
+},
+{
+"name": "Hasan",
+"gender": "boy",
+"popularity": 91,
+"origin": "Arapça",
+"meaning": "Güzel, iyi, hayırlı"
+},
+{
+"name": "İrem",
+"gender": "girl",
+"popularity": 91,
+"origin": "Arapça",
+"meaning": "Cennet bahçesi olarak anılan efsanevi yer"
+},
+{
+"name": "Kuzey",
+"gender": "boy",
+"popularity": 91,
+"origin": "Türkçe",
+"meaning": "Dört ana yönden biri, kuzey yönü"
+},
+{
+"name": "Nur",
+"gender": "girl",
+"popularity": 91,
+"origin": "Arapça",
+"meaning": "Işık, aydınlık ve parlaklık"
+},
+{
+"name": "Osman",
+"gender": "boy",
+"popularity": 91,
+"origin": "Arapça",
+"meaning": "Toy kuşu; güçlü ve bilge kişi"
+},
+{
+"name": "Aylin",
+"gender": "girl",
+"popularity": 90,
+"origin": "Türkçe",
+"meaning": "Ayın çevresinde görülen ışık halkası"
+},
+{
+"name": "Burak",
+"gender": "boy",
+"popularity": 90,
+"origin": "Arapça",
+"meaning": "Parlak, ışıldayan; çok hızlı binek"
+},
+{
+"name": "Fatma",
+"gender": "girl",
+"popularity": 90,
+"origin": "Arapça",
+"meaning": "Çocuğunu sütten kesen; kötülükten uzak duran"
+},
+{
+"name": "İsmail",
+"gender": "boy",
+"popularity": 90,
+"origin": "İbranice",
+"meaning": "Tanrı işitir"
+},
+{
+"name": "Masal",
+"gender": "girl",
+"popularity": 90,
+"origin": "Arapça kökenli Türkçe sözcük",
+"meaning": "Olağanüstü olayları anlatan düşsel hikâye"
+},
+{
+"name": "Miraç",
+"gender": "boy",
+"popularity": 90,
+"origin": "Arapça",
+"meaning": "Yükselme; Hz. Muhammed'in göğe yükselişi"
+},
+{
+"name": "Yasin",
+"gender": "boy",
+"popularity": 90,
+"origin": "Arapça",
+"meaning": "Kur'an'daki bir surenin ve harf birleşiminin adı"
+},
+{
+"name": "Furkan",
+"gender": "boy",
+"popularity": 89,
+"origin": "Arapça",
+"meaning": "Doğruyu yanlıştan ayıran ölçü"
+},
+{
+"name": "Mila",
+"gender": "girl",
+"popularity": 89,
+"origin": "Slavca",
+"meaning": "Sevgili, hoş, zarif"
+},
+{
+"name": "Nisa",
+"gender": "girl",
+"popularity": 89,
+"origin": "Arapça",
+"meaning": "Kadınlar"
+},
+{
+"name": "Selin",
+"gender": "girl",
+"popularity": 89,
+"origin": "Türkçe",
+"meaning": "Coşkun akan su"
+},
+{
+"name": "Yiğit",
+"gender": "boy",
+"popularity": 89,
+"origin": "Türkçe",
+"meaning": "Cesur, güçlü ve kahraman kişi"
+},
+{
+"name": "Alara",
+"gender": "girl",
+"popularity": 88,
+"origin": "Türkçe ve Türk mitolojisi",
+"meaning": "Suyla ilişkilendirilen mitolojik kadın varlığı"
+},
+{
+"name": "Çınar",
+"gender": "boy",
+"popularity": 88,
+"origin": "Farsça",
+"meaning": "Uzun ömürlü, görkemli çınar ağacı"
+},
+{
+"name": "Deniz",
+"gender": "girl",
+"popularity": 88,
+"origin": "Türkçe",
+"meaning": "Geniş ve engin su kütlesi"
+},
+{
+"name": "Mina",
+"gender": "girl",
+"popularity": 88,
+"origin": "Farsça",
+"meaning": "Mine, emaye; gök mavisi"
+},
+{
+"name": "Musa",
+"gender": "boy",
+"popularity": 88,
+"origin": "İbranice",
+"meaning": "Sudan çıkarılan; bir peygamberin adı"
+},
+{
+"name": "Sümeyye",
+"gender": "girl",
+"popularity": 88,
+"origin": "Arapça",
+"meaning": "Yüksek, yüce ve değerli"
+},
+{
+"name": "Yağmur",
+"gender": "unisex",
+"popularity": 88,
+"origin": "Türkçe",
+"meaning": "Bulutlardan damlalar hâlinde düşen su, bereket"
+},
+{
+"name": "Arda",
+"gender": "boy",
+"popularity": 87,
+"origin": "Türkçe",
+"meaning": "Ardından gelen, halef"
+},
+{
+"name": "Elisa",
+"gender": "girl",
+"popularity": 87,
+"origin": "İbranice",
+"meaning": "Tanrı benim yeminimdir"
+},
+{
+"name": "Melek",
+"gender": "girl",
+"popularity": 87,
+"origin": "Arapça",
+"meaning": "İyilik ve güzelliği temsil eden ruhani varlık"
+},
+{
+"name": "Onur",
+"gender": "boy",
+"popularity": 87,
+"origin": "Fransızca",
+"meaning": "Şeref, saygınlık, özsaygı"
+},
+{
+"name": "Barış",
+"gender": "boy",
+"popularity": 86,
+"origin": "Türkçe",
+"meaning": "Uzlaşma, huzur ve savaşsızlık"
+},
+{
+"name": "Ece",
+"gender": "girl",
+"popularity": 86,
+"origin": "Türkçe",
+"meaning": "Kraliçe, güzel ve soylu kadın"
+},
+{
+"name": "Emine",
+"gender": "girl",
+"popularity": 86,
+"origin": "Arapça",
+"meaning": "Güvenilir, emin ve dürüst"
+},
+{
+"name": "İlayda",
+"gender": "girl",
+"popularity": 86,
+"origin": "Modern Türkçe",
+"meaning": "Yaygın yorumuyla su perisi"
+},
+{
+"name": "Murat",
+"gender": "boy",
+"popularity": 86,
+"origin": "Arapça",
+"meaning": "Dilek, amaç, ulaşılmak istenen şey"
+},
+{
+"name": "Oğuz",
+"gender": "boy",
+"popularity": 86,
+"origin": "Türkçe",
+"meaning": "Güçlü boylar birliği; yiğit kişi"
+},
+{
+"name": "Poyraz",
+"gender": "boy",
+"popularity": 86,
+"origin": "Yunanca kökenli",
+"meaning": "Kuzeydoğudan esen serin ve güçlü rüzgâr"
+},
+{
+"name": "Süleyman",
+"gender": "boy",
+"popularity": 86,
+"origin": "İbranice",
+"meaning": "Barış ve esenlik içinde olan"
+},
+{
+"name": "Umut",
+"gender": "unisex",
+"popularity": 86,
+"origin": "Türkçe",
+"meaning": "İyi bir şeyin gerçekleşmesine duyulan güven ve beklenti"
+},
+{
+"name": "Demir",
+"gender": "boy",
+"popularity": 85,
+"origin": "Türkçe",
+"meaning": "Gücü ve dayanıklılığı simgeleyen metal"
+},
+{
+"name": "Hatice",
+"gender": "girl",
+"popularity": 85,
+"origin": "Arapça",
+"meaning": "Erken doğan çocuk"
+},
+{
+"name": "Maya",
+"gender": "girl",
+"popularity": 85,
+"origin": "Yunanca",
+"meaning": "Anne, anaç kadın; mitolojide Maia'nın adı"
+},
+{
+"name": "Melike",
+"gender": "girl",
+"popularity": 85,
+"origin": "Arapça",
+"meaning": "Kadın hükümdar, kraliçe"
+},
+{
+"name": "Adem",
+"gender": "boy",
+"popularity": 84,
+"origin": "İbranice",
+"meaning": "İlk insan; topraktan yaratılan"
+},
+{
+"name": "Aslı",
+"gender": "girl",
+"popularity": 84,
+"origin": "Arapça",
+"meaning": "Özü, kökeni ve gerçeği"
+},
+{
+"name": "Derin",
+"gender": "girl",
+"popularity": 84,
+"origin": "Türkçe",
+"meaning": "Dibi yüzeyden uzak olan; anlamı yoğun"
+},
+{
+"name": "Göktuğ",
+"gender": "boy",
+"popularity": 84,
+"origin": "Türkçe",
+"meaning": "Gök ve hükümdarlık sancağı anlamlarını birleştiren ad"
+},
+{
+"name": "Melisa",
+"gender": "girl",
+"popularity": 84,
+"origin": "Yunanca",
+"meaning": "Bal arısı"
+},
+{
+"name": "Alina",
+"gender": "girl",
+"popularity": 83,
+"origin": "Avrupa dilleri",
+"meaning": "Parlak, güzel veya soylu"
+},
+{
+"name": "Damla",
+"gender": "girl",
+"popularity": 83,
+"origin": "Türkçe",
+"meaning": "Küçük sıvı tanesi"
+},
+{
+"name": "Doruk",
+"gender": "boy",
+"popularity": 83,
+"origin": "Türkçe",
+"meaning": "Dağın en yüksek noktası, zirve"
+},
+{
+"name": "Harun",
+"gender": "boy",
+"popularity": 83,
+"origin": "İbranice",
+"meaning": "Yüce, aydınlık; bir peygamberin adı"
+},
+{
+"name": "Ekin",
+"gender": "unisex",
+"popularity": 82,
+"origin": "Türkçe",
+"meaning": "Ekilmiş tahıl veya ekim yoluyla yetiştirilen ürün"
+},
+{
+"name": "Esra",
+"gender": "girl",
+"popularity": 82,
+"origin": "Arapça",
+"meaning": "Gece yolculuğu"
+},
+{
+"name": "İpek",
+"gender": "girl",
+"popularity": 82,
+"origin": "Türkçe",
+"meaning": "İpek böceğinin ürettiği ince ve değerli lif"
+},
+{
+"name": "Lara",
+"gender": "girl",
+"popularity": 82,
+"origin": "Latince",
+"meaning": "Roma mitolojisinde bir su perisinin adı"
+},
+{
+"name": "Mete",
+"gender": "boy",
+"popularity": 82,
+"origin": "Türkçe ve tarihî Asya kökenli",
+"meaning": "Büyük Hun hükümdarı Mete Han'dan gelen tarihî ad"
+},
+{
+"name": "Salih",
+"gender": "boy",
+"popularity": 82,
+"origin": "Arapça",
+"meaning": "İyi, doğru, erdemli kişi"
+},
+{
+"name": "Ege",
+"gender": "boy",
+"popularity": 81,
+"origin": "Yunanca kökenli coğrafi ad",
+"meaning": "Ege Denizi ve Ege Bölgesi'ni ifade eden ad"
+},
+{
+"name": "Gökhan",
+"gender": "boy",
+"popularity": 81,
+"origin": "Türkçe",
+"meaning": "Göğün hükümdarı"
+},
+{
+"name": "Şeyma",
+"gender": "girl",
+"popularity": 81,
+"origin": "Arapça",
+"meaning": "Vücudunda güzellik işareti veya ben bulunan"
+},
+{
+"name": "Vera",
+"gender": "girl",
+"popularity": 81,
+"origin": "Slavca ve Latince",
+"meaning": "İnanç; gerçek"
+},
+{
+"name": "Bade",
+"gender": "girl",
+"popularity": 80,
+"origin": "Farsça",
+"meaning": "Şarap; tasavvufta aşk ve coşku"
+},
+{
+"name": "Berk",
+"gender": "boy",
+"popularity": 80,
+"origin": "Türkçe",
+"meaning": "Sağlam, güçlü ve dayanıklı"
+},
+{
+"name": "Cem",
+"gender": "boy",
+"popularity": 80,
+"origin": "Farsça",
+"meaning": "Hükümdar; topluluk ve birlik"
+},
+{
+"name": "Güneş",
+"gender": "unisex",
+"popularity": 80,
+"origin": "Türkçe",
+"meaning": "Dünyaya ışık ve ısı veren yıldız"
+},
+{
+"name": "Halil",
+"gender": "boy",
+"popularity": 80,
+"origin": "Arapça",
+"meaning": "Yakın ve içten dost"
+},
+{
+"name": "Kübra",
+"gender": "girl",
+"popularity": 80,
+"origin": "Arapça",
+"meaning": "En büyük, çok yüce"
+},
+{
+"name": "Yasemin",
+"gender": "girl",
+"popularity": 80,
+"origin": "Farsça",
+"meaning": "Hoş kokulu beyaz veya sarı çiçek"
+},
+{
+"name": "Büşra",
+"gender": "girl",
+"popularity": 79,
+"origin": "Arapça",
+"meaning": "Müjde, sevindirici haber"
+},
+{
+"name": "Kadir",
+"gender": "boy",
+"popularity": 79,
+"origin": "Arapça",
+"meaning": "Güçlü, kudretli, değerli"
+},
+{
+"name": "Rüzgâr",
+"gender": "boy",
+"popularity": 79,
+"origin": "Farsça",
+"meaning": "Havanın doğal hareketi, yel"
+},
+{
+"name": "Serra",
+"gender": "girl",
+"popularity": 79,
+"origin": "Arapça",
+"meaning": "Bolluk, ferahlık, rahatlık"
+},
+{
+"name": "Uğur",
+"gender": "boy",
+"popularity": 79,
+"origin": "Türkçe",
+"meaning": "İyilik ve başarı getiren işaret, talih"
+},
+{
+"name": "Cansu",
+"gender": "girl",
+"popularity": 78,
+"origin": "Türkçe ve Farsça",
+"meaning": "Hayat veren su; can kadar değerli"
+},
+{
+"name": "Doğa",
+"gender": "unisex",
+"popularity": 78,
+"origin": "Türkçe",
+"meaning": "Canlı ve cansız varlıkların oluşturduğu tabii çevre"
+},
+{
+"name": "Hakan",
+"gender": "boy",
+"popularity": 78,
+"origin": "Türkçe",
+"meaning": "Hükümdar, kağan"
+},
+{
+"name": "Naz",
+"gender": "girl",
+"popularity": 78,
+"origin": "Farsça",
+"meaning": "Cilve, işve, hoş eda"
+},
+{
+"name": "Pars",
+"gender": "boy",
+"popularity": 78,
+"origin": "Farsça",
+"meaning": "Leopar; çeviklik ve gücün simgesi"
+},
+{
+"name": "Rabia",
+"gender": "girl",
+"popularity": 78,
+"origin": "Arapça",
+"meaning": "Dördüncü, ailenin dördüncü çocuğu"
+},
+{
+"name": "Sinan",
+"gender": "boy",
+"popularity": 78,
+"origin": "Arapça",
+"meaning": "Mızrak ucu; keskin ve güçlü kişi"
+},
+{
+"name": "Kayra",
+"gender": "boy",
+"popularity": 77,
+"origin": "Türkçe",
+"meaning": "İyilik, lütuf ve koruyucu bağış"
+},
+{
+"name": "Bahar",
+"gender": "girl",
+"popularity": 76,
+"origin": "Farsça",
+"meaning": "Doğanın canlandığı ilkbahar mevsimi"
+},
+{
+"name": "Bilge",
+"gender": "unisex",
+"popularity": 76,
+"origin": "Türkçe",
+"meaning": "Derin bilgi ve anlayış sahibi, akıllı kimse"
+},
+{
+"name": "Kemal",
+"gender": "boy",
+"popularity": 76,
+"origin": "Arapça",
+"meaning": "Olgunluk, yetkinlik, kusursuzluk"
+},
+{
+"name": "Nil",
+"gender": "girl",
+"popularity": 76,
+"origin": "Yunanca üzerinden Arapça",
+"meaning": "Nil Nehri'nin adı"
+},
+{
+"name": "Serkan",
+"gender": "boy",
+"popularity": 76,
+"origin": "Türkçe ve Farsça",
+"meaning": "Baş, önder ve soylu kişi"
+},
+{
+"name": "Derya",
+"gender": "girl",
+"popularity": 75,
+"origin": "Farsça",
+"meaning": "Deniz, enginlik"
+},
+{
+"name": "Toprak",
+"gender": "boy",
+"popularity": 75,
+"origin": "Türkçe",
+"meaning": "Yeryüzünün bitkileri besleyen üst katmanı; doğallık ve bereket"
+},
+{
+"name": "Ateş",
+"gender": "boy",
+"popularity": 74,
+"origin": "Farsça",
+"meaning": "Isı ve ışık yayan yanma; enerji ve tutku simgesi"
+},
+{
+"name": "Başak",
+"gender": "girl",
+"popularity": 74,
+"origin": "Türkçe",
+"meaning": "Tahılların taneli üst bölümü"
+},
+{
+"name": "Evren",
+"gender": "unisex",
+"popularity": 74,
+"origin": "Türkçe",
+"meaning": "Bütün gök varlıklarını ve maddeyi kapsayan âlem"
+},
+{
+"name": "Betül",
+"gender": "girl",
+"popularity": 73,
+"origin": "Arapça",
+"meaning": "İffetli, temiz ve kendini ibadete adamış kadın"
+},
+{
+"name": "Burcu",
+"gender": "girl",
+"popularity": 73,
+"origin": "Türkçe",
+"meaning": "Güzel ve hoş koku"
+},
+{
+"name": "Volkan",
+"gender": "boy",
+"popularity": 73,
+"origin": "Fransızca",
+"meaning": "Yanardağ; güçlü ve coşkulu kişi"
+},
+{
+"name": "Ceyda",
+"gender": "girl",
+"popularity": 72,
+"origin": "Arapça",
+"meaning": "Uzun boylu, zarif ve güzel kadın"
+},
+{
+"name": "Mahmut",
+"gender": "boy",
+"popularity": 72,
+"origin": "Arapça",
+"meaning": "Övülmüş, beğenilmiş kişi"
+},
+{
+"name": "Metin",
+"gender": "boy",
+"popularity": 72,
+"origin": "Arapça",
+"meaning": "Sağlam, güçlü, dayanıklı"
+},
+{
+"name": "Özgür",
+"gender": "unisex",
+"popularity": 72,
+"origin": "Türkçe",
+"meaning": "Bağımsız, herhangi bir kısıtlamaya bağlı olmayan"
+},
+{
+"name": "Tolga",
+"gender": "boy",
+"popularity": 72,
+"origin": "Türkçe",
+"meaning": "Savaşçıların başına taktığı miğfer"
+},
+{
+"name": "Uras",
+"gender": "boy",
+"popularity": 72,
+"origin": "Türkçe",
+"meaning": "Talih, baht ve mutluluk"
+},
+{
+"name": "Emirhan",
+"gender": "boy",
+"popularity": 71,
+"origin": "Arapça ve Türkçe",
+"meaning": "Hükümdar, komutan ve han"
+},
+{
+"name": "Seda",
+"gender": "girl",
+"popularity": 71,
+"origin": "Arapça",
+"meaning": "Ses, yankı"
+},
+{
+"name": "Koray",
+"gender": "boy",
+"popularity": 70,
+"origin": "Türkçe",
+"meaning": "Ateş rengindeki ay; parlak ay"
+},
+{
+"name": "Sultan",
+"gender": "girl",
+"popularity": 70,
+"origin": "Arapça",
+"meaning": "Hükümdar, güçlü ve otorite sahibi kişi"
+},
+{
+"name": "Berkay",
+"gender": "boy",
+"popularity": 69,
+"origin": "Türkçe",
+"meaning": "Güçlü ve parlak ay"
+},
+{
+"name": "Cemal",
+"gender": "boy",
+"popularity": 69,
+"origin": "Arapça",
+"meaning": "Güzellik, yakışıklılık"
+},
+{
+"name": "Dicle",
+"gender": "unisex",
+"popularity": 69,
+"origin": "Mezopotamya kökenli",
+"meaning": "Türkiye ve Mezopotamya'dan geçen tarihî nehrin adı"
+},
+{
+"name": "Erhan",
+"gender": "boy",
+"popularity": 69,
+"origin": "Türkçe",
+"meaning": "Yiğit hükümdar, cesur önder"
+},
+{
+"name": "Pınar",
+"gender": "girl",
+"popularity": 69,
+"origin": "Türkçe",
+"meaning": "Yerden kaynayarak çıkan su kaynağı"
+},
+{
+"name": "Ebru",
+"gender": "girl",
+"popularity": 68,
+"origin": "Farsça",
+"meaning": "Bulutumsu desen; geleneksel süsleme sanatı"
+},
+{
+"name": "İlke",
+"gender": "unisex",
+"popularity": 68,
+"origin": "Türkçe",
+"meaning": "Temel düşünce, prensip veya davranış kuralı"
+},
+{
+"name": "Orhan",
+"gender": "boy",
+"popularity": 68,
+"origin": "Türkçe",
+"meaning": "Şehrin veya ordunun yöneticisi"
+},
+{
+"name": "Ramazan",
+"gender": "boy",
+"popularity": 68,
+"origin": "Arapça",
+"meaning": "Oruç tutulan kutsal ayın adı"
+},
+{
+"name": "Tuğba",
+"gender": "girl",
+"popularity": 68,
+"origin": "Arapça",
+"meaning": "Cennette bulunduğuna inanılan kutsal ağaç"
+},
+{
+"name": "Batuhan",
+"gender": "boy",
+"popularity": 67,
+"origin": "Moğolca ve Türkçe",
+"meaning": "Güçlü, sağlam hükümdar"
+},
+{
+"name": "Gül",
+"gender": "girl",
+"popularity": 67,
+"origin": "Farsça",
+"meaning": "Güzel kokulu, dikenli çiçek"
+},
+{
+"name": "Levent",
+"gender": "boy",
+"popularity": 67,
+"origin": "İtalyanca",
+"meaning": "Denizci, güçlü ve çevik delikanlı"
+},
+{
+"name": "Özlem",
+"gender": "girl",
+"popularity": 67,
+"origin": "Türkçe",
+"meaning": "Birine veya bir yere duyulan hasret"
+},
+{
+"name": "Devrim",
+"gender": "unisex",
+"popularity": 66,
+"origin": "Türkçe",
+"meaning": "Köklü değişim ve yenilik"
+},
+{
+"name": "Selma",
+"gender": "girl",
+"popularity": 66,
+"origin": "Arapça",
+"meaning": "Esenlik içinde, güvenli ve huzurlu"
+},
+{
+"name": "Cengiz",
+"gender": "boy",
+"popularity": 65,
+"origin": "Moğolca",
+"meaning": "Güçlü, büyük ve engin hükümdar"
+},
+{
+"name": "Hacer",
+"gender": "girl",
+"popularity": 65,
+"origin": "İbranice",
+"meaning": "Göç eden, hicret eden"
+},
+{
+"name": "Recep",
+"gender": "boy",
+"popularity": 65,
+"origin": "Arapça",
+"meaning": "Saygı duyulan; kutsal aylardan birinin adı"
+},
+{
+"name": "Utku",
+"gender": "boy",
+"popularity": 65,
+"origin": "Türkçe",
+"meaning": "Zafer, üstün gelme"
+},
+{
+"name": "Işık",
+"gender": "unisex",
+"popularity": 64,
+"origin": "Türkçe",
+"meaning": "Cisimlerin görülmesini sağlayan aydınlık, nur"
+},
+{
+"name": "Buğra",
+"gender": "boy",
+"popularity": 63,
+"origin": "Türkçe",
+"meaning": "Erkek deve; tarihî hükümdarlık unvanı olarak da kullanılır"
+},
+{
+"name": "İlkay",
+"gender": "unisex",
+"popularity": 63,
+"origin": "Türkçe",
+"meaning": "Ayın ilk günleri veya ilk doğan ay"
+},
+{
+"name": "Turgut",
+"gender": "boy",
+"popularity": 63,
+"origin": "Türkçe",
+"meaning": "Yurt, konut; dirlik ve düzen"
+},
+{
+"name": "Bekir",
+"gender": "boy",
+"popularity": 62,
+"origin": "Arapça",
+"meaning": "Erken davranan; genç deve"
+},
+{
+"name": "Sevgi",
+"gender": "girl",
+"popularity": 62,
+"origin": "Türkçe",
+"meaning": "Derin bağlılık ve gönülden yakınlık duygusu"
+},
+{
+"name": "Dilek",
+"gender": "girl",
+"popularity": 61,
+"origin": "Türkçe",
+"meaning": "Gerçekleşmesi istenen arzu"
+},
+{
+"name": "Nurgül",
+"gender": "girl",
+"popularity": 61,
+"origin": "Arapça ve Farsça",
+"meaning": "Işıklı, parlak gül"
+},
+{
+"name": "Selçuk",
+"gender": "boy",
+"popularity": 61,
+"origin": "Türkçe",
+"meaning": "Güçlü hükümdar; tarihî Türk hanedanının adı"
+},
+{
+"name": "Sezer",
+"gender": "unisex",
+"popularity": 61,
+"origin": "Türkçe",
+"meaning": "Sezgisi güçlü olan, hissedip anlayan kimse"
+},
+{
+"name": "Aysel",
+"gender": "girl",
+"popularity": 60,
+"origin": "Türkçe",
+"meaning": "Ay ışığı gibi parlak ve güzel"
+},
+{
+"name": "Çağrı",
+"gender": "boy",
+"popularity": 60,
+"origin": "Türkçe",
+"meaning": "Davet, sesleniş; ayrıca tarihî bir Türk hükümdarının adı"
+},
+{
+"name": "Günay",
+"gender": "unisex",
+"popularity": 60,
+"origin": "Türkçe",
+"meaning": "Güneş ile ay; aydınlık ve parlaklık"
+},
+{
+"name": "Sibel",
+"gender": "girl",
+"popularity": 60,
+"origin": "Yunanca",
+"meaning": "Bilici kadın; bereketle ilişkilendirilen ad"
+},
+{
+"name": "Bülent",
+"gender": "boy",
+"popularity": 59,
+"origin": "Farsça",
+"meaning": "Yüksek, yüce, ulu"
+},
+{
+"name": "Özden",
+"gender": "unisex",
+"popularity": 59,
+"origin": "Türkçe",
+"meaning": "Soyca temiz, içten ve gerçek olan"
+},
+{
+"name": "Songül",
+"gender": "girl",
+"popularity": 59,
+"origin": "Türkçe ve Farsça",
+"meaning": "Son doğan kız çocuğu; son gül"
+},
+{
+"name": "Gülcan",
+"gender": "girl",
+"popularity": 58,
+"origin": "Farsça kökenli birleşik ad",
+"meaning": "Gül gibi güzel ve içten kimse"
+},
+{
+"name": "Hülya",
+"gender": "girl",
+"popularity": 58,
+"origin": "Arapça",
+"meaning": "Tatlı düş, hayal"
+},
+{
+"name": "Olcay",
+"gender": "unisex",
+"popularity": 58,
+"origin": "Türkçe",
+"meaning": "Talih, baht ve uğur"
+},
+{
+"name": "Doğan",
+"gender": "boy",
+"popularity": 57,
+"origin": "Türkçe",
+"meaning": "Doğan kuşu; aynı zamanda dünyaya gelen kişi"
+},
+{
+"name": "Şule",
+"gender": "girl",
+"popularity": 57,
+"origin": "Arapça",
+"meaning": "Alev, parlak ışık"
+},
+{
+"name": "Yüksel",
+"gender": "unisex",
+"popularity": 57,
+"origin": "Türkçe",
+"meaning": "Yücel, ilerle ve daha yüksek bir konuma ulaş"
+},
+{
+"name": "Gülşen",
+"gender": "girl",
+"popularity": 56,
+"origin": "Farsça",
+"meaning": "Gül bahçesi"
+},
+{
+"name": "Aşkın",
+"gender": "unisex",
+"popularity": 55,
+"origin": "Türkçe",
+"meaning": "Üstün, ötesinde veya sınırı aşan"
+},
+{
+"name": "Filiz",
+"gender": "girl",
+"popularity": 55,
+"origin": "Türkçe",
+"meaning": "Bitkinin yeni sürgünü, taze dal"
+},
+{
+"name": "Neşe",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arapça",
+"meaning": "Sevinç, mutluluk ve canlılık"
+},
+{
+"name": "Gülay",
+"gender": "girl",
+"popularity": 54,
+"origin": "Türkçe birleşik ad",
+"meaning": "Gül gibi güzel, ay gibi parlak"
+},
+{
+"name": "Ender",
+"gender": "unisex",
+"popularity": 53,
+"origin": "Farsça",
+"meaning": "Çok az bulunan, nadir ve değerli"
+},
+{
+"name": "Sevil",
+"gender": "girl",
+"popularity": 53,
+"origin": "Türkçe",
+"meaning": "Sevilen biri ol"
+},
+{
+"name": "Nermin",
+"gender": "girl",
+"popularity": 52,
+"origin": "Farsça",
+"meaning": "Yumuşak, nazik ve narin"
+},
+{
+"name": "Nursel",
+"gender": "girl",
+"popularity": 52,
+"origin": "Arapça ve Türkçe",
+"meaning": "Işık seli, bol aydınlık"
+},
+{
+"name": "Handan",
+"gender": "girl",
+"popularity": 51,
+"origin": "Farsça",
+"meaning": "Gülen, neşeli ve sevinçli"
+},
+{
+"name": "Türkan",
+"gender": "girl",
+"popularity": 51,
+"origin": "Türkçe",
+"meaning": "Soylu Türk kadını, kraliçe"
+},
+{
+"name": "Hira",
+"gender": "girl",
+"popularity": 62,
+"origin": "Arapça",
+"meaning": "Hz. Muhammed'e ilk vahyin geldiği mağaranın bulunduğu dağın adı"
+},
+{
+"name": "Eslem",
+"gender": "girl",
+"popularity": 75,
+"origin": "Arapça",
+"meaning": "En selametli, esenliğe en çok kavuşmuş"
+},
+{
+"name": "Esila",
+"gender": "girl",
+"popularity": 66,
+"origin": "Arapça",
+"meaning": "Asil, soylu"
+},
+{
+"name": "Ecrin",
+"gender": "girl",
+"popularity": 80,
+"origin": "Arapça",
+"meaning": "Ecir, sevap, mükâfat"
+},
+{
+"name": "Hiranur",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arapça",
+"meaning": "Hira'nın nuru"
+},
+{
+"name": "Zümra",
+"gender": "girl",
+"popularity": 72,
+"origin": "Arapça",
+"meaning": "Topluluk, grup, zümre"
+},
+{
+"name": "Asude",
+"gender": "girl",
+"popularity": 66,
+"origin": "Farsça",
+"meaning": "Rahat, huzurlu, sakin"
+},
+{
+"name": "Ahsen",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arapça",
+"meaning": "En güzel, en iyi"
+},
+{
+"name": "Feyza",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arapça",
+"meaning": "Bolluk, bereket, feyiz"
+},
+{
+"name": "Gökçe",
+"gender": "girl",
+"popularity": 45,
+"origin": "Türkçe",
+"meaning": "Göğe ait, gök renginde, güzel"
+},
+{
+"name": "Rana",
+"gender": "girl",
+"popularity": 40,
+"origin": "Farsça",
+"meaning": "Güzel, hoş, alımlı"
+},
+{
+"name": "Rüya",
+"gender": "girl",
+"popularity": 52,
+"origin": "Arapça",
+"meaning": "Düş, uykuda görülen hayal"
+},
+{
+"name": "Sena",
+"gender": "girl",
+"popularity": 58,
+"origin": "Arapça",
+"meaning": "Övme, övgü"
+},
+{
+"name": "Beyza",
+"gender": "girl",
+"popularity": 55,
+"origin": "Arapça",
+"meaning": "Beyaz, ak"
+},
+{
+"name": "Esma",
+"gender": "girl",
+"popularity": 48,
+"origin": "Arapça",
+"meaning": "İsimler; Allah'ın güzel adları"
+},
+{
+"name": "Hilal",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arapça",
+"meaning": "Yeni ay, ayın ince hali"
+},
+{
+"name": "Eda",
+"gender": "girl",
+"popularity": 42,
+"origin": "Arapça",
+"meaning": "Zarif tavır, naz, edâ"
+},
+{
+"name": "Ilgın",
+"gender": "girl",
+"popularity": 45,
+"origin": "Türkçe",
+"meaning": "Ilgın ağacı"
+},
+{
+"name": "Yaren",
+"gender": "girl",
+"popularity": 50,
+"origin": "Farsça",
+"meaning": "Dostlar, arkadaşlar"
+},
+{
+"name": "Nazlı",
+"gender": "girl",
+"popularity": 38,
+"origin": "Farsça ve Türkçe",
+"meaning": "Nazı olan, cilveli, şımarık güzel"
+},
+{
+"name": "Öykü",
+"gender": "girl",
+"popularity": 45,
+"origin": "Türkçe",
+"meaning": "Hikâye"
+},
+{
+"name": "Beril",
+"gender": "girl",
+"popularity": 42,
+"origin": "Yunanca",
+"meaning": "Değerli bir süs taşı, beril"
+},
+{
+"name": "Cemre",
+"gender": "girl",
+"popularity": 52,
+"origin": "Arapça",
+"meaning": "Kor, ateş parçası; baharda düştüğüne inanılan sıcaklık"
+},
+{
+"name": "Simge",
+"gender": "girl",
+"popularity": 35,
+"origin": "Türkçe",
+"meaning": "Sembol, işaret"
+},
+{
+"name": "Begüm",
+"gender": "girl",
+"popularity": 40,
+"origin": "Türkçe",
+"meaning": "Hanımefendi, prenses"
+},
+{
+"name": "Gizem",
+"gender": "girl",
+"popularity": 38,
+"origin": "Türkçe",
+"meaning": "Sır, esrar"
+},
+{
+"name": "Irmak",
+"gender": "girl",
+"popularity": 40,
+"origin": "Türkçe",
+"meaning": "Büyük akarsu"
+},
+{
+"name": "Pelin",
+"gender": "girl",
+"popularity": 32,
+"origin": "Türkçe",
+"meaning": "Pelin otu"
+},
+{
+"name": "Su",
+"gender": "girl",
+"popularity": 30,
+"origin": "Türkçe",
+"meaning": "Su; saflık ve berraklık"
+},
+{
+"name": "Ceren",
+"gender": "girl",
+"popularity": 40,
+"origin": "Türkçe",
+"meaning": "Ceylan, ahu"
+},
+{
+"name": "Ezgi",
+"gender": "girl",
+"popularity": 38,
+"origin": "Türkçe",
+"meaning": "Melodi, nağme"
+},
+{
+"name": "Gamze",
+"gender": "girl",
+"popularity": 32,
+"origin": "Farsça",
+"meaning": "Gülünce yanakta oluşan çukur"
+},
+{
+"name": "Lale",
+"gender": "girl",
+"popularity": 25,
+"origin": "Farsça",
+"meaning": "Lale çiçeği"
+},
+{
+"name": "Serap",
+"gender": "girl",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Ilgım, sıcakta uzakta görülen hayal"
+},
+{
+"name": "Sevda",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "Aşk, tutkulu sevgi"
+},
+{
+"name": "Hande",
+"gender": "girl",
+"popularity": 30,
+"origin": "Farsça",
+"meaning": "Gülüş, gülme"
+},
+{
+"name": "Feride",
+"gender": "girl",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Eşsiz, benzersiz, tek"
+},
+{
+"name": "Nesrin",
+"gender": "girl",
+"popularity": 22,
+"origin": "Farsça",
+"meaning": "Yabani gül, nesrin çiçeği"
+},
+{
+"name": "Zerrin",
+"gender": "girl",
+"popularity": 22,
+"origin": "Farsça",
+"meaning": "Altından yapılmış, altın sarısı"
+},
+{
+"name": "Şeyda",
+"gender": "girl",
+"popularity": 30,
+"origin": "Farsça",
+"meaning": "Çılgınca seven, tutkun"
+},
+{
+"name": "Hümeyra",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arapça",
+"meaning": "Kırmızımsı beyaz tenli; Hz. Aişe'nin lakabı"
+},
+{
+"name": "Rukiye",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "Yükselen, yücelen"
+},
+{
+"name": "Saliha",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "İyi, dürüst, salih kadın"
+},
+{
+"name": "Havva",
+"gender": "girl",
+"popularity": 30,
+"origin": "İbranice",
+"meaning": "Hayat, yaşayan; ilk kadının adı"
+},
+{
+"name": "Nihal",
+"gender": "girl",
+"popularity": 30,
+"origin": "Farsça",
+"meaning": "Fidan, taze dal"
+},
+{
+"name": "Yaprak",
+"gender": "girl",
+"popularity": 28,
+"origin": "Türkçe",
+"meaning": "Yaprak"
+},
+{
+"name": "Çiçek",
+"gender": "girl",
+"popularity": 25,
+"origin": "Türkçe",
+"meaning": "Çiçek"
+},
+{
+"name": "Bengisu",
+"gender": "girl",
+"popularity": 48,
+"origin": "Türkçe",
+"meaning": "Ölümsüzlük suyu, ab-ı hayat"
+},
+{
+"name": "Gökçen",
+"gender": "girl",
+"popularity": 30,
+"origin": "Türkçe",
+"meaning": "Göğe ait, gökle ilgili"
+},
+{
+"name": "Şevval",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arapça",
+"meaning": "Hicri takvimin onuncu ayı"
+},
+{
+"name": "Meva",
+"gender": "girl",
+"popularity": 50,
+"origin": "Arapça",
+"meaning": "Sığınak, barınak, yuva"
+},
+{
+"name": "Ravza",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arapça",
+"meaning": "Bahçe, cennet bahçesi"
+},
+{
+"name": "Medine",
+"gender": "girl",
+"popularity": 35,
+"origin": "Arapça",
+"meaning": "Şehir; Medine kenti"
+},
+{
+"name": "Kevser",
+"gender": "girl",
+"popularity": 40,
+"origin": "Arapça",
+"meaning": "Bolluk; cennette bir ırmak"
+},
+{
+"name": "Sara",
+"gender": "girl",
+"popularity": 40,
+"origin": "İbranice",
+"meaning": "Prenses, hanımefendi"
+},
+{
+"name": "Neva",
+"gender": "girl",
+"popularity": 45,
+"origin": "Farsça",
+"meaning": "Ses, nağme, ezgi"
+},
+{
+"name": "Yüsra",
+"gender": "girl",
+"popularity": 45,
+"origin": "Arapça",
+"meaning": "Kolaylık"
+},
+{
+"name": "Tuba",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "Cennette bulunduğuna inanılan ağaç"
+},
+{
+"name": "Nisan",
+"gender": "girl",
+"popularity": 25,
+"origin": "Süryanice",
+"meaning": "Yılın dördüncü ayı, nisan"
+},
+{
+"name": "Ayla",
+"gender": "girl",
+"popularity": 40,
+"origin": "Türkçe",
+"meaning": "Ayın çevresindeki ışık halkası, ayla"
+},
+{
+"name": "Aynur",
+"gender": "girl",
+"popularity": 25,
+"origin": "Türkçe ve Arapça",
+"meaning": "Ay ışığı"
+},
+{
+"name": "Dilara",
+"gender": "girl",
+"popularity": 45,
+"origin": "Farsça",
+"meaning": "Gönül süsleyen, sevgili"
+},
+{
+"name": "Nazan",
+"gender": "girl",
+"popularity": 22,
+"origin": "Farsça",
+"meaning": "Nazlı, cilveli"
+},
+{
+"name": "Mine",
+"gender": "girl",
+"popularity": 30,
+"origin": "Farsça",
+"meaning": "Mine çiçeği; sırlı süsleme"
+},
+{
+"name": "Esin",
+"gender": "girl",
+"popularity": 32,
+"origin": "Türkçe",
+"meaning": "İlham"
+},
+{
+"name": "Ayten",
+"gender": "girl",
+"popularity": 20,
+"origin": "Türkçe",
+"meaning": "Ay tenli, ay gibi parlak tenli"
+},
+{
+"name": "Nergis",
+"gender": "girl",
+"popularity": 25,
+"origin": "Farsça",
+"meaning": "Nergis çiçeği"
+},
+{
+"name": "Menekşe",
+"gender": "girl",
+"popularity": 25,
+"origin": "Farsça",
+"meaning": "Menekşe çiçeği"
+},
+{
+"name": "Reyhan",
+"gender": "girl",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "Fesleğen, güzel kokulu bitki"
+},
+{
+"name": "Asaf",
+"gender": "boy",
+"popularity": 76,
+"origin": "İbranice",
+"meaning": "Toplayan; Hz. Süleyman'ın bilge vezirinin adı"
+},
+{
+"name": "Hamza",
+"gender": "boy",
+"popularity": 70,
+"origin": "Arapça",
+"meaning": "Keskin, güçlü; aslan"
+},
+{
+"name": "Bilal",
+"gender": "boy",
+"popularity": 50,
+"origin": "Arapça",
+"meaning": "Islaklık, serinlik"
+},
+{
+"name": "Taha",
+"gender": "boy",
+"popularity": 70,
+"origin": "Arapça",
+"meaning": "Kur'an'da bir surenin adı"
+},
+{
+"name": "Talha",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arapça",
+"meaning": "Bir tür akasya ağacı"
+},
+{
+"name": "Selim",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arapça",
+"meaning": "Kusursuz, esen, sağlam"
+},
+{
+"name": "Yahya",
+"gender": "boy",
+"popularity": 45,
+"origin": "İbranice",
+"meaning": "Yaşayan, diri"
+},
+{
+"name": "Zekeriya",
+"gender": "boy",
+"popularity": 40,
+"origin": "İbranice",
+"meaning": "Tanrı hatırladı"
+},
+{
+"name": "İsa",
+"gender": "boy",
+"popularity": 35,
+"origin": "İbranice",
+"meaning": "Tanrı kurtarır"
+},
+{
+"name": "Davut",
+"gender": "boy",
+"popularity": 38,
+"origin": "İbranice",
+"meaning": "Sevilen, sevgili"
+},
+{
+"name": "Yakup",
+"gender": "boy",
+"popularity": 45,
+"origin": "İbranice",
+"meaning": "Topuğu tutan"
+},
+{
+"name": "İshak",
+"gender": "boy",
+"popularity": 30,
+"origin": "İbranice",
+"meaning": "Güler, gülen"
+},
+{
+"name": "İlyas",
+"gender": "boy",
+"popularity": 40,
+"origin": "İbranice",
+"meaning": "Rabbim Allah'tır"
+},
+{
+"name": "Abdurrahman",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arapça",
+"meaning": "Rahman'ın (Allah'ın) kulu"
+},
+{
+"name": "Abdülkadir",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "Kadir olan Allah'ın kulu"
+},
+{
+"name": "Kerim",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arapça",
+"meaning": "Cömert, eli açık"
+},
+{
+"name": "Ensar",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arapça",
+"meaning": "Yardımcılar"
+},
+{
+"name": "Berat",
+"gender": "boy",
+"popularity": 55,
+"origin": "Arapça",
+"meaning": "Kurtuluş, aklanma; Berat gecesi"
+},
+{
+"name": "Alaz",
+"gender": "boy",
+"popularity": 70,
+"origin": "Türkçe",
+"meaning": "Alev"
+},
+{
+"name": "Tuna",
+"gender": "boy",
+"popularity": 50,
+"origin": "Türkçe",
+"meaning": "Tuna nehri"
+},
+{
+"name": "Yağız",
+"gender": "boy",
+"popularity": 72,
+"origin": "Türkçe",
+"meaning": "Esmer, yağız; yiğit"
+},
+{
+"name": "Bora",
+"gender": "boy",
+"popularity": 40,
+"origin": "Yunanca",
+"meaning": "Fırtına, sert rüzgâr"
+},
+{
+"name": "Tunç",
+"gender": "boy",
+"popularity": 40,
+"origin": "Türkçe",
+"meaning": "Bronz; sağlam"
+},
+{
+"name": "Tarık",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arapça",
+"meaning": "Gece gelen; sabah yıldızı"
+},
+{
+"name": "Kağan",
+"gender": "boy",
+"popularity": 50,
+"origin": "Türkçe",
+"meaning": "Hükümdar, han"
+},
+{
+"name": "Oğuzhan",
+"gender": "boy",
+"popularity": 45,
+"origin": "Türkçe",
+"meaning": "Oğuzların hanı"
+},
+{
+"name": "Batu",
+"gender": "boy",
+"popularity": 50,
+"origin": "Türkçe",
+"meaning": "Sağlam, güçlü"
+},
+{
+"name": "Alperen",
+"gender": "boy",
+"popularity": 55,
+"origin": "Türkçe",
+"meaning": "Yiğit er, alp eren"
+},
+{
+"name": "Mirza",
+"gender": "boy",
+"popularity": 40,
+"origin": "Farsça",
+"meaning": "Emir oğlu, prens"
+},
+{
+"name": "Fatih",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arapça",
+"meaning": "Fetheden"
+},
+{
+"name": "Bünyamin",
+"gender": "boy",
+"popularity": 30,
+"origin": "İbranice",
+"meaning": "Sağ elin oğlu"
+},
+{
+"name": "Halit",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arapça",
+"meaning": "Ebedi, kalıcı"
+},
+{
+"name": "Hamit",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "Hamdeden, şükreden"
+},
+{
+"name": "Erdem",
+"gender": "boy",
+"popularity": 35,
+"origin": "Türkçe",
+"meaning": "Fazilet, olgunluk"
+},
+{
+"name": "Ozan",
+"gender": "boy",
+"popularity": 40,
+"origin": "Türkçe",
+"meaning": "Halk şairi"
+},
+{
+"name": "Serhat",
+"gender": "boy",
+"popularity": 30,
+"origin": "Farsça",
+"meaning": "Sınır, sınır boyu"
+},
+{
+"name": "Arif",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arapça",
+"meaning": "Bilgili, anlayışlı"
+},
+{
+"name": "Akif",
+"gender": "boy",
+"popularity": 35,
+"origin": "Arapça",
+"meaning": "Kendini ibadete veren"
+},
+{
+"name": "Asım",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arapça",
+"meaning": "Koruyan, kollayan"
+},
+{
+"name": "Cihan",
+"gender": "boy",
+"popularity": 30,
+"origin": "Farsça",
+"meaning": "Dünya"
+},
+{
+"name": "Efe",
+"gender": "boy",
+"popularity": 75,
+"origin": "Türkçe",
+"meaning": "Ağabey, yiğit, kahraman"
+},
+{
+"name": "Sami",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "Yüce, yüksek"
+},
+{
+"name": "Nail",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Erişen, kavuşan"
+},
+{
+"name": "Rauf",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Çok merhametli, şefkatli"
+},
+{
+"name": "Vedat",
+"gender": "boy",
+"popularity": 20,
+"origin": "Arapça",
+"meaning": "Sevgi, dostluk"
+},
+{
+"name": "Rıza",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Razı olma, hoşnutluk"
+},
+{
+"name": "Selahattin",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Dinin iyiliği, doğruluğu"
+},
+{
+"name": "Yavuz",
+"gender": "boy",
+"popularity": 35,
+"origin": "Türkçe",
+"meaning": "Sert, yiğit, cesur"
+},
+{
+"name": "Sadık",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Sadakatli, doğru sözlü"
+},
+{
+"name": "Taylan",
+"gender": "boy",
+"popularity": 35,
+"origin": "Türkçe",
+"meaning": "Uzun boylu, yakışıklı"
+},
+{
+"name": "Cenk",
+"gender": "boy",
+"popularity": 30,
+"origin": "Farsça",
+"meaning": "Savaş"
+},
+{
+"name": "Erkan",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "İleri gelenler, erkân"
+},
+{
+"name": "Emin",
+"gender": "boy",
+"popularity": 40,
+"origin": "Arapça",
+"meaning": "Güvenilir"
+},
+{
+"name": "Halis",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Saf, katıksız"
+},
+{
+"name": "Necati",
+"gender": "boy",
+"popularity": 20,
+"origin": "Arapça",
+"meaning": "Kurtuluşa ait"
+},
+{
+"name": "Yasir",
+"gender": "boy",
+"popularity": 30,
+"origin": "Arapça",
+"meaning": "Kolaylık, rahatlık"
+},
+{
+"name": "Muaz",
+"gender": "boy",
+"popularity": 45,
+"origin": "Arapça",
+"meaning": "Korunmuş, sığınılmış"
+},
+{
+"name": "Burhan",
+"gender": "boy",
+"popularity": 25,
+"origin": "Arapça",
+"meaning": "Kesin delil, kanıt"
+},
+{
+"name": "Kutay",
+"gender": "boy",
+"popularity": 40,
+"origin": "Türkçe",
+"meaning": "Kutlu ay"
+},
+{
+"name": "Aydın",
+"gender": "boy",
+"popularity": 30,
+"origin": "Türkçe",
+"meaning": "Aydınlık, ışıklı"
+},
+{
+"name": "Ilgaz",
+"gender": "boy",
+"popularity": 40,
+"origin": "Türkçe",
+"meaning": "Akın, hücum"
+},
+{
+"name": "Ümit",
+"gender": "unisex",
+"popularity": 25,
+"origin": "Farsça",
+"meaning": "Umut"
+}
+]

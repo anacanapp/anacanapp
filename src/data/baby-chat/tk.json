@@ -1,0 +1,270 @@
+{
+ "ui": {
+  "title": "Meniň çagam",
+  "typing": "ýazýar…",
+  "placeholder": "Habar ýazyň…",
+  "week": "{n}-nji hepde",
+  "size": "{fruit} ululygynda",
+  "today": "Şu gün",
+  "card_new": "Çagaňyz size ýazdy 💬",
+  "card_wait": "Çagaňyz şu gün entek ýazmady… ýakynda 👀",
+  "card_cta": "Jogap ber",
+  "share_title": "Bu söhbetdeşligi paýlaşmak",
+  "share_sub": "Surat ýa-da habarma-habar wideo görnüşinde. Goý, dostlaryňyz hem görsün 💛",
+  "share_photo": "Surat",
+  "share_video": "Wideo",
+  "share_making": "Wideo taýýarlanýar…",
+  "share_text": "Çagam entek dogulmady, ýöne maňa ýazýar 💛 Anacan",
+  "share_error": "Paýlaşyp bolmady. Gaýtadan synanyşyň.",
+  "hook": "Çagam entek dogulmady… ýöne maňa ýazýar.",
+  "end_line1": "Çagaňyz size",
+  "end_line2": "her gün ýazýar.",
+  "notif_title": "Meniň çagam 💛",
+  "about": "Diňe güýmenje üçin: Anacan habarlary çagaňyzyň hepdesine laýyklykda ýazýar.",
+  "share_ready_video": "Wideoňyz taýýar 🎉",
+  "share_ready_photo": "Suratyňyz taýýar 🎉",
+  "share_now": "Paýlaş",
+  "save": "Saklamak",
+  "care_text": "Muny lukmanyňyz bilen hem paýlaş, eje. Her sorag möhüm 💛",
+  "care_cta": "Anacan.AI-dan soramak"
+ },
+ "openers": [
+  "Eje! Bil bakaly näme 🖐",
+  "Eje, oýanykmy? 👀",
+  "Pss… eje! 🤫",
+  "Eje, saňa bir zat aýdaýynmy? 💛",
+  "Salam, eje! 👋"
+ ],
+ "notifications": [
+  "Eje! Bil bakaly näme 🖐",
+  "Saňa bir zat ýazdym 💬",
+  "Pss… eje, seret! 👀",
+  "Şu gün saňa näme aýtjak bolýanyma ynanmarsyň! 💛"
+ ],
+ "replies": {
+  "love": [
+   "Men hem seni söýýärin, eje 💛",
+   "Men seni entek görmedim, ýöne eýýäm şeýle köp söýýärin 🥰",
+   "Men {fruit} ululygynda bolsam-da, ýüregim sen bilen doly 💛"
+  ],
+  "how": [
+   "Ajaýyp! Bu ýerde ýyly we rahat 😌",
+   "Men gowy, eje. Şu gün biraz has ösdüm 🌱",
+   "Şeýle gowy! Seniň ýürek urgyňy diňleýärin 💓"
+  ],
+  "size": [
+   "Häzir men takmynan {fruit} ululygynda 😄",
+   "Men eýýäm {cm} sm! Ösýärin 📏",
+   "Men {week}-nji hepdede we her gün biraz ösýärin 🌱"
+  ],
+  "kick_early": [
+   "Men eýýäm gymyldaýaryn, ýöne entek şeýle kiçijik welin, duýmarsyň 🤭",
+   "Bu ýerde kiçijik pyrlanmalar edýärin 🤸 Ýakynda olary duýarsyň!"
+  ],
+  "kick": [
+   "Duýdyňmy? Ol mendim 🦶",
+   "Şu gün men tans etdim, duýdyňmy? 💃",
+   "Ol depgi meniň salamymdy 👋🦶"
+  ],
+  "hear_early": [
+   "Gulaklarym entek taýýarlanýar, ýöne ýakynda seni eşiderin 👂",
+   "Biraz has ösäýin, soňra seniň sesiňi eşiderin 🥰"
+  ],
+  "hear": [
+   "Men seni eşidýärin, eje! Ýene maňa gürle 🥰",
+   "Seniň sesiň meniň iň halaýan sazym 🎶",
+   "Maňa aýdym aýt, men diňlärin 🎵"
+  ],
+  "food": [
+   "Sen näme iýseň, men hem datma alýaryn 😋",
+   "Şu gün biraz miwe iýeliňmi? 🍎",
+   "Mmm, tagamlydy! Ýene biraz? 😄"
+  ],
+  "sleep": [
+   "Meniň hem ukym gelýär 😴 Bile dynç alalyň",
+   "Sen ýatanyňda men hem rahatlanýaryn 😌",
+   "Gijelerine tans edýän bolsam, bagyşla 🙈"
+  ],
+  "dad": [
+   "Kakama menden salam aýt! 👋",
+   "Men kakamyň sesini hem tanaýaryn 😊",
+   "Kakam garnyňa gürlände men muny halaýaryn 🥰"
+  ],
+  "meet": [
+   "Ýene {weeks_left} hepde, soňra duşuşarys! 🤗",
+   "Men hem seni görmek isleýärin! Biraz has ösäýin 🌱",
+   "Duşuşmagymyza köp galmady 💛"
+  ],
+  "meet_soon": [
+   "Köp galmady, eje! Men hem taýýarlanýaryn 🤗",
+   "Ýakynda men seniň gujagyňda bolaryn 💛"
+  ],
+  "name": [
+   "Maňa näme at dakarsyň? 😊 Owadan at saýla!",
+   "Islendik at seniň sesiňde ajaýyp ýaňlanar 💛"
+  ],
+  "hello": [
+   "Salam, eje! 👋",
+   "Salaaam! Men saňa garaşýardym 💛"
+  ],
+  "thanks": [
+   "Hiç zat däl, eje! 😊",
+   "Meni göterip ýöreniň üçin sag bol 💛"
+  ],
+  "generic": [
+   "Eje, sen iň gowusy 💛",
+   "Men diňleýärin 👂😊",
+   "Hmm… muny ulalanymda soraryn 😄",
+   "Men entek kiçijik, ýöne muny halladym 😄",
+   "Maňa ýene ýaz, eje! 🥰"
+  ],
+  "care": [
+   "Men seni şeýle köp söýýärin, eje 💛",
+   "Men hemişe seniň bilen 🤗"
+  ]
+ },
+ "keywords": {
+  "thanks": [
+   "sag bol",
+   "sagbol",
+   "sbl"
+  ],
+  "love": [
+   "söýgi",
+   "jigerim",
+   "süýjüm",
+   "❤",
+   "💛",
+   "😘",
+   "🥰"
+  ],
+  "name": [
+   "at",
+   "at dakylan",
+   "saňa at"
+  ],
+  "dad": [
+   "kaka",
+   "kakajan",
+   "papa",
+   "ata"
+  ],
+  "kick": [
+   "itekleme",
+   "hereket",
+   "tans",
+   "gymyldamak",
+   "pyrlanmak"
+  ],
+  "hear": [
+   "eşitmek",
+   "ses",
+   "aýdym-saz",
+   "aýdym",
+   "aýdym aýtmak",
+   "gürleşmek"
+  ],
+  "size": [
+   "ululyk",
+   "uly",
+   "kiçi",
+   "kiçijik",
+   "ösmek",
+   "sm",
+   "agram",
+   "malina",
+   "nohut"
+  ],
+  "food": [
+   "iýmek",
+   "iýmit",
+   "aç",
+   "tagam",
+   "miwe",
+   "şokolad",
+   "süýt"
+  ],
+  "sleep": [
+   "uky",
+   "gündizki uky",
+   "gije",
+   "ýadaw",
+   "düşek"
+  ],
+  "meet": [
+   "duşuşmak",
+   "dünýä inmek",
+   "haçan",
+   "garaşmak",
+   "doglan"
+  ],
+  "how": [
+   "nähili",
+   "näme edýärsiň",
+   "ýagdaýlar nähili",
+   "gowumy"
+  ],
+  "hello": [
+   "salam",
+   "salam",
+   "heý",
+   "ertiriňiz haýyrly"
+  ]
+ },
+ "weekly": {
+  "4": "Eje, men bary-ýogy köknar tohumy ýaly, ýöne meniň uly meýilnamalarym bar 🌱",
+  "5": "Ýüregim urup başlady! Tok-tok… eşidýärmiň? 💓",
+  "6": "Şu hepde burnum emele gelýär 👃 Seniň ysyňy halajakdygyma ynanýaryn!",
+  "7": "Ellerim kiçijik kürekler ýaly 🤲 Entek el çarpyp bilemok",
+  "8": "Barmaklarym çykýar 🖐 Sanamaga başladym: 1, 2, 3… ýene sanaýynmy?",
+  "9": "Indi kiçijik myşsalarym bar 💪 Gizlinlikde türgenleşýärin",
+  "10": "Dyrnaklarym ösüp başlady 💅 Manikýur barada soňra gürleşeris",
+  "11": "Men ýakylamagy öwrendim! Hyk! 😅",
+  "12": "Şu gün başam barmagymy agzyma saldym 👍 Tagamly!",
+  "13": "Indi meniň barmak yzlarym bar ☝️ Men täk!",
+  "14": "Men ýüz keşplerini türgenleşdirýärin: gaş çytmak, ýylgyrmak… 😄",
+  "15": "Men ýagtylygy duýup bilýärin ☀️ Güneşli günleri halajak!",
+  "16": "Gözlerim haýal hereket edýär 👀 Entek ýumuk, ýöne gyzykly",
+  "17": "Ýaňaklarym üçin biraz ýag toplaýaryn 😊 Ogşamak üçin!",
+  "18": "Gulaklarym taýýar 👂 Seniň sesiňi eşitmäge taýýarlanýaryn",
+  "19": "Pyrlanmagy öwrenýärin 🤸 Duýdyňmy?",
+  "20": "Ýoluň ýarysy geçildi! 🎉 Şu gün özüme el çarpdym",
+  "21": "Depgilerim güýçlenýär 🦶 Bu “salam” diýmek!",
+  "22": "Gaşlarym çykdy 🤨 Indi has täsirli görünýärin",
+  "23": "Men saz diňleýärin 🎶 Seniň aýdymyňy halladym",
+  "24": "Dem almagy türgenleşdirýärin 🌬 Entek suwuň içinde, ýöne men ussat!",
+  "25": "Saçlarym ösýär 💇 Reňki garaşylmadyk bolar!",
+  "26": "Men gözlerimi açyp bilýärin! 👀 Bu ýerde hemme zat gülgüne görünýär",
+  "27": "Men düýş görýärin 💭 Belki-de sen barada",
+  "28": "Men gözümi gyrpyp bilýärin 😉 Bu men saňa göz gyrpýaryn",
+  "29": "Ýer daralýar, ýöne men henizem tans edýärin 💃",
+  "30": "Men her gün akyllanýaryn 🧠 Edil seniň ýaly!",
+  "31": "Men kellämi öwrüp bilýärin ↔️ Seniň sesiňe tarap seredýärin",
+  "32": "Dyrnaklarym barmaklarymyň ujuna ýetdi 💅 Taýýarlanýaryn!",
+  "33": "Men her gün güýçlenýärin 💪 Gujaklamalara taýýarlanýaryn",
+  "34": "Ýaňaklarym tegelenýär 😊 Ogşamaga taýýar",
+  "35": "Bu ýerde şeýle jaýdar 🙈 Aýaklarymy goýara ýer gerek",
+  "36": "Men taýýar diýen ýaly! Diňe soňky galan işler ✨",
+  "37": "Gözlerim, gulaklarym, ýüregim: hemmesi saňa garaşýar 💛",
+  "38": "Seniň gujagyňy arzuw edýärin 🤗 Köp galmady",
+  "39": "Sumkaňy taýýarladyňmy? 😄 Men taýýar",
+  "40": "Şu gün bolmagy mümkin, ertir bolmagy mümkin 😄 Seni geň galdyraryn!",
+  "41": "Bu ýerde şeýle rahat, biraz has galyp bilerinmi? 🙈💛"
+ },
+ "daily": [
+  "Şu gün men {fruit} ululygynda! Men ösýärin 🌱",
+  "Seniň ýürek urgyň meniň hüwdim 💓",
+  "Bu ýerde ýyly we rahat, alada etme 😌",
+  "Şu gün biraz dynç al, men hem dynç alaryn 😴",
+  "Suw içmegi ýatdan çykarma, men hem halaýaryn 💧",
+  "Şu gün näme iýýäris? 😋",
+  "Ýylgyr, eje! Sen ýylgyranyňda men hem rahatlanýaryn 😊",
+  "Kakama menden salam aýt! 👋",
+  "Men kiçijik, ýöne seni şeýle köp söýýärin 💛",
+  "Şu gün men biraz ösdüm, duýdyňmy? 📏",
+  "Men seni her gün biraz köpräk söýýärin 🥰",
+  "Maňa erteki aýdyp berermiň? 📖",
+  "Şu gün sen örän owadan görünýärsiň, eje! ✨",
+  "Men saňa garaşýaryn, sen hem maňa garaşýarsyň 🤗"
+ ]
+}

@@ -1,0 +1,34 @@
+{
+  "country": "FR",
+  "locale": "fr-FR",
+  "names": {
+    "mother": "Camille",
+    "baby": "Léa",
+    "cycle": "Chloé",
+    "partner": "Lucas"
+  },
+  "appointments": [
+    "Échographie",
+    "Maternité du Parc",
+    "Prise de sang",
+    "Visite chez le pédiatre"
+  ],
+  "authors": [
+    "Manon Dubois",
+    "Julie Martin",
+    "Inès Bernard"
+  ],
+  "posts": [
+    "J’ai senti les premiers coups aujourd’hui ! 🥹 Impossible de décrire ce que j’ai ressenti. C’était à quelle semaine pour vous ? #grossesse",
+    "Parler à Anacan.AI à 3 h du matin quand bébé ne dormait pas m’a vraiment aidée. Je le recommande aux jeunes mamans 💛",
+    "On est à 24 semaines, j’ai commencé la valise de maternité. Qu’y a-t-il sur votre liste ? 🧳"
+  ],
+  "ai_question": "Qu’est-ce qui aide contre les nausées ?",
+  "ai_answer": [
+    "3 astuces simples contre les nausées :\n\n",
+    "1. **Une tisane au gingembre** — le matin, à jeun.\n",
+    "2. **Des petits repas fréquents** — ne laisse pas ton estomac vide.\n",
+    "3. **Avant de te lever**, mange quelques biscuits secs.\n\n",
+    "Bois de l’eau tout au long de la journée 💧 Si les vomissements s’aggravent, consulte ton médecin."
+  ]
+}

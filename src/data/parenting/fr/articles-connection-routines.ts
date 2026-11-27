@@ -1,0 +1,417 @@
+import type { Article } from '../types';
+import { S } from './sources';
+
+export const CONNECTION_ROUTINE_ARTICLES: Article[] = [
+  // ── Connection ──────────────────────────────────────────────────────────────────────────
+  {
+    id: 'attachment',
+    area: 'connection',
+    emoji: '🤱',
+    title: 'L’attachement : le port d’attache de ton enfant',
+    summary: 'L’attachement sécure ne naît pas d’une parentalité parfaite, mais d’un parent « suffisamment bon », sensible et fiable.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'John Bowlby a décrit l’attachement comme l’instinct de l’enfant à rechercher la proximité face au danger. Mary Ainsworth a observé que les enfants dont le parent est sensible et prévisible l’utilisent comme une « base de sécurité » : ils explorent sereinement, et quand ils ont peur, ils reviennent se rassurer.',
+      'L’attachement sécure est associé, plus tard, à une meilleure régulation des émotions, à de meilleures compétences relationnelles et à la confiance en soi. Point important : pour cela, il n’est pas nécessaire de répondre immédiatement et parfaitement à chaque pleur. Les études montrent qu’une grande partie des interactions est faite de moments « décalés » ; l’essentiel, c’est que ces moments soient réparés ensuite.',
+      'L’attachement ne se construit pas une fois pour toutes : à l’âge scolaire aussi, ton enfant doit savoir qu’il peut revenir vers toi dans les moments difficiles. Simplement, cela passe désormais moins par les câlins que par l’écoute et le sentiment « je suis de ton côté ».',
+    ],
+    tryToday: [
+      'Quand ton enfant vient vers toi (joyeux ou triste), donne-lui ton attention entière pendant quelques secondes : pose ton téléphone, regarde-le dans les yeux.',
+      'Avant une séparation, installe un rituel d’au revoir court et toujours identique : un câlin, « à ce soir », et pars vraiment. Partir en cachette abîme la confiance.',
+      'Une fois par jour, rejoins-le dans ses centres d’intérêt : ce à quoi il joue, ce dont il parle.',
+      'Répare plus tard un moment où tu t’es énervé(e) : « Ce matin, j’ai manqué de patience. Viens, on recommence. »',
+    ],
+    mistakes: [
+      'Laisser pleurer un bébé de peur qu’il « s’habitue aux bras ». Les premiers mois, répondre à ses pleurs ne diminue pas son autonomie, au contraire, cela la renforce.',
+      'Comprendre l’attachement comme « ne jamais quitter son enfant ». Des liens sécures se créent aussi avec la grand-mère, le papa, l’éducatrice, et c’est une bonne chose.',
+      'Chercher à être parfait. Ton enfant n’a pas besoin d’un parent idéal, mais d’un parent sincère, capable de réparer.',
+    ],
+    byAge: {
+      '0-1': 'Réponds à ses pleurs, cherche son regard, parle-lui, chante. À cet âge, on ne rend pas un bébé capricieux.',
+      '1-3': 'Ton enfant explore et revient. S’asseoir au parc et dire « je suis là » suffit.',
+      '3-6': '10 à 15 minutes de jeu « spécial » par jour renforcent l’attachement.',
+      '6-12': 'Écoute sans juger. Si tu es là pour ses petits problèmes, il viendra aussi te confier les grands.',
+    },
+    specialist: [
+      'Si ton bébé évite le contact visuel, ne montre aucun intérêt pour toi ou pour les personnes familières, ou s’il est presque impossible à apaiser – consulte un médecin.',
+      'Si ton enfant s’attache à tout le monde, même aux inconnus, de la même façon et sans distinction (surtout après des premières années difficiles) – consulte un psychologue pour enfants.',
+    ],
+    sources: [S.bowlby1969, S.ainsworth1978, S.tronick1986, S.harvardRelationships2004],
+  },
+  {
+    id: 'crying-baby',
+    area: 'connection',
+    emoji: '🍼',
+    title: 'Quand le bébé pleure : le mythe du bébé « capricieux »',
+    summary: 'Les pleurs sont le seul langage de ton bébé. Y répondre ne le rend pas capricieux, cela crée de la confiance.',
+    bands: ['0-1'],
+    free: true,
+    science: [
+      'L’Académie américaine de pédiatrie le dit clairement : les premiers mois, il est impossible de rendre un bébé capricieux. Répondre avec douceur à ses pleurs apaise son système de stress et construit la certitude que « le monde est sûr ».',
+      'En même temps, il est normal que des bébés en bonne santé pleurent beaucoup les premières semaines : les pleurs augmentent à partir d’environ 2 semaines, atteignent un pic vers 6–8 semaines et diminuent vers 3–4 mois. Parfois, on ne trouve aucune cause. Ce n’est pas un échec de ta part.',
+      'La règle de sécurité la plus importante : même à bout de nerfs, ne secoue jamais ton bébé. Le secouer peut provoquer des lésions cérébrales. Coucher ton bébé sur le dos dans son lit et quitter la pièce quelques minutes est un geste tout à fait juste.',
+    ],
+    tryToday: [
+      'Vérifie les besoins essentiels : faim, couche, trop chaud ou trop froid, rot, fatigue.',
+      'Essaie les techniques d’apaisement : l’emmailloter (hanches libres), le bercer en rythme, faire « chhh », le porter dans tes bras en marchant, le peau à peau.',
+      'Prévois un plan de relais pour les heures de pleurs : relayez-vous avec ton ou ta partenaire, la grand-mère ou une voisine.',
+      'Si ta patience est à bout : pose ton bébé dans un endroit sûr, respire 5 à 10 minutes, bois de l’eau, appelle quelqu’un, puis reviens.',
+    ],
+    mistakes: [
+      'Laisser longtemps seul un très jeune bébé parce que « si on le laisse pleurer, il s’habituera ».',
+      'Attribuer les pleurs abondants à ta « mauvaise parentalité ». Cette période est passagère.',
+      'Avoir honte de demander de l’aide.',
+    ],
+    specialist: [
+      'Si les pleurs s’accompagnent de fièvre (surtout chez un bébé de moins de 3 mois), de vomissements, de diarrhée, d’un refus de s’alimenter, de léthargie ou de pleurs aigus inhabituels – consulte immédiatement un médecin. En cas de situation grave, appelle le {emergency}.',
+      'Si tu as l’idée de secouer ton bébé ou de lui faire du mal, demande de l’aide tout de suite. Cela ne fait pas de toi une mauvaise personne, cela montre que ta fatigue a atteint sa limite.',
+    ],
+    sources: [S.healthyChildrenCrying, S.purple, S.nurturingCare2018],
+  },
+  {
+    id: 'special-time',
+    area: 'connection',
+    emoji: '⏱️',
+    title: '10 minutes par jour : le moment spécial',
+    summary: 'Un court moment de jeu quotidien, dirigé par l’enfant, est l’un des outils les plus puissants pour réduire les troubles du comportement.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'C’est précisément sur ce principe que repose la première phase de la PCIT (thérapie d’interaction parent-enfant), l’un des programmes pour parents les plus étudiés : chaque jour, 5 à 10 minutes de jeu dirigé par l’enfant, pendant que le parent félicite, décrit et imite. Les méta-analyses montrent que ces programmes réduisent nettement les troubles du comportement.',
+      'La raison est simple : quand le besoin d’attention de l’enfant est comblé de façon positive, il a moins besoin de « gagner » de l’attention par un comportement négatif.',
+    ],
+    tryToday: [
+      'Mets un minuteur : 10 minutes. Le téléphone reste dans une autre pièce.',
+      'Ton enfant choisit le jeu, tu suis. Pas d’ordres, pas d’avalanche de questions, pas de critiques.',
+      'Décris ce qu’il fait : « Tu as mis le cube rouge tout en haut. » Imite-le, félicite-le : « Comme tu construis avec soin ! »',
+      'À la fin, dis : « J’ai adoré jouer avec toi. On recommence demain. »',
+    ],
+    mistakes: [
+      'Supprimer le moment spécial à cause d’un mauvais comportement. Ce n’est ni une punition ni une récompense, c’est une vitamine quotidienne.',
+      'Transformer le jeu en « leçon » : « C’est quelle couleur ? Il y a combien de cubes ? »',
+    ],
+    byAge: {
+      '1-3': '5 minutes suffisent. Assieds-toi par terre, à sa hauteur.',
+      '6-12': 'Donnez-lui un nom : « le moment maman-fils ». Ça peut être un jeu de cartes, cuisiner ensemble, une balade.',
+    },
+    specialist: [
+      'Si le moment spécial et les autres méthodes n’apportent aucun changement après plusieurs semaines et que les troubles du comportement sont importants – consulte un professionnel pour la PCIT ou un programme similaire.',
+    ],
+    sources: [S.pcitMeta2007, S.cdcEssentials, S.yogman2018],
+  },
+  {
+    id: 'separation',
+    area: 'connection',
+    emoji: '🚪',
+    title: 'L’angoisse de séparation et l’adaptation à la crèche',
+    summary: 'Pleurer au moment de la séparation est un signe d’attachement. Un au revoir court et sincère et un retour prévisible facilitent l’adaptation.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: false,
+    science: [
+      'L’angoisse de séparation commence vers 8–10 mois, atteint un pic vers 15–18 mois et s’atténue en général vers 3 ans. C’est la période où l’enfant ne comprend pas encore tout à fait que son parent ne « disparaît » pas.',
+      'Ce qui augmente le plus l’inquiétude d’un enfant, c’est l’imprévisibilité. Partir en cachette réduit peut-être les larmes sur le moment, mais à long terme, l’enfant s’accroche encore davantage.',
+    ],
+    tryToday: [
+      'Installe un rituel d’au revoir court et toujours identique : câlin, bisou, « je viens après le déjeuner », puis pars.',
+      'Avant l’entrée à la crèche, faites de courtes séparations d’essai : 15 minutes, puis 1 heure.',
+      'Relie ton retour à un événement que ton enfant comprend : « Je viens après la sieste, après le goûter. »',
+      'Un « objet transitionnel » de la maison – un petit jouet, ta photo – peut le réconforter.',
+    ],
+    mistakes: [
+      'Ne pas arriver à quitter l’enfant qui pleure pendant longtemps, revenir plusieurs fois sur ses pas à la porte.',
+      'Se moquer de sa peur ou dire « tu es grand, tu devrais avoir honte ».',
+    ],
+    specialist: [
+      'Si l’angoisse de séparation est bien plus forte que ce qu’on attend à son âge, perturbe pendant des semaines le sommeil, les repas et la crèche, ou réapparaît à l’âge scolaire – consulte un psychologue pour enfants.',
+    ],
+    sources: [S.ainsworth1978, S.healthyChildrenAnxiety, S.cdcPositive],
+  },
+
+  // ── Routines ────────────────────────────────────────────────────────────────────────────
+  {
+    id: 'sleep-routine',
+    area: 'routines',
+    emoji: '🌙',
+    title: 'Le rituel du coucher : les trois mêmes étapes chaque soir',
+    summary: 'Un rituel simple, répété chaque soir, aide ton enfant à s’endormir plus vite et à se réveiller moins souvent la nuit.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Dans une étude randomisée (Mindell et ses collègues, 2009), un rituel du soir en 3 étapes – bain, massage ou crème, activité calme (câlin, berceuse) – a permis en seulement deux semaines aux enfants de s’endormir plus vite et de se réveiller moins la nuit, et a amélioré l’humeur des mères. Des synthèses ultérieures ont montré que les routines du soir sont aussi liées au développement du langage et à la régulation des émotions.',
+      'Sommeil recommandé selon l’âge (siestes comprises) : 4–12 mois – 12 à 16 heures, 1–2 ans – 11 à 14 heures, 3–5 ans – 10 à 13 heures, 6–12 ans – 9 à 12 heures. Chez l’enfant, le manque de sommeil se manifeste souvent non pas par de la fatigue, mais par de l’irritabilité et de l’hyperactivité.',
+      'Pour les bébés, les règles du sommeil sûr sont essentielles : sur le dos, sur un matelas ferme et plat, sans oreiller ni couette, idéalement dans la même chambre que les parents, mais dans son propre lit.',
+    ],
+    tryToday: [
+      'Dès ce soir, installe un rituel : par exemple bain → pyjama et dents → histoire et berceuse. Chaque soir le même ordre, à peu près à la même heure.',
+      'Une heure avant le rituel, éteins les écrans et baisse les lumières.',
+      'Préparez ensemble un tableau du rituel en images, et laisse ton enfant « cocher » lui-même chaque étape.',
+      'Le rituel ne doit pas dépasser 20 à 30 minutes. Plus il s’allonge, plus ton enfant essaiera de le faire durer.',
+    ],
+    mistakes: [
+      'Une heure différente et un ordre différent chaque soir. Le cerveau cherche des repères prévisibles.',
+      'Des jeux excitants, des écrans ou des cris avant le coucher.',
+      'Considérer les méthodes de sommeil comme « obligatoires ». Rester assis près de lui, dormir ensemble ou non, s’éloigner progressivement – choisis ce qui convient à ta famille. Aucune méthode n’est indispensable pour tout le monde.',
+    ],
+    byAge: {
+      '0-1': 'Le rituel doit être court : bain, tétée ou biberon, berceuse. Tu peux essayer de poser ton bébé dans son lit somnolent mais encore éveillé – et si ça ne marche pas, ne t’inquiète pas.',
+      '1-3': 'Propose un choix : « On lit ce livre-ci ou celui-là ? » L’heure du coucher ne se négocie pas, le livre, si.',
+      '3-6': 'Les questions commencent pour « retarder » le coucher. Intègre au rituel un moment pour la « dernière question » ou le « dernier câlin ».',
+      '6-12': 'Le téléphone, la tablette et la télé ne restent pas dans la chambre. Planifiez ensemble l’heure du coucher, en même temps que les devoirs et le sport.',
+    },
+    specialist: [
+      'Si ton enfant ronfle, fait des pauses respiratoires ou respire la bouche ouverte pendant son sommeil, et qu’il est excessivement somnolent dans la journée – consulte un médecin.',
+      'Si les problèmes de sommeil durent plus de quelques semaines et perturbent sérieusement la vie quotidienne de la famille.',
+    ],
+    sources: [S.mindell2009, S.mindell2018, S.aasm2016, S.aapSafeSleep2022],
+  },
+  {
+    id: 'night-fears',
+    area: 'routines',
+    emoji: '👻',
+    title: 'Réveils nocturnes et terreurs nocturnes',
+    summary: 'Le cauchemar et la terreur nocturne sont deux choses différentes. Chacun demande une approche différente.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Les cauchemars surviennent dans la seconde moitié de la nuit, pendant le sommeil paradoxal (la phase des rêves). L’enfant se réveille, dit qu’il a peur, te reconnaît et a besoin d’être rassuré.',
+      'La terreur nocturne (pavor nocturnus), elle, survient en général 1 à 3 heures après l’endormissement, pendant le sommeil profond. L’enfant peut crier, avoir les yeux ouverts, mais il n’est en réalité pas réveillé, ne te reconnaît pas et ne se souvient de rien le matin. C’est fréquent entre 3 et 7 ans et généralement sans gravité.',
+    ],
+    tryToday: [
+      'Après un cauchemar : prends-le dans tes bras, rassure-le brièvement, allume un peu la lumière. Ne lui fais pas raconter le cauchemar en détail la nuit, parlez-en le lendemain.',
+      'Pendant une terreur nocturne : n’essaie pas de le réveiller, assure seulement sa sécurité et reste calmement près de lui. Une fois l’épisode passé, il se rendormira.',
+      'Le manque de sommeil favorise les terreurs nocturnes : essaie d’avancer l’heure du coucher de 20 à 30 minutes.',
+      'Dans la journée, parlez des peurs par le jeu : dessinez un « livre des monstres » et rendez-les rigolos.',
+    ],
+    mistakes: [
+      'Secouer l’enfant pour le réveiller pendant une terreur nocturne.',
+      'Se moquer de sa peur : « Les monstres n’existent pas, ne sois pas bête. »',
+    ],
+    specialist: [
+      'Si les épisodes sont très fréquents (plusieurs fois par semaine), durent plus de 30 minutes, s’accompagnent de mouvements inhabituels (secousses rythmiques, perte d’urine) ou entraînent une somnolence dans la journée – consulte un médecin.',
+    ],
+    sources: [S.aasm2016, S.mindell2018, S.healthyChildrenAnxiety],
+  },
+  {
+    id: 'picky-eating',
+    area: 'routines',
+    emoji: '🥦',
+    title: 'L’enfant difficile à table : qui est responsable de quoi ?',
+    summary: 'Le parent décide quoi, quand et où l’on mange ; l’enfant décide combien, et s’il mange ou non. Ce partage met fin aux batailles à table.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'La méfiance envers les nouveaux aliments (néophobie alimentaire) est très répandue entre 2 et 6 ans et a du sens du point de vue de l’évolution : elle protège le jeune enfant d’aliments inconnus et potentiellement dangereux. C’est en général une phase passagère.',
+      'Les études montrent que forcer l’enfant à manger, dire « encore une cuillère » et récompenser avec des sucreries ont l’effet inverse : cela renforce le dégoût pour l’aliment et affaiblit sa capacité à percevoir ses signaux de faim et de satiété. À l’inverse, proposer l’aliment de façon répétée et sans pression – souvent 10 à 15 fois – augmente son acceptation.',
+      'Le modèle du « partage des responsabilités » de la diététicienne Ellyn Satter transforme ces données en règle pratique : le parent choisit le menu, l’heure et le lieu, l’enfant choisit la quantité.',
+    ],
+    tryToday: [
+      'À chaque repas, prévois au moins un aliment « rassurant » que ton enfant aime, et à côté, un petit morceau d’un aliment nouveau.',
+      'Pose le nouvel aliment sans commentaire. S’il n’y touche pas, ne dis rien. Demain, après-demain, recommence.',
+      'Mangez en famille, sans écran. Ton enfant doit te voir manger avec plaisir.',
+      'Fais participer ton enfant en cuisine : laver les légumes, mélanger la salade. Il goûte plus volontiers ce qu’il a préparé lui-même.',
+      'Fixe des horaires pour les repas et les goûters, sans « grignotage » entre les deux.',
+    ],
+    mistakes: [
+      'Forcer, marchander (« mange ton brocoli et tu auras du chocolat ») ou punir.',
+      'Préparer à chaque repas un « menu restaurant » à part pour ton enfant.',
+      'Exiger qu’il finisse absolument son assiette. Ton enfant a besoin d’apprendre à écouter sa sensation de satiété.',
+    ],
+    byAge: {
+      '1-3': 'Des aliments à manger avec les doigts, de petites portions, le laisser manger seul. Se salir fait partie de l’apprentissage.',
+      '3-6': 'La « règle de la découverte » : goûter n’est pas obligatoire, mais regarder, sentir, toucher un nouvel aliment peut devenir un jeu.',
+      '6-12': 'Associe-le à la planification des menus : une fois par semaine, c’est lui qui choisit un nouveau légume.',
+    },
+    specialist: [
+      'Si ton enfant perd du poids, décroche de sa courbe de croissance, accepte très peu d’aliments (par exemple moins de 15), a des haut-le-cœur, s’étouffe ou a mal en mangeant – consulte un médecin.',
+      'S’il y a une forte panique face à la nourriture, des vomissements ou un refus total de certaines textures – un professionnel des troubles de l’oralité alimentaire peut aider.',
+    ],
+    sources: [S.satter, S.birchFisher1998, S.wardle2003],
+  },
+  {
+    id: 'screen-time',
+    area: 'routines',
+    emoji: '📱',
+    title: 'Le temps d’écran : un plan intelligent selon l’âge',
+    summary: 'Chez le jeune enfant, l’écran ne peut pas remplacer les vrais échanges. En grandissant, l’objectif n’est pas l’interdiction, mais un plan familial construit ensemble.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: true,
+    science: [
+      'Les jeunes enfants apprennent beaucoup moins d’un écran que d’une personne en chair et en os : le langage et les compétences sociales se construisent dans les échanges en face à face, en « donner et rendre ». Même une télé allumée en fond réduit le nombre de mots que le parent adresse à l’enfant.',
+      'OMS (2019) : pas d’écran recommandé pour les enfants de moins d’1 an ; entre 2 et 4 ans, pas plus d’1 heure par jour, et moins, c’est mieux. Académie américaine de pédiatrie (2016) : éviter les écrans jusqu’à 18 mois (sauf appels vidéo), entre 2 et 5 ans jusqu’à 1 heure par jour de contenus de qualité, si possible regardés avec un parent ; après 6 ans, des règles stables qui n’empiètent pas sur le sommeil, l’activité physique et les relations.',
+      'Les écrans avant le coucher retardent l’endormissement. Les écrans pendant les repas affaiblissent la capacité de l’enfant à percevoir ses signaux de satiété.',
+    ],
+    tryToday: [
+      'Définis des zones sans écran : la table des repas et la chambre.',
+      'Éteins les écrans une heure avant le coucher.',
+      'Annonce à l’avance la fin du temps d’écran et utilise un minuteur : « Quand le minuteur sonne, la tablette va se reposer. »',
+      'Regardez une fois ensemble et parlez-en : « À ton avis, pourquoi il a fait ça ? » L’écran devient alors une occasion d’échange.',
+      'Observe aussi ton propre téléphone : coupe les notifications quand ton enfant est avec toi.',
+    ],
+    mistakes: [
+      'Faire de l’écran le moyen principal pour arrêter une crise. Ton enfant n’apprend pas à se calmer.',
+      'Ne fixer des règles qu’à l’enfant. Les enfants reproduisent les habitudes d’écran de leurs parents.',
+      'Considérer tous les écrans comme « mauvais ». Les appels vidéo, les contenus éducatifs regardés ensemble et les applis créatives, c’est différent.',
+    ],
+    byAge: {
+      '0-1': 'Pas d’écran, sauf les appels vidéo. Le meilleur « écran » pour ton bébé, c’est ton visage.',
+      '1-3': 'Le moins possible jusqu’à 2 ans. S’il regarde, que ce soit court, au rythme lent, et à tes côtés.',
+      '3-6': 'Jusqu’à 1 heure par jour, des contenus de qualité, sans publicité. Pas pendant les repas ni avant le coucher.',
+      '6-12': 'Écrivez ensemble un plan médias familial : l’école, le sommeil, le sport et les amis passent en premier. Respecte les âges minimums pour les comptes sur les réseaux sociaux.',
+    },
+    specialist: [
+      'Si ton enfant devient excessivement agressif quand on lui retire l’écran, ne s’intéresse plus à rien d’autre, ou si son sommeil et sa scolarité sont sérieusement perturbés – consulte un psychologue pour enfants.',
+    ],
+    sources: [S.who2019Under5, S.aapMedia2016, S.aapMediaSchool2016, S.aapFamilyMediaPlan],
+  },
+  {
+    id: 'potty',
+    area: 'routines',
+    emoji: '🚽',
+    title: 'L’apprentissage de la propreté : sans se presser',
+    summary: 'L’étape la plus importante de l’apprentissage de la propreté, c’est d’attendre les signes qu’il est prêt. La plupart des enfants le sont entre 2 et 3 ans.',
+    bands: ['1-3', '3-6'],
+    free: false,
+    science: [
+      'Dans les années 1960, le pédiatre T. Berry Brazelton a proposé une approche « centrée sur l’enfant » : commencer quand l’enfant montre des signes qu’il est prêt, sans pression et sans punition. Cette approche est encore aujourd’hui à la base des recommandations de l’Académie américaine de pédiatrie.',
+      'Les signes qu’il est prêt : rester sec 2 heures ou plus, être gêné par une couche mouillée, comprendre des consignes simples, savoir baisser et remonter sa culotte, s’intéresser aux toilettes. La propreté de nuit vient plus tard : jusqu’à 5–6 ans, faire pipi au lit la nuit est normal.',
+    ],
+    tryToday: [
+      'Vérifie les signes qu’il est prêt. S’ils ne sont pas encore là, attends : c’est normal.',
+      'Laisse ton enfant choisir lui-même son pot ou son réducteur de toilettes. Au début, il peut s’y asseoir habillé et regarder un livre.',
+      'Après les repas et après la sieste, prévois un court « moment toilettes » et remercie-le, quel que soit le résultat.',
+      'Accueille les accidents calmement : « Ça arrive. Viens, on nettoie ensemble. »',
+    ],
+    mistakes: [
+      'Punir, faire honte, comparer avec d’autres enfants. Cela peut provoquer de la constipation et une peur des toilettes.',
+      'Commencer pendant un grand changement (l’arrivée d’un bébé, un déménagement, l’entrée à la crèche).',
+      'L’obliger à rester assis longtemps.',
+    ],
+    byAge: {
+      '1-3': 'Jouez avec une poupée qui « va aux toilettes », lisez des livres sur le sujet. Pas de précipitation pour commencer.',
+      '3-6': 'Les accidents sont normaux, surtout quand il est absorbé par le jeu. On peut garder la couche de nuit encore un moment.',
+    },
+    specialist: [
+      'Des selles douloureuses ou très espacées (constipation), une douleur ou une brûlure en urinant, des accidents fréquents en journée après 4 ans.',
+      'Si, après une longue période de propreté, il recommence à faire pipi en journée ou la nuit – consulte un médecin.',
+    ],
+    sources: [S.brazelton1962, S.healthyChildrenToilet],
+  },
+  {
+    id: 'mornings',
+    area: 'routines',
+    emoji: '⏰',
+    title: 'La course du matin : partir sans crier',
+    summary: 'La plupart des conflits du matin se règlent la veille au soir. La préparation, un planning en images et un peu de marge font des miracles.',
+    bands: ['3-6', '6-12'],
+    free: false,
+    science: [
+      'Dans les moments pressés et tendus, les fonctions exécutives du parent comme de l’enfant – planifier, se souvenir, patienter – s’affaiblissent. C’est pourquoi les règles du matin fonctionnent mieux avec un planning visible qu’avec des mots.',
+      'Les routines qui donnent à l’enfant un sentiment de contrôle (des étapes qu’il coche lui-même) augmentent la coopération et réduisent le besoin de rappels à répétition.',
+    ],
+    tryToday: [
+      'La veille au soir, prépare les vêtements, le cartable et les chaussures. Ton enfant choisit lui-même ses habits.',
+      'Fabriquez une carte en images pour les étapes du matin : se lever → toilettes → s’habiller → petit-déjeuner → dents → chaussures.',
+      'Prévois 15 minutes de marge : note pour toi une heure de départ plus tôt.',
+      'Le matin reste sans écran, au moins jusqu’à ce que tout le monde soit prêt.',
+    ],
+    mistakes: [
+      'Répéter la même chose des dizaines de fois. Dis-le une fois, puis montre la carte.',
+      'Tout faire à la place de ton enfant parce que « c’est plus rapide ».',
+    ],
+    specialist: [
+      'Si chaque matin ton enfant se plaint de maux de ventre ou de tête et refuse obstinément d’aller à la crèche ou à l’école – parles-en à un médecin ou à un psychologue.',
+    ],
+    sources: [S.diamond2013, S.cdcPositive],
+  },
+
+  // ── Play and language ───────────────────────────────────────────────────────────────────
+  {
+    id: 'serve-return',
+    area: 'play',
+    emoji: '🎾',
+    title: '« Donner et rendre » : le secret du langage et du cerveau',
+    summary: 'Ton enfant « lance » un signal – un regard, un son, un geste – et toi, tu le « renvoies ». Ce jeu tout simple construit l’architecture du cerveau.',
+    bands: ['0-1', '1-3', '3-6'],
+    free: true,
+    science: [
+      'Le Center on the Developing Child de l’université Harvard compare ces échanges réciproques à une partie de tennis : le bébé fait un son, regarde, montre ; l’adulte répond. Plus ce « donner et rendre » se répète, plus les circuits nerveux du langage, de l’attention et des compétences sociales se renforcent. Rester sans réponse, à l’inverse, crée du stress.',
+      'Une étude passionnante (Romeo et ses collègues, 2018) a montré que l’activité des zones du langage dans le cerveau de l’enfant s’explique moins par le nombre de mots entendus que par le nombre d’échanges dans la conversation. Autrement dit, l’important n’est pas de beaucoup parler, mais de parler avec lui.',
+    ],
+    tryToday: [
+      'Suis le regard de ton enfant et mets des mots dessus : « Oui, un chien ! Un grand chien marron. »',
+      'Attends la réponse : 5 secondes de silence après une question laissent à ton enfant le temps de prendre son tour.',
+      'Imite les sons de ton bébé et enrichis-les un peu : il dit « ba », tu dis « ba-ba-ballon ! ».',
+      'Commente le quotidien comme un commentateur sportif : « Je lave les pommes de terre, maintenant je les coupe… »',
+    ],
+    mistakes: [
+      'Transformer la parole en « leçon » : « Dis : pomme ! Dis pomme ! » La pression freine le langage.',
+      'Corriger immédiatement chaque mot. Répète plutôt simplement la bonne forme : « Nounou ? Oui, le nounours ! Un nounours rouge tout doux. »',
+      'Regarder ton téléphone quand tu es avec ton enfant. Chaque notification est une « balle non renvoyée ».',
+    ],
+    byAge: {
+      '0-1': 'En face à face : souris, chante, réponds aux sons de ton bébé.',
+      '1-3': 'Nomme l’objet qu’il montre, pose des questions simples, transforme un mot en deux.',
+      '3-6': 'Explorez ensemble les « pourquoi ? », pose des questions ouvertes : « À ton avis, qu’est-ce qui va se passer ensuite ? »',
+    },
+    specialist: [
+      'S’il n’y a aucun geste à 12 mois (faire au revoir, pointer), aucun mot à 16–18 mois, ou pas d’associations de deux mots à 2 ans – consulte un médecin ou un orthophoniste.',
+      'Si, à n’importe quel âge, il a perdu des mots qu’il disait déjà – n’attends pas, consulte un médecin.',
+    ],
+    sources: [S.harvardServe, S.romeo2018, S.nurturingCare2018],
+  },
+  {
+    id: 'play-power',
+    area: 'play',
+    emoji: '🪁',
+    title: 'Le pouvoir du jeu : pourquoi jouer n’est pas du « temps perdu »',
+    summary: 'Le jeu libre renforce les fonctions exécutives, la créativité et la résistance au stress de ton enfant.',
+    bands: ['1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'Le rapport 2018 de l’Académie américaine de pédiatrie (« The Power of Play ») qualifie le jeu non pas de « luxe », mais de nécessité pour le développement de l’enfant. En jouant, l’enfant planifie, respecte des règles, négocie avec les autres et apprend à supporter la déception.',
+      'Les jeux de rôle (« la marchande », « le docteur ») entraînent particulièrement les fonctions exécutives : l’enfant doit rester dans son rôle, retenir les règles et mettre de côté ses propres envies.',
+    ],
+    tryToday: [
+      'Garde au moins une heure de jeu non structuré par jour (qui peut être fractionnée selon l’âge).',
+      'Choisis des jouets simples et ouverts : cubes, cartons, peinture, déguisements. Moins de jouets, c’est plus de créativité.',
+      'Une fois par semaine, du jeu libre en plein air : arbres, sable, eau, bâtons.',
+      'Parfois, entre dans le jeu avec les rôles « inversés » : toi, tu es le client, lui le marchand.',
+    ],
+    mistakes: [
+      'Remplir chaque minute d’activités. L’ennui est le point de départ de la créativité.',
+      'Toujours gagner ou toujours perdre au jeu. Ton enfant doit apprendre les deux.',
+    ],
+    specialist: [
+      'Si, après 2–3 ans, ton enfant ne montre toujours aucun intérêt pour les jeux de faire semblant, si ses jeux sont très répétitifs et figés, ou s’il ne s’intéresse pas au jeu avec d’autres enfants – consulte un médecin pour faire vérifier son développement.',
+    ],
+    sources: [S.yogman2018, S.diamond2013, S.harvardEF2011],
+  },
+  {
+    id: 'reading',
+    area: 'play',
+    emoji: '📚',
+    title: 'Lire ensemble : dès le premier jour',
+    summary: 'Lire ensemble dès la petite enfance est l’une des habitudes les plus simples et les plus puissantes pour le langage, l’attention et l’attachement.',
+    bands: ['0-1', '1-3', '3-6', '6-12'],
+    free: false,
+    science: [
+      'L’Académie américaine de pédiatrie (2014) conseille aux pédiatres de recommander aux parents, à chaque consultation, de lire à leur enfant dès la petite enfance. Lire ensemble enrichit le vocabulaire, la capacité d’écoute et la réussite future en lecture.',
+      'Le plus grand bénéfice vient de la « lecture dialoguée » : le parent pose des questions, reprend et enrichit les réponses de l’enfant, parle des images. Le livre est donc lui aussi un outil de « donner et rendre ».',
+    ],
+    tryToday: [
+      'Chaque jour, 10 à 15 minutes avec un livre, idéalement dans le cadre du rituel du coucher.',
+      'Pose une question à chaque page : « À ton avis, qu’est-ce que le chat va faire maintenant ? »',
+      'Si ton enfant réclame le même livre 20 fois – lis-le. La répétition est une façon d’apprendre.',
+      'À l’âge scolaire, lisez à tour de rôle : une page toi, une page lui.',
+    ],
+    mistakes: [
+      'Présenter la lecture comme une leçon obligatoire.',
+      'Arrêter de lire à voix haute dès que ton enfant sait lire seul. La lecture à voix haute reste précieuse jusqu’à 10–12 ans.',
+    ],
+    specialist: [
+      'Si, à l’âge scolaire, la lecture est beaucoup plus difficile pour lui que pour les enfants de son âge, s’il confond souvent les lettres ou ne progresse pas malgré ses efforts – parles-en à l’enseignant et à un professionnel (orthophoniste, psychologue).',
+    ],
+    sources: [S.highKlass2014, S.romeo2018, S.harvardServe],
+  },
+];

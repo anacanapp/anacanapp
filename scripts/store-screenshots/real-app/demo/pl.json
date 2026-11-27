@@ -1,0 +1,34 @@
+{
+  "country": "PL",
+  "locale": "pl-PL",
+  "names": {
+    "mother": "Anna",
+    "baby": "Zosia",
+    "cycle": "Julia",
+    "partner": "Michał"
+  },
+  "appointments": [
+    "USG",
+    "Szpital Położniczy",
+    "Badanie krwi",
+    "Wizyta u pediatry"
+  ],
+  "authors": [
+    "Katarzyna Nowak",
+    "Magdalena Wiśniewska",
+    "Agnieszka Lewandowska"
+  ],
+  "posts": [
+    "Dziś pierwszy raz poczułam ruchy! 🥹 Nie umiem opisać tego uczucia. W którym tygodniu było to u was? #ciąża",
+    "Rozmowa z Anacan.AI o 3 w nocy, kiedy maluch nie chciał spać, bardzo mi pomogła. Polecam świeżo upieczonym mamom 💛",
+    "Jesteśmy w 24. tygodniu, zaczęłam pakować torbę do szpitala. Co macie na swojej liście? 🧳"
+  ],
+  "ai_question": "Co pomaga na mdłości?",
+  "ai_answer": [
+    "3 proste sposoby na mdłości:\n\n",
+    "1. **Herbata imbirowa** — rano, na czczo.\n",
+    "2. **Małe, częste posiłki** — nie dopuszczaj do pustego żołądka.\n",
+    "3. **Zanim wstaniesz z łóżka**, zjedz kilka suchych krakersów.\n\n",
+    "Pij wodę przez cały dzień 💧 Jeśli wymioty się nasilą, skontaktuj się z lekarzem."
+  ]
+}

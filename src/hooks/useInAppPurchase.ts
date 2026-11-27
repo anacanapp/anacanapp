@@ -18,9 +18,22 @@ import {
   RC_PRODUCTS,
   RC_OFFERING_ID,
   REVENUECAT_ENABLED,
-  REVENUECAT_CONFIG } from
+  REVENUECAT_CONFIG,
+  RC_NATIVE_TIMEOUT_MS,
+  withNativeTimeout,
+  type PremiumPurchaseContext,
+  type RestoreFailure } from
 '@/lib/revenuecat';
 import { isoPeriod, type PaidPurchaseRequest } from '@/lib/onboarding-billing';
+import { classifyPurchaseError, purchaseErrorMessage } from '@/lib/purchase-errors';
+
+/** The server confirmation must not keep a paywall spinner forever. */
+export const SYNC_TIMEOUT_MS = 10_000;
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  return Promise.race([promise, new Promise<T>((_, reject) => { timer = setTimeout(() => reject(new Error('SYNC_TIMEOUT')), ms); })])
+    .finally(() => { if (timer !== undefined) clearTimeout(timer); });
+}
 
 export interface RCPackage {
   identifier: string;
@@ -57,6 +70,9 @@ interface SyncOptions {
   expectPro?: boolean;
 }
 
+export type RestoreFailureReason = RestoreFailure | 'unavailable' | 'pending';
+export interface RestoreOutcome { ok: boolean; failure: RestoreFailureReason | null }
+
 interface UseInAppPurchaseReturn {
   packages: RCPackage[];
   offerings: Record<string, RCPackage[]>;
@@ -67,17 +83,26 @@ interface UseInAppPurchaseReturn {
   isSupported: boolean;
   isPro: boolean;
   purchaseStatus: 'idle' | 'cancelled' | 'failed' | 'pending' | 'active';
-  purchaseExact: (pkg: RCPackage, selection: PaidPurchaseRequest) => Promise<boolean>;
+  /** Offerings could not be loaded (store/network); the paywall offers a retry. */
+  offeringsFailed: boolean;
+  /** Why the last restore found nothing: 'none' (nothing to restore) or a network/store/account problem. */
+  restoreFailure: RestoreFailureReason | null;
+  /** premium: current server grant, so a store purchase never duplicates a web/promo/household Premium. */
+  purchaseExact: (pkg: RCPackage, selection: PaidPurchaseRequest, premium?: PremiumPurchaseContext) => Promise<boolean>;
+  /** Reload offerings; re-initializes the store SDK first when the earlier start failed. */
   reloadOfferings: () => Promise<void>;
   retryActivation: () => Promise<boolean>;
-  purchaseByIdentifier: (identifier: string) => Promise<boolean>;
+  purchaseByIdentifier: (identifier: string, premium?: PremiumPurchaseContext) => Promise<boolean>;
   purchaseMonthly: () => Promise<boolean>;
   purchaseYearly: () => Promise<boolean>;
   purchaseLifetime: () => Promise<boolean>;
   restorePurchases: () => Promise<boolean>;
+  /** Restore with the reason when nothing was restored (network vs. nothing to restore vs. pending confirmation). */
+  restorePurchasesDetailed: () => Promise<RestoreOutcome>;
   showPaywall: () => Promise<boolean>;
   showPaywallSafe: () => Promise<{didPurchase: boolean;available: boolean;}>;
-  showCustomerCenter: () => Promise<void>;
+  /** false when the Customer Center could not be shown (caller falls back to the store page). */
+  showCustomerCenter: () => Promise<boolean>;
   refreshEntitlements: () => Promise<void>;
 }
 
@@ -93,7 +118,11 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
   const [isSupported, setIsSupported] = useState(false);
   const [isPro, setIsPro] = useState(false);
   const [purchaseStatus, setPurchaseStatus] = useState<UseInAppPurchaseReturn['purchaseStatus']>('idle');
+  const [offeringsFailed, setOfferingsFailed] = useState(false);
+  const [restoreFailure, setRestoreFailure] = useState<UseInAppPurchaseReturn['restoreFailure']>(null);
   const purchaseLock = useRef(false);
+  const initializedFor = useRef<string | null>(null);
+  const refreshEntitlementsRef = useRef<(() => Promise<void>) | null>(null);
   const ownerRef = useRef(user?.id); ownerRef.current = user?.id;
   const syncWithDatabaseRef = useRef<((opts?: SyncOptions) => Promise<boolean>) | null>(null);
 
@@ -102,7 +131,22 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
     if (!owner || !isNativePlatform() || !hasRevenueCatPlugin()) return;
     setIsLoading(true);
     try {
-      const loaded = await getOfferings();
+      // Retry after a failed start: bind the SDK to this account before reading offerings.
+      if (initializedFor.current !== owner) {
+        try {
+          // Native-bridge calls have no built-in timeout; race them so a hung store
+          // SDK surfaces as "offerings failed" (paywall retry) instead of a dead spinner.
+          await withNativeTimeout(initRevenueCat(owner), RC_NATIVE_TIMEOUT_MS);
+          await withNativeTimeout(identifyUser(owner), RC_NATIVE_TIMEOUT_MS);
+        } catch (err) {
+          console.error('RevenueCat init retry error:', err);
+          if (ownerRef.current === owner) { setOfferingsFailed(true); setError(tr("useinapppurchase_odenis_sistemi_yuklene_bilmedi_90af92", "\xD6d\u0259ni\u015F sistemi y\xFCkl\u0259n\u0259 bilm\u0259di")); }
+          return;
+        }
+        if (ownerRef.current !== owner) return;
+        initializedFor.current = owner; setIsSupported(true); setError(null);
+      }
+      const loaded = await withNativeTimeout(getOfferings(), RC_NATIVE_TIMEOUT_MS);
       if (ownerRef.current !== owner) return;
       const mapPackage = (pkg: any): RCPackage => {
         const defaultOption = pkg.product?.defaultOption;
@@ -126,6 +170,10 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
       const eligibility = introProducts.length ? await getIntroEligibility(introProducts) : {};
       if (ownerRef.current !== owner) return;
       setOfferings(all); setPackages(active); setIntroEligibility(eligibility);
+      setOfferingsFailed(!loaded || active.length === 0);
+    } catch (err) {
+      console.error('RevenueCat offerings reload error:', err);
+      if (ownerRef.current === owner) setOfferingsFailed(true);
     } finally { if (ownerRef.current === owner) setIsLoading(false); }
   }, [user?.id]);
 
@@ -133,7 +181,8 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
   useEffect(() => {
     const init = async () => {
       const owner = user?.id;
-      setPackages([]); setOfferings({}); setIntroEligibility({}); setPurchaseStatus('idle');
+      setPackages([]); setOfferings({}); setIntroEligibility({}); setPurchaseStatus('idle'); setOfferingsFailed(false); setRestoreFailure(null);
+      initializedFor.current = null;
       if (!isNativePlatform() || !user) {
         setIsSupported(false);
         setIsLoading(false);
@@ -147,10 +196,13 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
       }
 
       try {
-        await initRevenueCat(user?.id);
-        if (user?.id) await identifyUser(user.id);
+        // Race the native-bridge setup so a hung store SDK cannot keep isLoading
+        // (and the paywall spinner) up forever; a timeout falls into catch below.
+        await withNativeTimeout(initRevenueCat(user?.id), RC_NATIVE_TIMEOUT_MS);
+        if (user?.id) await withNativeTimeout(identifyUser(user.id), RC_NATIVE_TIMEOUT_MS);
         if (ownerRef.current !== owner) return;
 
+        initializedFor.current = owner ?? null;
         setIsSupported(true);
 
         // Check entitlements (yalnız ANİ UI göstəricisi üçün — DB yazısı YOX,
@@ -162,16 +214,16 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
         // istifadəçi heç bir paywall ekranı açmasa belə (məs. auto-renew olub,
         // ya ləğv edilib) DB köhnəlmiş qalmasın (əvvəllər YALNIZ ent.isPro=true
         // olanda sync olunurdu — indi hər iki istiqamətdə, hər açılışda).
-        if (user?.id) {
-          if (isAzureBackend()) await syncWithDatabaseRef.current?.();
-          else syncWithDatabaseRef.current?.();
-        }
-
+        // Offerings load in parallel with the server sync (which has its own
+        // timeout), so a slow confirmation never keeps the paywall spinner up.
+        const sync = user?.id ? syncWithDatabaseRef.current?.().catch(() => false) : undefined;
         // Keep the normal offering and the dedicated last-chance offering apart.
         // Store product/offer/cohort rules, not the offering name, set the price.
-        await reloadOfferings();
+        if (isAzureBackend()) await Promise.all([sync, reloadOfferings()]);
+        else await reloadOfferings();
       } catch (err) {
         console.error('RevenueCat init error:', err);
+        if (ownerRef.current === owner) setOfferingsFailed(true);
         setError(tr("useinapppurchase_odenis_sistemi_yuklene_bilmedi_90af92", "\xD6d\u0259ni\u015F sistemi y\xFCkl\u0259n\u0259 bilm\u0259di"));
       } finally {
         if (ownerRef.current === owner) setIsLoading(false);
@@ -203,7 +255,7 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
       if (delaysMs[attempt]) await new Promise((resolve) => setTimeout(resolve, delaysMs[attempt]));
       if (ownerRef.current !== owner) return false;
       try {
-        const { data, error } = await supabase.functions.invoke('sync-revenuecat-entitlement');
+        const { data, error } = await withTimeout(supabase.functions.invoke('sync-revenuecat-entitlement'), SYNC_TIMEOUT_MS);
         if (ownerRef.current !== owner) return false;
         if (error) {
           console.error(`sync-revenuecat-entitlement error (cəhd ${attempt + 1}/${maxAttempts}):`, error);
@@ -235,7 +287,7 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
     syncWithDatabaseRef.current = syncWithDatabase;
   }, [syncWithDatabase]);
 
-  const executePurchase = useCallback(async (pkg: RCPackage, selection?: PaidPurchaseRequest): Promise<boolean> => {
+  const executePurchase = useCallback(async (pkg: RCPackage, selection?: PaidPurchaseRequest, premium?: PremiumPurchaseContext): Promise<boolean> => {
     if (!user?.id || ownerRef.current !== user.id || purchaseLock.current || purchaseStatus === 'pending') return false;
     const owner = user.id;
     purchaseLock.current = true;
@@ -246,12 +298,19 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
     try {
       await identifyUser(owner);
       if (ownerRef.current !== owner) return false;
-      const result = await purchasePackage(pkg._raw, selection, owner);
+      const result = await purchasePackage(pkg._raw, selection, owner, premium);
       if (ownerRef.current !== owner) return false;
 
       if (result.error === 'USER_CANCELLED') {
         setError(null);
         setPurchaseStatus('cancelled');
+        return false;
+      }
+      if (result.error === 'PURCHASE_PENDING') {
+        // Deferred / pending store payment (RC code "20", Ask to Buy, slow card):
+        // not a failure. The user refreshes the status instead of paying again.
+        setPurchaseStatus('pending');
+        setError(purchaseErrorMessage('PURCHASE_PENDING'));
         return false;
       }
 
@@ -285,14 +344,17 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
         return true;
       }
 
-      setError(result.error || tr("useinapppurchase_alis_tamamlana_bilmedi_yeniden_8c3980", "Al\u0131\u015F tamamlana bilm\u0259di. Yenid\u0259n c\u0259hd edin."));
+      setError(purchaseErrorMessage(result.error));
       setPurchaseStatus('failed');
       return false;
     } catch (err: any) {
       if (ownerRef.current !== owner) return false;
-      console.error('Purchase error:', err);
+      const code = classifyPurchaseError(err);
+      console.error('Purchase error:', code);
+      if (code === 'USER_CANCELLED') { setError(null); setPurchaseStatus('cancelled'); return false; }
+      if (code === 'PURCHASE_PENDING') { setPurchaseStatus('pending'); setError(purchaseErrorMessage(code)); return false; }
       setPurchaseStatus('failed');
-      setError(tr("useinapppurchase_purchase_error", "Alış zamanı xəta: {error}").replace("{error}", err?.message || tr("useinapppurchase_namelum_xeta_aa30e7", "Nam\u0259lum x\u0259ta")));
+      setError(purchaseErrorMessage(code));
       return false;
     } finally {
       purchaseLock.current = false;
@@ -311,7 +373,7 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
     } finally { purchaseLock.current = false; setIsPurchasing(false); }
   }, [syncWithDatabase]);
 
-  const purchaseByIdentifier = useCallback(async (identifier: string): Promise<boolean> => {
+  const purchaseByIdentifier = useCallback(async (identifier: string, premium?: PremiumPurchaseContext): Promise<boolean> => {
     // packageType uyğunluğu: məhsul ID-lərində 'monthly'/'yearly' olmasa belə işləsin
     // (məs. yeni pricing_2026 məhsulları 'annual' adlandırıla bilər)
     const TYPE_MAP: Record<string, string> = { monthly: 'MONTHLY', yearly: 'ANNUAL', lifetime: 'LIFETIME' };
@@ -325,23 +387,29 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
       setError(tr("useinapppurchase_mehsul_tapilmadi_ff5957", "M\u0259hsul tap\u0131lmad\u0131"));
       return false;
     }
-    return executePurchase(pkg);
+    return executePurchase(pkg, undefined, premium);
   }, [packages, executePurchase]);
 
   const purchaseMonthly = useCallback(() => purchaseByIdentifier(RC_PRODUCTS.MONTHLY), [purchaseByIdentifier]);
   const purchaseYearly = useCallback(() => purchaseByIdentifier(RC_PRODUCTS.YEARLY), [purchaseByIdentifier]);
   const purchaseLifetime = useCallback(() => purchaseByIdentifier(RC_PRODUCTS.LIFETIME), [purchaseByIdentifier]);
 
-  const handleRestore = useCallback(async (): Promise<boolean> => {
-    if (!user?.id || ownerRef.current !== user.id) return false;
+  const restoreDetailed = useCallback(async (): Promise<RestoreOutcome> => {
+    if (!user?.id || ownerRef.current !== user.id) return { ok: false, failure: 'unavailable' };
     const owner = user.id;
     setIsLoading(true);
     setError(null);
+    setRestoreFailure(null);
     try {
       await identifyUser(owner);
-      if (ownerRef.current !== owner) return false;
+      if (ownerRef.current !== owner) return { ok: false, failure: 'account' };
       const result = await rcRestore(owner);
-      if (ownerRef.current !== owner) return false;
+      if (ownerRef.current !== owner) return { ok: false, failure: 'account' };
+      if (!result.success) {
+        const failure = result.reason ?? 'unavailable';
+        setRestoreFailure(failure);
+        return { ok: false, failure };
+      }
       if (result.success) {
         // Məhsul ID/tarixi ötürməyə ehtiyac yoxdur — edge function RC-dən
         // real, düzgün (illik/lifetime daxil) məlumatı özü çəkir (əvvəllər
@@ -351,21 +419,25 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
         if (!confirmed) {
           setPurchaseStatus('pending');
           setError(tr('useiap_activation_pending', 'Mağaza əməliyyatı alındı, Premium təsdiqi gözlənilir. Yenidən ödəniş etməyin; bir qədər sonra bərpanı sınayın.'));
-          return false;
+          setRestoreFailure('pending');
+          return { ok: false, failure: 'pending' };
         }
         setIsPro(true);
         setPurchaseStatus('active');
-        return true;
+        return { ok: true, failure: null };
       }
-      return false;
+      return { ok: false, failure: 'none' };
     } catch (err) {
-      console.error('Restore error:', err);
+      const failure = classifyPurchaseError(err) === 'STORE_NETWORK' ? 'network' : 'error';
+      console.error('Restore error:', failure);
+      setRestoreFailure(failure);
       setError(tr("useinapppurchase_alislar_berpa_edile_bilmedi_33b266", "Al\u0131\u015Flar b\u0259rpa edil\u0259 bilm\u0259di"));
-      return false;
+      return { ok: false, failure };
     } finally {
       setIsLoading(false);
     }
   }, [syncWithDatabase, user?.id]);
+  const handleRestore = useCallback(async (): Promise<boolean> => (await restoreDetailed()).ok, [restoreDetailed]);
 
   const showPaywall = useCallback(async (): Promise<boolean> => {
     const result = await presentPaywall();
@@ -393,18 +465,20 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
     return result;
   }, [syncWithDatabase]);
 
-  const showCustomerCenter = useCallback(async () => {
-    await presentCustomerCenter();
+  const showCustomerCenter = useCallback(async (): Promise<boolean> => {
+    const presented = await presentCustomerCenter();
     // Refresh entitlements after customer center closes
-    await refreshEntitlements();
+    if (presented) await refreshEntitlementsRef.current?.();
+    return presented;
   }, []);
 
   const refreshEntitlements = useCallback(async () => {
-    const ent = await checkEntitlement();
+    await checkEntitlement();
     // Customer Center-də istənilən dəyişiklik (ləğv/bərpa/itki) — hər iki
     // istiqamətdə server-side sinxronlanır (edge function RC-dən real vəziyyəti çəkir).
     await syncWithDatabase();
   }, [syncWithDatabase]);
+  refreshEntitlementsRef.current = refreshEntitlements;
 
   return {
     packages,
@@ -416,6 +490,8 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
     isSupported,
     isPro,
     purchaseStatus,
+    offeringsFailed,
+    restoreFailure,
     purchaseExact: executePurchase,
     reloadOfferings,
     retryActivation,
@@ -424,6 +500,7 @@ export function useInAppPurchase(): UseInAppPurchaseReturn {
     purchaseYearly,
     purchaseLifetime,
     restorePurchases: handleRestore,
+    restorePurchasesDetailed: restoreDetailed,
     showPaywall,
     showPaywallSafe,
     showCustomerCenter,

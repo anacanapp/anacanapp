@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="az" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ff5a5f">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Anacan Premium · 11.11</title>
+  <meta name="description" content="11.11: yalnız bu gün illik Anacan Premium $11.11. Kartı poz, endirimini özün aç. Kartla, manatla.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/website/premium/account/account.css?v=1">
+  <link rel="stylesheet" href="/website/premium/1111/1111.css?v=5">
+  <script>
+    /* Page language before anything else reads <html lang> (analytics consent bar, 1111.js): ?lang wins, then the
+       browser's first supported language; anything else is English. A bank return (?odenis) is always Azerbaijani. */
+    (function () {
+      var ok = ['az', 'en', 'tr', 'kk', 'uz'], q = new URLSearchParams(location.search), l = (q.get('lang') || '').toLowerCase();
+      if (q.get('odenis')) l = 'az';
+      // The language survives the Google/Apple sign-in round trip (it returns without ?lang) in this tab.
+      try { if (ok.indexOf(l) >= 0) sessionStorage.setItem('anacan1111_lang', l); else if (!q.get('done')) l = sessionStorage.getItem('anacan1111_lang') || ''; } catch (e) {}
+      if (ok.indexOf(l) < 0) {
+        l = 'en';
+        // Visitors in Azerbaijan stay on the Azerbaijani (Epoint) page whatever their browser language.
+        var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+        var azRegion = (navigator.languages || [navigator.language || '']).some(function (x) { return /[-_]az$/i.test(String(x || '')); });
+        if (tz === 'Asia/Baku' || azRegion) { l = 'az'; }
+        var list = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']);
+        if (l !== 'az') for (var i = 0; i < list.length; i++) {
+          var tag = String(list[i] || '').toLowerCase().split(/[-_]/), m = tag[0];
+          if (m === 'ru' && (tag[1] === 'kz' || tag[1] === 'uz')) m = tag[1] === 'kz' ? 'kk' : 'uz';
+          if (ok.indexOf(m) >= 0) { l = m; break; }
+        }
+      }
+      window.ANACAN_1111_LANG = l;
+      document.documentElement.lang = l;
+    })();
+  </script>
+  <script src="/website/analytics.js" async></script>
+</head>
+<body data-campaign-starts="2026-11-10T18:15:00Z" data-campaign-ends="2026-11-11T19:59:59Z">
+<div class="wrap">
+  <header class="nav">
+    <a class="brand" href="https://anacan.az/" aria-label="Anacan"><img src="/website/brand-glyph-coral.png" alt="" width="26" height="26">anacan</a>
+    <nav class="langs" id="langs" aria-label="Dil">
+      <a href="?lang=az" hreflang="az" lang="az">AZ</a><a href="?lang=en" hreflang="en" lang="en">EN</a><a href="?lang=tr" hreflang="tr" lang="tr">TR</a><a href="?lang=kk" hreflang="kk" lang="kk">KK</a><a href="?lang=uz" hreflang="uz" lang="uz">UZ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="who" id="who" hidden></div>
+      <a class="acc" id="cabinetLink" href="/website/premium/hesab/index.html" hidden>Premium hesabım</a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow"><b>11.11</b> <span id="liveText">Yalnız bu gün · 11 noyabr</span></span>
+      <h1 id="heroTitle">Poz, <em>endirimini</em> özün aç.</h1>
+      <p class="lead" id="heroLead">Anacan Premium-un bütün imkanları, reklamsız. Kartı barmağınla poz, bu günə özəl qiymət altındadır.</p>
+      <div class="cd" id="timer">
+        <small id="timerLabel">Kampaniya bitənədək</small>
+        <div class="cd-row" aria-live="off">
+          <div class="cd-box" id="tDBox" hidden><b id="tD">0</b><span>gün</span></div>
+          <div class="cd-box"><b id="tH">00</b><span>saat</span></div>
+          <div class="cd-box"><b id="tM">00</b><span>dəq</span></div>
+          <div class="cd-box"><b id="tS">00</b><span>san</span></div>
+        </div>
+        <div class="hint" id="cdHint" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div id="scratchArea">
+        <div class="scratch" id="scratch">
+          <div class="prize">
+            <span class="tag">İllik Premium</span>
+            <span class="price" id="prizePrice">$11.11</span>
+            <span class="was" id="prizeWas">$29.99</span>
+            <span class="off" id="prizeOff">−63% · yalnız bu gün</span>
+            <span class="sub" id="prizeSub">ayda ≈ $0.93 · gündə cəmi 3 sent</span>
+          </div>
+          <canvas id="foil" aria-label="Pozma kartı: açmaq üçün barmağınla poz və ya “Birdən aç” düyməsini bas" role="img"></canvas>
+        </div>
+        <div class="scratch-note"><span id="scratchHint">Barmağınla poz · <span id="pct">0</span>%</span><button id="reveal" type="button">Birdən aç</button></div>
+      </div>
+      <div class="subscribe" id="plans" tabindex="-1" aria-live="polite" hidden>
+        <div class="skeleton" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <section aria-labelledby="r-h">
+    <div class="sec-head"><div><h2 id="r-h">Premium üçün 11 səbəb</h2><p>Sürüşdürdükcə bir-bir yanır.</p></div></div>
+    <ol class="reasons" id="reasons">
+      <li><h3>Anacan AI, gecə saat 3-də də</h3><p>Suallarına sakit və aydın cavab.</p></li>
+      <li><h3>Partnyor rejimi</h3><p>Həyat yoldaşın da yanında: birgə qeydlər və siyahılar.</p></li>
+      <li><h3>30+ alətin hamısı açıq</h3><p>Yuxu proqnozu, əlavə qida, təpik və sancı sayğacı.</p></li>
+      <li><h3>Reklamsız</h3><p>Yalnız sən və körpən.</p></li>
+      <li><h3>Ağıllı xatırlatmalar</h3><p>Qidalanma, yuxu, peyvənd: unutmağa yer qalmır.</p></li>
+      <li><h3>Həkim üçün hesabat</h3><p>Qeydlərin bir toxunuşla PDF olur.</p></li>
+      <li><h3>Ağlama tərcüməçisi</h3><p>Körpənin ağlamasının mümkün səbəbləri.</p></li>
+      <li><h3>Fərdi nağıllar</h3><p>Körpənin adı ilə yatmazdan əvvəl nağıl.</p></li>
+      <li><h3>Ağ səslər</h3><p>Sakit yuxu üçün səs kitabxanası.</p></li>
+      <li><h3>Körpə fotosessiyası</h3><p>Ay-ay xatirə şəkilləri.</p></li>
+      <li><h3>Tərbiyə və əlavə qida bələdçisi</h3><p>Hər yaş üçün addım-addım.</p></li>
+    </ol>
+    <div class="progress"><span id="rCount">0 / 11</span><div class="bar"><i id="rBar"></i></div><span>səbəb</span></div>
+  </section>
+
+  <section aria-labelledby="f-h">
+    <div class="sec-head"><h2 id="f-h">Suallar</h2></div>
+    <details><summary>Endirim nə vaxt bitir?</summary><p>11 noyabr, Bakı vaxtı ilə 23:59-da. Bu müddətdə abunə olanlar endirimli qiyməti abunəliyi ləğv edənə qədər hər yenilənmədə saxlayır.</p></details>
+    <details><summary>Niyə qiymət dollarla göstərilir?</summary><p>Tətbiq mağazalarında qiymət dollarladır. Kartdan isə manatla, 1 USD = 1,70 ₼ ilə alınır; dəqiq manat məbləği ödəniş düyməsinin altında yazılıb.</p></details>
+    <details><summary>Avtomatik yenilənirmi?</summary><p>Bəli. İllik abunəlik hər il eyni kampaniya qiyməti ilə avtomatik yenilənir. Ödəniş müddət bitməzdən bir gün əvvəl yadda saxlanmış kartından alınır.</p></details>
+    <details><summary>Necə ləğv edə bilərəm?</summary><p>İstədiyin vaxt “Premium hesabım” səhifəsində “Abunəliyi ləğv et” düyməsi ilə. Yeni ödəniş alınmır, Premium ödənilmiş müddətin sonuna qədər açıq qalır.</p></details>
+    <details><summary>Premium tətbiqdə necə açılır?</summary><p>Eyni hesabla (Google, Apple və ya e-poçt) tətbiqə daxil ol, Premium avtomatik açılacaq.</p></details>
+    <details><summary>Ödəniş təhlükəsizdirmi?</summary><p>Ödəniş bank kartı ilə, manatla, Epoint vasitəsilə qəbul olunur. Kart məlumatlarını bankın ödəniş səhifəsində daxil edirsən; Anacan kart nömrəsini saxlamır, yalnız maskalı nömrəni göstərir.</p></details>
+  </section>
+
+  <div class="stores" aria-label="Anacan tətbiqini yüklə">
+    <a class="store" id="storeIos" data-store="ios" data-store-placement="premium_1111_hero" href="https://apps.apple.com/app/id6758301924" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-3.8zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>
+      <span><small>App Store-dan</small>Yüklə</span>
+    </a>
+    <a class="store" id="storeAndroid" data-store="android" data-store-placement="premium_1111_hero" href="https://play.google.com/store/apps/details?id=com.atlasoon.anacan&amp;referrer=utm_source%3Danacan_web%26utm_medium%3Dkampaniya_1111_hero" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3c-.2.2-.3.6-.3 1v17.4c0 .4.1.8.3 1l9.6-9.7-9.6-9.7zm10.6 10.7 2.6 2.6-11 6.3 8.4-8.9zm0-2L5.8 2.1l11 6.3-2.6 2.6zm3.6-1.9 3 1.7c.9.5.9 1.9 0 2.4l-3 1.7-2.8-2.9 2.8-2.9z"/></svg>
+      <span><small>Google Play-dən</small>Yüklə</span>
+    </a>
+  </div>
+
+  <footer id="foot">© 2026 Anacan · anacan.az · <a href="https://anacan.az/terms" target="_blank" rel="noopener">İstifadə şərtləri</a> · <a href="https://anacan.az/privacy" target="_blank" rel="noopener">Məxfilik siyasəti</a></footer>
+</div>
+
+<div class="sticky" id="sticky"><div class="sticky-p"><b id="sPrice">Poz, aç</b><s id="sWas"></s><small id="sSub">11.11 · yalnız bu gün</small></div><a class="pbtn" href="#scratch" id="sBtn">Kartı poz</a></div>
+<canvas class="conf" id="conf" aria-hidden="true"></canvas>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/website/premium/vendor/supabase-js-2.90.1.js"></script>
+<script src="/website/premium/account/account.js?v=3"></script>
+<script src="/website/premium/1111/1111.js?v=9"></script>
+</body>
+</html>

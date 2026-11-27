@@ -4,7 +4,7 @@ import { useWebsite } from './context';
 import { Intro, FaqList, DownloadCard, Arrow, Eyebrow } from './components';
 import { addCalendarDays, calendarIso, CalculatorInputError, estimateCycle, estimatePregnancy, makeCalendarFile, parseCalendarDate, todayIso, type CycleEstimate, type PregnancyEstimate } from './calculators';
 import type { WebsiteCopyKey } from './model';
-import { APP_LANGUAGES } from '../lib/app-languages';
+import { WEBSITE_LANGUAGES } from '../lib/app-languages';
 import {siteDate,siteMonth,siteWeekdays} from './dates';
 
 function downloadCalendar(text:string) {
@@ -19,18 +19,18 @@ export function ReferenceLinks() {
     <li><a href="https://www.nhs.uk/pregnancy/finding-out/due-date-calculator/" target="_blank" rel="noopener noreferrer">NHS — Due date calculator<Arrow diagonal/></a></li>
   </ul></div>;
 }
-export function CycleCalendar({estimate}:{estimate:CycleEstimate}) {
+export function CycleCalendar({estimate,more=[]}:{estimate:CycleEstimate;more?:CycleEstimate[]}) {
   const {t,route}=useWebsite();
   const initial=parseCalendarDate(estimate.periodStart)!;
   const [month,setMonth]=useState(()=>new Date(Date.UTC(initial.getUTCFullYear(),initial.getUTCMonth(),1,12)));
-  const locale=APP_LANGUAGES.find(item=>item.code===route.language)!.locale;
+  const locale=WEBSITE_LANGUAGES.find(item=>item.code===route.language)!.locale;
   const first=new Date(Date.UTC(month.getUTCFullYear(),month.getUTCMonth(),1,12)),offset=(first.getUTCDay()+6)%7;
   const days=Array.from({length:42},(_,index)=>addCalendarDays(first,index-offset));
   const labels=siteWeekdays(route.language);
   const shift=(amount:number)=>setMonth(new Date(Date.UTC(month.getUTCFullYear(),month.getUTCMonth()+amount,1,12)));
   return <div className="site-cycle-calendar" aria-label={t('calendarLabel')}><div className="site-calendar-heading"><button type="button" onClick={()=>shift(-1)} aria-label={t('previous')}><ChevronLeft size={18}/></button><strong>{siteMonth(month,route.language)}</strong><button type="button" onClick={()=>shift(1)} aria-label={t('next')}><ChevronRight size={18}/></button></div>
     <table><thead><tr>{labels.map((label,index)=><th scope="col" key={index}>{label}</th>)}</tr></thead><tbody>{Array.from({length:6},(_,row)=><tr key={row}>{days.slice(row*7,row*7+7).map(date=>{
-      const iso=calendarIso(date),ovulation=iso===estimate.ovulation,period=iso>=estimate.periodStart&&iso<=estimate.periodEnd,fertile=iso>=estimate.fertileStart&&iso<=estimate.additionalDay;
+      const iso=calendarIso(date),cycles=[estimate,...more],ovulation=cycles.some(item=>iso===item.ovulation),period=cycles.some(item=>iso>=item.periodStart&&iso<=item.periodEnd),fertile=cycles.some(item=>iso>=item.fertileStart&&iso<=item.additionalDay);
       return <td key={iso} className={`${date.getUTCMonth()!==month.getUTCMonth()?'site-calendar-other ':''}${ovulation?'site-calendar-ovulation':period?'site-calendar-period':fertile?'site-calendar-fertile':''}`}><time dateTime={iso} title={ovulation?t('calendarLegendOvulation'):period?t('calendarLegendPeriod'):fertile?t('calendarLegendFertile'):undefined}>{new Intl.NumberFormat(locale).format(date.getUTCDate())}</time></td>;
     })}</tr>)}</tbody></table><div className="site-calendar-legend"><span><i className="site-calendar-period"/>{t('calendarLegendPeriod')}</span><span><i className="site-calendar-fertile"/>{t('calendarLegendFertile')}</span><span><i className="site-calendar-ovulation"/>{t('calendarLegendOvulation')}</span></div></div>;
 }
@@ -39,7 +39,7 @@ export default function CalculatorPage({kind}:{kind:'ovulation'|'dueDate'}) {
   const [lastPeriod,setLastPeriod]=useState(''),[cycle,setCycle]=useState(28),[period,setPeriod]=useState(5),[luteal,setLuteal]=useState(14);
   const [error,setError]=useState<WebsiteCopyKey|null>(null),[cycleResult,setCycleResult]=useState<CycleEstimate|null>(null),[pregnancyResult,setPregnancyResult]=useState<PregnancyEstimate|null>(null);
   const resultRef=useRef<HTMLElement>(null);
-  const locale=APP_LANGUAGES.find(item=>item.code===route.language)!.locale;
+  const locale=WEBSITE_LANGUAGES.find(item=>item.code===route.language)!.locale;
   const date=(value:string)=>siteDate(value,route.language);
   const calculate=(event:React.FormEvent)=>{
     event.preventDefault();setError(null);setCycleResult(null);setPregnancyResult(null);

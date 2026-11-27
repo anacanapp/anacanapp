@@ -5,7 +5,7 @@ import {
   ArrowLeft, Bell, Moon, Sun, Lock,
   Smartphone, Trash2, ChevronRight,
   Volume2, Vibrate, Droplets, Dumbbell, Pill,
-  BellOff, Heart, MessageCircle, Users, Download, AlertTriangle, Loader2, HeartPulse, Megaphone } from
+  BellOff, Heart, MessageCircle, Users, Download, AlertTriangle, Loader2, HeartPulse, Megaphone, ShieldCheck } from
 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 import { useNotificationSettings } from '@/hooks/useNotificationSettings';
@@ -29,6 +29,8 @@ import {
 '@/components/ui/alert-dialog';
 import AppLockSetupSheet from '@/components/security/AppLockSetupSheet';
 import { isLockEnabled } from '@/lib/appLock';
+import { usePrivacyText } from '@/components/privacy/privacyCopy';
+import { todayKey } from '@/lib/local-date';
 
 interface SettingsScreenProps {
   onBack: () => void;
@@ -41,6 +43,7 @@ const SWITCH_CLS = "data-[state=checked]:bg-[var(--a-peach-2)]";
 const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
   useScrollToTop();
   useScreenAnalytics('Settings', 'Settings');
+  const privacyT = usePrivacyText();
 
   const {
     settings,
@@ -109,7 +112,7 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `anacan-data-${new Date().toISOString().split('T')[0]}.json`;
+      link.download = `anacan-data-${todayKey()}.json`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -209,10 +212,10 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
         {/* Top bar */}
         <header className="a-topbar">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.button onClick={onBack} className="a3-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
-              <ArrowLeft className="rtl:rotate-180" size={20} strokeWidth={2} />
+            <motion.button onClick={onBack} className="a-icon-btn" whileTap={{ scale: 0.95 }} aria-label={tr("common_geri", "Geri")}>
+              <ArrowLeft className="rtl:rotate-180" size={16} strokeWidth={2} />
             </motion.button>
-            <p className="a3-tool-title">{tr("settingsscreen_tenzimlemeler_085659", "Tənzimləmələr")}</p>
+            <p className="a-wordmark" style={{ fontSize: 16 }}>{tr("settingsscreen_tenzimlemeler_085659", "Tənzimləmələr")}</p>
           </div>
         </header>
 
@@ -390,6 +393,10 @@ const SettingsScreen = ({ onBack, onNavigate }: SettingsScreenProps) => {
 
           {/* Privacy & Data */}
           <SectionCard title={tr("settingsscreen_mexfilik_ve_melumat_f15bb1", "Məxfilik və Məlumat")}>
+            <SettingRow icon={ShieldCheck} label={privacyT('settings_row')} description={privacyT('settings_row_desc')}
+            onClick={() => onNavigate?.('privacy')} tintBg="var(--a-green-1)" tintInk="var(--a-green-ink)">
+              <ChevronRight className="rtl:rotate-180" size={18} style={{ color: 'var(--a-ink-faint)' }} />
+            </SettingRow>
             <SettingRow icon={Lock} label={tr("settingsscreen_sifre_ile_qoruma_152a0e", "Şifrə ilə qoruma")}
             description={lockActive ? tr("applock_status_on", "Aktiv — PIN ilə qorunur") : tr("applock_status_off", "PIN və ya biometrika ilə qoruyun")}
             onClick={() => setShowLockSheet(true)}
