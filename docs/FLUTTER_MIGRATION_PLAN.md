@@ -1,6 +1,6 @@
 # Anacan: Capacitor → Flutter keçid planı
 
-Tarix: 2026-11-27. Status: **plan təsdiqlənib, icra başlamayıb.** Baza budağı: `main-630mc7` (52.0.2).
+Tarix: 2026-11-27. Status: **icra gedir** (gedişat: `docs/flutter/PROGRESS.md`). Baza budağı: `main-630mc7` (52.0.2).
 
 > **Baza haqqında düzəliş.** İlk analiz köhnə `main` budağı (2026-10-27) üzərində aparılmışdı. Aktiv iş
 > `main-630mc7`-dədir, 469 commit irəlidədir. Arxitektura, protokollar və dizayn sistemi eynidir, ona görə
@@ -11,7 +11,7 @@ Tarix: 2026-11-27. Status: **plan təsdiqlənib, icra başlamayıb.** Baza buda�
 
 Keçid mümkündür. Backend, verilənlər bazası, edge function-lar, admin paneli və veb sayt toxunulmaz qalır; yalnız iOS/Android istehlakçı tətbiqi Flutter ilə yenidən yazılır. Tətbiq eyni `com.atlasoon.anacan` identifikatoru ilə mağazada adi yeniləmə kimi çıxır, istifadəçi girişli qalır.
 
-- Bu, "çevirmə" deyil, **yenidən yazmadır**. Mobil tətbiqə aid təxminən 180 min sətir React kodu (test, admin, veb sayt və məzmun faylları xaric) Dart-a əl ilə köçürülür.
+- Bu, "çevirmə" deyil, **yenidən yazmadır**. Mobil tətbiqə aid təxminən 156 min sətir kod (284 vahid, bax `docs/flutter/PARITY_MATRIX.md`; test, admin, veb sayt və məzmun faylları xaric) Dart-a əl ilə köçürülür.
 - "Dizayn dəyişmir" ölçü, rəng, boşluq, animasiya və axın səviyyəsində təmin olunur. Mətnin hamarlanması WebView və Flutter mühərrikində bir qədər fərqlidir; hədəf "gözlə fərq görünmür"dür, "bit-bit eyni" deyil.
 
 ## 2. Mövcud vəziyyət
@@ -212,7 +212,7 @@ Körpü buraxılışı (B) 0-cı mərhələ ilə paralel gedir: nə qədər tez 
 - Android 16 KB səhifə uyğunluğu, target 36 / min 26, eyni upload açarı.
 - iOS: komanda `8B6976J8H7`, 3 bundle id, App Group, production entitlement-lər.
 - Mərhələli yayım; çökmə və giriş itkisi göstəriciləri izlənir.
-- Geri qayıtma: Capacitor workflow-ları saxlanır; problem olarsa daha yüksək versiya ilə yenidən buraxıla bilər. Bunun üçün Flutter-in yazdığı sessiya formatı Capacitor-un oxuduğu ilə eyni qalmalıdır.
+- Geri qayıtma: Capacitor workflow-ları saxlanır; problem olarsa 60-dan yuxarı versiya ilə (60.1 / 6100+) yenidən buraxıla bilər. Flutter sessiyanın ehtiyat nüsxəsini Capacitor formatında yazır, lakin Flutter tokenləri yenilədikdən sonra geri qayıdan istifadəçi çox güman yenidən daxil olmalı olacaq (köhnə WebView yaddaşındakı token artıq işlənmiş olur).
 
 ## 10. İcra modeli
 
