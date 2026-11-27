@@ -32,8 +32,10 @@ class ChatGroupsArgs {
 /// Inbox list: `useChatGroups(undefined, 'mine', '', false)` (ConversationListScreen).
 const ChatGroupsArgs kInboxGroups = ChatGroupsArgs(scope: 'mine', languageFiltered: false);
 
-/// Unread badge: `useChatGroups(undefined, 'mine')` (useUnreadMessages; language filtered like React).
-const ChatGroupsArgs kUnreadGroups = ChatGroupsArgs(scope: 'mine');
+/// Unread badge. React used `useChatGroups(undefined, 'mine')` (language filtered), so unread messages of the
+/// user's own groups in another discovery language were never counted although the inbox lists them. Owner
+/// decision 2026-11-27: the badge counts the same groups as the inbox (docs/flutter/PARITY_FIXES.md).
+const ChatGroupsArgs kUnreadGroups = kInboxGroups;
 
 /// Throttle of the inbox invalidation on any `group_messages` change (leading + trailing, >= 5 s).
 const Duration kGroupListThrottle = Duration(seconds: 5);

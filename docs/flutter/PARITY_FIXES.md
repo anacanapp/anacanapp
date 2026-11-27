@@ -23,6 +23,7 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Körpə söhbətində 30 s saat çatdırılma ortasında yenidən başladırdı, açılış mesajı iki dəfə düşə bilirdi | `useBabyChat.ts` | Flutter-də bir dəfə çatdırılır |
 | Məşq seriyası dünən bitəndə bir gün artıq sayılırdı (dünən 1 qeyd → 2) | `useExerciseLogs.ts` `getStreak` | Flutter-də hər gün bir dəfə |
 | Psixi sağlamlıq: uğursuz `addMoodCheckin` söz verişi tutulmurdu (unhandled rejection) | `MentalHealthTracker.tsx` | Flutter-də səssiz tutulur (istifadəçi üçün eyni) |
+| Ağlama tərcüməçisi yalnız WebM göndərə bilirdi (iOS-da işləmirdi) | `CryTranslator.tsx`, `analyze-cry` | `analyze-cry` `mimeType` qəbul edir (m4a/Ogg/WebM; yoxdursa WebM), Flutter m4a-nı üstün tutur (sahibin qərarı 2026-11-27) |
 | Nəcis skaneri: native kamera/qalereya ləğv ediləndə sonra veb fayl seçici açılırdı | `PoopScanner.tsx` | Flutter-də açılmır |
 | Nağıl: JSON olmayan xəta cavabında istifadəçi JSON parse xətasını görürdü | `FairyTaleGenerator.tsx` | Flutter-də "Failed to generate story" |
 | Dekret kalkulyatoru: ata + atalıq qaydaları seçiləndə `benefitResult.dailySalary` oxunur, ekran çökür | `MaternityCalculator.tsx` | Flutter-də "Ödəniş Qaydaları" kartı göstərilir |
@@ -33,7 +34,7 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
 | Söhbət siyahısında oxunmayan `last_message_at` tarixi `RangeError` atırdı | `ConversationListScreen.tsx` | Flutter-də boş vaxt göstərilir |
 | Mesajlar və partnyor söhbətində status bar boşluğu itir (`.a-topbar` `.safe-area-top`-u ləğv edir) | `MessagesScreen.tsx` | Flutter-də yuxarı boşluq var |
-| Oxunmamış mesaj sayına yalnız `discovery_language`-i tətbiq dilinə uyğun qruplar daxil olur | `useUnreadMessages.ts` | saxlanıb; sahibin qərarı gözlənilir |
+| Oxunmamış mesaj sayına yalnız `discovery_language`-i tətbiq dilinə uyğun qruplar daxil olurdu (inbox isə hamısını göstərir) | `useUnreadMessages.ts` | Flutter-də inbox-dakı bütün qruplar sayılır (sahibin qərarı 2026-11-27) |
 | Paneldən açılmayan alətdə (`initialTool`, `fromDashboard` yox) geri çıxmaq üçün iki dəfə basmaq lazımdır | `ToolsHub.tsx` `handleBack` | saxlanıb |
 | Pulsuz istifadəçiyə ilkin Premium alət açılanda modal siyahı budağında qalır, alətdən çıxana qədər görünmür (o vaxta qədər `PremiumToolBoundary` paywall-u göstərir) | `ToolsHub.tsx` | saxlanıb |
 | `PremiumToolBoundary` paywall-u Flutter-də sətir içində çəkilirdi (alətlər tabında layout çökürdü); React-dakı kimi tam ekran qat olur | `premium_gates.dart` | Flutter düzəlişi |

@@ -37,15 +37,16 @@ piksel fərqini xəbərdarlıq kimi çap edir, testi yıxmır; render xətaları
 Bu sessiyada Windows-da yaradılan yeni golden-lər (`test/features/ai_chat/goldens`, `test/features/baby_chat/goldens`
 və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən çəkilməlidir.
 
+## Qəbul olunmuş qərarlar (2026-11-27)
+
+- `analyze-cry` m4a/Ogg da qəbul edir (backend dəyişikliyi; **deploy gözlənilir**, köhnə tətbiqlər dəyişmədən WebM göndərir).
+- Oxunmamış mesaj nişanı inbox-dakı bütün qrupları sayır.
+
 ## Açıq qərarlar (cavab gələnə qədər mötərizədəki variant)
 
 1. İcma postlarında moderator menyusu tətbiqdə qalsın? (qalır)
 2. Yalnız adminə görünən Mağaza ekranı köçürülsün? (yox, vebə keçir)
 3. `/h/:kod` və `/p/v/:token` səhifələri tətbiqdə olsun? (vebdə qalır)
-4. `analyze-cry` funksiyası yalnız WebM qəbul edir; iOS yazıcısı WebM vermir. Funksiya m4a/ogg qəbul etsin (backend
-   dəyişikliyi) və ya iOS-da ağlama tərcüməçisi "yazı dəstəklənmir" göstərsin? (sonuncu — backend-ə toxunulmur)
-5. Oxunmamış mesaj sayına yalnız `discovery_language`-i tətbiq dilinə uyğun qruplar daxildir (React). Düzəldilsin?
-   (React kimi qalır)
 
 ## Texniki borc (düzəldilməlidir)
 

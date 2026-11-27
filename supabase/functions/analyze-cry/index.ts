@@ -3,6 +3,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { callGeminiSmart } from "../_shared/vertex-ai.ts";
 import { EXPANDED_LANGUAGE_NAMES, isExpandedLanguage } from '../_shared/languages.ts';
 import { serverCopy } from '../_shared/localized-copy.ts';
+import { normalizeAudioMimeType } from './audio-mime.ts';
 
 const CRY_FALLBACK_COPY = {
   shortExplanation: 'The recording is too short. At least 3 seconds of audio is needed for an accurate analysis.',
@@ -21,6 +22,8 @@ const corsHeaders = {
 interface CryAnalysisRequest {
   audioBase64: string;
   audioDuration: number;
+  /** Recording format. Missing = 'audio/webm' (the Capacitor/web MediaRecorder output, every app before 60.0). */
+  mimeType?: string;
   language?: string;
   userContext?: {
     babyName?: string;
@@ -34,7 +37,8 @@ interface CryAnalysisRequest {
 // NOTE: This approach is intentionally conservative to minimize false positives and provide professional pediatric recommendations.
 async function detectIfCrying(
   audioBase64: string,
-  _apiKey?: string
+  _apiKey?: string,
+  mimeType: string = 'audio/webm'
 ): Promise<{ isCrying: boolean; confidence: number; soundType: string; answered: boolean }> {
   // Using the more capable gemini-2.5-flash model instead of lite for better audio precision and less hallucination
   const response = await callGeminiSmart("gemini-2.5-flash", {
@@ -43,7 +47,7 @@ async function detectIfCrying(
       parts: [
             {
               inlineData: {
-                mimeType: 'audio/webm',
+                mimeType,
                 data: audioBase64
               }
             },
@@ -135,7 +139,7 @@ Return ONLY this JSON (no markdown, no extra keys):
 }
 
 // Classify cry type only if crying is confirmed
-async function classifyCryType(audioBase64: string, _apiKey?: string, userContext?: CryAnalysisRequest['userContext'], language: string = 'az'): Promise<any> {
+async function classifyCryType(audioBase64: string, _apiKey?: string, userContext?: CryAnalysisRequest['userContext'], language: string = 'az', mimeType: string = 'audio/webm'): Promise<any> {
   // Build age context for prompt
   let ageContext = '';
   if (userContext?.babyAgeMonths !== undefined) {
@@ -165,7 +169,7 @@ async function classifyCryType(audioBase64: string, _apiKey?: string, userContex
       parts: [
         {
           inlineData: {
-            mimeType: 'audio/webm',
+            mimeType,
             data: audioBase64
           }
         },
@@ -272,10 +276,14 @@ Deno.serve(async (req) => {
     const usage = await checkDailyLimit(user.id, 'cry_translator');
     if (!usage.allowed) return limitExceededResponse(corsHeaders, usage.limit);
 
-    const { audioBase64, audioDuration, userContext, language = 'az' } = await req.json() as CryAnalysisRequest;
+    const { audioBase64, audioDuration, userContext, language = 'az', mimeType: requestedMimeType } = await req.json() as CryAnalysisRequest;
 
     if (!audioBase64) {
       throw new Error('Audio data is required');
+    }
+    const mimeType = normalizeAudioMimeType(requestedMimeType);
+    if (!mimeType) {
+      throw new Error('Unsupported audio format');
     }
 
     // Validate minimum duration - 3 seconds minimum
@@ -330,7 +338,7 @@ Deno.serve(async (req) => {
     console.log('Stage 1: Detecting if audio contains baby crying...');
     
     // STAGE 1: First detect if there's actually crying
-    const detection = await detectIfCrying(audioBase64);
+    const detection = await detectIfCrying(audioBase64, undefined, mimeType);
     // Sayğac yalnız provayder real cavab verdikdə artırılır (fallback və parse olmayan cavab sayılmır).
     if (detection.answered && Number.isFinite(usage.limit)) {
       await recordDailyUsage(user.id, 'cry_translator').catch((e) => console.error('usage record failed:', e));
@@ -505,7 +513,7 @@ Deno.serve(async (req) => {
     // STAGE 2: Crying confirmed, now classify the type
     let analysisResult;
     try {
-      analysisResult = await classifyCryType(audioBase64, undefined, userContext, language);
+      analysisResult = await classifyCryType(audioBase64, undefined, userContext, language, mimeType);
       analysisResult.isCryDetected = true;
     } catch (classifyError) {
       console.error('Classification error:', classifyError);

@@ -184,8 +184,10 @@ void main() {
       });
     }
 
-    for (final supported in ['audio/mp4', 'audio/ogg', null]) {
-      testWidgets('rejects unavailable WebM instead of falling back to $supported, with cleanup and no permission-denied toast', (tester) async {
+    // React: "rejects unavailable WebM instead of falling back to …" (WebM only). Owner decision 2026-11-27:
+    // analyze-cry accepts m4a / WebM / Ogg, so only a device with none of them is refused.
+    for (final supported in ['audio/wav', null]) {
+      testWidgets('rejects when no accepted format (m4a / WebM / Ogg) is available ($supported), with cleanup and no permission-denied toast', (tester) async {
         final e = CryEnv();
         e.world.recorders.supported = (type) => type == supported;
         await e.pump(tester);
@@ -228,8 +230,20 @@ void main() {
   });
 
   group('CryTranslator recording completion', () {
+    testWidgets('prefers m4a (native iOS/Android recorders) and sends audio/mp4', (tester) async {
+      final e = CryEnv();
+      e.world.recorders.supported = (type) => type == 'audio/mp4' || type == 'audio/webm';
+      e.world.recorders.reportedMimeType = 'audio/mp4';
+      await e.pump(tester);
+      await clickMic(tester);
+      await finishRecording(tester, e);
+      expect(e.world.recorders.constructed.single.mimeType, 'audio/mp4');
+      expect((e.invokes.single.body as Map?)?['mimeType'], 'audio/mp4');
+      await unmountMediaTool(tester);
+    });
+
     for (final actual in ['audio/webm', 'audio/webm;codecs=opus']) {
-      testWidgets('records $actual and uses the deployed analyze-cry payload without a MIME field', (tester) async {
+      testWidgets('records $actual and sends its MIME type to analyze-cry', (tester) async {
         final e = CryEnv();
         e.world.recorders.reportedMimeType = actual;
         await e.pump(tester);
@@ -239,7 +253,7 @@ void main() {
         expect(e.world.recorders.constructed.single.mimeType, 'audio/webm');
         expect(e.readMimeTypes.single, actual);
         expect(e.invokes, hasLength(1));
-        expect(e.invokes.single.body, {'audioBase64': 'Y3J5', 'audioDuration': 3, 'userContext': <String, Object?>{}, 'language': 'en'});
+        expect(e.invokes.single.body, {'audioBase64': 'Y3J5', 'audioDuration': 3, 'mimeType': actual, 'userContext': <String, Object?>{}, 'language': 'en'});
         expect(e.world.stream.track.stops, 1);
         expect(e.world.context.closes, 1);
         expect(find.text('Analiz tamamlandı'), findsOneWidget);

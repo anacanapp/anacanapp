@@ -109,7 +109,7 @@ void main() {
       ..onPartnerMessages = ((userId) async => [
             {'id': '1', 'sender_id': 'partner', 'receiver_id': 'sender', 'message_type': 'text', 'is_read': false},
           ])
-      ..onRpc = (fn, params) async => fn == 'chat_groups_v4'
+      ..onRpc = (fn, params) async => fn == 'chat_groups_v3'
           ? [
               {'id': 'g1', 'is_member': true, 'unread_count': '3', 'discovery_language': 'az'},
               {'id': 'g2', 'is_member': false, 'access_state': 'invited', 'discovery_language': 'az'},
@@ -120,10 +120,12 @@ void main() {
     addTearDown(container.dispose);
     container.listen(chatHomeTotalUnreadProvider, (_, _) {});
     await settle();
-    expect(container.read(chatUnreadCountProvider), 1 + 3 + 1);
-    expect(container.read(chatHomeTotalUnreadProvider), 5);
+    // Owner decision 2026-11-27: the badge counts every group of the inbox, also those in another discovery
+    // language (React counted only the app language: 1 + 3 + 1).
+    expect(container.read(chatUnreadCountProvider), 1 + 3 + 1 + 5);
+    expect(container.read(chatHomeTotalUnreadProvider), 10);
     expect(groupsUnread(const [{'is_member': true, 'unread_count': null}]), 0);
-    final rpc = backend.named('rpc').firstWhere((c) => c.args[0] == 'chat_groups_v4');
-    expect(rpc.args[1], {'p_scope': 'mine', 'p_group': null, 'p_search': '', 'p_language': 'az'});
+    final rpc = backend.named('rpc').firstWhere((c) => c.args[0] == 'chat_groups_v3');
+    expect(rpc.args[1], {'p_scope': 'mine', 'p_group': null, 'p_search': ''});
   });
 }

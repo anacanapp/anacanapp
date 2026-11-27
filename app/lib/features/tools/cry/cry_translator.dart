@@ -92,6 +92,9 @@ String cryStageMessage(CryStage stage) => switch (stage) {
 };
 
 /// `FileReader.readAsDataURL(blob)` → the base64 part (asynchronous, like the reader).
+/// Formats analyze-cry accepts (supabase/functions/analyze-cry/audio-mime.ts), in the order the recorder tries them.
+const List<String> kCryRecordingMimeTypes = ['audio/mp4', 'audio/webm', 'audio/ogg'];
+
 final cryBase64ReaderProvider = Provider<Future<String> Function(Uint8List bytes, String mimeType)>(
   (ref) =>
       (bytes, mimeType) async => base64Encode(bytes),
@@ -241,8 +244,9 @@ class CryTranslatorState extends ConsumerState<CryTranslator> with WidgetsBindin
 
       updateLevel();
 
-      // The deployed analyze-cry endpoint accepts WebM only.
-      final recorder = createAudioRecorder(_platform, stream, const ['audio/webm']);
+      // analyze-cry takes the recording format in `mimeType` (owner decision 2026-11-27): native recorders give m4a
+      // (AAC) or Ogg; WebM stays accepted. React allowed WebM only, so iOS could not use the tool.
+      final recorder = createAudioRecorder(_platform, stream, kCryRecordingMimeTypes);
       _recorder = recorder;
       _chunks = [];
       recorder.ondataavailable = (data) {
@@ -337,7 +341,13 @@ class CryTranslatorState extends ConsumerState<CryTranslator> with WidgetsBindin
           .read(mediaDbProvider)
           .invoke(
             'analyze-cry',
-            body: {'audioBase64': base64Audio, 'audioDuration': duration, 'userContext': babyContext, 'language': ref.read(mediaLanguageProvider)()},
+            body: {
+              'audioBase64': base64Audio,
+              'audioDuration': duration,
+              'mimeType': type,
+              'userContext': babyContext,
+              'language': ref.read(mediaLanguageProvider)(),
+            },
           );
       if (signal.aborted) return;
       if (res.error != null) throw res.error!;
