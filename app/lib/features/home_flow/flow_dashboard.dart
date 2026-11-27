@@ -171,7 +171,7 @@ class _FlowDashboardState extends ConsumerState<FlowDashboard> {
             ),
             Text.rich(
               TextSpan(text: '${tr('flowdashboard_secilen_tarix_104372', 'Seçilən tarix:')} ', children: [
-                TextSpan(text: formatDatePattern(end, 'd MMMM yyyy'), style: bold),
+                TextSpan(text: flowFormat(end, 'd MMMM yyyy'), style: bold),
                 const TextSpan(text: ' • Period: '),
                 TextSpan(text: '${differenceInCalendarDays(end, lastPeriodDate) + 1} ${tr('flowdashboard_gun_54e78d', 'gün')}', style: bold),
               ]),
@@ -467,7 +467,7 @@ class _FlowDashboardState extends ConsumerState<FlowDashboard> {
                 first: true,
                 leading: gradIcon(a.gradPink, a.berryInk, AIcons.droplets),
                 title: labelNext,
-                subtitle: formatDatePattern(nextPeriod, 'd MMMM'),
+                subtitle: flowFormat(nextPeriod, 'd MMMM'),
                 trailing: Text(
                   daysUntil > 0
                       ? tr('flowdashboard_x_gun_qaldi', '{days} gün qaldı').replaceFirst('{days}', '$daysUntil')
@@ -478,7 +478,7 @@ class _FlowDashboardState extends ConsumerState<FlowDashboard> {
               AListRow(
                 leading: gradIcon(a.gradGreen, a.greenInk, AIcons.heart),
                 title: labelFertile,
-                subtitle: '${formatDatePattern(fertileStart, 'd MMMM')} – ${formatDatePattern(fertileEnd, 'd MMMM')}',
+                subtitle: '${flowFormat(fertileStart, 'd MMMM')} – ${flowFormat(fertileEnd, 'd MMMM')}',
                 trailing: refined.confirmed
                     ? ARankTag(
                         maxWidth: 120,
@@ -491,7 +491,7 @@ class _FlowDashboardState extends ConsumerState<FlowDashboard> {
               AListRow(
                 leading: gradIcon(a.gradYellow, a.warnInk, AIcons.sparkles),
                 title: labelOvulation,
-                subtitle: formatDatePattern(ovulation, 'd MMMM'),
+                subtitle: flowFormat(ovulation, 'd MMMM'),
                 trailing: refined.confirmed
                     ? ARankTag(
                         maxWidth: 120,

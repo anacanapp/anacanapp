@@ -7,7 +7,6 @@
 // active (`captureChanged`) and capture is not allowed, an opaque branded curtain covers the app.
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -96,7 +95,7 @@ class _ScreenCaptureGuardState extends ConsumerState<ScreenCaptureGuard> {
             key: const ValueKey<String>('capture-curtain'),
             child: ColoredBox(
               color: const Color(0xFFFAF7F4), // ScreenCaptureGuard.tsx literal #FAF7F4
-              child: Center(child: Image.asset('assets/images/profile/brand-mark-coral.png', width: 112, height: 118, fit: BoxFit.contain)),
+              child: Center(child: Image.asset('assets/images/profile/brand-mark-coral.png', width: 112, height: 118, fit: BoxFit.contain, errorBuilder: (_, _, _) => const SizedBox(width: 112, height: 118))),
             ),
           ),
         ),
@@ -104,5 +103,5 @@ class _ScreenCaptureGuardState extends ConsumerState<ScreenCaptureGuard> {
   }
 }
 
-@visibleForTesting
+/// Key of the curtain (tests).
 const String kCaptureCurtainKey = 'capture-curtain';

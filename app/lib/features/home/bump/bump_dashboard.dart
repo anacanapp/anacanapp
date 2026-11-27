@@ -2,6 +2,7 @@
 //              appointments, development trio, weekly tip, water + quick logs, store cards, "I gave birth"),
 //              src/styles/anacan-design.css (.a-hero-min, .a-hero-compact, .a-hero-eyebrow, .a-egg-wrap, .a-egg-heart,
 //              .a-hero-headline, .a-pbar*, .a-list-compact, .a-today-info-*, .a-cta*)
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,16 +34,16 @@ String moodEmoji(num mood) {
 
 /// `getTrimesterInfo(trimester)`.
 ({String title, String emoji}) trimesterInfo(int trimester) => switch (trimester) {
-      1 => (title: tr('dashboard_1_ci_trimester_tovsiyeleri_0a4c84', '1-ci Trimester Tövsiyələri'), emoji: '🌱'),
-      2 => (title: tr('dashboard_2_ci_trimester_tovsiyeleri_16e100', '2-ci Trimester Tövsiyələri'), emoji: '🌸'),
-      _ => (title: tr('dashboard_3_cu_trimester_tovsiyeleri_93f711', '3-cü Trimester Tövsiyələri'), emoji: '🍼'),
-    };
+  1 => (title: tr('dashboard_1_ci_trimester_tovsiyeleri_0a4c84', '1-ci Trimester Tövsiyələri'), emoji: '🌱'),
+  2 => (title: tr('dashboard_2_ci_trimester_tovsiyeleri_16e100', '2-ci Trimester Tövsiyələri'), emoji: '🌸'),
+  _ => (title: tr('dashboard_3_cu_trimester_tovsiyeleri_93f711', '3-cü Trimester Tövsiyələri'), emoji: '🍼'),
+};
 
 String trimesterLabel(int trimester) => switch (trimester) {
-      1 => tr('dashboard_1_trimester', '1-ci Trimester'),
-      2 => tr('dashboard_2_trimester', '2-ci Trimester'),
-      _ => tr('dashboard_3_trimester', '3-cü Trimester'),
-    };
+  1 => tr('dashboard_1_trimester', '1-ci Trimester'),
+  2 => tr('dashboard_2_trimester', '2-ci Trimester'),
+  _ => tr('dashboard_3_trimester', '3-cü Trimester'),
+};
 
 /// `num` → JS `String(n)` for the hero chips (`30`, `35.6`).
 String _jsNum(num n) => n == n.roundToDouble() ? n.toInt().toString() : n.toString();
@@ -90,13 +91,19 @@ class BumpDashboard extends ConsumerWidget {
     final waterCount = logs.waterToday();
     final currentMood = logs.visibleTodayLog()?.number('mood') ?? 0;
     final showBirthButton = preg.currentWeek >= 27;
-    final weeklyDev = (eyes: selectedWeek >= 8, ears: selectedWeek >= 16, fingers: selectedWeek >= 10, kicks: selectedWeek >= 18, hair: selectedWeek >= 22);
+    final weeklyDev = (
+      eyes: selectedWeek >= 8,
+      ears: selectedWeek >= 16,
+      fingers: selectedWeek >= 10,
+      kicks: selectedWeek >= 18,
+      hair: selectedWeek >= 22,
+    );
     final currentWeekTip = weeklyTips.isEmpty ? null : weeklyTips.first;
     final t = context.a;
     final x = context.aText;
 
     Future<void> addWater() async {
-      await HapticFeedback.lightImpact();
+      unawaited(HapticFeedback.lightImpact());
       await logs.updateWaterIntake(1);
       if (!context.mounted) return;
       _toast(context)?.show(
@@ -128,9 +135,13 @@ class BumpDashboard extends ConsumerWidget {
       if (dayContent != null) ...[
         homeSlot(context, slots.babyChatCard),
         if (_s(dayContent['body_changes']) case final text?)
-          AHomeSection(child: AHomeTextCard(title: '🤰 ${tr('dashboard_bedendeki_deyisiklikler_7a5c81', 'Bədəndəki Dəyişikliklər')}', text: text)),
+          AHomeSection(
+            child: AHomeTextCard(title: '🤰 ${tr('dashboard_bedendeki_deyisiklikler_7a5c81', 'Bədəndəki Dəyişikliklər')}', text: text),
+          ),
         if (_s(dayContent['baby_development']) case final text?)
-          AHomeSection(child: AHomeTextCard(title: '🌱 ${tr('dashboard_korpenin_inkisafi_485a30', 'Körpənin İnkişafı')}', text: text)),
+          AHomeSection(
+            child: AHomeTextCard(title: '🌱 ${tr('dashboard_korpenin_inkisafi_485a30', 'Körpənin İnkişafı')}', text: text),
+          ),
         if (isMultiple && _s(dayContent['multiples_tip']) != null)
           AHomeSection(
             child: AHomeTextCard(
@@ -140,45 +151,71 @@ class BumpDashboard extends ConsumerWidget {
             ),
           ),
         if (_s(dayContent['daily_tip']) case final text?)
-          AHomeSection(child: AHomeTextCard(title: '💡 ${tr('dashboard_gunun_tovsiyesi_b3a563', 'Günün Tövsiyəsi')}', text: text)),
+          AHomeSection(
+            child: AHomeTextCard(title: '💡 ${tr('dashboard_gunun_tovsiyesi_b3a563', 'Günün Tövsiyəsi')}', text: text),
+          ),
       ],
       // Calendar after the daily messages (bump).
       const UpcomingAppointments(),
       if ((isAdmin || booksLanguageOk) && slots.booksHomeCard != null) slots.booksHomeCard!(context, preg.currentWeek),
       AHomeSection(
         title: tr('dashboard_korpenin_inkisafi_269d83', 'Körpənin inkişafı'),
-        child: _DevelopmentTrio(items: [
-          ('👀', tr('dashboard_goz_fbc05e', 'Göz'), weeklyDev.eyes),
-          ('👂', tr('dashboard_qulaq_93ab', 'Qulaq'), weeklyDev.ears),
-          ('✋', tr('dashboard_barmaq_18bc', 'Barmaq'), weeklyDev.fingers),
-          ('🦶', tr('dashboard_tepik_9a873a', 'Təpik'), weeklyDev.kicks),
-          ('💇', tr('dashboard_sac_a09eaa', 'Saç'), weeklyDev.hair),
-        ]),
+        child: _DevelopmentTrio(
+          items: [
+            ('👀', tr('dashboard_goz_fbc05e', 'Göz'), weeklyDev.eyes),
+            ('👂', tr('dashboard_qulaq_93ab', 'Qulaq'), weeklyDev.ears),
+            ('✋', tr('dashboard_barmaq_18bc', 'Barmaq'), weeklyDev.fingers),
+            ('🦶', tr('dashboard_tepik_9a873a', 'Təpik'), weeklyDev.kicks),
+            ('💇', tr('dashboard_sac_a09eaa', 'Saç'), weeklyDev.hair),
+          ],
+        ),
       ),
       if (currentWeekTip != null)
         AHomeSection(
           child: AFadeIn(
             child: ACard(
-              child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: Row(children: [
-                    AGradIcon(size: 38, radius: 12, gradient: t.gradPeach, foreground: t.accentInk, child: const AIcon(AIcons.lightbulb, size: 17)),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                        Text(
-                          cssUppercase('${tr('dashboard_hefte_3aa886', 'Həftə')} $selectedWeek ${tr('dashboard_tovsiyesi_6412b4', 'Tövsiyəsi')}', language),
-                          style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, letterSpacing: 1.05, color: t.inkSoft, height: 1.5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Row(
+                      children: [
+                        AGradIcon(
+                          size: 38,
+                          radius: 12,
+                          gradient: t.gradPeach,
+                          foreground: t.accentInk,
+                          child: const AIcon(AIcons.lightbulb, size: 17),
                         ),
-                        const SizedBox(height: 3),
-                        Text(currentWeekTip.str('title') ?? '', style: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700, color: t.ink, height: 1.5)),
-                      ]),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                cssUppercase(
+                                  '${tr('dashboard_hefte_3aa886', 'Həftə')} $selectedWeek ${tr('dashboard_tovsiyesi_6412b4', 'Tövsiyəsi')}',
+                                  language,
+                                ),
+                                style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, letterSpacing: 1.05, color: t.inkSoft, height: 1.5),
+                              ),
+                              const SizedBox(height: 3),
+                              Text(
+                                currentWeekTip.str('title') ?? '',
+                                style: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700, color: t.ink, height: 1.5),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ]),
-                ),
-                Text(currentWeekTip.str('content') ?? '', style: TextStyle(fontSize: 12.5, height: 1.65, color: t.inkSoft)),
-              ]),
+                  ),
+                  Text(currentWeekTip.str('content') ?? '', style: TextStyle(fontSize: 12.5, height: 1.65, color: t.inkSoft)),
+                ],
+              ),
             ),
           ),
         ),
@@ -186,81 +223,93 @@ class BumpDashboard extends ConsumerWidget {
       AHomeSection(
         child: AFadeIn(
           child: ACard(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 2, bottom: 16),
-                child: Row(children: [
-                  AGradIcon(gradient: t.gradBlue, foreground: t.blueInk, child: const AIcon(AIcons.droplets, size: 17)),
-                  const SizedBox(width: 13),
-                  Expanded(
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                      Text(tr('common_su_water', 'Su'), style: x.aListTitle),
-                      const SizedBox(height: 2),
-                      Text(
-                        '$waterCount / 10 ${tr('waterwidget_glass_unit', 'stəkan')} · ${tr('dashboard_today_label', 'Bu gün')}',
-                        key: const ValueKey('bump-water-count'),
-                        style: x.aListSub,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 2, bottom: 16),
+                  child: Row(
+                    children: [
+                      AGradIcon(gradient: t.gradBlue, foreground: t.blueInk, child: const AIcon(AIcons.droplets, size: 17)),
+                      const SizedBox(width: 13),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(tr('common_su_water', 'Su'), style: x.aListTitle),
+                            const SizedBox(height: 2),
+                            Text(
+                              '$waterCount / 10 ${tr('waterwidget_glass_unit', 'stəkan')} · ${tr('dashboard_today_label', 'Bu gün')}',
+                              key: const ValueKey('bump-water-count'),
+                              style: x.aListSub,
+                            ),
+                          ],
+                        ),
                       ),
-                    ]),
+                      const SizedBox(width: 13),
+                      Semantics(
+                        button: true,
+                        label: tr('dashboard_su_elave_edildi_7b894d', 'Su əlavə edildi! 💧'),
+                        child: GestureDetector(
+                          key: const ValueKey('bump-water-add'),
+                          behavior: HitTestBehavior.opaque,
+                          onTap: addWater,
+                          child: Container(
+                            width: 34,
+                            height: 34,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(color: t.ink, shape: BoxShape.circle),
+                            child: AIcon(AIcons.plus, size: 16, strokeWidth: 2.6, color: t.bg),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 13),
-                  Semantics(
-                    button: true,
-                    label: tr('dashboard_su_elave_edildi_7b894d', 'Su əlavə edildi! 💧'),
-                    child: GestureDetector(
-                      key: const ValueKey('bump-water-add'),
-                      behavior: HitTestBehavior.opaque,
-                      onTap: addWater,
-                      child: Container(
-                        width: 34,
-                        height: 34,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(color: t.ink, shape: BoxShape.circle),
-                        child: AIcon(AIcons.plus, size: 16, strokeWidth: 2.6, color: t.bg),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ATrioItem(
+                        key: const ValueKey('quick-vitamin'),
+                        shadow: false,
+                        color: t.surfaceSoft,
+                        onTap: () => nav.openTool('vitamin-tracker'),
+                        icon: ATrioIcon(gradient: t.gradPink, foreground: t.berryInk, child: const AIcon(AIcons.pill, size: 17)),
+                        label: tr('dashboard_vitamin_8331ee', 'Vitamin'),
                       ),
                     ),
-                  ),
-                ]),
-              ),
-              Row(children: [
-                Expanded(
-                  child: ATrioItem(
-                    key: const ValueKey('quick-vitamin'),
-                    shadow: false,
-                    color: t.surfaceSoft,
-                    onTap: () => nav.openTool('vitamin-tracker'),
-                    icon: ATrioIcon(gradient: t.gradPink, foreground: t.berryInk, child: const AIcon(AIcons.pill, size: 17)),
-                    label: tr('dashboard_vitamin_8331ee', 'Vitamin'),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: ATrioItem(
-                    key: const ValueKey('quick-exercise'),
-                    shadow: false,
-                    color: t.surfaceSoft,
-                    onTap: () => nav.openTool('safety'),
-                    icon: ATrioIcon(gradient: t.gradGreen, foreground: t.greenInk, child: const AIcon(AIcons.activity, size: 17)),
-                    label: tr('dashboard_mesq_046a80', 'Məşq'),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: ATrioItem(
-                    key: const ValueKey('quick-mood'),
-                    shadow: false,
-                    color: t.surfaceSoft,
-                    onTap: () => nav.openTool('mood-diary'),
-                    icon: ATrioIcon(
-                      gradient: t.gradYellow,
-                      foreground: t.warnInk,
-                      child: currentMood != 0 ? AEmoji(moodEmoji(currentMood), size: 17) : const AIcon(AIcons.heart, size: 17),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: ATrioItem(
+                        key: const ValueKey('quick-exercise'),
+                        shadow: false,
+                        color: t.surfaceSoft,
+                        onTap: () => nav.openTool('safety'),
+                        icon: ATrioIcon(gradient: t.gradGreen, foreground: t.greenInk, child: const AIcon(AIcons.activity, size: 17)),
+                        label: tr('dashboard_mesq_046a80', 'Məşq'),
+                      ),
                     ),
-                    label: tr('dashboard_ehval_0457f9', 'Əhval'),
-                  ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: ATrioItem(
+                        key: const ValueKey('quick-mood'),
+                        shadow: false,
+                        color: t.surfaceSoft,
+                        onTap: () => nav.openTool('mood-diary'),
+                        icon: ATrioIcon(
+                          gradient: t.gradYellow,
+                          foreground: t.warnInk,
+                          child: currentMood != 0 ? AEmoji(moodEmoji(currentMood), size: 17) : const AIcon(AIcons.heart, size: 17),
+                        ),
+                        label: tr('dashboard_ehval_0457f9', 'Əhval'),
+                      ),
+                    ),
+                  ],
                 ),
-              ]),
-            ]),
+              ],
+            ),
           ),
         ),
       ),
@@ -324,82 +373,111 @@ class _Hero extends StatelessWidget {
       child: Padding(
         key: const ValueKey('bump-hero'),
         padding: const EdgeInsets.fromLTRB(2, 10, 2, 6),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: Wrap(alignment: WrapAlignment.center, spacing: 6, children: [
-              Text(cssUppercase('$week${tr('dashboard_hefte_5af01f', '. həftə,')}', language), style: eyebrowStyle),
-              Text(cssUppercase('$dayInWeek${tr('dashboard_gun_a4ba4e', '. gün •')}', language), style: eyebrowStyle.copyWith(color: t.onBg)),
-              Text(cssUppercase(trimesterLabel(trimester), language), style: eyebrowStyle),
-            ]),
-          ),
-          // Fetus illustration with heart badge (.a-egg-wrap: width 128, margin 4 auto 8).
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 4, bottom: 8),
-              child: SizedBox(
-                width: 128,
-                child: Stack(clipBehavior: Clip.none, alignment: Alignment.topCenter, children: [
-                  AFloat(
-                    child: FetusHeroImage(
-                      remoteSrc: fetusRemote,
-                      fallbackAsset: fetusAsset(fetusMonth < 1 ? 1 : fetusMonth),
-                      preloadSrcs: preload,
-                      alt: '$week ${tr('dashboard_week_baby', 'həftəlik körpə')}',
-                    ),
-                  ),
-                  Positioned(
-                    top: -12,
-                    child: Container(
-                      width: 28,
-                      height: 28,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        gradient: t.gradPink,
-                        shape: BoxShape.circle,
-                        boxShadow: const [BoxShadow(offset: Offset(0, 8), blurRadius: 16, spreadRadius: -8, color: Color(0xA6FF8AA4))],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 6,
+                children: [
+                  Text(cssUppercase('$week${tr('dashboard_hefte_5af01f', '. həftə,')}', language), style: eyebrowStyle),
+                  Text(cssUppercase('$dayInWeek${tr('dashboard_gun_a4ba4e', '. gün •')}', language), style: eyebrowStyle.copyWith(color: t.onBg)),
+                  Text(cssUppercase(trimesterLabel(trimester), language), style: eyebrowStyle),
+                ],
+              ),
+            ),
+            // Fetus illustration with heart badge (.a-egg-wrap: width 128, margin 4 auto 8).
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 4, bottom: 8),
+                child: SizedBox(
+                  width: 128,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    alignment: Alignment.topCenter,
+                    children: [
+                      AFloat(
+                        child: FetusHeroImage(
+                          remoteSrc: fetusRemote,
+                          fallbackAsset: fetusAsset(fetusMonth < 1 ? 1 : fetusMonth),
+                          preloadSrcs: preload,
+                          alt: '$week ${tr('dashboard_week_baby', 'həftəlik körpə')}',
+                        ),
                       ),
-                      child: const AEmoji('💗', size: 13),
-                    ),
+                      Positioned(
+                        top: -12,
+                        child: Container(
+                          width: 28,
+                          height: 28,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            gradient: t.gradPink,
+                            shape: BoxShape.circle,
+                            boxShadow: const [BoxShadow(offset: Offset(0, 8), blurRadius: 16, spreadRadius: -8, color: Color(0xA6FF8AA4))],
+                          ),
+                          child: const AEmoji('💗', size: 13),
+                        ),
+                      ),
+                    ],
                   ),
-                ]),
+                ),
               ),
             ),
-          ),
-          Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 320),
-              child: Text.rich(
-                TextSpan(children: [
-                  TextSpan(text: parts.first),
-                  TextSpan(text: fruit, style: const TextStyle(fontStyle: FontStyle.italic, color: Color(0xFFE8734A))), // .a-hero-headline em
-                  if (parts.length > 1) TextSpan(text: parts[1]),
-                ]),
-                key: const ValueKey('bump-hero-headline'),
-                textAlign: TextAlign.center,
-                style: headlineStyle,
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 320),
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(text: parts.first),
+                      TextSpan(
+                        text: fruit,
+                        style: const TextStyle(fontStyle: FontStyle.italic, color: Color(0xFFE8734A)),
+                      ), // .a-hero-headline em
+                      if (parts.length > 1) TextSpan(text: parts[1]),
+                    ],
+                  ),
+                  key: const ValueKey('bump-hero-headline'),
+                  textAlign: TextAlign.center,
+                  style: headlineStyle,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 12),
-            child: Wrap(alignment: WrapAlignment.center, spacing: 8, runSpacing: 8, children: [
-              ATag('$pregnancyDay${tr('dashboard_gun_d96b5d', '. gün')}'),
-              Tooltip(message: note, child: ATag('${_jsNum(lengthCm)} ${tr('dashboard_sm', 'sm')}')),
-              ATag('${formatFetalWeight(weightG)} ${tr('dashboard_qr', 'qr')}'),
-              ATag('$daysLeft ${tr('dashboard_gun_qaldi_993281', 'gün qaldı')}'),
-            ]),
-          ),
-          // Length is crown-rump until week 20 and crown-heel after: explains the jump.
-          Padding(
-            padding: const EdgeInsets.only(top: 6),
-            child: Opacity(
-              opacity: 0.75,
-              child: Text(note, textAlign: TextAlign.center, style: TextStyle(fontSize: 11, height: 1.35, color: t.ink)),
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  ATag('$pregnancyDay${tr('dashboard_gun_d96b5d', '. gün')}'),
+                  Tooltip(message: note, child: ATag('${_jsNum(lengthCm)} ${tr('dashboard_sm', 'sm')}')),
+                  ATag('${formatFetalWeight(weightG)} ${tr('dashboard_qr', 'qr')}'),
+                  ATag('$daysLeft ${tr('dashboard_gun_qaldi_993281', 'gün qaldı')}'),
+                ],
+              ),
             ),
-          ),
-          Padding(padding: const EdgeInsets.only(top: 16), child: _ProgressBar(percent: progressPercent)),
-        ]),
+            // Length is crown-rump until week 20 and crown-heel after: explains the jump.
+            Padding(
+              padding: const EdgeInsets.only(top: 6),
+              child: Opacity(
+                opacity: 0.75,
+                child: Text(
+                  note,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 11, height: 1.35, color: t.ink),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: _ProgressBar(percent: progressPercent),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -417,6 +495,7 @@ class _ProgressBar extends StatefulWidget {
 class _ProgressBarState extends State<_ProgressBar> with SingleTickerProviderStateMixin {
   late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(seconds: 1));
   bool _started = false;
+  Timer? _delay;
 
   @override
   void didChangeDependencies() {
@@ -426,7 +505,7 @@ class _ProgressBarState extends State<_ProgressBar> with SingleTickerProviderSta
     if (animationsDisabled(context)) {
       _c.value = 1;
     } else {
-      Future<void>.delayed(const Duration(milliseconds: 300), () {
+      _delay = Timer(const Duration(milliseconds: 300), () {
         if (mounted) _c.forward();
       });
     }
@@ -434,6 +513,7 @@ class _ProgressBarState extends State<_ProgressBar> with SingleTickerProviderSta
 
   @override
   void dispose() {
+    _delay?.cancel();
     _c.dispose();
     super.dispose();
   }
@@ -444,53 +524,81 @@ class _ProgressBarState extends State<_ProgressBar> with SingleTickerProviderSta
     final pct = widget.percent;
     final labelAt = pct.clamp(6, 94) / 100;
     final rtl = Directionality.of(context) == TextDirection.rtl;
-    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-      LayoutBuilder(builder: (context, c) {
-        final w = c.maxWidth;
-        return SizedBox(
-          height: 8,
-          child: Stack(clipBehavior: Clip.none, children: [
-            Positioned.fill(child: DecoratedBox(decoration: BoxDecoration(color: t.lineStrong, borderRadius: BorderRadius.circular(999)))),
-            AnimatedBuilder(
-              animation: _c,
-              builder: (context, _) {
-                final fw = w * pct / 100 * ACurves.cssEaseInOut.transform(_c.value);
-                return PositionedDirectional(
-                  start: 0,
-                  top: 0,
-                  bottom: 0,
-                  width: fw,
-                  child: DecoratedBox(decoration: BoxDecoration(gradient: t.gradYellow, borderRadius: BorderRadius.circular(999))),
-                );
-              },
-            ),
-            // `inset-inline-start: x%` + `transform: translateX(-50%)` (physical, also in RTL).
-            Positioned(
-              top: -26,
-              left: rtl ? w - w * labelAt : w * labelAt,
-              child: FractionalTranslation(
-                translation: const Offset(-0.5, 0),
-                child: Container(
-                  key: const ValueKey('bump-progress-pct'),
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                  decoration: BoxDecoration(
-                    color: t.surface,
-                    borderRadius: BorderRadius.circular(999),
-                    boxShadow: const [BoxShadow(offset: Offset(0, 4), blurRadius: 10, spreadRadius: -4, color: Color(0x4017150F))],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        LayoutBuilder(
+          builder: (context, c) {
+            final w = c.maxWidth;
+            return SizedBox(
+              height: 8,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned.fill(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(color: t.lineStrong, borderRadius: BorderRadius.circular(999)),
+                    ),
                   ),
-                  child: Text('${pct.round()}%', softWrap: false, style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, color: t.ink, height: 1.5)),
-                ),
+                  AnimatedBuilder(
+                    animation: _c,
+                    builder: (context, _) {
+                      final fw = w * pct / 100 * ACurves.cssEaseInOut.transform(_c.value);
+                      return PositionedDirectional(
+                        start: 0,
+                        top: 0,
+                        bottom: 0,
+                        width: fw,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(gradient: t.gradYellow, borderRadius: BorderRadius.circular(999)),
+                        ),
+                      );
+                    },
+                  ),
+                  // `inset-inline-start: x%` + `transform: translateX(-50%)` (physical, also in RTL).
+                  Positioned(
+                    top: -26,
+                    left: rtl ? w - w * labelAt : w * labelAt,
+                    child: FractionalTranslation(
+                      translation: const Offset(-0.5, 0),
+                      child: Container(
+                        key: const ValueKey('bump-progress-pct'),
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: t.surface,
+                          borderRadius: BorderRadius.circular(999),
+                          boxShadow: const [BoxShadow(offset: Offset(0, 4), blurRadius: 10, spreadRadius: -4, color: Color(0x4017150F))],
+                        ),
+                        child: Text(
+                          '${pct.round()}%',
+                          softWrap: false,
+                          style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, color: t.ink, height: 1.5),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
+            );
+          },
+        ),
+        const SizedBox(height: 9),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              tr('dashboard_baslangic_e9d2d5', 'Başlanğıc'),
+              style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w700, color: t.onBgSoft, height: 1.5),
             ),
-          ]),
-        );
-      }),
-      const SizedBox(height: 9),
-      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(tr('dashboard_baslangic_e9d2d5', 'Başlanğıc'), style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w700, color: t.onBgSoft, height: 1.5)),
-        Text(tr('dashboard_dogus_6b7bfd', 'Doğuş'), style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w700, color: t.onBgSoft, height: 1.5)),
-      ]),
-    ]);
+            Text(
+              tr('dashboard_dogus_6b7bfd', 'Doğuş'),
+              style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w700, color: t.onBgSoft, height: 1.5),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }
 
@@ -511,25 +619,41 @@ class _TrimesterTips extends StatelessWidget {
       child: AFadeIn(
         child: ACard(
           variant: ACardVariant.list,
-          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-            for (var i = 0; i < tips.length; i++)
-              FramerEnter(
-                x: rtl ? 20 : -20,
-                delay: Duration(milliseconds: 150 + i * 50),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                  decoration: BoxDecoration(border: i == 0 ? null : Border(top: BorderSide(color: t.line))),
-                  child: Row(children: [
-                    AGradIcon(size: 32, color: t.surfaceSoft, child: AEmoji(tips[i].str('icon') ?? '', size: 15)),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(tips[i].str('tip_text') ?? '',
-                          style: TextStyle(fontSize: 12.5, height: 1.4, fontWeight: FontWeight.w600, color: t.ink, leadingDistribution: TextLeadingDistribution.even)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (var i = 0; i < tips.length; i++)
+                FramerEnter(
+                  x: rtl ? 20 : -20,
+                  delay: Duration(milliseconds: 150 + i * 50),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                    decoration: BoxDecoration(
+                      border: i == 0 ? null : Border(top: BorderSide(color: t.line)),
                     ),
-                  ]),
+                    child: Row(
+                      children: [
+                        AGradIcon(size: 32, color: t.surfaceSoft, child: AEmoji(tips[i].str('icon') ?? '', size: 15)),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            tips[i].str('tip_text') ?? '',
+                            style: TextStyle(
+                              fontSize: 12.5,
+                              height: 1.4,
+                              fontWeight: FontWeight.w600,
+                              color: t.ink,
+                              leadingDistribution: TextLeadingDistribution.even,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-          ]),
+            ],
+          ),
         ),
       ),
     );
@@ -543,28 +667,31 @@ class _DevelopmentTrio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.a;
-    return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      for (var i = 0; i < items.length; i++) ...[
-        if (i > 0) const SizedBox(width: 6),
-        Expanded(
-          child: FramerEnter(
-            scale: 0,
-            fade: false,
-            delay: Duration(milliseconds: 300 + i * 80),
-            child: Opacity(
-              opacity: items[i].$3 ? 1 : 0.65,
-              child: ATrioItem(
-                key: ValueKey('dev-$i-${items[i].$3 ? 'on' : 'off'}'),
-                padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 12),
-                icon: ATrioIcon(width: 32, height: 36, color: items[i].$3 ? t.peach1 : t.surfaceSoft, child: AEmoji(items[i].$1, size: 22)),
-                label: items[i].$2,
-                labelColor: items[i].$3 ? t.ink : null,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (var i = 0; i < items.length; i++) ...[
+          if (i > 0) const SizedBox(width: 6),
+          Expanded(
+            child: FramerEnter(
+              scale: 0,
+              fade: false,
+              delay: Duration(milliseconds: 300 + i * 80),
+              child: Opacity(
+                opacity: items[i].$3 ? 1 : 0.65,
+                child: ATrioItem(
+                  key: ValueKey('dev-$i-${items[i].$3 ? 'on' : 'off'}'),
+                  padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 12),
+                  icon: ATrioIcon(width: 32, height: 36, color: items[i].$3 ? t.peach1 : t.surfaceSoft, child: AEmoji(items[i].$1, size: 22)),
+                  label: items[i].$2,
+                  labelColor: items[i].$3 ? t.ink : null,
+                ),
               ),
             ),
           ),
-        ),
+        ],
       ],
-    ]);
+    );
   }
 }
 
@@ -586,39 +713,52 @@ class _BirthCta extends StatelessWidget {
           onTap: onTap,
           child: ACard(
             variant: ACardVariant.cta,
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
-                  decoration: BoxDecoration(color: t.pink1, borderRadius: BorderRadius.circular(999)),
-                  child: Text('${tr('dashboard_hefte_3aa886', 'Həftə')} $week 🎉', style: x.aCtaBadge.copyWith(color: t.berryInk)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
+                      decoration: BoxDecoration(color: t.pink1, borderRadius: BorderRadius.circular(999)),
+                      child: Text('${tr('dashboard_hefte_3aa886', 'Həftə')} $week 🎉', style: x.aCtaBadge.copyWith(color: t.berryInk)),
+                    ),
+                    Container(
+                      width: 42,
+                      height: 42,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(color: t.pink1, borderRadius: BorderRadius.circular(14)),
+                      child: AIcon(AIcons.partyPopper, size: 18, color: tokens.isDark ? const Color(0x66FFFFFF) : t.berryInk),
+                    ),
+                  ],
                 ),
-                Container(
-                  width: 42,
-                  height: 42,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(color: t.pink1, borderRadius: BorderRadius.circular(14)),
-                  child: AIcon(AIcons.partyPopper, size: 18, color: tokens.isDark ? const Color(0x66FFFFFF) : t.berryInk),
+                ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 260),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 16, bottom: 8),
+                    child: Text(label, style: x.aCtaTitle),
+                  ),
                 ),
-              ]),
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 260),
-                child: Padding(padding: const EdgeInsets.only(top: 16, bottom: 8), child: Text(label, style: x.aCtaTitle)),
-              ),
-              Text(tr('dashboard_analiq_seyahetinize_baslayin_b03582', 'Analıq səyahətinizə başlayın'), style: x.aCtaText),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
-                  decoration: BoxDecoration(color: t.pink2, borderRadius: BorderRadius.circular(999)),
-                  child: Row(mainAxisSize: MainAxisSize.min, children: [
-                    Text(label.replaceAll(' 🎉', ''), style: x.aCtaBtn),
-                    const SizedBox(width: 6),
-                    const AIcon(AIcons.chevronRight, size: 14, color: Color(0xFFFFFFFF), mirrorInRtl: true),
-                  ]),
+                Text(tr('dashboard_analiq_seyahetinize_baslayin_b03582', 'Analıq səyahətinizə başlayın'), style: x.aCtaText),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
+                    decoration: BoxDecoration(color: t.pink2, borderRadius: BorderRadius.circular(999)),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(label.replaceAll(' 🎉', ''), style: x.aCtaBtn),
+                        const SizedBox(width: 6),
+                        const AIcon(AIcons.chevronRight, size: 14, color: Color(0xFFFFFFFF), mirrorInRtl: true),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ]),
+              ],
+            ),
           ),
         ),
       ),

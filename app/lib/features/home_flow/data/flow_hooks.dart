@@ -70,8 +70,8 @@ final effectiveCycleLengthProvider = Provider.autoDispose<int>((ref) {
   return cp.effectiveCycleLength(toCycleHistory(cycles), stored).round();
 });
 
-class FlowCycleStats {
-  const FlowCycleStats({
+class CycleStatsData {
+  const CycleStatsData({
     required this.averageCycleLength,
     this.averagePeriodLength = 5,
     this.shortestCycle = 28,
@@ -90,8 +90,8 @@ class FlowCycleStats {
 }
 
 /// `useCycleStats()` body.
-FlowCycleStats cycleStatsOf(Rows cycles, int fallbackCycleLength) {
-  if (cycles.isEmpty) return FlowCycleStats(averageCycleLength: fallbackCycleLength);
+CycleStatsData cycleStatsOf(Rows cycles, int fallbackCycleLength) {
+  if (cycles.isEmpty) return CycleStatsData(averageCycleLength: fallbackCycleLength);
   final lengths = [
     for (final c in cycles)
       if ((c.integer('cycle_length') ?? 0) >= 15 && (c.integer('cycle_length') ?? 0) <= 60) c.integer('cycle_length')!
@@ -111,7 +111,7 @@ FlowCycleStats cycleStatsOf(Rows cycles, int fallbackCycleLength) {
     variation = longest - shortest;
   }
   if (periods.isNotEmpty) avgPeriod = jsRoundInt(periods.reduce((a, b) => a + b) / periods.length);
-  return FlowCycleStats(
+  return CycleStatsData(
     averageCycleLength: avg,
     averagePeriodLength: avgPeriod,
     shortestCycle: shortest,
@@ -122,7 +122,7 @@ FlowCycleStats cycleStatsOf(Rows cycles, int fallbackCycleLength) {
   );
 }
 
-final cycleStatsProvider = Provider.autoDispose<FlowCycleStats>((ref) =>
+final cycleStatsProvider = Provider.autoDispose<CycleStatsData>((ref) =>
     cycleStatsOf(ref.watch(cycleHistoryQuery).data ?? const <Row>[], ref.watch(effectiveCycleLengthProvider)));
 
 /// `useAddCycle()`: queued in the offline outbox first; optimistic insert on success (also when queued).

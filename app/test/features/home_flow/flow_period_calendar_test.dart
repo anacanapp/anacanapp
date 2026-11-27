@@ -60,16 +60,16 @@ void main() {
   testWidgets('disables future observations and distinguishes no-flow from recorded period days', (tester) async {
     env.repo.periodLogs.add({'id': 'none', 'log_date': '2026-09-13', 'flow_intensity': 'none'});
     await pumpCalendar(tester);
-    expect(tester.getSemantics(day('2026-09-15')), containsSemantics(hasEnabledState: true, isEnabled: false));
-    expect(tester.getSemantics(day('2026-09-12')), containsSemantics(hasToggledState: true, isToggled: true));
-    expect(tester.getSemantics(day('2026-09-13')), containsSemantics(hasToggledState: true, isToggled: false));
+    expect(tester.getSemantics(day('2026-09-15')), isSemantics(hasEnabledState: true, isEnabled: false));
+    expect(tester.getSemantics(day('2026-09-12')), isSemantics(hasToggledState: true, isToggled: true));
+    expect(tester.getSemantics(day('2026-09-13')), isSemantics(hasToggledState: true, isToggled: false));
   });
 
   testWidgets('offers Mommy observation-only tracking without fertile/predicted days or a module change', (tester) async {
     await pumpCalendar(tester, trackingOnly: true, fromDate: '2026-09-11');
     expect(find.text('Məhsuldar'), findsNothing);
     expect(find.text('Proqnoz'), findsNothing);
-    expect(tester.getSemantics(day('2026-09-10')), containsSemantics(hasEnabledState: true, isEnabled: false));
+    expect(tester.getSemantics(day('2026-09-10')), isSemantics(hasEnabledState: true, isEnabled: false));
     await tester.tap(day('2026-09-12'));
     await settle(tester);
     await tester.tap(find.bySemanticsLabel(RegExp('Yüngül')));

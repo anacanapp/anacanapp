@@ -371,7 +371,11 @@ class EntryRingSpinner extends StatefulWidget {
     this.color = const Color(0xFFFFFFFF),
     this.trackColor = const Color(0x4DFFFFFF),
     this.period = const Duration(milliseconds: 800),
+    this.topGap = false,
   });
+
+  /// `border-white border-t-transparent` (ResetPassword): the top quarter is the gap instead of the accent.
+  final bool topGap;
   final double size, stroke;
   final Color color, trackColor;
   final Duration period;
@@ -400,13 +404,14 @@ class _EntryRingSpinnerState extends State<EntryRingSpinner> with SingleTickerPr
         turns: _c,
         child: CustomPaint(
           size: Size.square(widget.size),
-          painter: _RingPainter(widget.stroke, widget.color, widget.trackColor),
+          painter: _RingPainter(widget.stroke, widget.color, widget.trackColor, topGap: widget.topGap),
         ),
       );
 }
 
 class _RingPainter extends CustomPainter {
-  const _RingPainter(this.stroke, this.color, this.track);
+  const _RingPainter(this.stroke, this.color, this.track, {this.topGap = false});
+  final bool topGap;
   final double stroke;
   final Color color, track;
 
@@ -416,6 +421,10 @@ class _RingPainter extends CustomPainter {
     final p = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = stroke;
+    if (topGap) {
+      canvas.drawArc(rect, -math.pi / 4, math.pi * 3 / 2, false, p..color = color);
+      return;
+    }
     canvas.drawArc(rect, 0, math.pi * 2, false, p..color = track);
     // border-top only: the top quarter (−135° … −45°).
     canvas.drawArc(rect, -math.pi * 3 / 4, math.pi / 2, false, p..color = color);
@@ -617,4 +626,12 @@ class BrandMark extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       Image.asset(kBrandMarkAsset, width: size, height: size, fit: BoxFit.contain, semanticLabel: 'Anacan');
+}
+
+/// CSS `text-transform: uppercase` under `lang` = az / tr (and Crimean Tatar): `i` → `İ` (dotted capital), like
+/// the browser does; other languages use the default mapping.
+String cssUppercase(String text, String language) {
+  final l = language.toLowerCase();
+  if (l == 'az' || l == 'tr' || l == 'crh') return text.replaceAll('i', 'İ').toUpperCase();
+  return text.toUpperCase();
 }

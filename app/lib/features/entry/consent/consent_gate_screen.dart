@@ -2,6 +2,7 @@
 //
 // Full-screen consent gate. Nothing is pre-ticked; Continue needs the three required items. The legal documents
 // open in-app on top of the gate through the LegalScreen registered by the settings feature (ScreenId.legal).
+import 'package:flutter/gestures.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -319,7 +320,7 @@ class _ConsentGateScreenState extends ConsumerState<ConsentGateScreen> {
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 2),
-          child: Text(ct('consent_eyebrow').toUpperCase(),
+          child: Text(cssUppercase(ct('consent_eyebrow'), ref.read(userStoreProvider).language),
               textAlign: TextAlign.center, style: css(11, FontWeight.w700, lsEm: 0.1, color: a.onBgSoft)),
         ),
         Padding(
@@ -356,29 +357,23 @@ class _ConsentGateScreenState extends ConsumerState<ConsentGateScreen> {
     );
   }
 
+  /// `<button style={{color: accent-ink, fontWeight: 700, …, font: 'inherit'}}>`: the trailing `font` shorthand resets
+  /// the weight, so the link keeps the surrounding size and weight (underlined, accent colour).
   InlineSpan _link(String label, String type) {
     final a = context.a;
-    return WidgetSpan(
-      alignment: PlaceholderAlignment.baseline,
-      baseline: TextBaseline.alphabetic,
-      child: GestureDetector(
-        onTap: () => setState(() => _doc = type),
-        child: Text(label,
-            style: DefaultTextStyle.of(context).style.merge(TextStyle(
-                  color: a.accentInk,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.underline,
-                  decorationColor: a.accentInk,
-                ))),
-      ),
+    return TextSpan(
+      text: label,
+      style: TextStyle(color: a.accentInk, decoration: TextDecoration.underline, decorationColor: a.accentInk),
+      recognizer: (TapGestureRecognizer()..onTap = () => setState(() => _doc = type)),
     );
   }
 
   Widget _divider(ATokens a) => Container(height: 1, color: a.line);
 
+  /// Inline span in a block whose strut is the inherited 16px / 1.5 → a 24px line.
   Widget _badge(bool required, ATokens a) => Text(
-        (required ? ct('consent_required') : ct('consent_optional')).toUpperCase(),
-        style: css(10.5, FontWeight.w700, lsPx: 0.3, color: required ? a.accentInk : a.inkFaint),
+        cssUppercase(required ? ct('consent_required') : ct('consent_optional'), ref.read(userStoreProvider).language),
+        style: css(10.5, FontWeight.w700, lsPx: 0.3, height: 24 / 10.5, color: required ? a.accentInk : a.inkFaint),
       );
 
   Widget _row(String kind, String label, bool required, {Widget? extra, bool small = false}) {

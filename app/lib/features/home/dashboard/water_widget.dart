@@ -46,70 +46,84 @@ class WaterWidget extends ConsumerWidget {
       return AFadeIn(
         child: ACard(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-          child: Row(children: [
-            AGradIcon(gradient: t.gradBlue, foreground: t.blueInk, child: const AIcon(AIcons.droplets, size: 17)),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-                Row(crossAxisAlignment: CrossAxisAlignment.baseline, textBaseline: TextBaseline.alphabetic, children: [
-                  Expanded(child: Text(tr('common_su_water', 'Su'), style: context.aText.aListTitle)),
-                  const SizedBox(width: 8),
-                  Text.rich(
-                    TextSpan(children: [
-                      TextSpan(text: '$glasses/$target'),
-                      TextSpan(text: ' ${tr('waterwidget_glass_unit', 'stəkan')} · '),
-                      TextSpan(
-                        text: _percent(percentage / 100, language),
-                        style: TextStyle(fontWeight: FontWeight.w700, color: t.ink),
+          child: Row(
+            children: [
+              AGradIcon(gradient: t.gradBlue, foreground: t.blueInk, child: const AIcon(AIcons.droplets, size: 17)),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Expanded(child: Text(tr('common_su_water', 'Su'), style: context.aText.aListTitle)),
+                        const SizedBox(width: 8),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(text: '$glasses/$target'),
+                              TextSpan(text: ' ${tr('waterwidget_glass_unit', 'stəkan')} · '),
+                              TextSpan(
+                                text: _percent(percentage / 100, language),
+                                style: TextStyle(fontWeight: FontWeight.w700, color: t.ink),
+                              ),
+                            ],
+                          ),
+                          key: const ValueKey('water-count'),
+                          softWrap: false,
+                          style: TextStyle(fontSize: 11.5, fontWeight: FontWeight.w600, color: t.inkSoft, height: 1.5),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 7),
+                    Semantics(
+                      value: '${glasses.clamp(0, target)}',
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(999),
+                        child: Container(
+                          height: 6,
+                          color: t.surfaceSoft,
+                          alignment: AlignmentDirectional.centerStart,
+                          child: AnimatedFractionallySizedBox(
+                            duration: const Duration(milliseconds: 400),
+                            curve: ACurves.cssEase,
+                            widthFactor: percentage / 100,
+                            heightFactor: 1,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(color: t.blue2, borderRadius: BorderRadius.circular(999)),
+                            ),
+                          ),
+                        ),
                       ),
-                    ]),
-                    key: const ValueKey('water-count'),
-                    softWrap: false,
-                    style: TextStyle(fontSize: 11.5, fontWeight: FontWeight.w600, color: t.inkSoft, height: 1.5),
-                  ),
-                ]),
-                const SizedBox(height: 7),
-                Semantics(
-                  value: '${glasses.clamp(0, target)}',
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(999),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 12),
+              Semantics(
+                button: true,
+                label: tr('waterwidget_add_glass', '1 stəkan əlavə et'),
+                child: GestureDetector(
+                  key: const ValueKey('water-add'),
+                  behavior: HitTestBehavior.opaque,
+                  onTap: add,
+                  child: PressScale(
+                    scale: 0.9,
                     child: Container(
-                      height: 6,
-                      color: t.surfaceSoft,
-                      alignment: AlignmentDirectional.centerStart,
-                      child: AnimatedFractionallySizedBox(
-                        duration: const Duration(milliseconds: 400),
-                        curve: ACurves.cssEase,
-                        widthFactor: percentage / 100,
-                        heightFactor: 1,
-                        child: DecoratedBox(decoration: BoxDecoration(color: t.blue2, borderRadius: BorderRadius.circular(999))),
-                      ),
+                      width: 34,
+                      height: 34,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(color: t.ink, shape: BoxShape.circle),
+                      child: AIcon(AIcons.plus, size: 16, strokeWidth: 2.6, color: t.bg),
                     ),
                   ),
                 ),
-              ]),
-            ),
-            const SizedBox(width: 12),
-            Semantics(
-              button: true,
-              label: tr('waterwidget_add_glass', '1 stəkan əlavə et'),
-              child: GestureDetector(
-                key: const ValueKey('water-add'),
-                behavior: HitTestBehavior.opaque,
-                onTap: add,
-                child: PressScale(
-                  scale: 0.9,
-                  child: Container(
-                    width: 34,
-                    height: 34,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(color: t.ink, shape: BoxShape.circle),
-                    child: AIcon(AIcons.plus, size: 16, strokeWidth: 2.6, color: t.bg),
-                  ),
-                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       );
     }
@@ -124,50 +138,78 @@ class WaterWidget extends ConsumerWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: const [BoxShadow(offset: Offset(0, 1), blurRadius: 2, color: Color(0x0D000000))],
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-        Row(children: [
-          Expanded(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-              Opacity(
-                opacity: 0.8,
-                child: Row(mainAxisSize: MainAxisSize.min, children: [
-                  const AIcon(AIcons.droplets, size: 12, color: Color(0xFF0E7490)),
-                  const SizedBox(width: 4),
-                  Text(tr('common_su_water', 'Su'), style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Color(0xFF0E7490))),
-                ]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Opacity(
+                      opacity: 0.8,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const AIcon(AIcons.droplets, size: 12, color: Color(0xFF0E7490)),
+                          const SizedBox(width: 4),
+                          Text(
+                            tr('common_su_water', 'Su'),
+                            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Color(0xFF0E7490)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(text: '$glasses '),
+                          TextSpan(
+                            text: '/ $target',
+                            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500, color: Color(0x80083344)),
+                          ),
+                        ],
+                      ),
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900, height: 1, color: Color(0xFF083344)),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 2),
-              Text.rich(TextSpan(children: [
-                TextSpan(text: '$glasses '),
-                TextSpan(text: '/ $target', style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500, color: Color(0x80083344))),
-              ]), style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900, height: 1, color: Color(0xFF083344))),
-            ]),
+              GestureDetector(
+                onTap: add,
+                child: PressScale(
+                  scale: 0.9,
+                  child: Container(
+                    width: 28,
+                    height: 28,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(color: Color(0xFFCFFAFE), shape: BoxShape.circle),
+                    child: const AIcon(AIcons.plus, size: 14, color: Color(0xFF0E7490)),
+                  ),
+                ),
+              ),
+            ],
           ),
-          GestureDetector(
-            onTap: add,
-            child: PressScale(
-              scale: 0.9,
-              child: Container(
-                width: 28,
-                height: 28,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(color: Color(0xFFCFFAFE), shape: BoxShape.circle),
-                child: const AIcon(AIcons.plus, size: 14, color: Color(0xFF0E7490)),
+          const SizedBox(height: 8),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(999),
+            child: Container(
+              height: 6,
+              color: const Color(0xFFCFFAFE),
+              alignment: AlignmentDirectional.centerStart,
+              child: FractionallySizedBox(
+                widthFactor: percentage / 100,
+                heightFactor: 1,
+                child: const ColoredBox(color: Color(0xFF06B6D4)),
               ),
             ),
           ),
-        ]),
-        const SizedBox(height: 8),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(999),
-          child: Container(
-            height: 6,
-            color: const Color(0xFFCFFAFE),
-            alignment: AlignmentDirectional.centerStart,
-            child: FractionallySizedBox(widthFactor: percentage / 100, heightFactor: 1, child: const ColoredBox(color: Color(0xFF06B6D4))),
-          ),
-        ),
-      ]),
+        ],
+      ),
     );
   }
 }

@@ -15,23 +15,117 @@ typedef Story = Map<String, dynamic>;
 typedef StorySlide = Map<String, dynamic>;
 
 class StoryTheme {
-  const StoryTheme({required this.bg, required this.ink, required this.pop, required this.popInk, required this.chip, required this.ink2, required this.bg2, this.light = false});
+  const StoryTheme({
+    required this.bg,
+    required this.ink,
+    required this.pop,
+    required this.popInk,
+    required this.chip,
+    required this.ink2,
+    required this.bg2,
+    this.light = false,
+  });
   final Color bg, ink, pop, popInk, chip, ink2, bg2;
   final bool light;
 }
 
 /// `STORY_THEMES` (literal colours of src/lib/stories.ts).
 const Map<String, StoryTheme> storyThemes = {
-  'coral': StoryTheme(bg: Color(0xFFFF5A5F), ink: Color(0xFFFFFFFF), pop: Color(0xFFFFE66B), popInk: Color(0xFF3B1A10), chip: Color(0x29FFFFFF), ink2: Color(0xFFFFFFFF), bg2: Color(0xFFFF5A5F)),
-  'lime': StoryTheme(bg: Color(0xFF1F9D55), ink: Color(0xFFFFFFFF), pop: Color(0xFFC8F560), popInk: Color(0xFF123526), chip: Color(0x24FFFFFF), ink2: Color(0xFFC8F560), bg2: Color(0xFF123526)),
-  'violet': StoryTheme(bg: Color(0xFF5B4BDB), ink: Color(0xFFFFFFFF), pop: Color(0xFFFFD84D), popInk: Color(0xFF2A2060), chip: Color(0x24FFFFFF), ink2: Color(0xFFFFFFFF), bg2: Color(0xFF5B4BDB)),
-  'peach': StoryTheme(bg: Color(0xFFFFB199), ink: Color(0xFF2B1B17), pop: Color(0xFFFF5A5F), popInk: Color(0xFFFFFFFF), chip: Color(0x142B1B17), ink2: Color(0xFF2B1B17), bg2: Color(0xFFFFB199), light: true),
-  'cream': StoryTheme(bg: Color(0xFFFFF6EC), ink: Color(0xFF22181A), pop: Color(0xFFFF5A5F), popInk: Color(0xFFFFFFFF), chip: Color(0x0F22181A), ink2: Color(0xFF22181A), bg2: Color(0xFFFFF6EC), light: true),
-  'navy': StoryTheme(bg: Color(0xFF2E2A7A), ink: Color(0xFFFFFFFF), pop: Color(0xFF7FE0FF), popInk: Color(0xFF16133F), chip: Color(0x1FFFFFFF), ink2: Color(0xFF7FE0FF), bg2: Color(0xFF16133F)),
-  'lilac': StoryTheme(bg: Color(0xFFCDB8FF), ink: Color(0xFF1E1838), pop: Color(0xFFFF6B3D), popInk: Color(0xFFFFFFFF), chip: Color(0x141E1838), ink2: Color(0xFF1E1838), bg2: Color(0xFFCDB8FF), light: true),
-  'yellow': StoryTheme(bg: Color(0xFFFFD84D), ink: Color(0xFF2B1B17), pop: Color(0xFF5B4BDB), popInk: Color(0xFFFFFFFF), chip: Color(0x142B1B17), ink2: Color(0xFF2B1B17), bg2: Color(0xFFFFD84D), light: true),
-  'mint': StoryTheme(bg: Color(0xFFBFF0D4), ink: Color(0xFF123526), pop: Color(0xFFFF5A5F), popInk: Color(0xFFFFFFFF), chip: Color(0x14123526), ink2: Color(0xFF123526), bg2: Color(0xFFBFF0D4), light: true),
-  'forest': StoryTheme(bg: Color(0xFF0F4D32), ink: Color(0xFFEFFFF5), pop: Color(0xFFC8F560), popInk: Color(0xFF0F4D32), chip: Color(0x1AEFFFF5), ink2: Color(0xFFC8F560), bg2: Color(0xFF0F4D32)),
+  'coral': StoryTheme(
+    bg: Color(0xFFFF5A5F),
+    ink: Color(0xFFFFFFFF),
+    pop: Color(0xFFFFE66B),
+    popInk: Color(0xFF3B1A10),
+    chip: Color(0x29FFFFFF),
+    ink2: Color(0xFFFFFFFF),
+    bg2: Color(0xFFFF5A5F),
+  ),
+  'lime': StoryTheme(
+    bg: Color(0xFF1F9D55),
+    ink: Color(0xFFFFFFFF),
+    pop: Color(0xFFC8F560),
+    popInk: Color(0xFF123526),
+    chip: Color(0x24FFFFFF),
+    ink2: Color(0xFFC8F560),
+    bg2: Color(0xFF123526),
+  ),
+  'violet': StoryTheme(
+    bg: Color(0xFF5B4BDB),
+    ink: Color(0xFFFFFFFF),
+    pop: Color(0xFFFFD84D),
+    popInk: Color(0xFF2A2060),
+    chip: Color(0x24FFFFFF),
+    ink2: Color(0xFFFFFFFF),
+    bg2: Color(0xFF5B4BDB),
+  ),
+  'peach': StoryTheme(
+    bg: Color(0xFFFFB199),
+    ink: Color(0xFF2B1B17),
+    pop: Color(0xFFFF5A5F),
+    popInk: Color(0xFFFFFFFF),
+    chip: Color(0x142B1B17),
+    ink2: Color(0xFF2B1B17),
+    bg2: Color(0xFFFFB199),
+    light: true,
+  ),
+  'cream': StoryTheme(
+    bg: Color(0xFFFFF6EC),
+    ink: Color(0xFF22181A),
+    pop: Color(0xFFFF5A5F),
+    popInk: Color(0xFFFFFFFF),
+    chip: Color(0x0F22181A),
+    ink2: Color(0xFF22181A),
+    bg2: Color(0xFFFFF6EC),
+    light: true,
+  ),
+  'navy': StoryTheme(
+    bg: Color(0xFF2E2A7A),
+    ink: Color(0xFFFFFFFF),
+    pop: Color(0xFF7FE0FF),
+    popInk: Color(0xFF16133F),
+    chip: Color(0x1FFFFFFF),
+    ink2: Color(0xFF7FE0FF),
+    bg2: Color(0xFF16133F),
+  ),
+  'lilac': StoryTheme(
+    bg: Color(0xFFCDB8FF),
+    ink: Color(0xFF1E1838),
+    pop: Color(0xFFFF6B3D),
+    popInk: Color(0xFFFFFFFF),
+    chip: Color(0x141E1838),
+    ink2: Color(0xFF1E1838),
+    bg2: Color(0xFFCDB8FF),
+    light: true,
+  ),
+  'yellow': StoryTheme(
+    bg: Color(0xFFFFD84D),
+    ink: Color(0xFF2B1B17),
+    pop: Color(0xFF5B4BDB),
+    popInk: Color(0xFFFFFFFF),
+    chip: Color(0x142B1B17),
+    ink2: Color(0xFF2B1B17),
+    bg2: Color(0xFFFFD84D),
+    light: true,
+  ),
+  'mint': StoryTheme(
+    bg: Color(0xFFBFF0D4),
+    ink: Color(0xFF123526),
+    pop: Color(0xFFFF5A5F),
+    popInk: Color(0xFFFFFFFF),
+    chip: Color(0x14123526),
+    ink2: Color(0xFF123526),
+    bg2: Color(0xFFBFF0D4),
+    light: true,
+  ),
+  'forest': StoryTheme(
+    bg: Color(0xFF0F4D32),
+    ink: Color(0xFFEFFFF5),
+    pop: Color(0xFFC8F560),
+    popInk: Color(0xFF0F4D32),
+    chip: Color(0x1AEFFFF5),
+    ink2: Color(0xFFC8F560),
+    bg2: Color(0xFF0F4D32),
+  ),
 };
 
 StoryTheme storyThemeOf(Story s) => storyThemes[s['theme']] ?? storyThemes['coral']!;
@@ -50,7 +144,12 @@ class StoryTables {
     if (cached != null) return cached;
     final m = jsonDecode(storiesAzJson) as Map<String, dynamic>;
     List<List<Object?>> rows(String k) => [for (final r in m[k] as List) List<Object?>.from(r as List)];
-    return _az = StoryTables._([for (final s in m['stories'] as List) Map<String, dynamic>.from(s as Map)], rows('weeks'), rows('months'), rows('phases'));
+    return _az = StoryTables._(
+      [for (final s in m['stories'] as List) Map<String, dynamic>.from(s as Map)],
+      rows('weeks'),
+      rows('months'),
+      rows('phases'),
+    );
   }
 }
 
@@ -75,8 +174,14 @@ class StoryContext {
 
   @override
   bool operator ==(Object other) =>
-      other is StoryContext && other.stage == stage && other.week == week && other.fruit == fruit &&
-      other.babyMonths == babyMonths && other.babyName == babyName && other.cycleDay == cycleDay && other.isPremium == isPremium;
+      other is StoryContext &&
+      other.stage == stage &&
+      other.week == week &&
+      other.fruit == fruit &&
+      other.babyMonths == babyMonths &&
+      other.babyName == babyName &&
+      other.cycleDay == cycleDay &&
+      other.isPremium == isPremium;
 
   @override
   int get hashCode => Object.hash(stage, week, fruit, babyMonths, babyName, cycleDay, isPremium);
@@ -186,7 +291,11 @@ bool storyMatches(Story story, StoryContext ctx, Map<String, String> vars) {
   }
   final phase = (story['schedule'] as Map?)?['phase'];
   final vp = vars['phase'];
-  if (ctx.stage == 'flow' && phase is String && phase.isNotEmpty && vp != null && vp.isNotEmpty &&
+  if (ctx.stage == 'flow' &&
+      phase is String &&
+      phase.isNotEmpty &&
+      vp != null &&
+      vp.isNotEmpty &&
       !(phase == vp || (_luteal.contains(phase) && _luteal.contains(vp)))) {
     return false;
   }
@@ -205,11 +314,13 @@ List<StoryTextPart> parseStoryText(String text) {
   var last = 0;
   for (final m in re.allMatches(text)) {
     if (m.start > last) parts.add((text: text.substring(last, m.start), kind: StoryTextKind.plain));
-    parts.add(m.group(1) != null
-        ? (text: m.group(1)!, kind: StoryTextKind.mark)
-        : m.group(2) != null
-            ? (text: m.group(2)!, kind: StoryTextKind.hl)
-            : (text: m.group(3)!, kind: StoryTextKind.bold));
+    parts.add(
+      m.group(1) != null
+          ? (text: m.group(1)!, kind: StoryTextKind.mark)
+          : m.group(2) != null
+          ? (text: m.group(2)!, kind: StoryTextKind.hl)
+          : (text: m.group(3)!, kind: StoryTextKind.bold),
+    );
     last = m.end;
   }
   if (last < text.length) parts.add((text: text.substring(last), kind: StoryTextKind.plain));
@@ -286,8 +397,13 @@ StorySlide? sanitizeSlide(Object? raw) {
   if (t == 'list' && slide['items'] == null) return null;
   if (t == 'myth' && !(slide['myth'] != null && slide['fact'] != null)) return null;
   if (t == 'quote' && slide['quote'] == null) return null;
-  if (slide['title'] == null && slide['body'] == null && slide['items'] == null && slide['value'] == null &&
-      slide['quote'] == null && slide['myth'] == null && slide['options'] == null) {
+  if (slide['title'] == null &&
+      slide['body'] == null &&
+      slide['items'] == null &&
+      slide['value'] == null &&
+      slide['quote'] == null &&
+      slide['myth'] == null &&
+      slide['options'] == null) {
     return null;
   }
   return slide;
@@ -376,7 +492,10 @@ ServerStories parseServerStories(Object? rows) {
 List<Story> mergeStories(List<Story> bundled, ServerStories? server) {
   if (server == null) return bundled;
   final byId = {for (final s in server.show) s['id']: s};
-  final merged = [for (final s in bundled) if (!server.hide.contains(s['id'])) byId[s['id']] ?? s];
+  final merged = [
+    for (final s in bundled)
+      if (!server.hide.contains(s['id'])) byId[s['id']] ?? s,
+  ];
   final bundledIds = {for (final s in bundled) s['id']};
   final fresh = server.show.where((s) => !bundledIds.contains(s['id']) && !server.hide.contains(s['id']));
   return [...fresh, ...merged];
@@ -396,7 +515,9 @@ List<Object?>? readStoriesCache(LocalStore store, String language) {
 void writeStoriesCache(LocalStore store, String language, List<Object?> rows) {
   try {
     store.setItem(storiesCacheKey(language), jsonEncode(rows));
-  } catch (_) {/* storage unavailable */}
+  } catch (_) {
+    /* storage unavailable */
+  }
 }
 
 String seenKey(String uid) => 'anacan-stories-seen:$uid';
@@ -414,5 +535,7 @@ void writeSeen(LocalStore store, String uid, Set<String> seen) {
   try {
     final list = seen.toList();
     store.setItem(seenKey(uid), jsonEncode(list.length > 400 ? list.sublist(list.length - 400) : list));
-  } catch (_) {/* storage unavailable */}
+  } catch (_) {
+    /* storage unavailable */
+  }
 }

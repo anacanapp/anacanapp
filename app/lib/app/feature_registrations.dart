@@ -3,6 +3,7 @@
 // The one place that lists every feature's `registerX(FeatureRegistry r)` (docs/flutter/SHELL.md §11). A feature
 // lands by adding its import and uncommenting / adding its line in its alphabetical slot. Anything not
 // registered renders the shell's placeholder.
+import '../features/entry/entry_feature.dart';
 import '../features/startup/startup.dart';
 import '../shell/feature_registry.dart';
 
@@ -11,7 +12,6 @@ import '../shell/feature_registry.dart';
 // import '../features/chat/chat.dart';
 // import '../features/commerce/commerce.dart';
 // import '../features/community/community.dart';
-// import '../features/entry/entry.dart';
 // import '../features/games/games.dart';
 // import '../features/home/home.dart';
 // import '../features/onboarding/onboarding.dart';
@@ -27,7 +27,7 @@ void registerAllFeatures(FeatureRegistry r) {
   // registerChatFeature(r);
   // registerCommerceFeature(r);
   // registerCommunityFeature(r);
-  // registerEntryFeature(r);
+  registerEntryFeature(r);
   // registerGamesFeature(r);
   // registerHomeFeature(r);
   // registerOnboardingFeature(r);
@@ -40,4 +40,5 @@ void registerAllFeatures(FeatureRegistry r) {
 }
 
 /// The registry the app root installs (`featureRegistryProvider`).
-FeatureRegistry buildFeatureRegistry() => FeatureRegistry()..registerAll([registerAllFeatures]);
+FeatureRegistry buildFeatureRegistry() =>
+    FeatureRegistry()..registerAll([registerAllFeatures]);

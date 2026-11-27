@@ -21,9 +21,24 @@ final _languageProvider = Provider<String>((ref) => ref.watch(userStoreProvider.
 // ── usePregnancyContentByDay ──
 
 const List<String> pregnancyTranslatableFields = [
-  'baby_development', 'baby_message', 'baby_size_fruit', 'body_changes', 'daily_tip', 'doctor_visit_tip',
-  'emotional_tip', 'exercise_tip', 'mother_tips', 'mother_warnings', 'nutrition_tip', 'partner_tip',
-  'multiples_tip', 'foods_to_avoid', 'mother_symptoms', 'recommended_exercises', 'recommended_foods', 'tests_to_do',
+  'baby_development',
+  'baby_message',
+  'baby_size_fruit',
+  'body_changes',
+  'daily_tip',
+  'doctor_visit_tip',
+  'emotional_tip',
+  'exercise_tip',
+  'mother_tips',
+  'mother_warnings',
+  'nutrition_tip',
+  'partner_tip',
+  'multiples_tip',
+  'foods_to_avoid',
+  'mother_symptoms',
+  'recommended_exercises',
+  'recommended_foods',
+  'tests_to_do',
 ];
 
 /// `applyLanguage(row, lang)`.
@@ -69,10 +84,10 @@ final trimesterTipsQuery = queryProviderFamily<Rows, int?>((ref, trimester) {
 
 /// `FALLBACK_TRIMESTER_INFO`.
 List<({int trimesterNumber, String labelAz, String emoji})> fallbackTrimesterInfo() => [
-      (trimesterNumber: 1, labelAz: '1-ci Trimester', emoji: '🌱'),
-      (trimesterNumber: 2, labelAz: '2-ci Trimester', emoji: '🌸'),
-      (trimesterNumber: 3, labelAz: tr('usetrimesterinfo_3_cu_trimester_a4a4bb', '3-cü Trimester'), emoji: '🍼'),
-    ];
+  (trimesterNumber: 1, labelAz: '1-ci Trimester', emoji: '🌱'),
+  (trimesterNumber: 2, labelAz: '2-ci Trimester', emoji: '🌸'),
+  (trimesterNumber: 3, labelAz: tr('usetrimesterinfo_3_cu_trimester_a4a4bb', '3-cü Trimester'), emoji: '🍼'),
+];
 
 // ── useWeeklyTips ──
 
@@ -118,7 +133,8 @@ FruitData getDynamicFruitData(Rows fruitImages, int? pregnancyDay, int? weekNumb
   final db = fruitImages.where((f) => f.integer('week_number') == week).firstOrNull;
   final st = fruitSizes(tr: tr)[week];
   return FruitData(
-    fruit: _nonEmpty(dailyContent?['baby_size_fruit']) ??
+    fruit:
+        _nonEmpty(dailyContent?['baby_size_fruit']) ??
         _nonEmpty(db?['fruit_name']) ??
         _nonEmpty(st?.fruit) ??
         tr('usefruitdata_meyve_50ca17', 'Meyvə'),
@@ -154,8 +170,7 @@ final fetusIllustrationsQuery = queryProvider<Rows>((ref) {
     queryKey: ['fetus-illustrations', language],
     staleTime: const Duration(minutes: 30),
     codec: QueryCodecs.rows,
-    queryFn: (_) async =>
-        mapRowsTranslation(await ref.read(homeRepositoryProvider).fetusIllustrations(), language, const ['title', 'description']),
+    queryFn: (_) async => mapRowsTranslation(await ref.read(homeRepositoryProvider).fetusIllustrations(), language, const ['title', 'description']),
   );
 });
 

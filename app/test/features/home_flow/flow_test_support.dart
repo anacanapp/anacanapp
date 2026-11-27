@@ -150,7 +150,7 @@ class FakeFlowRepository implements FlowRepository {
 
 /// Builds a [ProviderContainer] with the flow fakes, a frozen clock and a flow user.
 class FlowTestEnv {
-  FlowTestEnv({DateTime? now, this.lastPeriod, this.uid = 'u1', this.outbox, List<Override> extra = const []}) {
+  FlowTestEnv({DateTime? now, this.lastPeriod, this.uid = 'u1', this.outbox, Map<String, dynamic>? profile, List<Override> extra = const []}) {
     installTestI18n();
     DomainClock.setSystemTime(now ?? DateTime(2026, 9, 14, 12));
     container = ProviderContainer(overrides: [
@@ -160,7 +160,8 @@ class FlowTestEnv {
       flowRepositoryProvider.overrideWithValue(repo),
       flowUserIdProvider.overrideWithValue(uid),
       flowOutboxProvider.overrideWithValue(outbox),
-      flowProfileRowProvider.overrideWithValue(null),
+      flowProfileRowProvider.overrideWithValue(profile),
+      flowRefreshProfileProvider.overrideWithValue(() async {}),
       ...extra,
     ]);
     final store = container.read(userStoreProvider.notifier);
@@ -183,7 +184,7 @@ class FlowTestEnv {
   }
 
   /// MaterialApp + theme + toast host, 390 wide, scrollable.
-  Widget wrap(Widget child, {bool dark = false, bool rtl = false, bool scroll = true}) {
+  Widget wrap(Widget child, {bool dark = false, bool rtl = false, bool scroll = true, ScrollController? controller}) {
     return UncontrolledProviderScope(
       container: container,
       child: MaterialApp(
@@ -195,7 +196,7 @@ class FlowTestEnv {
             builder: (context) => ColoredBox(
               color: context.a.bg,
               child: scroll
-                  ? SingleChildScrollView(padding: const EdgeInsets.fromLTRB(20, 12, 20, 40), child: child)
+                  ? SingleChildScrollView(controller: controller, padding: const EdgeInsets.fromLTRB(20, 12, 20, 40), child: child)
                   : Padding(padding: const EdgeInsets.symmetric(horizontal: 20), child: child),
             ),
           ),

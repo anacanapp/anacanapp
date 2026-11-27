@@ -19,7 +19,10 @@ const Duration storySlideDuration = Duration(milliseconds: 6500);
 /// Saves the current slide as an image and opens the share sheet. Default: unsupported (shows "Alınmadı").
 typedef StoryExporter = Future<void> Function(Story story, int slide, Map<String, String> vars);
 
-final storyExporterProvider = Provider<StoryExporter>((ref) => (story, slide, vars) async => throw UnsupportedError('story export'));
+final storyExporterProvider = Provider<StoryExporter>(
+  (ref) =>
+      (story, slide, vars) async => throw UnsupportedError('story export'),
+);
 
 /// `analytics.logToolUsed('stories', action, id)` (analytics feature). Default: no-op.
 final storyEventLoggerProvider = Provider<void Function(String action, String storyId)>((ref) => (_, _) {});
@@ -225,10 +228,11 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
       if (text == null) return const SizedBox.shrink();
       final parts = parseStoryText(fillStory(text, vars));
       return Text.rich(
-        TextSpan(children: [
-          for (final p in parts)
-            switch (p.kind) {
-              StoryTextKind.mark => WidgetSpan(
+        TextSpan(
+          children: [
+            for (final p in parts)
+              switch (p.kind) {
+                StoryTextKind.mark => WidgetSpan(
                   alignment: PlaceholderAlignment.baseline,
                   baseline: TextBaseline.alphabetic,
                   child: Container(
@@ -237,11 +241,18 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
                     child: Text(p.text, style: style.copyWith(color: th.popInk)),
                   ),
                 ),
-              StoryTextKind.hl => TextSpan(text: p.text, style: TextStyle(color: th.pop)),
-              StoryTextKind.bold => TextSpan(text: p.text, style: const TextStyle(fontWeight: FontWeight.w700)),
-              StoryTextKind.plain => TextSpan(text: p.text),
-            },
-        ]),
+                StoryTextKind.hl => TextSpan(
+                  text: p.text,
+                  style: TextStyle(color: th.pop),
+                ),
+                StoryTextKind.bold => TextSpan(
+                  text: p.text,
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                StoryTextKind.plain => TextSpan(text: p.text),
+              },
+          ],
+        ),
         style: style,
       );
     }
@@ -257,25 +268,35 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
     final source = story['source'] is String && const ['list', 'alert', 'myth', 'fact'].contains(t)
         ? Padding(
             padding: const EdgeInsets.only(top: 10),
-            child: Opacity(opacity: 0.68, child: Text('Mənbə: ${story['source']}', style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600))),
+            child: Opacity(
+              opacity: 0.68,
+              child: Text('Mənbə: ${story['source']}', style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
+            ),
           )
         : null;
     Widget art(String? name, {double? widthFactor}) => Align(
-          alignment: Alignment.bottomCenter,
-          child: FractionallySizedBox(widthFactor: widthFactor ?? 1, child: StoryArt(name: name, c: th.pop, a: artInk)),
-        );
+      alignment: Alignment.bottomCenter,
+      child: FractionallySizedBox(
+        widthFactor: widthFactor ?? 1,
+        child: StoryArt(name: name, c: th.pop, a: artInk),
+      ),
+    );
     final small = art(story['illus'] as String?, widthFactor: 0.7);
     final kick = sl['kicker'] != null
         ? Padding(
             padding: const EdgeInsets.only(bottom: 10),
-            child: Opacity(opacity: 0.78, child: rich(sl['kicker'] as String?, const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 0.96))),
+            child: Opacity(
+              opacity: 0.78,
+              child: rich(sl['kicker'] as String?, const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 0.96)),
+            ),
           )
         : null;
-    final title = sl['title'] != null
-        ? rich(sl['title'] as String?, display.copyWith(fontSize: hSize, letterSpacing: -0.025 * hSize))
-        : null;
+    final title = sl['title'] != null ? rich(sl['title'] as String?, display.copyWith(fontSize: hSize, letterSpacing: -0.025 * hSize)) : null;
     final body = sl['body'] != null
-        ? Padding(padding: const EdgeInsets.only(top: 12), child: Opacity(opacity: 0.94, child: rich(sl['body'] as String?, const TextStyle(fontSize: 16, height: 1.4))))
+        ? Padding(
+            padding: const EdgeInsets.only(top: 12),
+            child: Opacity(opacity: 0.94, child: rich(sl['body'] as String?, const TextStyle(fontSize: 16, height: 1.4))),
+          )
         : null;
     final chipDeco = BoxDecoration(color: th.chip, borderRadius: BorderRadius.circular(18));
 
@@ -286,10 +307,17 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
       case 'fact':
         content.addAll([
           ?kick,
-          Wrap(crossAxisAlignment: WrapCrossAlignment.end, spacing: 6, children: [
-            Text(fillStory(sl['value'] as String?, vars), style: display.copyWith(fontSize: clampVw(64, 22, 96), height: 0.92, letterSpacing: -0.04 * clampVw(64, 22, 96))),
-            if (sl['unit'] != null) Text(fillStory(sl['unit'] as String?, vars), style: display.copyWith(fontSize: 22)),
-          ]),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.end,
+            spacing: 6,
+            children: [
+              Text(
+                fillStory(sl['value'] as String?, vars),
+                style: display.copyWith(fontSize: clampVw(64, 22, 96), height: 0.92, letterSpacing: -0.04 * clampVw(64, 22, 96)),
+              ),
+              if (sl['unit'] != null) Text(fillStory(sl['unit'] as String?, vars), style: display.copyWith(fontSize: 22)),
+            ],
+          ),
           ?body,
           ?source,
           const Spacer(),
@@ -307,17 +335,23 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: chipDeco,
-                child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Container(
-                    width: 28,
-                    height: 28,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(color: th.pop, shape: BoxShape.circle),
-                    child: Text('${i + 1}', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: th.popInk)),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(child: rich(items[i], const TextStyle(fontSize: 15.5, height: 1.32, fontWeight: FontWeight.w600))),
-                ]),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 28,
+                      height: 28,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(color: th.pop, shape: BoxShape.circle),
+                      child: Text(
+                        '${i + 1}',
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: th.popInk),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(child: rich(items[i], const TextStyle(fontSize: 15.5, height: 1.32, fontWeight: FontWeight.w600))),
+                  ],
+                ),
               ),
             ),
           ?source,
@@ -326,21 +360,30 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
         ]);
       case 'myth':
         Widget box(String label, String? text, bool fact) => Container(
-              margin: const EdgeInsets.only(top: 16),
-              padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(color: th.chip, borderRadius: BorderRadius.circular(24)),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Container(
-                  margin: const EdgeInsets.only(bottom: 10),
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                  decoration: BoxDecoration(color: fact ? th.pop : th.ink2, borderRadius: BorderRadius.circular(999)),
-                  child: Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800, letterSpacing: 0.96, color: fact ? th.popInk : th.bg2)),
+          margin: const EdgeInsets.only(top: 16),
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(color: th.chip, borderRadius: BorderRadius.circular(24)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(color: fact ? th.pop : th.ink2, borderRadius: BorderRadius.circular(999)),
+                child: Text(
+                  label,
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800, letterSpacing: 0.96, color: fact ? th.popInk : th.bg2),
                 ),
-                rich(text, const TextStyle(fontSize: 18.5, fontWeight: FontWeight.w700, height: 1.28)),
-              ]),
-            );
+              ),
+              rich(text, const TextStyle(fontSize: 18.5, fontWeight: FontWeight.w700, height: 1.28)),
+            ],
+          ),
+        );
         content.addAll([
-          const Opacity(opacity: 0.78, child: Text('MİF VƏ FAKT', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 0.96))),
+          const Opacity(
+            opacity: 0.78,
+            child: Text('MİF VƏ FAKT', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 0.96)),
+          ),
           box('MİF', sl['myth'] as String?, false),
           box('FAKT', sl['fact'] as String?, true),
           ?source,
@@ -379,13 +422,17 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
                       border: Border.all(color: _answer != null && i == correct ? th.pop : th.ink, width: 2),
                       borderRadius: BorderRadius.circular(18),
                     ),
-                    child: Row(children: [
-                      Expanded(
-                        child: rich(options[i],
-                            TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: _answer != null && i == correct ? th.popInk : th.ink)),
-                      ),
-                      if (_answer != null && i == correct) Text('✓', style: TextStyle(color: th.popInk)),
-                    ]),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: rich(
+                            options[i],
+                            TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: _answer != null && i == correct ? th.popInk : th.ink),
+                          ),
+                        ),
+                        if (_answer != null && i == correct) Text('✓', style: TextStyle(color: th.popInk)),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -397,10 +444,12 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
               child: _answer == null
                   ? const SizedBox()
                   : Text.rich(
-                      TextSpan(children: [
-                        TextSpan(text: _answer == correct ? 'Düzdür! ' : 'Əslində: '),
-                        WidgetSpan(child: rich(sl['explain'] as String?, const TextStyle(fontSize: 15, height: 1.38, fontWeight: FontWeight.w600))),
-                      ]),
+                      TextSpan(
+                        children: [
+                          TextSpan(text: _answer == correct ? 'Düzdür! ' : 'Əslində: '),
+                          WidgetSpan(child: rich(sl['explain'] as String?, const TextStyle(fontSize: 15, height: 1.38, fontWeight: FontWeight.w600))),
+                        ],
+                      ),
                       key: const ValueKey('story-reveal'),
                       style: const TextStyle(fontSize: 15, height: 1.38, fontWeight: FontWeight.w600),
                     ),
@@ -419,11 +468,17 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
                 decoration: BoxDecoration(color: th.chip, borderRadius: BorderRadius.circular(16)),
-                child: Row(children: [
-                  Container(width: 10, height: 10, decoration: BoxDecoration(color: th.pop, shape: BoxShape.circle)),
-                  const SizedBox(width: 10),
-                  Expanded(child: rich(items[i], const TextStyle(fontSize: 16, fontWeight: FontWeight.w700))),
-                ]),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(color: th.pop, shape: BoxShape.circle),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(child: rich(items[i], const TextStyle(fontSize: 16, fontWeight: FontWeight.w700))),
+                  ],
+                ),
               ),
             ),
           ?source,
@@ -446,7 +501,13 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
           const SizedBox(height: 8),
           rich(sl['quote'] as String?, display.copyWith(fontSize: clampVw(23, 7, 27), height: 1.2)),
           if (sl['src'] != null)
-            Padding(padding: const EdgeInsets.only(top: 10), child: Opacity(opacity: 0.68, child: Text('${sl['src']}', style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)))),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Opacity(
+                opacity: 0.68,
+                child: Text('${sl['src']}', style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
+              ),
+            ),
           const Spacer(),
           art('blob'),
         ]);
@@ -467,15 +528,21 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
                   constraints: const BoxConstraints(minHeight: 48),
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(color: th.ink2, borderRadius: BorderRadius.circular(999)),
-                  child: Row(mainAxisSize: MainAxisSize.min, children: [
-                    if (cta['premium'] == true) ...[
-                      SvgPicture.string(_crownSvg, width: 15, height: 15, theme: SvgTheme(currentColor: th.bg2)),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (cta['premium'] == true) ...[
+                        SvgPicture.string(_crownSvg, width: 15, height: 15, theme: SvgTheme(currentColor: th.bg2)),
+                        const SizedBox(width: 8),
+                      ],
+                      Text(
+                        '${cta['label']}',
+                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800, color: th.bg2),
+                      ),
                       const SizedBox(width: 8),
+                      AIcon(AIcons.chevronRight, size: 16, strokeWidth: 2.6, color: th.bg2),
                     ],
-                    Text('${cta['label']}', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800, color: th.bg2)),
-                    const SizedBox(width: 8),
-                    AIcon(AIcons.chevronRight, size: 16, strokeWidth: 2.6, color: th.bg2),
-                  ]),
+                  ),
                 ),
               ),
             ),
@@ -513,108 +580,136 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
                   color: th.bg,
                   child: DefaultTextStyle(
                     style: TextStyle(fontFamily: AFonts.inter, color: th.ink, fontSize: 16, height: 1.5),
-                    child: Stack(children: [
-                      Positioned.fill(
-                        child: KeyedSubtree(
-                          key: ValueKey('${story['id']}-$_slide'),
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(22, pad.top + 76, 22, pad.bottom + 22),
-                            child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: content),
+                    child: Stack(
+                      children: [
+                        Positioned.fill(
+                          child: KeyedSubtree(
+                            key: ValueKey('${story['id']}-$_slide'),
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(22, pad.top + 76, 22, pad.bottom + 22),
+                              child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: content),
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        top: pad.top + 10,
-                        left: 12,
-                        right: 12,
-                        child: Row(children: [
-                          for (var i = 0; i < slides.length; i++) ...[
-                            if (i > 0) const SizedBox(width: 4),
-                            Expanded(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(3),
-                                child: Container(
-                                  height: 3,
-                                  color: barTrack,
-                                  alignment: Alignment.centerLeft,
-                                  child: i < _slide
-                                      ? ColoredBox(color: barFill, child: const SizedBox.expand())
-                                      : i == _slide
+                        Positioned(
+                          top: pad.top + 10,
+                          left: 12,
+                          right: 12,
+                          child: Row(
+                            children: [
+                              for (var i = 0; i < slides.length; i++) ...[
+                                if (i > 0) const SizedBox(width: 4),
+                                Expanded(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(3),
+                                    child: Container(
+                                      height: 3,
+                                      color: barTrack,
+                                      alignment: Alignment.centerLeft,
+                                      child: i < _slide
+                                          ? ColoredBox(color: barFill, child: const SizedBox.expand())
+                                          : i == _slide
                                           ? AnimatedBuilder(
                                               animation: _bar,
                                               builder: (_, _) => FractionallySizedBox(
-                                                  widthFactor: _bar.value, heightFactor: 1, child: ColoredBox(color: barFill)),
+                                                widthFactor: _bar.value,
+                                                heightFactor: 1,
+                                                child: ColoredBox(color: barFill),
+                                              ),
                                             )
                                           : null,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ]),
-                      ),
-                      Positioned(
-                        top: pad.top + 22,
-                        left: 14,
-                        right: 8,
-                        child: DefaultTextStyle.merge(
-                          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-                          child: Row(children: [
-                            Container(
-                              width: 30,
-                              height: 30,
-                              alignment: Alignment.center,
-                              decoration: const BoxDecoration(
-                                color: Color(0xFFFFFFFF),
-                                shape: BoxShape.circle,
-                                boxShadow: [BoxShadow(color: Color(0x14000000), spreadRadius: 2)],
-                              ),
-                              child: const Text('A', style: TextStyle(color: Color(0xFFFF5A5F), fontWeight: FontWeight.w800, fontSize: 14)),
-                            ),
-                            const SizedBox(width: 8),
-                            const Text('Anacan'),
-                            const SizedBox(width: 8),
-                            Opacity(
-                              opacity: 0.72,
-                              child: Text('· ${storyModuleLabel[story['module']] ?? ''}', style: const TextStyle(fontWeight: FontWeight.w500)),
-                            ),
-                            const Spacer(),
-                            Semantics(
-                              button: true,
-                              label: 'Story-ni yüklə',
-                              child: GestureDetector(
-                                key: const ValueKey('story-download'),
-                                onTap: _saving == 'busy' ? null : _save,
-                                child: Opacity(
-                                  opacity: _saving == 'busy' ? 0.8 : 1,
-                                  child: Container(
-                                    height: 34,
-                                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                                    decoration: BoxDecoration(color: th.chip, borderRadius: BorderRadius.circular(999)),
-                                    child: Row(mainAxisSize: MainAxisSize.min, children: [
-                                      AIcon(_saving == 'busy' ? AIcons.loaderCircle : AIcons.download, size: 18, strokeWidth: 2.4, color: th.ink),
-                                      const SizedBox(width: 6),
-                                      Text(
-                                        _saving == 'done' ? 'Hazırdır' : _saving == 'error' ? 'Alınmadı' : 'Yüklə',
-                                        style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700),
-                                      ),
-                                    ]),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Semantics(
-                              button: true,
-                              label: 'Bağla',
-                              child: GestureDetector(
-                                key: const ValueKey('story-close'),
-                                onTap: widget.onClose,
-                                child: SizedBox(width: 44, height: 44, child: Center(child: AIcon(AIcons.x, size: 22, strokeWidth: 2.4, color: th.ink))),
-                              ),
-                            ),
-                          ]),
+                              ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ]),
+                        Positioned(
+                          top: pad.top + 22,
+                          left: 14,
+                          right: 8,
+                          child: DefaultTextStyle.merge(
+                            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 30,
+                                  height: 30,
+                                  alignment: Alignment.center,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xFFFFFFFF),
+                                    shape: BoxShape.circle,
+                                    boxShadow: [BoxShadow(color: Color(0x14000000), spreadRadius: 2)],
+                                  ),
+                                  child: const Text(
+                                    'A',
+                                    style: TextStyle(color: Color(0xFFFF5A5F), fontWeight: FontWeight.w800, fontSize: 14),
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                const Text('Anacan'),
+                                const SizedBox(width: 8),
+                                Opacity(
+                                  opacity: 0.72,
+                                  child: Text('· ${storyModuleLabel[story['module']] ?? ''}', style: const TextStyle(fontWeight: FontWeight.w500)),
+                                ),
+                                const Spacer(),
+                                Semantics(
+                                  button: true,
+                                  label: 'Story-ni yüklə',
+                                  child: GestureDetector(
+                                    key: const ValueKey('story-download'),
+                                    onTap: _saving == 'busy' ? null : _save,
+                                    child: Opacity(
+                                      opacity: _saving == 'busy' ? 0.8 : 1,
+                                      child: Container(
+                                        height: 34,
+                                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                                        decoration: BoxDecoration(color: th.chip, borderRadius: BorderRadius.circular(999)),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            AIcon(
+                                              _saving == 'busy' ? AIcons.loaderCircle : AIcons.download,
+                                              size: 18,
+                                              strokeWidth: 2.4,
+                                              color: th.ink,
+                                            ),
+                                            const SizedBox(width: 6),
+                                            Text(
+                                              _saving == 'done'
+                                                  ? 'Hazırdır'
+                                                  : _saving == 'error'
+                                                  ? 'Alınmadı'
+                                                  : 'Yüklə',
+                                              style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Semantics(
+                                  button: true,
+                                  label: 'Bağla',
+                                  child: GestureDetector(
+                                    key: const ValueKey('story-close'),
+                                    onTap: widget.onClose,
+                                    child: SizedBox(
+                                      width: 44,
+                                      height: 44,
+                                      child: Center(child: AIcon(AIcons.x, size: 22, strokeWidth: 2.4, color: th.ink)),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

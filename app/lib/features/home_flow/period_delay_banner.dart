@@ -10,6 +10,7 @@ import '../../state/user_store.dart';
 import 'data/flow_hooks.dart';
 import 'data/flow_repository.dart';
 import 'flow_platform.dart';
+import 'widgets/flow_common.dart' show cssUpper;
 import 'widgets/flow_ui.dart';
 
 /// Days the period is late against the average cycle (`daysSince - avgCycle`), or null without a last period.
@@ -90,7 +91,7 @@ class _PeriodDelayBannerState extends ConsumerState<PeriodDelayBanner> {
               child: Row(mainAxisSize: MainAxisSize.min, children: [
                 const AIcon(AIcons.circleAlert, size: 13, strokeWidth: 2.3, color: Color(0xFFC23C56)),
                 const SizedBox(width: 6),
-                Text(tr('flow_cycle_alert', 'Tsikl xəbərdarlığı').toUpperCase(),
+                Text(cssUpper(tr('flow_cycle_alert', 'Tsikl xəbərdarlığı')),
                     style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800, letterSpacing: em(0.06, 11), color: const Color(0xFFC23C56), height: 1.5)),
               ]),
             ),

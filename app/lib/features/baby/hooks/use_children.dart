@@ -53,7 +53,9 @@ final childrenQuery = queryProvider<List<Child>>((ref) {
     gcTime: const Duration(minutes: 30),
     retry: noRetry,
     initialData: cached.isNotEmpty ? cached : null,
-    initialDataUpdatedAt: 0,
+    // React: `initialDataUpdatedAt: 0` (stale at once). The Dart cache treats dataUpdatedAt 0 as "no data" once a
+    // fetch fails (QueryState.hasData), which would hide the cached children offline; 1 ms is equally stale.
+    initialDataUpdatedAt: 1,
     codec: _childrenCodec,
     queryFn: (_) async {
       final uid = userId!;

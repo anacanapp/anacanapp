@@ -2,6 +2,7 @@
 //              sonner `toast` call sites of src/components/flow/*.tsx, Tailwind `dark:` colour pairs
 import 'package:material_ui/material_ui.dart';
 
+import '../../../core/i18n/i18n.dart' show I18nRuntime, formatDatePattern;
 import '../../../design/design.dart';
 
 /// `border border-dashed` around a rounded rect (CSS dashes ≈ 3× the width, gaps the same).
@@ -61,3 +62,34 @@ T dk<T>(BuildContext context, T light, T dark) => AnacanTokens.of(context).isDar
 
 /// Tailwind `bg-x/NN` opacity helper.
 Color op(Color c, double alpha) => c.withValues(alpha: alpha);
+
+/// CSS `text-transform: uppercase` under `<html lang>`: Turkic languages map i → İ (and ı → I).
+String cssUpper(String text, [String? language]) {
+  final lang = language ?? I18nRuntime.instance.language;
+  if (lang == 'az' || lang == 'tr') {
+    text = text.replaceAll('i', 'İ');
+  }
+  return text.toUpperCase();
+}
+
+// date-fns `az` locale values (node_modules/date-fns/locale/az/_lib/localize.js): capitalised months, unlike intl's az.
+const _azMonths = ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'İyun', 'İyul', 'Avqust', 'Sentyabr', 'Oktyabr', 'Noyabr', 'Dekabr'];
+const _azMonthsShort = ['Yan', 'Fev', 'Mar', 'Apr', 'May', 'İyun', 'İyul', 'Avq', 'Sen', 'Okt', 'Noy', 'Dek'];
+const _azDays = ['Bazar', 'Bazar ertəsi', 'Çərşənbə axşamı', 'Çərşənbə', 'Cümə axşamı', 'Cümə', 'Şənbə'];
+
+/// date-fns `az` short weekday names, Sunday first (react-day-picker `cccccc`).
+const List<String> azWeekdayShort = ['B.', 'B.e', 'Ç.a', 'Ç.', 'C.a', 'C.', 'Ş.'];
+
+/// `format(date, pattern, { locale: getCurrentDateLocale() })`. For `az` the date-fns tables are used (intl's az data
+/// is lower-case); other languages go through [formatDatePattern]. Supported tokens: d, MMM, MMMM, y, yyyy, EEEE.
+String flowFormat(DateTime date, String pattern, {String? language}) {
+  final lang = language ?? I18nRuntime.instance.language;
+  if (lang != 'az') return formatDatePattern(date, pattern, language: lang);
+  return pattern.replaceAllMapped(RegExp(r'EEEE|MMMM|MMM|yyyy|y|d'), (m) => switch (m[0]) {
+        'EEEE' => _azDays[date.weekday % 7],
+        'MMMM' => _azMonths[date.month - 1],
+        'MMM' => _azMonthsShort[date.month - 1],
+        'yyyy' || 'y' => '${date.year}',
+        _ => '${date.day}',
+      });
+}

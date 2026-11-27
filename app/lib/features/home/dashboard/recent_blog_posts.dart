@@ -65,7 +65,9 @@ class RecentBlogPosts extends ConsumerWidget {
     final filtered = lifeStage == null ? blog.posts : blog.posts.where((p) => blogMatchesStage(p, lifeStage!)).toList();
     if (blog.loading) {
       return AHomeSection(
-        child: APulse(child: ACard(child: const SizedBox(height: 230 - 36))),
+        child: APulse(
+          child: ACard(child: const SizedBox(height: 230 - 36)),
+        ),
       );
     }
     if (filtered.isEmpty) return const SizedBox.shrink();
@@ -136,72 +138,84 @@ class _BlogCarouselState extends State<BlogCarousel> {
       trailing: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => widget.onNavigate('blog'),
-        child: Row(mainAxisSize: MainAxisSize.min, children: [
-          Text(tr('blogscreen_all_filter', 'Hamısı'), style: x.aSectionLink),
-          const SizedBox(width: 2),
-          AIcon(AIcons.chevronRight, size: 13, color: t.onBgSoft, mirrorInRtl: true),
-        ]),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(tr('blogscreen_all_filter', 'Hamısı'), style: x.aSectionLink),
+            const SizedBox(width: 2),
+            AIcon(AIcons.chevronRight, size: 13, color: t.onBgSoft, mirrorInRtl: true),
+          ],
+        ),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-        LayoutBuilder(builder: (context, c) {
-          // `.a-blog-rail`: margin-inline -20px, padding 2 20 10; cards `calc(100% - 40px)` of the rail.
-          final railW = c.maxWidth + 40;
-          final cardW = railW - 40;
-          _step = cardW + 12;
-          final coverH = cardW * 21 / 40;
-          final rtl = Directionality.of(context) == TextDirection.rtl;
-          return Transform.translate(
-            offset: Offset(rtl ? 20 : -20, 0),
-            child: SizedBox(
-              width: railW,
-              child: Listener(
-                onPointerDown: (_) => _pause(),
-                onPointerSignal: (_) => _pause(),
-                child: NotificationListener<ScrollNotification>(
-                  onNotification: _onScroll,
-                  child: SizedBox(
-                    height: 2 + coverH + 12 + 2 * 14.5 * 1.3 + 5 + 2 * 12.5 * 1.45 + 14 + 10,
-                    child: ListView.separated(
-                      key: const ValueKey('blog-rail'),
-                      controller: _rail,
-                      scrollDirection: Axis.horizontal,
-                      physics: _SnapPhysics(step: _step),
-                      padding: const EdgeInsets.fromLTRB(20, 2, 20, 10),
-                      itemCount: widget.posts.length,
-                      separatorBuilder: (_, _) => const SizedBox(width: 12),
-                      itemBuilder: (context, i) => _BlogCard(
-                        post: widget.posts[i],
-                        width: cardW,
-                        coverHeight: coverH,
-                        onTap: () => widget.onNavigate('blog/${widget.posts[i]['slug']}'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          LayoutBuilder(
+            builder: (context, c) {
+              // `.a-blog-rail`: margin-inline -20px, padding 2 20 10; cards `calc(100% - 40px)` of the rail.
+              final railW = c.maxWidth + 40;
+              final cardW = railW - 40;
+              _step = cardW + 12;
+              final coverH = cardW * 21 / 40;
+              final rtl = Directionality.of(context) == TextDirection.rtl;
+              return Transform.translate(
+                offset: Offset(rtl ? 20 : -20, 0),
+                child: SizedBox(
+                  width: railW,
+                  child: Listener(
+                    onPointerDown: (_) => _pause(),
+                    onPointerSignal: (_) => _pause(),
+                    child: NotificationListener<ScrollNotification>(
+                      onNotification: _onScroll,
+                      child: SizedBox(
+                        height: 4 + coverH + 12 + 2 * 14.5 * 1.3 + 5 + 2 * 12.5 * 1.45 + 14 + 10,
+                        child: ListView.separated(
+                          key: const ValueKey('blog-rail'),
+                          controller: _rail,
+                          scrollDirection: Axis.horizontal,
+                          physics: _SnapPhysics(step: _step),
+                          padding: const EdgeInsets.fromLTRB(20, 2, 20, 10),
+                          itemCount: widget.posts.length,
+                          separatorBuilder: (_, _) => const SizedBox(width: 12),
+                          itemBuilder: (context, i) => _BlogCard(
+                            post: widget.posts[i],
+                            width: cardW,
+                            coverHeight: coverH,
+                            onTap: () => widget.onNavigate('blog/${widget.posts[i]['slug']}'),
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
+              );
+            },
+          ),
+          if (widget.posts.length > 1)
+            Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: ExcludeSemantics(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (var i = 0; i < widget.posts.length; i++) ...[
+                      if (i > 0) const SizedBox(width: 5),
+                      AnimatedContainer(
+                        key: ValueKey('blog-dot-$i'),
+                        duration: const Duration(milliseconds: 200),
+                        curve: ACurves.cssEase,
+                        width: i == _active ? 16 : 6,
+                        height: 6,
+                        decoration: BoxDecoration(color: i == _active ? t.peach2 : t.lineStrong, borderRadius: BorderRadius.circular(999)),
+                      ),
+                    ],
+                  ],
+                ),
               ),
             ),
-          );
-        }),
-        if (widget.posts.length > 1)
-          Padding(
-            padding: const EdgeInsets.only(top: 2),
-            child: ExcludeSemantics(
-              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                for (var i = 0; i < widget.posts.length; i++) ...[
-                  if (i > 0) const SizedBox(width: 5),
-                  AnimatedContainer(
-                    key: ValueKey('blog-dot-$i'),
-                    duration: const Duration(milliseconds: 200),
-                    curve: ACurves.cssEase,
-                    width: i == _active ? 16 : 6,
-                    height: 6,
-                    decoration: BoxDecoration(color: i == _active ? t.peach2 : t.lineStrong, borderRadius: BorderRadius.circular(999)),
-                  ),
-                ],
-              ]),
-            ),
-          ),
-      ]),
+        ],
+      ),
     );
   }
 }
@@ -228,45 +242,71 @@ class _BlogCard extends StatelessWidget {
           width: width,
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(color: t.surface, borderRadius: BorderRadius.circular(t.radiusLg), boxShadow: t.cardShadow),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            SizedBox(
-              height: coverHeight,
-              child: Stack(fit: StackFit.expand, children: [
-                ColoredBox(color: tokens.isDark ? t.surfaceSoft : t.peach1),
-                if (cover != null && cover.isNotEmpty)
-                  CachedNetworkImage(imageUrl: cover, fit: BoxFit.cover, errorWidget: (_, _, _) => const SizedBox())
-                else
-                  Center(child: AIcon(AIcons.bookOpen, size: 28, color: t.accentInk)),
-                PositionedDirectional(
-                  top: 10,
-                  start: 10,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
-                    decoration: BoxDecoration(color: t.surface, borderRadius: BorderRadius.circular(999)),
-                    child: Row(mainAxisSize: MainAxisSize.min, children: [
-                      AIcon(AIcons.clock, size: 11, color: t.ink),
-                      const SizedBox(width: 4),
-                      Text('${post['reading_time'] ?? ''} ${tr('recentblogposts_deq_780a5c', 'dəq')}',
-                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: t.ink, height: 1.5)),
-                    ]),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: coverHeight,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    ColoredBox(color: tokens.isDark ? t.surfaceSoft : t.peach1),
+                    if (cover != null && cover.isNotEmpty)
+                      CachedNetworkImage(imageUrl: cover, fit: BoxFit.cover, errorWidget: (_, _, _) => const SizedBox())
+                    else
+                      Center(child: AIcon(AIcons.bookOpen, size: 28, color: t.accentInk)),
+                    PositionedDirectional(
+                      top: 10,
+                      start: 10,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+                        decoration: BoxDecoration(color: t.surface, borderRadius: BorderRadius.circular(999)),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            AIcon(AIcons.clock, size: 11, color: t.ink),
+                            const SizedBox(width: 4),
+                            Text(
+                              '${post['reading_time'] ?? ''} ${tr('recentblogposts_deq_780a5c', 'dəq')}',
+                              style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: t.ink, height: 1.5),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ClipRect(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          post.str('title') ?? '',
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 14.5, fontWeight: FontWeight.w700, height: 1.3, color: t.ink),
+                        ),
+                        if (excerpt != null && excerpt.isNotEmpty) ...[
+                          const SizedBox(height: 5),
+                          Text(
+                            excerpt,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 12.5, height: 1.45, color: t.inkSoft),
+                          ),
+                        ],
+                      ],
+                    ),
                   ),
                 ),
-              ]),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                Text(post.str('title') ?? '',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 14.5, fontWeight: FontWeight.w700, height: 1.3, color: t.ink)),
-                if (excerpt != null && excerpt.isNotEmpty) ...[
-                  const SizedBox(height: 5),
-                  Text(excerpt, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 12.5, height: 1.45, color: t.inkSoft)),
-                ],
-              ]),
-            ),
-          ]),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -283,8 +323,7 @@ class _SnapPhysics extends ScrollPhysics {
 
   @override
   Simulation? createBallisticSimulation(ScrollMetrics position, double velocity) {
-    if ((velocity <= 0 && position.pixels <= position.minScrollExtent) ||
-        (velocity >= 0 && position.pixels >= position.maxScrollExtent)) {
+    if ((velocity <= 0 && position.pixels <= position.minScrollExtent) || (velocity >= 0 && position.pixels >= position.maxScrollExtent)) {
       return super.createBallisticSimulation(position, velocity);
     }
     var page = position.pixels / step;

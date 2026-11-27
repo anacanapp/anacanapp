@@ -13,6 +13,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:local_auth/local_auth.dart';
 
 import '../../state/state.dart';
+import 'screen_capture_guard.dart';
 
 const String kLockEnabled = 'anacan_lock_enabled';
 const String kLockHash = 'anacan_lock_hash';
@@ -77,7 +78,11 @@ class LocalAuthBiometric implements BiometricAuth {
   }
 }
 
-final biometricAuthProvider = Provider<BiometricAuth>((ref) => LocalAuthBiometric());
+final biometricAuthProvider = Provider<BiometricAuth>((ref) => LocalAuthBiometric(
+      // The Face ID sheet resigns the app on iOS; without this the privacy cover flashed over the lock screen.
+      onPromptStart: () => ref.read(screenshotGuardPlatformProvider).setCurtainSuspended(true),
+      onPromptEnd: () => ref.read(screenshotGuardPlatformProvider).setCurtainSuspended(false),
+    ));
 
 /// Whether the app runs natively (Capacitor.isNativePlatform). Always true in the Flutter app; tests override.
 final isNativePlatformProvider = Provider<bool>((ref) => !kIsWeb);

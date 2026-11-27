@@ -399,7 +399,7 @@ class _InitialLanguageScreenState extends ConsumerState<InitialLanguageScreen> {
                 ),
                 Text(lang.nativeLabel, textAlign: TextAlign.center, style: css(13.5, FontWeight.w700, color: a.ink)),
                 const SizedBox(height: 2),
-                Text(lang.subLabel.toUpperCase(),
+                Text(cssUppercase(lang.subLabel, ref.read(userStoreProvider).language),
                     textAlign: TextAlign.center, style: css(9.5, FontWeight.w600, lsEm: 0.06, color: a.inkSoft)),
               ]),
             ),

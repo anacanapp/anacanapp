@@ -38,8 +38,9 @@ class StoryArt extends StatelessWidget {
   final double? width;
 
   @override
-  Widget build(BuildContext context) =>
-      ExcludeSemantics(child: SvgPicture.string(storyIllustration(name, c, a), width: width, fit: BoxFit.fitWidth));
+  Widget build(BuildContext context) => ExcludeSemantics(
+    child: SvgPicture.string(storyIllustration(name, c, a), width: width, fit: BoxFit.fitWidth),
+  );
 }
 
 /// `useServerStories(language, enabled)` — key `['app-stories', language]`, 10 min stale, retry 1, device cache.
@@ -163,38 +164,45 @@ class _DashboardStoriesState extends ConsumerState<DashboardStories> {
       // Order is fixed while the viewer is open so "next story" does not jump when one is marked seen.
       final frozen = List<Story>.of(list);
       final nav = ref.read(homeNavigationProvider);
-      unawaited(Navigator.of(context, rootNavigator: true).push<void>(PageRouteBuilder<void>(
-        opaque: true,
-        transitionDuration: const Duration(milliseconds: 180),
-        pageBuilder: (ctx, a1, a2) => StoryViewer(
-          stories: frozen,
-          startIndex: index,
-          vars: vars,
-          onClose: () => Navigator.of(ctx).maybePop(),
-          onSeen: (id) => _markSeen(uid, id),
-          onCta: (story, slide) {
-            final cta = slide['cta'] as Map?;
-            if (cta == null) return;
-            _markSeen(uid, story['id'] as String);
-            Navigator.of(ctx).maybePop();
-            final n = (cta['nav'] as Map?) ?? const {};
-            Timer(const Duration(milliseconds: 60), () {
-              if (n['tool'] != null) {
-                nav.pushIntent(tool: n['tool'] as String);
-              } else if (n['tab'] != null) {
-                nav.pushIntent(tab: n['tab'] as String);
-              } else {
-                nav.pushIntent(screen: n['screen'] as String?);
-              }
-            });
-          },
+      unawaited(
+        Navigator.of(context, rootNavigator: true).push<void>(
+          PageRouteBuilder<void>(
+            opaque: true,
+            transitionDuration: const Duration(milliseconds: 180),
+            pageBuilder: (ctx, a1, a2) => StoryViewer(
+              stories: frozen,
+              startIndex: index,
+              vars: vars,
+              onClose: () => Navigator.of(ctx).maybePop(),
+              onSeen: (id) => _markSeen(uid, id),
+              onCta: (story, slide) {
+                final cta = slide['cta'] as Map?;
+                if (cta == null) return;
+                _markSeen(uid, story['id'] as String);
+                Navigator.of(ctx).maybePop();
+                final n = (cta['nav'] as Map?) ?? const {};
+                Timer(const Duration(milliseconds: 60), () {
+                  if (n['tool'] != null) {
+                    nav.pushIntent(tool: n['tool'] as String);
+                  } else if (n['tab'] != null) {
+                    nav.pushIntent(tab: n['tab'] as String);
+                  } else {
+                    nav.pushIntent(screen: n['screen'] as String?);
+                  }
+                });
+              },
+            ),
+            // `as-in .18s ease-out`: opacity 0 → 1, scale .98 → 1.
+            transitionsBuilder: (ctx, a, _, child) => FadeTransition(
+              opacity: CurvedAnimation(parent: a, curve: ACurves.cssEaseOut),
+              child: ScaleTransition(
+                scale: Tween<double>(begin: 0.98, end: 1).animate(CurvedAnimation(parent: a, curve: ACurves.cssEaseOut)),
+                child: child,
+              ),
+            ),
+          ),
         ),
-        // `as-in .18s ease-out`: opacity 0 → 1, scale .98 → 1.
-        transitionsBuilder: (ctx, a, _, child) => FadeTransition(
-          opacity: CurvedAnimation(parent: a, curve: ACurves.cssEaseOut),
-          child: ScaleTransition(scale: Tween<double>(begin: 0.98, end: 1).animate(CurvedAnimation(parent: a, curve: ACurves.cssEaseOut)), child: child),
-        ),
-      )));
+      );
     }
 
     final t = context.a;
@@ -205,7 +213,7 @@ class _DashboardStoriesState extends ConsumerState<DashboardStories> {
         key: const ValueKey('dashboard-stories'),
         padding: const EdgeInsets.only(top: 2, bottom: 10),
         child: SizedBox(
-          height: 4 + 68 + 5 + 11 * 1.15 * 2 + 6,
+          height: 4 + 68 + 5 + 11 * 1.15 * 2 + 6 + 2,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.fromLTRB(2, 4, 2, 6),
@@ -225,51 +233,66 @@ class _DashboardStoriesState extends ConsumerState<DashboardStories> {
                   onTap: () => open(i),
                   child: SizedBox(
                     width: 72,
-                    child: Column(children: [
-                      PressScale.css(
-                        scale: 0.94,
-                        child: Container(
-                          width: 68,
-                          height: 68,
-                          padding: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: isSeen ? t.line : null,
-                            gradient: isSeen
-                                ? null
-                                : const SweepGradient(
-                                    colors: [Color(0xFFFF5A5F), Color(0xFFFFB37A), Color(0xFFFFD84D), Color(0xFFFF5A5F)],
-                                    transform: GradientRotation((210 - 90) * 3.141592653589793 / 180),
-                                  ),
-                          ),
+                    child: Column(
+                      children: [
+                        PressScale.css(
+                          scale: 0.94,
                           child: Container(
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(shape: BoxShape.circle, color: th.bg, border: Border.all(color: t.bg, width: 3)),
-                            child: LayoutBuilder(builder: (context, c) {
-                              final w = c.maxWidth;
-                              return OverflowBox(
-                                alignment: Alignment.topLeft,
-                                maxWidth: w * 1.25,
-                                minWidth: w * 1.25,
-                                child: Transform.translate(
-                                  offset: Offset(-w * 0.125, w * 0.14),
-                                  child: StoryArt(name: s['illus'] as String?, c: th.pop, a: th.light ? th.ink : const Color(0xFFFFFFFF), width: w * 1.25),
-                                ),
-                              );
-                            }),
+                            width: 68,
+                            height: 68,
+                            padding: const EdgeInsets.all(3),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: isSeen ? t.line : null,
+                              gradient: isSeen
+                                  ? null
+                                  : const SweepGradient(
+                                      colors: [Color(0xFFFF5A5F), Color(0xFFFFB37A), Color(0xFFFFD84D), Color(0xFFFF5A5F)],
+                                      transform: GradientRotation((210 - 90) * 3.141592653589793 / 180),
+                                    ),
+                            ),
+                            child: Container(
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: th.bg,
+                                border: Border.all(color: t.bg, width: 3),
+                              ),
+                              child: LayoutBuilder(
+                                builder: (context, c) {
+                                  final w = c.maxWidth;
+                                  return OverflowBox(
+                                    alignment: Alignment.topLeft,
+                                    maxWidth: w * 1.25,
+                                    minWidth: w * 1.25,
+                                    child: Transform.translate(
+                                      offset: Offset(-w * 0.125, w * 0.14),
+                                      child: StoryArt(
+                                        name: s['illus'] as String?,
+                                        c: th.pop,
+                                        a: th.light ? th.ink : const Color(0xFFFFFFFF),
+                                        width: w * 1.25,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 5),
-                      Opacity(
-                        opacity: isSeen ? 0.7 : 1,
-                        child: Text(title,
+                        const SizedBox(height: 5),
+                        Opacity(
+                          opacity: isSeen ? 0.7 : 1,
+                          child: Text(
+                            title,
                             maxLines: 2,
                             overflow: TextOverflow.clip,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, height: 1.15, color: t.inkSoft)),
-                      ),
-                    ]),
+                            style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, height: 1.15, color: t.inkSoft),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );

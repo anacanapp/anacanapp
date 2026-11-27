@@ -466,7 +466,9 @@ class RevenueCatService {
             prorationMode: toAnnual ? prorationImmediateWithTimeProration : prorationDeferred,
           );
         }
-        customerInfo = await sdk.purchaseSubscriptionOption(Map<String, Object?>.from(option as Map), change: change);
+        // The SDK adapter maps the exact option object back to its native option, so it is passed as is.
+        customerInfo = await sdk.purchaseSubscriptionOption(option is Map<String, Object?> ? option : Map<String, Object?>.from(option as Map),
+            change: change);
       } else {
         final intro = _get(product, 'introPrice');
         if (platform == 'ios' && _truthy(intro)) {

@@ -116,7 +116,7 @@ class AppIntroduction extends ConsumerWidget {
                             ]),
                           ),
                           // .onb-center
-                          Text(t('welcome_eyebrow').toUpperCase(),
+                          Text(cssUppercase(t('welcome_eyebrow'), language),
                               textAlign: TextAlign.center,
                               style: base.copyWith(
                                   fontSize: 10, letterSpacing: 1.1, height: 1.7, color: o.muted, fontWeight: FontWeight.w700)),

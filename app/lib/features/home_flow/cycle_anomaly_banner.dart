@@ -15,7 +15,7 @@ class CycleAnomaly {
 }
 
 /// The anomaly list the banner shows (empty → nothing rendered).
-List<CycleAnomaly> cycleAnomalies(List<Map<String, dynamic>> cycles, FlowCycleStats stats) {
+List<CycleAnomaly> cycleAnomalies(List<Map<String, dynamic>> cycles, CycleStatsData stats) {
   if (!cycles.any((c) => c['cycle_length'] != null && c['cycle_length'] != 0)) return const [];
   return [
     if (stats.shortestCycle > 0 && stats.shortestCycle < 21)

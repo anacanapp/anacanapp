@@ -11,6 +11,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../domain/js_compat.dart' show DomainClock;
+
 import '../../core/i18n/tr.dart';
 import '../../design/design.dart';
 import '../../state/user_store.dart';
@@ -96,6 +98,7 @@ class Dashboard extends ConsumerWidget {
                 key: const ValueKey('dashboard-slivers'),
                 shrinkWrap: true,
                 primary: false,
+                clipBehavior: Clip.none,
                 physics: const NeverScrollableScrollPhysics(),
                 slivers: slivers,
               ),
@@ -122,7 +125,7 @@ class _TopBar extends ConsumerWidget {
     final unread = ref.watch(homeTotalUnreadProvider);
     final slots = ref.watch(homeSlotsProvider);
     final nav = ref.watch(homeNavigationProvider);
-    final greeting = dashboardGreeting((now ?? DateTime.now)());
+    final greeting = dashboardGreeting((now ?? DomainClock.now)());
     final display = (name == null || name!.isEmpty) ? tr('dashboard_xanim_39ff6a', 'Xanım') : name!;
     return FramerEnter(
       y: -20,
@@ -131,33 +134,47 @@ class _TopBar extends ConsumerWidget {
         child: Padding(
           key: const ValueKey('dashboard-topbar'),
           padding: const EdgeInsets.symmetric(vertical: 12),
-          child: Row(children: [
-            Expanded(
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 2),
-                  child: Text(cssUppercase(greeting, language),
-                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 1.1, color: t.onBgSoft, height: 1.5)),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 2),
+                      child: Text(
+                        cssUppercase(greeting, language),
+                        style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 1.1, color: t.onBgSoft, height: 1.5),
+                      ),
+                    ),
+                    Text(
+                      '$display ${recovering ? '🤍' : '👋'}',
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, letterSpacing: -0.15, color: t.onBg, height: 1.35),
+                    ),
+                  ],
                 ),
-                Text('$display ${recovering ? '🤍' : '👋'}',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, letterSpacing: -0.15, color: t.onBg, height: 1.35)),
-              ]),
-            ),
-            const SizedBox(width: 12),
-            if (lifeStage == 'mommy')
-              homeSlot(context, slots.childSelectorCompact)
-            else
-              AIconBtn(
-                key: const ValueKey('dashboard-chat'),
-                semanticLabel: tr('bottomnav_mesajlar', 'Mesajlar'),
-                onTap: nav.openChat,
-                child: Stack(clipBehavior: Clip.none, alignment: Alignment.center, children: [
-                  const SizedBox(width: 42, height: 42),
-                  const AIcon(AIcons.messageCircle, size: 16),
-                  if (unread > 0) PositionedDirectional(top: -4, end: -4, child: AUnreadBadge(unread)),
-                ]),
               ),
-          ]),
+              const SizedBox(width: 12),
+              if (lifeStage == 'mommy')
+                homeSlot(context, slots.childSelectorCompact)
+              else
+                AIconBtn(
+                  key: const ValueKey('dashboard-chat'),
+                  semanticLabel: tr('bottomnav_mesajlar', 'Mesajlar'),
+                  onTap: nav.openChat,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    alignment: Alignment.center,
+                    children: [
+                      const SizedBox(width: 42, height: 42),
+                      const AIcon(AIcons.messageCircle, size: 16),
+                      if (unread > 0) PositionedDirectional(top: -4, end: -4, child: AUnreadBadge(unread)),
+                    ],
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

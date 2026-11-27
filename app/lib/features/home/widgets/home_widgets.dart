@@ -51,7 +51,10 @@ class _AFadeInState extends State<AFadeIn> with SingleTickerProviderStateMixin {
       builder: (context, child) {
         final v = ACurves.cssEase.transform(_c.value);
         if (v >= 1) return child!;
-        return Opacity(opacity: v, child: Transform.translate(offset: Offset(0, 10 * (1 - v)), child: child));
+        return Opacity(
+          opacity: v,
+          child: Transform.translate(offset: Offset(0, 10 * (1 - v)), child: child),
+        );
       },
     );
   }
@@ -200,13 +203,13 @@ class AFloat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => _Loop(
-        period: const Duration(seconds: 4),
-        builder: (t, child) {
-          final dy = -4 * _pingPong(t);
-          return dy == 0 ? child : Transform.translate(offset: Offset(0, dy), child: child);
-        },
-        child: child,
-      );
+    period: const Duration(seconds: 4),
+    builder: (t, child) {
+      final dy = -4 * _pingPong(t);
+      return dy == 0 ? child : Transform.translate(offset: Offset(0, dy), child: child);
+    },
+    child: child,
+  );
 }
 
 /// One CSS `radial-gradient(<rx> <ry> at <cx> <cy>, stops)` layer, sizes as fractions of the box.
@@ -235,8 +238,15 @@ class _RadialLayersPainter extends CustomPainter {
       canvas.translate(l.cx * size.width, l.cy * size.height);
       canvas.scale(rx, ry);
       final paint = Paint()..shader = ui.Gradient.radial(Offset.zero, 1, l.colors, l.stops);
-      canvas.drawRect(Rect.fromLTRB(-l.cx * size.width / rx, -l.cy * size.height / ry, (size.width - l.cx * size.width) / rx,
-          (size.height - l.cy * size.height) / ry), paint);
+      canvas.drawRect(
+        Rect.fromLTRB(
+          -l.cx * size.width / rx,
+          -l.cy * size.height / ry,
+          (size.width - l.cx * size.width) / rx,
+          (size.height - l.cy * size.height) / ry,
+        ),
+        paint,
+      );
       canvas.restore();
     }
     canvas.restore();
@@ -277,57 +287,66 @@ class ASky extends StatelessWidget {
     final dark = tokens.isDark;
     final rtl = Directionality.of(context) == TextDirection.rtl;
     // c1–c7: width, height, top, start/end offset (px or %), opacity, delay (s), deep.
-    final clouds = <(double w, double h, double top, double? start, double? startPct, double? end, double? endPct, double op, double delay, bool deep)>[
-      (160, 48, 34, -34, null, null, null, 1, 0, false),
-      (120, 38, 84, null, null, -22, null, 0.9, 2.6, false),
-      (92, 30, 156, null, 0.12, null, null, 0.7, 5.2, false),
-      (130, 40, 196, null, null, null, 0.08, 0.55, 7.4, false),
-      (72, 26, 118, null, 0.44, null, null, 0.55, 3.8, false),
-      (110, 36, 58, null, 0.30, null, null, 1, 6.3, true),
-      (84, 30, 232, null, 0.34, null, null, 0.4, 1.4, true),
-    ];
+    final clouds =
+        <(double w, double h, double top, double? start, double? startPct, double? end, double? endPct, double op, double delay, bool deep)>[
+          (160, 48, 34, -34, null, null, null, 1, 0, false),
+          (120, 38, 84, null, null, -22, null, 0.9, 2.6, false),
+          (92, 30, 156, null, 0.12, null, null, 0.7, 5.2, false),
+          (130, 40, 196, null, null, null, 0.08, 0.55, 7.4, false),
+          (72, 26, 118, null, 0.44, null, null, 0.55, 3.8, false),
+          (110, 36, 58, null, 0.30, null, null, 1, 6.3, true),
+          (84, 30, 232, null, 0.34, null, null, 0.4, 1.4, true),
+        ];
     return IgnorePointer(
       child: SizedBox(
         height: height,
-        child: LayoutBuilder(builder: (context, c) {
-          final w = c.maxWidth;
-          return ClipRect(
-            child: Stack(children: [
-              Positioned.fill(child: CustomPaint(painter: _RadialLayersPainter(_layers(dark)))),
-              for (final cl in clouds)
-                Builder(builder: (context) {
-                  final startPx = cl.$4 ?? (cl.$5 != null ? cl.$5! * w : null);
-                  final endPx = cl.$6 ?? (cl.$7 != null ? cl.$7! * w : null);
-                  final left = startPx != null ? (rtl ? w - startPx - cl.$1 : startPx) : (rtl ? endPx! : w - endPx! - cl.$1);
-                  final color = cl.$10
-                      ? (dark ? const Color(0x1AF59E80) : const Color(0x66F59E80))
-                      : (dark ? const Color(0x12FFFFFF) : const Color(0xD9FFFFFF));
-                  return Positioned(
-                    left: left,
-                    top: cl.$3,
-                    width: cl.$1,
-                    height: cl.$2,
-                    child: _Loop(
-                      period: const Duration(seconds: 12),
-                      delay: Duration(milliseconds: (cl.$9 * 1000).round()),
-                      builder: (t, child) {
-                        final k = _pingPong(t);
-                        if (k == 0) return child;
-                        return Transform.translate(offset: Offset(16 * k, -7 * k), child: child);
+        child: LayoutBuilder(
+          builder: (context, c) {
+            final w = c.maxWidth;
+            return ClipRect(
+              child: Stack(
+                children: [
+                  Positioned.fill(child: CustomPaint(painter: _RadialLayersPainter(_layers(dark)))),
+                  for (final cl in clouds)
+                    Builder(
+                      builder: (context) {
+                        final startPx = cl.$4 ?? (cl.$5 != null ? cl.$5! * w : null);
+                        final endPx = cl.$6 ?? (cl.$7 != null ? cl.$7! * w : null);
+                        final left = startPx != null ? (rtl ? w - startPx - cl.$1 : startPx) : (rtl ? endPx! : w - endPx! - cl.$1);
+                        final color = cl.$10
+                            ? (dark ? const Color(0x1AF59E80) : const Color(0x66F59E80))
+                            : (dark ? const Color(0x12FFFFFF) : const Color(0xD9FFFFFF));
+                        return Positioned(
+                          left: left,
+                          top: cl.$3,
+                          width: cl.$1,
+                          height: cl.$2,
+                          child: _Loop(
+                            period: const Duration(seconds: 12),
+                            delay: Duration(milliseconds: (cl.$9 * 1000).round()),
+                            builder: (t, child) {
+                              final k = _pingPong(t);
+                              if (k == 0) return child;
+                              return Transform.translate(offset: Offset(16 * k, -7 * k), child: child);
+                            },
+                            child: Opacity(
+                              opacity: cl.$8,
+                              child: ImageFiltered(
+                                imageFilter: ui.ImageFilter.blur(sigmaX: 13, sigmaY: 13, tileMode: TileMode.decal),
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(999)),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
                       },
-                      child: Opacity(
-                        opacity: cl.$8,
-                        child: ImageFiltered(
-                          imageFilter: ui.ImageFilter.blur(sigmaX: 13, sigmaY: 13, tileMode: TileMode.decal),
-                          child: DecoratedBox(decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(999))),
-                        ),
-                      ),
                     ),
-                  );
-                }),
-            ]),
-          );
-        }),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -359,7 +378,10 @@ class AIconBtn extends StatelessWidget {
         border: Border.all(color: t.btnBorder),
         boxShadow: shadow,
       ),
-      child: IconTheme.merge(data: IconThemeData(color: t.ink), child: child),
+      child: IconTheme.merge(
+        data: IconThemeData(color: t.ink),
+        child: child,
+      ),
     );
     if (tapScale != null) box = PressScale(scale: tapScale!, child: box);
     return Semantics(
@@ -385,8 +407,16 @@ class ATag extends StatelessWidget {
         borderRadius: BorderRadius.circular(999),
         border: Border.all(color: const Color(0x00000000)),
       ),
-      child: Text(text,
-          style: TextStyle(fontSize: 11.5, fontWeight: FontWeight.w600, color: t.inkSoft, height: 1.5, leadingDistribution: TextLeadingDistribution.even)),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 11.5,
+          fontWeight: FontWeight.w600,
+          color: t.inkSoft,
+          height: 1.5,
+          leadingDistribution: TextLeadingDistribution.even,
+        ),
+      ),
     );
   }
 }
@@ -419,7 +449,10 @@ class ATrioIcon extends StatelessWidget {
       ),
       child: IconTheme.merge(
         data: IconThemeData(color: fg),
-        child: DefaultTextStyle.merge(style: TextStyle(color: fg), child: child),
+        child: DefaultTextStyle.merge(
+          style: TextStyle(color: fg),
+          child: child,
+        ),
       ),
     );
   }
@@ -456,15 +489,30 @@ class ATrioItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(t.radiusMd),
         boxShadow: shadow ? t.cardShadow : null,
       ),
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
-        icon,
-        Text(label,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          icon,
+          Text(
+            label,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: labelColor ?? t.inkSoft, height: 1.5, leadingDistribution: TextLeadingDistribution.even)),
-      ]),
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+              color: labelColor ?? t.inkSoft,
+              height: 1.5,
+              leadingDistribution: TextLeadingDistribution.even,
+            ),
+          ),
+        ],
+      ),
     );
     if (onTap != null) {
-      item = GestureDetector(behavior: HitTestBehavior.opaque, onTap: onTap, child: PressScale(scale: 0.92, child: item));
+      item = GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: PressScale(scale: 0.92, child: item),
+      );
     }
     return item;
   }
@@ -484,22 +532,28 @@ class AHomeSection extends StatelessWidget {
     final x = context.aText;
     return Padding(
       padding: EdgeInsets.only(top: marginTop),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-        if (title != null || trailing != null)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Row(
-              mainAxisAlignment: centerTitle ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                if (title != null)
-                  Flexible(child: Text(title!, textAlign: centerTitle ? TextAlign.center : TextAlign.start, style: x.aSectionTitle.copyWith(height: 1.5))),
-                ?trailing,
-              ],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (title != null || trailing != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Row(
+                mainAxisAlignment: centerTitle ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  if (title != null)
+                    Flexible(
+                      child: Text(title!, textAlign: centerTitle ? TextAlign.center : TextAlign.start, style: x.aSectionTitle.copyWith(height: 1.5)),
+                    ),
+                  ?trailing,
+                ],
+              ),
             ),
-          ),
-        child,
-      ]),
+          child,
+        ],
+      ),
     );
   }
 }
@@ -518,10 +572,20 @@ class AHomeTextCard extends StatelessWidget {
     return AFadeIn(
       child: ACard(
         color: color,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-          Padding(padding: const EdgeInsets.only(bottom: 10), child: Text(title, style: x.heading(x.aCardTitle.copyWith(fontSize: 15)))),
-          Text(text, style: TextStyle(fontSize: 12.5, height: 1.65, color: t.inkSoft, leadingDistribution: TextLeadingDistribution.even)),
-        ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Text(title, style: x.heading(x.aCardTitle.copyWith(fontSize: 15))),
+            ),
+            Text(
+              text,
+              style: TextStyle(fontSize: 12.5, height: 1.65, color: t.inkSoft, leadingDistribution: TextLeadingDistribution.even),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -540,8 +604,10 @@ class AUnreadBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 4),
       alignment: Alignment.center,
       decoration: BoxDecoration(color: const Color(0xFFE05555), borderRadius: BorderRadius.circular(999)), // Dashboard.tsx literal
-      child: Text(count > 9 ? '9+' : '$count',
-          style: const TextStyle(fontSize: 8.5, fontWeight: FontWeight.w800, color: Color(0xFFFFFFFF), height: 1)),
+      child: Text(
+        count > 9 ? '9+' : '$count',
+        style: const TextStyle(fontSize: 8.5, fontWeight: FontWeight.w800, color: Color(0xFFFFFFFF), height: 1),
+      ),
     );
   }
 }
@@ -554,8 +620,11 @@ class AEmoji extends StatelessWidget {
   final double size;
 
   @override
-  Widget build(BuildContext context) =>
-      Text(emoji, textAlign: TextAlign.center, style: TextStyle(fontSize: size, height: 1, fontWeight: FontWeight.w400));
+  Widget build(BuildContext context) => Text(
+    emoji,
+    textAlign: TextAlign.center,
+    style: TextStyle(fontSize: size, height: 1, fontWeight: FontWeight.w400),
+  );
 }
 
 /// `.a-list-icon` (40×40, r13; `.a-list-compact`: 32) with an inline `background: var(--a-grad-*)` / colour.
@@ -570,15 +639,18 @@ class AGradIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        width: size,
-        height: size,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(color: color, gradient: gradient, borderRadius: BorderRadius.circular(radius)),
-        child: IconTheme.merge(
-          data: IconThemeData(color: foreground),
-          child: DefaultTextStyle.merge(style: TextStyle(color: foreground), child: child),
-        ),
-      );
+    width: size,
+    height: size,
+    alignment: Alignment.center,
+    decoration: BoxDecoration(color: color, gradient: gradient, borderRadius: BorderRadius.circular(radius)),
+    child: IconTheme.merge(
+      data: IconThemeData(color: foreground),
+      child: DefaultTextStyle.merge(
+        style: TextStyle(color: foreground),
+        child: child,
+      ),
+    ),
+  );
 }
 
 /// Tailwind `animate-pulse`: `pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite` (opacity 1 → .5 → 1).

@@ -17,7 +17,7 @@ import 'package:supabase_flutter/supabase_flutter.dart' show AuthApiException, P
 import '../../design/harness.dart';
 import 'support.dart';
 
-class _Toasts extends AToastController {
+class RecordingToasts extends AToastController {
   final shown = <({String? title, String? description, bool destructive, Widget? action, Duration duration})>[];
   @override
   int show({String? title, String? description, bool destructive = false, Widget? action, Duration duration = AToastController.radixDuration}) {
@@ -27,7 +27,7 @@ class _Toasts extends AToastController {
 }
 
 late FakeAuthActions auth;
-late _Toasts toasts;
+late RecordingToasts toasts;
 late LocalStore store;
 var reloads = 0;
 
@@ -76,7 +76,7 @@ void main() {
   setUpAll(loadAnacanFonts);
   setUp(() {
     auth = FakeAuthActions();
-    toasts = _Toasts();
+    toasts = RecordingToasts();
     reloads = 0;
   });
 

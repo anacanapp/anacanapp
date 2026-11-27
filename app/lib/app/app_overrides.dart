@@ -1,11 +1,15 @@
 // Ported from: src/App.tsx (provider tree: AuthProvider, Theme, Direction, MotionConfig …) — the Riverpod
 //              overrides that wire the shell, the design layer and the startup feature together.
+import '../features/entry/entry_feature.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 
-import '../core/auth/auth_controller.dart' show AuthSideEffects, authSideEffectsProvider;
+import '../core/auth/auth_controller.dart'
+    show AuthSideEffects, authSideEffectsProvider;
 import '../design/device_tier.dart' show liteModeProvider;
-import '../features/startup/app_update/app_update.dart' show legacyForceUpdateGateProvider, updateCentreForceGateProvider;
+import '../features/startup/app_update/app_update.dart'
+    show legacyForceUpdateGateProvider, updateCentreForceGateProvider;
 import '../shell/feature_registry.dart';
 import '../state/shell_bindings.dart';
 import 'crash_reporter.dart';
@@ -20,21 +24,30 @@ List<Override> appRootOverrides({
   bool includeShellState = true,
   FeatureRegistry? registry,
   List<Override> extra = const [],
-}) =>
-    [
-      if (includeShellState) ...shellStateOverrides(),
-      featureRegistryProvider.overrideWithValue(registry ?? buildFeatureRegistry()),
-      // html.a-lite / MotionConfig reducedMotion: the design layer reads lite from the probed device tier.
-      liteModeProvider.overrideWith((ref) => ref.watch(appLiteModeProvider)),
-      // Index's update-centre and legacy force-update inputs (useAppUpdate / useForceUpdate).
-      updateCentreForceProvider.overrideWith((ref) => ref.watch(updateCentreForceGateProvider)),
-      legacyForceUpdateProvider.overrideWith((ref) => ref.watch(legacyForceUpdateGateProvider)),
-      // AuthContext → reportAuthError (crash reports for sign-in failures).
-      authSideEffectsProvider.overrideWithValue(
-        AuthSideEffects(reportAuthError: (provider, error) => CrashReporting.reportAuthError(provider, error)),
-      ),
-      ...extra,
-    ];
+}) => [
+  if (includeShellState) ...shellStateOverrides(),
+  // Consent gate input and native Google/Apple sign-in (features/entry).
+  if (includeShellState) ...entryOverrides(),
+  featureRegistryProvider.overrideWithValue(registry ?? buildFeatureRegistry()),
+  // html.a-lite / MotionConfig reducedMotion: the design layer reads lite from the probed device tier.
+  liteModeProvider.overrideWith((ref) => ref.watch(appLiteModeProvider)),
+  // Index's update-centre and legacy force-update inputs (useAppUpdate / useForceUpdate).
+  updateCentreForceProvider.overrideWith(
+    (ref) => ref.watch(updateCentreForceGateProvider),
+  ),
+  legacyForceUpdateProvider.overrideWith(
+    (ref) => ref.watch(legacyForceUpdateGateProvider),
+  ),
+  // AuthContext → reportAuthError (crash reports for sign-in failures).
+  authSideEffectsProvider.overrideWithValue(
+    AuthSideEffects(
+      reportAuthError: (provider, error) =>
+          CrashReporting.reportAuthError(provider, error),
+    ),
+  ),
+  ...extra,
+];
 
 /// The production container.
-ProviderContainer createAppContainer() => ProviderContainer(overrides: appRootOverrides());
+ProviderContainer createAppContainer() =>
+    ProviderContainer(overrides: appRootOverrides());

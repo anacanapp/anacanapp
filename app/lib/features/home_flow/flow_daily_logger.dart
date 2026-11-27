@@ -541,7 +541,7 @@ class _FlowDailyLoggerState extends ConsumerState<FlowDailyLogger> {
                   Expanded(
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text(tr('flowdailylogger_gundelik_qeyd_32e154', 'Gündəlik Qeyd'), style: context.aText.aListTitle),
-                      Padding(padding: const EdgeInsets.only(top: 2), child: Text(formatDatePattern(_date, 'd MMMM, EEEE'), style: context.aText.aListSub)),
+                      Padding(padding: const EdgeInsets.only(top: 2), child: Text(flowFormat(_date, 'd MMMM, EEEE'), style: context.aText.aListSub)),
                     ]),
                   ),
                   const SizedBox(width: 13),

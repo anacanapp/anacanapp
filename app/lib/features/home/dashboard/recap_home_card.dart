@@ -65,54 +65,75 @@ class RecapHomeCard extends ConsumerWidget {
             ),
             boxShadow: const [BoxShadow(offset: Offset(0, 10), blurRadius: 28, color: Color(0x47B92B4B))],
           ),
-          child: Stack(children: [
-            const Positioned.fill(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    center: Alignment.topRight,
-                    radius: 1.3,
-                    colors: [Color(0xFFFFC977), Color(0x00FFC977)],
-                    stops: [0, 0.45],
+          child: Stack(
+            children: [
+              const Positioned.fill(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      center: Alignment.topRight,
+                      radius: 1.3,
+                      colors: [Color(0xFFFFC977), Color(0x00FFC977)],
+                      stops: [0, 0.45],
+                    ),
                   ),
                 ),
               ),
-            ),
-            PositionedDirectional(
-              end: 14,
-              bottom: 6,
-              child: Text('$y', style: const TextStyle(fontSize: 64, fontWeight: FontWeight.w900, height: 1, color: Color(0x24FFFFFF))),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                Opacity(
-                  opacity: 0.9,
-                  child: Row(mainAxisSize: MainAxisSize.min, children: [
-                    const AIcon(AIcons.sparkles, size: 14, color: white),
-                    const SizedBox(width: 6),
-                    Text('ANACAN RECAP $y', style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w900, letterSpacing: 1.2, color: white)),
-                  ]),
+              PositionedDirectional(
+                end: 14,
+                bottom: 6,
+                child: Text(
+                  '$y',
+                  style: const TextStyle(fontSize: 64, fontWeight: FontWeight.w900, height: 1, color: Color(0x24FFFFFF)),
                 ),
-                const SizedBox(height: 8),
-                Text(fill(tr('recap_home_title', 'Sənin {year}-n hazırdır ✨')),
-                    style: const TextStyle(fontSize: 21, height: 1.2, fontWeight: FontWeight.w700, color: white)),
-                const SizedBox(height: 4),
-                Opacity(
-                  opacity: 0.9,
-                  child: Text(tr('recap_home_text', 'Bu ilin ən gözəl anları bir videoda. İzlə və paylaş.'),
-                      style: const TextStyle(fontSize: 13, height: 1.4, color: white)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Opacity(
+                      opacity: 0.9,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const AIcon(AIcons.sparkles, size: 14, color: white),
+                          const SizedBox(width: 6),
+                          Text(
+                            'ANACAN RECAP $y',
+                            style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w900, letterSpacing: 1.2, color: white),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      fill(tr('recap_home_title', 'Sənin {year}-n hazırdır ✨')),
+                      style: const TextStyle(fontSize: 21, height: 1.2, fontWeight: FontWeight.w700, color: white),
+                    ),
+                    const SizedBox(height: 4),
+                    Opacity(
+                      opacity: 0.9,
+                      child: Text(
+                        tr('recap_home_text', 'Bu ilin ən gözəl anları bir videoda. İzlə və paylaş.'),
+                        style: const TextStyle(fontSize: 13, height: 1.4, color: white),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                      decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(999)),
+                      child: Text(
+                        tr('recap_home_cta', 'İzlə'),
+                        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w900, color: Color(0xFFE63E4B)),
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 12),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-                  decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(999)),
-                  child: Text(tr('recap_home_cta', 'İzlə'),
-                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w900, color: Color(0xFFE63E4B))),
-                ),
-              ]),
-            ),
-          ]),
+              ),
+            ],
+          ),
         ),
       ),
     );

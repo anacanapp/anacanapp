@@ -68,7 +68,9 @@ class _FlowRemindersCardState extends ConsumerState<FlowRemindersCard> {
                     Text(time != null && time.length >= 5 ? time.substring(0, 5) : '09:00', style: x.aListSub),
                     if (daysBefore > 0) ...[
                       const SizedBox(width: 5),
-                      Text('· ${tr('flow_days_before', '{days} gün əvvəl').replaceFirst('{days}', '$daysBefore')}', style: x.aListSub),
+                      Flexible(
+                          child: Text('· ${tr('flow_days_before', '{days} gün əvvəl').replaceFirst('{days}', '$daysBefore')}',
+                              style: x.aListSub)),
                     ],
                   ]),
                 ),

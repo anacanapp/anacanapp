@@ -10,6 +10,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../../core/i18n/i18n.dart';
 import '../../../design/design.dart';
+import 'flow_common.dart' show azWeekdayShort, cssUpper, flowFormat;
 
 /// CSS `ease` keyword.
 const Cubic _ease = ACurves.cssEase;
@@ -399,7 +400,9 @@ class AIconSquareButton extends StatelessWidget {
     final a = context.a;
     return Semantics(
       button: true,
+      container: true,
       label: semanticLabel,
+      excludeSemantics: semanticLabel != null,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: onTap,
@@ -439,7 +442,7 @@ class ASectionHead extends StatelessWidget {
 }
 
 /// `.a-today-info-eyebrow` (upper-cased).
-Text aTodayInfoEyebrow(BuildContext context, String text) => Text(text.toUpperCase(),
+Text aTodayInfoEyebrow(BuildContext context, String text) => Text(cssUpper(text),
     style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, letterSpacing: 1.05, color: context.a.inkSoft, height: 1.5));
 
 /// `.a-section-link` text style with an optional colour override.
@@ -831,7 +834,12 @@ class _ShadDayPickerState extends State<ShadDayPicker> {
             ),
           ),
         );
-    final weekdayNames = [for (var i = 0; i < 7; i++) formatDatePattern(DateTime(2024, 1, 7 + (widget.weekStartsOn + i) % 7), 'EEEEEE')];
+    final weekdayNames = [
+      for (var i = 0; i < 7; i++)
+        currentLanguage() == 'az'
+            ? azWeekdayShort[(widget.weekStartsOn + i) % 7]
+            : formatDatePattern(DateTime(2024, 1, 7 + (widget.weekStartsOn + i) % 7), 'EEE'),
+    ];
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(border: Border.all(color: s.border), borderRadius: BorderRadius.circular(12)),
@@ -839,7 +847,7 @@ class _ShadDayPickerState extends State<ShadDayPicker> {
         SizedBox(
           height: 32,
           child: Stack(alignment: Alignment.center, children: [
-            Text(formatDatePattern(_month, 'LLLL y'), style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: s.foreground)),
+            Text(flowFormat(_month, 'MMMM y'), style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: s.foreground)),
             PositionedDirectional(start: 4, child: nav(AIcons.chevronLeft, -1)),
             PositionedDirectional(end: 4, child: nav(AIcons.chevronRight, 1)),
           ]),
@@ -891,7 +899,9 @@ class _ShadDayPickerState extends State<ShadDayPicker> {
     return Semantics(
       button: true,
       selected: selected,
-      label: formatDatePattern(day, 'd MMMM yyyy'),
+      enabled: !disabled,
+      label: flowFormat(day, 'd MMMM yyyy'),
+      excludeSemantics: true,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: disabled

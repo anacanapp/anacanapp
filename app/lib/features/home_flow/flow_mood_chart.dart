@@ -7,6 +7,7 @@ import '../../core/i18n/i18n.dart';
 import '../../design/design.dart';
 import '../../domain/dates/local_date.dart' show storedCalendarDate;
 import 'data/flow_hooks.dart';
+import 'widgets/flow_common.dart';
 import 'widgets/flow_ui.dart';
 
 // FlowMoodChart.tsx literals: mood #ec4899, energy #f59e0b.
@@ -32,7 +33,7 @@ List<MoodPoint> moodChartData(List<Map<String, dynamic>> rows, DateTime now) => 
           final d = DateTime(now.year, now.month, now.day - i);
           final key = ymd(d);
           final r = rows.where((x) => x['log_date'] == key).firstOrNull;
-          return MoodPoint(key, formatDatePattern(d, 'd'), _truthy(r?['mood']), _truthy(r?['energy_level']), _truthy(r?['pain_level']),
+          return MoodPoint(key, flowFormat(d, 'd'), _truthy(r?['mood']), _truthy(r?['energy_level']), _truthy(r?['pain_level']),
               _truthy(r?['sleep_quality']));
         }(),
     ];
@@ -202,7 +203,7 @@ class FlowMoodChart extends ConsumerWidget {
     final sub = TextStyle(fontSize: 12, color: s.mutedForeground, height: 16 / 12);
     const faces = ['', '😢', '😔', '😐', '😊', '🥰'];
     return LineTooltipItem(
-      date != null ? formatDatePattern(date, 'd MMMM') : '',
+      date != null ? flowFormat(date, 'd MMMM') : '',
       TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: s.foreground, height: 20 / 14),
       textAlign: TextAlign.start,
       children: [

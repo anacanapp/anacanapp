@@ -8,6 +8,7 @@ import '../../domain/cycle/cycle_predictions.dart' show isAnomalousCycleLength;
 import '../../domain/dates/local_date.dart' show storedCalendarDate;
 import 'copy/flow_copy.dart';
 import 'data/flow_hooks.dart';
+import 'widgets/flow_common.dart';
 import 'widgets/flow_ui.dart';
 
 class FlowCycleStats extends ConsumerWidget {
@@ -104,8 +105,8 @@ class FlowCycleStats extends ConsumerWidget {
       Expanded(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text.rich(
-            TextSpan(text: start != null ? formatDatePattern(start, 'd MMM') : '—', children: [
-              if (end != null) TextSpan(text: ' – ${formatDatePattern(end, 'd MMM')}', style: TextStyle(color: a.inkSoft)),
+            TextSpan(text: start != null ? flowFormat(start, 'd MMM') : '—', children: [
+              if (end != null) TextSpan(text: ' – ${flowFormat(end, 'd MMM')}', style: TextStyle(color: a.inkSoft)),
             ]),
             style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: a.ink, height: 1.5),
           ),

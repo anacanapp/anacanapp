@@ -18,7 +18,13 @@ import '../../state/white_noise_store.dart';
 import 'home_inputs.dart';
 
 /// Writes a stopped sleep / feeding session (`useBabyLogs().addLog`): `'saved' | 'queued' | 'error'`.
-typedef TimerLogSaver = Future<String> Function({required String type, String? feedType, required int startTime, required int endTime, String? childId});
+typedef TimerLogSaver = Future<String> Function({
+  required String type,
+  String? feedType,
+  required int startTime,
+  required int endTime,
+  String? childId,
+});
 
 final timerLogSaverProvider = Provider<TimerLogSaver>((ref) {
   return ({required type, feedType, required startTime, required endTime, childId}) async {
@@ -33,16 +39,20 @@ final timerLogSaverProvider = Provider<TimerLogSaver>((ref) {
       'child_id': childId ?? ref.read(homeSelectedChildProvider)?['id'],
     };
     final outcome = await ref.read(offlineOutboxProvider).saveWithOutbox(userId, 'baby_logs', row);
-    return switch (outcome.status) { SaveStatus.saved => 'saved', SaveStatus.queued => 'queued', SaveStatus.error => 'error' };
+    return switch (outcome.status) {
+      SaveStatus.saved => 'saved',
+      SaveStatus.queued => 'queued',
+      SaveStatus.error => 'error',
+    };
   };
 });
 
 ({AIconData icon, Color color, String label}) _config(String type) => switch (type) {
-      'feeding' => (icon: AIcons.baby, color: const Color(0xFFF43F5E), label: tr('floatingtimerwidget_emizdirme_20d46a', 'Əmizdirmə')),
-      'diaper' => (icon: AIcons.clock, color: const Color(0xFFF59E0B), label: tr('common_bez', 'Bez')),
-      'white-noise' => (icon: AIcons.volume2, color: const Color(0xFF10B981), label: tr('floatingtimerwidget_kuy_sesi_7b0cd5', 'Küy Səsi')),
-      _ => (icon: AIcons.moon, color: const Color(0xFF6366F1), label: tr('common_yuxu', 'Yuxu')),
-    };
+  'feeding' => (icon: AIcons.baby, color: const Color(0xFFF43F5E), label: tr('floatingtimerwidget_emizdirme_20d46a', 'Əmizdirmə')),
+  'diaper' => (icon: AIcons.clock, color: const Color(0xFFF59E0B), label: tr('common_bez', 'Bez')),
+  'white-noise' => (icon: AIcons.volume2, color: const Color(0xFF10B981), label: tr('floatingtimerwidget_kuy_sesi_7b0cd5', 'Küy Səsi')),
+  _ => (icon: AIcons.moon, color: const Color(0xFF6366F1), label: tr('common_yuxu', 'Yuxu')),
+};
 
 String formatTimerTime(int totalSeconds) {
   final h = totalSeconds ~/ 3600;
@@ -103,7 +113,12 @@ class _FloatingTimerWidgetState extends ConsumerState<FloatingTimerWidget> {
       final end = ref.read(timerClockProvider)();
       if ((timer.type == 'sleep' || timer.type == 'feeding') && end - timer.startTime >= 3000) {
         outcome = await ref.read(timerLogSaverProvider)(
-            type: timer.type, feedType: timer.feedType, startTime: timer.startTime, endTime: end, childId: timer.childId);
+          type: timer.type,
+          feedType: timer.feedType,
+          startTime: timer.startTime,
+          endTime: end,
+          childId: timer.childId,
+        );
       }
       if (!mounted) return;
       final toast = _toast();
@@ -160,56 +175,76 @@ class _FloatingTimerWidgetState extends ConsumerState<FloatingTimerWidget> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: cardDeco.copyWith(borderRadius: BorderRadius.circular(999)),
-            child: Row(mainAxisSize: MainAxisSize.min, children: [
-              Container(
-                width: 6,
-                height: 6,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF22C55E),
-                  shape: BoxShape.circle,
-                  boxShadow: const [BoxShadow(color: Color(0x4D22C55E), spreadRadius: 2)],
-                ),
-              ),
-              const SizedBox(width: 6),
-              if (noise.isPlaying && primary == null) ...[
-                Text(noise.soundEmoji ?? '🔊', style: const TextStyle(fontSize: 14)),
-                const SizedBox(width: 6),
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 60),
-                  child: Text(noise.soundName ?? tr('floatingtimerwidget_kuy_a91589', 'Küy'),
-                      overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: s.foreground)),
-                ),
-              ] else if (primary != null) ...[
-                AIcon(cfg!.icon, size: 14, color: cfg.color),
-                const SizedBox(width: 6),
-                _Elapsed(
-                  timerId: primary.id,
-                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: s.foreground, fontFeatures: const [FontFeature.tabularFigures()]),
-                ),
-              ],
-              if (count > 1) ...[
-                const SizedBox(width: 6),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
                 Container(
-                  width: 16,
-                  height: 16,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(color: s.muted, shape: BoxShape.circle),
-                  child: Text('$count', style: TextStyle(fontSize: 9, fontWeight: FontWeight.w600, color: s.mutedForeground)),
+                  width: 6,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF22C55E),
+                    shape: BoxShape.circle,
+                    boxShadow: const [BoxShadow(color: Color(0x4D22C55E), spreadRadius: 2)],
+                  ),
                 ),
+                const SizedBox(width: 6),
+                if (noise.isPlaying && primary == null) ...[
+                  Text(noise.soundEmoji ?? '🔊', style: const TextStyle(fontSize: 14)),
+                  const SizedBox(width: 6),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 60),
+                    child: Text(
+                      noise.soundName ?? tr('floatingtimerwidget_kuy_a91589', 'Küy'),
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: s.foreground),
+                    ),
+                  ),
+                ] else if (primary != null) ...[
+                  AIcon(cfg!.icon, size: 14, color: cfg.color),
+                  const SizedBox(width: 6),
+                  _Elapsed(
+                    timerId: primary.id,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      color: s.foreground,
+                      fontFeatures: const [FontFeature.tabularFigures()],
+                    ),
+                  ),
+                ],
+                if (count > 1) ...[
+                  const SizedBox(width: 6),
+                  Container(
+                    width: 16,
+                    height: 16,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(color: s.muted, shape: BoxShape.circle),
+                    child: Text(
+                      '$count',
+                      style: TextStyle(fontSize: 9, fontWeight: FontWeight.w600, color: s.mutedForeground),
+                    ),
+                  ),
+                ],
               ],
-            ]),
+            ),
           ),
         ),
       );
     } else {
       Widget round(Widget icon, Color bg, VoidCallback onTap, {Key? key}) => GestureDetector(
-            key: key,
-            onTap: onTap,
-            child: PressScale(
-              scale: 0.85,
-              child: Container(width: 24, height: 24, alignment: Alignment.center, decoration: BoxDecoration(color: bg, shape: BoxShape.circle), child: icon),
-            ),
-          );
+        key: key,
+        onTap: onTap,
+        child: PressScale(
+          scale: 0.85,
+          child: Container(
+            width: 24,
+            height: 24,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
+            child: icon,
+          ),
+        ),
+      );
       final destructiveSoft = s.destructive.withValues(alpha: 0.1);
       content = SizedBox(
         key: const ValueKey('floating-timer-panel'),
@@ -217,73 +252,122 @@ class _FloatingTimerWidgetState extends ConsumerState<FloatingTimerWidget> {
         child: Container(
           decoration: cardDeco.copyWith(borderRadius: BorderRadius.circular(16)),
           clipBehavior: Clip.antiAlias,
-          child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
-              child: Row(children: [
-                Expanded(
-                  child: Text(tr('untranslated_taymer_uen6sv', 'Taymer').toUpperCase(),
-                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, letterSpacing: 0.5, color: s.mutedForeground)),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        tr('untranslated_taymer_uen6sv', 'Taymer').toUpperCase(),
+                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, letterSpacing: 0.5, color: s.mutedForeground),
+                      ),
+                    ),
+                    round(
+                      AIcon(AIcons.x, size: 12, color: s.mutedForeground),
+                      s.muted.withValues(alpha: 0.6),
+                      () => setState(() => _expanded = false),
+                    ),
+                  ],
                 ),
-                round(AIcon(AIcons.x, size: 12, color: s.mutedForeground), s.muted.withValues(alpha: 0.6), () => setState(() => _expanded = false)),
-              ]),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-              child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-                if (noise.isPlaying)
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    decoration: BoxDecoration(color: const Color(0x1A10B981), borderRadius: BorderRadius.circular(12)),
-                    child: Row(children: [
-                      Text(noise.soundEmoji ?? '🔊', style: const TextStyle(fontSize: 14)),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                          Text(noise.soundName ?? tr('floatingtimerwidget_kuy_sesi_7b0cd5', 'Küy Səsi'),
-                              overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, height: 1.25, color: s.foreground)),
-                          Text(tr('floatingtimerwidget_oynayir_2c8aa6', 'Oynayır'), style: TextStyle(fontSize: 10, color: s.mutedForeground)),
-                        ]),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (noise.isPlaying)
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        decoration: BoxDecoration(color: const Color(0x1A10B981), borderRadius: BorderRadius.circular(12)),
+                        child: Row(
+                          children: [
+                            Text(noise.soundEmoji ?? '🔊', style: const TextStyle(fontSize: 14)),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    noise.soundName ?? tr('floatingtimerwidget_kuy_sesi_7b0cd5', 'Küy Səsi'),
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, height: 1.25, color: s.foreground),
+                                  ),
+                                  Text(tr('floatingtimerwidget_oynayir_2c8aa6', 'Oynayır'), style: TextStyle(fontSize: 10, color: s.mutedForeground)),
+                                ],
+                              ),
+                            ),
+                            round(
+                              AIcon(
+                                noise.isMuted ? AIcons.volumeX : AIcons.volume2,
+                                size: 10,
+                                color: noise.isMuted ? s.mutedForeground : const Color(0xFF059669),
+                              ),
+                              s.muted.withValues(alpha: 0.6),
+                              () => ref.read(whiteNoiseStoreProvider.notifier).toggleMute(),
+                            ),
+                            const SizedBox(width: 8),
+                            round(
+                              Container(width: 10, height: 10, color: s.destructive),
+                              destructiveSoft,
+                              () => ref.read(whiteNoiseStoreProvider.notifier).stop(),
+                            ),
+                          ],
+                        ),
                       ),
-                      round(
-                        AIcon(noise.isMuted ? AIcons.volumeX : AIcons.volume2, size: 10, color: noise.isMuted ? s.mutedForeground : const Color(0xFF059669)),
-                        s.muted.withValues(alpha: 0.6),
-                        () => ref.read(whiteNoiseStoreProvider.notifier).toggleMute(),
+                    for (final timer in timers) ...[
+                      if (noise.isPlaying || timer != timers.first) const SizedBox(height: 4),
+                      Container(
+                        key: ValueKey('floating-timer-${timer.id}'),
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        decoration: BoxDecoration(color: s.muted.withValues(alpha: 0.4), borderRadius: BorderRadius.circular(12)),
+                        child: Row(
+                          children: [
+                            AIcon(_config(timer.type).icon, size: 14, color: _config(timer.type).color),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    '${timer.childName != null && timer.childName!.isNotEmpty ? '${timer.childName} — ' : ''}${timer.label ?? _config(timer.type).label}'
+                                    '${timer.feedType != null ? ' (${timer.feedType == 'left' ? tr('dashboard_sol', 'Sol') : tr('floatingtimerwidget_sag_edbe12', 'Sağ')})' : ''}',
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, height: 1.25, color: s.foreground),
+                                  ),
+                                  _Elapsed(
+                                    timerId: timer.id,
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      color: s.foreground,
+                                      fontFeatures: const [FontFeature.tabularFigures()],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            round(
+                              Container(width: 10, height: 10, color: s.destructive),
+                              destructiveSoft,
+                              () => _stop(timer),
+                              key: ValueKey('floating-timer-stop-${timer.id}'),
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(width: 8),
-                      round(Container(width: 10, height: 10, color: s.destructive), destructiveSoft, () => ref.read(whiteNoiseStoreProvider.notifier).stop()),
-                    ]),
-                  ),
-                for (final timer in timers) ...[
-                  if (noise.isPlaying || timer != timers.first) const SizedBox(height: 4),
-                  Container(
-                    key: ValueKey('floating-timer-${timer.id}'),
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    decoration: BoxDecoration(color: s.muted.withValues(alpha: 0.4), borderRadius: BorderRadius.circular(12)),
-                    child: Row(children: [
-                      AIcon(_config(timer.type).icon, size: 14, color: _config(timer.type).color),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                          Text(
-                            '${timer.childName != null && timer.childName!.isNotEmpty ? '${timer.childName} — ' : ''}${timer.label ?? _config(timer.type).label}'
-                            '${timer.feedType != null ? ' (${timer.feedType == 'left' ? tr('dashboard_sol', 'Sol') : tr('floatingtimerwidget_sag_edbe12', 'Sağ')})' : ''}',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, height: 1.25, color: s.foreground),
-                          ),
-                          _Elapsed(
-                            timerId: timer.id,
-                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: s.foreground, fontFeatures: const [FontFeature.tabularFigures()]),
-                          ),
-                        ]),
-                      ),
-                      round(Container(width: 10, height: 10, color: s.destructive), destructiveSoft, () => _stop(timer), key: ValueKey('floating-timer-stop-${timer.id}')),
-                    ]),
-                  ),
-                ],
-              ]),
-            ),
-          ]),
+                    ],
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }

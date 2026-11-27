@@ -79,7 +79,7 @@ class _FlowPeriodCalendarState extends ConsumerState<FlowPeriodCalendar> {
     ref.read(recordPeriodDaysMutation.notifier).mutate(PeriodWrite(dates: [date], flow: flow), onSuccess: (_, _, _) {
       toast?.success(
         flow == 'clear' ? tr('flowperiodcalendar_period_gunu_silindi_c4a18f', 'Period günü silindi') : tr('flow_day_saved', 'Günün qeydi saxlanıldı'),
-        description: formatDatePattern(date, 'd MMMM'),
+        description: flowFormat(date, 'd MMMM'),
       );
       if (sheetContext.mounted) Navigator.of(sheetContext).pop();
     }, onError: (_, _, _) => toast?.error(tr('flow_save_failed', 'Qeyd saxlanılmadı. Yenidən cəhd edin.')));
@@ -173,7 +173,7 @@ class _FlowPeriodCalendarState extends ConsumerState<FlowPeriodCalendar> {
           button: true,
           enabled: !disabled,
           toggled: isLogged,
-          label: formatDatePattern(day, 'd MMMM yyyy'),
+          label: flowFormat(day, 'd MMMM yyyy'),
           child: KeyedSubtree(
             key: ValueKey('flow-day-$key'),
             child: PressScale(
@@ -233,7 +233,7 @@ class _FlowPeriodCalendarState extends ConsumerState<FlowPeriodCalendar> {
               const SizedBox(width: 8),
               ConstrainedBox(
                 constraints: const BoxConstraints(minWidth: 100),
-                child: Text(formatDatePattern(_month, 'MMMM yyyy'), textAlign: TextAlign.center, style: aSectionLinkStyle(context, color: a.ink)),
+                child: Text(flowFormat(_month, 'MMMM yyyy'), textAlign: TextAlign.center, style: aSectionLinkStyle(context, color: a.ink)),
               ),
               const SizedBox(width: 8),
               AIconSquareButton(
@@ -342,7 +342,7 @@ class _FlowPickerSheet extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final s = context.tokens.shadcn;
     final pending = ref.watch(recordPeriodDaysMutation).isPending;
-    final title = formatDatePattern(date, 'd MMMM yyyy');
+    final title = flowFormat(date, 'd MMMM yyyy');
     final selectedKey = selectedLog == null ? null : periodFlowLabel(selectedLog!['flow_intensity']);
     final options = _flowOptions();
 

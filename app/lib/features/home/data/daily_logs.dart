@@ -40,11 +40,11 @@ class DailyLogsState {
   final int outboxVersion;
 
   DailyLogsState copyWith({Rows? logs, Object? todayLog = _keep, bool? loading, int? outboxVersion}) => DailyLogsState(
-        logs: logs ?? this.logs,
-        todayLog: identical(todayLog, _keep) ? this.todayLog : todayLog as Row?,
-        loading: loading ?? this.loading,
-        outboxVersion: outboxVersion ?? this.outboxVersion,
-      );
+    logs: logs ?? this.logs,
+    todayLog: identical(todayLog, _keep) ? this.todayLog : todayLog as Row?,
+    loading: loading ?? this.loading,
+    outboxVersion: outboxVersion ?? this.outboxVersion,
+  );
 }
 
 const Object _keep = Object();
@@ -125,29 +125,40 @@ class DailyLogsController extends Notifier<DailyLogsState> {
   }
 
   Row _emptyDay(String userId, String day, num total) => {
-        'id': '', 'user_id': userId, 'log_date': day, 'mood': null, 'symptoms': null, 'water_intake': total,
-        'temperature': null, 'bleeding': null, 'notes': null, 'created_at': DateTime.now().toUtc().toIso8601String(),
-      };
+    'id': '',
+    'user_id': userId,
+    'log_date': day,
+    'mood': null,
+    'symptoms': null,
+    'water_intake': total,
+    'temperature': null,
+    'bleeding': null,
+    'notes': null,
+    'created_at': DateTime.now().toUtc().toIso8601String(),
+  };
 
   /// `updateWaterIntake(amount)`: adds [amount] glasses to the phone's current local day.
   Future<WaterTapOutcome> updateWaterIntake(num amount) async {
     final userId = _userId;
     if (userId == null) return const WaterTapOutcome(SaveStatus.error, error: 'No user logged in');
     final day = todayKey();
-    final outcome = await addWater(userId, amount, day: day, onServerTotal: (total, totalDay, applied) {
-      if (!ref.mounted) return;
-      _waterGeneration++;
-      final prev = state.todayLog;
-      state = state.copyWith(
-          todayLog: prev?['log_date'] == totalDay ? {...prev!, 'water_intake': total} : _emptyDay(userId, totalDay, total));
-      if (water.crossesWaterGoal(applied: applied, total: total, amount: amount)) ref.read(homeWaterGoalNotifierProvider)();
-    });
+    final outcome = await addWater(
+      userId,
+      amount,
+      day: day,
+      onServerTotal: (total, totalDay, applied) {
+        if (!ref.mounted) return;
+        _waterGeneration++;
+        final prev = state.todayLog;
+        state = state.copyWith(todayLog: prev?['log_date'] == totalDay ? {...prev!, 'water_intake': total} : _emptyDay(userId, totalDay, total));
+        if (water.crossesWaterGoal(applied: applied, total: total, amount: amount)) ref.read(homeWaterGoalNotifierProvider)();
+      },
+    );
     return outcome;
   }
 
   /// `addWater(userId, delta, options)` of water-intake.ts.
-  Future<WaterTapOutcome> addWater(String userId, num delta,
-      {String? day, void Function(num total, String day, bool applied)? onServerTotal}) {
+  Future<WaterTapOutcome> addWater(String userId, num delta, {String? day, void Function(num total, String day, bool applied)? onServerTotal}) {
     final outbox = _outbox;
     final d = day ?? todayKey();
     final id = newClientId();
@@ -179,9 +190,13 @@ class DailyLogsController extends Notifier<DailyLogsState> {
     final previous = _waterChains[userId] ?? Future<Object?>.value();
     final current = previous.then((_) => null, onError: (Object _) => null).then((_) => run());
     _waterChains[userId] = current;
-    unawaited(current.whenComplete(() {
-      if (identical(_waterChains[userId], current)) _waterChains.remove(userId);
-    }).then((_) {}, onError: (Object _) {}));
+    unawaited(
+      current
+          .whenComplete(() {
+            if (identical(_waterChains[userId], current)) _waterChains.remove(userId);
+          })
+          .then((_) {}, onError: (Object _) {}),
+    );
     return current;
   }
 }

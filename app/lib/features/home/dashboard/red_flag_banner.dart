@@ -7,6 +7,7 @@ import '../../../core/data/row.dart' hide Row;
 import '../../../core/i18n/tr.dart';
 import '../../../design/design.dart';
 import '../../../domain/health/blood_pressure.dart';
+import '../../../domain/js_compat.dart' show DomainClock;
 import '../../../state/user_store.dart';
 import '../data/home_repository.dart';
 import '../home_inputs.dart';
@@ -49,7 +50,7 @@ class RedFlagBanner extends ConsumerWidget {
     if (logs.isEmpty) return const SizedBox.shrink();
     final latest = logs.first;
     final measured = latest.date('measured_at');
-    if (measured == null || !_isSameLocalDay(measured, (now ?? DateTime.now)())) return const SizedBox.shrink();
+    if (measured == null || !_isSameLocalDay(measured, (now ?? DomainClock.now)())) return const SizedBox.shrink();
     final sys = latest.number('systolic') ?? 0;
     final dia = latest.number('diastolic') ?? 0;
     final a = classifyBp(sys, dia, lifeStage == 'bump', tr: tr);
@@ -75,35 +76,41 @@ class RedFlagBanner extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(t.radiusMd),
                 border: Border.all(color: const Color(0x59B1275B), width: 1.5), // RedFlagBanner.tsx literal
               ),
-              child: Row(children: [
-                Container(
-                  width: 44,
-                  height: 44,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(shape: BoxShape.circle, color: urgent ? t.pinkInk : t.chipOverlay),
-                  child: AIcon(AIcons.heartPulse, size: 19, color: urgent ? const Color(0xFFFFFFFF) : t.alertInk),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                    Text(
-                      '${urgent ? tr('rfb_urgent_title', 'Təzyiq təhlükəli səviyyədədir!') : tr('rfb_warning_title', 'Təzyiqiniz yüksəkdir')} (${n(sys)}/${n(dia)})',
-                      style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.w800, color: t.alertInk, height: 1.5),
+              child: Row(
+                children: [
+                  Container(
+                    width: 44,
+                    height: 44,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(shape: BoxShape.circle, color: urgent ? t.pinkInk : t.chipOverlay),
+                    child: AIcon(AIcons.heartPulse, size: 19, color: urgent ? const Color(0xFFFFFFFF) : t.alertInk),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '${urgent ? tr('rfb_urgent_title', 'Təzyiq təhlükəli səviyyədədir!') : tr('rfb_warning_title', 'Təzyiqiniz yüksəkdir')} (${n(sys)}/${n(dia)})',
+                          style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.w800, color: t.alertInk, height: 1.5),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 1),
+                          child: Text(
+                            urgent
+                                ? tr('rfb_urgent_sub', 'Dərhal həkimə müraciət edin — ətraflı üçün toxunun')
+                                : tr('rfb_warning_sub', 'Preeklampsiya riski — bu gün həkiminizlə danışın'),
+                            style: TextStyle(fontSize: 11.5, color: t.alertSoft, height: 1.5),
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 1),
-                      child: Text(
-                        urgent
-                            ? tr('rfb_urgent_sub', 'Dərhal həkimə müraciət edin — ətraflı üçün toxunun')
-                            : tr('rfb_warning_sub', 'Preeklampsiya riski — bu gün həkiminizlə danışın'),
-                        style: TextStyle(fontSize: 11.5, color: t.alertSoft, height: 1.5),
-                      ),
-                    ),
-                  ]),
-                ),
-                const SizedBox(width: 12),
-                AIcon(AIcons.chevronRight, size: 16, color: t.alertInk, mirrorInRtl: true),
-              ]),
+                  ),
+                  const SizedBox(width: 12),
+                  AIcon(AIcons.chevronRight, size: 16, color: t.alertInk, mirrorInRtl: true),
+                ],
+              ),
             ),
           ),
         ),

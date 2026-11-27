@@ -67,17 +67,20 @@ class ADropShadow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(clipBehavior: Clip.none, children: [
-      Transform.translate(
-        offset: offset,
-        child: ImageFiltered(
-          // drop-shadow's blur radius is twice the Gaussian standard deviation.
-          imageFilter: ui.ImageFilter.blur(sigmaX: blur / 2, sigmaY: blur / 2, tileMode: TileMode.decal),
-          child: ColorFiltered(colorFilter: ColorFilter.mode(color, BlendMode.srcIn), child: child),
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Transform.translate(
+          offset: offset,
+          child: ImageFiltered(
+            // drop-shadow's blur radius is twice the Gaussian standard deviation.
+            imageFilter: ui.ImageFilter.blur(sigmaX: blur / 2, sigmaY: blur / 2, tileMode: TileMode.decal),
+            child: ColorFiltered(colorFilter: ColorFilter.mode(color, BlendMode.srcIn), child: child),
+          ),
         ),
-      ),
-      child,
-    ]);
+        child,
+      ],
+    );
   }
 }
 
@@ -146,15 +149,17 @@ class _FetusHeroImageState extends State<FetusHeroImage> with TickerProviderStat
     if (isIllustrationReady(src)) {
       setState(() => _readySrc = src);
     } else {
-      unawaited(preloadIllustration(context, src).then((ok) {
-        if (mounted && ok && widget.remoteSrc == src) setState(() => _readySrc = src);
-        // Neighbours wait for the current image so they never compete with it.
-        if (mounted) {
-          for (final n in widget.preloadSrcs) {
-            if (n != null) unawaited(preloadIllustration(context, n));
+      unawaited(
+        preloadIllustration(context, src).then((ok) {
+          if (mounted && ok && widget.remoteSrc == src) setState(() => _readySrc = src);
+          // Neighbours wait for the current image so they never compete with it.
+          if (mounted) {
+            for (final n in widget.preloadSrcs) {
+              if (n != null) unawaited(preloadIllustration(context, n));
+            }
           }
-        }
-      }));
+        }),
+      );
     }
   }
 
@@ -182,10 +187,10 @@ class _FetusHeroImageState extends State<FetusHeroImage> with TickerProviderStat
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 if (mounted) setState(() => _readySrc = null);
               });
-              return SvgPicture.asset(widget.fallbackAsset, width: s, height: s, fit: BoxFit.contain);
+              return _bundled(widget.fallbackAsset, s);
             },
           )
-        : SvgPicture.asset(widget.fallbackAsset, width: s, height: s, fit: BoxFit.contain);
+        : _bundled(widget.fallbackAsset, s);
     return Semantics(
       image: true,
       label: widget.alt,
@@ -204,3 +209,10 @@ class _FetusHeroImageState extends State<FetusHeroImage> with TickerProviderStat
     );
   }
 }
+
+/// `object-fit: contain` of the bundled SVG, centred in an s×s box.
+Widget _bundled(String asset, double s) => SizedBox(
+  width: s,
+  height: s,
+  child: FittedBox(fit: BoxFit.contain, child: SvgPicture.asset(asset)),
+);

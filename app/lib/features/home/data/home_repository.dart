@@ -64,15 +64,16 @@ class SupabaseHomeRepository implements HomeRepository {
   Future<Row?> pregnancyContentByDay(int day) async {
     final exact = await _db.from('pregnancy_daily_content').select().eq('pregnancy_day', day).eq('is_active', true).maybeSingle();
     if (exact != null) return asRow(exact);
-    final nearest = await _db
-        .query(() => _db
-            .from('pregnancy_daily_content')
-            .select()
-            .lt('pregnancy_day', day)
-            .eq('is_active', true)
-            .order('pregnancy_day', ascending: false)
-            .limit(1)
-            .maybeSingle());
+    final nearest = await _db.query(
+      () => _db
+          .from('pregnancy_daily_content')
+          .select()
+          .lt('pregnancy_day', day)
+          .eq('is_active', true)
+          .order('pregnancy_day', ascending: false)
+          .limit(1)
+          .maybeSingle(),
+    );
     return asRow(nearest.data);
   }
 
@@ -102,32 +103,22 @@ class SupabaseHomeRepository implements HomeRepository {
       asRows(await _db.from('pregnancy_fetus_illustrations').select().eq('is_active', true).order('month_number'));
 
   @override
-  Future<Rows> dailyLogs(String userId) async => asRows(
-      await _db.from('daily_logs').select().eq('user_id', userId).order('log_date', ascending: false).limit(30));
+  Future<Rows> dailyLogs(String userId) async =>
+      asRows(await _db.from('daily_logs').select().eq('user_id', userId).order('log_date', ascending: false).limit(30));
 
   @override
-  Future<Rows> bloodPressureLogs(String userId) async => asRows(await _db
-      .from('blood_pressure_logs')
-      .select()
-      .eq('user_id', userId)
-      .order('measured_at', ascending: false)
-      .limit(90));
+  Future<Rows> bloodPressureLogs(String userId) async =>
+      asRows(await _db.from('blood_pressure_logs').select().eq('user_id', userId).order('measured_at', ascending: false).limit(90));
 
-  static const appointmentColumns =
-      'id, user_id, title, description, event_date, event_time, event_type, reminder_enabled, created_at';
+  static const appointmentColumns = 'id, user_id, title, description, event_date, event_time, event_type, reminder_enabled, created_at';
 
   @override
-  Future<Rows> appointments(String userId) async => asRows(
-      await _db.from('appointments').select(appointmentColumns).eq('user_id', userId).order('event_date', ascending: true));
+  Future<Rows> appointments(String userId) async =>
+      asRows(await _db.from('appointments').select(appointmentColumns).eq('user_id', userId).order('event_date', ascending: true));
 
   @override
-  Future<Row> updateAppointment(String userId, String id, Map<String, Object?> updates) async => asRow(await _db
-      .from('appointments')
-      .update(updates)
-      .eq('id', id)
-      .eq('user_id', userId)
-      .select(appointmentColumns)
-      .single())!;
+  Future<Row> updateAppointment(String userId, String id, Map<String, Object?> updates) async =>
+      asRow(await _db.from('appointments').update(updates).eq('id', id).eq('user_id', userId).select(appointmentColumns).single())!;
 
   @override
   Future<void> deleteAppointment(String userId, String id) async {
@@ -135,8 +126,7 @@ class SupabaseHomeRepository implements HomeRepository {
   }
 
   @override
-  Future<Rows> periodDayLogs(String userId) async =>
-      asRows(await _db.from('period_day_logs').select().eq('user_id', userId).order('log_date'));
+  Future<Rows> periodDayLogs(String userId) async => asRows(await _db.from('period_day_logs').select().eq('user_id', userId).order('log_date'));
 
   @override
   Future<List<Object?>> appStories(String language) async {
@@ -156,16 +146,17 @@ class SupabaseHomeRepository implements HomeRepository {
   }
 
   @override
-  Future<Rows> blogPosts() async => asRows(await _db
-      .from('blog_posts')
-      .select('*, blog_post_categories(category_id, blog_categories(slug))')
-      .eq('is_published', true)
-      .order('created_at', ascending: false)
-      .limit(200));
+  Future<Rows> blogPosts() async => asRows(
+    await _db
+        .from('blog_posts')
+        .select('*, blog_post_categories(category_id, blog_categories(slug))')
+        .eq('is_published', true)
+        .order('created_at', ascending: false)
+        .limit(200),
+  );
 
   @override
-  Future<SendResult> send(String table, Map<String, Object?> row) =>
-      SupabaseOutboxSender(ref.read(supabaseClientProvider))(table, row);
+  Future<SendResult> send(String table, Map<String, Object?> row) => SupabaseOutboxSender(ref.read(supabaseClientProvider))(table, row);
 }
 
 final homeRepositoryProvider = Provider<HomeRepository>((ref) => SupabaseHomeRepository(ref));

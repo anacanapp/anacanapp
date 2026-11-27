@@ -23,13 +23,15 @@ class MedicalDisclaimer extends ConsumerWidget {
   final MedicalDisclaimerVariant variant;
 
   static String text(String emergency) => fillEmergencyNumber(
-        tr(
-          'medical_disclaimer_full',
-          tr('medical_disclaimer_text',
-              'Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda {emergency} nömrəsinə zəng edin.'),
-        ),
-        emergency,
-      );
+    tr(
+      'medical_disclaimer_full',
+      tr(
+        'medical_disclaimer_text',
+        'Bu məlumat yalnız maarifləndirmə məqsədi daşıyır və tibbi məsləhət, diaqnoz və ya müalicə əvəzi DEYİL. Hər hansı tibbi qərar verməzdən əvvəl mütləq həkiminizə və ya ixtisaslı tibb işçisinə müraciət edin. Təcili hallarda {emergency} nömrəsinə zəng edin.',
+      ),
+    ),
+    emergency,
+  );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -48,13 +50,22 @@ class MedicalDisclaimer extends ConsumerWidget {
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: t.disclaimerBorder),
       ),
-      child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Padding(padding: const EdgeInsets.only(top: 1), child: AIcon(AIcons.stethoscope, size: 15, color: t.disclaimerInk)),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Text(body, style: TextStyle(fontSize: 10.5, height: 1.55, color: t.disclaimerInk, leadingDistribution: TextLeadingDistribution.even)),
-        ),
-      ]),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 1),
+            child: AIcon(AIcons.stethoscope, size: 15, color: t.disclaimerInk),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              body,
+              style: TextStyle(fontSize: 10.5, height: 1.55, color: t.disclaimerInk, leadingDistribution: TextLeadingDistribution.even),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

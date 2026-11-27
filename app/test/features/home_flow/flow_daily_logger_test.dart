@@ -51,7 +51,7 @@ void main() {
     ];
     await pump(tester);
     expect(find.text('Doldurulub'), findsOneWidget);
-    expect(tester.getSemantics(find.bySemanticsLabel('Pis').first), containsSemantics(isToggled: true));
+    expect(tester.getSemantics(find.bySemanticsLabel('Pis').first), isSemantics(isToggled: true));
     await tester.tap(find.bySemanticsLabel('🩸🩸🩸 Güclü'));
     await tester.pump();
     await tester.tap(find.text('Yenilə'));
@@ -91,6 +91,6 @@ void main() {
     await settle(tester);
     expect(find.text('Saxla'), findsOneWidget); // nothing cached as saved
     expect(find.text('Doldurulub'), findsNothing);
-    expect(tester.getSemantics(find.bySemanticsLabel('Əla').first), containsSemantics(isToggled: true));
+    expect(tester.getSemantics(find.bySemanticsLabel('Əla').first), isSemantics(isToggled: true));
   });
 }

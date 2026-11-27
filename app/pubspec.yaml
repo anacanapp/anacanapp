@@ -98,6 +98,9 @@ flutter:
     - assets/games/birlesdir/
     - assets/games/saglam_sebet/
     - assets/images/
+    - assets/images/entry/
+    - assets/images/entry/flags/
+    - assets/images/entry/onboarding/
 
   # Bundled fonts (app/tool/design/fetch_fonts.sh). Weights = the ones the web app loads
   # (src/index.css Google Fonts @import, src/lib/rtl.ts @fontsource imports).

@@ -522,7 +522,7 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
                                     Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
                                       Container(
                                         decoration: BoxDecoration(border: Border.all(color: a.line), borderRadius: BorderRadius.circular(2)),
-                                        child: Image.asset('assets/images/profile/flags/${c.$1}.png', width: 24, height: 16, fit: BoxFit.cover),
+                                        child: Image.asset('assets/images/profile/flags/${c.$1}.png', width: 24, height: 16, fit: BoxFit.cover, errorBuilder: (_, _, _) => const SizedBox(width: 24, height: 16)),
                                       ),
                                       const SizedBox(width: 8),
                                       Flexible(child: Text(c.$2, overflow: TextOverflow.ellipsis)),

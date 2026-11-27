@@ -30,16 +30,16 @@ class Appointment {
   });
 
   factory Appointment.fromRow(Row r) => Appointment(
-        id: r.str('id') ?? '',
-        userId: r.str('user_id') ?? '',
-        title: r.str('title') ?? '',
-        description: r.str('description'),
-        eventDate: r.str('event_date') ?? '',
-        eventTime: r.str('event_time'),
-        eventType: r.str('event_type') ?? 'appointment',
-        reminderEnabled: r.boolean('reminder_enabled') ?? true,
-        createdAt: r.str('created_at') ?? '',
-      );
+    id: r.str('id') ?? '',
+    userId: r.str('user_id') ?? '',
+    title: r.str('title') ?? '',
+    description: r.str('description'),
+    eventDate: r.str('event_date') ?? '',
+    eventTime: r.str('event_time'),
+    eventType: r.str('event_type') ?? 'appointment',
+    reminderEnabled: r.boolean('reminder_enabled') ?? true,
+    createdAt: r.str('created_at') ?? '',
+  );
 
   final String id;
   final String userId;
@@ -52,9 +52,16 @@ class Appointment {
   final String createdAt;
 
   Row toRow() => {
-        'id': id, 'user_id': userId, 'title': title, 'description': description, 'event_date': eventDate,
-        'event_time': eventTime, 'event_type': eventType, 'reminder_enabled': reminderEnabled, 'created_at': createdAt,
-      };
+    'id': id,
+    'user_id': userId,
+    'title': title,
+    'description': description,
+    'event_date': eventDate,
+    'event_time': eventTime,
+    'event_type': eventType,
+    'reminder_enabled': reminderEnabled,
+    'created_at': createdAt,
+  };
 }
 
 /// `appointmentsKey(userId)`.
@@ -64,11 +71,14 @@ List<Object?> appointmentsKey(String? userId) => ['appointments', userId];
 List<Appointment> sortAppointments(List<Appointment> list) {
   final out = [...list];
   // Array.prototype.sort is stable; mergeSort keeps that.
-  mergeSort(out, compare: (a, b) {
-    final d = a.eventDate.compareTo(b.eventDate);
-    if (d != 0) return d;
-    return (a.eventTime ?? '99').compareTo(b.eventTime ?? '99');
-  });
+  mergeSort(
+    out,
+    compare: (a, b) {
+      final d = a.eventDate.compareTo(b.eventDate);
+      if (d != 0) return d;
+      return (a.eventTime ?? '99').compareTo(b.eventTime ?? '99');
+    },
+  );
   return out;
 }
 
@@ -95,8 +105,7 @@ final appointmentsQuery = queryProvider<List<Appointment>>((ref) {
     enabled: userId != null,
     staleTime: const Duration(seconds: 60),
     codec: QueryCodecs.models<Appointment>((a) => a.toRow(), Appointment.fromRow),
-    queryFn: (_) async =>
-        sortAppointments([for (final r in await ref.read(homeRepositoryProvider).appointments(userId!)) Appointment.fromRow(r)]),
+    queryFn: (_) async => sortAppointments([for (final r in await ref.read(homeRepositoryProvider).appointments(userId!)) Appointment.fromRow(r)]),
   );
 });
 
@@ -145,7 +154,11 @@ class _AppointmentsApi implements AppointmentsApi {
 
   void _fail(Object error, AToastController? toast) {
     debugPrint('Appointment change failed: $error');
-    toast?.show(title: tr('useappointments_xeta_bas_verdi_f22fba', 'Xəta baş verdi'), description: error is Exception ? '$error' : null, destructive: true);
+    toast?.show(
+      title: tr('useappointments_xeta_bas_verdi_f22fba', 'Xəta baş verdi'),
+      description: error is Exception ? '$error' : null,
+      destructive: true,
+    );
   }
 
   Future<T> _pending<T>(Future<T> Function() run) async {
@@ -165,8 +178,12 @@ class _AppointmentsApi implements AppointmentsApi {
     try {
       final row = await _pending(() async {
         // Queued in the offline outbox first (client UUID id, idempotent replay).
-        final outcome = await ref.read(offlineOutboxProvider).saveWithOutbox(
-            userId, 'appointments', {'user_id': userId, 'reminder_enabled': true, 'event_type': 'appointment', ...input});
+        final outcome = await ref.read(offlineOutboxProvider).saveWithOutbox(userId, 'appointments', {
+          'user_id': userId,
+          'reminder_enabled': true,
+          'event_type': 'appointment',
+          ...input,
+        });
         if (outcome.status == SaveStatus.error) throw outcome.error ?? 'error';
         return Appointment.fromRow(Map<String, dynamic>.from(outcome.data ?? const {}));
       });

@@ -67,8 +67,7 @@ class HomeSlots {
 final homeSlotsProvider = Provider<HomeSlots>((ref) => const HomeSlots());
 
 /// Renders [builder] or nothing.
-Widget homeSlot(BuildContext context, Widget Function(BuildContext context)? builder) =>
-    builder == null ? const SizedBox.shrink() : builder(context);
+Widget homeSlot(BuildContext context, Widget Function(BuildContext context)? builder) => builder == null ? const SizedBox.shrink() : builder(context);
 
 /// `pushWidgetSnapshot` of src/lib/home-widgets.ts (AnacanWidgets plugin). Default: no-op.
 abstract interface class HomeWidgetBridge {
@@ -97,8 +96,7 @@ class HomeWidgetJourney {
   final String eyebrow, title, subtitle, badge, emoji;
   final double progress;
 
-  Map<String, Object?> toJson() =>
-      {'eyebrow': eyebrow, 'title': title, 'subtitle': subtitle, 'badge': badge, 'progress': progress, 'emoji': emoji};
+  Map<String, Object?> toJson() => {'eyebrow': eyebrow, 'title': title, 'subtitle': subtitle, 'badge': badge, 'progress': progress, 'emoji': emoji};
 
   @override
   bool operator ==(Object other) => other is HomeWidgetJourney && other.toJson().toString() == toJson().toString();

@@ -1184,7 +1184,7 @@ class _Hero extends StatelessWidget {
                 badge(<Widget>[Text('${stage.emoji} ${stage.name}', style: badgeStyle)]),
                 if (country != null)
                   badge(<Widget>[
-                    ClipRRect(borderRadius: BorderRadius.circular(2), child: Image.asset('assets/images/profile/flags/${country!.$1}.png', width: 14, height: 10, fit: BoxFit.cover)),
+                    ClipRRect(borderRadius: BorderRadius.circular(2), child: Image.asset('assets/images/profile/flags/${country!.$1}.png', width: 14, height: 10, fit: BoxFit.cover, errorBuilder: (_, _, _) => const SizedBox(width: 14, height: 10))),
                     const SizedBox(width: 6),
                     Text(country!.$2, style: badgeStyle),
                   ]),
