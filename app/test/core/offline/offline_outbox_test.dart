@@ -44,7 +44,7 @@ void main() {
     clock = 1000;
     outbox = OfflineOutbox(
       store: store,
-      sender: (_, __) async => const SendResult(),
+      sender: (_, _) async => const SendResult(),
       connectivity: connectivity,
       now: () => clock++,
       log: (_) {},

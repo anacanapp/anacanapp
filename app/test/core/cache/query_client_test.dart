@@ -90,7 +90,7 @@ void main() {
     });
 
     test('retries with the configured policy and delay', () async {
-      final client = QueryClient(defaults: QueryDefaults(retry: retryTimes(2), retryDelay: (_, __) => Duration.zero));
+      final client = QueryClient(defaults: QueryDefaults(retry: retryTimes(2), retryDelay: (_, _) => Duration.zero));
       var calls = 0;
       final value = await client.build(const ['r']).fetch(
             options: QueryOptions<int>(

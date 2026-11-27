@@ -92,7 +92,7 @@ void main() {
 
   group('Azure pairing opt-in', () {
     late List<(String, Map<String, dynamic>?)> calls;
-    Object? Function(String, Map<String, dynamic>?) answer = (_, __) => {'ok': true};
+    Object? Function(String, Map<String, dynamic>?) answer = (_, _) => {'ok': true};
     PartnerLink link({bool enabled = true}) => PartnerLink(
           pairingEnabled: enabled,
           rpc: (fn, [params]) async {
@@ -105,7 +105,7 @@ void main() {
 
     setUp(() {
       calls = [];
-      answer = (_, __) => {'ok': true};
+      answer = (_, _) => {'ok': true};
     });
 
     test('isAzurePairingBackend follows the build flags', () {
@@ -148,7 +148,7 @@ void main() {
 
     for (final error in ['PAIRING_SELF_LINK', 'PAIRING_CONFLICT', 'PAIRING_RATE_LIMITED', 'PROFILE_NOT_READY', 'PAIRING_RETRY']) {
       test('propagates the server rejection $error without falling back', () async {
-        answer = (_, __) => {'ok': false, 'error': error};
+        answer = (_, _) => {'ok': false, 'error': error};
         await expectLater(link().linkPartnerByCode('ANACAN-ABCD2345'),
             throwsA(isA<PartnerLinkError>().having((e) => e.code, 'code', error)));
         expect(calls, hasLength(1));
@@ -157,7 +157,7 @@ void main() {
 
     for (final data in [null, false, true, [], {}, {'ok': false}, {'ok': 'true'}]) {
       test('does not mistake $data for success', () async {
-        answer = (_, __) => data;
+        answer = (_, _) => data;
         await expectLater(link().linkPartnerByCode('ANACAN-ABCD2345'),
             throwsA(isA<PartnerLinkError>().having((e) => e.code, 'code', 'PAIRING_FAILED')));
       });
@@ -165,7 +165,7 @@ void main() {
 
     test('propagates transport failure / missing RPC without a fallback', () async {
       final error = const PostgrestException(message: 'Server detail', code: 'PGRST202');
-      answer = (_, __) => error;
+      answer = (_, _) => error;
       await expectLater(link().linkPartnerByCode('ANACAN-ABCD2345'), throwsA(same(error)));
       expect(calls, hasLength(1));
     });
@@ -186,7 +186,7 @@ void main() {
 
     for (final data in [null, 'ANACAN-A01F', false]) {
       test('does not share a stale code when the server returns $data', () async {
-        final link = PartnerLink(pairingEnabled: true, rpc: (_, [__]) async => data);
+        final link = PartnerLink(pairingEnabled: true, rpc: (_, [_]) async => data);
         await expectLater(link.getPartnerCodeForSharing('ANACAN-A01F'),
             throwsA(isA<PartnerLinkError>().having((e) => e.code, 'code', 'PAIRING_UNAVAILABLE')));
       });

@@ -110,7 +110,7 @@ Session fakeSession(String token, User user) =>
     Session(accessToken: token, refreshToken: 'r', tokenType: 'bearer', user: user);
 
 class RecordingOutbox extends OfflineOutbox {
-  RecordingOutbox(LocalStore store) : super(store: store, sender: (_, __) async => const SendResult(), log: (_) {});
+  RecordingOutbox(LocalStore store) : super(store: store, sender: (_, _) async => const SendResult(), log: (_) {});
   final flushed = <String>[];
   @override
   Future<FlushResult> flush(String? userId, [OutboxSender? send]) async {
@@ -183,7 +183,7 @@ class AuthHarness {
         now: () => now,
       )),
     ]);
-    container.listen(authControllerProvider, (_, __) {});
+    container.listen(authControllerProvider, (_, _) {});
   }
 
   Future<void> emit(AuthChangeEvent event, Session? session) async {

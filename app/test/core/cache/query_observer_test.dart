@@ -269,7 +269,7 @@ void main() {
       });
       final container = ProviderContainer(overrides: [queryClientProvider.overrideWithValue(client)]);
       addTearDown(container.dispose);
-      final sub = container.listen(entries, (_, __) {});
+      final sub = container.listen(entries, (_, _) {});
       expect(container.read(entries).isLoading, isTrue);
       await pump();
       expect(container.read(entries).data, 'u1:1');
@@ -289,7 +289,7 @@ void main() {
       final add = mutationProvider<int, int, void>((ref) => MutationOptions(mutationFn: (v) async => v + 1));
       final container = ProviderContainer(overrides: [queryClientProvider.overrideWithValue(client)]);
       addTearDown(container.dispose);
-      final sub = container.listen(add, (_, __) {});
+      final sub = container.listen(add, (_, _) {});
       container.read(add.notifier).mutate(1);
       await pump();
       expect(container.read(add).data, 2);

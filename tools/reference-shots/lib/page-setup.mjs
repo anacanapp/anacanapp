@@ -125,7 +125,7 @@ function initScript({ storage, seed, platform, nativeStubs }) {
   };
   // Neutralise motion: CSS animations/transitions jump to their end state, caret and scrollbars hidden.
   const css = `*,*::before,*::after{animation-delay:0s!important;animation-duration:0s!important;animation-iteration-count:1!important;
-    transition-delay:0s!important;transition-duration:0s!important;caret-color:transparent!important;scroll-behavior:auto!important}
+    transition-delay:0s!important;transition-duration:0s!important;caret-color:transparent!important;scroll-behavior:auto!important;overflow-anchor:none!important}
     *::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
     *{scrollbar-width:none!important}`;
   const inject = () => {
