@@ -87,6 +87,9 @@ export async function startApp() {
   const { default: App } = await appModule;
   const root = createRoot(document.getElementById('root')!);
   root.render(<RootErrorBoundary><App /></RootErrorBoundary>);
+  // 53.0 bridge: mirror local-only state into Preferences for the Flutter app (native only,
+  // after first render; the module's own first export waits until startup writes settle).
+  import('./lib/migration-export').then(m => { m.startMigrationExport(); }).catch(() => { /* optional */ });
   watchBackendAdmission(async () => {
     root.unmount();
     // Do not sign out or delete credentials to change authorities. A restart is
