@@ -61,6 +61,19 @@ export function buildLocalStorage(persona, { lang, theme, session, nowMs }) {
   if (persona.signedIn && persona.privacyDecided !== false) {
     ls.anacan_privacy_consent_v1 = JSON.stringify({ analytics: false, ads: false, attribution: false, decidedAt: new Date(nowMs - 86400_000 * 30).toISOString() });
   }
+  if (persona.signedIn && persona.seenDefaults !== false) {
+    // One-time prompts/tours an established user has already dismissed (keys: src/lib/migration-export.ts 'seen').
+    const at = String(nowMs - 86400_000 * 7);
+    Object.assign(ls, {
+      anacan_partner_tour_v2: at,
+      [`anacan_tour_v1_${persona.user.id}`]: 'done',
+      'anacan.lockOffer.seenAt': at,
+      'anacan.prompt.lastShownDay': bakuDate(nowMs),
+      anacan_ai_warn_dismissed: '1',
+      anacan_rating_done: '1',
+      'anacan.review.firstOpenAt': at,
+    });
+  }
   for (const [k, v] of Object.entries(persona.localStorage || {})) {
     ls[k.replaceAll('{{user_id}}', persona.user?.id ?? '')] = typeof v === 'string' ? v.replaceAll('{{date}}', bakuDate(nowMs)) : JSON.stringify(v);
   }
@@ -92,13 +105,16 @@ function initScript({ storage, seed }) {
     *::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
     *{scrollbar-width:none!important}`;
   const inject = () => {
-    if (document.getElementById('__refshots_css')) return;
+    if (document.getElementById('__refshots_css')) return true;
+    const parent = document.head || document.documentElement;
+    if (!parent) return false;
     const style = document.createElement('style');
     style.id = '__refshots_css'; style.textContent = css;
-    (document.head || document.documentElement).appendChild(style);
+    parent.appendChild(style);
+    return true;
   };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject, { once: true });
-  inject();
+  if (!inject()) new MutationObserver((_, obs) => { if (inject()) obs.disconnect(); }).observe(document, { childList: true, subtree: true });
+  document.addEventListener('DOMContentLoaded', inject, { once: true });
   // Track in-flight fetches so helpers can wait for the app to settle.
   window.__refshots = { inflight: 0, lastChange: performance.now() };
   const origFetch = window.fetch;

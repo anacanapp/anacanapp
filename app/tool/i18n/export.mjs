@@ -205,9 +205,12 @@ const numberSymbols = Object.fromEntries(LANGS.map(code => {
   const parts = new Intl.NumberFormat(locale(code), { maximumFractionDigits: 2 }).formatToParts(1234567.5);
   const group = parts.find(part => part.type === 'group')?.value ?? '';
   const decimal = parts.find(part => part.type === 'decimal')?.value ?? '.';
-  const minus = new Intl.NumberFormat(locale(code)).formatToParts(-1).find(part => part.type === 'minusSign')?.value ?? '-';
+  // Everything before the digits of format(-1) (e.g. ar: LRM + hyphen-minus).
+  const minus = new Intl.NumberFormat(locale(code)).format(-1).split(new Intl.NumberFormat(locale(code)).format(1))[0];
   const minGrouping = new Intl.NumberFormat(locale(code)).format(1000).length === new Intl.NumberFormat(locale(code), { useGrouping: false }).format(1000).length ? 2 : 1;
-  return [code, { group, decimal, minus, zero: numbering(code), minGrouping }];
+  const groups = new Intl.NumberFormat(locale(code), { maximumFractionDigits: 0 }).formatToParts(123456789).filter(part => part.type === 'integer').map(part => part.value.length);
+  const secondary = groups.length > 2 ? groups[groups.length - 2] : 3;
+  return [code, { group, decimal, minus, zero: numbering(code), minGrouping, secondary }];
 }));
 const pluralSamples = [0, 1, 2, 3, 4, 5, 7, 11, 12, 14, 21, 22, 25, 101, 111, 1.5, 0.5, 2.25, 1000000];
 const UNIT_KEYS = { day: ['long'], week: ['long'], month: ['long'], year: ['long'], hour: ['long'], minute: ['long', 'short'], second: ['long', 'short'] };
@@ -290,9 +293,10 @@ ${Object.entries(dateData).map(([code, variants]) => `  ${dartString(code)}: {\n
 };
 /// Intl.DateTimeFormat(locale, { weekday: 'short' }) Sunday-first.
 const Map<String, List<String>> kWeekdayShort = ${dartValue(weekdays)};
-/// Intl.NumberFormat symbols: (group, decimal, minus, zero digit, minimum grouping digits).
-const Map<String, (String, String, String, String, int)> kNumberSymbols = {
-${Object.entries(numberSymbols).map(([code, s]) => `  ${dartString(code)}: (${dartString(s.group)}, ${dartString(s.decimal)}, ${dartString(s.minus)}, ${dartString(s.zero)}, ${s.minGrouping}),`).join('\n')}
+/// Intl.NumberFormat symbols: (group, decimal, negative prefix, zero digit, minimum grouping digits,
+/// secondary grouping size — 2 for the Indian system, else 3).
+const Map<String, (String, String, String, String, int, int)> kNumberSymbols = {
+${Object.entries(numberSymbols).map(([code, s]) => `  ${dartString(code)}: (${dartString(s.group)}, ${dartString(s.decimal)}, ${dartString(s.minus)}, ${dartString(s.zero)}, ${s.minGrouping}, ${s.secondary}),`).join('\n')}
 };
 /// Intl.NumberFormat style 'unit' patterns: lang -> "unit:width" -> plural category -> pattern ({0} = number).
 const Map<String, Map<String, Map<String, String>>> kUnitPatterns = ${dartValue(unitPatterns)};
@@ -316,7 +320,7 @@ const copySample = Object.entries(copies.en).flatMap(([section, values]) => pick
 const trCases = [];
 for (const lang of GOLDEN_LANGS) {
   for (const key of [...seedKeySample, ...extraKeys, 'month_january', 'dateutils_today', 'count_articles_few', 'ordinal_week_label']) {
-    const fallback = seeds.az[key] ?? `AZ_DEFAULT:${key}`;
+    const fallback = seeds.az[key] ?? inlineIndex[key]?.azText ?? `AZ_DEFAULT:${key}`;
     trCases.push({ lang, key, azDefault: fallback, expected: reactTr(lang, key, fallback) });
   }
   for (const key of inlineSample) trCases.push({ lang, key, azDefault: inlineIndex[key].azText, expected: reactTr(lang, key, inlineIndex[key].azText), file: inlineIndex[key].file });
@@ -358,6 +362,8 @@ const synthetic = [
   { id: 42, info: { b: 1, a: [1, 2.5, { z: true, A: null, _k: 'x', a: 'y', B: 'é' }], 'title_en': 'x', Title: 'Y' }, info_en: 'Line\n"quoted"\t\u0001 \u2028 😀' },
   { id: 'syn-3', data: [1e21, 1e-7, 0.1, 100, -0, 123456789012345680000, 3.14159], data_az: 'x', data_en: { 'é': 1, e: 2, f: 3, E: 4 } },
   { id: 'syn-4', items: ['x', null, false, 'ğ'], items_en: null },
+  { id: 'syn-6', meta: { 10: 'ten', 2: 'two', b: 'b', a: 'a', 'ä': 1, 'Ö': 2, o: 3, ' x': 4, x_: 5, 'x-': 6, X: 7 }, meta_az: [{ k2: 1, k10: 2, K1: 3 }] },
+  { id: 7.5, value: 'Number id' },
   { id: 'syn-5', missing_en: 'only en' },
 ].map(row => ({ row, field: Object.keys(row).find(key => key !== 'id'), }))
   .map(({ row, field }) => {

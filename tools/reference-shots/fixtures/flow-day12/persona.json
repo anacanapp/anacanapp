@@ -1,0 +1,22 @@
+{
+  "description": "Cycle tracking, day 12 of a 28-day cycle (fertile window), free plan.",
+  "signedIn": true,
+  "premium": false,
+  "vars": {
+    "user_id": "f0000000-0000-4000-8000-000000000012",
+    "profile_id": "f0000000-0000-4000-8000-0000000000a1",
+    "user_name": "Sevda",
+    "email": "sevda.flow@example.test"
+  },
+  "user": {
+    "id": "f0000000-0000-4000-8000-000000000012",
+    "email": "sevda.flow@example.test",
+    "name": "Sevda",
+    "created_at": "2026-04-02T08:00:00Z"
+  },
+  "store": {
+    "lifeStage": "flow",
+    "role": "woman",
+    "countryCode": "AZ"
+  }
+}

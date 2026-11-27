@@ -1,0 +1,7 @@
+{
+  "description": "Fresh install, signed out, nothing chosen yet (language screen, intro, auth).",
+  "signedIn": false,
+  "store": {
+    "countryCode": null
+  }
+}

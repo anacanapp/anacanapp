@@ -9,13 +9,24 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export class ShotError extends Error {}
 
-export function createHelpers(page, { outDir, cell, scenario, persona, recorder, results, log }) {
+/** Browser-level request tracking (covers lazy JS chunks, not only fetch()). */
+export function trackRequests(page) {
+  const net = { inflight: new Set(), last: Date.now() };
+  const bump = () => { net.last = Date.now(); };
+  page.on('request', (r) => { net.inflight.add(r); bump(); });
+  const done = (r) => { net.inflight.delete(r); bump(); };
+  page.on('requestfinished', done);
+  page.on('requestfailed', done);
+  return net;
+}
+
+export function createHelpers(page, { outDir, cell, scenario, persona, recorder, results, log, net }) {
   const h = {
     page, persona, scenario, cell,
     lang: cell.lang, theme: cell.theme, viewport: cell.viewport,
 
     /** Wait until the app is quiet: no fetch in flight for `quietMs`, fonts loaded, images decoded, no startup screen. */
-    async ready({ timeout = 20000, quietMs = 500, allowStartup = false } = {}) {
+    async ready({ timeout = 20000, quietMs = 700, allowStartup = false } = {}) {
       const deadline = Date.now() + timeout;
       while (Date.now() < deadline) {
         const state = await page.evaluate(() => {
@@ -25,7 +36,8 @@ export function createHelpers(page, { outDir, cell, scenario, persona, recorder,
           const imgs = [...document.images].filter((i) => !i.complete).length;
           return { inflight: st.inflight, idleFor: performance.now() - st.lastChange, startup, spinners, imgs, fonts: document.fonts.status };
         }).catch(() => null);
-        if (state && state.inflight === 0 && state.idleFor >= quietMs && (allowStartup || !state.startup)
+        const netQuiet = !net || (net.inflight.size === 0 && Date.now() - net.last >= quietMs);
+        if (state && netQuiet && state.inflight === 0 && state.idleFor >= quietMs && (allowStartup || !state.startup)
           && state.imgs === 0 && state.fonts === 'loaded' && state.spinners === 0) {
           await page.evaluate(async () => {
             await document.fonts.ready;

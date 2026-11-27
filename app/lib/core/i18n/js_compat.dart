@@ -132,7 +132,8 @@ String jsonStringify(Object? value, {int Function(String a, String b)? compareKe
       }
       out.write('{');
       var first = true;
-      for (final key in keys) {
+      // Objects enumerate array-index keys first (ascending), whatever the insertion/sort order.
+      for (final key in jsForInOrder(keys)) {
         final entry = item[key];
         if (!first) out.write(',');
         first = false;
@@ -152,3 +153,20 @@ String jsonStringify(Object? value, {int Function(String a, String b)? compareKe
 
 /// Code-unit order (`Array.prototype.sort()` default for strings).
 int compareCodeUnits(String a, String b) => a.compareTo(b);
+
+final RegExp _arrayIndex = RegExp(r'^(?:0|[1-9][0-9]*)$');
+
+/// Property enumeration order of a JS object built with the same insertion order.
+Iterable<String> jsForInOrder(Iterable<String> keys) {
+  final indices = <String>[];
+  final others = <String>[];
+  for (final key in keys) {
+    if (_arrayIndex.hasMatch(key) && key.length <= 10 && int.parse(key) < 4294967295) {
+      indices.add(key);
+    } else {
+      others.add(key);
+    }
+  }
+  indices.sort((a, b) => int.parse(a).compareTo(int.parse(b)));
+  return [...indices, ...others];
+}

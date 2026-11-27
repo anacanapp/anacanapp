@@ -103,7 +103,7 @@ String cldrPluralCategory(String language, Object decimalOrNumber) {
 /// separator, minus sign and digits.
 String formatIntlNumber(String language, num value, {int maximumFractionDigits = 3, int minimumFractionDigits = 0}) {
   final symbols = kNumberSymbols[normalizeAppLanguage(language)] ?? kNumberSymbols['en']!;
-  final (group, decimal, minus, zero, minGrouping) = symbols;
+  final (group, decimal, minus, zero, minGrouping, secondary) = symbols;
   var fixed = value.abs().toDouble().toStringAsFixed(maximumFractionDigits);
   var integer = fixed;
   var fraction = '';
@@ -116,12 +116,15 @@ String formatIntlNumber(String language, num value, {int maximumFractionDigits =
     fraction = fraction.substring(0, fraction.length - 1);
   }
   if (integer.length >= 4 + (minGrouping - 1) && group.isNotEmpty) {
-    final buffer = StringBuffer();
-    for (var index = 0; index < integer.length; index++) {
-      if (index > 0 && (integer.length - index) % 3 == 0) buffer.write(group);
-      buffer.write(integer[index]);
+    // Primary group of 3 at the right, then groups of [secondary] (2 for the Indian system).
+    final parts = <String>[integer.substring(integer.length - 3)];
+    var rest = integer.substring(0, integer.length - 3);
+    while (rest.isNotEmpty) {
+      final take = rest.length < secondary ? rest.length : secondary;
+      parts.insert(0, rest.substring(rest.length - take));
+      rest = rest.substring(0, rest.length - take);
     }
-    integer = buffer.toString();
+    integer = parts.join(group);
   }
   final isZero = double.parse(fixed) == 0;
   var text = fraction.isEmpty ? integer : '$integer$decimal$fraction';

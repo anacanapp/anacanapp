@@ -2,9 +2,10 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
-import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
+
+import 'js_compat.dart';
 
 /// Bundled per-language dictionaries (`assets/i18n/<lang>.json`, produced by app/tool/i18n/export.mjs).
 abstract interface class I18nAssetSource {
@@ -163,21 +164,4 @@ String dictionarySignature(Map<String, String> data) {
 int _imul(int a, int b) {
   final product = ((a & 0xffffffff) * (b & 0xffffffff)) & 0xffffffff;
   return product >= 0x80000000 ? product - 0x100000000 : product;
-}
-
-final RegExp _arrayIndex = RegExp(r'^(?:0|[1-9][0-9]*)$');
-
-/// Property enumeration order of a JS object built with the same insertion order.
-Iterable<String> jsForInOrder(Iterable<String> keys) {
-  final indices = <String>[];
-  final others = <String>[];
-  for (final key in keys) {
-    if (_arrayIndex.hasMatch(key) && key.length <= 10 && int.parse(key) < 4294967295) {
-      indices.add(key);
-    } else {
-      others.add(key);
-    }
-  }
-  indices.sort((a, b) => int.parse(a).compareTo(int.parse(b)));
-  return [...indices, ...others];
 }

@@ -1,0 +1,22 @@
+{
+  "description": "Mother of one girl (Aylin), 6 months old, Premium.",
+  "signedIn": true,
+  "premium": true,
+  "vars": {
+    "user_id": "a0000000-0000-4000-8000-000000000006",
+    "profile_id": "a0000000-0000-4000-8000-0000000000a1",
+    "user_name": "Nigar",
+    "email": "nigar.mommy@example.test"
+  },
+  "user": {
+    "id": "a0000000-0000-4000-8000-000000000006",
+    "email": "nigar.mommy@example.test",
+    "name": "Nigar",
+    "created_at": "2025-12-01T08:00:00Z"
+  },
+  "store": {
+    "lifeStage": "mommy",
+    "role": "woman",
+    "countryCode": "AZ"
+  }
+}

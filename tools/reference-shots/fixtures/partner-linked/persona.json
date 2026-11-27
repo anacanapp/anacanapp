@@ -1,0 +1,25 @@
+{
+  "description": "Partner (father) linked to the bump-week24 woman (Leyla).",
+  "signedIn": true,
+  "premium": false,
+  "vars": {
+    "user_id": "d0000000-0000-4000-8000-000000000001",
+    "profile_id": "d0000000-0000-4000-8000-0000000000a1",
+    "user_name": "Rəşad",
+    "email": "reshad.partner@example.test",
+    "woman_user_id": "b0000000-0000-4000-8000-000000000024",
+    "woman_profile_id": "b0000000-0000-4000-8000-0000000000a1"
+  },
+  "user": {
+    "id": "d0000000-0000-4000-8000-000000000001",
+    "email": "reshad.partner@example.test",
+    "name": "Rəşad",
+    "created_at": "2026-07-01T08:00:00Z"
+  },
+  "store": {
+    "lifeStage": "partner",
+    "role": "partner",
+    "countryCode": "AZ"
+  },
+  "householdPremium": true
+}

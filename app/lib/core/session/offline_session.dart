@@ -16,7 +16,7 @@
 import 'dart:convert';
 
 /// The JS SDK treats a session as expired this long before `expires_at`.
-/// (gotrue Dart uses a 10 s margin for its own refresh decision.)
+/// (gotrue 2.27 uses a 30 s margin, `Constants.expiryMargin`, for its own refresh decision.)
 const Duration sessionExpiryMargin = Duration(milliseconds: 90000);
 
 /// Online but slow: open on the stored account if the SDK has not answered by then.

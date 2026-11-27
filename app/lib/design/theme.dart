@@ -1,7 +1,7 @@
 // Ported from: src/index.css (@layer base body / body:lang(ar) / html), tailwind.config.ts (fontFamily),
 //              src/styles/anacan-design.css (.a-scope, .a-scope:lang(ar), .a-heading, a-/a3- type rules),
 //              Tailwind preflight (html line-height 1.5, headings/buttons inherit font)
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'tokens/anacan_tokens.dart';
 

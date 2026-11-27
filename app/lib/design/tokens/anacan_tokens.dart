@@ -1,6 +1,6 @@
 // Ported from: src/index.css (:root / .dark), src/styles/anacan-design.css (:root / .dark,
 //              .a-nav.capsule, html.a-noblur, html.a-lite), src/styles/onboarding.css (.onboarding)
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'css_tokens.g.dart';
 import 'life_stage.g.dart';

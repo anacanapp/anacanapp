@@ -80,3 +80,7 @@ packages/*/android/build/
 scripts/store-screenshots/v2/out*/
 scripts/store-screenshots/v2/out-android/
 scripts/store-screenshots/v2/.render-*.html
+
+# Reference screenshot harness: local caches and output
+tools/reference-shots/.cache/
+tools/reference-shots/out/

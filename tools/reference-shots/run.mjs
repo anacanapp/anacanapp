@@ -11,7 +11,7 @@ import { startDevServer } from './lib/server.mjs';
 import { loadPersona, makeContext } from './lib/fixtures.mjs';
 import { MockBackend, installNetwork } from './lib/network.mjs';
 import { setupContext, buildSession, FROZEN_TIME } from './lib/page-setup.mjs';
-import { createHelpers } from './lib/helpers.mjs';
+import { createHelpers, trackRequests } from './lib/helpers.mjs';
 
 const HERE = new URL('.', import.meta.url).pathname;
 
@@ -105,7 +105,8 @@ async function runCell(browser, origin, { scenario, persona, cell }, ctx) {
   const page = await context.newPage();
   const consoleErrors = [];
   page.on('pageerror', (e) => consoleErrors.push(String(e.message).slice(0, 300)));
-  const h = createHelpers(page, { outDir: ctx.outDir, cell, scenario, persona, recorder: ctx.recorder, results: ctx.results, log: ctx.log });
+  const net = trackRequests(page);
+  const h = createHelpers(page, { outDir: ctx.outDir, cell, scenario, persona, recorder: ctx.recorder, results: ctx.results, log: ctx.log, net });
   try {
     await page.goto(origin + (scenario.path || '/'), { waitUntil: 'domcontentloaded', timeout: 90000 });
     if (scenario.waitFor) await page.locator(scenario.waitFor).first().waitFor({ timeout: 60000 });
@@ -168,10 +169,9 @@ async function main() {
       const label = `${job.scenario.id} [${job.cell.viewport} ${job.cell.theme} ${job.cell.lang}]`;
       let res;
       for (let attempt = 0; attempt <= args.retries; attempt++) {
-        const before = results.length;
-        res = await runCell(browser, server.origin, { ...job, persona: persona(job.scenario.persona) }, ctx);
-        if (res.ok) break;
-        results.splice(before); // drop partial shots of a failed attempt
+        const local = []; // shots of this attempt only; kept when the cell succeeds
+        res = await runCell(browser, server.origin, { ...job, persona: persona(job.scenario.persona) }, { ...ctx, results: local });
+        if (res.ok) { results.push(...local); break; }
         log(`  ✗ ${label}: ${res.error}${attempt < args.retries ? ' (retrying)' : ''}`);
       }
       done++;
