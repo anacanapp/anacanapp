@@ -32,6 +32,9 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| SOS pəncərəsi: Android geri arxadakı ekrana təsir edirdi | `MotherSOSSheet.tsx` | Flutter-də pəncərəni bağlayır |
+| Partnyor missiyaları: ana ekran kartı və profil xalı ayrı nüsxələr idi, profil səviyyəsi gecikirdi | `usePartnerMissions` | Flutter-də bir ortaq vəziyyət |
+| `usePartnerData`: hər komponentdə ayrıca sorğu + ilk yükləmədən dərhal sonra ikinci sorğu | `usePartnerData.ts` | Flutter-də bir ortaq sorğu |
 | Story baxışı: Android geri əvvəl baxanlar/cavablar pəncərəsini, sonra baxışı bağlayır (React-da geri işləyicisi yox idi) | `StoryViewer.tsx` | Flutter düzəlişi |
 | Story baxışı: sürüşdürmə həm də toxunuş sayılırdı (iki dəfə keçid) | `StoryViewer.tsx` | Flutter-də bir dəfə |
 | Story redaktoru: başlıq seçimləri 390 px-də daşırdı | `StoryCropEditor.tsx` | Flutter-də yana sürüşür |

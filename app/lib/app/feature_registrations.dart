@@ -17,6 +17,7 @@ import '../features/home_mommy/register_home_mommy.dart';
 import '../features/legal/register.dart';
 import '../features/moderation/register.dart';
 import '../features/onboarding/register.dart';
+import '../features/partner/register.dart';
 import '../features/premium/register.dart';
 import '../features/profile/register.dart';
 import '../features/recap/register.dart';
@@ -50,6 +51,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerLegalFeature(r);
   registerModerationFeature(r);
   registerOnboardingFeature(r);
+  registerPartnerFeature(r);
   registerPremiumFeature(r);
   registerProfileFeature(r);
   registerRecapFeature(r);

@@ -55,6 +55,8 @@ import '../features/tools/tour_configs.dart' show toolsTourConfigsProvider;
 import '../features/premium/ad_free_premium_offer.dart' show AdFreePremiumOffer;
 import '../features/premium/premium_gates.dart' show PremiumBlurGate, PremiumGate;
 import '../features/premium/premium_modal.dart' show showPremiumModal;
+import '../features/partner/partner_wiring.dart' show dailySummaryAutoSyncSlot, partnerCareCardSlot, partnerWiringOverrides;
+import '../features/partner/ui/partner_link_form.dart' show partnerLinkFormSlot;
 import '../features/profile/profile_interfaces.dart';
 import '../features/recap/use_recap.dart' show RecapHomeYearNotifier, recapProfileRowFromRecapProvider;
 import '../features/security/app_lock.dart' show biometricAuthProvider;
@@ -111,6 +113,11 @@ List<Override> featureWiringOverrides() => [
           )),
 
       // ── community: chat text / photo viewer / restriction note ─────────────────────────────────────────────
+      // ── partner: data feeds and notifications for the woman's features ──────────────────────────────────────
+      ...partnerWiringOverrides(),
+      // Profile slots (one ProfileSlots; commerce / health screens add theirs here).
+      profileSlotsProvider.overrideWithValue(const ProfileSlots(partnerLinkForm: partnerLinkFormSlot)),
+
       ...communityWiringOverrides(),
       ...communityStoriesWiringOverrides(),
       ...groupsWiringOverrides(),
@@ -129,6 +136,8 @@ List<Override> featureWiringOverrides() => [
         adFreeOffer: (context, position) => AdFreePremiumOffer(position: position),
         childSelectorCompact: buildMommyTopBarAction,
         babyChatCard: babyChatCardSlot,
+        partnerCareCard: partnerCareCardSlot,
+        dailySummaryAutoSync: dailySummaryAutoSyncSlot,
         showBirthOnboarding: (context) async {
           var done = false;
           await showBirthOnboardingModal(context, onComplete: () => done = true);
