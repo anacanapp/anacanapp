@@ -247,8 +247,14 @@ ProviderScope(overrides: [featureRegistryProvider.overrideWithValue(registry), /
 
 Also `registerOverlay(ShellOverlayId.motherChat|userProfile|blogArticle, …)`, `registerGate(GateId.x, …)`,
 `registerRoutePage(OuterRouteId.x, …)`. Registering a key twice throws. Tab bodies are not scrollable themselves (the
-shell owns the single scroll container, bottom padding `pb-nav` = 108 + safe area); `fillsViewport` tabs get the
-viewport height minus `pb-nav`. Sub-screens get `.a-subscreen` (safe top/inline padding, `--a-bg`) and scroll
+shell owns the single scroll container, a `CustomScrollView` keyed `shell-scroll` whose last sliver is the `pb-nav`
+clearance = 108 + safe area); `fillsViewport` tabs get the viewport height minus `pb-nav`. A box tab
+(`registerTab`) is one `SliverToBoxAdapter`; a sliver tab (`registerTabSlivers(tab, (c, a) =>
+ShellSliverBody(sliver: …, background: …))`) puts its sliver straight into the scroll view, so `SliverList`s are
+built lazily; `background` is painted behind the scroll view and moves with the scroll offset (the home sky). Scroll
+memory, scroll-to-top and the tab enter animation (`SliverTabEnter`: `SliverOpacity` + paint translation) work the
+same for both. With lazy lists the max extent is an estimate, so a restore deep into a list may clamp until the
+80 / 180 ms retries (React measured the full DOM). Sub-screens get `.a-subscreen` (safe top/inline padding, `--a-bg`) and scroll
 themselves. The Tools tab content is keyed by `toolsResetKey`; the hub reads `args.state.activeTool` on mount and
 looks tools up with `registry.tool(ToolId)`; it registers its own `BackLayer.screen` handler for an open tool.
 

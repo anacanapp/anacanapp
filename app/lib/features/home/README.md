@@ -32,6 +32,8 @@ classes inlined because flutter_svg ignores them), `node app/tool/home/gen_stori
 
 ## Interfaces awaiting wiring (all have safe defaults)
 
+* Wired by the app root (app/lib/app/app_wiring.dart): premium, app settings, selected child, cycle length, disabled
+  tools, emergency number, AdFreePremiumOffer, ChildSelector, BirthOnboardingModal. Still default: docs/flutter/WIRING.md.
 * `home_inputs.dart`: `homeIsPremiumProvider` (false), `homeTotalUnreadProvider` (0: unread partner + DM count),
   `homeAppSettingProvider(key)` (null → stories off until `dashboard_stories` is wired), `homeSelectedChildProvider`,
   `homeEffectiveCycleLengthProvider`, `homeToolDisabledProvider`, `homeIsNativeProvider`; `homeNavigationProvider`
@@ -47,8 +49,8 @@ classes inlined because flutter_svg ignores them), `node app/tool/home/gen_stori
 
 ## Unsure / not ported
 
-* The shell wraps tab bodies in a `SingleChildScrollView`; the dashboard is built from slivers inside a shrink-wrapped
-  `CustomScrollView`, so vertical laziness is lost (all home lists are bounded; horizontal rails are lazy).
+* The home tab is registered with `registerTabSlivers` (`DashboardSliver` + `DashboardSky` background, update banner
+  above): stage slivers sit directly in the shell's scroll view. `Dashboard` (box, shrink-wrapped) stays for tests.
 * Reference-shot comparison (bump week 24, 390×844 light): hero, chips, progress bar, tips list, cards, calendar list,
   trio, water card match. Remaining: hero block sits ~6 pt higher than in the web shot; the fetal-length note wraps one
   word later; emoji render as boxes in goldens (no emoji font in the test harness).
