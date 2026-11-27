@@ -10,16 +10,6 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../design/harness.dart';
 import '../nav/shell_test_support.dart';
 
-class FakeGateActions implements GateActions {
-  final List<String> calls = [];
-  @override
-  void setFunnelCompleted(bool value) => calls.add('funnel:$value');
-  @override
-  void setHasSeenIntro(bool value) => calls.add('intro:$value');
-  @override
-  void setHasSelectedLanguage(bool value) => calls.add('language:$value');
-}
-
 class GateInputsN extends Notifier<GateInputs> {
   GateInputsN(this.initial);
   final GateInputs initial;
@@ -27,21 +17,6 @@ class GateInputsN extends Notifier<GateInputs> {
   GateInputs build() => initial;
   void set(GateInputs v) => state = v;
 }
-
-const readyInputs = GateInputs(
-  hasSelectedLanguage: true,
-  hasSeenIntro: true,
-  isOnboarded: true,
-  isAuthenticated: true,
-  authLoading: false,
-  hasUser: true,
-  profileLoaded: true,
-  hasProfile: true,
-  profileCountryCode: 'AZ',
-  profileName: 'Aysel',
-  role: 'woman',
-  lifeStage: 'mommy',
-);
 
 class App {
   App({ShellUser? user, GateInputs inputs = readyInputs, void Function(FeatureRegistry r)? register}) {
@@ -107,6 +82,7 @@ void main() {
     expect(app.actions.calls, containsAll(['language:true', 'funnel:true']));
     await tester.pump(const Duration(milliseconds: 1200));
     expect(placeholder('gate:intro'), findsOneWidget, reason: '1 500 ms timer shows the intro');
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('gates render registered widgets and pass the intro callback', (tester) async {
@@ -119,6 +95,7 @@ void main() {
     app.container.read(app.gateProvider.notifier).set(readyInputs);
     await tester.pump();
     expect(placeholder('tab:home'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('frame: tabs from the registry, nav switches tabs, screens replace the frame, back closes them', (tester) async {
@@ -143,6 +120,7 @@ void main() {
     await tester.binding.handlePopRoute();
     await tester.pump();
     expect(find.text('HOME'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('an unregistered screen shows a placeholder with a back control; ad-preferences returns to settings', (tester) async {
@@ -154,6 +132,7 @@ void main() {
     await tester.tap(find.text('←'));
     await tester.pump();
     expect(app.state.activeScreen, 'settings');
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('partner role renders the partner tab variants; community is shared', (tester) async {
@@ -168,6 +147,7 @@ void main() {
     app.shell.openUrl('anacan://community');
     await tester.pump();
     expect(find.text('COMMUNITY partner=false'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('the tab scroll position is kept across a sub-screen and per tab', (tester) async {
@@ -194,6 +174,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 200));
     expect(pos().pixels, 500);
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('tab enter: opacity 0 → 1 over 300 ms and y 10 → 0; no exit animation', (tester) async {
@@ -210,6 +191,7 @@ void main() {
     expect(opacity().opacity, 1);
     final dy = tester.widget<Transform>(find.ancestor(of: placeholder('tab:profile'), matching: find.byType(Transform)).first);
     expect(dy.transform.getTranslation().y.abs(), lessThan(0.5));
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('edge swipe back closes the screen, swipe forward reopens it (RTL mirrored)', (tester) async {
@@ -227,8 +209,10 @@ void main() {
       await tester.dragFrom(fwdStart, Offset(-120 * dir, 0));
       await tester.pump();
       expect(app.state.activeScreen, 'help', reason: 'rtl=$rtl');
+      await tester.pump(const Duration(seconds: 2));
       await tester.pumpWidget(const SizedBox());
     }
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('user profile and messages layers; blog article over everything', (tester) async {
@@ -251,6 +235,7 @@ void main() {
     app.shell.openMotherChat();
     await tester.pump();
     expect(placeholder('overlay:motherChat'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 
   testWidgets('frame overlays sit between the content and the nav; redesign background per tab', (tester) async {
@@ -260,5 +245,6 @@ void main() {
     final ctx = tester.element(find.byType(ShellFrame));
     final frameBox = tester.widget<ColoredBox>(find.descendant(of: find.byType(ShellFrame), matching: find.byType(ColoredBox)).first);
     expect(frameBox.color, AnacanTokens.of(ctx).a.bg, reason: 'mommy home is a redesigned screen');
+    await tester.pump(const Duration(seconds: 2)); // let scroll retries / timers finish
   });
 }

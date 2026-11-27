@@ -126,3 +126,28 @@ class Harness {
 
   void dispose() => c.dispose();
 }
+
+class FakeGateActions implements GateActions {
+  final List<String> calls = [];
+  @override
+  void setFunnelCompleted(bool value) => calls.add('funnel:$value');
+  @override
+  void setHasSeenIntro(bool value) => calls.add('intro:$value');
+  @override
+  void setHasSelectedLanguage(bool value) => calls.add('language:$value');
+}
+
+const readyInputs = GateInputs(
+  hasSelectedLanguage: true,
+  hasSeenIntro: true,
+  isOnboarded: true,
+  isAuthenticated: true,
+  authLoading: false,
+  hasUser: true,
+  profileLoaded: true,
+  hasProfile: true,
+  profileCountryCode: 'AZ',
+  profileName: 'Aysel',
+  role: 'woman',
+  lifeStage: 'mommy',
+);
