@@ -470,14 +470,46 @@ class _PremiumToolBoundaryState extends ConsumerState<PremiumToolBoundary> {
     if (sub.isPremium || _unlocked) return widget.child;
     if (sub.loading && !sub.entitlementReady) {
       final primary = AnacanTokens.of(context).shadcn.primary;
-      return Center(
-        child: SizedBox(
-          width: 32,
-          height: 32,
-          child: CircularProgressIndicator(strokeWidth: 4, color: primary, backgroundColor: Colors.transparent),
+      // `min-h-screen flex items-center justify-center` (the tool area may have unbounded height).
+      return SizedBox(
+        height: MediaQuery.sizeOf(context).height,
+        child: Center(
+          child: SizedBox(
+            width: 32,
+            height: 32,
+            child: CircularProgressIndicator(strokeWidth: 4, color: primary, backgroundColor: Colors.transparent),
+          ),
         ),
       );
     }
-    return PremiumModalView(feature: widget.feature, onClose: widget.onClose, onPurchased: () => setState(() => _unlocked = true));
+    // React renders `<PremiumModal isOpen>`, a fixed full-screen layer, instead of the tool: shown above the page
+    // through the nearest Overlay, so it does not depend on the (possibly unbounded) size of the tool area.
+    return _FullScreenLayer(
+      child: PremiumModalView(feature: widget.feature, onClose: widget.onClose, onPurchased: () => setState(() => _unlocked = true)),
+    );
+  }
+}
+
+/// Shows [child] over the whole screen (`position: fixed; inset: 0`) while mounted; occupies no space in place.
+class _FullScreenLayer extends StatefulWidget {
+  const _FullScreenLayer({required this.child});
+  final Widget child;
+  @override
+  State<_FullScreenLayer> createState() => _FullScreenLayerState();
+}
+
+class _FullScreenLayerState extends State<_FullScreenLayer> {
+  final OverlayPortalController _portal = OverlayPortalController()..show();
+
+  @override
+  Widget build(BuildContext context) {
+    if (Overlay.maybeOf(context) == null) {
+      return SizedBox(height: MediaQuery.sizeOf(context).height, child: widget.child);
+    }
+    return OverlayPortal(
+      controller: _portal,
+      overlayChildBuilder: (_) => Positioned.fill(child: widget.child),
+      child: const SizedBox.shrink(),
+    );
   }
 }

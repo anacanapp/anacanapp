@@ -36,7 +36,9 @@ import '../features/home_mommy/register_home_mommy.dart' show buildMommyTopBarAc
 import '../features/legal/medical_disclaimer.dart' show emergencyNumberProvider;
 import '../features/onboarding/birth_onboarding_modal.dart' show showBirthOnboardingModal;
 import '../features/onboarding/onboarding_ports.dart' show onboardingPendingProvider;
-import '../features/onboarding/onboarding_tour_host.dart' show tourBlockedProvider, tourConsentDecidedProvider, tourRunningProvider;
+import '../features/onboarding/onboarding_tour_host.dart'
+    show tourBlockedProvider, tourConsentDecidedProvider, tourRunningProvider, tourToolConfigsProvider;
+import '../features/tools/tour_configs.dart' show toolsTourConfigsProvider;
 import '../features/premium/ad_free_premium_offer.dart' show AdFreePremiumOffer;
 import '../features/premium/premium_gates.dart' show PremiumBlurGate, PremiumGate;
 import '../features/premium/premium_modal.dart' show showPremiumModal;
@@ -64,6 +66,8 @@ List<Override> featureWiringOverrides() => [
       // usePrivacyConsent().decidedAt !== null
       tourConsentDecidedProvider.overrideWith((ref) => ref.watch(privacyConsentProvider.select((c) => c.decided))),
       // Index: lockOffer || lockSetup || autoFeedback || articleSlug (state/first_run_sheets.dart).
+      // useToolConfigs(stage) minus useDisabledTools (Tools hub configs).
+      tourToolConfigsProvider.overrideWith((ref, stage) => ref.watch(toolsTourConfigsProvider(stage))),
       tourBlockedProvider.overrideWith((ref) =>
           ref.watch(firstRunSheetsProvider.select((s) => s.isNotEmpty)) || ref.watch(shellProvider.select((s) => s.blogOverlay != null))),
       // OnboardingTourHost onRunningChange → Index `tourActive` (first-run lock offer waits for the tour).

@@ -272,8 +272,10 @@ class _ControllerHandle implements ScrollContainerHandle {
   void jumpTo(double offset) {
     if (!c.hasClients) return;
     final p = c.position;
+    // Not laid out yet (a call from initState): nothing to move; the frame / timed retries of the callers apply.
+    if (!p.hasContentDimensions || !p.hasPixels) return;
     // `scrollTop = x` clamps to the scrollable range.
-    final v = offset.clamp(p.minScrollExtent, p.hasContentDimensions ? p.maxScrollExtent : offset);
+    final v = offset.clamp(p.minScrollExtent, p.maxScrollExtent);
     if (v != p.pixels) c.jumpTo(v);
   }
 }

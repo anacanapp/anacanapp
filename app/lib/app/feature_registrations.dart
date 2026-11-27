@@ -18,9 +18,10 @@ import '../features/security/register.dart';
 import '../features/settings/register.dart';
 import '../features/startup/startup.dart';
 import '../features/support/register.dart';
+import '../features/tools/register.dart';
 import '../shell/feature_registry.dart';
 
-// Not landed yet (add in order when they exist): blog, chat, commerce, community, games (UI), partner, tools.
+// Not landed yet (add in order when they exist): blog, chat, commerce, community, games (UI), partner, individual tools.
 
 /// Registers every landed feature on [r].
 void registerAllFeatures(FeatureRegistry r) {
@@ -39,6 +40,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerSettingsFeature(r);
   registerStartupFeature(r);
   registerSupportFeature(r);
+  registerToolsFeature(r);
 }
 
 /// The registry the app root installs (`featureRegistryProvider`).
