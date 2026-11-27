@@ -5,7 +5,10 @@
 // placeholder.
 import '../features/ai_chat/register.dart';
 import '../features/baby_chat/register.dart';
+import '../features/album_order/register.dart';
 import '../features/billing/register.dart';
+import '../features/blog/register.dart';
+import '../features/books/register.dart';
 import '../features/chat/register.dart';
 import '../features/community/register.dart';
 import '../features/community_stories/register.dart';
@@ -38,8 +41,11 @@ import '../shell/feature_registry.dart';
 /// Registers every landed feature on [r].
 void registerAllFeatures(FeatureRegistry r) {
   registerAiChatFeature(r);
+  registerAlbumOrderFeature(r);
   registerBabyChatFeature(r);
   registerBillingFeature(r);
+  registerBlogFeature(r);
+  registerBooksFeature(r);
   registerChatFeature(r);
   registerCommunityFeature(r);
   registerCommunityStoriesFeature(r);

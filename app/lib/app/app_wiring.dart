@@ -27,7 +27,11 @@ import '../features/tools/hub/hub_inputs.dart' show ToolsHubSlots, toolsHubSlots
 import '../features/tools/nutrition/meal_logs.dart' show mealLogsProvider;
 import '../features/ai_chat/register.dart' show aiChatFlowOpener;
 import '../features/baby_chat/register.dart' show babyChatCardSlot;
+import '../features/album_order/register.dart' show albumOrderWiringOverrides, pregnancyAlbumOrderSlot;
+import '../features/blog/register.dart' show blogHospitalBagArticles, blogWiringOverrides;
+import '../features/books/register.dart' show booksCarouselSlot, booksHomeCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
+import '../features/tools/pregnancy_common/pregnancy_ports.dart' show PregnancyToolSlots, pregnancyToolSlotsProvider;
 import '../features/community/register.dart' show communityWiringOverrides;
 import '../features/community_stories/register.dart' show communityStoriesWiringOverrides;
 import '../features/groups/register.dart' show groupsWiringOverrides;
@@ -118,6 +122,12 @@ List<Override> featureWiringOverrides() => [
       // Profile slots (one ProfileSlots; commerce / health screens add theirs here).
       profileSlotsProvider.overrideWithValue(const ProfileSlots(partnerLinkForm: partnerLinkFormSlot)),
 
+      // ── blog / album order / pregnancy tool slots (one PregnancyToolSlots; Aptek and ads add their fields) ────────
+      ...blogWiringOverrides(),
+      ...albumOrderWiringOverrides(),
+      pregnancyToolSlotsProvider.overrideWithValue(
+          const PregnancyToolSlots(hospitalBagArticles: blogHospitalBagArticles, albumOrderScreen: pregnancyAlbumOrderSlot)),
+
       ...communityWiringOverrides(),
       ...communityStoriesWiringOverrides(),
       ...groupsWiringOverrides(),
@@ -136,6 +146,7 @@ List<Override> featureWiringOverrides() => [
         adFreeOffer: (context, position) => AdFreePremiumOffer(position: position),
         childSelectorCompact: buildMommyTopBarAction,
         babyChatCard: babyChatCardSlot,
+        booksHomeCard: booksHomeCardSlot,
         partnerCareCard: partnerCareCardSlot,
         dailySummaryAutoSync: dailySummaryAutoSyncSlot,
         showBirthOnboarding: (context) async {
@@ -171,6 +182,7 @@ List<Override> featureWiringOverrides() => [
         slots: {
           MommySlot.upcomingAppointments: (context, _) => const UpcomingAppointments(),
           MommySlot.waterWidget: (context, _) => const WaterWidget(variant: WaterWidgetVariant.anacan),
+          MommySlot.booksCarousel: booksCarouselSlot,
         },
         premiumGate: (context, a) => PremiumBlurGate(feature: a.feature, title: a.title, subtitle: a.subtitle, blur: a.blur ?? 'md', child: a.child),
         showPremiumModal: (context, feature) => showPremiumModal(context, feature: feature),

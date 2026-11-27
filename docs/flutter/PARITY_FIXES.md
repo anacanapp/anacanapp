@@ -32,6 +32,10 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| Bloq məqaləsi: hero və geri düyməsi status bar altına düşürdü | `BlogPostDetail.tsx` | Flutter-də yuxarı boşluq var |
+| Albom sifarişi Alətlər tabında: göndər çubuğu ekranın altına sabitlənib nav altında qalırdı | `AlbumOrderScreen.tsx` | Flutter-də səhifənin sonunda |
+| Qabıq: məqalə açılanda swipe söndürülür və alt qat sıfırdan qurulurdu (yazılmamış mesaj itirdi) | `shell_scaffold.dart` (Flutter qüsuru) | düzəldilib |
+| Partnyor ekranlarında `YYYY-MM-DD` tarixləri UTC gecəyarısı kimi oxunurdu (Qrinviçdən qərbdə yanlış gün) | xülasə, həftəlik statistika, sürprizlər | Flutter-də yerli gün |
 | SOS pəncərəsi: Android geri arxadakı ekrana təsir edirdi | `MotherSOSSheet.tsx` | Flutter-də pəncərəni bağlayır |
 | Partnyor missiyaları: ana ekran kartı və profil xalı ayrı nüsxələr idi, profil səviyyəsi gecikirdi | `usePartnerMissions` | Flutter-də bir ortaq vəziyyət |
 | `usePartnerData`: hər komponentdə ayrıca sorğu + ilk yükləmədən dərhal sonra ikinci sorğu | `usePartnerData.ts` | Flutter-də bir ortaq sorğu |

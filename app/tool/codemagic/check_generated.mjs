@@ -16,6 +16,7 @@ const GENERATORS = [
   ['tool/i18n/export.mjs', ['--check']],
   ['tool/moderation/gen_moderator_copy.mjs', ['--check']],
   ['test/features/tools/play_together/tool/gen_play_content.mjs', ['--check']],
+  ['test/features/blog/tool/gen_content_copy.mjs', ['--check']],
   ['test/features/tools/kid_exercises/tool/gen_kid_ex_content.mjs', ['--check']],
   ['test/features/tools/affiliate/tool/gen_affiliate_assets.mjs', ['--check']],
 ];

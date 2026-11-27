@@ -468,14 +468,24 @@ class _SwipeNavigationDetectorState extends State<SwipeNavigationDetector> {
   int? _pointer;
 
   @override
+  void didUpdateWidget(SwipeNavigationDetector oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!widget.enabled) {
+      _pointer = null;
+      _tracker.cancel();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (!widget.enabled) return widget.child;
     // useIsRtl(): the app root sets Directionality from the language (`textDirectionFor`).
     final rtl = Directionality.maybeOf(context) == TextDirection.rtl;
+    // Always the same Listener: returning the bare child while disabled (e.g. a blog article is open) changed the
+    // widget type above the layer and rebuilt it from scratch, losing its state (a message draft).
     return Listener(
       behavior: HitTestBehavior.translucent,
       onPointerDown: (e) {
-        if (_pointer != null) return; // touches[0] only
+        if (!widget.enabled || _pointer != null) return; // touches[0] only
         _pointer = e.pointer;
         _tracker.start(e.position.dx, e.position.dy, MediaQuery.sizeOf(context).width);
       },
