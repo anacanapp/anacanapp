@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Bewegung für Kinder",
+    "tileDesc": "Bewegungsübungen mit Bildern für 0–5 Jahre",
+    "title": "Bewegung für Kinder",
+    "eyebrow": "Bewegung und Entwicklung",
+    "ageFor": "Für {name}",
+    "today": "Heute",
+    "doneCount": "{n} Übungen",
+    "weekHint": "Die letzten 7 Tage: Jeder Punkt ist ein Tag, an dem ihr geübt habt.",
+    "picksTitle": "Übungen für heute",
+    "picksSub": "Jeden Tag drei neue Übungen, passend zum Alter.",
+    "allTitle": "Alle Übungen",
+    "count": "{n} Übungen",
+    "nowBadge": "Aktuelles Alter",
+    "search": "Übung suchen",
+    "all": "Alle",
+    "favs": "Favoriten",
+    "noFavs": "Tippe auf das Herz, um Übungen zu deinen Favoriten hinzuzufügen.",
+    "noResults": "Keine passende Übung gefunden.",
+    "rules": "Allgemeine Regeln",
+    "safetyNote": "Diese Übungen sind allgemeine Informationen und ersetzen keine ärztliche Untersuchung. Wenn dein Kind zu früh geboren wurde, gesundheitliche Probleme hat oder du dir wegen seiner Entwicklung Sorgen machst, sprich zuerst mit der Kinderärztin, dem Kinderarzt oder einer Kinderphysiotherapeutin.",
+    "age": "Alter",
+    "duration": "Dauer",
+    "how": "So geht's",
+    "benefit": "Was es bringt",
+    "caution": "Achtung",
+    "timer": "Stoppuhr",
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Zurücksetzen",
+    "done": "Geschafft",
+    "doneToday": "Heute geschafft",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "fav": "Zu Favoriten hinzufügen",
+    "unfav": "Aus Favoriten entfernen",
+    "close": "Schließen"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 Jahr",
+      "months": "0–12 Monate",
+      "rules": [
+        "Übe, wenn dein Baby wach und ruhig ist und nicht gerade getrunken hat (frühestens 30–40 Minuten nach dem Füttern).",
+        "Übe auf einer festen, ebenen und sauberen Fläche (auf dem Boden, auf einem Teppich oder einer Matte). Lass dein Baby nie allein auf einer erhöhten Fläche liegen.",
+        "Bewege dein Baby langsam und sanft. Wende nie Kraft an und zieh nicht an Armen oder Beinen.",
+        "Hör sofort auf, wenn dein Baby weint, unruhig oder müde ist.",
+        "Die Altersangaben sind Richtwerte: Jedes Baby entwickelt sich in seinem eigenen Tempo.",
+        "Bei Frühgeborenen oder Babys mit gesundheitlichen Problemen sprich zuerst mit der Kinderärztin oder dem Kinderarzt."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 Jahre",
+      "months": "12–24 Monate",
+      "rules": [
+        "In diesem Alter heißt Üben spielen: Zwing dein Kind zu nichts, mach die Bewegung vor und macht sie gemeinsam.",
+        "Empfohlen sind täglich mindestens 30 Minuten angeleitete Bewegung und 1 Stunde oder mehr freies Bewegungsspiel.",
+        "Mach den Raum sicher: keine scharfen Kanten, keine rutschigen Teppiche, keine Möbel, die umkippen können. Am besten barfuß oder in rutschfesten Socken üben.",
+        "Bleib auf Treppen, Rutschen, beim Klettern und Springen immer in Griffweite.",
+        "Achte bei kleinen Dingen (Bälle, Bauklötze) auf die Größe: Nichts geben, was in den Mund des Kindes passt.",
+        "Die Altersangaben sind Richtwerte. Wenn dein Kind mit 18 Monaten noch nicht selbstständig läuft, geh zur Kinderärztin oder zum Kinderarzt."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 Jahre",
+      "months": "24–36 Monate",
+      "rules": [
+        "In diesem Alter ist Üben Spielen: Mach die Bewegung vor, macht sie gemeinsam und begleite sie mit Liedern und Geschichten.",
+        "Empfohlen sind täglich mindestens 1 Stunde angeleitete Bewegung und 2 Stunden oder mehr freies Bewegungsspiel.",
+        "Mach Wohnung und Hof sicher: kein rutschiger Boden, keine scharfen Kanten, nichts, was umkippen kann.",
+        "Bleib beim Springen, Klettern, Hängen und Rutschen in Griffweite und wähle einen weichen Untergrund.",
+        "Überfordere dein Kind nicht: kurze Spiele, häufige Pausen und Wasser zum Trinken.",
+        "Die Altersangaben sind Richtwerte: Jedes Kind entwickelt sich in seinem eigenen Tempo. Wenn du dir Sorgen machst, sprich mit der Kinderärztin oder dem Kinderarzt."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 Jahre",
+      "months": "36–48 Monate",
+      "rules": [
+        "Üben ist immer noch Spielen: Mach die Bewegung vor, macht sie gemeinsam und bring kleine Wettbewerbe und Geschichten ein.",
+        "Empfohlen sind täglich mindestens 1 Stunde angeleitete Bewegung und 2 Stunden oder mehr freies Bewegungsspiel, möglichst draußen.",
+        "Wähle einen sicheren Ort: rutschfester Boden, eine weiche Matte, keine scharfen Kanten in der Nähe.",
+        "Auf allem mit Rädern (Roller, Fahrrad) trägt dein Kind immer einen Helm.",
+        "Bleib bei Purzelbäumen, auf dem Schwebebalken und beim Klettern direkt daneben.",
+        "Überfordere dein Kind nicht: kurze Spiele, häufige Pausen und Wasser zum Trinken.",
+        "Die Altersangaben sind Richtwerte: Jedes Kind entwickelt sich in seinem eigenen Tempo. Wenn du dir Sorgen machst, sprich mit der Kinderärztin oder dem Kinderarzt."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 Jahre",
+      "months": "48–60 Monate",
+      "rules": [
+        "Üben soll sich wie Spielen anfühlen: Mach die Bewegung vor, macht sie gemeinsam und bring kleine Wettbewerbe und „Rekorde“ ein.",
+        "Empfohlen sind täglich mindestens 1 Stunde angeleitete Bewegung und 2 Stunden oder mehr freies Bewegungsspiel, möglichst draußen.",
+        "Wähle einen sicheren Ort: rutschfester Boden, eine weiche Matte, keine scharfen Kanten in der Nähe.",
+        "Auf Fahrrad und Roller trägt dein Kind immer einen Helm und geschlossene Schuhe.",
+        "Bleib bei Purzelbäumen, Sprüngen von erhöhten Flächen, beim Klettern und Hängen direkt daneben.",
+        "Bei Kraftübungen (Unterarmstütz, Kniebeuge) zählt die saubere Ausführung, nicht die Dauer: Hör auf, sobald die Haltung nachlässt.",
+        "Die Altersangaben sind Richtwerte: Jedes Kind entwickelt sich in seinem eigenen Tempo. Wenn du dir Sorgen machst, sprich mit der Kinderärztin oder dem Kinderarzt."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 Monate",
+    "3–6 ay": "3–6 Monate",
+    "6–9 ay": "6–9 Monate",
+    "9–12 ay": "9–12 Monate",
+    "12–15 ay": "12–15 Monate",
+    "15–18 ay": "15–18 Monate",
+    "18–24 ay": "18–24 Monate",
+    "Hoppanma və tarazlıq": "Hüpfen und Gleichgewicht",
+    "Yerimə, qaçış və dırmaşma": "Gehen, Laufen und Klettern",
+    "Topla oyunlar": "Ballspiele",
+    "Gimnastika və təqlid oyunları": "Turnen und Nachahmungsspiele",
+    "Hoppanma": "Hüpfen",
+    "Tarazlıq": "Gleichgewicht",
+    "Təkərli vasitələr və qaçış": "Fahrzeuge und Laufen",
+    "Güc və gimnastika": "Kraft und Turnen",
+    "Ritm və koordinasiya": "Rhythmus und Koordination",
+    "Hoppanma və tullanma": "Hüpfen und Springen",
+    "Qaçış, velosiped və ritm oyunları": "Laufen, Radfahren und Rhythmusspiele"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Bauchlage",
+      "age": "ab Geburt",
+      "how": "Leg dein Baby auf einer Matte auf den Bauch, beuge seine Arme an den Ellbogen und leg sie neben den Kopf. Leg eine Hand sanft auf seinen Rücken, die andere auf seinen Po. Sprich mit ihm, damit es versucht, den Kopf zu heben.",
+      "duration": "2–3 Mal am Tag, 1–3 Minuten; nach und nach steigern.",
+      "benefit": "Kräftigt die Nacken-, Schulter- und Rückenmuskeln und beugt einem abgeflachten Hinterkopf vor.",
+      "caution": "Nur im Wachzustand und unter Aufsicht. Zum Schlafen dein Baby immer auf den Rücken legen."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Bauchlage auf deiner Brust",
+      "age": "0–2 Monate",
+      "how": "Lehn dich halb liegend an ein Kissen. Leg dein Baby bäuchlings auf deine Brust, halte mit einer Hand seinen Rücken, mit der anderen seinen Po. Sprich mit ihm, damit es dir ins Gesicht schaut.",
+      "duration": "Mehrmals am Tag, 2–5 Minuten.",
+      "benefit": "Die sanfteste Art, dein Baby an die Bauchlage zu gewöhnen; regt es an, den Kopf zu heben, und stärkt eure Bindung.",
+      "caution": "Mach diese Übung nicht, wenn du selbst schläfrig bist."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Bauchlage auf dem Schoß",
+      "age": "0–3 Monate",
+      "how": "Setz dich hin und leg dein Baby quer über deine Oberschenkel auf den Bauch. Eine Hand liegt auf seinem Rücken, die andere auf seinem Po. Du kannst ihm sanft über den Rücken streichen.",
+      "duration": "2–3 Minuten.",
+      "benefit": "Trainiert die Nackenmuskeln, hilft gegen Blähungen und beruhigt dein Baby."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Spielzeug mit den Augen folgen",
+      "age": "0–3 Monate",
+      "how": "Dein Baby liegt auf dem Rücken. Halte ein buntes Spielzeug 20–30 cm vor sein Gesicht und bewege es langsam nach rechts und links. Warte, bis es ihm mit Augen und Kopf folgt.",
+      "duration": "1–2 Minuten, 4–5 Mal zu jeder Seite.",
+      "benefit": "Fördert die visuelle Aufmerksamkeit, die Augen-Kopf-Koordination und das Drehen des Kopfes zu beiden Seiten."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Finger greifen",
+      "age": "0–4 Monate",
+      "how": "Leg deinen Zeigefinger in die Handfläche deines Babys und warte, bis es ihn umklammert. Bewege den Finger ein wenig auf und ab. Wiederhole es mit beiden Händen.",
+      "duration": "3–5 Mal pro Hand.",
+      "benefit": "Stärkt den Greifreflex und die Handmuskeln und fördert den Tastsinn.",
+      "caution": "Zieh dein Baby nicht an deinem Finger hoch."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Knie zum Bauch",
+      "age": "0–6 Monate",
+      "how": "Dein Baby liegt auf dem Rücken. Fass beide Unterschenkel, beuge die Knie zusammen langsam Richtung Bauch, halte 3–5 Sekunden und lass wieder locker.",
+      "duration": "5–8 Wiederholungen.",
+      "benefit": "Lindert Blähungen und Bauchweh und verbessert die Beweglichkeit der Hüftgelenke.",
+      "caution": "Nicht drücken; hör auf, sobald du Widerstand spürst."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "„Fahrradfahren“",
+      "age": "1–6 Monate",
+      "how": "Dein Baby liegt auf dem Rücken. Fass seine Unterschenkel und bewege die Beine abwechselnd wie beim Radfahren: ein Knie zum Bauch, das andere Bein nach vorn.",
+      "duration": "10–15 Runden, mit Pausen dazwischen.",
+      "benefit": "Trainiert Bein- und Bauchmuskeln, unterstützt die Verdauung und übt die abwechselnde Bewegung beider Seiten."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Arme öffnen und schließen",
+      "age": "1–6 Monate",
+      "how": "Dein Baby liegt auf dem Rücken. Leg deine Daumen in seine Handflächen oder halte sanft seine Handgelenke. Öffne seine Arme zur Seite und kreuze sie dann vor der Brust (als würde es sich selbst umarmen).",
+      "duration": "5–8 Wiederholungen.",
+      "benefit": "Dehnt Brust- und Schultermuskeln und hilft dem Baby, die Hände zur Körpermitte zu führen.",
+      "caution": "Zieh nicht an den Armen; öffne sie nur so weit, wie dein Baby es zulässt."
+    },
+    "0-1/09_kicking": {
+      "title": "Gegen die Hände strampeln",
+      "age": "1–4 Monate",
+      "how": "Dein Baby liegt auf dem Rücken. Leg deine Handflächen an seine Fußsohlen und gib leichten Gegendruck; dein Baby drückt mit den Beinen dagegen.",
+      "duration": "1–2 Minuten.",
+      "benefit": "Kräftigt die Beinmuskeln und bereitet das Abdrücken vor (für späteres Krabbeln und Stehen)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Spielen in Seitenlage",
+      "age": "1–4 Monate",
+      "how": "Leg dein Baby auf die Seite und stütz seinen Rücken mit einem gerollten Handtuch. Beide Hände sind vorn; leg ein Spielzeug vor es hin. Dreh es danach auf die andere Seite.",
+      "duration": "2–3 Minuten pro Seite.",
+      "benefit": "Erleichtert es, die Hände zusammenzuführen, bereitet das Drehen vor und beugt einer einseitigen Kopfhaltung vor.",
+      "caution": "Nur im Wachzustand und unter Aufsicht; lass dein Baby in dieser Lage nicht schlafen."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Bauchlage mit Handtuchrolle",
+      "age": "2–4 Monate",
+      "how": "Leg ein gerolltes Handtuch unter die Brust deines Babys (auf Höhe der Achseln), die Arme liegen vor der Rolle. Leg ein Spielzeug vor es hin, damit es den Kopf hebt und schaut.",
+      "duration": "3–5 Minuten, mehrmals am Tag.",
+      "benefit": "Erleichtert das Kopfheben und bereitet den Unterarmstütz vor."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Hochziehen zum Sitzen",
+      "age": "3–5 Monate (sobald das Baby den Kopf halten kann)",
+      "how": "Dein Baby liegt auf dem Rücken. Gib ihm deine Daumen in die Hände, fass seine Handgelenke und zieh es langsam Richtung Sitzen hoch, dann leg es genauso langsam wieder zurück.",
+      "duration": "3–5 Wiederholungen.",
+      "benefit": "Kräftigt Bauch-, Nacken- und Armmuskeln.",
+      "caution": "Wenn der Kopf nach hinten fällt, verschieb die Übung auf später. Nicht schnell ziehen."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Nach dem Spielzeug greifen",
+      "age": "3–5 Monate",
+      "how": "Dein Baby liegt auf dem Rücken. Halte ein Spielzeug über seiner Brust in Reichweite und warte, bis es danach greift. Halte das Spielzeug mal rechts, mal links.",
+      "duration": "2–3 Minuten.",
+      "benefit": "Fördert die Auge-Hand-Koordination, die Schultermuskeln und gezieltes Greifen."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Im Unterarmstütz greifen",
+      "age": "4–6 Monate",
+      "how": "Dein Baby liegt auf dem Bauch und stützt sich auf die Unterarme. Leg ein Spielzeug etwas nach vorn und zur Seite, damit es mit einem Arm danach greift. Du kannst sein Becken mit den Händen leicht stabilisieren.",
+      "duration": "3–5 Minuten.",
+      "benefit": "Übt die Gewichtsverlagerung von einem Arm auf den anderen, stärkt Rücken und Schultergürtel und bereitet das Krabbeln vor."
+    },
+    "0-1/15_rolling": {
+      "title": "Hilfe beim Drehen",
+      "age": "4–6 Monate",
+      "how": "Dein Baby liegt auf dem Rücken. Leg ein Spielzeug zur Seite. Fass mit einer Hand den Oberschenkel, mit der anderen das Becken und führe das obere Bein zur anderen Seite; der Rumpf dreht sich von selbst mit. Übe zu beiden Seiten.",
+      "duration": "3–4 Mal pro Seite.",
+      "benefit": "Fördert die Rumpfmuskeln und die Drehbewegung des Körpers und bringt dem Baby bei, sich selbst zu drehen.",
+      "caution": "Dreh dein Baby nicht, indem du an seinem Arm ziehst."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Die Füße greifen",
+      "age": "4–6 Monate",
+      "how": "Dein Baby liegt auf dem Rücken. Beuge seine Knie und führe die Füße zu seinen Händen, damit es sie greift. Wenn es sie hält, lass es sanft nach rechts und links schaukeln.",
+      "duration": "1–2 Minuten.",
+      "benefit": "Kräftigt die Bauchmuskeln und verbessert Körpergefühl und Beweglichkeit der Hüften."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Gestütztes Sitzen",
+      "age": "5–7 Monate",
+      "how": "Setz dein Baby auf eine Matte und halte es von hinten am Becken oder an der Taille. Gib ihm ein Spielzeug in die Hand. Je sicherer sein Gleichgewicht wird, desto weniger stützt du.",
+      "duration": "3–5 Minuten.",
+      "benefit": "Fördert die Rumpfmuskeln und das Gleichgewicht im Sitzen und macht die Hände frei zum Spielen.",
+      "caution": "Wenn der Rücken rund wird und es müde ist, leg es wieder hin; setz es nicht mit Kissen gestützt hin, bevor es so weit ist."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Gestütztes Wippen im Stehen",
+      "age": "5–8 Monate",
+      "how": "Halte dein Baby fest unter den Achseln am Rumpf und stell seine Füße auf eine feste Fläche. Lass es einen Teil seines Gewichts auf die Beine nehmen und durch Beugen und Strecken der Knie wippen.",
+      "duration": "1–2 Minuten.",
+      "benefit": "Kräftigt die Beinmuskeln und bereitet das Stehen vor.",
+      "caution": "Du trägst den Großteil des Gewichts; lass dein Baby nicht allein auf seinen Beinen stehen."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Im Sitzen nach dem Spielzeug greifen",
+      "age": "6–8 Monate",
+      "how": "Dein Baby sitzt allein und stützt sich mit einer Hand am Boden ab. Leg ein Spielzeug etwas weiter weg nach vorn und zur Seite, damit es sich streckt, danach greift und sich wieder aufrichtet. Leg Kissen rundherum.",
+      "duration": "5 Minuten.",
+      "benefit": "Fördert das Gleichgewicht im Sitzen, die Rumpfdrehung und die Stützreaktion der Hände beim Umfallen."
+    },
+    "0-1/20_peekaboo": {
+      "title": "„Kuckuck“ (Versteckspiel)",
+      "age": "4–12 Monate",
+      "how": "Dein Baby sitzt. Halte ein leichtes Tuch vor dein Gesicht (oder seins), zieh es dann herunter und ruf „Kuckuck!“. Wenn es größer wird, lass es das Tuch selbst wegziehen.",
+      "duration": "So lange dein Baby Interesse zeigt.",
+      "benefit": "Fördert das Verständnis, dass Dinge weiter existieren, Aufmerksamkeit, Kontakt und Lachen; regt aktive Armbewegungen an."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Klatschspiel",
+      "age": "7–12 Monate",
+      "how": "Setz dich deinem Baby gegenüber. Klatsch zu einem Lied oder beim Zählen deine Handflächen an seine, dann zeig ihm, wie es selbst klatscht.",
+      "duration": "2–3 Minuten.",
+      "benefit": "Fördert das Zusammenspiel beider Hände, Rhythmusgefühl, Nachahmung und Kontakt."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Hilfe beim Krabbeln",
+      "age": "7–9 Monate",
+      "how": "Dein Baby ist im Vierfüßlerstand auf Händen und Knien, vor ihm liegt ein Spielzeug. Leg deine Handflächen an seine Fußsohlen, damit es sich abdrücken und vorwärts kommen kann.",
+      "duration": "3–5 Minuten.",
+      "benefit": "Fördert die Krabbelbewegung, die Arm-Bein-Koordination und die Rumpfkraft.",
+      "caution": "Schieb dein Baby nicht, gib ihm nur Halt."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Über Hindernisse krabbeln",
+      "age": "8–10 Monate",
+      "how": "Leg ein niedriges Kissen oder eine zusammengerollte Decke auf die Matte und ein Spielzeug auf die andere Seite. Lass dein Baby über das Hindernis klettern.",
+      "duration": "5 Minuten.",
+      "benefit": "Fördert Kraft, Gleichgewicht und Bewegungsplanung und bereitet das Klettern vor."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Ball rollen",
+      "age": "8–12 Monate",
+      "how": "Dein Baby sitzt mit gespreizten Beinen. Roll einen weichen Ball zu ihm und warte, bis es ihn greift und zurückschubst.",
+      "duration": "5 Minuten.",
+      "benefit": "Fördert das Gleichgewicht im Sitzen, die Auge-Hand-Koordination und das Abwechseln im Spiel."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Hochziehen zum Stehen",
+      "age": "8–10 Monate",
+      "how": "Leg ein Spielzeug auf ein niedriges, stabiles Sofa. Dein Baby wird sich auf die Knie aufrichten, einen Fuß aufsetzen und versuchen aufzustehen. Stütz es bei Bedarf leicht am Becken.",
+      "duration": "3–5 Versuche.",
+      "benefit": "Kräftigt Bein- und Gesäßmuskeln und bringt ihm bei, selbst aufzustehen.",
+      "caution": "Achte darauf, dass das Möbelstück nicht kippen kann und keine scharfen Kanten hat."
+    },
+    "0-1/26_cruising": {
+      "title": "Seitlich an Möbeln entlanggehen",
+      "age": "9–11 Monate",
+      "how": "Dein Baby steht und hält sich am Sofa fest. Leg ein Spielzeug etwas entfernt hin, damit es mit Seitschritten hingeht. Übe in beide Richtungen.",
+      "duration": "5 Minuten.",
+      "benefit": "Übt die Gewichtsverlagerung von Bein zu Bein und das Gleichgewicht; eine direkte Vorbereitung aufs Laufen."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "In die Hocke gehen und Spielzeug aufheben",
+      "age": "10–12 Monate",
+      "how": "Dein Baby steht und hält sich mit einer Hand am Sofa fest. Leg ein Spielzeug neben seinen Fuß auf den Boden. Warte, bis es in die Hocke geht, es aufhebt und wieder aufsteht.",
+      "duration": "5–6 Wiederholungen.",
+      "benefit": "Stärkt Beinmuskeln und Gleichgewicht und übt kontrolliertes Hinsetzen und Aufstehen."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Gehen mit Unterstützung",
+      "age": "10–12 Monate",
+      "how": "Stell dich hinter dein Baby und halte es am Rumpf (auf Brusthöhe). Lass es Schritte machen; je besser sein Gleichgewicht wird, desto weniger stützt du.",
+      "duration": "3–5 Minuten.",
+      "benefit": "Fördert das Gehen und das Gleichgewicht.",
+      "caution": "Den Rumpf zu halten ist für die Schultern sicherer, als das Baby an den Armen hochgezogen gehen zu lassen."
+    },
+    "0-1/29_push_walker": {
+      "title": "Mit dem Lauflernwagen gehen",
+      "age": "11–12 Monate",
+      "how": "Gib deinem Baby einen stabilen, schweren Lauflernwagen zum Schieben. Es hält sich mit beiden Händen am Griff fest und geht vorwärts. Bleib in der Nähe.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Gibt Selbstvertrauen fürs freie Gehen und übt Schrittlänge und Richtung.",
+      "caution": "Der Wagen darf nicht zu schnell wegrollen; eine Gehhilfe mit Sitz (Babywalker, Lauflernhilfe) wird nicht empfohlen."
+    },
+    "1-2/01_first_steps": {
+      "title": "Die ersten freien Schritte",
+      "age": "12–15 Monate",
+      "how": "Stell dein Kind auf die Füße, knie dich 2–3 Schritte entfernt hin, breite die Arme aus und ruf es zu dir. Wenn es klappt, vergrößere den Abstand.",
+      "duration": "5–10 Versuche.",
+      "benefit": "Gibt Selbstvertrauen fürs freie Gehen und schult das Gleichgewicht."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "An einer Hand gehen",
+      "age": "12–15 Monate",
+      "how": "Halte dein Kind nur an einer Hand und geh in seinem Tempo. Halte deine Hand auf Höhe seiner Schulter und zieh nicht nach oben. Wechselt die Hände.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Der Übergang vom Gehen an beiden Händen zum freien Gehen; stärkt das Gleichgewicht."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Ohne Hilfe vom Boden aufstehen",
+      "age": "12–15 Monate",
+      "how": "Wenn dein Kind mitten im Raum sitzt, halte ein spannendes Spielzeug auf Höhe seines Kopfes. Warte, bis es Hände und Füße aufsetzt, den Po hebt und sich selbst aufrichtet.",
+      "duration": "5–6 Wiederholungen.",
+      "benefit": "Kräftigt Bein-, Gesäß- und Rumpfmuskeln; dein Kind lernt, ohne Möbel aufzustehen."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Freie Hocke",
+      "age": "13–18 Monate",
+      "how": "Leg einen Ball oder ein Spielzeug auf den Boden. Ermuntere dein Kind, ohne sich festzuhalten in die Hocke zu gehen, es aufzuheben und wieder aufzustehen.",
+      "duration": "6–8 Wiederholungen.",
+      "benefit": "Fördert Beinkraft, Gleichgewicht und Bewegungskontrolle."
+    },
+    "1-2/07_push_basket": {
+      "title": "Einen Korb schieben",
+      "age": "12–18 Monate",
+      "how": "Leg ein paar Spielsachen in einen leichten Wäschekorb. Dein Kind schiebt den Korb mit beiden Händen durch den Raum.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Kräftigt Bein- und Rumpfmuskeln und macht das Gehen sicherer."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Auf ein niedriges Sofa oder Kissen klettern",
+      "age": "12–18 Monate",
+      "how": "Wähle ein festes Kissen oder ein niedriges Sofa in Kniehöhe. Dein Kind lehnt sich mit dem Bauch an und klettert hinauf, indem es ein Knie hochzieht. Halte deine Hände hinter seinem Po bereit. Übt auch das Herunterkommen: auf dem Bauch, die Füße zuerst.",
+      "duration": "4–5 Wiederholungen.",
+      "benefit": "Fördert die Kraft des ganzen Körpers und die Bewegungsplanung.",
+      "caution": "Lass dein Kind nie allein auf einer erhöhten Fläche."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Treppe hochkrabbeln",
+      "age": "12–18 Monate",
+      "how": "Auf 2–3 niedrigen Stufen setzt dein Kind die Hände auf die obere Stufe und krabbelt hinauf. Du stehst dahinter, die Hände neben seinem Po. Zeig ihm, rückwärts mit den Füßen zuerst hinunterzukommen.",
+      "duration": "3–4 Mal hoch und runter.",
+      "benefit": "Fördert Beinkraft, Koordination und sicheres Verhalten auf der Treppe.",
+      "caution": "Nur unter Aufsicht; sonst bleibt das Treppenschutzgitter geschlossen."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Ball rollen",
+      "age": "12–18 Monate",
+      "how": "Setzt oder hockt euch gegenüber. Rollt euch den Ball zu; dein Kind fängt ihn mit beiden Händen und schubst ihn zurück.",
+      "duration": "5 Minuten.",
+      "benefit": "Fördert Auge-Hand-Koordination, das Abwechseln im Spiel und das Gleichgewicht des Rumpfes."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Turm aus Bauklötzen",
+      "age": "12–18 Monate",
+      "how": "Gib deinem Kind große Holzklötze und zeig ihm, wie man aus 2–4 Klötzen einen Turm baut. Fällt er um, baut ihn neu.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Fördert Feinmotorik, Geschicklichkeit der Hände und Geduld."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Bälle in eine Kiste werfen",
+      "age": "12–18 Monate",
+      "how": "Dein Kind kniet oder sitzt, nimmt die Bälle einzeln und lässt sie in eine Kiste fallen. Dann die Kiste ausleeren und von vorn beginnen.",
+      "duration": "5 Minuten.",
+      "benefit": "Übt Greifen und Loslassen, Auge-Hand-Koordination und das Gleichgewicht im Kniestand."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Mit Spielzeug in der Hand gehen",
+      "age": "15–18 Monate",
+      "how": "Gib deinem Kind ein großes, leichtes Spielzeug und bitte es, das Spielzeug ans andere Ende des Zimmers zu tragen.",
+      "duration": "5 Minuten.",
+      "benefit": "Übt das Gleichgewicht, wenn die Hände beschäftigt sind, und kräftigt die Rumpfmuskeln."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Nachziehspielzeug",
+      "age": "15–20 Monate",
+      "how": "Gib deinem Kind ein Spielzeug auf Rädern an einer kurzen Schnur. Beim Gehen zieht es das Spielzeug hinter sich her und dreht sich danach um.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Übt, beim Gehen Kopf und Rumpf zu drehen und die Aufmerksamkeit zu teilen.",
+      "caution": "Die Schnur muss kurz sein (etwa 30 cm); lass dein Kind mit der Schnur nicht allein."
+    },
+    "1-2/10_tunnel": {
+      "title": "Durch einen Tunnel krabbeln",
+      "age": "12–24 Monate",
+      "how": "Öffne einen großen Karton an zwei Seiten und mach daraus einen Tunnel. Ruf dein Kind vom anderen Ende oder leg dort ein Spielzeug hin.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Fördert Schulter- und Rumpfkraft und das Raumgefühl."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Kissenpfad",
+      "age": "15–20 Monate",
+      "how": "Leg mehrere flache Kissen auf den Boden. Dein Kind hält sich an einer deiner Hände fest und geht darüber.",
+      "duration": "3–5 Durchgänge.",
+      "benefit": "Schult das Gleichgewicht auf wackeligem Untergrund und kräftigt die Fußgelenkmuskeln."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Ball in den Korb werfen",
+      "age": "15–24 Monate",
+      "how": "Stell einen Korb 1 Schritt von deinem Kind entfernt auf. Zeig ihm, wie man einen weichen Ball hineinwirft; wenn es klappt, vergrößere den Abstand.",
+      "duration": "8–10 Würfe.",
+      "benefit": "Fördert die Wurfbewegung, die Auge-Hand-Koordination und die Schulterkraft."
+    },
+    "1-2/15_dance": {
+      "title": "Tanzen zur Musik",
+      "age": "12–24 Monate",
+      "how": "Mach rhythmische Musik an und tanzt zusammen: in den Knien wippen, klatschen, sich drehen.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Fördert Rhythmusgefühl, Gleichgewicht und Ausdauer und hebt die Stimmung."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Spielzeug aufräumen",
+      "age": "15–24 Monate",
+      "how": "Verteil Spielsachen auf dem Boden. Dein Kind bückt sich oder geht in die Hocke, hebt sie einzeln auf und legt sie in einen Korb.",
+      "duration": "Bis alle Spielsachen aufgeräumt sind.",
+      "benefit": "Das wiederholte Bücken und Aufrichten kräftigt Bein- und Rückenmuskeln; dazu entsteht die Gewohnheit aufzuräumen."
+    },
+    "1-2/24_ride_on": {
+      "title": "Rutschauto",
+      "age": "15–24 Monate",
+      "how": "Setz dein Kind auf ein niedriges Fahrzeug ohne Pedale; seine Füße müssen ganz auf den Boden reichen. Es stößt sich mit den Füßen ab und fährt vorwärts.",
+      "duration": "10 Minuten.",
+      "benefit": "Fördert Beinkraft, die Koordination beider Körperseiten und das Lenken."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Gegen den Ball treten",
+      "age": "18–24 Monate",
+      "how": "Leg einen leichten Ball vor den Fuß deines Kindes und zeig ihm, wie man dagegen tritt. Am Anfang kannst du es an einer Hand halten.",
+      "duration": "8–10 Schüsse.",
+      "benefit": "Fördert das kurze Gleichgewicht auf einem Bein und die Fuß-Auge-Koordination."
+    },
+    "1-2/16_bubbles": {
+      "title": "Seifenblasen fangen",
+      "age": "18–24 Monate",
+      "how": "Puste Seifenblasen. Dein Kind stellt sich auf die Zehenspitzen, streckt sich und läuft hinterher, um sie platzen zu lassen.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Übt den Zehenstand, das Strecken nach oben und die Auge-Hand-Koordination."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "An der Hand Treppen steigen",
+      "age": "18–24 Monate",
+      "how": "Dein Kind geht aufrecht und hält sich an einer deiner Hände (oder am Geländer) fest, während es die Treppe hochsteigt. Es ist normal, dass es auf jede Stufe erst einen Fuß und dann den anderen setzt.",
+      "duration": "2–3 Mal hoch und runter.",
+      "benefit": "Fördert die Beinkraft und das Gleichgewicht auf einem Bein.",
+      "caution": "Beim Hinuntergehen stehst du immer eine Stufe unter deinem Kind."
+    },
+    "1-2/21_jump": {
+      "title": "Auf der Stelle hüpfen",
+      "age": "20–24 Monate",
+      "how": "Zeig das Hüpfen selbst vor: Knie beugen und mit beiden Füßen abheben. Am Anfang kannst du dein Kind an den Händen halten oder es von einem niedrigen Kissen herunterhüpfen lassen.",
+      "duration": "5–8 Hüpfer.",
+      "benefit": "Stärkt die Sprungkraft der Beine, die Knochen und die Koordination.",
+      "caution": "Auf weichem Untergrund üben; das Hüpfen mit beiden Füßen klappt oft erst gegen 2 Jahre."
+    },
+    "1-2/22_run": {
+      "title": "Laufen",
+      "age": "18–24 Monate",
+      "how": "Spielt auf einer großen, freien Fläche Fangen oder ruf dein Kind aus der Entfernung zu dir.",
+      "duration": "5–10 Minuten mit kurzen Pausen.",
+      "benefit": "Fördert Ausdauer, Schnelligkeit sowie Herz und Kreislauf."
+    },
+    "1-2/23_balance_line": {
+      "title": "Auf einer Linie gehen",
+      "age": "20–24 Monate",
+      "how": "Kleb ein breites, buntes Klebeband auf den Boden. Dein Kind hält sich an einer deiner Hände fest und setzt die Füße beim Gehen auf das Band.",
+      "duration": "3–5 Durchgänge.",
+      "benefit": "Fördert das Gleichgewicht und das Gehen auf einer schmalen Spur."
+    },
+    "1-2/25_bear_walk": {
+      "title": "„Bärengang“",
+      "age": "18–24 Monate",
+      "how": "Zeig vor, wie man vorwärts geht: Hände und Füße am Boden, die Knie berühren ihn nicht, der Po ist oben. Geht zusammen „wie Bären“.",
+      "duration": "2–3 Durchgänge durch den Raum.",
+      "benefit": "Kräftigt Schulter-, Arm- und Rumpfmuskeln und verbessert die Koordination."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Groß machen, Zehen berühren",
+      "age": "18–24 Monate",
+      "how": "Stellt euch gegenüber. Erst auf die Zehenspitzen gehen und die Arme nach oben strecken, dann vorbeugen und die Zehen berühren. Singt ein Lied dazu.",
+      "duration": "5–6 Wiederholungen.",
+      "benefit": "Fördert Beweglichkeit, Gleichgewicht und Nachahmen von Bewegungen; dein Kind lernt dabei die Körperteile."
+    },
+    "1-2/27_slide": {
+      "title": "Kleine Rutsche",
+      "age": "18–24 Monate",
+      "how": "Dein Kind setzt sich oben auf eine niedrige Rutsche und rutscht mit den Füßen voran hinunter. Halte es am Rumpf und stütze es dann immer weniger.",
+      "duration": "5–6 Mal.",
+      "benefit": "Fördert Klettern, Gleichgewicht im Sitzen und Mut.",
+      "caution": "Rutsch nicht mit deinem Kind auf dem Schoß; sein Fuß kann hängen bleiben und es kann sich verletzen."
+    },
+    "1-2/28_back_walk": {
+      "title": "Rückwärts gehen",
+      "age": "18–24 Monate",
+      "how": "Dein Kind zieht einen Wagen oder ein Nachziehspielzeug zu sich heran und geht dabei rückwärts. Am Anfang halte es an den Händen und geht zusammen rückwärts.",
+      "duration": "3–4 Durchgänge.",
+      "benefit": "Schult Gleichgewicht, Körpergefühl und das Wechseln der Bewegungsrichtung.",
+      "caution": "Achte darauf, dass hinter deinem Kind keine Hindernisse sind."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Beidbeinig nach vorn hüpfen",
+      "age": "24–30 Monate",
+      "how": "Kleb ein buntes Klebeband auf den Boden. Dein Kind beugt die Knie und hüpft mit beiden Füßen zugleich über das Band. Mach es zuerst selbst vor.",
+      "duration": "6–8 Hüpfer.",
+      "benefit": "Fördert Beinkraft, das Zusammenspiel beider Beine und weiches Landen."
+    },
+    "2-3/02_jump_down": {
+      "title": "Von einer niedrigen Stufe springen",
+      "age": "24–30 Monate",
+      "how": "Dein Kind hält sich an einer deiner Hände fest und springt von einer stabilen, 10–15 cm hohen Stufe auf eine weiche Matte. Zeig ihm, mit gebeugten Knien zu landen.",
+      "duration": "5–6 Mal.",
+      "benefit": "Fördert Mut, Beinkraft und Gleichgewicht bei der Landung.",
+      "caution": "Die Höhe nicht steigern; die Stufe darf nicht rutschen."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Auf einem Bein stehen",
+      "age": "30–36 Monate",
+      "how": "Sag: „Steh wie ein Storch.“ Dein Kind hält sich an einer deiner Hände fest, hebt ein Bein und bleibt 2–3 Sekunden so stehen. Bein wechseln, dann ohne Halt probieren.",
+      "duration": "3–4 Mal pro Bein.",
+      "benefit": "Stärkt das Gleichgewicht und die Muskeln rund um das Fußgelenk."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Auf Zehenspitzen gehen",
+      "age": "24–36 Monate",
+      "how": "Sag: „Wir schleichen wie leise Katzen“ und geht auf Zehenspitzen durch den Raum.",
+      "duration": "2–3 Durchgänge.",
+      "benefit": "Kräftigt Wadenmuskeln und Fußgewölbe und schult das Gleichgewicht.",
+      "caution": "Wenn dein Kind ständig auf Zehenspitzen geht, sag es der Kinderärztin oder dem Kinderarzt."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Über ein Brett gehen",
+      "age": "24–36 Monate",
+      "how": "Leg ein breites, niedriges Brett auf den Boden. Dein Kind hält sich an einer deiner Hände fest und geht darüber; wenn es klappt, lass los.",
+      "duration": "4–5 Durchgänge.",
+      "benefit": "Fördert Gleichgewicht, Konzentration und das Setzen der Füße auf eine Linie."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Mit Säckchen auf dem Kopf gehen",
+      "age": "30–36 Monate",
+      "how": "Leg deinem Kind ein kleines Stoffsäckchen (mit Reis oder Kichererbsen gefüllt) auf den Kopf. Damit es nicht herunterfällt, geht es langsam und aufrecht.",
+      "duration": "3–4 Durchgänge.",
+      "benefit": "Fördert Haltung, Gleichgewicht und Konzentration."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Von Punkt zu Punkt hüpfen",
+      "age": "30–36 Monate",
+      "how": "Leg bunte Kreise (Gummipunkte, Papier, Kissen) auf den Boden. Dein Kind hüpft oder macht große Schritte von einem zum nächsten.",
+      "duration": "3–4 Durchgänge.",
+      "benefit": "Fördert genaues Springen, Gleichgewicht und Bewegungsplanung.",
+      "caution": "Die Kreise dürfen nicht rutschen."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Treppe im Wechselschritt hochgehen",
+      "age": "30–36 Monate",
+      "how": "Dein Kind hält sich am Geländer fest und setzt beim Hochgehen auf jede Stufe nur einen Fuß. Beim Hinuntergehen ist es noch normal, beide Füße auf jede Stufe zu setzen.",
+      "duration": "2–3 Mal hoch und runter.",
+      "benefit": "Fördert die Beinkraft und das Gleichgewicht auf einem Bein.",
+      "caution": "Beim Hinuntergehen stehst du eine Stufe unter deinem Kind."
+    },
+    "2-3/14_marching": {
+      "title": "Marschieren",
+      "age": "24–36 Monate",
+      "how": "Mach Musik an und veranstaltet eine „Parade“: Knie hochziehen, Arme schwingen. Ruf zwischendurch Kommandos wie „dreh dich“, „hüpf“, „stopp“.",
+      "duration": "5 Minuten.",
+      "benefit": "Fördert Koordination, Rhythmusgefühl und das Befolgen von Anweisungen."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Laufen und stoppen",
+      "age": "24–36 Monate",
+      "how": "Bei „grünes Licht“ läuft dein Kind los, bei „rotes Licht“ erstarrt es auf der Stelle. Du kannst auch eine Linie ziehen, vor der es anhalten soll.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Fördert Schnelligkeit, Abbremsen, Körperkontrolle und Aufmerksamkeit."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Einen Wagen ziehen",
+      "age": "24–36 Monate",
+      "how": "Belade einen Bollerwagen mit Spielsachen; dein Kind zieht ihn am Griff und lenkt ihn um Kurven.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Kräftigt Rumpf- und Beinmuskeln und übt das Lenken."
+    },
+    "2-3/07_tricycle": {
+      "title": "Dreirad",
+      "age": "30–36 Monate",
+      "how": "Setz dein Kind auf ein Dreirad und stell seine Füße auf die Pedale. Schieb anfangs leicht von hinten an, damit es die Bewegung der Pedale spürt.",
+      "duration": "10–15 Minuten.",
+      "benefit": "Fördert die abwechselnde Arbeit der Beine, Kraft und Lenken.",
+      "caution": "Helm aufsetzen; nur auf ebenem Untergrund, weit weg von der Straße fahren."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Unter dem Tisch durchkrabbeln",
+      "age": "24–36 Monate",
+      "how": "Bau aus einem niedrigen Tisch, Stühlen oder einem Karton einen „Tunnel“. Dein Kind zieht den Kopf ein und krabbelt hindurch.",
+      "duration": "4–5 Durchgänge.",
+      "benefit": "Fördert Schulter- und Rumpfkraft und das Gespür für die eigene Körpergröße."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Kletterleiter",
+      "age": "24–36 Monate",
+      "how": "Auf einem niedrigen Kletterdreieck oder Spielplatzgerüst hält sich dein Kind mit den Händen fest und klettert Sprosse für Sprosse hinauf. Halte deine Hände hinter seinem Po bereit.",
+      "duration": "4–5 Mal.",
+      "benefit": "Fördert die Kraft des ganzen Körpers, die Griffkraft und Mut.",
+      "caution": "Darunter muss weicher Boden sein; lass dein Kind nicht allein."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Allein rutschen",
+      "age": "24–36 Monate",
+      "how": "Dein Kind klettert selbst die Leiter hoch und rutscht im Sitzen mit den Füßen voran hinunter. Du wartest unten.",
+      "duration": "6–8 Mal.",
+      "benefit": "Fördert Klettern, Gleichgewicht im Sitzen und Selbstständigkeit.",
+      "caution": "Nicht kopfüber und nicht auf dem Bauch rutschen lassen."
+    },
+    "2-3/23_bar_hang": {
+      "title": "An der Stange hängen",
+      "age": "30–36 Monate",
+      "how": "Dein Kind hält sich mit beiden Händen an einer niedrigen Reckstange fest (die Füße ein paar Zentimeter über dem Boden) und hängt 3–5 Sekunden. Halte es an der Taille.",
+      "duration": "3–4 Mal.",
+      "benefit": "Stärkt Hand- und Schulterkraft und den Griff.",
+      "caution": "Heb dein Kind nicht an den Händen hoch und schaukle es nicht; darunter gehört eine Matte."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Ball über Kopf werfen",
+      "age": "24–36 Monate",
+      "how": "Stellt euch 1–2 Meter voneinander entfernt auf. Dein Kind wirft dir einen kleinen weichen Ball über die Schulter zu.",
+      "duration": "8–10 Würfe.",
+      "benefit": "Fördert Wurftechnik, Schulterkraft und Zielen."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Ball fangen",
+      "age": "30–36 Monate",
+      "how": "Wirf einen großen, leichten Ball aus 1 Meter Entfernung sanft auf die Brust deines Kindes zu. Es streckt die Arme nach vorn und fängt den Ball, indem es ihn an die Brust drückt.",
+      "duration": "8–10 Mal.",
+      "benefit": "Fördert Auge-Hand-Koordination und Reaktion."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Mit Anlauf gegen den Ball treten",
+      "age": "24–36 Monate",
+      "how": "Bau aus zwei Hütchen oder Kartons ein „Tor“. Dein Kind macht ein, zwei Schritte Anlauf und tritt gegen den Ball.",
+      "duration": "8–10 Schüsse.",
+      "benefit": "Fördert Gleichgewicht auf einem Bein, Fuß-Auge-Koordination und Kraft."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Säckchen in den Reifen werfen",
+      "age": "24–36 Monate",
+      "how": "Leg einen Reifen oder eine Schüssel auf den Boden. Dein Kind wirft aus 1 Schritt Entfernung Säckchen von unten hinein; wenn es klappt, vergrößere den Abstand.",
+      "duration": "8–10 Würfe.",
+      "benefit": "Übt Zielgenauigkeit und das Dosieren der Kraft."
+    },
+    "2-3/27_bowling": {
+      "title": "Kegeln zu Hause",
+      "age": "24–36 Monate",
+      "how": "Stell 6 leere Plastikflaschen im Dreieck auf. Dein Kind geht in die Hocke und rollt den Ball mit beiden Händen, um sie umzuwerfen.",
+      "duration": "5–6 Runden.",
+      "benefit": "Fördert Zielen, Kraft in der Hocke und das Warten, bis man dran ist."
+    },
+    "2-3/24_balloon": {
+      "title": "Luftballon in der Luft halten",
+      "age": "24–36 Monate",
+      "how": "Wirf einen Luftballon hoch. Dein Kind schlägt ihn mit der Hand an und lässt ihn nicht auf den Boden fallen.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Fördert Auge-Hand-Koordination, Strecken nach oben und Reaktion.",
+      "caution": "Reste eines geplatzten Ballons sofort aufsammeln (Erstickungsgefahr)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "„Kopf, Schulter, Knie und Fuß“",
+      "age": "24–36 Monate",
+      "how": "Berührt zum Lied der Reihe nach Kopf, Schultern, Knie und Zehen. Werdet nach und nach schneller.",
+      "duration": "3–4 Mal.",
+      "benefit": "Fördert Beweglichkeit, Koordination und das Kennenlernen der Körperteile."
+    },
+    "2-3/15_spin": {
+      "title": "Drehen",
+      "age": "24–36 Monate",
+      "how": "Dein Kind breitet die Arme aus und dreht sich langsam auf der Stelle; danach in die andere Richtung.",
+      "duration": "2–3 Drehungen pro Richtung.",
+      "benefit": "Fördert das Gleichgewichtssystem (Vestibularsystem) und die Körperkontrolle.",
+      "caution": "Keine Hindernisse in der Nähe; aufhören, sobald ihm schwindelig wird."
+    },
+    "2-3/17_frog_jump": {
+      "title": "Froschsprung",
+      "age": "30–36 Monate",
+      "how": "Dein Kind geht tief in die Hocke, setzt die Hände zwischen den Knien auf den Boden und hüpft dann wie ein Frosch nach vorn.",
+      "duration": "5–6 Sprünge.",
+      "benefit": "Kräftigt Bein- und Gesäßmuskeln und verbessert die Beweglichkeit der Hüften."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "„Schubkarre“",
+      "age": "30–36 Monate",
+      "how": "Dein Kind setzt die Hände auf den Boden. Du fasst es an den Oberschenkeln (oberhalb der Knie) und hebst seine Beine an; es macht ein paar „Schritte“ auf den Händen.",
+      "duration": "3–5 Schritte, 2–3 Mal.",
+      "benefit": "Kräftigt Arm-, Schulter- und Rumpfmuskeln.",
+      "caution": "An den Oberschenkeln halten, nicht an den Knöcheln; aufhören, wenn der Rücken durchhängt oder dein Kind müde wird."
+    },
+    "2-3/21_log_roll": {
+      "title": "Rollen wie ein Baumstamm",
+      "age": "24–36 Monate",
+      "how": "Dein Kind legt sich gestreckt auf eine Matte, streckt die Arme über den Kopf und rollt über die Seite; dann in die andere Richtung.",
+      "duration": "3–4 Umdrehungen pro Seite.",
+      "benefit": "Fördert Rumpfmuskeln, Körpergefühl und das Gleichgewichtssystem."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "„Schmetterling“-Dehnung",
+      "age": "24–36 Monate",
+      "how": "Dein Kind setzt sich hin, legt die Fußsohlen aneinander, hält die Füße mit den Händen und bewegt die Knie wie „Flügel“ sanft auf und ab.",
+      "duration": "20–30 Sekunden.",
+      "benefit": "Verbessert die Beweglichkeit der Hüften und beruhigt nach dem Üben.",
+      "caution": "Nicht mit den Händen auf die Knie drücken."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Auf einem Bein hüpfen",
+      "age": "3,5–4 Jahre",
+      "how": "Dein Kind beugt ein Bein nach hinten und hüpft auf dem anderen auf der Stelle oder nach vorn. Halte es anfangs an der Hand. Bein wechseln.",
+      "duration": "3–5 Hüpfer pro Bein.",
+      "benefit": "Fördert Beinkraft, Gleichgewicht und Koordination."
+    },
+    "3-4/02_long_jump": {
+      "title": "Weitsprung aus dem Stand",
+      "age": "3–4 Jahre",
+      "how": "Zieh eine Linie auf dem Boden. Dein Kind beugt die Knie, schwingt die Arme und springt mit beiden Füßen so weit es kann. Markiere die Landestelle und stellt immer neue „Rekorde“ auf.",
+      "duration": "5–6 Versuche.",
+      "benefit": "Steigert die Sprungkraft der Beine und das Zusammenspiel von Armen und Beinen."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Über ein Hindernis springen",
+      "age": "3–4 Jahre",
+      "how": "Leg ein weiches, 10–15 cm hohes Hindernis hin (Poolnudel, gerolltes Handtuch). Dein Kind springt mit beiden Füßen darüber.",
+      "duration": "6–8 Mal.",
+      "benefit": "Fördert Sprunghöhe, Mut und weiches Landen.",
+      "caution": "Das Hindernis muss leicht umfallen, wenn das Kind hängen bleibt."
+    },
+    "3-4/04_hopscotch": {
+      "title": "Himmel und Hölle",
+      "age": "3,5–4 Jahre",
+      "how": "Mal mit Kreide Kästchen auf den Boden: ein Kästchen, dann zwei nebeneinander. Dein Kind hüpft auf einem Bein in die einzelnen Kästchen und mit beiden Beinen in die Doppelkästchen. Anfangs darf es alles beidbeinig hüpfen.",
+      "duration": "4–5 Durchgänge.",
+      "benefit": "Übt Gleichgewicht, Rhythmus und Beinwechsel."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Von Reifen zu Reifen hüpfen",
+      "age": "3–4 Jahre",
+      "how": "Leg 3–5 Reifen auf den Boden. Dein Kind hüpft mit beiden Füßen von einem in den nächsten.",
+      "duration": "4–5 Durchgänge.",
+      "benefit": "Fördert Sprünge hintereinander, Genauigkeit und Ausdauer."
+    },
+    "3-4/19_leap_river": {
+      "title": "Über den „Fluss“ springen",
+      "age": "3–4 Jahre",
+      "how": "Leg ein blaues Tuch oder zwei Seile auf den Boden, das ist der „Fluss“. Dein Kind nimmt Anlauf, stößt sich mit einem Bein ab, landet auf dem anderen und springt so darüber. Mach den „Fluss“ nach und nach breiter.",
+      "duration": "6–8 Mal.",
+      "benefit": "Fördert weite Sprungschritte, Kraft und das Einschätzen von Entfernungen."
+    },
+    "3-4/25_star_jump": {
+      "title": "„Sternsprung“",
+      "age": "3,5–4 Jahre",
+      "how": "Dein Kind springt hoch, spreizt in der Luft Arme und Beine („Stern“) und landet mit geschlossenen Beinen.",
+      "duration": "5–8 Mal.",
+      "benefit": "Fördert das gleichzeitige Arbeiten von Armen und Beinen und die Ausdauer."
+    },
+    "3-4/05_gallop": {
+      "title": "„Galoppieren“",
+      "age": "3–4 Jahre",
+      "how": "Ein Bein ist immer vorn, das andere folgt: „Wir galoppieren wie Pferde.“ Dann das vordere Bein wechseln.",
+      "duration": "3–4 Durchgänge durch den Raum.",
+      "benefit": "Fördert Rhythmus, Koordination und Ausdauer."
+    },
+    "3-4/06_tree_balance": {
+      "title": "„Baum“-Haltung",
+      "age": "3–4 Jahre",
+      "how": "Dein Kind legt eine Fußsohle an die Wade des anderen Beins, breitet die Arme aus und hält die Position 3–5 Sekunden. Bein wechseln.",
+      "duration": "3 Mal pro Bein.",
+      "benefit": "Stärkt Gleichgewicht, Konzentration und die Muskeln rund um das Fußgelenk."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Auf der Linie Ferse an Zehen gehen",
+      "age": "3,5–4 Jahre",
+      "how": "Kleb ein Band auf den Boden. Dein Kind geht auf dem Band und setzt dabei die Ferse des vorderen Fußes direkt an die Zehen des hinteren.",
+      "duration": "3–4 Durchgänge.",
+      "benefit": "Fördert feines Gleichgewicht und Körperkontrolle."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Schwebebalken",
+      "age": "3–4 Jahre",
+      "how": "Dein Kind geht mit ausgebreiteten Armen allein über einen breiten Balken, der 10 cm über dem Boden liegt. Geh daneben mit.",
+      "duration": "4–5 Durchgänge.",
+      "benefit": "Fördert Gleichgewicht, Mut und Konzentration.",
+      "caution": "Darunter gehört eine weiche Matte."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Treppe im Wechselschritt hinuntergehen",
+      "age": "3,5–4 Jahre",
+      "how": "Dein Kind hält sich am Geländer fest und setzt beim Hinuntergehen auf jede Stufe nur einen Fuß.",
+      "duration": "2–3 Mal.",
+      "benefit": "Fördert Beinkraft, Gleichgewicht und kontrolliertes Hinuntergehen.",
+      "caution": "Du stehst eine Stufe unter deinem Kind."
+    },
+    "3-4/10_scooter": {
+      "title": "Roller",
+      "age": "3–4 Jahre",
+      "how": "Auf einem Roller mit drei Rädern stellt dein Kind einen Fuß aufs Trittbrett und stößt sich mit dem anderen vom Boden ab. Zeig ihm, die Füße zu wechseln.",
+      "duration": "10–15 Minuten.",
+      "benefit": "Fördert Gleichgewicht, Beinkraft und Lenken.",
+      "caution": "Helm und geschlossene Schuhe sind Pflicht; nur auf ebenem Untergrund, weit weg von der Straße fahren."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Laufrad",
+      "age": "3–4 Jahre",
+      "how": "Auf einem Laufrad ohne Pedale sitzt dein Kind und stößt sich mit den Füßen vom Boden ab. Wenn es Schwung hat, hebt es die Füße und versucht, das Gleichgewicht zu halten.",
+      "duration": "10–15 Minuten.",
+      "benefit": "Fördert das Gleichgewicht und erleichtert den Umstieg aufs Fahrrad mit Pedalen.",
+      "caution": "Helm und geschlossene Schuhe sind Pflicht; der Sattel muss so eingestellt sein, dass beide Füße ganz auf den Boden reichen."
+    },
+    "3-4/17_tag": {
+      "title": "Fangen",
+      "age": "3–4 Jahre",
+      "how": "Lauf deinem Kind hinterher und tipp es sanft an; dann fängt es dich. Wechselt oft die Richtung.",
+      "duration": "5–10 Minuten mit Pausen.",
+      "benefit": "Fördert Schnelligkeit, Wendigkeit, Ausdauer und Reaktion."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Aufprallenden Ball fangen",
+      "age": "3–4 Jahre",
+      "how": "Wirf den Ball vor deinem Kind so auf den Boden, dass er einmal aufspringt und in seine Hände fliegt. Dein Kind fängt ihn mit beiden Händen.",
+      "duration": "8–10 Mal.",
+      "benefit": "Fördert Auge-Hand-Koordination und das Vorausahnen der Ballbewegung."
+    },
+    "3-4/13_target_throw": {
+      "title": "Auf ein Ziel werfen",
+      "age": "3–4 Jahre",
+      "how": "Häng eine bunte, runde Zielscheibe an die Wand oder an einen Ständer. Dein Kind wirft aus 1,5–2 Metern einen weichen Ball auf das Ziel.",
+      "duration": "8–10 Würfe.",
+      "benefit": "Fördert Wurfgenauigkeit, Schulterkraft und Konzentration."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Ball um Hütchen führen",
+      "age": "3,5–4 Jahre",
+      "how": "Stell 3–4 Hütchen (oder Flaschen) in eine Reihe. Dein Kind führt den Ball mit leichten Fußstößen im Slalom zwischen ihnen hindurch.",
+      "duration": "3–4 Durchgänge.",
+      "benefit": "Fördert Fuß-Auge-Koordination, Ballkontrolle und Richtungswechsel."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Ball prellen und fangen",
+      "age": "3,5–4 Jahre",
+      "how": "Dein Kind prellt einen mittelgroßen Ball mit beiden Händen auf den Boden und fängt ihn, wenn er hochspringt.",
+      "duration": "8–10 Mal.",
+      "benefit": "Übt das Dosieren der Kraft, Rhythmus und Auge-Hand-Koordination."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Luftballon mit dem Teller",
+      "age": "3–4 Jahre",
+      "how": "Dein Kind hält einen Pappteller wie einen Schläger, schlägt den Luftballon nach oben und lässt ihn nicht auf den Boden fallen. Dann spielt ihn euch gegenseitig zu.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Übt das Schlagen mit einem Gegenstand, Auge-Hand-Koordination und Reaktion.",
+      "caution": "Reste eines geplatzten Ballons sofort aufsammeln."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Purzelbaum mit Hilfe",
+      "age": "3,5–4 Jahre",
+      "how": "Auf einer dicken Matte geht dein Kind in die Hocke, setzt die Hände auf, drückt das Kinn auf die Brust und hebt den Po. Schütze mit einer Hand seinen Nacken und schieb es mit der anderen am Po leicht über, damit es über den Rücken abrollt.",
+      "duration": "3–4 Mal.",
+      "benefit": "Fördert Körpergefühl, Mut und Rumpfmuskeln.",
+      "caution": "Das Gewicht darf nicht auf dem Scheitel lasten; das Kinn bleibt immer auf der Brust. Nur auf einer weichen Matte und mit Hilfe."
+    },
+    "3-4/21_crab_walk": {
+      "title": "„Krebsgang“",
+      "age": "3,5–4 Jahre",
+      "how": "Dein Kind setzt sich hin, stellt die Hände hinter sich und die Füße vor sich auf den Boden, hebt den Po und läuft so vorwärts und rückwärts.",
+      "duration": "2–3 kurze Durchgänge.",
+      "benefit": "Kräftigt Arm-, Schulter-, Gesäß- und Rumpfmuskeln."
+    },
+    "3-4/22_bridge": {
+      "title": "„Brücke“",
+      "age": "3–4 Jahre",
+      "how": "Dein Kind liegt auf dem Rücken, beugt die Knie, stellt die Füße auf und hebt den Po 3–5 Sekunden lang hoch. Du kannst ein Spielzeugauto darunter durchfahren lassen.",
+      "duration": "5–6 Wiederholungen.",
+      "benefit": "Kräftigt Gesäß, unteren Rücken und die hintere Oberschenkelmuskulatur."
+    },
+    "3-4/23_superman": {
+      "title": "„Superman“",
+      "age": "3–4 Jahre",
+      "how": "Dein Kind liegt auf dem Bauch und streckt die Arme nach vorn, dann hebt es Arme und Beine gleichzeitig ein wenig an und „fliegt“ 3 Sekunden lang.",
+      "duration": "4–5 Wiederholungen.",
+      "benefit": "Kräftigt die Rückenmuskeln und unterstützt eine gute Haltung."
+    },
+    "3-4/24_downward_dog": {
+      "title": "„Herabschauender Hund“",
+      "age": "3–4 Jahre",
+      "how": "Dein Kind setzt Hände und Füße auf den Boden und schiebt den Po nach oben („ein Berg“ oder „wir strecken uns wie ein Hund“). 5 Sekunden halten.",
+      "duration": "3–4 Wiederholungen.",
+      "benefit": "Kräftigt Arme und Schultern und dehnt die Rückseite der Beine."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Tauziehen",
+      "age": "3–4 Jahre",
+      "how": "Dein Kind hält ein Ende eines weichen Seils, du das andere. Es beugt die Knie, lehnt sich zurück und zieht; pass deine Kraft an seine an.",
+      "duration": "3–4 Runden.",
+      "benefit": "Kräftigt Arm-, Rücken-, Rumpf- und Beinmuskeln.",
+      "caution": "Das Seil nie plötzlich loslassen und nicht um die Hand wickeln."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Klatschen und Stampfen",
+      "age": "3–4 Jahre",
+      "how": "Bewegt euch zu einem Lied: „Wenn du fröhlich bist, dann klatsch in die Hand“, „stampf mit dem Fuß“, „dreh dich“, „hüpf“. Wechselt die Bewegungen der Reihe nach.",
+      "duration": "5 Minuten.",
+      "benefit": "Fördert Rhythmusgefühl, das Befolgen von Anweisungen und Koordination."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Kreise mit dem Band",
+      "age": "3–4 Jahre",
+      "how": "Dein Kind hält einen Stab mit einem langen Band und malt damit große Kreise, Wellen und „Achten“ in die Luft. Hand wechseln.",
+      "duration": "3–5 Minuten.",
+      "benefit": "Fördert Schulterbeweglichkeit, Kontrolle im Handgelenk und die Koordination beider Körperseiten."
+    },
+    "4-5/01_skipping": {
+      "title": "Hopserlauf",
+      "age": "4,5–5 Jahre",
+      "how": "Zeig den Rhythmus „Schritt – Hopser“: mit einem Bein einen Schritt machen und auf demselben Bein hüpfen, dann mit dem anderen Bein. Macht es Hand in Hand zusammen.",
+      "duration": "3–4 Durchgänge durch Zimmer oder Hof.",
+      "benefit": "Fördert Rhythmus, die abwechselnde Arbeit beider Körperseiten und Koordination."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Seilspringen",
+      "age": "4,5–5 Jahre",
+      "how": "Zeig zuerst, wie man über das am Boden liegende Seil springt, dann, wie man das Seil über den Kopf nach vorn schwingt und darübersteigt. Mehrere Sprünge hintereinander klappen erst nach und nach.",
+      "duration": "5–10 Versuche.",
+      "benefit": "Fördert Rhythmus, das Zusammenspiel von Armen und Beinen und Ausdauer.",
+      "caution": "Das Seil muss zur Größe deines Kindes passen (wenn es in der Mitte darauf steht, reichen die Griffe bis zu den Achseln)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Seitliche Sprünge über eine Linie",
+      "age": "4–5 Jahre",
+      "how": "Kleb ein Band auf den Boden. Dein Kind springt mit geschlossenen Füßen immer wieder von einer Seite des Bandes zur anderen.",
+      "duration": "8–10 Sprünge.",
+      "benefit": "Fördert seitliche Wendigkeit, Kraft im Fußgelenk und Rhythmus."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Auf einem Bein durch Reifen hüpfen",
+      "age": "4–5 Jahre",
+      "how": "Leg 4–5 Reifen in eine Reihe. Dein Kind hüpft auf einem Bein von Reifen zu Reifen; auf dem Rückweg wechselt es das Bein.",
+      "duration": "2–3 Durchgänge pro Bein.",
+      "benefit": "Fördert Kraft auf einem Bein, Gleichgewicht und Genauigkeit."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Von einer Kiste springen und weich landen",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind springt von einer stabilen, kniehohen Kiste auf eine dicke Matte und landet „leise“ mit gebeugten Knien auf beiden Füßen. Die Arme gehen nach vorn.",
+      "duration": "5–6 Mal.",
+      "benefit": "Fördert die richtige Landetechnik, Beinkraft und Mut.",
+      "caution": "Die Kiste darf nicht rutschen; die Höhe nicht steigern."
+    },
+    "4-5/06_bicycle": {
+      "title": "Fahrrad mit Stützrädern",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind tritt in die Pedale, lernt Kurven zu fahren und zu bremsen. Wenn das Gleichgewicht sicherer wird, können die Stützräder ab.",
+      "duration": "15–20 Minuten.",
+      "benefit": "Fördert Beinkraft, Ausdauer, Gleichgewicht und das Gespür für den Weg.",
+      "caution": "Helm und geschlossene Schuhe sind Pflicht; nur auf ebenem Untergrund, weit weg von der Straße fahren."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Pendellauf",
+      "age": "4–5 Jahre",
+      "how": "Stell in 4–5 Metern Entfernung einen Eimer auf und leg ein paar Säckchen hin. Dein Kind läuft hin, nimmt ein Säckchen, läuft zurück, wirft es in den Eimer und macht weiter, bis alle drin sind.",
+      "duration": "2–3 Runden.",
+      "benefit": "Fördert Schnelligkeit, schnelle Richtungswechsel, Bücken und Aufrichten sowie Ausdauer."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "„Stopptanz“",
+      "age": "4–5 Jahre",
+      "how": "Solange Musik läuft, tanzt oder rennt dein Kind; wenn die Musik stoppt, erstarrt es wie eine Statue und versucht, sich nicht zu bewegen.",
+      "duration": "5–10 Minuten.",
+      "benefit": "Fördert Körperkontrolle, Gleichgewicht, Aufmerksamkeit und Selbstbeherrschung."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "„Ein Bein rein, ein Bein raus“",
+      "age": "4–5 Jahre",
+      "how": "Leg einen Reifen auf den Boden. Zu einem Lied streckt dein Kind abwechselnd ein Bein, eine Hand, den Kopf in den Reifen und wieder hinaus und dreht sich dann im Kreis.",
+      "duration": "5 Minuten.",
+      "benefit": "Fördert Gleichgewicht auf einem Bein, das Verständnis von rechts und links und das Befolgen von Anweisungen."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Kleinen Ball mit den Händen fangen",
+      "age": "4–5 Jahre",
+      "how": "Wirf einen kleinen weichen Ball sanft aus 1,5–2 Metern. Dein Kind fängt ihn nur mit den Händen, ohne ihn an die Brust zu drücken.",
+      "duration": "10 Mal.",
+      "benefit": "Fördert Auge-Hand-Koordination und Fingergeschick."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Hochwerfen und fangen",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind wirft ein Säckchen oder einen weichen Ball selbst hoch und fängt ihn mit beiden Händen. Später klatscht es zwischendurch einmal in die Hände.",
+      "duration": "10 Mal.",
+      "benefit": "Fördert das Dosieren der Kraft, das Verfolgen mit den Augen und Reaktion."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Ball mit der Hand prellen",
+      "age": "4,5–5 Jahre",
+      "how": "Dein Kind beugt leicht die Knie und prellt den Ball mit einer Hand mehrmals hintereinander auf den Boden. Erst 2–3 Mal, dann öfter. Hand wechseln.",
+      "duration": "3–4 Versuche pro Hand.",
+      "benefit": "Fördert Rhythmus, die Kontrolle der Handkraft und Auge-Hand-Koordination."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Torschuss",
+      "age": "4–5 Jahre",
+      "how": "Bau ein kleines Tor auf (oder leg zwei Gegenstände hin). Dein Kind schießt den Ball aus 2–3 Metern ins Tor; dann probiert, einen rollenden Ball zu schießen.",
+      "duration": "10 Schüsse.",
+      "benefit": "Fördert Fuß-Auge-Koordination, Gleichgewicht und Schussgenauigkeit."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Ball vom Ständer schlagen",
+      "age": "4–5 Jahre",
+      "how": "Leg einen weichen Ball auf einen niedrigen Ständer. Dein Kind steht seitlich, hält einen leichten Plastikschläger mit beiden Händen und schlägt den Ball.",
+      "duration": "8–10 Schläge.",
+      "benefit": "Fördert Rumpfdrehung, Auge-Hand-Koordination und das Schlagen mit einem Gegenstand.",
+      "caution": "Keine anderen Kinder in der Nähe; nur weicher Ball und Plastikschläger."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Ball in den Korb werfen",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind wirft einen leichten Ball mit beiden Händen in einen Korb, der etwas höher hängt als es selbst groß ist. Wenn es klappt, geht es einen Schritt zurück.",
+      "duration": "10 Würfe.",
+      "benefit": "Fördert Wurfkraft nach oben, Genauigkeit und das Zusammenspiel von Beinen und Armen."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Ringwurf",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind versucht, aus 1–1,5 Metern Ringe über einen senkrechten Stab zu werfen.",
+      "duration": "2–3 Runden.",
+      "benefit": "Fördert feine Zielgenauigkeit, Kontrolle im Handgelenk und Geduld."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "„Flugzeug“-Haltung",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind steht auf einem Bein, beugt den Oberkörper nach vorn, streckt das andere Bein nach hinten und breitet die Arme wie Flügel aus. 3–5 Sekunden halten, dann Bein wechseln.",
+      "duration": "3 Mal pro Bein.",
+      "benefit": "Stärkt Gleichgewicht, Rumpf- und Gesäßmuskeln."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Auf dem Balken über ein Hindernis steigen",
+      "age": "4–5 Jahre",
+      "how": "Leg ein Säckchen auf einen niedrigen Schwebebalken. Dein Kind geht über den Balken und steigt über das Säckchen.",
+      "duration": "4–5 Durchgänge.",
+      "benefit": "Fördert dynamisches Gleichgewicht, Konzentration und hohes Anheben des Beins.",
+      "caution": "Darunter gehört eine weiche Matte; geh daneben mit."
+    },
+    "4-5/19_stork_stand": {
+      "title": "„Storch“-Haltung",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind stemmt die Hände in die Hüften, steht auf einem Bein und hebt das andere vor das Standknie. Versucht, bis 8–10 Sekunden zu zählen.",
+      "duration": "2–3 Mal pro Bein.",
+      "benefit": "Fördert statisches Gleichgewicht und Konzentration."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Hula-Hoop",
+      "age": "4,5–5 Jahre",
+      "how": "Dein Kind legt den Reifen an die Taille, setzt ihn in Schwung und versucht, ihn mit Vor- und Zurückbewegungen der Hüfte oben zu halten. Am Anfang reichen ein paar Umdrehungen.",
+      "duration": "5 Minuten.",
+      "benefit": "Fördert Rumpfmuskeln, Rhythmus und Koordination."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Purzelbaum allein",
+      "age": "4–5 Jahre",
+      "how": "Auf einer dicken Matte geht dein Kind in die Hocke, setzt die Hände auf, drückt das Kinn auf die Brust, stößt sich mit den Beinen ab, rollt über den runden Rücken und kommt in der Hocke wieder hoch.",
+      "duration": "3–5 Mal.",
+      "benefit": "Fördert Körpergefühl, Wendigkeit und Rumpfmuskeln.",
+      "caution": "Das Gewicht darf nicht auf dem Scheitel lasten; das Kinn bleibt immer auf der Brust. Zuerst mit Hilfe üben."
+    },
+    "4-5/21_plank": {
+      "title": "Unterarmstütz",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind stützt sich auf Unterarme und Zehen, der Körper bildet von Kopf bis Ferse eine gerade Linie. 5–10 Sekunden halten.",
+      "duration": "2–3 Mal.",
+      "benefit": "Kräftigt Bauch-, Rücken- und Schultermuskeln.",
+      "caution": "Aufhören, sobald der Rücken durchhängt."
+    },
+    "4-5/22_chair_squat": {
+      "title": "Kniebeuge auf den „unsichtbaren Stuhl“",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind stellt die Füße schulterbreit auseinander, streckt die Arme nach vorn, geht in die Hocke, als würde es sich auf einen Stuhl setzen, und steht wieder auf. Die Fersen bleiben am Boden.",
+      "duration": "6–8 Wiederholungen.",
+      "benefit": "Kräftigt Bein- und Gesäßmuskeln."
+    },
+    "4-5/23_boat_pose": {
+      "title": "„Boot“-Haltung",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind sitzt, lehnt sich etwas zurück, beugt die Knie, hebt die Füße vom Boden und streckt die Arme nach vorn. 5 Sekunden das Gleichgewicht halten.",
+      "duration": "3–4 Wiederholungen.",
+      "benefit": "Kräftigt die Bauchmuskeln und das Gleichgewicht."
+    },
+    "4-5/24_cobra": {
+      "title": "„Kobra“-Dehnung",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind liegt auf dem Bauch, setzt die Hände unter die Schultern und hebt die Brust an; das Becken bleibt am Boden. 5 Sekunden halten.",
+      "duration": "3–4 Wiederholungen.",
+      "benefit": "Kräftigt die Rückenmuskeln und dehnt Bauch und Brust.",
+      "caution": "Den Rücken nicht mit Gewalt überstrecken."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Grätschsitz mit Vorbeugen",
+      "age": "4–5 Jahre",
+      "how": "Dein Kind sitzt mit weit gegrätschten Beinen und schiebt die Hände über den Boden nach vorn, so weit es geht. 10 Sekunden halten, ohne zu wippen.",
+      "duration": "3 Wiederholungen.",
+      "benefit": "Verbessert die Beweglichkeit der Innen- und Rückseite der Oberschenkel."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Am Hangelgerüst entlanghangeln",
+      "age": "4,5–5 Jahre",
+      "how": "Dein Kind hängt an einem niedrigen Hangelgerüst und greift abwechselnd mit den Händen zur nächsten Sprosse. Halte es an der Taille und nimm ihm einen Teil des Gewichts ab.",
+      "duration": "2–3 Versuche.",
+      "benefit": "Fördert Kraft in Händen, Armen und Schultern sowie die Griffkraft.",
+      "caution": "Darunter muss weicher Boden sein; die Hände dürfen nicht nass sein."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Am Kletternetz klettern",
+      "age": "4–5 Jahre",
+      "how": "Auf dem Spielplatz oder zu Hause an einem niedrigen Netz greift dein Kind mit den Händen nach oben, setzt die Füße abwechselnd und klettert hinauf und auf demselben Weg wieder hinunter.",
+      "duration": "3–4 Mal.",
+      "benefit": "Fördert die Kraft des ganzen Körpers, Koordination und Mut.",
+      "caution": "Darunter muss weicher Boden sein; bleib daneben stehen."
+    }
+  }
+}

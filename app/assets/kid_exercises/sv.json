@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Rörelseövningar",
+    "tileDesc": "Rörelseövningar med bilder för 0–5 år",
+    "title": "Rörelseövningar",
+    "eyebrow": "Rörelse och utveckling",
+    "ageFor": "För {name}",
+    "today": "I dag",
+    "doneCount": "{n} övningar",
+    "weekHint": "Senaste 7 dagarna: varje prick är en dag då ni har tränat.",
+    "picksTitle": "Dagens övningar",
+    "picksSub": "Tre nya övningar varje dag, anpassade efter åldern.",
+    "allTitle": "Alla övningar",
+    "count": "{n} övningar",
+    "nowBadge": "Nuvarande ålder",
+    "search": "Sök övning",
+    "all": "Alla",
+    "favs": "Favoriter",
+    "noFavs": "Tryck på hjärtat för att lägga till övningar bland dina favoriter.",
+    "noResults": "Ingen matchande övning hittades.",
+    "rules": "Allmänna regler",
+    "safetyNote": "Övningarna är allmän information och ersätter inte en läkarundersökning. Om barnet är för tidigt fött, har hälsoproblem eller om du är orolig för barnets utveckling, prata först med en barnläkare eller barnfysioterapeut.",
+    "age": "Ålder",
+    "duration": "Tid",
+    "how": "Så gör du",
+    "benefit": "Det här ger det",
+    "caution": "Observera",
+    "timer": "Tidtagarur",
+    "start": "Starta",
+    "pause": "Pausa",
+    "reset": "Nollställ",
+    "done": "Klart",
+    "doneToday": "Gjort i dag",
+    "prev": "Föregående",
+    "next": "Nästa",
+    "fav": "Lägg till i favoriter",
+    "unfav": "Ta bort från favoriter",
+    "close": "Stäng"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 år",
+      "months": "0–12 månader",
+      "rules": [
+        "Gör övningarna när bebisen är vaken, lugn och inte precis har ätit (minst 30–40 minuter efter måltiden).",
+        "Träna på ett fast, plant och rent underlag (en matta eller filt på golvet); lämna aldrig bebisen ensam på en hög plats.",
+        "Rörelserna ska vara långsamma och mjuka. Använd aldrig kraft och dra aldrig i armar eller ben.",
+        "Avbryt direkt om bebisen gråter, är orolig eller blir trött.",
+        "Åldersspannen är ungefärliga; varje bebis utvecklas i sin egen takt.",
+        "Om bebisen är för tidigt född eller har hälsoproblem, prata först med barnläkaren."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 år",
+      "months": "12–24 månader",
+      "rules": [
+        "I den här åldern betyder träning lek: tvinga inte barnet, visa rörelsen själv och gör den tillsammans.",
+        "Rekommendationen är minst 30 minuter ledd rörelse och 1 timme eller mer fri rörelselek varje dag.",
+        "Gör rummet säkert: inga vassa hörn, hala mattor eller möbler som kan välta. Det är bäst att träna barfota eller i halkfria strumpor.",
+        "Var alltid inom räckhåll vid trappor, rutschkanor, klättring och hopp.",
+        "Tänk på storleken när barnet leker med små föremål (bollar, klossar): ge aldrig barnet något som får plats i munnen.",
+        "Åldersspannen är ungefärliga. Om barnet inte går själv vid 18 månader, kontakta barnläkaren."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 år",
+      "months": "24–36 månader",
+      "rules": [
+        "I den här åldern är träning lek: visa rörelsen själv, gör den tillsammans och lägg till sånger och sagor.",
+        "Rekommendationen är minst 1 timme ledd rörelse och 2 timmar eller mer fri rörelselek varje dag.",
+        "Gör rummet och gården säkra: inga hala golv, vassa hörn eller saker som kan välta.",
+        "Var inom räckhåll vid hopp, klättring, häng och rutschkana; välj ett mjukt underlag.",
+        "Trötta inte ut barnet: korta lekar, täta pauser och vatten.",
+        "Åldersspannen är ungefärliga; varje barn utvecklas i sin egen takt. Om du är orolig, kontakta barnläkaren."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 år",
+      "months": "36–48 månader",
+      "rules": [
+        "Träning är fortfarande lek: visa rörelsen själv, gör den tillsammans och lägg till tävlingar och sagor.",
+        "Rekommendationen är minst 1 timme ledd rörelse och 2 timmar eller mer fri rörelselek varje dag, så mycket som möjligt utomhus.",
+        "Välj en säker plats: ett golv som inte är halt, en mjuk matta och inga vassa hörn i närheten.",
+        "Sätt alltid hjälm på barnet på allt med hjul (sparkcykel, cykel).",
+        "Var nära vid övningar som kullerbytta, balansbom och klättring.",
+        "Trötta inte ut barnet: korta lekar, täta pauser och vatten.",
+        "Åldersspannen är ungefärliga; varje barn utvecklas i sin egen takt. Om du är orolig, kontakta barnläkaren."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 år",
+      "months": "48–60 månader",
+      "rules": [
+        "Träningen ska kännas som lek: visa rörelsen själv, gör den tillsammans och lägg till små tävlingar och \"rekord\".",
+        "Rekommendationen är minst 1 timme ledd rörelse och 2 timmar eller mer fri rörelselek varje dag, så mycket som möjligt utomhus.",
+        "Välj en säker plats: ett golv som inte är halt, en mjuk matta och inga vassa hörn i närheten.",
+        "På cykel och sparkcykel ska barnet alltid ha hjälm och stängda skor.",
+        "Var nära vid kullerbytta, hopp från höjd, klättring och häng.",
+        "I styrkeövningar (planka, knäböj) är kvaliteten viktig, inte tiden: sluta när tekniken brister.",
+        "Åldersspannen är ungefärliga; varje barn utvecklas i sin egen takt. Om du är orolig, kontakta barnläkaren."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 månader",
+    "3–6 ay": "3–6 månader",
+    "6–9 ay": "6–9 månader",
+    "9–12 ay": "9–12 månader",
+    "12–15 ay": "12–15 månader",
+    "15–18 ay": "15–18 månader",
+    "18–24 ay": "18–24 månader",
+    "Hoppanma və tarazlıq": "Hopp och balans",
+    "Yerimə, qaçış və dırmaşma": "Gå, springa och klättra",
+    "Topla oyunlar": "Bollekar",
+    "Gimnastika və təqlid oyunları": "Gymnastik och härmlekar",
+    "Hoppanma": "Hopp",
+    "Tarazlıq": "Balans",
+    "Təkərli vasitələr və qaçış": "På hjul och löpning",
+    "Güc və gimnastika": "Styrka och gymnastik",
+    "Ritm və koordinasiya": "Rytm och koordination",
+    "Hoppanma və tullanma": "Hopp och språng",
+    "Qaçış, velosiped və ritm oyunları": "Löpning, cykel och rytmlekar"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Magläge",
+      "age": "från födseln",
+      "how": "Lägg bebisen på mage på en matta, böj armarna i armbågarna och placera dem bredvid huvudet. Lägg mjukt ena handen på ryggen och den andra på stjärten. Prata med bebisen så att hen försöker lyfta huvudet.",
+      "duration": "2–3 gånger om dagen, 1–3 minuter; öka gradvis.",
+      "benefit": "Stärker musklerna i nacke, axlar och rygg och hjälper till att förebygga platt bakhuvud.",
+      "caution": "Bara när bebisen är vaken och under uppsikt. Lägg alltid bebisen på rygg för att sova."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "På mage på förälderns bröst",
+      "age": "0–2 månader",
+      "how": "Luta dig bakåt halvliggande mot en kudde. Lägg bebisen på mage på ditt bröst och håll med ena handen om ryggen och med den andra om stjärten. Prata med bebisen så att hen tittar upp mot ditt ansikte.",
+      "duration": "Några gånger om dagen, 2–5 minuter.",
+      "benefit": "Det mjukaste sättet att vänja bebisen vid magläge; lockar till att lyfta huvudet och stärker anknytningen.",
+      "caution": "Gör inte övningen om du själv är sömnig."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "På mage i knät",
+      "age": "0–3 månader",
+      "how": "Sätt dig och lägg bebisen på mage tvärs över dina lår. Ha ena handen på ryggen och den andra på stjärten. Du kan stryka mjukt över ryggen.",
+      "duration": "2–3 minuter.",
+      "benefit": "Tränar nackmusklerna, hjälper gaser att komma ut och lugnar bebisen."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Följa en leksak med blicken",
+      "age": "0–3 månader",
+      "how": "Bebisen ligger på rygg. Håll en färgglad leksak 20–30 cm från ansiktet och för den långsamt åt höger och vänster. Vänta tills bebisen följer den med ögonen och huvudet.",
+      "duration": "1–2 minuter, 4–5 gånger åt varje håll.",
+      "benefit": "Utvecklar synuppmärksamhet, samspelet mellan ögon och huvud och förmågan att vrida nacken åt båda hållen."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Greppa ett finger",
+      "age": "0–4 månader",
+      "how": "Lägg ditt pekfinger i bebisens handflata och vänta tills hen kramar om det. Rör fingret lite upp och ner. Upprepa med båda händerna.",
+      "duration": "3–5 gånger per hand.",
+      "benefit": "Stärker gripreflexen och handens muskler och utvecklar känseln.",
+      "caution": "Lyft inte upp bebisen medan hen håller i dina fingrar."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Knäna mot magen",
+      "age": "0–6 månader",
+      "how": "Bebisen ligger på rygg. Håll om båda underbenen, böj knäna tillsammans långsamt mot magen, håll kvar 3–5 sekunder och släpp.",
+      "duration": "5–8 repetitioner.",
+      "benefit": "Lindrar gaser och kolik och gör höftlederna rörligare.",
+      "caution": "Tryck inte; avbryt om du känner motstånd."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "\"Cykla\"",
+      "age": "1–6 månader",
+      "how": "Bebisen ligger på rygg. Håll om underbenen och rör benen växelvis som om hen cyklade: ena knät mot magen, det andra benet framåt.",
+      "duration": "10–15 varv, med pauser emellan.",
+      "benefit": "Tränar ben- och magmuskler, hjälper tarmen att arbeta och lär ut växelvisa rörelser."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Öppna och korsa armarna",
+      "age": "1–6 månader",
+      "how": "Bebisen ligger på rygg. Lägg tummarna i bebisens handflator eller håll mjukt om handlederna. För armarna ut åt sidorna och korsa dem sedan över bröstet (som om bebisen kramade sig själv).",
+      "duration": "5–8 repetitioner.",
+      "benefit": "Öppnar bröst- och axelmusklerna och lär bebisen att föra armarna mot kroppens mittlinje.",
+      "caution": "Dra inte i armarna; öppna dem bara så långt som bebisen tillåter."
+    },
+    "0-1/09_kicking": {
+      "title": "Sparka mot handflatorna",
+      "age": "1–4 månader",
+      "how": "Bebisen ligger på rygg. Håll dina handflator mot fotsulorna och ge ett lätt motstånd; bebisen kommer att trycka ifrån med benen.",
+      "duration": "1–2 minuter.",
+      "benefit": "Stärker benmusklerna och förbereder frånskjutet (inför krypning och att stå senare)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Lek i sidoläge",
+      "age": "1–4 månader",
+      "how": "Lägg bebisen på sidan med en hoprullad handduk bakom ryggen. Båda händerna ska vara framför kroppen; lägg en leksak framför bebisen. Vänd sedan till andra sidan.",
+      "duration": "2–3 minuter per sida.",
+      "benefit": "Gör det lättare att föra ihop händerna, förbereder för att rulla runt och motverkar att huvudet alltid lutar åt samma håll.",
+      "caution": "Bara när bebisen är vaken och under uppsikt; låt aldrig bebisen sova i det här läget."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Magläge med handduksrulle",
+      "age": "2–4 månader",
+      "how": "Lägg en hoprullad handduk under bebisens bröst (i höjd med armhålorna) med armarna framför rullen. Lägg en leksak framför bebisen så att hen lyfter huvudet för att titta.",
+      "duration": "3–5 minuter, några gånger om dagen.",
+      "benefit": "Gör det lättare att lyfta huvudet och förbereder för att stödja på armbågarna."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Dra upp till sittande",
+      "age": "3–5 månader (när bebisen kan hålla huvudet)",
+      "how": "Bebisen ligger på rygg. Låt hen greppa dina tummar, håll om handlederna och dra långsamt upp mot sittande, och lägg sedan ner bebisen lika långsamt igen.",
+      "duration": "3–5 repetitioner.",
+      "benefit": "Stärker mag-, nack- och armmusklerna.",
+      "caution": "Om huvudet faller bakåt, vänta med övningen. Dra aldrig snabbt."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Sträcka sig efter en leksak",
+      "age": "3–5 månader",
+      "how": "Bebisen ligger på rygg. Håll en leksak ovanför bröstet, inom räckhåll, och vänta tills bebisen sträcker sig och tar den. För leksaken ibland åt höger, ibland åt vänster.",
+      "duration": "2–3 minuter.",
+      "benefit": "Utvecklar samspelet mellan öga och hand, axelmusklerna och målinriktat grepp."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Sträcka sig från armbågsstöd",
+      "age": "4–6 månader",
+      "how": "Bebisen ligger på mage och stöder på armbågarna. Lägg en leksak lite framför och åt sidan så att bebisen sträcker sig efter den med ena armen. Du kan stabilisera bäckenet lätt med händerna.",
+      "duration": "3–5 minuter.",
+      "benefit": "Lär bebisen att flytta tyngden från ena armen till den andra, stärker rygg och skuldror och förbereder för krypning."
+    },
+    "0-1/15_rolling": {
+      "title": "Hjälp att rulla runt",
+      "age": "4–6 månader",
+      "how": "Bebisen ligger på rygg. Lägg en leksak vid sidan. Håll med ena handen om låret och med den andra om bäckenet och för det övre benet över till andra sidan; bålen följer själv med. Gör åt båda hållen.",
+      "duration": "3–4 gånger per sida.",
+      "benefit": "Utvecklar bålmusklerna och kroppens vridrörelse och lär bebisen att rulla runt själv.",
+      "caution": "Rulla inte runt bebisen genom att dra i armen."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Greppa fötterna",
+      "age": "4–6 månader",
+      "how": "Bebisen ligger på rygg. Böj knäna och för fötterna nära händerna så att bebisen tar tag i dem. Låt hen sedan gunga lätt från sida till sida.",
+      "duration": "1–2 minuter.",
+      "benefit": "Stärker magmusklerna, förbättrar kroppsuppfattningen och gör höfterna smidigare."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Sitta med stöd",
+      "age": "5–7 månader",
+      "how": "Sätt bebisen på en matta och håll bakifrån om bäckenet eller ländryggen. Ge bebisen en leksak i handen. Minska stödet i takt med att balansen blir bättre.",
+      "duration": "3–5 minuter.",
+      "benefit": "Utvecklar bålmusklerna och sittbalansen och frigör händerna för lek.",
+      "caution": "Lägg ner bebisen när ryggen blir rund och hen tröttnar; tvinga inte upp hen i sittande med kuddar."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Fjädra på benen med stöd",
+      "age": "5–8 månader",
+      "how": "Håll bebisen stadigt under armhålorna, runt bålen, och ställ fötterna på ett fast underlag. Låt bebisen bära en del av sin vikt på benen och fjädra genom att böja och sträcka knäna.",
+      "duration": "1–2 minuter.",
+      "benefit": "Stärker benmusklerna och förbereder för att stå.",
+      "caution": "Bär själv större delen av vikten; släpp inte bebisen så att hen står själv."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Sittande sträcka sig efter en leksak",
+      "age": "6–8 månader",
+      "how": "Bebisen sitter själv och stöder sig med ena handen mot golvet. Lägg leksaker en bit bort, framför och vid sidorna, så att hen sträcker sig, tar dem och rätar upp sig igen. Lägg kuddar runt omkring.",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar sittbalansen, bålens vridning och reflexen att ta emot sig med händerna vid fall."
+    },
+    "0-1/20_peekaboo": {
+      "title": "Tittut",
+      "age": "4–12 månader",
+      "how": "Bebisen sitter. Håll en tunn duk framför ditt ansikte (eller bebisens), dra sedan ner den och säg \"tittut!\". När bebisen blir större får hen dra bort duken själv.",
+      "duration": "Så länge bebisen är intresserad.",
+      "benefit": "Utvecklar förståelsen för att saker finns kvar fast de inte syns, uppmärksamhet, kontakt och skratt; lockar till aktiva armrörelser."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Klapplek",
+      "age": "7–12 månader",
+      "how": "Sätt dig mitt emot bebisen. Klappa dina handflator mot bebisens till en sång eller medan du räknar, och visa sedan hur hen klappar händerna själv.",
+      "duration": "2–3 minuter.",
+      "benefit": "Utvecklar samarbetet mellan händerna, rytmkänsla, härmning och kontakt."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Hjälp att krypa",
+      "age": "7–9 månader",
+      "how": "Bebisen står på händer och knän med en leksak framför sig. Håll dina handflator mot fotsulorna så att hen kan ta spjärn och ta sig framåt.",
+      "duration": "3–5 minuter.",
+      "benefit": "Utvecklar krypmönstret, samspelet mellan armar och ben och styrkan i bålen.",
+      "caution": "Knuffa inte bebisen, ge bara stöd."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Krypa över ett hinder",
+      "age": "8–10 månader",
+      "how": "Lägg en låg kudde eller en hoprullad filt på mattan och en leksak på andra sidan. Låt bebisen ta sig över hindret.",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar styrka, balans och rörelseplanering och förbereder för klättring."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Rulla boll",
+      "age": "8–12 månader",
+      "how": "Bebisen sitter med benen isär. Rulla en mjuk boll mot bebisen och vänta tills hen tar den och knuffar tillbaka den.",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar sittbalansen, samspelet mellan öga och hand och turtagning."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Dra sig upp till stående",
+      "age": "8–10 månader",
+      "how": "Lägg en leksak på en låg, stadig soffa. Bebisen kommer upp på knä, sätter ner ena foten och försöker resa sig. Stöd lätt vid bäckenet om det behövs.",
+      "duration": "3–5 försök.",
+      "benefit": "Stärker ben- och sätesmusklerna och lär bebisen att resa sig själv.",
+      "caution": "Se till att möbeln inte kan välta och inte har vassa hörn."
+    },
+    "0-1/26_cruising": {
+      "title": "Gå i sidled längs möbler",
+      "age": "9–11 månader",
+      "how": "Bebisen står och håller sig i soffan. Lägg en leksak en bit bort så att hen tar sig dit med sidosteg. Gör åt båda hållen.",
+      "duration": "5 minuter.",
+      "benefit": "Lär bebisen att flytta tyngden från ben till ben och tränar balansen; en direkt förberedelse för att gå."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Sätta sig på huk och ta upp en leksak",
+      "age": "10–12 månader",
+      "how": "Bebisen står och håller sig i soffan med ena handen. Lägg en leksak på golvet bredvid foten. Vänta tills hen sätter sig på huk, tar upp den och reser sig igen.",
+      "duration": "5–6 repetitioner.",
+      "benefit": "Stärker benmusklerna och balansen och lär kontroll när bebisen sätter sig ner och reser sig."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Gå med stöd",
+      "age": "10–12 månader",
+      "how": "Stå bakom bebisen och håll om bålen (i bröstets höjd). Låt hen ta steg; minska stödet i takt med att balansen blir bättre.",
+      "duration": "3–5 minuter.",
+      "benefit": "Utvecklar gången och balansen.",
+      "caution": "Att hålla om bålen är säkrare för axlarna än att gå med bebisen genom att dra armarna uppåt."
+    },
+    "0-1/29_push_walker": {
+      "title": "Gå med gåvagn",
+      "age": "11–12 månader",
+      "how": "Ge bebisen en stadig, tung gåvagn. Låt hen hålla i handtaget med båda händerna och gå framåt. Var alltid bredvid.",
+      "duration": "5–10 minuter.",
+      "benefit": "Ger trygghet att gå själv och tränar steglängd och styrning.",
+      "caution": "Vagnen får inte rulla iväg för fort; gåstol (med sits) rekommenderas inte."
+    },
+    "1-2/01_first_steps": {
+      "title": "Första egna stegen",
+      "age": "12–15 månader",
+      "how": "Ställ barnet upp, sätt dig själv på knä 2–3 steg bort, sträck ut armarna och ropa på barnet. Öka avståndet efter hand som det går bättre.",
+      "duration": "5–10 försök.",
+      "benefit": "Ger trygghet och balans för att gå själv."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Gå i en hand",
+      "age": "12–15 månader",
+      "how": "Håll barnet i bara en hand och gå i barnets takt. Håll din hand i höjd med barnets axel, dra inte uppåt. Byt hand.",
+      "duration": "5–10 minuter.",
+      "benefit": "Steget från stöd i två händer till att gå själv; stärker balansen."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Resa sig från golvet utan stöd",
+      "age": "12–15 månader",
+      "how": "När barnet sitter mitt på golvet håller du en spännande leksak i höjd med barnets huvud. Vänta tills barnet själv reser sig genom att sätta händer och fötter i golvet och lyfta stjärten.",
+      "duration": "5–6 repetitioner.",
+      "benefit": "Stärker ben-, säte- och bålmuskler; lär barnet att resa sig utan möbler."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Sitta på huk utan stöd",
+      "age": "13–18 månader",
+      "how": "Lägg en boll eller leksak på golvet. Uppmuntra barnet att utan att hålla i något sätta sig på huk, ta upp den och resa sig igen.",
+      "duration": "6–8 repetitioner.",
+      "benefit": "Utvecklar benstyrka, balans och rörelsekontroll."
+    },
+    "1-2/07_push_basket": {
+      "title": "Knuffa en korg",
+      "age": "12–18 månader",
+      "how": "Lägg några leksaker i en lätt tvättkorg. Låt barnet knuffa korgen genom rummet med båda händerna.",
+      "duration": "5–10 minuter.",
+      "benefit": "Stärker ben- och bålmuskler och gör gången stabilare."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Klättra upp på låg soffa eller kudde",
+      "age": "12–18 månader",
+      "how": "Välj en stadig kudde eller låg soffa i knähöjd. Barnet lutar magen mot den och klättrar upp genom att lyfta upp ena knät. Ha händerna redo bakom barnets stjärt. Lär också barnet att ta sig ner: på mage, fötterna först.",
+      "duration": "4–5 repetitioner.",
+      "benefit": "Utvecklar styrka i hela kroppen och rörelseplanering.",
+      "caution": "Lämna inte barnet ensamt på en hög plats."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Krypa upp för trappan",
+      "age": "12–18 månader",
+      "how": "På 2–3 låga trappsteg sätter barnet händerna på steget ovanför och klättrar upp. Stå bakom barnet med händerna vid stjärten. Lär barnet att ta sig ner baklänges, fötterna först.",
+      "duration": "3–4 gånger upp och ner.",
+      "benefit": "Bygger benstyrka, koordination och säkra vanor i trappor.",
+      "caution": "Bara under uppsikt; håll trappgrinden stängd resten av tiden."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Rulla boll",
+      "age": "12–18 månader",
+      "how": "Sitt eller sitt på huk mitt emot varandra. Rulla bollen till varandra; barnet tar emot den med båda händerna och knuffar tillbaka den.",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar samspelet mellan öga och hand, turtagning och balansen i bålen."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Bygga torn av klossar",
+      "age": "12–18 månader",
+      "how": "Ge barnet stora träklossar och visa hur man bygger ett torn av 2–4 klossar. Bygg upp det igen när det rasar.",
+      "duration": "5–10 minuter.",
+      "benefit": "Utvecklar finmotorik, precision i händerna och tålamod."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Lägga bollar i en låda",
+      "age": "12–18 månader",
+      "how": "Barnet står på knä eller sitter och tar bollarna en i taget och släpper ner dem i en låda. Töm sedan lådan och börja om.",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar att greppa och släppa, samspelet mellan öga och hand och balansen på knä."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Gå och bära en leksak",
+      "age": "15–18 månader",
+      "how": "Ge barnet en stor, lätt leksak och be barnet bära den till andra sidan rummet.",
+      "duration": "5 minuter.",
+      "benefit": "Lär barnet att hålla balansen när händerna är upptagna och stärker bålmusklerna."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Dra en dragleksak efter sig",
+      "age": "15–20 månader",
+      "how": "Ge barnet en leksak på hjul med ett kort snöre. Låt barnet dra den efter sig när det går och vända sig om för att titta på den.",
+      "duration": "5–10 minuter.",
+      "benefit": "Lär barnet att vrida huvud och bål under gång och att dela uppmärksamheten.",
+      "caution": "Snöret ska vara kort (ungefär 30 cm); lämna inte barnet ensamt med snöret."
+    },
+    "1-2/10_tunnel": {
+      "title": "Krypa genom en tunnel",
+      "age": "12–24 månader",
+      "how": "Gör en tunnel av en stor kartong genom att öppna båda ändarna. Ropa på barnet från andra sidan eller lägg en leksak där.",
+      "duration": "5–10 minuter.",
+      "benefit": "Utvecklar styrka i axlar och bål och rumsuppfattning."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Kuddstig",
+      "age": "15–20 månader",
+      "how": "Lägg ut några platta kuddar på golvet. Låt barnet gå över dem medan det håller dig i ena handen.",
+      "duration": "3–5 gånger.",
+      "benefit": "Stärker balansen på ostadigt underlag och musklerna runt fotlederna."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Kasta boll i en korg",
+      "age": "15–24 månader",
+      "how": "Ställ en korg 1 steg från barnet. Visa hur man kastar en mjuk boll i korgen; öka avståndet efter hand som det går bättre.",
+      "duration": "8–10 kast.",
+      "benefit": "Utvecklar kaströrelsen, samspelet mellan öga och hand och styrkan i axlarna."
+    },
+    "1-2/15_dance": {
+      "title": "Dansa till musik",
+      "age": "12–24 månader",
+      "how": "Sätt på rytmisk musik och dansa tillsammans med barnet: fjädra i knäna, klappa händerna, snurra runt.",
+      "duration": "5–10 minuter.",
+      "benefit": "Förbättrar rytmkänsla, balans och uthållighet och ger gott humör."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Plocka undan leksaker",
+      "age": "15–24 månader",
+      "how": "Sprid ut leksaker på golvet. Barnet böjer sig ner eller sätter sig på huk, plockar upp dem en i taget och lägger dem i en korg.",
+      "duration": "Tills alla leksaker är undanplockade.",
+      "benefit": "Att böja sig och resa sig om och om igen stärker ben- och ryggmuskler; skapar en vana att städa undan."
+    },
+    "1-2/24_ride_on": {
+      "title": "Sparkbil: framåt med fötterna",
+      "age": "15–24 månader",
+      "how": "Sätt barnet på en låg sparkbil utan pedaler; fötterna ska nå ner helt till golvet. Låt barnet ta sig framåt genom att skjuta ifrån med fötterna.",
+      "duration": "10 minuter.",
+      "benefit": "Utvecklar benstyrka, samarbetet mellan kroppens båda sidor och förmågan att styra."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Sparka boll",
+      "age": "18–24 månader",
+      "how": "Lägg en lätt boll framför barnets fot och visa hur man sparkar. I början kan du hålla barnet i ena handen.",
+      "duration": "8–10 sparkar.",
+      "benefit": "Utvecklar kort balans på ett ben och samspelet mellan fot och öga."
+    },
+    "1-2/16_bubbles": {
+      "title": "Fånga såpbubblor",
+      "age": "18–24 månader",
+      "how": "Blås såpbubblor. Barnet ställer sig på tå, sträcker sig och springer för att spräcka dem.",
+      "duration": "5–10 minuter.",
+      "benefit": "Tränar att stå på tå, sträcka sig uppåt och samspelet mellan öga och hand."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Gå uppför trappan i handen",
+      "age": "18–24 månader",
+      "how": "Barnet går upprätt uppför trappan och håller dig i ena handen (eller i ledstången). Det är helt normalt att barnet först sätter upp ena foten på varje steg och sedan den andra.",
+      "duration": "2–3 gånger upp och ner.",
+      "benefit": "Ökar benstyrkan och balansen på ett ben.",
+      "caution": "Stå alltid ett trappsteg nedanför barnet på vägen ner."
+    },
+    "1-2/21_jump": {
+      "title": "Hoppa på stället",
+      "age": "20–24 månader",
+      "how": "Visa själv hur man hoppar: böj knäna och lyft från golvet med båda fötterna. I början kan du hålla barnet i händerna eller låta det hoppa ner från en låg kudde.",
+      "duration": "5–8 hopp.",
+      "benefit": "Stärker benens explosiva kraft, skelettet och koordinationen.",
+      "caution": "Gör det på ett mjukt underlag; hopp jämfota kommer ofta först runt 2 års ålder."
+    },
+    "1-2/22_run": {
+      "title": "Springa",
+      "age": "18–24 månader",
+      "how": "Lek kull på en rymlig plats utan hinder, eller ropa på barnet på avstånd.",
+      "duration": "5–10 minuter med korta pauser.",
+      "benefit": "Utvecklar uthållighet, snabbhet och hjärta och kärl."
+    },
+    "1-2/23_balance_line": {
+      "title": "Gå på en linje",
+      "age": "20–24 månader",
+      "how": "Tejpa en bred färgad tejp på golvet. Barnet håller dig i ena handen och går med fötterna på tejpen.",
+      "duration": "3–5 gånger.",
+      "benefit": "Utvecklar balansen och gången på en smal yta."
+    },
+    "1-2/25_bear_walk": {
+      "title": "\"Björngång\"",
+      "age": "18–24 månader",
+      "how": "Visa hur man går framåt på händer och fötter, med knäna ovanför golvet och stjärten uppe. Gå tillsammans \"som björnar\".",
+      "duration": "2–3 gånger genom rummet.",
+      "benefit": "Stärker axel-, arm- och bålmuskler och förbättrar koordinationen."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Sträck upp, nudda tårna",
+      "age": "18–24 månader",
+      "how": "Stå mitt emot barnet. Ställ dig först på tå och sträck armarna uppåt, böj dig sedan ner och nudda tårna. Sjung en sång samtidigt.",
+      "duration": "5–6 repetitioner.",
+      "benefit": "Utvecklar rörlighet, balans och förmågan att härma rörelser; lär ut kroppsdelarnas namn."
+    },
+    "1-2/27_slide": {
+      "title": "Låg rutschkana",
+      "age": "18–24 månader",
+      "how": "Barnet sitter högst upp på en låg rutschkana och åker ner med fötterna först. Håll om barnets bål med händerna och minska sedan stödet.",
+      "duration": "5–6 gånger.",
+      "benefit": "Utvecklar klättring, sittbalans och mod.",
+      "caution": "Åk inte ner med barnet i knät; foten kan fastna och barnet kan skadas."
+    },
+    "1-2/28_back_walk": {
+      "title": "Gå baklänges",
+      "age": "18–24 månader",
+      "how": "Barnet går baklänges och drar en vagn eller dragleksak mot sig. I början håller du barnet i händerna och går baklänges tillsammans.",
+      "duration": "3–4 gånger.",
+      "benefit": "Lär ut balans, kroppsuppfattning och att byta rörelseriktning.",
+      "caution": "Se till att det inte finns några hinder bakom barnet."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Hoppa framåt jämfota",
+      "age": "24–30 månader",
+      "how": "Tejpa en färgad tejp på golvet. Barnet böjer knäna och hoppar över tejpen med båda fötterna samtidigt. Visa först själv.",
+      "duration": "6–8 hopp.",
+      "benefit": "Utvecklar benstyrka, samarbetet mellan benen och mjuka landningar."
+    },
+    "2-3/02_jump_down": {
+      "title": "Hoppa ner från ett lågt steg",
+      "age": "24–30 månader",
+      "how": "Barnet håller dig i ena handen och hoppar från ett stadigt steg som är 10–15 cm högt ner på en mjuk matta. Visa hur man landar med böjda knän.",
+      "duration": "5–6 gånger.",
+      "benefit": "Utvecklar mod, benstyrka och balans vid landning.",
+      "caution": "Öka inte höjden; steget får inte glida."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Stå på ett ben",
+      "age": "30–36 månader",
+      "how": "Säg: \"Stå som en stork.\" Barnet håller dig i ena handen, lyfter ena benet och står så i 2–3 sekunder. Byt ben och prova sedan utan stöd.",
+      "duration": "3–4 gånger per ben.",
+      "benefit": "Stärker balansen och musklerna runt fotlederna."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Gå på tå",
+      "age": "24–36 månader",
+      "how": "Säg: \"Nu går vi som tysta katter\" och gå på tå genom rummet.",
+      "duration": "2–3 gånger.",
+      "benefit": "Stärker vadmusklerna, fotvalvet och balansen.",
+      "caution": "Om barnet hela tiden går på tå, berätta det för barnläkaren."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Gå på en planka",
+      "age": "24–36 månader",
+      "how": "Lägg en bred, låg planka på golvet. Barnet håller dig i ena handen och går på den; släpp stödet efter hand som det går bättre.",
+      "duration": "4–5 gånger.",
+      "benefit": "Utvecklar balans, koncentration och förmågan att sätta fötterna på en linje."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Gå med en påse på huvudet",
+      "age": "30–36 månader",
+      "how": "Lägg en liten tygpåse (fylld med ris eller kikärter) på barnets huvud. Barnet går långsamt och rakt så att den inte trillar av.",
+      "duration": "3–4 gånger.",
+      "benefit": "Utvecklar hållning, balans och koncentration."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Hoppa från prick till prick",
+      "age": "30–36 månader",
+      "how": "Lägg ut färgade cirklar (gummiprickar, papper, kuddar) på golvet. Barnet hoppar eller tar långa kliv från den ena till den andra.",
+      "duration": "3–4 gånger.",
+      "benefit": "Utvecklar träffsäkerhet i hoppen, balans och rörelseplanering.",
+      "caution": "Cirklarna får inte glida."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Gå uppför trappan med växelvisa fötter",
+      "age": "30–36 månader",
+      "how": "Barnet håller i ledstången och sätter en fot på varje trappsteg på vägen upp. På vägen ner är det fortfarande normalt att sätta båda fötterna på varje steg.",
+      "duration": "2–3 gånger upp och ner.",
+      "benefit": "Ökar benstyrkan och balansen på ett ben.",
+      "caution": "Stå ett trappsteg nedanför barnet på vägen ner."
+    },
+    "2-3/14_marching": {
+      "title": "Marschera",
+      "age": "24–36 månader",
+      "how": "Sätt på musik och ha en \"parad\": gå med höga knän och svängande armar. Ge då och då kommandon som \"snurra\", \"hoppa\", \"stanna\".",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar koordination, rytmkänsla och förmågan att följa instruktioner."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Spring och stanna",
+      "age": "24–36 månader",
+      "how": "När du säger \"grönt ljus\" springer barnet, vid \"rött ljus\" fryser hen på stället. Du kan också dra en linje och be barnet stanna framför den.",
+      "duration": "5–10 minuter.",
+      "benefit": "Utvecklar snabbhet, inbromsning, kroppskontroll och uppmärksamhet."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Dra en vagn",
+      "age": "24–36 månader",
+      "how": "Lasta leksaker i en vagn; barnet drar den i handtaget och tar sig runt svängar.",
+      "duration": "5–10 minuter.",
+      "benefit": "Stärker bål- och benmuskler och lär barnet att styra."
+    },
+    "2-3/07_tricycle": {
+      "title": "Trehjuling",
+      "age": "30–36 månader",
+      "how": "Sätt barnet på en trehjuling och placera fötterna på pedalerna. Skjut på lätt bakifrån i början så att barnet känner hur pedalerna rör sig.",
+      "duration": "10–15 minuter.",
+      "benefit": "Utvecklar benens växelvisa arbete, styrka och styrförmåga.",
+      "caution": "Sätt på en hjälm; cykla på plant underlag, långt från vägen."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Krypa under bordet",
+      "age": "24–36 månader",
+      "how": "Bygg en \"tunnel\" av ett lågt bord, stolar eller en kartong. Barnet böjer huvudet och kryper igenom under.",
+      "duration": "4–5 gånger.",
+      "benefit": "Utvecklar styrka i axlar och bål och känslan för den egna kroppens storlek."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Klätterställning",
+      "age": "24–36 månader",
+      "how": "På en låg klätterställning eller lekplats klättrar barnet upp: håller i med händerna och sätter fötterna steg för steg. Ha händerna redo bakom barnets stjärt.",
+      "duration": "4–5 gånger.",
+      "benefit": "Utvecklar styrka i hela kroppen, greppstyrka och mod.",
+      "caution": "Ha ett mjukt underlag under; lämna inte barnet ensamt."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Åka rutschkana själv",
+      "age": "24–36 månader",
+      "how": "Barnet klättrar själv upp för stegen och åker ner sittande med fötterna först. Vänta själv nedanför.",
+      "duration": "6–8 gånger.",
+      "benefit": "Utvecklar klättring, sittbalans och självständighet.",
+      "caution": "Låt inte barnet åka med huvudet först eller på mage."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Hänga i ett räcke",
+      "age": "30–36 månader",
+      "how": "Barnet tar tag i ett lågt räcke med båda händerna (fötterna några centimeter över marken) och hänger i 3–5 sekunder. Håll barnet om midjan med händerna.",
+      "duration": "3–4 gånger.",
+      "benefit": "Stärker händer, axlar och grepp.",
+      "caution": "Lyft inte upp barnet i händerna och gunga inte barnet; ha en matta under."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Kasta överhand",
+      "age": "24–36 månader",
+      "how": "Stå 1–2 meter ifrån varandra. Barnet kastar en liten mjuk boll över axeln till dig.",
+      "duration": "8–10 kast.",
+      "benefit": "Utvecklar kastteknik, styrka i axlarna och förmågan att sikta."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Fånga boll",
+      "age": "30–36 månader",
+      "how": "Kasta en stor, lätt boll försiktigt mot barnets bröst från 1 meters avstånd. Barnet sträcker armarna framåt och fångar bollen genom att trycka den mot bröstet.",
+      "duration": "8–10 gånger.",
+      "benefit": "Utvecklar samspelet mellan öga och hand och reaktionsförmågan."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Sparka boll med ansats",
+      "age": "24–36 månader",
+      "how": "Gör ett \"mål\" av två koner eller lådor. Barnet tar ett par steg mot bollen och sparkar.",
+      "duration": "8–10 sparkar.",
+      "benefit": "Utvecklar balans på ett ben, samspelet mellan fot och öga och styrka."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Kasta påsar i en ring",
+      "age": "24–36 månader",
+      "how": "Lägg en ring eller balja på golvet. Barnet kastar påsar underifrån ner i den från 1 stegs avstånd; öka avståndet efter hand som det går bättre.",
+      "duration": "8–10 kast.",
+      "benefit": "Lär barnet att kasta exakt mot ett mål och att dosera kraften."
+    },
+    "2-3/27_bowling": {
+      "title": "Bowling hemma",
+      "age": "24–36 månader",
+      "how": "Ställ upp 6 tomma plastflaskor i en triangel. Barnet sätter sig på huk och rullar bollen med båda händerna för att välta dem.",
+      "duration": "5–6 omgångar.",
+      "benefit": "Utvecklar förmågan att sikta, styrka i huksittande och att vänta på sin tur."
+    },
+    "2-3/24_balloon": {
+      "title": "Håll ballongen i luften",
+      "age": "24–36 månader",
+      "how": "Kasta upp en ballong i luften. Barnet slår till den med handen så att den inte faller ner på golvet.",
+      "duration": "5–10 minuter.",
+      "benefit": "Utvecklar samspelet mellan öga och hand, att sträcka sig uppåt och reaktionsförmågan.",
+      "caution": "Plocka genast upp bitar av en sprucken ballong (kvävningsrisk)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "\"Huvud, axlar, knä och tå\"",
+      "age": "24–36 månader",
+      "how": "Till sången rör ni med händerna i tur och ordning vid huvudet, axlarna, knäna och tårna. Öka takten gradvis.",
+      "duration": "3–4 gånger.",
+      "benefit": "Utvecklar rörlighet, koordination och förmågan att känna igen kroppsdelar."
+    },
+    "2-3/15_spin": {
+      "title": "Snurra",
+      "age": "24–36 månader",
+      "how": "Barnet sträcker ut armarna åt sidorna och snurrar långsamt på stället; sedan åt andra hållet.",
+      "duration": "2–3 varv åt varje håll.",
+      "benefit": "Utvecklar balanssinnet (vestibulära systemet) och kroppskontrollen.",
+      "caution": "Inga hinder runt omkring; barnet ska stanna när det blir yrt."
+    },
+    "2-3/17_frog_jump": {
+      "title": "\"Grodhopp\"",
+      "age": "30–36 månader",
+      "how": "Barnet sätter sig djupt på huk, sätter händerna i golvet mellan knäna och hoppar sedan framåt som en groda.",
+      "duration": "5–6 hopp.",
+      "benefit": "Ökar styrkan i ben- och sätesmuskler och höfternas rörlighet."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "\"Skottkärra\"",
+      "age": "30–36 månader",
+      "how": "Barnet sätter händerna i golvet. Håll barnet om låren (ovanför knäna) och lyft upp benen; barnet tar några \"steg\" på händerna.",
+      "duration": "3–5 steg, 2–3 gånger.",
+      "benefit": "Stärker arm-, axel- och bålmuskler.",
+      "caution": "Håll om låren, inte om fotlederna; avbryt om ryggen sjunker ihop eller barnet blir trött."
+    },
+    "2-3/21_log_roll": {
+      "title": "Rulla som en stock",
+      "age": "24–36 månader",
+      "how": "Barnet ligger rak på en matta med armarna sträckta ovanför huvudet och rullar över på sidan; sedan åt andra hållet.",
+      "duration": "3–4 varv åt varje håll.",
+      "benefit": "Utvecklar bålmuskler, kroppsuppfattning och balanssystemet."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "\"Fjärilen\", stretch",
+      "age": "24–36 månader",
+      "how": "Barnet sitter med fotsulorna mot varandra, håller om fötterna med händerna och rör knäna lätt upp och ner som \"vingar\".",
+      "duration": "20–30 sekunder.",
+      "benefit": "Gör höfterna smidigare och lugnar ner efter träningen.",
+      "caution": "Tryck inte på knäna med händerna."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Hoppa på ett ben",
+      "age": "3,5–4 år",
+      "how": "Barnet böjer ena benet bakåt och hoppar på det andra benet, på stället eller framåt. Håll barnet i handen i början. Byt ben.",
+      "duration": "3–5 hopp på varje ben.",
+      "benefit": "Utvecklar benstyrka, balans och koordination."
+    },
+    "3-4/02_long_jump": {
+      "title": "Stående längdhopp",
+      "age": "3–4 år",
+      "how": "Dra en linje på marken. Barnet böjer knäna, svingar med armarna och hoppar jämfota så långt det kan. Markera var barnet landar och slå \"rekordet\" tillsammans.",
+      "duration": "5–6 försök.",
+      "benefit": "Ökar benens explosiva kraft och samspelet mellan armar och ben."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Hoppa över ett hinder",
+      "age": "3–4 år",
+      "how": "Ställ upp ett mjukt hinder som är 10–15 cm högt (en skumplastpinne, en hoprullad handduk). Barnet hoppar över det jämfota.",
+      "duration": "6–8 gånger.",
+      "benefit": "Utvecklar hopphöjd, mod och mjuka landningar.",
+      "caution": "Hindret ska lätt falla omkull om barnet tar i det."
+    },
+    "3-4/04_hopscotch": {
+      "title": "Hoppa hage",
+      "age": "3,5–4 år",
+      "how": "Rita rutor på marken med krita: en ruta, sedan två rutor bredvid varandra. Barnet hoppar på ett ben i de enkla rutorna och jämfota i de dubbla. I början kan barnet hoppa jämfota i alla.",
+      "duration": "4–5 gånger.",
+      "benefit": "Lär ut balans, rytm och att byta ben."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Hoppa från ring till ring",
+      "age": "3–4 år",
+      "how": "Lägg ut 3–5 rockringar på marken. Barnet hoppar jämfota från den ena till nästa.",
+      "duration": "4–5 gånger.",
+      "benefit": "Utvecklar hopp i följd, precision och uthållighet."
+    },
+    "3-4/19_leap_river": {
+      "title": "Hoppa över \"ån\"",
+      "age": "3–4 år",
+      "how": "Gör en \"å\" av ett blått tyg eller två rep på marken. Barnet springer, tar sats med ena foten och landar på den andra på andra sidan. Gör \"ån\" gradvis bredare.",
+      "duration": "6–8 gånger.",
+      "benefit": "Utvecklar hopp med långt kliv, styrka och förmågan att bedöma avstånd."
+    },
+    "3-4/25_star_jump": {
+      "title": "\"Stjärnhopp\"",
+      "age": "3,5–4 år",
+      "how": "Barnet hoppar upp och sträcker ut armar och ben åt sidorna i luften (en \"stjärna\"), och landar sedan med fötterna ihop.",
+      "duration": "5–8 gånger.",
+      "benefit": "Utvecklar samtidiga rörelser med armar och ben och uthållighet."
+    },
+    "3-4/05_gallop": {
+      "title": "\"Galoppera\"",
+      "age": "3–4 år",
+      "how": "Ena foten är alltid först och den andra följer efter: \"nu galopperar vi som hästar\". Byt sedan vilken fot som är först.",
+      "duration": "3–4 gånger genom rummet.",
+      "benefit": "Utvecklar rytm, koordination och uthållighet."
+    },
+    "3-4/06_tree_balance": {
+      "title": "\"Trädet\"",
+      "age": "3–4 år",
+      "how": "Barnet sätter foten mot vaden på det andra benet, sträcker ut armarna åt sidorna och står så i 3–5 sekunder. Byt ben.",
+      "duration": "3 gånger per ben.",
+      "benefit": "Stärker balans, koncentration och musklerna runt fotlederna."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Gå häl mot tå på en linje",
+      "age": "3,5–4 år",
+      "how": "Tejpa en linje på golvet. Barnet går på tejpen och sätter för varje steg hälen på den främre foten mot tårna på den bakre.",
+      "duration": "3–4 gånger.",
+      "benefit": "Utvecklar finbalans och kroppskontroll."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Balansbom",
+      "age": "3–4 år",
+      "how": "Barnet går själv, med armarna utsträckta, på en bred bom som ligger 10 cm över golvet. Gå bredvid.",
+      "duration": "4–5 gånger.",
+      "benefit": "Utvecklar balans, mod och koncentration.",
+      "caution": "Ha en mjuk matta under."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Gå nerför trappan med växelvisa fötter",
+      "age": "3,5–4 år",
+      "how": "Barnet håller i ledstången och går ner med en fot på varje trappsteg.",
+      "duration": "2–3 gånger.",
+      "benefit": "Utvecklar benstyrka, balans och kontrollerad nedgång.",
+      "caution": "Stå själv ett trappsteg längre ner."
+    },
+    "3-4/10_scooter": {
+      "title": "Sparkcykel",
+      "age": "3–4 år",
+      "how": "På en trehjulig sparkcykel sätter barnet ena foten på brädan och sparkar ifrån mot marken med den andra. Lär barnet att också byta fot.",
+      "duration": "10–15 minuter.",
+      "benefit": "Utvecklar balans, benstyrka och styrförmåga.",
+      "caution": "Hjälm och stängda skor är ett måste; åk på plant underlag, långt från vägen."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Springcykel",
+      "age": "3–4 år",
+      "how": "Barnet sitter på en cykel utan pedaler och tar sig fram genom att sparka ifrån med fötterna. När farten kommer upp försöker barnet lyfta fötterna och hålla balansen.",
+      "duration": "10–15 minuter.",
+      "benefit": "Utvecklar balansen och gör steget till en cykel med pedaler lättare.",
+      "caution": "Hjälm och stängda skor är ett måste; ställ in sadeln så att fötterna når ner helt till marken."
+    },
+    "3-4/17_tag": {
+      "title": "Kull",
+      "age": "3–4 år",
+      "how": "Jaga barnet och nudda hen lätt; sedan får barnet jaga dig. Byt riktning ofta.",
+      "duration": "5–10 minuter med pauser.",
+      "benefit": "Utvecklar snabbhet, smidighet, uthållighet och reaktionsförmåga."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Fånga en studsande boll",
+      "age": "3–4 år",
+      "how": "Studsa bollen i marken framför barnet så att den studsar en gång och kommer upp i händerna. Barnet fångar den med båda händerna.",
+      "duration": "8–10 gånger.",
+      "benefit": "Utvecklar samspelet mellan öga och hand och förmågan att förutse bollens bana."
+    },
+    "3-4/13_target_throw": {
+      "title": "Kasta mot en måltavla",
+      "age": "3–4 år",
+      "how": "Häng upp en måltavla i form av en färgad cirkel på väggen eller ett stativ. Barnet kastar en mjuk boll mot tavlan från 1,5–2 meter.",
+      "duration": "8–10 kast.",
+      "benefit": "Utvecklar träffsäkerhet, styrka i axlarna och koncentration."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Dribbla boll mellan koner",
+      "age": "3,5–4 år",
+      "how": "Ställ 3–4 koner (eller flaskor) på rad. Barnet petar lätt på bollen med foten och slalomar med den mellan konerna.",
+      "duration": "3–4 gånger.",
+      "benefit": "Utvecklar samspelet mellan fot och öga, bollkontroll och riktningsbyten."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Studsa och fånga boll",
+      "age": "3,5–4 år",
+      "how": "Barnet studsar en mellanstor boll i golvet med båda händerna och fångar den när den studsar upp.",
+      "duration": "8–10 gånger.",
+      "benefit": "Utvecklar förmågan att dosera kraften, rytm och samspelet mellan öga och hand."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Ballongspel med papperstallrik",
+      "age": "3–4 år",
+      "how": "Barnet håller en papperstallrik som ett racket, slår ballongen uppåt och låter den inte falla till golvet. Spela den sedan mellan er.",
+      "duration": "5–10 minuter.",
+      "benefit": "Utvecklar förmågan att slå med ett redskap, samspelet mellan öga och hand och reaktionsförmågan.",
+      "caution": "Plocka genast upp bitar av en sprucken ballong."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Kullerbytta med hjälp",
+      "age": "3,5–4 år",
+      "how": "På en tjock matta sätter sig barnet på huk, sätter händerna i mattan, trycker hakan mot bröstet och lyfter stjärten. Skydda nacken med ena handen och hjälp stjärten lätt över med den andra, så att barnet rullar över ryggen.",
+      "duration": "3–4 gånger.",
+      "benefit": "Utvecklar kroppsuppfattning, mod och bålmuskler.",
+      "caution": "Tyngden får inte hamna på hjässan; hakan ska alltid vara mot bröstet. Bara på mjuk matta och med hjälp."
+    },
+    "3-4/21_crab_walk": {
+      "title": "\"Krabbgång\"",
+      "age": "3,5–4 år",
+      "how": "Barnet sitter, sätter händerna bakom sig och fötterna framför sig i golvet, lyfter stjärten och går så framåt och bakåt.",
+      "duration": "2–3 korta sträckor.",
+      "benefit": "Stärker arm-, axel-, säte- och bålmuskler."
+    },
+    "3-4/22_bridge": {
+      "title": "\"Bron\"",
+      "age": "3–4 år",
+      "how": "Barnet ligger på rygg, böjer knäna, sätter fötterna i golvet, lyfter stjärten och håller kvar i 3–5 sekunder. Du kan köra en leksaksbil under \"bron\".",
+      "duration": "5–6 repetitioner.",
+      "benefit": "Stärker säte, ländrygg och baksida lår."
+    },
+    "3-4/23_superman": {
+      "title": "\"Stålmannen\"",
+      "age": "3–4 år",
+      "how": "Barnet ligger på mage med armarna sträckta framåt och lyfter sedan armar och ben samtidigt en bit från golvet för att \"flyga\" i 3 sekunder.",
+      "duration": "4–5 repetitioner.",
+      "benefit": "Stärker ryggmusklerna och stödjer en bra hållning."
+    },
+    "3-4/24_downward_dog": {
+      "title": "\"Nedåtgående hund\"",
+      "age": "3–4 år",
+      "how": "Barnet sätter händer och fötter i golvet och lyfter stjärten högt (\"ett berg\", eller \"vi sträcker på oss som en hund\"). Håll kvar i 5 sekunder.",
+      "duration": "3–4 repetitioner.",
+      "benefit": "Stärker armar och axlar och stretchar baksidan av benen."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Dragkamp",
+      "age": "3–4 år",
+      "how": "Barnet håller i ena änden av ett mjukt rep och du i den andra. Barnet böjer knäna, lutar sig bakåt och drar; anpassa din kraft efter barnets.",
+      "duration": "3–4 omgångar.",
+      "benefit": "Stärker arm-, rygg-, bål- och benmuskler.",
+      "caution": "Släpp inte repet plötsligt och linda det inte runt handen."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Klappa händer, stampa fötter",
+      "age": "3–4 år",
+      "how": "Rör er till en sång: \"Klappa händerna när du är glad\", \"stampa med fötterna\", \"snurra runt\", \"hoppa\". Växla mellan rörelserna.",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar rytmkänsla, förmågan att följa instruktioner och koordination."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Cirklar med band",
+      "age": "3–4 år",
+      "how": "Barnet håller en pinne med ett långt band fäst vid och ritar stora cirklar, vågor och \"åttor\" i luften. Byt hand.",
+      "duration": "3–5 minuter.",
+      "benefit": "Utvecklar axlarnas rörlighet, kontroll i handleden och samarbetet mellan kroppens båda sidor."
+    },
+    "4-5/01_skipping": {
+      "title": "Skutta",
+      "age": "4,5–5 år",
+      "how": "Visa rytmen \"steg, hopp\": ta ett steg med ena foten och gör ett litet hopp på samma fot, sedan med den andra. Gör det tillsammans, hand i hand.",
+      "duration": "3–4 gånger genom rummet eller över gården.",
+      "benefit": "Utvecklar rytm, växelvis arbete mellan kroppens båda sidor och koordination."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Hoppa hopprep",
+      "age": "4,5–5 år",
+      "how": "Lär först barnet att hoppa över ett rep som ligger på marken, sedan att svinga repet över huvudet framåt och kliva över det. Hopp i följd kommer gradvis.",
+      "duration": "5–10 försök.",
+      "benefit": "Utvecklar rytm, samspelet mellan armar och ben och uthållighet.",
+      "caution": "Repet ska ha rätt längd för barnet (när barnet står på mitten av repet ska handtagen nå upp till armhålorna)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Hoppa i sidled över en linje",
+      "age": "4–5 år",
+      "how": "Tejpa en linje på golvet. Barnet hoppar jämfota fram och tillbaka från ena sidan av tejpen till den andra.",
+      "duration": "8–10 hopp.",
+      "benefit": "Utvecklar smidighet i sidled, styrka i fotlederna och rytm."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Hoppa på ett ben genom ringar",
+      "age": "4–5 år",
+      "how": "Lägg 4–5 rockringar på rad. Barnet hoppar på ett ben från ring till ring; på vägen tillbaka byter barnet ben.",
+      "duration": "2–3 gånger per ben.",
+      "benefit": "Utvecklar styrka på ett ben, balans och precision."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Hoppa ner från en låda och landa mjukt",
+      "age": "4–5 år",
+      "how": "Barnet hoppar från en stadig låda i knähöjd ner på en tjock matta och landar \"tyst\" på båda fötterna med böjda knän. Armarna framåt.",
+      "duration": "5–6 gånger.",
+      "benefit": "Utvecklar rätt landningsteknik, benstyrka och mod.",
+      "caution": "Lådan får inte glida; öka inte höjden."
+    },
+    "4-5/06_bicycle": {
+      "title": "Cykel med stödhjul",
+      "age": "4–5 år",
+      "how": "Barnet cyklar genom att trampa och övar på svängar och att bromsa. När balansen blir bättre kan stödhjulen tas bort.",
+      "duration": "15–20 minuter.",
+      "benefit": "Utvecklar benstyrka, uthållighet, balans och trafikkänsla.",
+      "caution": "Hjälm och stängda skor är ett måste; cykla på plant underlag, långt från vägen."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Skyttellöpning",
+      "age": "4–5 år",
+      "how": "Ställ en hink på ett ställe och lägg några påsar 4–5 meter bort. Barnet springer dit, tar en påse, springer tillbaka, lägger den i hinken och fortsätter tills alla påsar är slut.",
+      "duration": "2–3 omgångar.",
+      "benefit": "Utvecklar snabbhet, snabba riktningsbyten, att böja sig och resa sig och uthållighet."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "Stopplek",
+      "age": "4–5 år",
+      "how": "När musiken spelar dansar eller springer barnet; när musiken tystnar fryser barnet som en staty och försöker att inte röra sig.",
+      "duration": "5–10 minuter.",
+      "benefit": "Utvecklar kroppskontroll, balans, uppmärksamhet och självkontroll."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "\"Foten in, foten ut\"",
+      "age": "4–5 år",
+      "how": "Lägg en rockring på golvet. Till en sång sticker barnet i tur och ordning in en fot, en hand och huvudet i ringen och tar ut dem igen, och snurrar sedan runt.",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar balans på ett ben, förståelsen för höger och vänster och förmågan att följa instruktioner."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Fånga en liten boll med händerna",
+      "age": "4–5 år",
+      "how": "Kasta försiktigt en liten mjuk boll från 1,5–2 meter. Barnet fångar den bara med händerna, utan att trycka den mot bröstet.",
+      "duration": "10 gånger.",
+      "benefit": "Utvecklar samspelet mellan öga och hand och fingrarnas smidighet."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Kasta upp och fånga",
+      "age": "4–5 år",
+      "how": "Barnet kastar själv upp en påse eller mjuk boll och fångar den med båda händerna. Lägg sedan till en handklapp emellan.",
+      "duration": "10 gånger.",
+      "benefit": "Utvecklar förmågan att dosera kraften, följa med blicken och reaktionsförmågan."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Studsa boll med en hand",
+      "age": "4,5–5 år",
+      "how": "Barnet böjer knäna lite och studsar bollen mot golvet med en hand flera gånger i rad. Först 2–3 gånger, sedan fler. Byt hand.",
+      "duration": "3–4 försök per hand.",
+      "benefit": "Utvecklar rytm, kontroll över kraften i handen och samspelet mellan öga och hand."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Skjuta på mål",
+      "age": "4–5 år",
+      "how": "Ställ upp ett litet mål (eller lägg ut två föremål). Barnet skjuter bollen i mål från 2–3 meter; prova sedan att sparka en rullande boll.",
+      "duration": "10 skott.",
+      "benefit": "Utvecklar samspelet mellan fot och öga, balans och träffsäkerhet."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Slå boll från ett stativ",
+      "age": "4–5 år",
+      "how": "Lägg en mjuk boll på ett lågt stativ. Barnet står från sidan, håller ett lätt plastslagträ med båda händerna och slår på bollen.",
+      "duration": "8–10 slag.",
+      "benefit": "Utvecklar bålens vridning, samspelet mellan öga och hand och förmågan att slå med ett redskap.",
+      "caution": "Inga andra barn i närheten; bara mjuk boll och plastslagträ."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Kasta boll i korg",
+      "age": "4–5 år",
+      "how": "Barnet kastar en lätt boll med båda händerna i en korg som hänger lite högre än barnet självt. När det går bra tar barnet ett steg bakåt.",
+      "duration": "10 kast.",
+      "benefit": "Utvecklar kraft i kast uppåt, träffsäkerhet och samspelet mellan ben och armar."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Ringkastning",
+      "age": "4–5 år",
+      "how": "Barnet försöker kasta ringar över en upprätt pinne från 1–1,5 meter.",
+      "duration": "2–3 omgångar.",
+      "benefit": "Utvecklar finprecision, kontroll i handleden och tålamod."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "\"Flygplanet\"",
+      "age": "4–5 år",
+      "how": "Barnet står på ett ben, lutar överkroppen framåt, sträcker det andra benet bakåt och breder ut armarna som vingar. Håll kvar i 3–5 sekunder och byt ben.",
+      "duration": "3 gånger per ben.",
+      "benefit": "Stärker balansen och bål- och sätesmusklerna."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Kliva över ett hinder på bommen",
+      "age": "4–5 år",
+      "how": "Lägg en påse på en låg balansbom. Barnet går på bommen och kliver över påsen.",
+      "duration": "4–5 gånger.",
+      "benefit": "Utvecklar dynamisk balans, koncentration och att lyfta foten högt.",
+      "caution": "Ha en mjuk matta under och gå bredvid."
+    },
+    "4-5/19_stork_stand": {
+      "title": "\"Storken\"",
+      "age": "4–5 år",
+      "how": "Barnet sätter händerna i midjan, står på ett ben och lyfter det andra benet framför knät. Försök räkna till 8–10 sekunder.",
+      "duration": "2–3 gånger per ben.",
+      "benefit": "Utvecklar statisk balans och koncentration."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Snurra rockring",
+      "age": "4,5–5 år",
+      "how": "Barnet lägger rockringen mot midjan, sätter fart på den och försöker hålla den uppe genom att röra höfterna fram och tillbaka. I början räcker några varv.",
+      "duration": "5 minuter.",
+      "benefit": "Utvecklar bålmuskler, rytm och koordination."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Kullerbytta på egen hand",
+      "age": "4–5 år",
+      "how": "På en tjock matta sätter sig barnet på huk, sätter händerna i mattan, trycker hakan mot bröstet, tar fart med fötterna, rullar över den runda ryggen och kommer upp i huksittande.",
+      "duration": "3–5 gånger.",
+      "benefit": "Utvecklar kroppsuppfattning, smidighet och bålmuskler.",
+      "caution": "Tyngden får inte hamna på hjässan; hakan alltid mot bröstet. Lär först ut den med hjälp."
+    },
+    "4-5/21_plank": {
+      "title": "Plankan",
+      "age": "4–5 år",
+      "how": "Barnet stöder på armbågarna och tårna med kroppen i en rak linje från huvud till hälar. Håll kvar i 5–10 sekunder.",
+      "duration": "2–3 gånger.",
+      "benefit": "Stärker mag-, rygg- och axelmuskler.",
+      "caution": "Sluta när ryggen börjar sjunka ihop."
+    },
+    "4-5/22_chair_squat": {
+      "title": "Knäböj på \"osynlig stol\"",
+      "age": "4–5 år",
+      "how": "Barnet står med fötterna axelbrett isär, sträcker armarna framåt, böjer sig ner som om hen skulle sätta sig på en stol och reser sig igen. Hälarna stannar i golvet.",
+      "duration": "6–8 repetitioner.",
+      "benefit": "Stärker ben- och sätesmuskler."
+    },
+    "4-5/23_boat_pose": {
+      "title": "\"Båten\"",
+      "age": "4–5 år",
+      "how": "Barnet sitter, lutar sig lite bakåt, böjer knäna, lyfter fötterna från golvet och sträcker armarna framåt. Håll balansen i 5 sekunder.",
+      "duration": "3–4 repetitioner.",
+      "benefit": "Stärker magmusklerna och balansen."
+    },
+    "4-5/24_cobra": {
+      "title": "\"Kobran\", stretch",
+      "age": "4–5 år",
+      "how": "Barnet ligger på mage, sätter händerna under axlarna och lyfter bröstet; höfterna ligger kvar mot golvet. Håll kvar i 5 sekunder.",
+      "duration": "3–4 repetitioner.",
+      "benefit": "Stärker ryggmusklerna och stretchar mage och bröst.",
+      "caution": "Tvinga inte ryggen bakåt."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Sträcka sig framåt i bred sittställning",
+      "age": "4–5 år",
+      "how": "Barnet sitter med benen brett isär och för händerna framåt längs golvet. Håll kvar i 10 sekunder, utan att gunga.",
+      "duration": "3 repetitioner.",
+      "benefit": "Ökar rörligheten i insidan och baksidan av låren."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Hänga och ta sig fram i en räckstege",
+      "age": "4,5–5 år",
+      "how": "Barnet hänger i en låg räckstege och flyttar händerna växelvis till nästa pinne. Håll om barnets midja och bär en del av vikten.",
+      "duration": "2–3 försök.",
+      "benefit": "Utvecklar styrka i händer, armar och axlar och greppet.",
+      "caution": "Ha ett mjukt underlag under; händerna får inte vara våta."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Klättra i klätternät",
+      "age": "4–5 år",
+      "how": "På lekplatsen eller hemma i ett lågt nät klättrar barnet upp genom att ta tag högre upp med händerna och sätta fötterna växelvis, och tar sig ner på samma sätt.",
+      "duration": "3–4 gånger.",
+      "benefit": "Utvecklar styrka i hela kroppen, koordination och mod.",
+      "caution": "Ha ett mjukt underlag under; stå bredvid."
+    }
+  }
+}

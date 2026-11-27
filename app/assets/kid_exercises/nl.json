@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Beweegoefeningen",
+    "tileDesc": "Beweegoefeningen met plaatjes voor 0–5 jaar",
+    "title": "Beweegoefeningen",
+    "eyebrow": "Bewegen en ontwikkeling",
+    "ageFor": "Voor {name}",
+    "today": "Vandaag",
+    "doneCount": "{n} oefeningen",
+    "weekHint": "Afgelopen 7 dagen: elke stip is een dag waarop jullie hebben geoefend.",
+    "picksTitle": "Oefeningen van vandaag",
+    "picksSub": "Elke dag drie nieuwe oefeningen die bij de leeftijd passen.",
+    "allTitle": "Alle oefeningen",
+    "count": "{n} oefeningen",
+    "nowBadge": "Huidige leeftijd",
+    "search": "Oefening zoeken",
+    "all": "Alles",
+    "favs": "Favorieten",
+    "noFavs": "Tik op het hartje om oefeningen aan je favorieten toe te voegen.",
+    "noResults": "Geen passende oefening gevonden.",
+    "rules": "Algemene regels",
+    "safetyNote": "Deze oefeningen zijn algemene informatie en vervangen geen onderzoek door een arts. Is je kind te vroeg geboren, heeft het een gezondheidsprobleem of maak je je zorgen over de ontwikkeling, overleg dan eerst met de kinderarts of een kinderfysiotherapeut.",
+    "age": "Leeftijd",
+    "duration": "Duur",
+    "how": "Zo doe je het",
+    "benefit": "Wat het oplevert",
+    "caution": "Let op",
+    "timer": "Stopwatch",
+    "start": "Start",
+    "pause": "Pauze",
+    "reset": "Opnieuw",
+    "done": "Gedaan",
+    "doneToday": "Vandaag gedaan",
+    "prev": "Vorige",
+    "next": "Volgende",
+    "fav": "Toevoegen aan favorieten",
+    "unfav": "Verwijderen uit favorieten",
+    "close": "Sluiten"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 jaar",
+      "months": "0–12 maanden",
+      "rules": [
+        "Oefen als je baby wakker en rustig is en niet net heeft gegeten (minstens 30–40 minuten na de voeding).",
+        "Oefen op een stevige, vlakke en schone ondergrond (op een kleed of matje op de vloer); laat je baby nooit alleen op een hoge plek.",
+        "Beweeg langzaam en zacht. Gebruik nooit kracht en trek nooit aan armpjes of beentjes.",
+        "Stop meteen als je baby huilt, onrustig is of moe wordt.",
+        "De leeftijden zijn een indicatie; elke baby ontwikkelt zich in zijn eigen tempo.",
+        "Is je baby te vroeg geboren of heeft hij een gezondheidsprobleem, overleg dan eerst met de kinderarts."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 jaar",
+      "months": "12–24 maanden",
+      "rules": [
+        "Op deze leeftijd betekent oefenen spelen: dwing je kind niet, doe de beweging zelf voor en doe het samen.",
+        "Aanbevolen is elke dag minstens 30 minuten begeleid bewegen en 1 uur of meer vrij bewegend spel.",
+        "Maak de kamer veilig: geen scherpe hoeken, gladde kleden of meubels die kunnen omvallen. Oefenen gaat het best op blote voeten of in antislipsokken.",
+        "Blijf bij trappen, glijbanen, klimmen en springen altijd binnen handbereik.",
+        "Let bij spelen met kleine voorwerpen (ballen, blokken) op de grootte: geef je kind niets wat in zijn mond past.",
+        "De leeftijden zijn een indicatie. Loopt je kind met 18 maanden nog niet zelfstandig, ga dan naar de kinderarts."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 jaar",
+      "months": "24–36 maanden",
+      "rules": [
+        "Op deze leeftijd is oefenen spelen: doe de beweging zelf voor, doe het samen en maak er een liedje of verhaaltje bij.",
+        "Aanbevolen is elke dag minstens 1 uur begeleid bewegen en 2 uur of meer vrij bewegend spel.",
+        "Maak kamer en tuin veilig: geen gladde vloer, scherpe hoeken of dingen die kunnen omvallen.",
+        "Blijf bij springen, klimmen, hangen en glijden binnen handbereik; kies een zachte ondergrond.",
+        "Laat je kind niet uitgeput raken: korte spelletjes, vaak pauze en water drinken.",
+        "De leeftijden zijn een indicatie; elk kind ontwikkelt zich in zijn eigen tempo. Maak je je zorgen, ga dan naar de kinderarts."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 jaar",
+      "months": "36–48 maanden",
+      "rules": [
+        "Oefenen is nog steeds spelen: doe de beweging zelf voor, doe het samen en voeg er wedstrijdjes en verhaaltjes aan toe.",
+        "Aanbevolen is elke dag minstens 1 uur begeleid bewegen en 2 uur of meer vrij bewegend spel, zoveel mogelijk buiten.",
+        "Kies een veilige plek: een vloer die niet glad is, een zachte mat en geen scherpe hoeken in de buurt.",
+        "Zet je kind op alles met wieltjes (step, fiets) altijd een helm op.",
+        "Blijf erbij bij oefeningen zoals een koprol, de evenwichtsbalk en klimmen.",
+        "Laat je kind niet uitgeput raken: korte spelletjes, vaak pauze en water drinken.",
+        "De leeftijden zijn een indicatie; elk kind ontwikkelt zich in zijn eigen tempo. Maak je je zorgen, ga dan naar de kinderarts."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 jaar",
+      "months": "48–60 maanden",
+      "rules": [
+        "Oefenen moet als spelen voelen: doe de beweging zelf voor, doe het samen en voeg kleine wedstrijdjes en \"records\" toe.",
+        "Aanbevolen is elke dag minstens 1 uur begeleid bewegen en 2 uur of meer vrij bewegend spel, zoveel mogelijk buiten.",
+        "Kies een veilige plek: een vloer die niet glad is, een zachte mat en geen scherpe hoeken in de buurt.",
+        "Zet je kind op de fiets en de step altijd een helm op en laat het dichte schoenen dragen.",
+        "Blijf erbij bij een koprol, van een hoogte springen, klimmen en hangen.",
+        "Bij krachtoefeningen (plank, squat) gaat het om de juiste uitvoering, niet om de duur: stop zodra de houding niet meer goed is.",
+        "De leeftijden zijn een indicatie; elk kind ontwikkelt zich in zijn eigen tempo. Maak je je zorgen, ga dan naar de kinderarts."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 maanden",
+    "3–6 ay": "3–6 maanden",
+    "6–9 ay": "6–9 maanden",
+    "9–12 ay": "9–12 maanden",
+    "12–15 ay": "12–15 maanden",
+    "15–18 ay": "15–18 maanden",
+    "18–24 ay": "18–24 maanden",
+    "Hoppanma və tarazlıq": "Springen en evenwicht",
+    "Yerimə, qaçış və dırmaşma": "Lopen, rennen en klimmen",
+    "Topla oyunlar": "Balspelletjes",
+    "Gimnastika və təqlid oyunları": "Gymnastiek en nadoe-spelletjes",
+    "Hoppanma": "Springen",
+    "Tarazlıq": "Evenwicht",
+    "Təkərli vasitələr və qaçış": "Op wieltjes en rennen",
+    "Güc və gimnastika": "Kracht en gymnastiek",
+    "Ritm və koordinasiya": "Ritme en coördinatie",
+    "Hoppanma və tullanma": "Springen en verspringen",
+    "Qaçış, velosiped və ritm oyunları": "Rennen, fietsen en ritmespelletjes"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Buikligging",
+      "age": "vanaf de geboorte",
+      "how": "Leg je baby op zijn buik op een matje, buig de armpjes bij de ellebogen en leg ze naast het hoofdje. Leg zacht een hand op zijn rug en de andere op zijn billen. Praat tegen hem, zodat hij zijn hoofdje probeert op te tillen.",
+      "duration": "2–3 keer per dag, 1–3 minuten; bouw het langzaam op.",
+      "benefit": "Versterkt de spieren van nek, schouders en rug en helpt een plat achterhoofd te voorkomen.",
+      "caution": "Alleen als je baby wakker is en onder toezicht. Leg je baby om te slapen altijd op de rug."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Op de buik op papa's of mama's borst",
+      "age": "0–2 maanden",
+      "how": "Ga half liggend tegen een kussen zitten. Leg je baby op zijn buik op je borst en houd met de ene hand zijn rug en met de andere zijn billen vast. Praat tegen hem, zodat hij naar je gezicht kijkt.",
+      "duration": "Een paar keer per dag, 2–5 minuten.",
+      "benefit": "De zachtste manier om aan buikligging te wennen; moedigt aan om het hoofdje op te tillen en versterkt de band tussen jullie.",
+      "caution": "Doe deze oefening niet als je zelf slaperig bent."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Op de buik op schoot",
+      "age": "0–3 maanden",
+      "how": "Ga zitten en leg je baby dwars over je bovenbenen, op zijn buik. Houd een hand op zijn rug en de andere op zijn billen. Je kunt zachtjes over zijn rug aaien.",
+      "duration": "2–3 minuten.",
+      "benefit": "Traint de nekspieren, helpt bij het kwijtraken van darmkrampjes en lucht, en kalmeert je baby."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Speeltje volgen met de ogen",
+      "age": "0–3 maanden",
+      "how": "Je baby ligt op de rug. Houd een felgekleurd speeltje op 20–30 cm van zijn gezicht en beweeg het langzaam naar rechts en naar links. Wacht tot je baby het met zijn ogen en hoofdje volgt.",
+      "duration": "1–2 minuten, 4–5 keer naar elke kant.",
+      "benefit": "Ontwikkelt de visuele aandacht, de oog-hoofdcoördinatie en het draaien van het hoofd naar beide kanten."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Vinger vastpakken",
+      "age": "0–4 maanden",
+      "how": "Leg je wijsvinger in het handpalmpje van je baby en wacht tot hij erin knijpt. Beweeg je vinger een klein beetje op en neer. Herhaal met beide handjes.",
+      "duration": "3–5 keer per hand.",
+      "benefit": "Versterkt de grijpreflex en de handspieren en ontwikkelt de tastzin.",
+      "caution": "Til je baby niet op terwijl hij je vingers vasthoudt."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Knietjes naar het buikje",
+      "age": "0–6 maanden",
+      "how": "Je baby ligt op de rug. Pak beide onderbeentjes vast, buig de knietjes samen langzaam naar het buikje, houd 3–5 seconden vast en laat los.",
+      "duration": "5–8 herhalingen.",
+      "benefit": "Verlicht darmkrampjes en lucht in het buikje en maakt de heupen soepeler.",
+      "caution": "Niet duwen; stop als je weerstand voelt."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "\"Fietsen\"",
+      "age": "1–6 maanden",
+      "how": "Je baby ligt op de rug. Pak de onderbeentjes vast en beweeg de beentjes om de beurt alsof hij fietst: de ene knie naar het buikje, het andere been naar voren.",
+      "duration": "10–15 rondjes, met pauzes ertussen.",
+      "benefit": "Traint de been- en buikspieren, helpt de darmen op gang en leert afwisselende bewegingen."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Armpjes open en dicht",
+      "age": "1–6 maanden",
+      "how": "Je baby ligt op de rug. Leg je duimen in zijn handpalmpjes of pak zacht zijn polsjes vast. Breng de armpjes opzij en kruis ze daarna over zijn borst (alsof hij zichzelf knuffelt).",
+      "duration": "5–8 herhalingen.",
+      "benefit": "Opent de borst- en schouderspieren en leert de armpjes naar het midden van het lichaam te brengen.",
+      "caution": "Trek niet aan de armpjes; open ze alleen zo ver als je baby toelaat."
+    },
+    "0-1/09_kicking": {
+      "title": "Trappen tegen je handen",
+      "age": "1–4 maanden",
+      "how": "Je baby ligt op de rug. Zet je handpalmen tegen zijn voetzolen en geef een beetje tegendruk; je baby gaat met zijn beentjes duwen.",
+      "duration": "1–2 minuten.",
+      "benefit": "Versterkt de beenspieren en oefent de duwbeweging (voor later kruipen en staan)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Spelen in zijligging",
+      "age": "1–4 maanden",
+      "how": "Leg je baby op zijn zij, met een opgerolde handdoek achter zijn rug. Beide handjes liggen voor hem; leg er een speeltje voor. Draai hem daarna op de andere zij.",
+      "duration": "2–3 minuten per kant.",
+      "benefit": "Maakt het makkelijker om de handjes bij elkaar te brengen, bereidt voor op omrollen en voorkomt dat het hoofdje steeds naar één kant valt.",
+      "caution": "Alleen als je baby wakker is en onder toezicht; laat je baby nooit in deze houding slapen."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Buikligging met een handdoekrol",
+      "age": "2–4 maanden",
+      "how": "Leg een opgerolde handdoek onder de borst van je baby (ter hoogte van de oksels), met de armpjes voor de rol. Leg een speeltje voor hem, zodat hij zijn hoofdje optilt om te kijken.",
+      "duration": "3–5 minuten, een paar keer per dag.",
+      "benefit": "Maakt het optillen van het hoofdje makkelijker en bereidt voor op steunen op de ellebogen."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Optrekken tot zit",
+      "age": "3–5 maanden (als je baby zijn hoofdje al kan houden)",
+      "how": "Je baby ligt op de rug. Geef hem je duimen in zijn handjes, pak zijn polsjes vast en trek hem langzaam richting zit, en leg hem daarna even langzaam weer neer.",
+      "duration": "3–5 herhalingen.",
+      "benefit": "Versterkt de buik-, nek- en armspieren.",
+      "caution": "Valt het hoofdje naar achteren, stel de oefening dan nog uit. Trek nooit snel."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Reiken naar een speeltje",
+      "age": "3–5 maanden",
+      "how": "Je baby ligt op de rug. Houd een speeltje boven zijn borst, binnen handbereik, en wacht tot hij ernaar reikt en het pakt. Beweeg het speeltje dan eens naar rechts, dan weer naar links.",
+      "duration": "2–3 minuten.",
+      "benefit": "Ontwikkelt de oog-handcoördinatie, de schouderspieren en gericht grijpen."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Reiken vanuit steun op de ellebogen",
+      "age": "4–6 maanden",
+      "how": "Je baby ligt op de buik en steunt op zijn ellebogen. Leg een speeltje iets naar voren en opzij, zodat hij er met één arm naar reikt. Je kunt zijn bekken met je handen een beetje stabiel houden.",
+      "duration": "3–5 minuten.",
+      "benefit": "Leert het gewicht van de ene arm naar de andere te verplaatsen, versterkt rug en schoudergordel en bereidt voor op kruipen."
+    },
+    "0-1/15_rolling": {
+      "title": "Helpen bij omrollen",
+      "age": "4–6 maanden",
+      "how": "Je baby ligt op de rug. Leg een speeltje opzij. Pak met de ene hand zijn bovenbeen en met de andere zijn bekken en breng het bovenste been naar de andere kant; de romp draait vanzelf mee. Doe het naar beide kanten.",
+      "duration": "3–4 keer per kant.",
+      "benefit": "Ontwikkelt de rompspieren en de draaibeweging van het lichaam en leert zelfstandig omrollen.",
+      "caution": "Rol je baby niet om door aan zijn arm te trekken."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Voetjes pakken",
+      "age": "4–6 maanden",
+      "how": "Je baby ligt op de rug. Buig zijn knietjes en breng zijn voetjes dicht bij zijn handjes, zodat hij ze vastpakt. Laat hem daarna zachtjes heen en weer wiegen.",
+      "duration": "1–2 minuten.",
+      "benefit": "Versterkt de buikspieren, verbetert het lichaamsbesef en maakt de heupen soepeler."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Zitten met steun",
+      "age": "5–7 maanden",
+      "how": "Zet je baby op een matje en houd hem van achteren vast bij het bekken of de onderrug. Geef hem een speeltje in zijn hand. Geef minder steun naarmate zijn evenwicht beter wordt.",
+      "duration": "3–5 minuten.",
+      "benefit": "Ontwikkelt de rompspieren en het zitevenwicht en maakt de handjes vrij om te spelen.",
+      "caution": "Leg hem neer als zijn rug rond wordt en hij moe raakt; zet hem niet geforceerd rechtop met kussens."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Veren op de beentjes met steun",
+      "age": "5–8 maanden",
+      "how": "Houd je baby stevig vast onder de oksels, om de romp, en zet zijn voetjes op een stevige ondergrond. Laat hem een deel van zijn gewicht op zijn beentjes nemen en veren door de knietjes te buigen en te strekken.",
+      "duration": "1–2 minuten.",
+      "benefit": "Versterkt de beenspieren en bereidt voor op staan.",
+      "caution": "Draag zelf het grootste deel van zijn gewicht; laat je baby niet los op zijn beentjes."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Zittend reiken naar een speeltje",
+      "age": "6–8 maanden",
+      "how": "Je baby zit zelf en steunt met één hand op de grond. Leg speeltjes iets verder weg, voor en naast hem, zodat hij reikt, ze pakt en weer rechtop gaat zitten. Leg kussens om hem heen.",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt het zitevenwicht, het draaien van de romp en de reflex om zich met de handen op te vangen bij vallen."
+    },
+    "0-1/20_peekaboo": {
+      "title": "Kiekeboe",
+      "age": "4–12 maanden",
+      "how": "Je baby zit. Houd een licht doekje voor je gezicht (of voor het zijne), haal het dan weg en zeg \"kiekeboe!\". Als hij groter wordt, laat hem het doekje dan zelf wegtrekken.",
+      "duration": "Zolang je baby er zin in heeft.",
+      "benefit": "Ontwikkelt objectpermanentie, aandacht, contact en lachen; stimuleert actief bewegen van de armpjes."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Handjes klappen",
+      "age": "7–12 maanden",
+      "how": "Ga tegenover je baby zitten. Klap op een liedje of al tellend met je handpalmen tegen de zijne en laat dan zien hoe hij zelf in zijn handjes klapt.",
+      "duration": "2–3 minuten.",
+      "benefit": "Ontwikkelt het samenwerken van beide handen, ritmegevoel, nadoen en contact."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Helpen bij kruipen",
+      "age": "7–9 maanden",
+      "how": "Je baby staat op handen en knieën, met een speeltje voor zich. Zet je handpalmen tegen zijn voetzolen, zodat hij zich kan afzetten en vooruit kan komen.",
+      "duration": "3–5 minuten.",
+      "benefit": "Ontwikkelt de kruipbeweging, de arm-beencoördinatie en kracht in de romp.",
+      "caution": "Duw je baby niet, geef alleen steun."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Over een hindernis kruipen",
+      "age": "8–10 maanden",
+      "how": "Leg een laag kussen of een opgerolde deken op het matje en een speeltje aan de andere kant. Laat je baby over de hindernis heen klauteren.",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt kracht, evenwicht en het plannen van bewegingen, en bereidt voor op klimmen."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Bal heen en weer rollen",
+      "age": "8–12 maanden",
+      "how": "Je baby zit met gespreide beentjes. Rol een zachte bal naar hem toe en wacht tot hij hem pakt en terugduwt.",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt het zitevenwicht, de oog-handcoördinatie en om de beurt spelen."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Optrekken tot staan",
+      "age": "8–10 maanden",
+      "how": "Leg een speeltje op een lage, stevige bank. Je baby komt op zijn knieën, zet één voet neer en probeert te gaan staan. Steun zo nodig licht bij zijn bekken.",
+      "duration": "3–5 pogingen.",
+      "benefit": "Versterkt de been- en bilspieren en leert zelfstandig opstaan.",
+      "caution": "Zorg dat het meubel niet kan omvallen en geen scherpe hoeken heeft."
+    },
+    "0-1/26_cruising": {
+      "title": "Langs meubels stappen",
+      "age": "9–11 maanden",
+      "how": "Je baby staat en houdt zich vast aan de bank. Leg een speeltje iets verderop, zodat hij er met zijstapjes naartoe gaat. Doe het naar beide kanten.",
+      "duration": "5 minuten.",
+      "benefit": "Leert het gewicht van het ene been naar het andere te verplaatsen en oefent het evenwicht; een directe voorbereiding op lopen."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Hurken en een speeltje oppakken",
+      "age": "10–12 maanden",
+      "how": "Je baby staat en houdt zich met één hand vast aan de bank. Leg een speeltje naast zijn voet op de grond. Wacht tot hij hurkt, het oppakt en weer opstaat.",
+      "duration": "5–6 herhalingen.",
+      "benefit": "Versterkt de beenspieren en het evenwicht en leert gecontroleerd zakken en opstaan."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Lopen met steun",
+      "age": "10–12 maanden",
+      "how": "Ga achter je baby staan en houd hem vast om de romp (ter hoogte van de borst). Laat hem stapjes zetten; geef minder steun naarmate zijn evenwicht beter wordt.",
+      "duration": "3–5 minuten.",
+      "benefit": "Ontwikkelt het stappen en het evenwicht.",
+      "caution": "Vasthouden om de romp is veiliger voor de schouders dan lopen met de armpjes omhoog getrokken."
+    },
+    "0-1/29_push_walker": {
+      "title": "Lopen achter een duwkarretje",
+      "age": "11–12 maanden",
+      "how": "Geef je baby een stevig, zwaar duwkarretje. Laat hem met beide handen de stang vastpakken en naar voren stappen. Blijf erbij.",
+      "duration": "5–10 minuten.",
+      "benefit": "Geeft vertrouwen om zelfstandig te lopen en oefent paslengte en sturen.",
+      "caution": "Het karretje mag niet te snel wegrollen; een loopstoeltje (babywalker met zitje) wordt afgeraden."
+    },
+    "1-2/01_first_steps": {
+      "title": "Eerste stapjes alleen",
+      "age": "12–15 maanden",
+      "how": "Zet je kind rechtop, kniel zelf 2–3 stappen verderop neer, spreid je armen en roep hem. Vergroot de afstand naarmate het beter lukt.",
+      "duration": "5–10 pogingen.",
+      "benefit": "Geeft vertrouwen en evenwicht om zelfstandig te lopen."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Lopen aan één hand",
+      "age": "12–15 maanden",
+      "how": "Houd je kind maar aan één hand vast en loop in zijn tempo mee. Houd je hand op de hoogte van zijn schouder, trek niet omhoog. Wissel van hand.",
+      "duration": "5–10 minuten.",
+      "benefit": "De overstap van steun aan twee handen naar zelfstandig lopen; versterkt het evenwicht."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Zonder steun opstaan van de vloer",
+      "age": "12–15 maanden",
+      "how": "Als je kind midden in de kamer zit, houd dan een leuk speeltje op de hoogte van zijn hoofd. Wacht tot hij zelf omhoogkomt door zijn handen en voeten op de grond te zetten en zijn billen op te tillen.",
+      "duration": "5–6 herhalingen.",
+      "benefit": "Versterkt been-, bil- en rompspieren; leert opstaan zonder meubels."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Hurken zonder steun",
+      "age": "13–18 maanden",
+      "how": "Leg een bal of speeltje op de grond. Moedig je kind aan om zonder zich ergens aan vast te houden te hurken, het op te pakken en weer op te staan.",
+      "duration": "6–8 herhalingen.",
+      "benefit": "Ontwikkelt beenkracht, evenwicht en controle over de beweging."
+    },
+    "1-2/07_push_basket": {
+      "title": "Een mand duwen",
+      "age": "12–18 maanden",
+      "how": "Doe een paar speeltjes in een lichte wasmand. Laat je kind de mand met beide handen door de kamer duwen.",
+      "duration": "5–10 minuten.",
+      "benefit": "Versterkt been- en rompspieren en maakt het lopen stabieler."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Op een lage bank of kussen klimmen",
+      "age": "12–18 maanden",
+      "how": "Kies een stevig kussen of een lage bank op kniehoogte. Je kind leunt met zijn buik ertegen en klimt erop door één knie op te tillen. Houd je handen klaar achter zijn billen. Leer hem ook naar beneden te gaan: op zijn buik, voeten eerst.",
+      "duration": "4–5 herhalingen.",
+      "benefit": "Ontwikkelt kracht in het hele lichaam en het plannen van bewegingen.",
+      "caution": "Laat je kind niet alleen op een hoge plek."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Trap op klauteren",
+      "age": "12–18 maanden",
+      "how": "Op 2–3 lage treden zet je kind zijn handen op de hogere trede en klautert omhoog. Sta achter hem, met je handen naast zijn billen. Leer hem naar beneden te gaan met zijn rug naar voren, voeten eerst.",
+      "duration": "3–4 keer op en neer.",
+      "benefit": "Bouwt beenkracht, coördinatie en veilige trapgewoontes op.",
+      "caution": "Alleen onder toezicht; houd het traphekje verder altijd dicht."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Bal rollen",
+      "age": "12–18 maanden",
+      "how": "Zit of hurk tegenover elkaar. Rol de bal naar elkaar toe; je kind pakt hem met beide handen en duwt hem terug.",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt de oog-handcoördinatie, om de beurt spelen en het rompevenwicht."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Een toren van blokken",
+      "age": "12–18 maanden",
+      "how": "Geef je kind grote houten blokken en laat zien hoe je een toren van 2–4 blokken bouwt. Valt hij om, bouw hem dan opnieuw.",
+      "duration": "5–10 minuten.",
+      "benefit": "Ontwikkelt de fijne motoriek, precisie met de handen en geduld."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Ballen in een doos gooien",
+      "age": "12–18 maanden",
+      "how": "Je kind zit of staat op zijn knieën, pakt de ballen een voor een en doet ze in een doos. Maak de doos daarna leeg en begin opnieuw.",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt pakken en loslaten, de oog-handcoördinatie en het evenwicht op de knieën."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Lopen met een speeltje in de handen",
+      "age": "15–18 maanden",
+      "how": "Geef je kind een groot, licht speeltje en vraag hem het naar de andere kant van de kamer te brengen.",
+      "duration": "5 minuten.",
+      "benefit": "Leert in evenwicht te blijven als de handen bezet zijn en versterkt de rompspieren."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Een trekspeeltje meetrekken",
+      "age": "15–20 maanden",
+      "how": "Geef je kind een speeltje op wieltjes aan een kort touwtje. Laat hem het tijdens het lopen achter zich aan trekken en omkijken.",
+      "duration": "5–10 minuten.",
+      "benefit": "Leert tijdens het lopen hoofd en romp te draaien en de aandacht te verdelen.",
+      "caution": "Houd het touwtje kort (ongeveer 30 cm); laat je kind niet alleen met het touwtje."
+    },
+    "1-2/10_tunnel": {
+      "title": "Door een tunnel kruipen",
+      "age": "12–24 maanden",
+      "how": "Maak een tunnel van een grote kartonnen doos door beide kanten open te maken. Roep je kind vanaf de andere kant of leg daar een speeltje.",
+      "duration": "5–10 minuten.",
+      "benefit": "Ontwikkelt kracht in schouders en romp en ruimtelijk besef."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Kussenpad",
+      "age": "15–20 maanden",
+      "how": "Leg een paar platte kussens op de grond. Laat je kind er aan één hand van jou overheen lopen.",
+      "duration": "3–5 keer heen.",
+      "benefit": "Versterkt het evenwicht op een wiebelige ondergrond en de spieren rond de enkels."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Bal in de mand gooien",
+      "age": "15–24 maanden",
+      "how": "Zet een mand op 1 stap afstand van je kind. Laat zien hoe je een zachte bal in de mand gooit; vergroot de afstand naarmate het beter lukt.",
+      "duration": "8–10 worpen.",
+      "benefit": "Ontwikkelt de gooibeweging, de oog-handcoördinatie en kracht in de schouders."
+    },
+    "1-2/15_dance": {
+      "title": "Dansen op muziek",
+      "age": "12–24 maanden",
+      "how": "Zet ritmische muziek op en dans samen met je kind: veren door de knieën, in de handen klappen, rondjes draaien.",
+      "duration": "5–10 minuten.",
+      "benefit": "Verbetert ritmegevoel, evenwicht en uithoudingsvermogen en zorgt voor een goed humeur."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Speelgoed opruimen",
+      "age": "15–24 maanden",
+      "how": "Strooi speelgoed over de vloer. Je kind bukt of hurkt, pakt de speeltjes een voor een op en doet ze in een mand.",
+      "duration": "Tot al het speelgoed is opgeruimd.",
+      "benefit": "Het steeds bukken en opkomen versterkt been- en rugspieren; leert opruimen."
+    },
+    "1-2/24_ride_on": {
+      "title": "Loopauto: vooruit met de voeten",
+      "age": "15–24 maanden",
+      "how": "Zet je kind op een lage loopauto zonder pedalen; zijn voeten moeten helemaal bij de grond kunnen. Laat hem zich met zijn voeten vooruit afzetten.",
+      "duration": "10 minuten.",
+      "benefit": "Ontwikkelt beenkracht, de samenwerking tussen beide lichaamshelften en sturen."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Tegen een bal trappen",
+      "age": "18–24 maanden",
+      "how": "Leg een lichte bal voor de voet van je kind en laat zien hoe je ertegen trapt. In het begin kun je hem aan één hand vasthouden.",
+      "duration": "8–10 trappen.",
+      "benefit": "Ontwikkelt kort evenwicht op één been en de coördinatie tussen voet en oog."
+    },
+    "1-2/16_bubbles": {
+      "title": "Bellen vangen",
+      "age": "18–24 maanden",
+      "how": "Blaas zeepbellen. Je kind gaat op zijn tenen staan, reikt omhoog en rent om ze kapot te prikken.",
+      "duration": "5–10 minuten.",
+      "benefit": "Oefent op de tenen staan, omhoog reiken en de oog-handcoördinatie."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Trap op aan de hand",
+      "age": "18–24 maanden",
+      "how": "Je kind loopt rechtop de trap op en houdt jouw hand (of de leuning) vast. Het is normaal dat hij op elke trede eerst één voet zet en dan de andere.",
+      "duration": "2–3 keer op en neer.",
+      "benefit": "Vergroot de beenkracht en het evenwicht op één been.",
+      "caution": "Sta bij het naar beneden gaan altijd een trede onder je kind."
+    },
+    "1-2/21_jump": {
+      "title": "Op de plaats springen",
+      "age": "20–24 maanden",
+      "how": "Doe zelf voor hoe je springt: knieën buigen en met twee voeten van de grond komen. In het begin kun je zijn handen vasthouden of hem van een laag kussen af laten springen.",
+      "duration": "5–8 sprongen.",
+      "benefit": "Versterkt de explosieve kracht in de benen, de botten en de coördinatie.",
+      "caution": "Doe het op een zachte ondergrond; springen met twee voeten lukt vaak pas rond 2 jaar."
+    },
+    "1-2/22_run": {
+      "title": "Rennen",
+      "age": "18–24 maanden",
+      "how": "Speel tikkertje op een ruime plek zonder obstakels, of roep je kind van een afstand.",
+      "duration": "5–10 minuten, met korte pauzes.",
+      "benefit": "Ontwikkelt uithoudingsvermogen, snelheid en hart en bloedvaten."
+    },
+    "1-2/23_balance_line": {
+      "title": "Over een lijn lopen",
+      "age": "20–24 maanden",
+      "how": "Plak een brede gekleurde tape op de vloer. Je kind houdt een hand van jou vast en loopt met zijn voeten op de tape.",
+      "duration": "3–5 keer heen.",
+      "benefit": "Ontwikkelt het evenwicht en lopen op een smalle ondergrond."
+    },
+    "1-2/25_bear_walk": {
+      "title": "\"Berenloop\"",
+      "age": "18–24 maanden",
+      "how": "Laat zien hoe je vooruitgaat op handen en voeten, met de knieën van de grond en de billen omhoog. Loop samen \"als een beer\".",
+      "duration": "2–3 keer de kamer door.",
+      "benefit": "Versterkt schouder-, arm- en rompspieren en verbetert de coördinatie."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Hoog reiken, tenen aanraken",
+      "age": "18–24 maanden",
+      "how": "Ga tegenover je kind staan. Ga eerst op je tenen staan en reik met je armen omhoog, buk dan en raak je tenen aan. Zing er een liedje bij.",
+      "duration": "5–6 herhalingen.",
+      "benefit": "Ontwikkelt lenigheid, evenwicht en het nadoen van bewegingen; leert de lichaamsdelen kennen."
+    },
+    "1-2/27_slide": {
+      "title": "Lage glijbaan",
+      "age": "18–24 maanden",
+      "how": "Je kind zit boven aan een lage glijbaan en glijdt met de voeten vooruit naar beneden. Houd hem met je handen om de romp vast en geef daarna steeds minder steun.",
+      "duration": "5–6 keer.",
+      "benefit": "Ontwikkelt klimmen, zitevenwicht en durf.",
+      "caution": "Glij niet samen met je kind op schoot; zijn voet kan blijven haken en hij kan zich bezeren."
+    },
+    "1-2/28_back_walk": {
+      "title": "Achteruit lopen",
+      "age": "18–24 maanden",
+      "how": "Je kind stapt achteruit terwijl hij een karretje of trekspeeltje naar zich toe trekt. Houd in het begin zijn handen vast en loop samen achteruit.",
+      "duration": "3–4 keer heen.",
+      "benefit": "Leert evenwicht, lichaamsbesef en van bewegingsrichting veranderen.",
+      "caution": "Zorg dat er achter hem niets in de weg staat."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Met twee voeten vooruit springen",
+      "age": "24–30 maanden",
+      "how": "Plak een gekleurde tape op de vloer. Je kind buigt zijn knieën en springt met twee voeten tegelijk over de tape. Doe het eerst zelf voor.",
+      "duration": "6–8 sprongen.",
+      "benefit": "Ontwikkelt beenkracht, het samenwerken van beide benen en zacht landen."
+    },
+    "2-3/02_jump_down": {
+      "title": "Van een lage trede springen",
+      "age": "24–30 maanden",
+      "how": "Je kind springt aan één hand van jou van een stevige trede van 10–15 cm hoog op een zachte mat. Laat zien hoe je landt met gebogen knieën.",
+      "duration": "5–6 keer.",
+      "benefit": "Ontwikkelt durf, beenkracht en evenwicht bij het landen.",
+      "caution": "Maak het niet hoger; de trede mag niet wegglijden."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Op één been staan",
+      "age": "30–36 maanden",
+      "how": "Zeg: \"Sta als een ooievaar.\" Je kind houdt een hand van jou vast, tilt één been op en blijft 2–3 seconden zo staan. Wissel van been en probeer het daarna zonder steun.",
+      "duration": "3–4 keer per been.",
+      "benefit": "Versterkt het evenwicht en de spieren rond de enkels."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Op de tenen lopen",
+      "age": "24–36 maanden",
+      "how": "Zeg: \"Laten we lopen als een stil poesje\" en loop samen op je tenen de kamer door.",
+      "duration": "2–3 keer heen.",
+      "benefit": "Versterkt de kuitspieren, de voetboog en het evenwicht.",
+      "caution": "Loopt je kind voortdurend op zijn tenen, vertel dat dan aan de kinderarts."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Over een plank lopen",
+      "age": "24–36 maanden",
+      "how": "Leg een brede, lage plank op de grond. Je kind loopt eroverheen aan één hand van jou; laat los naarmate het beter lukt.",
+      "duration": "4–5 keer heen.",
+      "benefit": "Ontwikkelt evenwicht, concentratie en de voeten op één lijn zetten."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Lopen met een zakje op het hoofd",
+      "age": "30–36 maanden",
+      "how": "Leg een klein stoffen zakje (gevuld met rijst of kikkererwten) op het hoofd van je kind. Hij loopt langzaam en rechtop, zodat het er niet af valt.",
+      "duration": "3–4 keer heen.",
+      "benefit": "Ontwikkelt houding, evenwicht en concentratie."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Van vlek naar vlek springen",
+      "age": "30–36 maanden",
+      "how": "Leg gekleurde rondjes (rubberen vlekken, papier, kussens) op de vloer. Je kind springt of stapt met grote stappen van het ene naar het andere.",
+      "duration": "3–4 keer heen.",
+      "benefit": "Ontwikkelt nauwkeurig springen, evenwicht en het plannen van bewegingen.",
+      "caution": "De rondjes mogen niet wegglijden."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Trap op met wisselende voeten",
+      "age": "30–36 maanden",
+      "how": "Je kind houdt de leuning vast en loopt de trap op met op elke trede één voet. Bij het naar beneden gaan is het nog normaal dat hij op elke trede twee voeten zet.",
+      "duration": "2–3 keer op en neer.",
+      "benefit": "Vergroot de beenkracht en het evenwicht op één been.",
+      "caution": "Sta bij het naar beneden gaan een trede onder je kind."
+    },
+    "2-3/14_marching": {
+      "title": "Marcheren",
+      "age": "24–36 maanden",
+      "how": "Zet muziek op en houd een \"optocht\": loop met hoog opgetrokken knieën en zwaaiende armen. Geef tussendoor opdrachten als \"draai rond\", \"spring\", \"stop\".",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt coördinatie, ritmegevoel en het opvolgen van aanwijzingen."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Rennen en stoppen",
+      "age": "24–36 maanden",
+      "how": "Bij \"groen licht\" rent je kind, bij \"rood licht\" staat hij stokstijf stil. Je kunt ook een lijn trekken en vragen om ervoor te stoppen.",
+      "duration": "5–10 minuten.",
+      "benefit": "Ontwikkelt snelheid, afremmen, lichaamsbeheersing en aandacht."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Een karretje trekken",
+      "age": "24–36 maanden",
+      "how": "Laad speelgoed in een karretje; je kind trekt het aan het handvat voort en neemt er bochten mee.",
+      "duration": "5–10 minuten.",
+      "benefit": "Versterkt romp- en beenspieren en leert sturen."
+    },
+    "2-3/07_tricycle": {
+      "title": "Driewieler",
+      "age": "30–36 maanden",
+      "how": "Zet je kind op een driewieler en zet zijn voeten op de pedalen. Duw in het begin licht van achteren, zodat hij voelt hoe de pedalen bewegen.",
+      "duration": "10–15 minuten.",
+      "benefit": "Ontwikkelt het afwisselend gebruik van de benen, kracht en sturen.",
+      "caution": "Zet een helm op; fiets op een vlakke ondergrond, uit de buurt van de weg."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Onder de tafel door kruipen",
+      "age": "24–36 maanden",
+      "how": "Bouw een \"tunnel\" van een lage tafel, stoelen of een kartonnen doos. Je kind buigt zijn hoofd en kruipt eronderdoor.",
+      "duration": "4–5 keer heen.",
+      "benefit": "Ontwikkelt kracht in schouders en romp en gevoel voor de eigen lichaamsgrootte."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Klimrek",
+      "age": "24–36 maanden",
+      "how": "Op een laag klimrek of in de speeltuin klimt je kind omhoog: met de handen vasthouden en de voeten tree voor tree neerzetten. Houd je handen klaar achter zijn billen.",
+      "duration": "4–5 keer.",
+      "benefit": "Ontwikkelt kracht in het hele lichaam, knijpkracht en durf.",
+      "caution": "Zorg voor een zachte ondergrond; laat je kind niet alleen."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Zelf van de glijbaan",
+      "age": "24–36 maanden",
+      "how": "Je kind klimt zelf de ladder op en glijdt zittend met de voeten vooruit naar beneden. Wacht beneden.",
+      "duration": "6–8 keer.",
+      "benefit": "Ontwikkelt klimmen, zitevenwicht en zelfstandigheid.",
+      "caution": "Laat je kind niet met het hoofd naar beneden of op zijn buik glijden."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Hangen aan een rekstok",
+      "age": "30–36 maanden",
+      "how": "Je kind pakt een lage rekstok vast met twee handen (voeten een paar centimeter van de grond) en hangt 3–5 seconden. Houd hem met je handen bij zijn middel vast.",
+      "duration": "3–4 keer.",
+      "benefit": "Versterkt de kracht in handen en schouders en de grip.",
+      "caution": "Til je kind niet op aan zijn handen en zwaai hem niet heen en weer; leg er een mat onder."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Bovenhands gooien",
+      "age": "24–36 maanden",
+      "how": "Ga op 1–2 meter afstand staan. Je kind gooit een kleine zachte bal over zijn schouder naar jou.",
+      "duration": "8–10 worpen.",
+      "benefit": "Ontwikkelt de werptechniek, kracht in de schouders en richten."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Een bal vangen",
+      "age": "30–36 maanden",
+      "how": "Gooi een grote, lichte bal van 1 meter afstand zachtjes richting de borst van je kind. Hij strekt zijn armen naar voren en vangt de bal door hem tegen zijn borst te klemmen.",
+      "duration": "8–10 keer.",
+      "benefit": "Ontwikkelt de oog-handcoördinatie en het reactievermogen."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Met aanloop tegen een bal trappen",
+      "age": "24–36 maanden",
+      "how": "Maak een \"doel\" van twee pionnen of dozen. Je kind neemt een of twee stappen aanloop en trapt tegen de bal.",
+      "duration": "8–10 trappen.",
+      "benefit": "Ontwikkelt evenwicht op één been, de coördinatie tussen voet en oog en kracht."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Zakjes in een hoepel gooien",
+      "age": "24–36 maanden",
+      "how": "Leg een hoepel of teil op de grond. Je kind gooit van 1 stap afstand onderhands zakjes erin; vergroot de afstand naarmate het beter lukt.",
+      "duration": "8–10 worpen.",
+      "benefit": "Leert nauwkeurig op een doel te gooien en kracht te doseren."
+    },
+    "2-3/27_bowling": {
+      "title": "Bowlen in huis",
+      "age": "24–36 maanden",
+      "how": "Zet 6 lege plastic flessen in een driehoek. Je kind hurkt en rolt de bal met twee handen om ze om te gooien.",
+      "duration": "5–6 rondes.",
+      "benefit": "Ontwikkelt richten, kracht bij het hurken en op je beurt wachten."
+    },
+    "2-3/24_balloon": {
+      "title": "Ballon hooghouden",
+      "age": "24–36 maanden",
+      "how": "Gooi een ballon in de lucht. Je kind tikt hem met zijn hand omhoog, zodat hij niet op de grond valt.",
+      "duration": "5–10 minuten.",
+      "benefit": "Ontwikkelt de oog-handcoördinatie, omhoog reiken en reactievermogen.",
+      "caution": "Ruim stukjes van een geknapte ballon meteen op (verstikkingsgevaar)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "\"Hoofd, schouders, knie en teen\"",
+      "age": "24–36 maanden",
+      "how": "Raak op het liedje om de beurt met je handen je hoofd, schouders, knieën en tenen aan. Ga steeds een beetje sneller.",
+      "duration": "3–4 keer.",
+      "benefit": "Ontwikkelt lenigheid, coördinatie en het herkennen van lichaamsdelen."
+    },
+    "2-3/15_spin": {
+      "title": "Rondjes draaien",
+      "age": "24–36 maanden",
+      "how": "Je kind spreidt zijn armen opzij en draait langzaam rondjes op de plaats; daarna de andere kant op.",
+      "duration": "2–3 rondjes per kant.",
+      "benefit": "Ontwikkelt het evenwichtsorgaan (vestibulair systeem) en lichaamsbeheersing.",
+      "caution": "Zorg dat er niets in de buurt staat; stop zodra hij duizelig wordt."
+    },
+    "2-3/17_frog_jump": {
+      "title": "\"Kikkersprong\"",
+      "age": "30–36 maanden",
+      "how": "Je kind hurkt diep, zet zijn handen tussen zijn knieën op de grond en springt dan als een kikker vooruit.",
+      "duration": "5–6 sprongen.",
+      "benefit": "Vergroot de kracht van been- en bilspieren en de beweeglijkheid van de heupen."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "\"Kruiwagen\"",
+      "age": "30–36 maanden",
+      "how": "Je kind zet zijn handen op de grond. Pak hem vast bij zijn bovenbenen (boven de knieën) en til zijn benen op; hij zet een paar \"stappen\" op zijn handen.",
+      "duration": "3–5 stappen, 2–3 keer.",
+      "benefit": "Versterkt arm-, schouder- en rompspieren.",
+      "caution": "Houd hem vast bij de bovenbenen, niet bij de enkels; stop als zijn rug doorzakt of hij moe wordt."
+    },
+    "2-3/21_log_roll": {
+      "title": "Rollen als een boomstam",
+      "age": "24–36 maanden",
+      "how": "Je kind ligt gestrekt op een mat, met de armen boven het hoofd, en rolt over de zij; daarna de andere kant op.",
+      "duration": "3–4 rollen per kant.",
+      "benefit": "Ontwikkelt rompspieren, lichaamsbesef en het evenwichtssysteem."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "\"Vlinder\"-rekoefening",
+      "age": "24–36 maanden",
+      "how": "Je kind zit met de voetzolen tegen elkaar, houdt zijn voeten vast met zijn handen en beweegt zijn knieën zachtjes op en neer als \"vleugels\".",
+      "duration": "20–30 seconden.",
+      "benefit": "Maakt de heupen soepeler en brengt rust na het bewegen.",
+      "caution": "Druk niet met je handen op de knieën."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Hinkelen op één been",
+      "age": "3,5–4 jaar",
+      "how": "Je kind buigt één been naar achteren en springt op het andere been op de plaats of vooruit. Houd in het begin zijn hand vast. Wissel van been.",
+      "duration": "3–5 sprongetjes per been.",
+      "benefit": "Ontwikkelt beenkracht, evenwicht en coördinatie."
+    },
+    "3-4/02_long_jump": {
+      "title": "Verspringen uit stand",
+      "age": "3–4 jaar",
+      "how": "Trek een lijn op de grond. Je kind buigt zijn knieën, zwaait met zijn armen en springt met twee voeten zo ver mogelijk. Markeer waar hij landt en verbeter samen het \"record\".",
+      "duration": "5–6 pogingen.",
+      "benefit": "Vergroot de explosieve kracht in de benen en de samenwerking tussen armen en benen."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Over een hindernis springen",
+      "age": "3–4 jaar",
+      "how": "Zet een zachte hindernis van 10–15 cm hoog neer (een schuimstaaf, een opgerolde handdoek). Je kind springt er met twee voeten overheen.",
+      "duration": "6–8 keer.",
+      "benefit": "Ontwikkelt spronghoogte, durf en zacht landen.",
+      "caution": "De hindernis moet makkelijk omvallen als je kind ertegenaan komt."
+    },
+    "3-4/04_hopscotch": {
+      "title": "Hinkelen (hinkelbaan)",
+      "age": "3,5–4 jaar",
+      "how": "Teken met stoepkrijt vakken op de grond: één vak, dan twee vakken naast elkaar. Je kind springt met één voet in een enkel vak en met twee voeten in de dubbele vakken. In het begin mag hij alles met twee voeten doen.",
+      "duration": "4–5 keer de baan door.",
+      "benefit": "Leert evenwicht, ritme en wisselen van been."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Van hoepel naar hoepel springen",
+      "age": "3–4 jaar",
+      "how": "Leg 3–5 hoepels op de grond. Je kind springt met twee voeten van de ene naar de volgende.",
+      "duration": "4–5 keer heen.",
+      "benefit": "Ontwikkelt achter elkaar springen, nauwkeurigheid en uithoudingsvermogen."
+    },
+    "3-4/19_leap_river": {
+      "title": "Over de \"rivier\" springen",
+      "age": "3–4 jaar",
+      "how": "Maak een \"rivier\" met een blauwe doek of twee touwen op de grond. Je kind neemt een aanloop, zet zich af met één voet en landt op de andere. Maak de \"rivier\" geleidelijk breder.",
+      "duration": "6–8 keer.",
+      "benefit": "Ontwikkelt de sprong met een grote pas, kracht en het inschatten van afstand."
+    },
+    "3-4/25_star_jump": {
+      "title": "\"Stersprong\"",
+      "age": "3,5–4 jaar",
+      "how": "Je kind springt op en spreidt in de lucht zijn armen en benen (een \"ster\"), en landt dan met de voeten bij elkaar.",
+      "duration": "5–8 keer.",
+      "benefit": "Ontwikkelt het tegelijk bewegen van armen en benen en uithoudingsvermogen."
+    },
+    "3-4/05_gallop": {
+      "title": "\"Galopperen\"",
+      "age": "3–4 jaar",
+      "how": "Eén voet blijft steeds voorop, de andere volgt: \"we galopperen als een paard\". Wissel daarna de voorste voet.",
+      "duration": "3–4 keer de kamer door.",
+      "benefit": "Ontwikkelt ritme, coördinatie en uithoudingsvermogen."
+    },
+    "3-4/06_tree_balance": {
+      "title": "\"Boom\"-houding",
+      "age": "3–4 jaar",
+      "how": "Je kind zet de voetzool van het ene been tegen de kuit van het andere, spreidt zijn armen opzij en blijft 3–5 seconden zo staan. Wissel van been.",
+      "duration": "3 keer per been.",
+      "benefit": "Versterkt evenwicht, concentratie en de spieren rond de enkels."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Hak-teen over een lijn lopen",
+      "age": "3,5–4 jaar",
+      "how": "Plak tape op de vloer. Je kind loopt over de tape en zet bij elke stap de hak van de voorste voet tegen de tenen van de achterste.",
+      "duration": "3–4 keer heen.",
+      "benefit": "Ontwikkelt fijn evenwicht en lichaamsbeheersing."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Evenwichtsbalk",
+      "age": "3–4 jaar",
+      "how": "Je kind loopt zelfstandig, met gespreide armen, over een brede balk die 10 cm boven de grond ligt. Loop naast hem mee.",
+      "duration": "4–5 keer heen.",
+      "benefit": "Ontwikkelt evenwicht, durf en concentratie.",
+      "caution": "Leg er een zachte mat onder."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Trap af met wisselende voeten",
+      "age": "3,5–4 jaar",
+      "how": "Je kind houdt de leuning vast en loopt de trap af met op elke trede één voet.",
+      "duration": "2–3 keer.",
+      "benefit": "Ontwikkelt beenkracht, evenwicht en gecontroleerd naar beneden gaan.",
+      "caution": "Sta zelf een trede lager."
+    },
+    "3-4/10_scooter": {
+      "title": "Step",
+      "age": "3–4 jaar",
+      "how": "Op een step met drie wielen zet je kind één voet op de plank en zet zich met de andere af van de grond. Leer hem ook van voet te wisselen.",
+      "duration": "10–15 minuten.",
+      "benefit": "Ontwikkelt evenwicht, beenkracht en sturen.",
+      "caution": "Een helm en dichte schoenen zijn een must; rijd op een vlakke ondergrond, uit de buurt van de weg."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Loopfiets",
+      "age": "3–4 jaar",
+      "how": "Je kind zit op een fiets zonder pedalen en gaat vooruit door zich met zijn voeten af te zetten. Als hij vaart heeft, probeert hij zijn voeten op te tillen en in evenwicht te blijven.",
+      "duration": "10–15 minuten.",
+      "benefit": "Ontwikkelt het evenwicht en maakt de overstap naar een fiets met pedalen makkelijker.",
+      "caution": "Een helm en dichte schoenen zijn een must; stel het zadel zo af dat de voeten helemaal bij de grond kunnen."
+    },
+    "3-4/17_tag": {
+      "title": "Tikkertje",
+      "age": "3–4 jaar",
+      "how": "Zit je kind achterna en tik hem zachtjes aan; daarna zit hij jou achterna. Verander vaak van richting.",
+      "duration": "5–10 minuten, met pauzes.",
+      "benefit": "Ontwikkelt snelheid, wendbaarheid, uithoudingsvermogen en reactievermogen."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Een stuiterende bal vangen",
+      "age": "3–4 jaar",
+      "how": "Stuiter de bal vóór je kind op de grond, zodat hij één keer opspringt en in zijn handen komt. Je kind vangt hem met twee handen.",
+      "duration": "8–10 keer.",
+      "benefit": "Ontwikkelt de oog-handcoördinatie en het voorspellen van de baan van de bal."
+    },
+    "3-4/13_target_throw": {
+      "title": "Op een doel gooien",
+      "age": "3–4 jaar",
+      "how": "Hang een doel in de vorm van een gekleurde cirkel aan de muur of aan een standaard. Je kind gooit van 1,5–2 meter een zachte bal op het doel.",
+      "duration": "8–10 worpen.",
+      "benefit": "Ontwikkelt nauwkeurig gooien, kracht in de schouders en concentratie."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Bal tussen pionnen door dribbelen",
+      "age": "3,5–4 jaar",
+      "how": "Zet 3–4 pionnen (of flessen) op een rij. Je kind tikt de bal zachtjes met zijn voet en slalomt ermee tussen de pionnen door.",
+      "duration": "3–4 keer heen.",
+      "benefit": "Ontwikkelt de coördinatie tussen voet en oog, balcontrole en van richting veranderen."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Bal stuiteren en vangen",
+      "age": "3,5–4 jaar",
+      "how": "Je kind gooit een middelgrote bal met twee handen op de grond en vangt hem als hij terugstuitert.",
+      "duration": "8–10 keer.",
+      "benefit": "Ontwikkelt het doseren van kracht, ritme en de oog-handcoördinatie."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Ballonspel met een bordje",
+      "age": "3–4 jaar",
+      "how": "Je kind houdt een papieren bordje vast als een racket, tikt de ballon omhoog en laat hem niet op de grond vallen. Speel hem daarna naar elkaar over.",
+      "duration": "5–10 minuten.",
+      "benefit": "Ontwikkelt slaan met een voorwerp, de oog-handcoördinatie en reactievermogen.",
+      "caution": "Ruim stukjes van een geknapte ballon meteen op."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Koprol met hulp",
+      "age": "3,5–4 jaar",
+      "how": "Op een dikke mat hurkt je kind, zet zijn handen op de grond, drukt zijn kin op zijn borst en tilt zijn billen op. Bescherm met één hand zijn nek en duw met de andere zijn billen zachtjes over, zodat hij over zijn rug rolt.",
+      "duration": "3–4 keer.",
+      "benefit": "Ontwikkelt lichaamsbesef, durf en rompspieren.",
+      "caution": "Het gewicht mag niet op de kruin van het hoofd komen; de kin blijft altijd op de borst. Alleen op een zachte mat en met hulp."
+    },
+    "3-4/21_crab_walk": {
+      "title": "\"Krabbenloop\"",
+      "age": "3,5–4 jaar",
+      "how": "Je kind zit, zet zijn handen achter zich en zijn voeten voor zich op de grond, tilt zijn billen op en loopt zo vooruit en achteruit.",
+      "duration": "2–3 korte stukjes.",
+      "benefit": "Versterkt arm-, schouder-, bil- en rompspieren."
+    },
+    "3-4/22_bridge": {
+      "title": "\"Brug\"",
+      "age": "3–4 jaar",
+      "how": "Je kind ligt op zijn rug, buigt zijn knieën, zet zijn voeten plat op de grond, tilt zijn billen op en houdt dat 3–5 seconden vast. Je kunt er een speelgoedautootje onderdoor laten rijden.",
+      "duration": "5–6 herhalingen.",
+      "benefit": "Versterkt bil-, rug- en hamstringspieren."
+    },
+    "3-4/23_superman": {
+      "title": "\"Superman\"",
+      "age": "3–4 jaar",
+      "how": "Je kind ligt op zijn buik met de armen naar voren gestrekt en tilt dan armen en benen tegelijk een stukje van de grond om 3 seconden te \"vliegen\".",
+      "duration": "4–5 herhalingen.",
+      "benefit": "Versterkt de rugspieren en ondersteunt een goede houding."
+    },
+    "3-4/24_downward_dog": {
+      "title": "\"Neerwaartse hond\"",
+      "age": "3–4 jaar",
+      "how": "Je kind zet zijn handen en voeten op de grond en tilt zijn billen hoog op (\"een berg\", of \"we rekken ons uit als een hond\"). Houd 5 seconden vast.",
+      "duration": "3–4 herhalingen.",
+      "benefit": "Versterkt armen en schouders en rekt de achterkant van de benen."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Touwtrekken",
+      "age": "3–4 jaar",
+      "how": "Je kind houdt het ene uiteinde van een zacht touw vast, jij het andere. Je kind buigt zijn knieën, leunt achterover en trekt; pas je kracht aan aan de zijne.",
+      "duration": "3–4 rondes.",
+      "benefit": "Versterkt arm-, rug-, romp- en beenspieren.",
+      "caution": "Laat het touw niet plotseling los en wikkel het niet om de hand."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Klap in je handen, stamp met je voeten",
+      "age": "3–4 jaar",
+      "how": "Beweeg op een liedje: \"Als je blij bent, klap dan in je handen\", \"stamp met je voeten\", \"draai rond\", \"spring\". Wissel de bewegingen af.",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt ritmegevoel, het opvolgen van aanwijzingen en coördinatie."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Cirkels met een lint",
+      "age": "3–4 jaar",
+      "how": "Je kind houdt een stokje met een lang lint vast en tekent er grote cirkels, golven en \"achtjes\" mee in de lucht. Wissel van hand.",
+      "duration": "3–5 minuten.",
+      "benefit": "Ontwikkelt de beweeglijkheid van de schouders, controle over de pols en de samenwerking tussen beide lichaamshelften."
+    },
+    "4-5/01_skipping": {
+      "title": "Huppelen",
+      "age": "4,5–5 jaar",
+      "how": "Laat het ritme \"stap, hup\" zien: zet een stap met één voet en maak op diezelfde voet een sprongetje, daarna met de andere voet. Doe het samen, hand in hand.",
+      "duration": "3–4 keer de kamer of tuin door.",
+      "benefit": "Ontwikkelt ritme, het afwisselend gebruik van beide lichaamshelften en coördinatie."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Touwtjespringen",
+      "age": "4,5–5 jaar",
+      "how": "Leer je kind eerst over een touw te springen dat op de grond ligt, en daarna het touw over zijn hoofd naar voren te zwaaien en eroverheen te stappen. Achter elkaar springen lukt pas geleidelijk.",
+      "duration": "5–10 pogingen.",
+      "benefit": "Ontwikkelt ritme, de samenwerking tussen armen en benen en uithoudingsvermogen.",
+      "caution": "Het touw moet de juiste lengte hebben (als je kind in het midden op het touw staat, komen de handvatten tot aan de oksels)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Zijwaarts over een lijn springen",
+      "age": "4–5 jaar",
+      "how": "Plak tape op de vloer. Je kind springt met twee voeten tegelijk steeds van de ene kant van de tape naar de andere.",
+      "duration": "8–10 sprongen.",
+      "benefit": "Ontwikkelt wendbaarheid in zijwaartse richting, kracht in de enkels en ritme."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Op één been door hoepels hinkelen",
+      "age": "4–5 jaar",
+      "how": "Leg 4–5 hoepels op een rij. Je kind hinkelt op één been van hoepel naar hoepel; op de terugweg wisselt hij van been.",
+      "duration": "2–3 keer heen per been.",
+      "benefit": "Ontwikkelt kracht op één been, evenwicht en nauwkeurigheid."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Van een kist springen en zacht landen",
+      "age": "4–5 jaar",
+      "how": "Je kind springt van een stevige kist op kniehoogte op een dikke mat en landt \"stil\" op twee voeten met gebogen knieën. Armen naar voren.",
+      "duration": "5–6 keer.",
+      "benefit": "Ontwikkelt een goede landingstechniek, beenkracht en durf.",
+      "caution": "De kist mag niet wegglijden; maak het niet hoger."
+    },
+    "4-5/06_bicycle": {
+      "title": "Fiets met zijwieltjes",
+      "age": "4–5 jaar",
+      "how": "Je kind fietst door te trappen en oefent bochten en remmen. Als zijn evenwicht beter wordt, kunnen de zijwieltjes eraf.",
+      "duration": "15–20 minuten.",
+      "benefit": "Ontwikkelt beenkracht, uithoudingsvermogen, evenwicht en gevoel voor de weg.",
+      "caution": "Een helm en dichte schoenen zijn een must; fiets op een vlakke ondergrond, uit de buurt van de weg."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Pendelloop",
+      "age": "4–5 jaar",
+      "how": "Zet een emmer neer en leg 4–5 meter verderop een paar zakjes. Je kind rent erheen, pakt een zakje, rent terug, gooit het in de emmer en gaat zo door tot alle zakjes op zijn.",
+      "duration": "2–3 rondes.",
+      "benefit": "Ontwikkelt snelheid, snel van richting veranderen, bukken en opkomen en uithoudingsvermogen."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "Standbeelden",
+      "age": "4–5 jaar",
+      "how": "Zolang de muziek speelt, danst of rent je kind; als de muziek stopt, bevriest hij als een standbeeld en probeert niet te bewegen.",
+      "duration": "5–10 minuten.",
+      "benefit": "Ontwikkelt lichaamsbeheersing, evenwicht, aandacht en zelfbeheersing."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "\"Je voet erin, je voet eruit\"",
+      "age": "4–5 jaar",
+      "how": "Leg een hoepel op de grond. Op een liedje steekt je kind om de beurt een voet, een hand of zijn hoofd in de hoepel en haalt die er weer uit, en draait dan een rondje.",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt evenwicht op één been, het begrip links en rechts en het opvolgen van aanwijzingen."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Een kleine bal met de handen vangen",
+      "age": "4–5 jaar",
+      "how": "Gooi van 1,5–2 meter zachtjes een kleine zachte bal. Je kind vangt hem alleen met zijn handen, zonder hem tegen zijn borst te klemmen.",
+      "duration": "10 keer.",
+      "benefit": "Ontwikkelt de oog-handcoördinatie en behendigheid van de vingers."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Opgooien en vangen",
+      "age": "4–5 jaar",
+      "how": "Je kind gooit zelf een zakje of zachte bal omhoog en vangt het met twee handen. Voeg er daarna een handklap tussendoor aan toe.",
+      "duration": "10 keer.",
+      "benefit": "Ontwikkelt het doseren van kracht, volgen met de ogen en reactievermogen."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Stuiteren met één hand",
+      "age": "4,5–5 jaar",
+      "how": "Je kind buigt zijn knieën een beetje en stuitert de bal met één hand steeds opnieuw op de grond. Eerst 2–3 keer, daarna vaker. Wissel van hand.",
+      "duration": "3–4 pogingen per hand.",
+      "benefit": "Ontwikkelt ritme, controle over de kracht in de hand en de oog-handcoördinatie."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Op doel schieten",
+      "age": "4–5 jaar",
+      "how": "Zet een klein doel neer (of leg twee voorwerpen neer). Je kind schiet de bal van 2–3 meter in het doel; probeer daarna tegen een rollende bal te trappen.",
+      "duration": "10 schoten.",
+      "benefit": "Ontwikkelt de coördinatie tussen voet en oog, evenwicht en nauwkeurig trappen."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Bal van een standaard slaan",
+      "age": "4–5 jaar",
+      "how": "Leg een zachte bal op een lage standaard. Je kind staat er zijdelings naast, houdt een lichte plastic knuppel met twee handen vast en slaat tegen de bal.",
+      "duration": "8–10 slagen.",
+      "benefit": "Ontwikkelt het draaien van de romp, de oog-handcoördinatie en slaan met een voorwerp.",
+      "caution": "Er mogen geen andere kinderen in de buurt zijn; alleen een zachte bal en een plastic knuppel."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Bal in de basket gooien",
+      "age": "4–5 jaar",
+      "how": "Je kind gooit een lichte bal met twee handen in een basket die iets hoger hangt dan hijzelf. Als het lukt, doet hij een stap naar achteren.",
+      "duration": "10 worpen.",
+      "benefit": "Ontwikkelt kracht bij het omhoog gooien, nauwkeurigheid en de samenwerking tussen benen en armen."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Ringwerpen",
+      "age": "4–5 jaar",
+      "how": "Je kind probeert van 1–1,5 meter ringen om een rechtopstaande stok te gooien.",
+      "duration": "2–3 rondes.",
+      "benefit": "Ontwikkelt fijne precisie, controle over de pols en geduld."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "\"Vliegtuig\"-houding",
+      "age": "4–5 jaar",
+      "how": "Je kind staat op één been, buigt zijn romp naar voren, strekt het andere been naar achteren en spreidt zijn armen als vleugels. Houd 3–5 seconden vast en wissel van been.",
+      "duration": "3 keer per been.",
+      "benefit": "Versterkt evenwicht en romp- en bilspieren."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Over een hindernis op de balk stappen",
+      "age": "4–5 jaar",
+      "how": "Leg een zakje op een lage evenwichtsbalk. Je kind loopt over de balk en stapt over het zakje heen.",
+      "duration": "4–5 keer heen.",
+      "benefit": "Ontwikkelt dynamisch evenwicht, concentratie en het hoog optillen van de voet.",
+      "caution": "Leg er een zachte mat onder en loop ernaast mee."
+    },
+    "4-5/19_stork_stand": {
+      "title": "\"Ooievaar\"-houding",
+      "age": "4–5 jaar",
+      "how": "Je kind zet zijn handen in zijn zij, staat op één been en tilt het andere been op tot voor de knie. Probeer samen tot 8–10 seconden te tellen.",
+      "duration": "2–3 keer per been.",
+      "benefit": "Ontwikkelt statisch evenwicht en concentratie."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Hoelahoepen",
+      "age": "4,5–5 jaar",
+      "how": "Je kind legt de hoepel tegen zijn middel, zet hem in beweging en probeert hem in de lucht te houden door zijn heupen naar voren en naar achteren te bewegen. In het begin zijn een paar rondjes genoeg.",
+      "duration": "5 minuten.",
+      "benefit": "Ontwikkelt rompspieren, ritme en coördinatie."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Zelf een koprol maken",
+      "age": "4–5 jaar",
+      "how": "Op een dikke mat hurkt je kind, zet zijn handen op de grond, drukt zijn kin op zijn borst, zet zich af met zijn voeten, rolt over zijn ronde rug en komt weer omhoog in hurkzit.",
+      "duration": "3–5 keer.",
+      "benefit": "Ontwikkelt lichaamsbesef, behendigheid en rompspieren.",
+      "caution": "Het gewicht mag niet op de kruin van het hoofd komen; de kin blijft altijd op de borst. Leer het eerst aan met hulp."
+    },
+    "4-5/21_plank": {
+      "title": "Plank",
+      "age": "4–5 jaar",
+      "how": "Je kind steunt op zijn ellebogen en tenen, met het lichaam in een rechte lijn van hoofd tot hielen. Houd 5–10 seconden vast.",
+      "duration": "2–3 keer.",
+      "benefit": "Versterkt buik-, rug- en schouderspieren.",
+      "caution": "Stop zodra de rug doorzakt."
+    },
+    "4-5/22_chair_squat": {
+      "title": "Squat op een \"onzichtbare stoel\"",
+      "age": "4–5 jaar",
+      "how": "Je kind zet zijn voeten op schouderbreedte, strekt zijn armen naar voren, zakt door alsof hij op een stoel gaat zitten en komt weer omhoog. De hielen blijven op de grond.",
+      "duration": "6–8 herhalingen.",
+      "benefit": "Versterkt been- en bilspieren."
+    },
+    "4-5/23_boat_pose": {
+      "title": "\"Bootje\"-houding",
+      "age": "4–5 jaar",
+      "how": "Je kind zit, leunt een beetje achterover, buigt zijn knieën, tilt zijn voeten van de grond en strekt zijn armen naar voren. Houd 5 seconden het evenwicht.",
+      "duration": "3–4 herhalingen.",
+      "benefit": "Versterkt de buikspieren en het evenwicht."
+    },
+    "4-5/24_cobra": {
+      "title": "\"Cobra\"-rekoefening",
+      "age": "4–5 jaar",
+      "how": "Je kind ligt op zijn buik, zet zijn handen onder zijn schouders en tilt zijn borst op; het bekken blijft op de grond. Houd 5 seconden vast.",
+      "duration": "3–4 herhalingen.",
+      "benefit": "Versterkt de rugspieren en rekt buik en borst.",
+      "caution": "Forceer de rug niet in een holle houding."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "In spreidzit naar voren reiken",
+      "age": "4–5 jaar",
+      "how": "Je kind zit met zijn benen wijd gespreid en schuift zijn handen over de grond naar voren. Houd 10 seconden vast, zonder te veren.",
+      "duration": "3 herhalingen.",
+      "benefit": "Maakt de binnen- en achterkant van de bovenbenen soepeler."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Aan het hangrek vooruit klauteren",
+      "age": "4,5–5 jaar",
+      "how": "Je kind hangt aan een laag hangrek en pakt om de beurt met zijn handen de volgende sport. Houd hem bij zijn middel vast en draag een deel van zijn gewicht.",
+      "duration": "2–3 pogingen.",
+      "benefit": "Ontwikkelt kracht in handen, armen en schouders en de grip.",
+      "caution": "Zorg voor een zachte ondergrond; de handen mogen niet nat zijn."
+    },
+    "4-5/27_climbing_net": {
+      "title": "In een klimnet klimmen",
+      "age": "4–5 jaar",
+      "how": "In de speeltuin of thuis op een laag net klimt je kind omhoog: met de handen hoger vastpakken en de voeten om de beurt neerzetten, en op dezelfde manier weer naar beneden.",
+      "duration": "3–4 keer.",
+      "benefit": "Ontwikkelt kracht in het hele lichaam, coördinatie en durf.",
+      "caution": "Zorg voor een zachte ondergrond; blijf ernaast staan."
+    }
+  }
+}

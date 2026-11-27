@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Çocuk egzersizleri",
+    "tileDesc": "0–5 yaş için resimli hareket egzersizleri",
+    "title": "Çocuk egzersizleri",
+    "eyebrow": "Hareket ve gelişim",
+    "ageFor": "{name} için",
+    "today": "Bugün",
+    "doneCount": "{n} egzersiz",
+    "weekHint": "Son 7 gün: her nokta egzersiz yaptığınız bir gün.",
+    "picksTitle": "Günün egzersizleri",
+    "picksSub": "Her gün yaşa uygun üç yeni egzersiz.",
+    "allTitle": "Tüm egzersizler",
+    "count": "{n} egzersiz",
+    "nowBadge": "Şimdiki yaş",
+    "search": "Egzersiz ara",
+    "all": "Tümü",
+    "favs": "Favoriler",
+    "noFavs": "Egzersizleri favorilere eklemek için kalbe dokunun.",
+    "noResults": "Uygun egzersiz bulunamadı.",
+    "rules": "Genel kurallar",
+    "safetyNote": "Bu egzersizler genel bilgi niteliğindedir, doktor muayenesinin yerini tutmaz. Erken doğmuş, sağlık sorunu olan ya da gelişiminden endişe ettiğiniz bir çocuk için önce çocuk doktorunuza veya bir çocuk fizyoterapistine danışın.",
+    "age": "Yaş",
+    "duration": "Süre",
+    "how": "Nasıl yapılır",
+    "benefit": "Faydası",
+    "caution": "Dikkat",
+    "timer": "Kronometre",
+    "start": "Başlat",
+    "pause": "Durdur",
+    "reset": "Sıfırla",
+    "done": "Yaptık",
+    "doneToday": "Bugün yaptık",
+    "prev": "Önceki",
+    "next": "Sonraki",
+    "fav": "Favorilere ekle",
+    "unfav": "Favorilerden çıkar",
+    "close": "Kapat"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 yaş",
+      "months": "0–12 ay",
+      "rules": [
+        "Egzersizleri bebeğiniz uyanık, sakin ve tok olmadığı bir zamanda yapın (beslendikten en az 30–40 dakika sonra).",
+        "Sert, düz ve temiz bir zeminde (yerde halı ya da minder üzerinde) çalışın; bebeğinizi yüksek bir yerde yalnız bırakmayın.",
+        "Hareketler yavaş ve yumuşak olmalıdır. Asla güç uygulamayın, kolları ve bacakları çekmeyin.",
+        "Bebeğiniz ağlıyorsa, huzursuzsa ya da yorulduysa hemen durun.",
+        "Yaş aralıkları yaklaşıktır; her bebek kendi hızında gelişir.",
+        "Erken doğmuş ya da sağlık sorunu olan bebekler için önce çocuk doktorunuza danışın."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 yaş",
+      "months": "12–24 ay",
+      "rules": [
+        "Bu yaşta egzersiz oyun demektir: çocuğunuzu zorlamayın, hareketi kendiniz gösterin ve birlikte yapın.",
+        "Gün içinde en az 30 dakika yönlendirilmiş, 1 saat ve daha fazla serbest hareketli oyun önerilir.",
+        "Odayı güvenli hâle getirin: sivri köşeler, kayan halılar, devrilebilecek mobilyalar olmasın. Çıplak ayakla ya da kaymaz çorapla çalışmak daha iyidir.",
+        "Merdivende, kaydırakta, tırmanırken ve zıplarken her zaman elinizin yetişeceği mesafede olun.",
+        "Küçük eşyalarla (top, küp) oynarken boyutlarına dikkat edin: çocuğunuzun ağzına sığabilecek bir şey vermeyin.",
+        "Yaş aralıkları yaklaşıktır. Çocuğunuz 18 aya kadar kendi başına yürümüyorsa çocuk doktorunuza başvurun."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 yaş",
+      "months": "24–36 ay",
+      "rules": [
+        "Bu yaşta egzersiz oyundur: hareketi kendiniz gösterin, birlikte yapın, şarkı ve masallarla eşlik edin.",
+        "Gün içinde en az 1 saat yönlendirilmiş, 2 saat ve daha fazla serbest hareketli oyun önerilir.",
+        "Odayı ve bahçeyi güvenli hâle getirin: kaygan zemin, sivri köşeler, devrilebilecek eşyalar olmasın.",
+        "Zıplarken, tırmanırken, asılırken ve kaydırakta elinizin yetişeceği mesafede olun; yumuşak bir zemin seçin.",
+        "Çocuğunuzu yormayın: kısa oyunlar, sık molalar ve su.",
+        "Yaş aralıkları yaklaşıktır; her çocuk kendi hızında gelişir. Endişeniz varsa çocuk doktorunuza başvurun."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 yaş",
+      "months": "36–48 ay",
+      "rules": [
+        "Egzersiz hâlâ oyundur: hareketi kendiniz gösterin, birlikte yapın, yarış ve masal öğeleri ekleyin.",
+        "Gün içinde en az 1 saat yönlendirilmiş, 2 saat ve daha fazla serbest hareketli oyun önerilir; mümkün olduğunca açık havada.",
+        "Güvenli bir yer seçin: kaymayan zemin, yumuşak minder, çevrede sivri köşe olmasın.",
+        "Tekerlekli araçlarda (scooter, bisiklet) çocuğunuza her zaman kask taktırın.",
+        "Takla, denge kirişi ve tırmanma gibi egzersizlerde yanında olun.",
+        "Çocuğunuzu yormayın: kısa oyunlar, sık molalar ve su.",
+        "Yaş aralıkları yaklaşıktır; her çocuk kendi hızında gelişir. Endişeniz varsa çocuk doktorunuza başvurun."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 yaş",
+      "months": "48–60 ay",
+      "rules": [
+        "Egzersiz oyun gibi geçmelidir: hareketi kendiniz gösterin, birlikte yapın, küçük yarışlar ve \"rekorlar\" ekleyin.",
+        "Gün içinde en az 1 saat yönlendirilmiş, 2 saat ve daha fazla serbest hareketli oyun önerilir; mümkün olduğunca açık havada.",
+        "Güvenli bir yer seçin: kaymayan zemin, yumuşak minder, çevrede sivri köşe olmasın.",
+        "Bisiklet ve scooterda çocuğunuza her zaman kask ve kapalı ayakkabı giydirin.",
+        "Takla, yüksekten atlama, tırmanma ve asılma sırasında yanında olun.",
+        "Güç egzersizlerinde (plank, çömelme) önemli olan süre değil kalitedir: duruş bozulduğunda durun.",
+        "Yaş aralıkları yaklaşıktır; her çocuk kendi hızında gelişir. Endişeniz varsa çocuk doktorunuza başvurun."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 ay",
+    "3–6 ay": "3–6 ay",
+    "6–9 ay": "6–9 ay",
+    "9–12 ay": "9–12 ay",
+    "12–15 ay": "12–15 ay",
+    "15–18 ay": "15–18 ay",
+    "18–24 ay": "18–24 ay",
+    "Hoppanma və tarazlıq": "Zıplama ve denge",
+    "Yerimə, qaçış və dırmaşma": "Yürüme, koşma ve tırmanma",
+    "Topla oyunlar": "Top oyunları",
+    "Gimnastika və təqlid oyunları": "Jimnastik ve taklit oyunları",
+    "Hoppanma": "Zıplama",
+    "Tarazlıq": "Denge",
+    "Təkərli vasitələr və qaçış": "Tekerlekli araçlar ve koşu",
+    "Güc və gimnastika": "Güç ve jimnastik",
+    "Ritm və koordinasiya": "Ritim ve koordinasyon",
+    "Hoppanma və tullanma": "Zıplama ve atlama",
+    "Qaçış, velosiped və ritm oyunları": "Koşu, bisiklet ve ritim oyunları"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Karın üstü yatma",
+      "age": "doğumdan itibaren",
+      "how": "Bebeğinizi minderin üzerine karnı üstü yatırın, kollarını dirseklerden bükerek başının yanına koyun. Bir elinizi yumuşakça sırtına, diğerini kalçasına koyun. Başını kaldırmaya çalışması için onunla konuşun.",
+      "duration": "Günde 2–3 kez, 1–3 dakika; süreyi yavaş yavaş artırın.",
+      "benefit": "Boyun, omuz ve sırt kaslarını güçlendirir, başın arkasının düzleşmesini önler.",
+      "caution": "Yalnızca uyanıkken ve gözetim altında. Uyuturken bebeğinizi her zaman sırtüstü yatırın."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Göğsünüzde karın üstü",
+      "age": "0–2 ay",
+      "how": "Bir yastığa yaslanarak yarı uzanır şekilde oturun. Bebeğinizi karnı üstü göğsünüze yatırın, bir elinizle sırtını, diğeriyle kalçasını tutun. Yüzünüze bakması için onunla konuşun.",
+      "duration": "Günde birkaç kez, 2–5 dakika.",
+      "benefit": "Karın üstü pozisyona alışmanın en yumuşak yoludur; başını kaldırmaya teşvik eder, aranızdaki bağı güçlendirir.",
+      "caution": "Kendinizi uykulu hissediyorsanız bu egzersizi yapmayın."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Kucakta karın üstü",
+      "age": "0–3 ay",
+      "how": "Oturun ve bebeğinizi uyluklarınızın üzerine enine, karnı üstü yatırın. Bir eliniz sırtında, diğeri kalçasında olsun. Sırtını yumuşakça okşayabilirsiniz.",
+      "duration": "2–3 dakika.",
+      "benefit": "Boyun kaslarını çalıştırır, gaz çıkarmaya yardım eder, bebeği sakinleştirir."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Oyuncağı gözle takip",
+      "age": "0–3 ay",
+      "how": "Bebeğiniz sırtüstü yatar. Renkli bir oyuncağı yüzünden 20–30 cm uzakta tutun ve yavaşça sağa sola götürün. Gözleri ve başıyla takip etmesini bekleyin.",
+      "duration": "1–2 dakika, her yöne 4–5 kez.",
+      "benefit": "Görsel dikkati, göz-baş koordinasyonunu ve boynun iki yana dönmesini geliştirir."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Parmağı kavrama",
+      "age": "0–4 ay",
+      "how": "İşaret parmağınızı bebeğinizin avucuna koyun ve sıkmasını bekleyin. Parmağınızı hafifçe yukarı aşağı oynatın. Her iki elle tekrarlayın.",
+      "duration": "Her el için 3–5 kez.",
+      "benefit": "Yakalama refleksini ve el kaslarını güçlendirir, dokunma duyusunu geliştirir.",
+      "caution": "Bebeğinizi parmaklarınızdan tutarken yukarı kaldırmayın."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Dizleri karına çekme",
+      "age": "0–6 ay",
+      "how": "Bebeğiniz sırtüstü yatar. İki baldırından tutun, dizlerini birlikte yavaşça karnına doğru bükün, 3–5 saniye tutun ve bırakın.",
+      "duration": "5–8 tekrar.",
+      "benefit": "Gazı ve koliği hafifletir, kalça eklemlerinin hareketliliğini artırır.",
+      "caution": "Bastırmayın; direnç hissederseniz durun."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "\"Bisiklet\"",
+      "age": "1–6 ay",
+      "how": "Bebeğiniz sırtüstü yatar. Baldırlarından tutup bacaklarını sırayla, bisiklet sürer gibi hareket ettirin: bir diz karna, diğer bacak ileri.",
+      "duration": "10–15 tur, arada molalarla.",
+      "benefit": "Bacak ve karın kaslarını çalıştırır, bağırsakların çalışmasına yardım eder, sıralı hareket koordinasyonunu öğretir."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Kolları açıp kapama",
+      "age": "1–6 ay",
+      "how": "Bebeğiniz sırtüstü yatar. Başparmaklarınızı avuçlarına koyun ya da bileklerinden yumuşakça tutun. Kollarını yanlara açın, sonra göğsünde çaprazlayın (kendine sarılıyormuş gibi).",
+      "duration": "5–8 tekrar.",
+      "benefit": "Göğüs ve omuz kaslarını açar, kolları vücudun orta hattına getirmeyi öğretir.",
+      "caution": "Kolları çekmeyin, yalnızca bebeğin izin verdiği kadar açın."
+    },
+    "0-1/09_kicking": {
+      "title": "Avuçlara tekme",
+      "age": "1–4 ay",
+      "how": "Bebeğiniz sırtüstü yatar. Avuçlarınızı ayak tabanlarına dayayın ve hafif direnç gösterin; bebek bacaklarıyla itecektir.",
+      "duration": "1–2 dakika.",
+      "benefit": "Bacak kaslarını güçlendirir, itme hareketini (ileride emekleme ve ayakta durma için) hazırlar."
+    },
+    "0-1/10_side_lying": {
+      "title": "Yan yatarak oyun",
+      "age": "1–4 ay",
+      "how": "Bebeğinizi yan yatırın, sırtının arkasına rulo yapılmış bir havlu koyun. İki eli de önde olsun; önüne bir oyuncak koyun. Sonra diğer yanına çevirin.",
+      "duration": "Her yana 2–3 dakika.",
+      "benefit": "Ellerin birbirine değmesini kolaylaştırır, dönmeye hazırlar, başın hep bir yana eğilmesini önler.",
+      "caution": "Yalnızca uyanıkken ve gözetim altında; bebeğinizi bu pozisyonda uyumaya bırakmayın."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Havlu destekli karın üstü",
+      "age": "2–4 ay",
+      "how": "Rulo yapılmış havluyu bebeğinizin göğsünün altına (koltuk altı hizasında) koyun, kolları havlunun önünde olsun. Başını kaldırıp bakması için önüne bir oyuncak koyun.",
+      "duration": "3–5 dakika, günde birkaç kez.",
+      "benefit": "Başı kaldırmayı kolaylaştırır, dirseklere yaslanmaya hazırlar."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Oturmaya çekme",
+      "age": "3–5 ay (bebek başını tutabildikten sonra)",
+      "how": "Bebeğiniz sırtüstü yatar. Başparmaklarınızı avuçlarına verin, bileklerinden tutun ve onu yavaşça oturma pozisyonuna doğru kaldırın, sonra aynı yavaşlıkla geri yatırın.",
+      "duration": "3–5 tekrar.",
+      "benefit": "Karın, boyun ve kol kaslarını güçlendirir.",
+      "caution": "Başı arkaya düşüyorsa egzersizi erteleyin. Hızlı çekmeyin."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Oyuncağa uzanma",
+      "age": "3–5 ay",
+      "how": "Bebeğiniz sırtüstü yatar. Oyuncağı göğsünün üzerinde, elinin yetişeceği mesafede tutun ve uzanıp yakalamasını bekleyin. Oyuncağı bazen sağa, bazen sola götürün.",
+      "duration": "2–3 dakika.",
+      "benefit": "Göz-el koordinasyonunu, omuz kaslarını ve amaçlı kavramayı geliştirir."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Dirseklere yaslanıp uzanma",
+      "age": "4–6 ay",
+      "how": "Bebeğiniz karnı üstü, dirseklerine yaslanmış durumda. Bir koluyla uzanması için oyuncağı biraz öne ve yana koyun. Ellerinizle leğenini hafifçe sabitleyebilirsiniz.",
+      "duration": "3–5 dakika.",
+      "benefit": "Ağırlığı bir koldan diğerine aktarmayı öğretir, sırtı ve omuz kuşağını güçlendirir, emeklemeye hazırlar."
+    },
+    "0-1/15_rolling": {
+      "title": "Dönmeye yardım",
+      "age": "4–6 ay",
+      "how": "Bebeğiniz sırtüstü yatar. Oyuncağı bir yanına koyun. Bir elinizle uyluğundan, diğeriyle leğeninden tutup üstteki bacağını karşı tarafa geçirin; gövde kendiliğinden arkasından dönecektir. İki yana da yapın.",
+      "duration": "Her yana 3–4 kez.",
+      "benefit": "Gövde kaslarını ve vücudun dönme hareketini geliştirir, kendi başına dönmeyi öğretir.",
+      "caution": "Bebeğinizi kolundan çekerek çevirmeyin."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Ayakları yakalama",
+      "age": "4–6 ay",
+      "how": "Bebeğiniz sırtüstü yatar. Dizlerini bükerek ayaklarını ellerine yaklaştırın ki onları yakalasın. Yakaladıktan sonra hafifçe sağa sola sallanmasına izin verin.",
+      "duration": "1–2 dakika.",
+      "benefit": "Karın kaslarını güçlendirir, beden farkındalığını ve kalça esnekliğini artırır."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Destekli oturma",
+      "age": "5–7 ay",
+      "how": "Bebeğinizi minderin üzerine oturtun, arkadan leğeninden ya da belinden tutun. Eline bir oyuncak verin. Dengesi geliştikçe desteği azaltın.",
+      "duration": "3–5 dakika.",
+      "benefit": "Gövde kaslarını ve oturma dengesini geliştirir, elleri oyun için serbest bırakır.",
+      "caution": "Sırtı yuvarlaklaşıp yorulduğunda yatırın; yastıklarla zorla oturtmayın."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Destekle ayakta yaylanma",
+      "age": "5–8 ay",
+      "how": "Bebeğinizi koltuk altlarından, gövdesinden sıkıca tutun ve ayaklarını sert bir yüzeye basın. Ağırlığının bir kısmını bacaklarına vermesine ve dizlerini büküp açarak yaylanmasına izin verin.",
+      "duration": "1–2 dakika.",
+      "benefit": "Bacak kaslarını güçlendirir, ayakta durmaya hazırlar.",
+      "caution": "Ağırlığın çoğunu siz taşıyın; bebeğinizi ayakları üzerinde desteksiz bırakmayın."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Oturarak oyuncağa uzanma",
+      "age": "6–8 ay",
+      "how": "Bebeğiniz kendi başına oturur, bir eliyle yere dayanır. Oyuncağı öne ve yanlara, biraz uzağa koyun ki uzanıp alsın ve yeniden doğrulsun. Çevresine yastıklar koyun.",
+      "duration": "5 dakika.",
+      "benefit": "Oturma dengesini, gövdenin dönmesini ve düşerken elle destek alma tepkisini geliştirir."
+    },
+    "0-1/20_peekaboo": {
+      "title": "\"Ce-e\" oyunu",
+      "age": "4–12 ay",
+      "how": "Bebeğiniz oturur. Hafif bir bezi yüzünüzün (ya da onun yüzünün) önünde tutun, sonra indirip \"ce-e!\" deyin. Büyüdükçe bezi kendisinin çekmesine izin verin.",
+      "duration": "Bebek ilgi gösterdiği sürece.",
+      "benefit": "Nesne sürekliliği kavramını, dikkati, iletişimi ve gülmeyi geliştirir; kolların aktif hareketini teşvik eder."
+    },
+    "0-1/21_patty_cake": {
+      "title": "El çırpma oyunu",
+      "age": "7–12 ay",
+      "how": "Bebeğinizle karşılıklı oturun. Bir şarkı ya da sayışma eşliğinde avuçlarınızı onun avuçlarına vurun, sonra kendi başına el çırpmayı gösterin.",
+      "duration": "2–3 dakika.",
+      "benefit": "İki elin birlikte çalışmasını, ritim duygusunu, taklidi ve iletişimi geliştirir."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Emeklemeye yardım",
+      "age": "7–9 ay",
+      "how": "Bebeğiniz elleri ve dizleri üzerinde durur, önünde bir oyuncak var. İtip ileri gidebilmesi için avuçlarınızı ayak tabanlarına dayayın.",
+      "duration": "3–5 dakika.",
+      "benefit": "Emekleme hareketini, kol-bacak koordinasyonunu ve gövde gücünü geliştirir.",
+      "caution": "Bebeğinizi itmeyin, yalnızca destek verin."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Engelin üzerinden emekleme",
+      "age": "8–10 ay",
+      "how": "Minderin üzerine alçak bir yastık ya da rulo yapılmış bir battaniye koyun, öbür tarafa bir oyuncak yerleştirin. Bebeğinizin engeli aşıp geçmesine izin verin.",
+      "duration": "5 dakika.",
+      "benefit": "Gücü, dengeyi ve hareket planlamasını geliştirir, tırmanmaya hazırlar."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Top yuvarlama",
+      "age": "8–12 ay",
+      "how": "Bebeğiniz bacakları açık oturur. Yumuşak bir topu ona doğru yuvarlayın, yakalayıp geri itmesini bekleyin.",
+      "duration": "5 dakika.",
+      "benefit": "Oturma dengesini, göz-el koordinasyonunu ve sırayla oynama alışkanlığını geliştirir."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Tutunarak ayağa kalkma",
+      "age": "8–10 ay",
+      "how": "Oyuncağı alçak, sağlam bir kanepenin üzerine koyun. Bebeğiniz dizleri üzerinde doğrulup bir ayağını yere basarak ayağa kalkmaya çalışacaktır. Gerekirse leğeninden hafifçe destekleyin.",
+      "duration": "3–5 deneme.",
+      "benefit": "Bacak ve kalça kaslarını güçlendirir, kendi başına ayağa kalkmayı öğretir.",
+      "caution": "Mobilyanın devrilmeyeceğinden ve sivri köşesi olmadığından emin olun."
+    },
+    "0-1/26_cruising": {
+      "title": "Mobilya boyunca yan adımlama",
+      "age": "9–11 ay",
+      "how": "Bebeğiniz kanepeye tutunarak ayakta durur. Oyuncağı biraz uzağa koyun ki yan adımlarla ona ulaşsın. İki yöne de yapın.",
+      "duration": "5 dakika.",
+      "benefit": "Ağırlığı bir ayaktan diğerine aktarmayı ve dengeyi öğretir; yürümeye doğrudan hazırlıktır."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Çömelip oyuncak alma",
+      "age": "10–12 ay",
+      "how": "Bebeğiniz bir eliyle kanepeye tutunarak ayakta durur. Oyuncağı ayağının yanına, yere koyun. Çömelip almasını ve yeniden kalkmasını bekleyin.",
+      "duration": "5–6 tekrar.",
+      "benefit": "Bacak kaslarını ve dengeyi güçlendirir, oturup kalkma kontrolünü öğretir."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Destekli yürüme",
+      "age": "10–12 ay",
+      "how": "Bebeğinizin arkasında durun ve gövdesinden (göğüs hizasında) tutun. Adım atmasına izin verin; dengesi geliştikçe desteği azaltın.",
+      "duration": "3–5 dakika.",
+      "benefit": "Adım atma becerisini ve dengeyi geliştirir.",
+      "caution": "Kollarından yukarı çekerek yürütmek yerine gövdesinden tutmak omuzlar için daha güvenlidir."
+    },
+    "0-1/29_push_walker": {
+      "title": "İtme arabasıyla yürüme",
+      "age": "11–12 ay",
+      "how": "Bebeğinize sağlam, ağır bir itme arabası verin. İki eliyle tutamaktan tutup ileri adımlasın. Yanında olun.",
+      "duration": "5–10 dakika.",
+      "benefit": "Bağımsız yürümeye güven kazandırır, adım uzunluğunu ve yön vermeyi çalıştırır.",
+      "caution": "Araba çok hızlı kaçmamalıdır; oturaklı yürüteç önerilmez."
+    },
+    "1-2/01_first_steps": {
+      "title": "İlk bağımsız adımlar",
+      "age": "12–15 ay",
+      "how": "Çocuğunuzu ayağa dikin, siz 2–3 adım öteye diz çökün, kollarınızı açıp onu çağırın. Başardıkça mesafeyi artırın.",
+      "duration": "5–10 deneme.",
+      "benefit": "Bağımsız yürüme için güven ve denge kazandırır."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Tek elden tutarak yürüme",
+      "age": "12–15 ay",
+      "how": "Çocuğunuzun yalnızca bir elinden tutun ve onun hızında yürüyün. Elinizi onun omuz hizasında tutun, yukarı çekmeyin. Elleri değiştirin.",
+      "duration": "5–10 dakika.",
+      "benefit": "İki elle destekten bağımsız yürümeye geçiştir; dengeyi güçlendirir."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Yerden desteksiz kalkma",
+      "age": "12–15 ay",
+      "how": "Çocuğunuz odanın ortasında otururken ilginç bir oyuncağı baş hizasında tutun. Ellerini ve ayaklarını yere basıp kalçasını kaldırarak kendi kendine doğrulmasını bekleyin.",
+      "duration": "5–6 tekrar.",
+      "benefit": "Bacak, kalça ve gövde kaslarını güçlendirir; mobilyaya tutunmadan kalkmayı öğretir."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Desteksiz çömelme",
+      "age": "13–18 ay",
+      "how": "Yere bir top ya da oyuncak koyun. Çocuğunuzu hiçbir yere tutunmadan çömelip onu almaya ve yeniden kalkmaya teşvik edin.",
+      "duration": "6–8 tekrar.",
+      "benefit": "Bacak gücünü, dengeyi ve hareket kontrolünü geliştirir."
+    },
+    "1-2/07_push_basket": {
+      "title": "Sepet itme",
+      "age": "12–18 ay",
+      "how": "Hafif bir çamaşır sepetine birkaç oyuncak koyun. Çocuğunuz sepeti iki eliyle oda boyunca itsin.",
+      "duration": "5–10 dakika.",
+      "benefit": "Bacak ve gövde kaslarını güçlendirir, yürüyüşü dengeler."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Alçak kanepeye ya da mindere tırmanma",
+      "age": "12–18 ay",
+      "how": "Diz yüksekliğinde sağlam bir minder ya da alçak bir kanepe seçin. Çocuğunuz karnını dayayıp bir dizini üstüne atarak çıksın. Elleriniz kalçasının arkasında hazır dursun. İnmeyi de öğretin: karın üstü, önce ayaklar.",
+      "duration": "4–5 tekrar.",
+      "benefit": "Tüm vücudun gücünü ve hareket planlamasını geliştirir.",
+      "caution": "Çocuğunuzu yüksek bir yerde yalnız bırakmayın."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Merdivene tırmanma",
+      "age": "12–18 ay",
+      "how": "2–3 alçak basamakta çocuğunuz ellerini üst basamağa koyarak çıksın. Siz arkasında durun, elleriniz kalçasının yanında olsun. İnerken sırtı önde, önce ayaklarla inmeyi öğretin.",
+      "duration": "3–4 kez aşağı yukarı.",
+      "benefit": "Bacak gücünü, koordinasyonu ve merdivende güvenli davranma alışkanlığını geliştirir.",
+      "caution": "Yalnızca gözetim altında; diğer zamanlarda merdiven kapısı kapalı olsun."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Top yuvarlama",
+      "age": "12–18 ay",
+      "how": "Karşılıklı oturun ya da çömelin. Topu birbirinize yuvarlayın; çocuğunuz onu iki eliyle yakalayıp geri itsin.",
+      "duration": "5 dakika.",
+      "benefit": "Göz-el koordinasyonunu, sırayla oynamayı ve gövde dengesini geliştirir."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Küplerden kule",
+      "age": "12–18 ay",
+      "how": "Çocuğunuza büyük tahta küpler verin ve 2–4 küpten kule yapmayı gösterin. Yıkılınca yeniden yapın.",
+      "duration": "5–10 dakika.",
+      "benefit": "İnce motor becerileri, el hassasiyetini ve sabrı geliştirir."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Topları kutuya atma",
+      "age": "12–18 ay",
+      "how": "Çocuğunuz diz üstü ya da oturarak topları tek tek alıp kutuya atsın. Sonra kutuyu boşaltıp yeniden başlayın.",
+      "duration": "5 dakika.",
+      "benefit": "Tutup bırakma becerisini, göz-el koordinasyonunu ve diz üstü dengeyi geliştirir."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Oyuncak taşıyarak yürüme",
+      "age": "15–18 ay",
+      "how": "Çocuğunuza büyük, hafif bir oyuncak verin ve onu odanın öbür ucuna götürmesini isteyin.",
+      "duration": "5 dakika.",
+      "benefit": "Eller meşgulken dengeyi korumayı öğretir, gövde kaslarını güçlendirir."
+    },
+    "1-2/06_pull_toy": {
+      "title": "İpli oyuncağı arkasından çekme",
+      "age": "15–20 ay",
+      "how": "Tekerlekli bir oyuncağı kısa bir iple çocuğunuzun eline verin. Yürürken oyuncağı arkasından çeksin ve dönüp ona baksın.",
+      "duration": "5–10 dakika.",
+      "benefit": "Yürürken başı ve gövdeyi döndürmeyi, dikkati bölüştürmeyi öğretir.",
+      "caution": "İp kısa olsun (yaklaşık 30 cm); çocuğunuzu iple yalnız bırakmayın."
+    },
+    "1-2/10_tunnel": {
+      "title": "Tünelden emekleme",
+      "age": "12–24 ay",
+      "how": "Büyük bir karton kutunun iki ucunu açarak tünel yapın. Öbür uçtan çocuğunuzu çağırın ya da oraya bir oyuncak koyun.",
+      "duration": "5–10 dakika.",
+      "benefit": "Omuz ve gövde gücünü, mekân algısını geliştirir."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Minder yolu",
+      "age": "15–20 ay",
+      "how": "Yere birkaç yassı minder dizin. Çocuğunuz bir elinizden tutarak onların üzerinden yürüsün.",
+      "duration": "3–5 geçiş.",
+      "benefit": "Dengesiz zeminde dengeyi geliştirir, ayak bileği kaslarını güçlendirir."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Topu sepete atma",
+      "age": "15–24 ay",
+      "how": "Çocuğunuzdan 1 adım uzağa bir sepet koyun. Yumuşak topu sepete atmayı gösterin; başardıkça mesafeyi artırın.",
+      "duration": "8–10 atış.",
+      "benefit": "Atma hareketini, göz-el koordinasyonunu ve omuz gücünü geliştirir."
+    },
+    "1-2/15_dance": {
+      "title": "Müzikle dans",
+      "age": "12–24 ay",
+      "how": "Ritmik bir müzik açın ve çocuğunuzla birlikte dans edin: dizleri bükerek yaylanın, el çırpın, dönün.",
+      "duration": "5–10 dakika.",
+      "benefit": "Ritim duygusunu, dengeyi ve dayanıklılığı artırır, keyfi yerine getirir."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Oyuncakları toplama",
+      "age": "15–24 ay",
+      "how": "Oyuncakları yere dağıtın. Çocuğunuz eğilip ya da çömelip onları tek tek alsın ve sepete koysun.",
+      "duration": "Oyuncaklar bitene kadar.",
+      "benefit": "Tekrarlanan eğilip kalkma bacak ve bel kaslarını güçlendirir; düzen alışkanlığı kazandırır."
+    },
+    "1-2/24_ride_on": {
+      "title": "Tekerlekli arabada ayakla itme",
+      "age": "15–24 ay",
+      "how": "Çocuğunuzu pedalsız, alçak, tekerlekli bir oyuncağa oturtun; ayakları yere tam basmalıdır. Ayaklarıyla iterek ileri gitsin.",
+      "duration": "10 dakika.",
+      "benefit": "Bacak gücünü, vücudun iki tarafının koordinasyonunu ve yön kontrolünü geliştirir."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Topa tekme atma",
+      "age": "18–24 ay",
+      "how": "Hafif bir topu çocuğunuzun ayağının önüne koyun ve tekme atmayı gösterin. Başta bir elinden tutabilirsiniz.",
+      "duration": "8–10 vuruş.",
+      "benefit": "Tek ayak üzerinde kısa süreli dengeyi ve ayak-göz koordinasyonunu geliştirir."
+    },
+    "1-2/16_bubbles": {
+      "title": "Köpük yakalama",
+      "age": "18–24 ay",
+      "how": "Sabun köpüğü üfleyin. Çocuğunuz parmak uçlarında yükselerek, uzanarak ve koşarak onları patlatsın.",
+      "duration": "5–10 dakika.",
+      "benefit": "Parmak ucunda durmayı, yukarı uzanmayı ve göz-el koordinasyonunu çalıştırır."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Elden tutarak merdiven çıkma",
+      "age": "18–24 ay",
+      "how": "Çocuğunuz dik durarak bir elinizden (ya da tırabzandan) tutup basamakları çıksın. Her basamağa önce bir ayağını, sonra diğerini koyması normaldir.",
+      "duration": "2–3 kez aşağı yukarı.",
+      "benefit": "Bacak gücünü ve tek ayak üzerinde dengeyi artırır.",
+      "caution": "İnerken her zaman çocuğunuzdan bir basamak aşağıda durun."
+    },
+    "1-2/21_jump": {
+      "title": "Yerinde zıplama",
+      "age": "20–24 ay",
+      "how": "Zıplamayı kendiniz gösterin: dizleri bükün ve iki ayakla yerden yükselin. Başta ellerinden tutabilir ya da alçak bir minderin üzerinden atlatabilirsiniz.",
+      "duration": "5–8 zıplama.",
+      "benefit": "Bacakların patlayıcı gücünü, kemikleri ve koordinasyonu güçlendirir.",
+      "caution": "Yumuşak bir zeminde yapın; iki ayakla zıplama çoğu zaman 2 yaşına yakın başarılır."
+    },
+    "1-2/22_run": {
+      "title": "Koşu",
+      "age": "18–24 ay",
+      "how": "Geniş, engelsiz bir yerde \"yakala beni\" oynayın ya da çocuğunuzu uzaktan çağırın.",
+      "duration": "Kısa molalarla 5–10 dakika.",
+      "benefit": "Dayanıklılığı, hızı ve kalp-damar sistemini geliştirir."
+    },
+    "1-2/23_balance_line": {
+      "title": "Çizgi üzerinde yürüme",
+      "age": "20–24 ay",
+      "how": "Yere geniş, renkli bir bant yapıştırın. Çocuğunuz bir elinizden tutarak ayaklarını bandın üzerine basa basa yürüsün.",
+      "duration": "3–5 geçiş.",
+      "benefit": "Dengeyi ve dar bir zeminde yürümeyi geliştirir."
+    },
+    "1-2/25_bear_walk": {
+      "title": "\"Ayı yürüyüşü\"",
+      "age": "18–24 ay",
+      "how": "Eller ve ayaklar yerde, dizler yere değmeden, kalça yukarıda ileri gitmeyi gösterin. Birlikte \"ayı gibi\" yürüyün.",
+      "duration": "Oda boyunca 2–3 geçiş.",
+      "benefit": "Omuz, kol ve gövde kaslarını güçlendirir, koordinasyonu artırır."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Yukarı uzan, parmaklarına dokun",
+      "age": "18–24 ay",
+      "how": "Çocuğunuzla karşılıklı durun. Önce parmak uçlarında yükselip kollarınızı yukarı uzatın, sonra eğilip ayak parmaklarınıza dokunun. Bir şarkıyla eşlik edin.",
+      "duration": "5–6 tekrar.",
+      "benefit": "Esnekliği, dengeyi ve hareketleri taklit etmeyi geliştirir; vücut bölümlerini öğretir."
+    },
+    "1-2/27_slide": {
+      "title": "Alçak kaydırak",
+      "age": "18–24 ay",
+      "how": "Çocuğunuz alçak bir kaydırağın başında oturup ayakları önde kaysın. Ellerinizle gövdesinden tutun, sonra desteği azaltın.",
+      "duration": "5–6 kez.",
+      "benefit": "Tırmanmayı, oturma dengesini ve cesareti geliştirir.",
+      "caution": "Çocuğunuzu kucağınızda kaydırmayın; ayağı takılıp yaralanabilir."
+    },
+    "1-2/28_back_walk": {
+      "title": "Geri geri yürüme",
+      "age": "18–24 ay",
+      "how": "Çocuğunuz bir arabayı ya da ipli oyuncağı kendine doğru çekerek geri geri adımlasın. Başta ellerinden tutup birlikte geri geri yürüyün.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Dengeyi, beden farkındalığını ve hareket yönünü değiştirmeyi öğretir.",
+      "caution": "Arkada engel olmadığından emin olun."
+    },
+    "2-3/01_jump_forward": {
+      "title": "İki ayakla ileri zıplama",
+      "age": "24–30 ay",
+      "how": "Yere renkli bir bant yapıştırın. Çocuğunuz dizlerini büküp iki ayağı bitişik bandın üzerinden zıplasın. Önce kendiniz gösterin.",
+      "duration": "6–8 zıplama.",
+      "benefit": "Bacak gücünü, iki ayağın birlikte çalışmasını ve yere yumuşak inmeyi geliştirir."
+    },
+    "2-3/02_jump_down": {
+      "title": "Alçak basamaktan atlama",
+      "age": "24–30 ay",
+      "how": "Çocuğunuz bir elinizden tutarak 10–15 cm yüksekliğindeki sağlam bir basamaktan yumuşak bir mindere atlasın. Dizleri bükerek inmeyi gösterin.",
+      "duration": "5–6 kez.",
+      "benefit": "Cesareti, bacak gücünü ve iniş sırasında dengeyi geliştirir.",
+      "caution": "Yüksekliği artırmayın; basamak kaymamalıdır."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Tek ayak üstünde durma",
+      "age": "30–36 ay",
+      "how": "\"Leylek gibi dur\" deyin. Çocuğunuz bir elinizden tutarak bir ayağını kaldırsın ve 2–3 saniye dursun. Ayakları değiştirin, sonra desteksiz deneyin.",
+      "duration": "Her ayak için 3–4 kez.",
+      "benefit": "Dengeyi ve ayak bileği kaslarını güçlendirir."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Parmak ucunda yürüme",
+      "age": "24–36 ay",
+      "how": "\"Sessiz bir kedi gibi yürüyelim\" deyin ve parmak uçlarında oda boyunca yürüyün.",
+      "duration": "2–3 geçiş.",
+      "benefit": "Baldır kaslarını, ayak kemerini ve dengeyi güçlendirir.",
+      "caution": "Çocuğunuz sürekli parmak ucunda yürüyorsa bunu çocuk doktorunuza söyleyin."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Tahta üzerinde yürüme",
+      "age": "24–36 ay",
+      "how": "Yere geniş, alçak bir tahta koyun. Çocuğunuz bir elinizden tutarak üzerinde yürüsün; başardıkça desteği bırakın.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Dengeyi, dikkati ve ayakları bir çizgi üzerine basmayı geliştirir."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Başında kese ile yürüme",
+      "age": "30–36 ay",
+      "how": "Çocuğunuzun başına küçük bir kumaş kese (pirinç ya da nohut dolu) koyun. Düşürmemek için yavaş ve dik yürüsün.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Duruşu, dengeyi ve dikkati geliştirir."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Daireden daireye zıplama",
+      "age": "30–36 ay",
+      "how": "Yere renkli daireler (lastik işaretler, kâğıt, minder) dizin. Çocuğunuz birinden diğerine zıplasın ya da büyük adımlarla geçsin.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Zıplamanın isabetini, dengeyi ve hareket planlamasını geliştirir.",
+      "caution": "Daireler kaymamalıdır."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Merdiveni ayak değiştirerek çıkma",
+      "age": "30–36 ay",
+      "how": "Çocuğunuz tırabzana tutunarak her basamağa bir ayağını koyup çıksın. İnerken her basamağa hâlâ iki ayağını koyması normaldir.",
+      "duration": "2–3 kez aşağı yukarı.",
+      "benefit": "Bacak gücünü ve tek ayak üzerinde dengeyi artırır.",
+      "caution": "İnerken çocuğunuzdan bir basamak aşağıda durun."
+    },
+    "2-3/14_marching": {
+      "title": "Marş yürüyüşü",
+      "age": "24–36 ay",
+      "how": "Müzik açın ve bir \"geçit töreni\" yapın: dizleri yükseğe kaldırarak, kolları sallayarak yürüyün. Arada \"dön\", \"zıpla\", \"dur\" gibi komutlar verin.",
+      "duration": "5 dakika.",
+      "benefit": "Koordinasyonu, ritim duygusunu ve yönergelere uymayı geliştirir."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Koş ve dur",
+      "age": "24–36 ay",
+      "how": "\"Yeşil ışık\" dediğinizde çocuğunuz koşar, \"kırmızı ışık\" dediğinizde olduğu yerde donar. Bir çizgi çizip önünde durmasını da isteyebilirsiniz.",
+      "duration": "5–10 dakika.",
+      "benefit": "Hızı, fren yapmayı, beden kontrolünü ve dikkati geliştirir."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Araba çekme",
+      "age": "24–36 ay",
+      "how": "Küçük bir çekçek arabaya oyuncaklar yükleyin; çocuğunuz onu sapından tutup çeksin, köşelerden döndürsün.",
+      "duration": "5–10 dakika.",
+      "benefit": "Gövde ve bacak kaslarını güçlendirir, yön kontrolünü öğretir."
+    },
+    "2-3/07_tricycle": {
+      "title": "Üç tekerlekli bisiklet",
+      "age": "30–36 ay",
+      "how": "Çocuğunuzu üç tekerlekli bisiklete oturtun, ayaklarını pedallara koyun. Pedalların hareketini hissetmesi için başta arkadan hafifçe itin.",
+      "duration": "10–15 dakika.",
+      "benefit": "Bacakların sırayla çalışmasını, gücü ve direksiyon kontrolünü geliştirir.",
+      "caution": "Kask taktırın; yoldan uzakta, düz bir zeminde sürün."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Masanın altından emekleme",
+      "age": "24–36 ay",
+      "how": "Alçak bir masa, sandalyeler ya da karton kutudan bir \"tünel\" kurun. Çocuğunuz başını eğip altından emekleyerek geçsin.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Omuz ve gövde gücünü, kendi beden boyutunu algılamayı geliştirir."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Tırmanma merdiveni",
+      "age": "24–36 ay",
+      "how": "Alçak bir tırmanma üçgeninde ya da oyun parkında çocuğunuz elleriyle tutunup ayaklarını basamak basamak koyarak çıksın. Elleriniz kalçasının arkasında hazır olsun.",
+      "duration": "4–5 kez.",
+      "benefit": "Tüm vücudun gücünü, kavrama gücünü ve cesareti geliştirir.",
+      "caution": "Altında yumuşak bir zemin olsun; çocuğunuzu yalnız bırakmayın."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Kaydıraktan tek başına kayma",
+      "age": "24–36 ay",
+      "how": "Çocuğunuz merdivenden kendisi çıkıp oturarak, ayakları önde kaysın. Siz aşağıda bekleyin.",
+      "duration": "6–8 kez.",
+      "benefit": "Tırmanmayı, oturma dengesini ve bağımsızlığı geliştirir.",
+      "caution": "Baş aşağı ya da karın üstü kaymasına izin vermeyin."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Barfiksten asılma",
+      "age": "30–36 ay",
+      "how": "Çocuğunuz alçak bir bara (ayakları yerden birkaç santimetre yukarıda) iki eliyle tutunup 3–5 saniye asılı kalsın. Ellerinizle belinden tutun.",
+      "duration": "3–4 kez.",
+      "benefit": "El ve omuz gücünü, kavramayı güçlendirir.",
+      "caution": "Çocuğunuzu ellerinden tutarak kaldırmayın ve sallamayın; altında minder olsun."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Topu omuz üstünden atma",
+      "age": "24–36 ay",
+      "how": "1–2 metre aralıkla durun. Çocuğunuz küçük, yumuşak bir topu omzunun üstünden size atsın.",
+      "duration": "8–10 atış.",
+      "benefit": "Atma tekniğini, omuz gücünü ve nişan almayı geliştirir."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Top yakalama",
+      "age": "30–36 ay",
+      "how": "Büyük, hafif bir topu 1 metre mesafeden yavaşça çocuğunuzun göğsüne doğru atın. Kollarını öne uzatıp topu göğsüne bastırarak yakalasın.",
+      "duration": "8–10 kez.",
+      "benefit": "Göz-el koordinasyonunu ve tepki hızını geliştirir."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Koşarak topa tekme atma",
+      "age": "24–36 ay",
+      "how": "İki koni ya da kutudan bir \"kale\" yapın. Çocuğunuz topa doğru bir iki adım atıp tekme vursun.",
+      "duration": "8–10 vuruş.",
+      "benefit": "Tek ayak üzerinde dengeyi, ayak-göz koordinasyonunu ve gücü geliştirir."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Keseyi çembere atma",
+      "age": "24–36 ay",
+      "how": "Yere bir çember ya da leğen koyun. Çocuğunuz 1 adım uzaktan keseleri aşağıdan atarak içine düşürsün; başardıkça mesafeyi artırın.",
+      "duration": "8–10 atış.",
+      "benefit": "Hedefe isabetli atmayı ve gücü ayarlamayı öğretir."
+    },
+    "2-3/27_bowling": {
+      "title": "Ev bowlingi",
+      "age": "24–36 ay",
+      "how": "6 boş plastik şişeyi üçgen şeklinde dizin. Çocuğunuz çömelip topu iki eliyle yuvarlayarak onları devirsin.",
+      "duration": "5–6 tur.",
+      "benefit": "Nişan almayı, çömelme gücünü ve sıra beklemeyi geliştirir."
+    },
+    "2-3/24_balloon": {
+      "title": "Balonu havada tutma",
+      "age": "24–36 ay",
+      "how": "Balonu havaya atın. Çocuğunuz eliyle vurarak onun yere düşmesine izin vermesin.",
+      "duration": "5–10 dakika.",
+      "benefit": "Göz-el koordinasyonunu, yukarı uzanmayı ve tepki hızını geliştirir.",
+      "caution": "Patlamış balon parçalarını hemen toplayın (boğulma tehlikesi)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "\"Baş, omuzlar, dizler, parmaklar\"",
+      "age": "24–36 ay",
+      "how": "Şarkı eşliğinde sırayla ellerinizi başa, omuzlara, dizlere ve ayak parmaklarına değdirin. Hızı yavaş yavaş artırın.",
+      "duration": "3–4 kez.",
+      "benefit": "Esnekliği, koordinasyonu ve vücut bölümlerini tanımayı geliştirir."
+    },
+    "2-3/15_spin": {
+      "title": "Dönme",
+      "age": "24–36 ay",
+      "how": "Çocuğunuz kollarını yanlara açıp olduğu yerde yavaş yavaş dönsün; sonra ters yöne.",
+      "duration": "Her yöne 2–3 tur.",
+      "benefit": "Denge (vestibüler) sistemini ve beden kontrolünü geliştirir.",
+      "caution": "Çevrede engel olmasın; başı dönünce dursun."
+    },
+    "2-3/17_frog_jump": {
+      "title": "\"Kurbağa\" zıplaması",
+      "age": "30–36 ay",
+      "how": "Çocuğunuz derin çömelip ellerini dizlerinin arasında yere koysun, sonra kurbağa gibi ileri zıplasın.",
+      "duration": "5–6 zıplama.",
+      "benefit": "Bacak ve kalça kaslarının gücünü, kalça ekleminin hareketliliğini artırır."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "\"El arabası\"",
+      "age": "30–36 ay",
+      "how": "Çocuğunuz ellerini yere koyar. Siz onu uyluklarından (dizin üstünden) tutup bacaklarını kaldırın; elleriyle birkaç \"adım\" atsın.",
+      "duration": "3–5 adım, 2–3 kez.",
+      "benefit": "Kol, omuz ve gövde kaslarını güçlendirir.",
+      "caution": "Ayak bileklerinden değil, uyluklarından tutun; beli çökerse ya da yorulursa durun."
+    },
+    "2-3/21_log_roll": {
+      "title": "\"Kütük\" gibi yuvarlanma",
+      "age": "24–36 ay",
+      "how": "Çocuğunuz minderin üzerine dümdüz uzanıp kollarını başının üstüne uzatsın ve yana doğru yuvarlansın; sonra ters yöne.",
+      "duration": "Her yöne 3–4 tur.",
+      "benefit": "Gövde kaslarını, beden farkındalığını ve denge sistemini geliştirir."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "\"Kelebek\" esnemesi",
+      "age": "24–36 ay",
+      "how": "Çocuğunuz oturup ayak tabanlarını birleştirsin, elleriyle ayaklarını tutsun ve dizlerini \"kanat\" gibi hafifçe aşağı yukarı hareket ettirsin.",
+      "duration": "20–30 saniye.",
+      "benefit": "Kalça esnekliğini artırır, egzersizden sonra sakinleştirir.",
+      "caution": "Dizlere elle bastırmayın."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Tek ayak üstünde sekme",
+      "age": "3,5–4 yaş",
+      "how": "Çocuğunuz bir ayağını arkaya büküp diğer ayağı üzerinde yerinde ya da ileri doğru seksin. Başta elinden tutun. Ayakları değiştirin.",
+      "duration": "Her ayakla 3–5 sekme.",
+      "benefit": "Bacak gücünü, dengeyi ve koordinasyonu geliştirir."
+    },
+    "3-4/02_long_jump": {
+      "title": "Durarak uzun atlama",
+      "age": "3–4 yaş",
+      "how": "Yere bir çizgi çizin. Çocuğunuz dizlerini büküp kollarını sallayarak iki ayakla olabildiğince uzağa atlasın. İndiği yeri işaretleyip \"rekoru\" yenileyin.",
+      "duration": "5–6 deneme.",
+      "benefit": "Bacakların patlayıcı gücünü ve kol-bacak uyumunu artırır."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Engelin üzerinden atlama",
+      "age": "3–4 yaş",
+      "how": "10–15 cm yüksekliğinde yumuşak bir engel (köpük çubuk, rulo havlu) koyun. Çocuğunuz iki ayakla üzerinden atlasın.",
+      "duration": "6–8 kez.",
+      "benefit": "Atlama yüksekliğini, cesareti ve yumuşak inişi geliştirir.",
+      "caution": "Engel, ayak takıldığında kolayca devrilen türden olmalıdır."
+    },
+    "3-4/04_hopscotch": {
+      "title": "Seksek",
+      "age": "3,5–4 yaş",
+      "how": "Tebeşirle yere kareler çizin: bir kare, sonra yan yana iki kare. Çocuğunuz tek kareye tek ayakla, çift kareye iki ayakla zıplasın. Başta hepsini iki ayakla yapabilir.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Dengeyi, ritmi ve ayak değiştirmeyi öğretir."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Çemberden çembere zıplama",
+      "age": "3–4 yaş",
+      "how": "Yere 3–5 çember dizin. Çocuğunuz iki ayakla birinden diğerine zıplasın.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Art arda zıplamayı, isabeti ve dayanıklılığı geliştirir."
+    },
+    "3-4/19_leap_river": {
+      "title": "\"Derenin\" üzerinden sıçrama",
+      "age": "3–4 yaş",
+      "how": "Yere mavi bir kumaş ya da iki ip koyarak bir \"dere\" yapın. Çocuğunuz koşarak gelip bir ayakla itsin ve diğer ayağının üzerine inerek üzerinden sıçrasın. \"Dereyi\" yavaş yavaş genişletin.",
+      "duration": "6–8 kez.",
+      "benefit": "Büyük adımla sıçramayı, gücü ve mesafeyi tahmin etmeyi geliştirir."
+    },
+    "3-4/25_star_jump": {
+      "title": "\"Yıldız\" zıplaması",
+      "age": "3,5–4 yaş",
+      "how": "Çocuğunuz zıplayıp havada kollarını ve bacaklarını yanlara açsın (\"yıldız\"), sonra ayaklarını birleştirerek insin.",
+      "duration": "5–8 kez.",
+      "benefit": "Kol ve bacakların aynı anda çalışmasını, dayanıklılığı geliştirir."
+    },
+    "3-4/05_gallop": {
+      "title": "\"Dörtnala koşu\"",
+      "age": "3–4 yaş",
+      "how": "Bir ayak hep önde, diğeri onun arkasından: \"at gibi dörtnala koşalım\". Sonra öndeki ayağı değiştirin.",
+      "duration": "Oda boyunca 3–4 geçiş.",
+      "benefit": "Ritmi, koordinasyonu ve dayanıklılığı geliştirir."
+    },
+    "3-4/06_tree_balance": {
+      "title": "\"Ağaç\" duruşu",
+      "age": "3–4 yaş",
+      "how": "Çocuğunuz bir ayağının tabanını diğer bacağının baldırına dayasın, kollarını yanlara açsın ve 3–5 saniye dursun. Ayakları değiştirin.",
+      "duration": "Her ayak için 3 kez.",
+      "benefit": "Dengeyi, dikkati ve ayak bileği kaslarını güçlendirir."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Çizgi üzerinde topuk-parmak yürüyüşü",
+      "age": "3,5–4 yaş",
+      "how": "Yere bir bant yapıştırın. Çocuğunuz öndeki ayağın topuğunu arkadaki ayağın parmaklarına değdire değdire bandın üzerinde yürüsün.",
+      "duration": "3–4 geçiş.",
+      "benefit": "İnce dengeyi ve beden kontrolünü geliştirir."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Denge kirişi",
+      "age": "3–4 yaş",
+      "how": "Çocuğunuz yerden 10 cm yükseklikteki geniş bir kirişin üzerinde kollarını açarak kendi başına yürüsün. Yanında yürüyün.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Dengeyi, cesareti ve dikkati geliştirir.",
+      "caution": "Altında yumuşak bir minder olsun."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Merdiveni ayak değiştirerek inme",
+      "age": "3,5–4 yaş",
+      "how": "Çocuğunuz tırabzana tutunarak her basamağa bir ayağını koyup insin.",
+      "duration": "2–3 kez.",
+      "benefit": "Bacak gücünü, dengeyi ve kontrollü inişi geliştirir.",
+      "caution": "Siz bir basamak aşağıda durun."
+    },
+    "3-4/10_scooter": {
+      "title": "Scooter",
+      "age": "3–4 yaş",
+      "how": "Üç tekerlekli scooterda çocuğunuz bir ayağını platforma koyup diğeriyle yerden itsin. Ayak değiştirmeyi öğretin.",
+      "duration": "10–15 dakika.",
+      "benefit": "Dengeyi, bacak gücünü ve yön kontrolünü geliştirir.",
+      "caution": "Kask ve kapalı ayakkabı şarttır; yoldan uzakta, düz bir zeminde sürün."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Denge bisikleti",
+      "age": "3–4 yaş",
+      "how": "Pedalsız bisiklette çocuğunuz oturup ayaklarıyla yerden iterek ilerlesin. Hız kazanınca ayaklarını kaldırıp dengesini korumaya çalışsın.",
+      "duration": "10–15 dakika.",
+      "benefit": "Dengeyi geliştirir, pedallı bisiklete geçişi kolaylaştırır.",
+      "caution": "Kask ve kapalı ayakkabı şarttır; sele, ayaklar yere tam basacak yükseklikte olsun."
+    },
+    "3-4/17_tag": {
+      "title": "Kovalamaca",
+      "age": "3–4 yaş",
+      "how": "Çocuğunuzu kovalayın ve hafifçe dokunun; sonra o sizi kovalasın. Yönü sık sık değiştirin.",
+      "duration": "Molalarla 5–10 dakika.",
+      "benefit": "Hızı, çevikliği, dayanıklılığı ve tepki hızını geliştirir."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Yerden seken topu yakalama",
+      "age": "3–4 yaş",
+      "how": "Topu çocuğunuzun önünde yere vurun ki bir kez sekip ellerine gelsin. Çocuğunuz onu iki eliyle yakalasın.",
+      "duration": "8–10 kez.",
+      "benefit": "Göz-el koordinasyonunu ve topun hareketini önceden kestirmeyi geliştirir."
+    },
+    "3-4/13_target_throw": {
+      "title": "Hedefe atış",
+      "age": "3–4 yaş",
+      "how": "Duvara ya da bir ayaklığa renkli daire şeklinde bir hedef asın. Çocuğunuz 1,5–2 metreden yumuşak bir topu hedefe atsın.",
+      "duration": "8–10 atış.",
+      "benefit": "Atış isabetini, omuz gücünü ve dikkati geliştirir."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Topu koniler arasında sürme",
+      "age": "3,5–4 yaş",
+      "how": "3–4 koniyi (ya da şişeyi) bir sıraya dizin. Çocuğunuz topa ayağıyla hafifçe vurarak onu konilerin arasından zikzak çizerek sürsün.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Ayak-göz koordinasyonunu, top kontrolünü ve yön değiştirmeyi geliştirir."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Topu yere vurup yakalama",
+      "age": "3,5–4 yaş",
+      "how": "Çocuğunuz orta boy bir topu iki eliyle yere vursun ve sektiğinde yakalasın.",
+      "duration": "8–10 kez.",
+      "benefit": "El gücünü ayarlamayı, ritmi ve göz-el koordinasyonunu geliştirir."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Tabakla balon oyunu",
+      "age": "3–4 yaş",
+      "how": "Çocuğunuz bir kâğıt tabağı raket gibi tutup balona yukarı doğru vursun ve yere düşmesine izin vermesin. Sonra birbirinize paslaşın.",
+      "duration": "5–10 dakika.",
+      "benefit": "Bir araçla vurma becerisini, göz-el koordinasyonunu ve tepki hızını geliştirir.",
+      "caution": "Patlamış balon parçalarını hemen toplayın."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Yardımla öne takla",
+      "age": "3,5–4 yaş",
+      "how": "Kalın bir minderde çocuğunuz çömelip ellerini yere koysun, çenesini göğsüne bastırsın ve kalçasını kaldırsın. Bir elinizle ensesini koruyun, diğeriyle kalçasından hafifçe devirin ki sırtı üzerinde yuvarlansın.",
+      "duration": "3–4 kez.",
+      "benefit": "Beden farkındalığını, cesareti ve gövde kaslarını geliştirir.",
+      "caution": "Ağırlık başın tepesine binmemelidir; çene her zaman göğüste olsun. Yalnızca yumuşak minderde ve yardımla."
+    },
+    "3-4/21_crab_walk": {
+      "title": "\"Yengeç\" yürüyüşü",
+      "age": "3,5–4 yaş",
+      "how": "Çocuğunuz oturup ellerini arkada, ayaklarını önde yere koysun, kalçasını kaldırsın ve bu pozisyonda ileri geri gitsin.",
+      "duration": "2–3 kısa geçiş.",
+      "benefit": "Kol, omuz, kalça ve gövde kaslarını güçlendirir."
+    },
+    "3-4/22_bridge": {
+      "title": "\"Köprü\"",
+      "age": "3–4 yaş",
+      "how": "Çocuğunuz sırtüstü uzanıp dizlerini büksün, ayaklarını yere bassın ve kalçasını yukarı kaldırıp 3–5 saniye tutsun. Altından oyuncak bir araba geçirebilirsiniz.",
+      "duration": "5–6 tekrar.",
+      "benefit": "Kalça, bel ve uyluğun arka kaslarını güçlendirir."
+    },
+    "3-4/23_superman": {
+      "title": "\"Süpermen\"",
+      "age": "3–4 yaş",
+      "how": "Çocuğunuz karnı üstü uzanıp kollarını öne uzatsın, sonra kollarını ve bacaklarını aynı anda yerden biraz kaldırıp 3 saniye \"uçsun\".",
+      "duration": "4–5 tekrar.",
+      "benefit": "Sırt kaslarını güçlendirir, doğru duruşu destekler."
+    },
+    "3-4/24_downward_dog": {
+      "title": "\"Aşağı bakan köpek\" duruşu",
+      "age": "3–4 yaş",
+      "how": "Çocuğunuz ellerini ve ayaklarını yere koyup kalçasını yukarı kaldırsın (\"dağ\" ya da \"köpek gibi gerinelim\"). 5 saniye tutsun.",
+      "duration": "3–4 tekrar.",
+      "benefit": "Kolları ve omuzları güçlendirir, bacakların arka kaslarını esnetir."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Halat çekme",
+      "age": "3–4 yaş",
+      "how": "Yumuşak bir ipin bir ucundan çocuğunuz, diğer ucundan siz tutun. Çocuğunuz dizlerini büküp geriye yaslanarak çeksin; gücünüzü onun gücüne göre ayarlayın.",
+      "duration": "3–4 tur.",
+      "benefit": "Kol, sırt, gövde ve bacak kaslarını güçlendirir.",
+      "caution": "İpi aniden bırakmayın ve ele dolamayın."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "El çırp, ayak vur",
+      "age": "3–4 yaş",
+      "how": "Şarkıyla hareket edin: \"Mutluysan ellerini çırp\", \"ayağını yere vur\", \"dön\", \"zıpla\". Hareketleri sırayla değiştirin.",
+      "duration": "5 dakika.",
+      "benefit": "Ritim duygusunu, yönergelere uymayı ve koordinasyonu geliştirir."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Kurdeleyle daireler",
+      "age": "3–4 yaş",
+      "how": "Çocuğunuz bir çubuğa bağlı uzun kurdeleyi elinde tutup havada büyük daireler, dalgalar ve \"sekizler\" çizsin. Elleri değiştirin.",
+      "duration": "3–5 dakika.",
+      "benefit": "Omuz hareketliliğini, bilek kontrolünü ve vücudun iki tarafının koordinasyonunu geliştirir."
+    },
+    "4-5/01_skipping": {
+      "title": "Seke seke yürüme",
+      "age": "4,5–5 yaş",
+      "how": "\"Adım at, sek\" ritmini gösterin: bir ayakla adım atıp aynı ayak üzerinde sekin, sonra diğer ayakla. El ele tutuşup birlikte yapın.",
+      "duration": "Oda ya da bahçe boyunca 3–4 geçiş.",
+      "benefit": "Ritmi, vücudun iki tarafının sırayla çalışmasını ve koordinasyonu geliştirir."
+    },
+    "4-5/02_jump_rope": {
+      "title": "İp atlama",
+      "age": "4,5–5 yaş",
+      "how": "Önce yere konmuş ipin üzerinden atlamayı, sonra ipi başın üstünden öne atıp üzerinden geçmeyi öğretin. Art arda atlama zamanla gelir.",
+      "duration": "5–10 deneme.",
+      "benefit": "Ritmi, kol-bacak uyumunu ve dayanıklılığı geliştirir.",
+      "caution": "İpin uzunluğu çocuğunuza uygun olsun (ortasına bastığında saplar koltuk altına gelmelidir)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Çizginin üzerinden yana zıplama",
+      "age": "4–5 yaş",
+      "how": "Yere bir bant yapıştırın. Çocuğunuz iki ayağı bitişik, bandın bir tarafından diğerine art arda zıplasın.",
+      "duration": "8–10 zıplama.",
+      "benefit": "Yana doğru çevikliği, ayak bileği gücünü ve ritmi geliştirir."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Çemberlerde tek ayakla sekme",
+      "age": "4–5 yaş",
+      "how": "4–5 çemberi bir sıraya dizin. Çocuğunuz tek ayak üzerinde çemberden çembere seksin; dönüşte ayağını değiştirsin.",
+      "duration": "Her ayakla 2–3 geçiş.",
+      "benefit": "Tek ayak gücünü, dengeyi ve isabeti geliştirir."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Kutudan atlayıp yumuşak iniş",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz diz yüksekliğindeki sağlam bir kutudan kalın bir mindere atlasın ve dizlerini bükerek iki ayağı üzerine \"sessizce\" insin. Kollar önde.",
+      "duration": "5–6 kez.",
+      "benefit": "Doğru iniş tekniğini, bacak gücünü ve cesareti geliştirir.",
+      "caution": "Kutu kaymamalıdır; yüksekliği artırmayın."
+    },
+    "4-5/06_bicycle": {
+      "title": "Yardımcı tekerlekli bisiklet",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz pedal çevirerek sürsün, dönmeyi ve fren yapmayı öğrensin. Dengesi geliştikçe yardımcı tekerlekler çıkarılabilir.",
+      "duration": "15–20 dakika.",
+      "benefit": "Bacak gücünü, dayanıklılığı, dengeyi ve yol algısını geliştirir.",
+      "caution": "Kask ve kapalı ayakkabı şarttır; yoldan uzakta, düz bir zeminde sürün."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Mekik koşusu",
+      "age": "4–5 yaş",
+      "how": "4–5 metre arayla bir kova ve birkaç kese koyun. Çocuğunuz koşup bir kese alsın, geri koşup kovaya atsın ve keseler bitene kadar devam etsin.",
+      "duration": "2–3 tur.",
+      "benefit": "Hızı, hızlı yön değiştirmeyi, eğilip kalkmayı ve dayanıklılığı geliştirir."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "\"Heykel\" oyunu",
+      "age": "4–5 yaş",
+      "how": "Müzik çalarken çocuğunuz dans eder ya da koşar; müzik durunca heykel gibi donar ve kıpırdamamaya çalışır.",
+      "duration": "5–10 dakika.",
+      "benefit": "Beden kontrolünü, dengeyi, dikkati ve kendini tutmayı geliştirir."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "\"Ayağını içeri, ayağını dışarı\"",
+      "age": "4–5 yaş",
+      "how": "Yere bir çember koyun. Şarkı eşliğinde çocuğunuz sırayla bir ayağını, elini, başını çemberin içine uzatıp çıkarsın, sonra dönsün.",
+      "duration": "5 dakika.",
+      "benefit": "Tek ayak üzerinde dengeyi, sağ-sol kavramını ve yönergelere uymayı geliştirir."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Küçük topu elle yakalama",
+      "age": "4–5 yaş",
+      "how": "1,5–2 metreden küçük, yumuşak bir topu yavaşça atın. Çocuğunuz onu göğsüne bastırmadan yalnızca elleriyle yakalasın.",
+      "duration": "10 kez.",
+      "benefit": "Göz-el koordinasyonunu ve parmak becerisini geliştirir."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Yukarı atıp yakalama",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz keseyi ya da yumuşak topu kendisi yukarı atsın ve iki eliyle yakalasın. Sonra arada bir el çırpmayı ekleyin.",
+      "duration": "10 kez.",
+      "benefit": "Gücü ayarlamayı, gözle takibi ve tepki hızını geliştirir."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Topu elle yere sektirme",
+      "age": "4,5–5 yaş",
+      "how": "Çocuğunuz dizlerini hafifçe büküp topu tek eliyle art arda yere sektirsin. Önce 2–3 kez, sonra daha fazla. Elleri değiştirin.",
+      "duration": "Her elle 3–4 deneme.",
+      "benefit": "Ritmi, el gücünün kontrolünü ve göz-el koordinasyonunu geliştirir."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Kaleye şut",
+      "age": "4–5 yaş",
+      "how": "Küçük bir kale kurun (ya da iki eşya koyun). Çocuğunuz 2–3 metreden topu kaleye vursun; sonra yuvarlanan topa vurmayı deneyin.",
+      "duration": "10 şut.",
+      "benefit": "Ayak-göz koordinasyonunu, dengeyi ve vuruş isabetini geliştirir."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Sehpadaki topa sopayla vurma",
+      "age": "4–5 yaş",
+      "how": "Yumuşak bir topu alçak bir sehpanın üzerine koyun. Çocuğunuz yan durup hafif plastik sopayı iki eliyle tutarak topa vursun.",
+      "duration": "8–10 vuruş.",
+      "benefit": "Gövdenin dönmesini, göz-el koordinasyonunu ve bir araçla vurma becerisini geliştirir.",
+      "caution": "Çevrede başka çocuk olmasın; yalnızca yumuşak top ve plastik sopa."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Topu potaya atma",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz boyundan biraz yüksekteki potaya hafif bir topu iki eliyle atsın. Başardıkça bir adım geri çekilsin.",
+      "duration": "10 atış.",
+      "benefit": "Yukarı atma gücünü, isabeti ve bacak-kol uyumunu geliştirir."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Halka atma",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz 1–1,5 metreden halkaları dik bir çubuğa geçirmeye çalışsın.",
+      "duration": "2–3 tur.",
+      "benefit": "İnce isabeti, bilek kontrolünü ve sabrı geliştirir."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "\"Uçak\" duruşu",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz tek ayak üzerinde durup gövdesini öne eğsin, diğer bacağını arkaya uzatsın, kollarını kanat gibi açsın. 3–5 saniye tutsun, ayağını değiştirsin.",
+      "duration": "Her ayak için 3 kez.",
+      "benefit": "Dengeyi, gövde ve kalça kaslarını güçlendirir."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Denge kirişinde engelden geçme",
+      "age": "4–5 yaş",
+      "how": "Alçak bir denge kirişinin üzerine bir kese koyun. Çocuğunuz kiriş üzerinde yürüyüp kesenin üzerinden adımlasın.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Dinamik dengeyi, dikkati ve ayağı yükseğe kaldırmayı geliştirir.",
+      "caution": "Altında yumuşak bir minder olsun, yanında yürüyün."
+    },
+    "4-5/19_stork_stand": {
+      "title": "\"Leylek\" duruşu",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz ellerini beline koyup tek ayak üzerinde dursun, diğer ayağını kaldırıp dizinin önüne koysun. 8–10 saniye saymaya çalışın.",
+      "duration": "Her ayak için 2–3 kez.",
+      "benefit": "Statik dengeyi ve dikkati geliştirir."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Belde hulahop çevirme",
+      "age": "4,5–5 yaş",
+      "how": "Çocuğunuz çemberi beline dayayıp çevirsin ve kalçasını ileri geri hareket ettirerek düşürmemeye çalışsın. Başta birkaç tur yeterlidir.",
+      "duration": "5 dakika.",
+      "benefit": "Gövde kaslarını, ritmi ve koordinasyonu geliştirir."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Kendi başına öne takla",
+      "age": "4–5 yaş",
+      "how": "Kalın bir minderde çocuğunuz çömelip ellerini yere koysun, çenesini göğsüne bastırsın, ayaklarıyla itip yuvarlak sırtı üzerinde yuvarlansın ve çömelmiş pozisyonda kalksın.",
+      "duration": "3–5 kez.",
+      "benefit": "Beden farkındalığını, çevikliği ve gövde kaslarını geliştirir.",
+      "caution": "Ağırlık başın tepesine binmemelidir; çene her zaman göğüste. Önce yardımla öğretin."
+    },
+    "4-5/21_plank": {
+      "title": "Plank",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz dirsekleri ve ayak parmakları üzerinde dursun, vücudu baştan topuğa düz bir çizgi oluştursun. 5–10 saniye tutsun.",
+      "duration": "2–3 kez.",
+      "benefit": "Karın, sırt ve omuz kaslarını güçlendirir.",
+      "caution": "Beli çöktüğünde dursun."
+    },
+    "4-5/22_chair_squat": {
+      "title": "\"Görünmez sandalye\" çömelmesi",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz ayaklarını omuz genişliğinde açıp kollarını öne uzatarak sandalyeye oturur gibi çömelsin ve kalksın. Topuklar yerde kalsın.",
+      "duration": "6–8 tekrar.",
+      "benefit": "Bacak ve kalça kaslarını güçlendirir."
+    },
+    "4-5/23_boat_pose": {
+      "title": "\"Kayık\" duruşu",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz oturup hafifçe geriye yaslansın, dizlerini büküp ayaklarını yerden kaldırsın, kollarını öne uzatsın. 5 saniye dengede kalsın.",
+      "duration": "3–4 tekrar.",
+      "benefit": "Karın kaslarını ve dengeyi güçlendirir."
+    },
+    "4-5/24_cobra": {
+      "title": "\"Kobra\" esnemesi",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz karnı üstü uzanıp ellerini omuzlarının altına koysun ve göğsünü yukarı kaldırsın; kalçası yerde kalsın. 5 saniye tutsun.",
+      "duration": "3–4 tekrar.",
+      "benefit": "Sırt kaslarını güçlendirir, karnı ve göğsü esnetir.",
+      "caution": "Beli zorla bükmeyin."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Bacaklar açık oturup öne uzanma",
+      "age": "4–5 yaş",
+      "how": "Çocuğunuz bacaklarını geniş açarak otursun ve ellerini yerde öne kaydırarak uzansın. Yaylanmadan 10 saniye tutsun.",
+      "duration": "3 tekrar.",
+      "benefit": "Uyluğun iç ve arka kaslarının esnekliğini artırır."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Yatay merdivende asılarak ilerleme",
+      "age": "4,5–5 yaş",
+      "how": "Çocuğunuz alçak bir yatay merdivene asılıp ellerini sırayla bir sonraki çubuğa geçirsin. Belinden tutarak ağırlığının bir kısmını siz taşıyın.",
+      "duration": "2–3 deneme.",
+      "benefit": "El, kol ve omuz gücünü, kavramayı geliştirir.",
+      "caution": "Altında yumuşak bir zemin olsun; elleri ıslak olmasın."
+    },
+    "4-5/27_climbing_net": {
+      "title": "İp ağa tırmanma",
+      "age": "4–5 yaş",
+      "how": "Oyun parkında ya da evde alçak bir ağ üzerinde çocuğunuz elleriyle yukarıdan tutunup ayaklarını sırayla koyarak tırmansın ve aynı yoldan insin.",
+      "duration": "3–4 kez.",
+      "benefit": "Tüm vücudun gücünü, koordinasyonu ve cesareti geliştirir.",
+      "caution": "Altında yumuşak bir zemin olsun; yanında durun."
+    }
+  }
+}

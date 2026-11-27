@@ -8,7 +8,9 @@ import '../features/baby_chat/register.dart';
 import '../features/billing/register.dart';
 import '../features/chat/register.dart';
 import '../features/community/register.dart';
+import '../features/community_stories/register.dart';
 import '../features/entry/entry_feature.dart';
+import '../features/groups/register.dart';
 import '../features/home/register_home.dart';
 import '../features/home_flow/home_flow.dart';
 import '../features/home_mommy/register_home_mommy.dart';
@@ -25,6 +27,7 @@ import '../features/support/register.dart';
 import '../features/tools/baby_tools.dart';
 import '../features/tools/health_tools.dart';
 import '../features/tools/media_tools.dart';
+import '../features/tools/more_tools.dart';
 import '../features/tools/pregnancy_tools.dart';
 import '../features/tools/register.dart';
 import '../shell/feature_registry.dart';
@@ -38,7 +41,9 @@ void registerAllFeatures(FeatureRegistry r) {
   registerBillingFeature(r);
   registerChatFeature(r);
   registerCommunityFeature(r);
+  registerCommunityStoriesFeature(r);
   registerEntryFeature(r);
+  registerGroupsFeature(r);
   registerHomeFeature(r);
   registerHomeFlowFeature(r);
   registerHomeMommyFeature(r);
@@ -56,6 +61,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerBabyTools(r);
   registerHealthTools(r);
   registerMediaTools(r);
+  registerMoreTools(r);
   registerPregnancyTools(r);
 }
 

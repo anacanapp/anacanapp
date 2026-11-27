@@ -29,6 +29,8 @@ import '../features/ai_chat/register.dart' show aiChatFlowOpener;
 import '../features/baby_chat/register.dart' show babyChatCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
 import '../features/community/register.dart' show communityWiringOverrides;
+import '../features/community_stories/register.dart' show communityStoriesWiringOverrides;
+import '../features/groups/register.dart' show groupsWiringOverrides;
 import '../features/home/dashboard/medical_disclaimer.dart' show homeEmergencyNumberProvider;
 import '../features/home/dashboard/recap_home_card.dart' show recapHomeYearQuery;
 import '../features/home/dashboard/water_widget.dart';
@@ -110,6 +112,8 @@ List<Override> featureWiringOverrides() => [
 
       // ── community: chat text / photo viewer / restriction note ─────────────────────────────────────────────
       ...communityWiringOverrides(),
+      ...communityStoriesWiringOverrides(),
+      ...groupsWiringOverrides(),
 
       // ── recap: one `useRecap` for the home card and the profile row ─────────────────────────────────────
       recapProfileRowProvider.overrideWith((ref) => ref.watch(recapProfileRowFromRecapProvider)),

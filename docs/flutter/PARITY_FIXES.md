@@ -32,6 +32,12 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| Story baxışı: Android geri əvvəl baxanlar/cavablar pəncərəsini, sonra baxışı bağlayır (React-da geri işləyicisi yox idi) | `StoryViewer.tsx` | Flutter düzəlişi |
+| Story baxışı: sürüşdürmə həm də toxunuş sayılırdı (iki dəfə keçid) | `StoryViewer.tsx` | Flutter-də bir dəfə |
+| Story redaktoru: başlıq seçimləri 390 px-də daşırdı | `StoryCropEditor.tsx` | Flutter-də yana sürüşür |
+| Story şəkilləri PNG-dir (React JPEG 0.93–0.94) | `story-export.ts` | JPEG kodlayıcı paketi gələnə qədər |
+| Qrup söhbəti: qrupdan çıxanda/silinəndə/üzvlük itəndə açıq dialoqlar bağlanır | `GroupChatScreen.tsx` | Flutter düzəlişi |
+| İkinci əl bazarı: şəkli silmə düyməsi yalnız hover-də görünür, toxunma ekranında əlçatmazdır | `SecondHandMarket.tsx` | Flutter-də həmişə görünür |
 | İcma lenti: əl ilə pəncərələnmiş DOM əvəzinə tənbəl native siyahı; son kart qurulanda növbəti səhifə yüklənir | `CommunityPostFeed.tsx` | qəsdən (performans) |
 | Karuseldə videolar yalnız oynadılanda dekod olunur (ilk kadr önizləməsi yoxdur) | `MediaCarousel.tsx` | görünmə aşkarlama paketi olmadığı üçün |
 | Emoji seçici: emoji-picker-react əvəzinə tez-tez işlənən emojilərin kiçik şəbəkəsi | `CreatePostScreen.tsx` | Flutter portu yoxdur |

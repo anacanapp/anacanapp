@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Kids' exercises",
+    "tileDesc": "Illustrated movement exercises for ages 0–5",
+    "title": "Kids' exercises",
+    "eyebrow": "Movement and development",
+    "ageFor": "For {name}",
+    "today": "Today",
+    "doneCount": "{n} exercises",
+    "weekHint": "Last 7 days: each dot is a day you exercised together.",
+    "picksTitle": "Today's exercises",
+    "picksSub": "Three new age-appropriate exercises every day.",
+    "allTitle": "All exercises",
+    "count": "{n} exercises",
+    "nowBadge": "Current age",
+    "search": "Search exercises",
+    "all": "All",
+    "favs": "Favourites",
+    "noFavs": "Tap the heart to add exercises to your favourites.",
+    "noResults": "No matching exercises found.",
+    "rules": "General rules",
+    "safetyNote": "These exercises are general information and do not replace a medical examination. If your child was born prematurely, has a health condition or you are worried about their development, talk to a paediatrician or a paediatric physiotherapist first.",
+    "age": "Age",
+    "duration": "Duration",
+    "how": "How to do it",
+    "benefit": "Benefits",
+    "caution": "Caution",
+    "timer": "Stopwatch",
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "done": "Done",
+    "doneToday": "Done today",
+    "prev": "Previous",
+    "next": "Next",
+    "fav": "Add to favourites",
+    "unfav": "Remove from favourites",
+    "close": "Close"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 year",
+      "months": "0–12 months",
+      "rules": [
+        "Exercise when your baby is awake, calm and not too full (at least 30–40 minutes after a feed).",
+        "Exercise on a firm, flat, clean surface (a rug or mat on the floor); never leave your baby alone on a raised surface.",
+        "Movements should be slow and gentle. Never use force and never pull on the arms or legs.",
+        "If your baby cries, is unsettled or gets tired, stop straight away.",
+        "Age ranges are approximate; every baby develops at their own pace.",
+        "For babies born prematurely or with a health condition, talk to your paediatrician first."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 years",
+      "months": "12–24 months",
+      "rules": [
+        "At this age exercise means play: do not force your child, show the movement yourself and do it together.",
+        "At least 30 minutes of guided active play and 1 hour or more of free active play a day are recommended.",
+        "Make the room safe: no sharp corners, slippery rugs or furniture that can tip over. Barefoot or in non-slip socks is best.",
+        "On stairs, slides, when climbing and jumping, always stay within arm's reach.",
+        "When playing with small objects (balls, blocks), watch their size: never give your child anything small enough to fit in their mouth.",
+        "Age ranges are approximate. If your child is not walking independently by 18 months, see your paediatrician."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 years",
+      "months": "24–36 months",
+      "rules": [
+        "At this age exercise is play: show the movement yourself, do it together and add songs and stories.",
+        "At least 1 hour of guided active play and 2 hours or more of free active play a day are recommended.",
+        "Make the room and the yard safe: no slippery floors, sharp corners or things that can tip over.",
+        "When jumping, climbing, hanging and on slides, stay within arm's reach; choose a soft surface.",
+        "Do not tire your child out: short games, frequent breaks and water.",
+        "Age ranges are approximate; every child develops at their own pace. If you have any concerns, see your paediatrician."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 years",
+      "months": "36–48 months",
+      "rules": [
+        "Exercise is still play: show the movement yourself, do it together and add elements of races and stories.",
+        "At least 1 hour of guided active play and 2 hours or more of free active play a day are recommended, outdoors whenever possible.",
+        "Choose a safe place: a non-slip floor, a soft mat and no sharp corners nearby.",
+        "Always put a helmet on your child for anything with wheels (scooter, bike).",
+        "Stay close during exercises like forward rolls, the balance beam and climbing.",
+        "Do not tire your child out: short games, frequent breaks and water.",
+        "Age ranges are approximate; every child develops at their own pace. If you have any concerns, see your paediatrician."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 years",
+      "months": "48–60 months",
+      "rules": [
+        "Exercise should feel like play: show the movement yourself, do it together and add little races and \"records\".",
+        "At least 1 hour of guided active play and 2 hours or more of free active play a day are recommended, outdoors whenever possible.",
+        "Choose a safe place: a non-slip floor, a soft mat and no sharp corners nearby.",
+        "On bikes and scooters, always put a helmet and closed shoes on your child.",
+        "Stay close during forward rolls, jumping down from a height, climbing and hanging.",
+        "In strength exercises (plank, squats) quality matters, not duration: stop as soon as the form breaks down.",
+        "Age ranges are approximate; every child develops at their own pace. If you have any concerns, see your paediatrician."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 months",
+    "3–6 ay": "3–6 months",
+    "6–9 ay": "6–9 months",
+    "9–12 ay": "9–12 months",
+    "12–15 ay": "12–15 months",
+    "15–18 ay": "15–18 months",
+    "18–24 ay": "18–24 months",
+    "Hoppanma və tarazlıq": "Jumping and balance",
+    "Yerimə, qaçış və dırmaşma": "Walking, running and climbing",
+    "Topla oyunlar": "Ball games",
+    "Gimnastika və təqlid oyunları": "Gymnastics and copycat games",
+    "Hoppanma": "Jumping",
+    "Tarazlıq": "Balance",
+    "Təkərli vasitələr və qaçış": "Wheels and running",
+    "Güc və gimnastika": "Strength and gymnastics",
+    "Ritm və koordinasiya": "Rhythm and coordination",
+    "Hoppanma və tullanma": "Hopping and jumping",
+    "Qaçış, velosiped və ritm oyunları": "Running, cycling and rhythm games"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Tummy time",
+      "age": "from birth",
+      "how": "Lay your baby on their tummy on a mat, with elbows bent and arms placed beside the head. Rest one hand gently on their back and the other on their bottom. Talk to them so they try to lift their head.",
+      "duration": "2–3 times a day, 1–3 minutes; increase gradually.",
+      "benefit": "Strengthens the neck, shoulder and back muscles and helps prevent a flat spot on the back of the head.",
+      "caution": "Only while awake and supervised. Always put your baby to sleep on their back."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Tummy time on your chest",
+      "age": "0–2 months",
+      "how": "Recline against a pillow in a half-lying position. Place your baby tummy-down on your chest, holding their back with one hand and their bottom with the other. Talk to them so they look up at your face.",
+      "duration": "Several times a day, 2–5 minutes.",
+      "benefit": "The gentlest way to get used to lying on the tummy; encourages head lifting and strengthens your bond.",
+      "caution": "Do not do this exercise if you are feeling sleepy yourself."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Tummy time across your lap",
+      "age": "0–3 months",
+      "how": "Sit down and lay your baby tummy-down across your thighs. Keep one hand on their back and the other on their bottom. You can gently stroke their back.",
+      "duration": "2–3 minutes.",
+      "benefit": "Works the neck muscles, helps release trapped wind and calms the baby."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Following a toy with the eyes",
+      "age": "0–3 months",
+      "how": "Your baby lies on their back. Hold a brightly coloured toy 20–30 cm from their face and move it slowly from side to side. Wait for them to follow it with their eyes and head.",
+      "duration": "1–2 minutes, 4–5 times to each side.",
+      "benefit": "Develops visual attention, eye–head coordination and turning the neck to both sides."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Holding your finger",
+      "age": "0–4 months",
+      "how": "Place your index finger in your baby's palm and wait for them to squeeze it. Move your finger slightly up and down. Repeat with both hands.",
+      "duration": "3–5 times for each hand.",
+      "benefit": "Strengthens the grasp reflex and the hand muscles and develops the sense of touch.",
+      "caution": "Do not lift your baby up by your fingers."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Knees to tummy",
+      "age": "0–6 months",
+      "how": "Your baby lies on their back. Hold both lower legs and slowly bend the knees together towards the tummy, hold for 3–5 seconds and release.",
+      "duration": "5–8 repetitions.",
+      "benefit": "Eases wind and colic and improves mobility of the hip joints.",
+      "caution": "Do not press; stop if you feel resistance."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "\"Bicycle\"",
+      "age": "1–6 months",
+      "how": "Your baby lies on their back. Hold their lower legs and move them in turn, as if riding a bicycle: one knee towards the tummy while the other leg stretches out.",
+      "duration": "10–15 rounds, with pauses in between.",
+      "benefit": "Works the leg and tummy muscles, helps the bowels and teaches alternating movement."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Opening and closing the arms",
+      "age": "1–6 months",
+      "how": "Your baby lies on their back. Put your thumbs into their palms or hold their wrists gently. Open their arms out to the sides, then cross them over the chest (as if giving themselves a hug).",
+      "duration": "5–8 repetitions.",
+      "benefit": "Opens up the chest and shoulder muscles and teaches bringing the hands to the middle of the body.",
+      "caution": "Do not pull the arms; open them only as far as your baby allows."
+    },
+    "0-1/09_kicking": {
+      "title": "Kicking against your palms",
+      "age": "1–4 months",
+      "how": "Your baby lies on their back. Rest your palms against the soles of their feet and give a little resistance; your baby will push with their legs.",
+      "duration": "1–2 minutes.",
+      "benefit": "Strengthens the leg muscles and prepares the pushing movement (for crawling and standing later on)."
+    },
+    "0-1/10_side_lying": {
+      "title": "Side-lying play",
+      "age": "1–4 months",
+      "how": "Lay your baby on their side with a rolled towel behind their back. Both hands should be in front; place a toy in front of them. Then turn them onto the other side.",
+      "duration": "2–3 minutes on each side.",
+      "benefit": "Makes it easier to bring the hands together, prepares for rolling and prevents the head from always turning to one side.",
+      "caution": "Only while awake and supervised; never put your baby to sleep in this position."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Tummy time with a towel roll",
+      "age": "2–4 months",
+      "how": "Place a rolled towel under your baby's chest (at armpit level), with the arms in front of the towel. Put a toy in front of them so they lift their head to look.",
+      "duration": "3–5 minutes, several times a day.",
+      "benefit": "Makes lifting the head easier and prepares for leaning on the elbows."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Pull to sit",
+      "age": "3–5 months (once your baby can hold their head up)",
+      "how": "Your baby lies on their back. Give them your thumbs to grasp, hold their wrists and slowly raise them towards sitting, then lower them back down just as slowly.",
+      "duration": "3–5 repetitions.",
+      "benefit": "Strengthens the tummy, neck and arm muscles.",
+      "caution": "If the head drops back, postpone this exercise. Never pull quickly."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Reaching for a toy",
+      "age": "3–5 months",
+      "how": "Your baby lies on their back. Hold a toy above their chest, within reach, and wait for them to reach out and grab it. Move the toy sometimes to the right, sometimes to the left.",
+      "duration": "2–3 minutes.",
+      "benefit": "Develops eye–hand coordination, the shoulder muscles and purposeful grasping."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Reaching while propped on the elbows",
+      "age": "4–6 months",
+      "how": "Your baby lies on their tummy, propped on the elbows. Place a toy a little forward and to the side so they reach for it with one arm. You can gently steady their hips with your hands.",
+      "duration": "3–5 minutes.",
+      "benefit": "Teaches shifting weight from one arm to the other, strengthens the back and shoulder girdle and prepares for crawling."
+    },
+    "0-1/15_rolling": {
+      "title": "Helping to roll over",
+      "age": "4–6 months",
+      "how": "Your baby lies on their back. Put a toy to one side. Hold the thigh with one hand and the hip with the other and bring the upper leg across to the other side; the body will follow on its own. Do this to both sides.",
+      "duration": "3–4 times to each side.",
+      "benefit": "Develops the trunk muscles and twisting movement of the body and teaches rolling over independently.",
+      "caution": "Do not roll your baby over by pulling on an arm."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Catching the feet",
+      "age": "4–6 months",
+      "how": "Your baby lies on their back. Bend their knees and bring the feet close to their hands so they can grab them. Once they have hold, let them rock gently from side to side.",
+      "duration": "1–2 minutes.",
+      "benefit": "Strengthens the tummy muscles and improves body awareness and hip flexibility."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Supported sitting",
+      "age": "5–7 months",
+      "how": "Sit your baby on a mat and support them from behind at the hips or waist. Give them a toy to hold. Reduce your support as their balance improves.",
+      "duration": "3–5 minutes.",
+      "benefit": "Develops the trunk muscles and sitting balance and frees the hands for play.",
+      "caution": "When the back rounds and your baby gets tired, lay them down; do not prop them up with pillows to force sitting."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Supported bouncing on the feet",
+      "age": "5–8 months",
+      "how": "Hold your baby firmly around the body under the armpits and place their feet on a firm surface. Let them take part of their weight on their legs and bounce by bending and straightening the knees.",
+      "duration": "1–2 minutes.",
+      "benefit": "Strengthens the leg muscles and prepares for standing.",
+      "caution": "Keep most of the weight in your hands; do not leave your baby standing on their own."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Reaching for a toy while sitting",
+      "age": "6–8 months",
+      "how": "Your baby sits on their own, leaning on one hand. Place a toy in front and to the sides, a little out of reach, so they stretch to get it and then straighten up again. Put cushions around them.",
+      "duration": "5 minutes.",
+      "benefit": "Develops sitting balance, trunk rotation and the protective reaction of putting out a hand when falling."
+    },
+    "0-1/20_peekaboo": {
+      "title": "Peekaboo",
+      "age": "4–12 months",
+      "how": "Your baby is sitting. Hold a light cloth in front of your face (or theirs), then lower it and say \"peekaboo!\" As they grow, let them pull the cloth away themselves.",
+      "duration": "As long as your baby is interested.",
+      "benefit": "Develops object permanence, attention, communication and laughter; encourages active arm movements."
+    },
+    "0-1/21_patty_cake": {
+      "title": "Pat-a-cake",
+      "age": "7–12 months",
+      "how": "Sit facing your baby. Clap your palms against theirs to a song or counting, then show them how to clap on their own.",
+      "duration": "2–3 minutes.",
+      "benefit": "Develops using both hands together, a sense of rhythm, imitation and communication."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Helping to crawl",
+      "age": "7–9 months",
+      "how": "Your baby is on hands and knees with a toy in front of them. Rest your palms against the soles of their feet so they can push off and move forward.",
+      "duration": "3–5 minutes.",
+      "benefit": "Develops crawling, arm–leg coordination and trunk strength.",
+      "caution": "Do not push your baby; only give them something to push against."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Crawling over an obstacle",
+      "age": "8–10 months",
+      "how": "Put a low cushion or a rolled-up blanket on the mat and place a toy on the other side. Let your baby climb over the obstacle.",
+      "duration": "5 minutes.",
+      "benefit": "Develops strength, balance and movement planning and prepares for climbing."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Rolling a ball",
+      "age": "8–12 months",
+      "how": "Your baby sits with legs apart. Roll a soft ball towards them and wait for them to catch it and push it back.",
+      "duration": "5 minutes.",
+      "benefit": "Develops sitting balance, eye–hand coordination and taking turns in play."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Pulling up to stand",
+      "age": "8–10 months",
+      "how": "Put a toy on a low, stable sofa. Your baby will come up onto the knees and try to stand by placing one foot on the floor. If needed, support them lightly at the hips.",
+      "duration": "3–5 attempts.",
+      "benefit": "Strengthens the leg and buttock muscles and teaches getting up to stand independently.",
+      "caution": "Make sure the furniture cannot tip over and has no sharp corners."
+    },
+    "0-1/26_cruising": {
+      "title": "Cruising along furniture",
+      "age": "9–11 months",
+      "how": "Your baby stands holding on to the sofa. Place a toy a little way off so they reach it with side steps. Do this in both directions.",
+      "duration": "5 minutes.",
+      "benefit": "Teaches shifting weight from foot to foot and balance; direct preparation for walking."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Squatting to pick up a toy",
+      "age": "10–12 months",
+      "how": "Your baby stands holding on to the sofa with one hand. Put a toy on the floor next to their foot. Wait for them to squat down, pick it up and stand back up.",
+      "duration": "5–6 repetitions.",
+      "benefit": "Strengthens the leg muscles and balance and teaches control of sitting down and getting up."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Supported walking",
+      "age": "10–12 months",
+      "how": "Stand behind your baby and hold them around the body (at chest level). Let them take steps; reduce your support as their balance improves.",
+      "duration": "3–5 minutes.",
+      "benefit": "Develops stepping and balance.",
+      "caution": "Holding the body is safer for the shoulders than walking your baby by the arms pulled upwards."
+    },
+    "0-1/29_push_walker": {
+      "title": "Walking with a push toy",
+      "age": "11–12 months",
+      "how": "Give your baby a stable, heavy push-along walker. Let them hold the handle with both hands and step forward. Stay close by.",
+      "duration": "5–10 minutes.",
+      "benefit": "Builds confidence for independent walking and practises stride length and steering.",
+      "caution": "The push toy should not roll away too fast; sit-in baby walkers are not recommended."
+    },
+    "1-2/01_first_steps": {
+      "title": "First independent steps",
+      "age": "12–15 months",
+      "how": "Stand your child on their feet, kneel down 2–3 steps away, open your arms and call them to you. Increase the distance as they manage.",
+      "duration": "5–10 attempts.",
+      "benefit": "Builds confidence and balance for walking independently."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Walking holding one hand",
+      "age": "12–15 months",
+      "how": "Hold just one of your child's hands and walk at their pace. Keep your hand at the level of their shoulder and do not pull upwards. Switch hands.",
+      "duration": "5–10 minutes.",
+      "benefit": "A step from two-handed support towards independent walking; strengthens balance."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Standing up from the floor without support",
+      "age": "12–15 months",
+      "how": "When your child is sitting in the middle of the room, hold an interesting toy at the level of their head. Wait for them to press their hands and feet into the floor, lift their bottom and stand up on their own.",
+      "duration": "5–6 repetitions.",
+      "benefit": "Strengthens the leg, buttock and trunk muscles; teaches getting up without furniture."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Squatting without support",
+      "age": "13–18 months",
+      "how": "Put a ball or a toy on the floor. Encourage your child to squat down without holding on to anything, pick it up and stand up again.",
+      "duration": "6–8 repetitions.",
+      "benefit": "Develops leg strength, balance and movement control."
+    },
+    "1-2/07_push_basket": {
+      "title": "Pushing a basket",
+      "age": "12–18 months",
+      "how": "Put a few toys into a light laundry basket. Let your child push the basket across the room with both hands.",
+      "duration": "5–10 minutes.",
+      "benefit": "Strengthens the leg and trunk muscles and steadies their walking."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Climbing onto a low sofa or cushion",
+      "age": "12–18 months",
+      "how": "Choose a firm cushion or low sofa about knee height. Your child leans their tummy on it and climbs up by lifting one knee on top. Keep your hands ready behind their bottom. Teach climbing down too: on the tummy, feet first.",
+      "duration": "4–5 repetitions.",
+      "benefit": "Develops whole-body strength and movement planning.",
+      "caution": "Never leave your child alone on a raised surface."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Crawling up stairs",
+      "age": "12–18 months",
+      "how": "On 2–3 low steps, let your child put their hands on the step above and climb up. Stand behind them with your hands beside their hips. For coming down, teach them to go backwards, feet first.",
+      "duration": "3–4 times up and down.",
+      "benefit": "Builds leg strength, coordination and safe habits on stairs.",
+      "caution": "Only under supervision; at other times keep the stair gate closed."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Rolling a ball",
+      "age": "12–18 months",
+      "how": "Sit or squat facing each other. Roll the ball back and forth; your child catches it with both hands and pushes it back.",
+      "duration": "5 minutes.",
+      "benefit": "Develops eye–hand coordination, taking turns and trunk balance."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Block tower",
+      "age": "12–18 months",
+      "how": "Give your child large wooden blocks and show them how to build a tower of 2–4 blocks. When it falls, build it again.",
+      "duration": "5–10 minutes.",
+      "benefit": "Develops fine motor skills, hand precision and patience."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Dropping balls into a box",
+      "age": "12–18 months",
+      "how": "Kneeling or sitting, your child picks up the balls one by one and drops them into a box. Then empty the box and start again.",
+      "duration": "5 minutes.",
+      "benefit": "Develops grasping and letting go, eye–hand coordination and balance while kneeling."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Walking while carrying a toy",
+      "age": "15–18 months",
+      "how": "Give your child a large, light toy and ask them to carry it to the other side of the room.",
+      "duration": "5 minutes.",
+      "benefit": "Teaches keeping balance while the hands are busy and strengthens the trunk muscles."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Pulling a toy on a string",
+      "age": "15–20 months",
+      "how": "Give your child a wheeled toy on a short string. As they walk, they pull the toy behind them and turn round to look at it.",
+      "duration": "5–10 minutes.",
+      "benefit": "Teaches turning the head and body while walking and dividing attention.",
+      "caution": "Keep the string short (about 30 cm); do not leave your child alone with the string."
+    },
+    "1-2/10_tunnel": {
+      "title": "Crawling through a tunnel",
+      "age": "12–24 months",
+      "how": "Open both ends of a large cardboard box to make a tunnel. Call your child from the other end or put a toy there.",
+      "duration": "5–10 minutes.",
+      "benefit": "Develops shoulder and trunk strength and spatial awareness."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Cushion path",
+      "age": "15–20 months",
+      "how": "Lay several flat cushions on the floor. Holding one of your hands, your child walks across them.",
+      "duration": "3–5 crossings.",
+      "benefit": "Builds balance on an unstable surface and strengthens the ankle muscles."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Throwing a ball into a basket",
+      "age": "15–24 months",
+      "how": "Put a basket 1 step away from your child. Show them how to throw a soft ball into the basket; increase the distance as they manage.",
+      "duration": "8–10 throws.",
+      "benefit": "Develops throwing, eye–hand coordination and shoulder strength."
+    },
+    "1-2/15_dance": {
+      "title": "Dancing to music",
+      "age": "12–24 months",
+      "how": "Put on some rhythmic music and dance together: bounce with bent knees, clap and spin around.",
+      "duration": "5–10 minutes.",
+      "benefit": "Builds a sense of rhythm, balance and stamina, and lifts the mood."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Tidying up toys",
+      "age": "15–24 months",
+      "how": "Scatter toys on the floor. Your child bends or squats to pick them up one by one and put them in a basket.",
+      "duration": "Until all the toys are tidied away.",
+      "benefit": "Repeated bending and getting up strengthens the leg and back muscles; builds a habit of tidiness."
+    },
+    "1-2/24_ride_on": {
+      "title": "Scooting on a ride-on toy",
+      "age": "15–24 months",
+      "how": "Sit your child on a low ride-on toy without pedals; their feet should reach the floor flat. Let them push off with their feet to move forward.",
+      "duration": "10 minutes.",
+      "benefit": "Develops leg strength, coordination of both sides of the body and steering."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Kicking a ball",
+      "age": "18–24 months",
+      "how": "Put a light ball in front of your child's foot and show them how to kick it. At first you can hold one of their hands.",
+      "duration": "8–10 kicks.",
+      "benefit": "Develops brief balance on one leg and foot–eye coordination."
+    },
+    "1-2/16_bubbles": {
+      "title": "Catching bubbles",
+      "age": "18–24 months",
+      "how": "Blow soap bubbles. Your child pops them by rising onto tiptoe, reaching up and running.",
+      "duration": "5–10 minutes.",
+      "benefit": "Practises standing on tiptoe, reaching upwards and eye–hand coordination."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Walking upstairs holding a hand",
+      "age": "18–24 months",
+      "how": "Your child walks up the stairs upright, holding one of your hands (or the handrail). It is normal for them to put one foot on each step first and then bring the other one up.",
+      "duration": "2–3 times up and down.",
+      "benefit": "Builds leg strength and balance on one leg.",
+      "caution": "When coming down, always stay one step below your child."
+    },
+    "1-2/21_jump": {
+      "title": "Jumping on the spot",
+      "age": "20–24 months",
+      "how": "Show how to jump yourself: bend the knees and take off from the floor with both feet. At first you can hold their hands or let them jump down from a low cushion.",
+      "duration": "5–8 jumps.",
+      "benefit": "Builds explosive leg power, strong bones and coordination.",
+      "caution": "Do it on a soft surface; jumping with both feet often only comes close to age 2."
+    },
+    "1-2/22_run": {
+      "title": "Running",
+      "age": "18–24 months",
+      "how": "Play \"catch me\" in a wide, clear space or call your child from a distance.",
+      "duration": "5–10 minutes with short breaks.",
+      "benefit": "Develops stamina, speed and the heart and circulation."
+    },
+    "1-2/23_balance_line": {
+      "title": "Walking along a line",
+      "age": "20–24 months",
+      "how": "Stick a wide strip of coloured tape on the floor. Holding one of your hands, your child walks along it, placing their feet on the tape.",
+      "duration": "3–5 crossings.",
+      "benefit": "Develops balance and walking on a narrow base."
+    },
+    "1-2/25_bear_walk": {
+      "title": "\"Bear walk\"",
+      "age": "18–24 months",
+      "how": "Show how to move forward with hands and feet on the floor, knees off the ground and bottom up high. Walk around together \"like bears\".",
+      "duration": "2–3 lengths of the room.",
+      "benefit": "Strengthens the shoulder, arm and trunk muscles and improves coordination."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Reach up, touch your toes",
+      "age": "18–24 months",
+      "how": "Stand facing your child. First rise onto tiptoe and stretch your arms up, then bend down and touch your toes. Sing a song as you go.",
+      "duration": "5–6 repetitions.",
+      "benefit": "Develops flexibility, balance and copying movements; teaches the parts of the body."
+    },
+    "1-2/27_slide": {
+      "title": "Low slide",
+      "age": "18–24 months",
+      "how": "Your child sits at the top of a low slide and slides down feet first. Hold them around the body with your hands, then gradually reduce your support.",
+      "duration": "5–6 times.",
+      "benefit": "Develops climbing, sitting balance and courage.",
+      "caution": "Do not go down the slide with your child on your lap; their leg can get caught and injured."
+    },
+    "1-2/28_back_walk": {
+      "title": "Walking backwards",
+      "age": "18–24 months",
+      "how": "Your child steps backwards while pulling a little cart or a toy on a string towards them. At first hold their hands and walk backwards together.",
+      "duration": "3–4 crossings.",
+      "benefit": "Teaches balance, body awareness and changing the direction of movement.",
+      "caution": "Make sure there are no obstacles behind them."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Two-footed jump forward",
+      "age": "24–30 months",
+      "how": "Stick a strip of coloured tape on the floor. Your child bends their knees and jumps over the tape with both feet together. Show them first yourself.",
+      "duration": "6–8 jumps.",
+      "benefit": "Develops leg strength, using both feet together and landing softly."
+    },
+    "2-3/02_jump_down": {
+      "title": "Jumping down from a low step",
+      "age": "24–30 months",
+      "how": "Holding one of your hands, your child jumps from a firm step 10–15 cm high onto a soft mat. Show them how to land with bent knees.",
+      "duration": "5–6 times.",
+      "benefit": "Develops courage, leg strength and balance on landing.",
+      "caution": "Do not raise the height; the step must not slip."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Standing on one leg",
+      "age": "30–36 months",
+      "how": "Say \"stand like a stork\". Holding one of your hands, your child lifts one foot and stands for 2–3 seconds. Switch legs, then try without support.",
+      "duration": "3–4 times on each leg.",
+      "benefit": "Strengthens balance and the ankle muscles."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Walking on tiptoe",
+      "age": "24–36 months",
+      "how": "Say \"let's walk like a quiet cat\" and tiptoe across the room together.",
+      "duration": "2–3 lengths of the room.",
+      "benefit": "Strengthens the calf muscles, the arch of the foot and balance.",
+      "caution": "If your child walks on tiptoe all the time, tell your paediatrician."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Walking along a plank",
+      "age": "24–36 months",
+      "how": "Put a wide, low plank on the floor. Holding one of your hands, your child walks along it; let go as they manage.",
+      "duration": "4–5 crossings.",
+      "benefit": "Develops balance, concentration and placing the feet along one line."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Walking with a beanbag on the head",
+      "age": "30–36 months",
+      "how": "Put a small fabric beanbag (filled with rice or chickpeas) on your child's head. They walk slowly and upright so as not to drop it.",
+      "duration": "3–4 crossings.",
+      "benefit": "Develops posture, balance and concentration."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Jumping from spot to spot",
+      "age": "30–36 months",
+      "how": "Lay coloured circles on the floor (rubber spots, paper, cushions). Your child jumps or takes big steps from one to the next.",
+      "duration": "3–4 crossings.",
+      "benefit": "Develops jumping accuracy, balance and movement planning.",
+      "caution": "The circles must not slip."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Climbing stairs with alternating feet",
+      "age": "30–36 months",
+      "how": "Holding the handrail, your child climbs the stairs putting one foot on each step. When coming down, it is still normal to put both feet on each step.",
+      "duration": "2–3 times up and down.",
+      "benefit": "Builds leg strength and balance on one leg.",
+      "caution": "When coming down, stay one step below your child."
+    },
+    "2-3/14_marching": {
+      "title": "Marching",
+      "age": "24–36 months",
+      "how": "Put on some music and hold a \"parade\": march with knees up high and arms swinging. Now and then call out commands like \"spin\", \"jump\", \"stop\".",
+      "duration": "5 minutes.",
+      "benefit": "Develops coordination, a sense of rhythm and following instructions."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Run and stop",
+      "age": "24–36 months",
+      "how": "When you say \"green light\", your child runs; when you say \"red light\", they freeze on the spot. You can also draw a line and ask them to stop in front of it.",
+      "duration": "5–10 minutes.",
+      "benefit": "Develops speed, braking, body control and attention."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Pulling a wagon",
+      "age": "24–36 months",
+      "how": "Load a little wagon with toys; your child pulls it by the handle and steers it round corners.",
+      "duration": "5–10 minutes.",
+      "benefit": "Strengthens the trunk and leg muscles and teaches steering."
+    },
+    "2-3/07_tricycle": {
+      "title": "Tricycle",
+      "age": "30–36 months",
+      "how": "Sit your child on a tricycle and put their feet on the pedals. At first push gently from behind so they can feel how the pedals move.",
+      "duration": "10–15 minutes.",
+      "benefit": "Develops alternating leg movement, strength and steering.",
+      "caution": "Put a helmet on your child; ride on a flat surface away from the road."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Crawling under a table",
+      "age": "24–36 months",
+      "how": "Build a \"tunnel\" from a low table, chairs or a cardboard box. Your child ducks their head and crawls through underneath.",
+      "duration": "4–5 crossings.",
+      "benefit": "Develops shoulder and trunk strength and a sense of their own body size."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Climbing frame",
+      "age": "24–36 months",
+      "how": "On a low climbing triangle or at the playground, your child holds on with their hands and climbs up, placing their feet rung by rung. Keep your hands ready behind their bottom.",
+      "duration": "4–5 times.",
+      "benefit": "Develops whole-body strength, grip strength and courage.",
+      "caution": "Make sure there is a soft surface underneath; never leave your child alone."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Going down the slide alone",
+      "age": "24–36 months",
+      "how": "Your child climbs the ladder on their own and slides down sitting, feet first. Wait for them at the bottom.",
+      "duration": "6–8 times.",
+      "benefit": "Develops climbing, sitting balance and independence.",
+      "caution": "Do not allow sliding head first or on the tummy."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Hanging from a bar",
+      "age": "30–36 months",
+      "how": "Your child holds a low bar with both hands (feet a few centimetres off the ground) and hangs for 3–5 seconds. Hold them around the waist with your hands.",
+      "duration": "3–4 times.",
+      "benefit": "Builds hand and shoulder strength and grip.",
+      "caution": "Do not lift or swing your child by the hands; put a mat underneath."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Overarm throw",
+      "age": "24–36 months",
+      "how": "Stand 1–2 metres apart. Your child throws a small soft ball to you over the shoulder.",
+      "duration": "8–10 throws.",
+      "benefit": "Develops throwing technique, shoulder strength and aiming."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Catching a ball",
+      "age": "30–36 months",
+      "how": "From 1 metre away, gently throw a large, light ball towards your child's chest. They stretch their arms forward and catch the ball by hugging it to their chest.",
+      "duration": "8–10 times.",
+      "benefit": "Develops eye–hand coordination and reaction."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Running up and kicking a ball",
+      "age": "24–36 months",
+      "how": "Make a \"goal\" from two cones or boxes. Your child takes a step or two towards the ball and kicks it.",
+      "duration": "8–10 kicks.",
+      "benefit": "Develops balance on one leg, foot–eye coordination and strength."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Tossing beanbags into a hoop",
+      "age": "24–36 months",
+      "how": "Put a hoop or a basin on the floor. From 1 step away, your child throws beanbags underarm to land inside; increase the distance as they manage.",
+      "duration": "8–10 throws.",
+      "benefit": "Teaches throwing accurately at a target and judging force."
+    },
+    "2-3/27_bowling": {
+      "title": "Home bowling",
+      "age": "24–36 months",
+      "how": "Set up 6 empty plastic bottles in a triangle. Your child squats and rolls a ball with both hands to knock them down.",
+      "duration": "5–6 rounds.",
+      "benefit": "Develops aiming, squatting strength and waiting for their turn."
+    },
+    "2-3/24_balloon": {
+      "title": "Keeping a balloon in the air",
+      "age": "24–36 months",
+      "how": "Toss a balloon into the air. Your child taps it with their hand and does not let it touch the floor.",
+      "duration": "5–10 minutes.",
+      "benefit": "Develops eye–hand coordination, reaching upwards and reaction.",
+      "caution": "Pick up pieces of a burst balloon straight away (choking hazard)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "\"Head, shoulders, knees and toes\"",
+      "age": "24–36 months",
+      "how": "Sing the song and touch your head, shoulders, knees and toes in turn. Gradually speed up.",
+      "duration": "3–4 times.",
+      "benefit": "Develops flexibility, coordination and knowing the parts of the body."
+    },
+    "2-3/15_spin": {
+      "title": "Spinning",
+      "age": "24–36 months",
+      "how": "Your child stretches their arms out to the sides and slowly turns round on the spot; then in the other direction.",
+      "duration": "2–3 turns in each direction.",
+      "benefit": "Develops the balance (vestibular) system and body control.",
+      "caution": "Clear any obstacles around; they should stop when they feel dizzy."
+    },
+    "2-3/17_frog_jump": {
+      "title": "\"Frog\" jumps",
+      "age": "30–36 months",
+      "how": "Your child squats down low and puts their hands on the floor between their knees, then jumps forward like a frog.",
+      "duration": "5–6 jumps.",
+      "benefit": "Builds strength in the leg and buttock muscles and hip mobility."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "\"Wheelbarrow\"",
+      "age": "30–36 months",
+      "how": "Your child puts their hands on the floor. Hold them by the thighs (above the knees) and lift their legs; they take a few \"steps\" on their hands.",
+      "duration": "3–5 steps, 2–3 times.",
+      "benefit": "Strengthens the arm, shoulder and trunk muscles.",
+      "caution": "Hold the thighs, not the ankles; stop if the lower back sags or your child gets tired."
+    },
+    "2-3/21_log_roll": {
+      "title": "Rolling like a \"log\"",
+      "age": "24–36 months",
+      "how": "Your child lies straight on a mat, stretches their arms above their head and rolls sideways; then in the other direction.",
+      "duration": "3–4 rolls in each direction.",
+      "benefit": "Develops the trunk muscles, body awareness and the balance system."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "\"Butterfly\" stretch",
+      "age": "24–36 months",
+      "how": "Your child sits with the soles of their feet together, holds their feet with their hands and gently flaps their knees up and down like \"wings\".",
+      "duration": "20–30 seconds.",
+      "benefit": "Improves hip flexibility and is calming after exercise.",
+      "caution": "Do not press on the knees with your hands."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Hopping on one foot",
+      "age": "3.5–4 years",
+      "how": "Your child bends one leg back and hops on the other foot, on the spot or forwards. Hold their hand at first. Switch legs.",
+      "duration": "3–5 hops on each leg.",
+      "benefit": "Develops leg strength, balance and coordination."
+    },
+    "3-4/02_long_jump": {
+      "title": "Standing long jump",
+      "age": "3–4 years",
+      "how": "Draw a line on the floor. Your child bends their knees, swings their arms and jumps as far as possible with both feet. Mark where they land and try to beat the \"record\".",
+      "duration": "5–6 attempts.",
+      "benefit": "Builds explosive leg power and arm–leg coordination."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Jumping over a hurdle",
+      "age": "3–4 years",
+      "how": "Set up a soft hurdle 10–15 cm high (a foam noodle, a rolled towel). Your child jumps over it with both feet.",
+      "duration": "6–8 times.",
+      "benefit": "Develops jump height, courage and soft landing.",
+      "caution": "The hurdle must fall over easily if a foot catches it."
+    },
+    "3-4/04_hopscotch": {
+      "title": "Hopscotch",
+      "age": "3.5–4 years",
+      "how": "Draw squares on the ground with chalk: one square, then two squares side by side. Your child hops into a single square on one foot and into a double square on both feet. At first they can do all of it on both feet.",
+      "duration": "4–5 rounds.",
+      "benefit": "Teaches balance, rhythm and switching feet."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Jumping from hoop to hoop",
+      "age": "3–4 years",
+      "how": "Lay 3–5 hoops on the floor. Your child jumps from one to the next with both feet.",
+      "duration": "4–5 rounds.",
+      "benefit": "Develops jumping in a series, accuracy and stamina."
+    },
+    "3-4/19_leap_river": {
+      "title": "Leaping over the \"river\"",
+      "age": "3–4 years",
+      "how": "Make a \"river\" on the floor with a blue cloth or two ropes. Your child runs up, pushes off with one foot and leaps over, landing on the other foot. Gradually make the \"river\" wider.",
+      "duration": "6–8 times.",
+      "benefit": "Develops leaping with a big stride, strength and judging distance."
+    },
+    "3-4/25_star_jump": {
+      "title": "\"Star\" jumps",
+      "age": "3.5–4 years",
+      "how": "Your child jumps and spreads their arms and legs out to the sides in the air (a \"star\"), then brings the feet together to land.",
+      "duration": "5–8 times.",
+      "benefit": "Develops moving the arms and legs at the same time, and stamina."
+    },
+    "3-4/05_gallop": {
+      "title": "Galloping",
+      "age": "3–4 years",
+      "how": "One foot always in front, the other following behind: \"let's gallop like horses\". Then switch the leading foot.",
+      "duration": "3–4 lengths of the room.",
+      "benefit": "Develops rhythm, coordination and stamina."
+    },
+    "3-4/06_tree_balance": {
+      "title": "\"Tree\" pose",
+      "age": "3–4 years",
+      "how": "Your child rests the sole of one foot against the calf of the other leg, stretches their arms out to the sides and holds for 3–5 seconds. Switch legs.",
+      "duration": "3 times on each leg.",
+      "benefit": "Strengthens balance, concentration and the ankle muscles."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Heel-to-toe walking along a line",
+      "age": "3.5–4 years",
+      "how": "Stick a strip of tape on the floor. Your child walks along it, touching the heel of the front foot to the toes of the back foot with every step.",
+      "duration": "3–4 lengths.",
+      "benefit": "Develops fine balance and body control."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Balance beam",
+      "age": "3–4 years",
+      "how": "Your child walks independently along a wide beam 10 cm off the ground, with arms out to the sides. Walk alongside them.",
+      "duration": "4–5 lengths.",
+      "benefit": "Develops balance, courage and concentration.",
+      "caution": "Put a soft mat underneath."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Walking downstairs with alternating feet",
+      "age": "3.5–4 years",
+      "how": "Holding the handrail, your child comes down the stairs putting one foot on each step.",
+      "duration": "2–3 times.",
+      "benefit": "Develops leg strength, balance and controlled stepping down.",
+      "caution": "Stand one step below your child."
+    },
+    "3-4/10_scooter": {
+      "title": "Scooter",
+      "age": "3–4 years",
+      "how": "On a three-wheeled scooter, your child puts one foot on the deck and pushes off the ground with the other. Teach them to switch feet.",
+      "duration": "10–15 minutes.",
+      "benefit": "Develops balance, leg strength and steering.",
+      "caution": "A helmet and closed shoes are essential; ride on a flat surface away from the road."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Balance bike",
+      "age": "3–4 years",
+      "how": "On a bike without pedals, your child sits and moves along by pushing off the ground with their feet. As they pick up speed, they try to lift their feet and keep their balance.",
+      "duration": "10–15 minutes.",
+      "benefit": "Develops balance and makes the move to a pedal bike easier.",
+      "caution": "A helmet and closed shoes are essential; set the saddle so that the feet reach the ground flat."
+    },
+    "3-4/17_tag": {
+      "title": "Tag",
+      "age": "3–4 years",
+      "how": "Chase your child and tag them lightly; then let them chase you. Change direction often.",
+      "duration": "5–10 minutes with breaks.",
+      "benefit": "Develops speed, agility, stamina and reaction."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Catching a bounced ball",
+      "age": "3–4 years",
+      "how": "Bounce the ball on the floor in front of your child so that it bounces once into their hands. They catch it with both hands.",
+      "duration": "8–10 times.",
+      "benefit": "Develops eye–hand coordination and predicting how the ball will move."
+    },
+    "3-4/13_target_throw": {
+      "title": "Throwing at a target",
+      "age": "3–4 years",
+      "how": "Hang a target shaped like a coloured circle on a wall or a stand. Your child throws a soft ball at the target from 1.5–2 metres.",
+      "duration": "8–10 throws.",
+      "benefit": "Develops throwing accuracy, shoulder strength and concentration."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Dribbling a ball between cones",
+      "age": "3.5–4 years",
+      "how": "Set up 3–4 cones (or bottles) in a row. Your child taps the ball gently with their foot and weaves it between them.",
+      "duration": "3–4 rounds.",
+      "benefit": "Develops foot–eye coordination, ball control and changing direction."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Bounce and catch",
+      "age": "3.5–4 years",
+      "how": "Your child bounces a medium-sized ball on the floor with both hands and catches it as it comes back up.",
+      "duration": "8–10 times.",
+      "benefit": "Develops judging the force of the hands, rhythm and eye–hand coordination."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Balloon and paper plate game",
+      "age": "3–4 years",
+      "how": "Your child holds a paper plate like a racket, hits a balloon upwards and does not let it touch the floor. Then pass it back and forth to each other.",
+      "duration": "5–10 minutes.",
+      "benefit": "Develops hitting with a tool, eye–hand coordination and reaction.",
+      "caution": "Pick up pieces of a burst balloon straight away."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Assisted forward roll",
+      "age": "3.5–4 years",
+      "how": "On a thick mat, your child squats, puts their hands on the floor, tucks their chin to their chest and lifts their bottom. Protect the back of their neck with one hand and with the other gently tip them over at the hips so they roll onto their back.",
+      "duration": "3–4 times.",
+      "benefit": "Develops body awareness, courage and the trunk muscles.",
+      "caution": "The weight must never go onto the top of the head; the chin always stays on the chest. Only on a soft mat and with your help."
+    },
+    "3-4/21_crab_walk": {
+      "title": "\"Crab\" walk",
+      "age": "3.5–4 years",
+      "how": "Your child sits and puts their hands on the floor behind them and their feet in front, lifts their bottom and moves forwards and backwards in this position.",
+      "duration": "2–3 short lengths.",
+      "benefit": "Strengthens the arm, shoulder, buttock and trunk muscles."
+    },
+    "3-4/22_bridge": {
+      "title": "\"Bridge\"",
+      "age": "3–4 years",
+      "how": "Your child lies on their back, bends their knees, presses their feet into the floor, lifts their bottom up and holds for 3–5 seconds. You can drive a toy car underneath.",
+      "duration": "5–6 repetitions.",
+      "benefit": "Strengthens the buttocks, lower back and the muscles at the back of the thighs."
+    },
+    "3-4/23_superman": {
+      "title": "\"Superman\"",
+      "age": "3–4 years",
+      "how": "Your child lies on their tummy with arms stretched forward, then lifts the arms and legs slightly off the floor at the same time and \"flies\" for 3 seconds.",
+      "duration": "4–5 repetitions.",
+      "benefit": "Strengthens the back muscles and supports good posture."
+    },
+    "3-4/24_downward_dog": {
+      "title": "\"Downward dog\" pose",
+      "age": "3–4 years",
+      "how": "Your child puts their hands and feet on the floor and lifts their bottom high (\"a mountain\" or \"let's stretch like a dog\"). Hold for 5 seconds.",
+      "duration": "3–4 repetitions.",
+      "benefit": "Strengthens the arms and shoulders and stretches the muscles at the back of the legs."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Tug of war",
+      "age": "3–4 years",
+      "how": "Your child holds one end of a soft rope and you hold the other. Your child bends their knees and leans back to pull; match your strength to theirs.",
+      "duration": "3–4 rounds.",
+      "benefit": "Strengthens the arm, back, trunk and leg muscles.",
+      "caution": "Do not let go of the rope suddenly, and do not wrap it around the hand."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "Clap your hands, stamp your feet",
+      "age": "3–4 years",
+      "how": "Move along to a song: \"if you're happy and you know it, clap your hands\", \"stamp your feet\", \"turn around\", \"jump\". Change the movements in turn.",
+      "duration": "5 minutes.",
+      "benefit": "Develops a sense of rhythm, following instructions and coordination."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Ribbon circles",
+      "age": "3–4 years",
+      "how": "Your child holds a long ribbon tied to a stick and draws big circles, waves and \"figures of eight\" in the air. Switch hands.",
+      "duration": "3–5 minutes.",
+      "benefit": "Develops shoulder mobility, wrist control and coordination of both sides of the body."
+    },
+    "4-5/01_skipping": {
+      "title": "Skipping",
+      "age": "4.5–5 years",
+      "how": "Show the \"step and hop\" rhythm: step with one foot and hop on that same foot, then do the same with the other foot. Hold hands and do it together.",
+      "duration": "3–4 lengths of the room or yard.",
+      "benefit": "Develops rhythm, alternating use of both sides of the body and coordination."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Jumping rope",
+      "age": "4.5–5 years",
+      "how": "First teach your child to jump over the rope lying on the ground, then to swing the rope over their head to the front and step over it. Jumping several times in a row comes gradually.",
+      "duration": "5–10 attempts.",
+      "benefit": "Develops rhythm, arm–leg coordination and stamina.",
+      "caution": "The rope should be the right length for your child (when they stand on the middle, the handles should reach the armpits)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Side jumps over a line",
+      "age": "4–5 years",
+      "how": "Stick a strip of tape on the floor. Your child jumps with both feet together from one side of the tape to the other, again and again.",
+      "duration": "8–10 jumps.",
+      "benefit": "Develops sideways agility, ankle strength and rhythm."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Hopping through hoops on one foot",
+      "age": "4–5 years",
+      "how": "Lay 4–5 hoops in a row. Your child hops on one foot from hoop to hoop; on the way back they switch feet.",
+      "duration": "2–3 rounds on each foot.",
+      "benefit": "Develops single-leg strength, balance and accuracy."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Jumping off a box and landing softly",
+      "age": "4–5 years",
+      "how": "Your child jumps from a firm, knee-high box onto a thick mat and lands \"quietly\" on both feet with bent knees. Arms forward.",
+      "duration": "5–6 times.",
+      "benefit": "Develops correct landing technique, leg strength and courage.",
+      "caution": "The box must not slip; do not raise the height."
+    },
+    "4-5/06_bicycle": {
+      "title": "Bike with stabilisers",
+      "age": "4–5 years",
+      "how": "Your child rides by turning the pedals and learns to take bends and use the brake. As their balance improves, the stabilisers can come off.",
+      "duration": "15–20 minutes.",
+      "benefit": "Develops leg strength, stamina, balance and road sense.",
+      "caution": "A helmet and closed shoes are essential; ride on a flat surface away from the road."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Shuttle run",
+      "age": "4–5 years",
+      "how": "Place a bucket and several beanbags 4–5 metres apart. Your child runs, picks up one beanbag, runs back and drops it into the bucket, and keeps going until they are all moved.",
+      "duration": "2–3 rounds.",
+      "benefit": "Develops speed, quick changes of direction, bending and getting up, and stamina."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "\"Freeze\" game",
+      "age": "4–5 years",
+      "how": "While the music plays, your child dances or runs; when the music stops, they freeze like a statue and try not to move.",
+      "duration": "5–10 minutes.",
+      "benefit": "Develops body control, balance, attention and self-control."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "\"Hokey cokey\"",
+      "age": "4–5 years",
+      "how": "Put a hoop on the floor. Along with the song, your child puts one foot, a hand and their head into the hoop and out again in turn, then turns around.",
+      "duration": "5 minutes.",
+      "benefit": "Develops balance on one leg, understanding of left and right, and following instructions."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Catching a small ball with the hands",
+      "age": "4–5 years",
+      "how": "From 1.5–2 metres, gently throw a small soft ball. Your child catches it with the hands only, without hugging it to the chest.",
+      "duration": "10 times.",
+      "benefit": "Develops eye–hand coordination and finger dexterity."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Toss up and catch",
+      "age": "4–5 years",
+      "how": "Your child throws a beanbag or soft ball up by themselves and catches it with both hands. Then add a clap in between.",
+      "duration": "10 times.",
+      "benefit": "Develops judging force, tracking and reaction."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Bouncing a ball with one hand",
+      "age": "4.5–5 years",
+      "how": "With knees slightly bent, your child bounces the ball on the floor with one hand, several times in a row. First 2–3 times, then more. Switch hands.",
+      "duration": "3–4 attempts with each hand.",
+      "benefit": "Develops rhythm, control of hand force and eye–hand coordination."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Shooting at goal",
+      "age": "4–5 years",
+      "how": "Set up a small goal (or put down two objects). Your child kicks the ball into the goal from 2–3 metres; then try kicking a rolling ball.",
+      "duration": "10 kicks.",
+      "benefit": "Develops foot–eye coordination, balance and kicking accuracy."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Hitting a ball off a stand with a bat",
+      "age": "4–5 years",
+      "how": "Put a soft ball on a low stand. Your child stands side-on, holds a light plastic bat with both hands and hits the ball.",
+      "duration": "8–10 hits.",
+      "benefit": "Develops trunk rotation, eye–hand coordination and hitting with a tool.",
+      "caution": "No other children nearby; only a soft ball and a plastic bat."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Throwing a ball into a hoop",
+      "age": "4–5 years",
+      "how": "Your child throws a light ball with both hands into a basket hung a little higher than their own height. As they manage, they take a step back.",
+      "duration": "10 throws.",
+      "benefit": "Develops upward throwing power, accuracy and leg–arm coordination."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Ring toss",
+      "age": "4–5 years",
+      "how": "From 1–1.5 metres, your child tries to throw rings over an upright stick.",
+      "duration": "2–3 rounds.",
+      "benefit": "Develops fine accuracy, wrist control and patience."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "\"Aeroplane\" pose",
+      "age": "4–5 years",
+      "how": "Your child stands on one leg, leans the body forward, stretches the other leg out behind and opens their arms like wings. Hold for 3–5 seconds, then switch legs.",
+      "duration": "3 times on each leg.",
+      "benefit": "Strengthens balance and the trunk and buttock muscles."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Stepping over an obstacle on a beam",
+      "age": "4–5 years",
+      "how": "Put a beanbag on a low balance beam. Your child walks along the beam and steps over the beanbag.",
+      "duration": "4–5 lengths.",
+      "benefit": "Develops dynamic balance, concentration and lifting the foot high.",
+      "caution": "Put a soft mat underneath and walk alongside."
+    },
+    "4-5/19_stork_stand": {
+      "title": "\"Stork\" pose",
+      "age": "4–5 years",
+      "how": "Your child puts their hands on their hips, stands on one leg and lifts the other foot to the front of the standing knee. Try to count to 8–10 seconds.",
+      "duration": "2–3 times on each leg.",
+      "benefit": "Develops static balance and concentration."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Hula hoop",
+      "age": "4.5–5 years",
+      "how": "Your child rests the hoop against their waist, spins it and tries to keep it going by moving their hips back and forth. A few turns are enough at first.",
+      "duration": "5 minutes.",
+      "benefit": "Develops the trunk muscles, rhythm and coordination."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Independent forward roll",
+      "age": "4–5 years",
+      "how": "On a thick mat, your child squats, puts their hands on the floor, tucks their chin to their chest, pushes off with their feet, rolls over on a rounded back and comes up into a squat.",
+      "duration": "3–5 times.",
+      "benefit": "Develops body awareness, agility and the trunk muscles.",
+      "caution": "The weight must never go onto the top of the head; the chin always stays on the chest. Teach it with your help first."
+    },
+    "4-5/21_plank": {
+      "title": "Plank",
+      "age": "4–5 years",
+      "how": "Your child holds themselves up on their elbows and toes, with the body in a straight line from head to heels. Hold for 5–10 seconds.",
+      "duration": "2–3 times.",
+      "benefit": "Strengthens the tummy, back and shoulder muscles.",
+      "caution": "Stop when the lower back starts to sag."
+    },
+    "4-5/22_chair_squat": {
+      "title": "\"Invisible chair\" squat",
+      "age": "4–5 years",
+      "how": "Your child stands with feet shoulder-width apart, stretches their arms forward, squats down as if sitting on a chair and stands up again. Heels stay on the floor.",
+      "duration": "6–8 repetitions.",
+      "benefit": "Strengthens the leg and buttock muscles."
+    },
+    "4-5/23_boat_pose": {
+      "title": "\"Boat\" pose",
+      "age": "4–5 years",
+      "how": "Your child sits and leans back slightly, bends their knees, lifts their feet off the floor and stretches their arms forward. Hold the balance for 5 seconds.",
+      "duration": "3–4 repetitions.",
+      "benefit": "Strengthens the tummy muscles and balance."
+    },
+    "4-5/24_cobra": {
+      "title": "\"Cobra\" stretch",
+      "age": "4–5 years",
+      "how": "Your child lies on their tummy, puts their hands under their shoulders and lifts their chest up; the hips stay on the floor. Hold for 5 seconds.",
+      "duration": "3–4 repetitions.",
+      "benefit": "Strengthens the back muscles and stretches the tummy and chest.",
+      "caution": "Do not force the back to bend."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Wide-leg sitting reach",
+      "age": "4–5 years",
+      "how": "Your child sits with legs wide apart and reaches forward, sliding their hands along the floor. Hold for 10 seconds without bouncing.",
+      "duration": "3 repetitions.",
+      "benefit": "Improves flexibility of the inner and back thigh muscles."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Monkey bars",
+      "age": "4.5–5 years",
+      "how": "Your child hangs from low monkey bars and moves the hands in turn to the next rung. Hold them around the waist and take part of their weight.",
+      "duration": "2–3 attempts.",
+      "benefit": "Develops hand, arm and shoulder strength and grip.",
+      "caution": "Make sure there is a soft surface underneath; hands must not be wet."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Climbing a rope net",
+      "age": "4–5 years",
+      "how": "At the playground or on a low net at home, your child holds on higher up with their hands, places their feet in turn, climbs up and comes down the same way.",
+      "duration": "3–4 times.",
+      "benefit": "Develops whole-body strength, coordination and courage.",
+      "caution": "Make sure there is a soft surface underneath; stay close by."
+    }
+  }
+}

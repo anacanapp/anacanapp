@@ -111,6 +111,16 @@ flutter:
     - assets/images/recap/
     - assets/recap/
     - assets/stickers/
+    - assets/play_together/
+    - assets/books/
+    - assets/books/covers/
+    - assets/kid_exercises/
+    - assets/exercises/0-1/
+    - assets/exercises/1-2/
+    - assets/exercises/2-3/
+    - assets/exercises/3-4/
+    - assets/exercises/4-5/
+    - assets/affiliate/
 
   # Bundled fonts (app/tool/design/fetch_fonts.sh). Weights = the ones the web app loads
   # (src/index.css Google Fonts @import, src/lib/rtl.ts @fontsource imports).

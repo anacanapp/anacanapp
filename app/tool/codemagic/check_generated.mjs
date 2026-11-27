@@ -15,6 +15,9 @@ const GENERATORS = [
   ['tool/design/gen_tokens.mjs', ['--check']],
   ['tool/i18n/export.mjs', ['--check']],
   ['tool/moderation/gen_moderator_copy.mjs', ['--check']],
+  ['test/features/tools/play_together/tool/gen_play_content.mjs', ['--check']],
+  ['test/features/tools/kid_exercises/tool/gen_kid_ex_content.mjs', ['--check']],
+  ['test/features/tools/affiliate/tool/gen_affiliate_assets.mjs', ['--check']],
 ];
 
 // Bare specifiers that are not node: built-ins ("from 'x'", "import('x')", "require('x')").

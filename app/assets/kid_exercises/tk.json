@@ -1,0 +1,1164 @@
+{
+  "ui": {
+    "tileName": "Çagalar üçin maşklar",
+    "tileDesc": "0–5 ýaş üçin suratly hereket maşklary",
+    "title": "Çagalar üçin maşklar",
+    "eyebrow": "Hereket we ösüş",
+    "ageFor": "{name} üçin",
+    "today": "Şu gün",
+    "doneCount": "{n} maşk",
+    "weekHint": "Soňky 7 gün: her nokat maşk eden günüňizdir.",
+    "picksTitle": "Şu günüň maşklary",
+    "picksSub": "Her gün ýaşa laýyk üç täze maşk.",
+    "allTitle": "Ähli maşklar",
+    "count": "{n} maşk",
+    "nowBadge": "Häzirki ýaşy",
+    "search": "Maşk gözle",
+    "all": "Hemmesi",
+    "favs": "Halanlarym",
+    "noFavs": "Maşky halanlaryňyza goşmak üçin ýürejige basyň.",
+    "noResults": "Laýyk maşk tapylmady.",
+    "rules": "Umumy düzgünler",
+    "safetyNote": "Bu maşklar umumy maglumatdyr, lukmanyň barlagynyň ornuny tutmaýar. Möhletinden öň dünýä inen, saglyk meselesi bolan ýa-da ösüşi sizi aladalandyrýan çaga üçin ilki pediatr ýa-da çagalar fizioterapewti bilen maslahatlaşyň.",
+    "age": "Ýaşy",
+    "duration": "Dowamlylygy",
+    "how": "Nädip ýerine ýetirilýär",
+    "benefit": "Peýdasy",
+    "caution": "Üns beriň",
+    "timer": "Sekundomer",
+    "start": "Başla",
+    "pause": "Sakla",
+    "reset": "Nola getir",
+    "done": "Etdik",
+    "doneToday": "Şu gün etdik",
+    "prev": "Öňki",
+    "next": "Indiki",
+    "fav": "Halanlaryma goş",
+    "unfav": "Halanlarymdan aýyr",
+    "close": "Ýap"
+  },
+  "sets": {
+    "0-1": {
+      "label": "0–1 ýaş",
+      "months": "0–12 aý",
+      "rules": [
+        "Maşklary bäbek oýa, rahat we täze iýmitlenmedik wagty ediň (iýmitlenenden azyndan 30–40 minut soň).",
+        "Gaty, tekiz we arassa ýüzde (poluň üstünde halyda ýa-da düşekçede) maşk ediň; bäbegi beýik ýerde ýeke goýmaň.",
+        "Hereketler haýal we ýumşak bolmaly. Hiç haçan güýç ulanmaň, elini-aýagyny çekmäň.",
+        "Bäbek aglasa, biynjalyk bolsa ýa-da ýadasa, derrew bes ediň.",
+        "Ýaş aralyklary takmynydyr; her bäbek öz depgini bilen ösýär.",
+        "Möhletinden öň dünýä inen ýa-da saglyk meselesi bolan bäbekler üçin ilki pediatr bilen maslahatlaşyň."
+      ]
+    },
+    "1-2": {
+      "label": "1–2 ýaş",
+      "months": "12–24 aý",
+      "rules": [
+        "Bu ýaşda maşk diýmek oýun diýmekdir: çagany mejbur etmäň, hereketi özüňiz görkeziň we bilelikde ediň.",
+        "Gün dowamynda azyndan 30 minut siziň ugrukdyrmagyňyzdaky hereketli oýun we 1 sagat ýa-da ondan köp erkin hereket maslahat berilýär.",
+        "Otagy howpsuz ediň: ýiti burçlar, typançak halylar, agdarylyp biläýjek mebel bolmasyn. Ýalaňaýak ýa-da typmaýan jorap bilen maşk etmek has gowy.",
+        "Basgançakda, typgyçda, dyrmaşanda we bökende elmydama eliňiz ýetjek aralykda boluň.",
+        "Ownuk zatlar (top, kubik) bilen oýnanyňyzda olaryň ölçegine üns beriň: çaganyň agzyna sygjak zady bermek bolmaz.",
+        "Ýaş aralyklary takmynydyr. Çaga 18 aýa çenli özbaşdak ýöremese, pediatra ýüz tutuň."
+      ]
+    },
+    "2-3": {
+      "label": "2–3 ýaş",
+      "months": "24–36 aý",
+      "rules": [
+        "Bu ýaşda maşk oýundyr: hereketi özüňiz görkeziň, bilelikde ediň, aýdym we ertek bilen utgaşdyryň.",
+        "Gün dowamynda azyndan 1 sagat siziň ugrukdyrmagyňyzdaky hereketli oýun we 2 sagat ýa-da ondan köp erkin hereket maslahat berilýär.",
+        "Otagy we howlyny howpsuz ediň: typançak pol, ýiti burçlar, agdarylyp biläýjek zatlar bolmasyn.",
+        "Bökende, dyrmaşanda, asylanda we typgyçdan typanda eliňiz ýetjek aralykda boluň; ýumşak ýüzi saýlaň.",
+        "Çagany ýadatmaň: gysga oýunlar, ýygy-ýygydan arakesme we suw.",
+        "Ýaş aralyklary takmynydyr; her çaga öz depgini bilen ösýär. Sizi bir zat aladalandyrýan bolsa, pediatra ýüz tutuň."
+      ]
+    },
+    "3-4": {
+      "label": "3–4 ýaş",
+      "months": "36–48 aý",
+      "rules": [
+        "Maşk henizem oýundyr: hereketi özüňiz görkeziň, bilelikde ediň, ýaryş we ertek bölejiklerini goşuň.",
+        "Gün dowamynda azyndan 1 sagat siziň ugrukdyrmagyňyzdaky hereketli oýun we 2 sagat ýa-da ondan köp erkin hereket maslahat berilýär; mümkin boldugyça açyk howada.",
+        "Howpsuz ýer saýlaň: typmaýan pol, ýumşak düşekçe, töwerekde ýiti burç bolmasyn.",
+        "Tigirli ulaglarda (samokat, welosiped) çaga elmydama kaska geýdiriň.",
+        "Öňe togalanma, deňagramlylyk agajy we dyrmaşmak ýaly maşklarda ýanynda boluň.",
+        "Çagany ýadatmaň: gysga oýunlar, ýygy-ýygydan arakesme we suw.",
+        "Ýaş aralyklary takmynydyr; her çaga öz depgini bilen ösýär. Sizi bir zat aladalandyrýan bolsa, pediatra ýüz tutuň."
+      ]
+    },
+    "4-5": {
+      "label": "4–5 ýaş",
+      "months": "48–60 aý",
+      "rules": [
+        "Maşk oýun ýaly geçmeli: hereketi özüňiz görkeziň, bilelikde ediň, kiçijik ýaryşlary we “rekordlary” goşuň.",
+        "Gün dowamynda azyndan 1 sagat siziň ugrukdyrmagyňyzdaky hereketli oýun we 2 sagat ýa-da ondan köp erkin hereket maslahat berilýär; mümkin boldugyça açyk howada.",
+        "Howpsuz ýer saýlaň: typmaýan pol, ýumşak düşekçe, töwerekde ýiti burç bolmasyn.",
+        "Welosipedde we samokatda çaga elmydama kaska we ýapyk aýakgap geýdiriň.",
+        "Öňe togalananda, beýiklikden bökende, dyrmaşanda we asylanda ýanynda boluň.",
+        "Güýç maşklarynda (planka, çömelmek) dowamlylyk däl-de, hil möhümdir: dogry ýerine ýetirilişi bozulan badyna bes ediň.",
+        "Ýaş aralyklary takmynydyr; her çaga öz depgini bilen ösýär. Sizi bir zat aladalandyrýan bolsa, pediatra ýüz tutuň."
+      ]
+    }
+  },
+  "groups": {
+    "0–3 ay": "0–3 aý",
+    "3–6 ay": "3–6 aý",
+    "6–9 ay": "6–9 aý",
+    "9–12 ay": "9–12 aý",
+    "12–15 ay": "12–15 aý",
+    "15–18 ay": "15–18 aý",
+    "18–24 ay": "18–24 aý",
+    "Hoppanma və tarazlıq": "Bökmek we deňagramlylyk",
+    "Yerimə, qaçış və dırmaşma": "Ýöremek, ylgamak we dyrmaşmak",
+    "Topla oyunlar": "Top bilen oýunlar",
+    "Gimnastika və təqlid oyunları": "Gimnastika we öýkünme oýunlary",
+    "Hoppanma": "Bökmek",
+    "Tarazlıq": "Deňagramlylyk",
+    "Təkərli vasitələr və qaçış": "Tigirli ulaglar we ylgamak",
+    "Güc və gimnastika": "Güýç we gimnastika",
+    "Ritm və koordinasiya": "Ritm we koordinasiýa",
+    "Hoppanma və tullanma": "Bökmek we uzaklyga bökmek",
+    "Qaçış, velosiped və ritm oyunları": "Ylgamak, welosiped we ritm oýunlary"
+  },
+  "exercises": {
+    "0-1/01_tummy_time": {
+      "title": "Garnynyň üstünde ýatmak",
+      "age": "dogulandan başlap",
+      "how": "Bäbegi düşekçäniň üstünde garnynyň üstünde ýatyryň, ellerini tirsekden epip, kellesiniň ýanynda goýuň. Bir eliňizi onuň arkasyna, beýlekisini otyrgyjyna ýumşaklyk bilen goýuň. Kellesini galdyrmaga synanyşar ýaly, onuň bilen gürleşiň.",
+      "duration": "Günde 2–3 gezek, 1–3 minutdan; kem-kemden artdyryň.",
+      "benefit": "Boýun, egin we arka myşsalaryny berkidýär, kelläniň yzynyň ýasylmagynyň öňüni alýar.",
+      "caution": "Diňe bäbek oýa wagty we gözegçilik astynda. Ukladanyňyzda bäbegi elmydama arkan ýatyryň."
+    },
+    "0-1/02_tummy_on_chest": {
+      "title": "Ata-enäniň döşünde garnynyň üstünde",
+      "age": "0–2 aý",
+      "how": "Ýassyga söýenip, ýarym ýatan ýagdaýda oturyň. Bäbegi garnynyň üstünde döşüňize goýuň, bir eliňiz bilen arkasyndan, beýlekisi bilen otyrgyjyndan tutuň. Ýüzüňize seretmegi üçin onuň bilen gürleşiň.",
+      "duration": "Günde birnäçe gezek, 2–5 minutdan.",
+      "benefit": "Garnynyň üstünde ýatmaga öwrenişdirmegiň iň ýumşak usuly; kellesini galdyrmaga höweslendirýär, baglanyşygy berkidýär.",
+      "caution": "Özüňiziň ukyňyz gelýän bolsa, bu maşky etmäň."
+    },
+    "0-1/03_tummy_on_lap": {
+      "title": "Dyzda garnynyň üstünde",
+      "age": "0–3 aý",
+      "how": "Oturyň we bäbegi butlaryňyzyň üstünde kese, garnynyň üstünde ýatyryň. Bir eliňiz onuň arkasynda, beýlekisi otyrgyjynda bolsun. Arkasyny ýumşaklyk bilen sypalap bilersiňiz.",
+      "duration": "2–3 minut.",
+      "benefit": "Boýun myşsalaryny işledýär, gazlaryň çykmagyna kömek edýär, bäbegi köşeşdirýär."
+    },
+    "0-1/04_visual_tracking": {
+      "title": "Oýnawajy göz bilen yzarlamak",
+      "age": "0–3 aý",
+      "how": "Bäbek arkan ýatyr. Ýagty oýnawajy onuň ýüzünden 20–30 sm uzaklykda saklaň we haýal-haýal saga-çepe süýşüriň. Bäbegiň ony gözleri we kellesi bilen yzarlamagyna garaşyň.",
+      "duration": "1–2 minut, her tarapa 4–5 gezek.",
+      "benefit": "Görüş ünsüni, göz bilen kelläniň utgaşyklygyny we boýnuň iki tarapa-da öwrülmegini ösdürýär."
+    },
+    "0-1/05_grasp_finger": {
+      "title": "Barmagy tutmak",
+      "age": "0–4 aý",
+      "how": "Süýem barmagyňyzy bäbegiň aýasyna goýuň we onuň gysmagyna garaşyň. Barmagyňyzy azajyk ýokaryk-aşak hereketlendiriň. Iki eli bilen hem gaýtalaň.",
+      "duration": "Her el üçin 3–5 gezek.",
+      "benefit": "Tutuş refleksini we el myşsalaryny berkidýär, degip duýmagy ösdürýär.",
+      "caution": "Bäbek barmagyňyzdan tutup durka, ony ýokaryk galdyrmaň."
+    },
+    "0-1/06_knees_to_tummy": {
+      "title": "Dyzlary garna ýetirmek",
+      "age": "0–6 aý",
+      "how": "Bäbek arkan ýatyr. Iki injiginden tutuň, dyzlaryny bilelikde haýallyk bilen garnyna tarap epiň, 3–5 sekunt saklaň we goýberiň.",
+      "duration": "5–8 gaýtalama.",
+      "benefit": "Gazy we sanjyny ýeňilleşdirýär, uýluk bogunlarynyň hereketliligini artdyrýar.",
+      "caution": "Gysmaň; garşylyk duýsaňyz, bes ediň."
+    },
+    "0-1/07_bicycle_legs": {
+      "title": "“Welosiped”",
+      "age": "1–6 aý",
+      "how": "Bäbek arkan ýatyr. Injiklerinden tutup, aýaklaryny welosiped sürýän ýaly nobatma-nobat hereketlendiriň: bir dyzy garnyna, beýleki aýagy öňe.",
+      "duration": "10–15 aýlaw, arasynda arakesme bilen.",
+      "benefit": "Aýak we garyn myşsalaryny işledýär, içegeleriň işine kömek edýär, nobatlaşýan hereketleri öwredýär."
+    },
+    "0-1/08_arm_open_close": {
+      "title": "Elleri açyp-atanaklamak",
+      "age": "1–6 aý",
+      "how": "Bäbek arkan ýatyr. Başam barmaklaryňyzy onuň aýalaryna goýuň ýa-da bileklerinden ýumşaklyk bilen tutuň. Ellerini gapdala açyň, soňra döşünde atanaklaň (özüni gujaklaýan ýaly).",
+      "duration": "5–8 gaýtalama.",
+      "benefit": "Döş we egin myşsalaryny açýar, elleri bedeniň orta çyzygyna getirmegi öwredýär.",
+      "caution": "Ellerini çekmäň, diňe bäbegiň rugsat berýän derejesine çenli açyň."
+    },
+    "0-1/09_kicking": {
+      "title": "Aýa depmek",
+      "age": "1–4 aý",
+      "how": "Bäbek arkan ýatyr. Aýalaryňyzy onuň aýaklarynyň aşagyna söýäň we ýeňil garşylyk görkeziň; bäbek aýaklary bilen iteler.",
+      "duration": "1–2 minut.",
+      "benefit": "Aýak myşsalaryny berkidýär, itekleme hereketini (geljekde emeklemek we aýak üstünde durmak üçin) taýýarlaýar."
+    },
+    "0-1/10_side_lying": {
+      "title": "Gapdalynda ýatyp oýnamak",
+      "age": "1–4 aý",
+      "how": "Bäbegi gapdalynyň üstünde ýatyryň, arkasynyň yzyna togalanan süpürgiç goýuň. Iki eli hem öňünde bolsun; öňüne oýnawaç goýuň. Soňra beýleki gapdalyna öwrüň.",
+      "duration": "Her tarapa 2–3 minutdan.",
+      "benefit": "Elleriň biri-birine degmegini ýeňilleşdirýär, agdarylmaga taýýarlaýar, kelläniň bir tarapa gyşarmagynyň öňüni alýar.",
+      "caution": "Diňe bäbek oýa wagty we gözegçilik astynda; bäbegi bu ýagdaýda uklamaga goýmaň."
+    },
+    "0-1/11_towel_tummy_time": {
+      "title": "Süpürgiç direginde garnynyň üstünde",
+      "age": "2–4 aý",
+      "how": "Togalanan süpürgiji bäbegiň döşüniň aşagyna (goltuk derejesinde) goýuň, elleri süpürgijiň öňünde bolsun. Kellesini galdyryp seretmegi üçin öňüne oýnawaç goýuň.",
+      "duration": "3–5 minut, günde birnäçe gezek.",
+      "benefit": "Kelläni galdyrmagy ýeňilleşdirýär, tirseklere daýanmaga taýýarlaýar."
+    },
+    "0-1/12_pull_to_sit": {
+      "title": "Oturdyp galdyrmak",
+      "age": "3–5 aý (bäbek kellesini saklap başlandan soň)",
+      "how": "Bäbek arkan ýatyr. Başam barmaklaryňyzy onuň aýalaryna beriň, bileklerinden tutuň we ony haýallyk bilen oturan ýagdaýa tarap galdyryň, soňra şonuň ýaly haýal yzyna ýatyryň.",
+      "duration": "3–5 gaýtalama.",
+      "benefit": "Garyn, boýun we el myşsalaryny berkidýär.",
+      "caution": "Kellesi yzyna düşýän bolsa, maşky soňa goýuň. Birden çekmäň."
+    },
+    "0-1/13_reaching_toy": {
+      "title": "Oýnawaja uzanmak",
+      "age": "3–5 aý",
+      "how": "Bäbek arkan ýatyr. Oýnawajy onuň döşüniň üstünde, eli ýetjek aralykda saklaň we uzanyp tutmagyna garaşyň. Oýnawajy gah saga, gah çepe süýşüriň.",
+      "duration": "2–3 minut.",
+      "benefit": "Göz bilen eliň utgaşyklygyny, egin myşsalaryny we maksatly tutmagy ösdürýär."
+    },
+    "0-1/14_forearm_prop_reach": {
+      "title": "Tirseklere daýanyp uzanmak",
+      "age": "4–6 aý",
+      "how": "Bäbek garnynyň üstünde, tirseklerine daýanyp ýatyr. Bir eli bilen uzanar ýaly, oýnawajy azajyk öňe we gapdala goýuň. Elleriňiz bilen onuň çanagyny ýeňil saklap bilersiňiz.",
+      "duration": "3–5 minut.",
+      "benefit": "Agramy bir elden beýlekisine geçirmegi öwredýär, arkany we egin guşagyny berkidýär, emeklemäge taýýarlaýar."
+    },
+    "0-1/15_rolling": {
+      "title": "Agdarylmaga kömek",
+      "age": "4–6 aý",
+      "how": "Bäbek arkan ýatyr. Oýnawajy gapdalyna goýuň. Bir eliňiz bilen butundan, beýlekisi bilen çanagyndan tutup, üstki aýagyny garşy tarapa geçiriň; göwresi özi yzyndan öwrüler. Iki tarapa-da ediň.",
+      "duration": "Her tarapa 3–4 gezek.",
+      "benefit": "Göwre myşsalaryny we bedeniň towlanma hereketini ösdürýär, özbaşdak agdarylmagy öwredýär.",
+      "caution": "Bäbegi elinden çekip agdarmaň."
+    },
+    "0-1/16_feet_to_hands": {
+      "title": "Aýaklaryny tutmak",
+      "age": "4–6 aý",
+      "how": "Bäbek arkan ýatyr. Dyzlaryny epip, aýaklaryny ellerine ýakynlaşdyryň, olary tutsun. Tutandan soň saga-çepe ýeňil yranmagyna mümkinçilik beriň.",
+      "duration": "1–2 minut.",
+      "benefit": "Garyn myşsalaryny berkidýär, bedenini duýmagy we uýluk bogunlarynyň çeýeligini artdyrýar."
+    },
+    "0-1/17_supported_sitting": {
+      "title": "Goldaw bilen oturmak",
+      "age": "5–7 aý",
+      "how": "Bäbegi düşekçäniň üstünde oturdyň, yzyndan çanagyndan ýa-da bilinden tutuň. Eline oýnawaç beriň. Deňagramlylygy gowulaşdygyça goldawy azaldyň.",
+      "duration": "3–5 minut.",
+      "benefit": "Göwre myşsalaryny we oturandaky deňagramlylygy ösdürýär, ellerini oýun üçin boşadýar.",
+      "caution": "Arkasy egrelip, ýadanda ýatyryň; ýassyklar bilen gurşap, zor bilen oturtmaň."
+    },
+    "0-1/19_supported_standing": {
+      "title": "Goldaw bilen aýak üstünde yrgyldamak",
+      "age": "5–8 aý",
+      "how": "Bäbegi goltugynyň aşagyndan, göwresinden berk tutuň we aýaklaryny gaty ýüze goýuň. Agramynyň bir bölegini aýaklaryna geçirmegine we dyzlaryny epip-açyp yrgyldamagyna mümkinçilik beriň.",
+      "duration": "1–2 minut.",
+      "benefit": "Aýak myşsalaryny berkidýär, aýak üstünde durmaga taýýarlaýar.",
+      "caution": "Agramyň köp bölegini özüňiz saklaň; bäbegi aýak üstünde goýbermäň."
+    },
+    "0-1/18_tripod_sit_reach": {
+      "title": "Oturyp oýnawaja uzanmak",
+      "age": "6–8 aý",
+      "how": "Bäbek özi oturýar, bir eli bilen ýere daýanýar. Oýnawajy öňüne we gapdallaryna, azajyk uzagrak goýuň: uzanyp alsyn we ýene dikelsin. Töweregine ýassyk goýuň.",
+      "duration": "5 minut.",
+      "benefit": "Oturandaky deňagramlylygy, göwräniň öwrülmegini we ýykylanda ellere daýanmak reaksiýasyny ösdürýär."
+    },
+    "0-1/20_peekaboo": {
+      "title": "“Ku-ku” (gizlenpeçek)",
+      "age": "4–12 aý",
+      "how": "Bäbek otyr. Ýeňil matany öz ýüzüňiziň (ýa-da onuň ýüzüniň) öňünde saklaň, soňra aşak düşürip, “ku-ku!” diýiň. Ulaldygyça matany özüne çekip aýyrmaga mümkinçilik beriň.",
+      "duration": "Bäbek gyzyklanýança.",
+      "benefit": "Gözden ýiten zadyň ýok bolmaýandygyna düşünmegi, ünsi, aragatnaşygy we gülküni ösdürýär; elleriň işjeň hereketini höweslendirýär."
+    },
+    "0-1/21_patty_cake": {
+      "title": "El çarpma oýny",
+      "age": "7–12 aý",
+      "how": "Bäbek bilen ýüzbe-ýüz oturyň. Aýdym ýa-da sanamak bilen aýalaryňyzy onuň aýalaryna çarpyň, soňra özüne el çarpmagy görkeziň.",
+      "duration": "2–3 minut.",
+      "benefit": "Iki eliň bilelikdäki işini, ritm duýgusyny, öýkünmegi we aragatnaşygy ösdürýär."
+    },
+    "0-1/22_crawl_assist": {
+      "title": "Emeklemäge kömek",
+      "age": "7–9 aý",
+      "how": "Bäbek elleriniň we dyzlarynyň üstünde dur, öňünde oýnawaç bar. Iteklenip öňe gitmegi üçin aýalaryňyzy onuň aýaklarynyň aşagyna söýäň.",
+      "duration": "3–5 minut.",
+      "benefit": "Emekleme hereketini, el bilen aýagyň utgaşyklygyny we göwre güýjüni ösdürýär.",
+      "caution": "Bäbegi itmäň, diňe direg beriň."
+    },
+    "0-1/23_obstacle_crawl": {
+      "title": "Päsgelçiligiň üstünden emeklemek",
+      "age": "8–10 aý",
+      "how": "Düşekçäniň üstüne pes ýassyk ýa-da togalanan ýorgan goýuň, beýleki tarapyna oýnawaç ýerleşdiriň. Bäbegiň päsgelçiligiň üstünden aşyp geçmegine mümkinçilik beriň.",
+      "duration": "5 minut.",
+      "benefit": "Güýji, deňagramlylygy we hereketi meýilleşdirmegi ösdürýär, dyrmaşmaga taýýarlaýar."
+    },
+    "0-1/24_ball_rolling": {
+      "title": "Topy togalamak",
+      "age": "8–12 aý",
+      "how": "Bäbek aýaklaryny aralap otyr. Ýumşak topy oňa tarap togalaň, tutup yzyna itmegine garaşyň.",
+      "duration": "5 minut.",
+      "benefit": "Oturandaky deňagramlylygy, göz bilen eliň utgaşyklygyny we nobat bilen oýnamak endigini ösdürýär."
+    },
+    "0-1/25_pull_to_stand": {
+      "title": "Tutunyp aýaga galmak",
+      "age": "8–10 aý",
+      "how": "Oýnawajy pes, durnukly diwanyň üstüne goýuň. Bäbek dyzyna galyp, bir aýagyny ýere basyp, aýaga galmaga synanyşar. Gerek bolsa, çanagyndan ýeňil goldaň.",
+      "duration": "3–5 synanyşyk.",
+      "benefit": "Aýak we otyrgyç myşsalaryny berkidýär, özbaşdak aýaga galmagy öwredýär.",
+      "caution": "Mebeliň agdarylmajakdygyna we ýiti burçlarynyň ýokdugyna göz ýetiriň."
+    },
+    "0-1/26_cruising": {
+      "title": "Mebeliň ugry bilen gapdala ädimlemek",
+      "age": "9–11 aý",
+      "how": "Bäbek diwandan tutup dur. Gapdal ädimler bilen ýetmegi üçin oýnawajy ondan azajyk aňyrrak goýuň. Iki ugra-da ediň.",
+      "duration": "5 minut.",
+      "benefit": "Agramy bir aýakdan beýlekisine geçirmegi we deňagramlylygy öwredýär; ýöremäge gönüden-göni taýýarlyk."
+    },
+    "0-1/27_squat_pickup": {
+      "title": "Çömelip oýnawaç almak",
+      "age": "10–12 aý",
+      "how": "Bäbek bir eli bilen diwandan tutup dur. Oýnawajy aýagynyň ýanyna, ýere goýuň. Çömelip almagyna we ýene galmagyna garaşyň.",
+      "duration": "5–6 gaýtalama.",
+      "benefit": "Aýak myşsalaryny we deňagramlylygy berkidýär, oturyp-turmagy dolandyrmagy öwredýär."
+    },
+    "0-1/28_assisted_walking": {
+      "title": "Goldaw bilen ýöremek",
+      "age": "10–12 aý",
+      "how": "Bäbegiň yzynda duruň we göwresinden (döş derejesinde) tutuň. Ädim ätmegine mümkinçilik beriň; deňagramlylygy gowulaşdygyça goldawy azaldyň.",
+      "duration": "3–5 minut.",
+      "benefit": "Ýöreýiş endigini we deňagramlylygy ösdürýär.",
+      "caution": "Ellerinden ýokaryk çekip ýöretmekden göwresinden tutmak egnine has howpsuzdyr."
+    },
+    "0-1/29_push_walker": {
+      "title": "Arabajygy itip ýöremek",
+      "age": "11–12 aý",
+      "how": "Bäbege durnukly, agyr itilýän arabajyk beriň. Iki eli bilen tutawajyndan tutup, öňe ädimlesin. Ýanynda boluň.",
+      "duration": "5–10 minut.",
+      "benefit": "Özbaşdak ýöremäge ynam döredýär, ädimiň uzynlygyny we ugur saýlamagy türgenleşdirýär.",
+      "caution": "Arabajyk gaty çalt gitmeli däl; oturgyçly ýöredijiler (hodunok) maslahat berilmeýär."
+    },
+    "1-2/01_first_steps": {
+      "title": "Ilkinji özbaşdak ädimler",
+      "age": "12–15 aý",
+      "how": "Çagany aýak üstünde goýuň, özüňiz 2–3 ädim aralykda dyza çöküň we gujagyňyzy açyp, ony çagyryň. Başardygyça aralygy artdyryň.",
+      "duration": "5–10 synanyşyk.",
+      "benefit": "Özbaşdak ýöremäge ynam we deňagramlylyk döredýär."
+    },
+    "1-2/02_one_hand_walk": {
+      "title": "Bir elinden tutup ýöremek",
+      "age": "12–15 aý",
+      "how": "Çaganyň diňe bir elinden tutuň we onuň depgini bilen ýöräň. Eliňizi onuň egin derejesinde saklaň, ýokaryk çekmäň. Elleri çalşyň.",
+      "duration": "5–10 minut.",
+      "benefit": "Iki elden goldawdan özbaşdak ýöremäge geçiş; deňagramlylygy berkidýär."
+    },
+    "1-2/03_stand_up_from_floor": {
+      "title": "Poldan goldawsyz aýaga galmak",
+      "age": "12–15 aý",
+      "how": "Çaga otagyň ortasynda oturanda, gyzykly oýnawajy onuň kelle derejesinde saklaň. Ellerini we aýaklaryny ýere basyp, otyrgyjyny galdyryp, özüniň dikelmegine garaşyň.",
+      "duration": "5–6 gaýtalama.",
+      "benefit": "Aýak, otyrgyç we göwre myşsalaryny berkidýär; mebelsiz aýaga galmagy öwredýär."
+    },
+    "1-2/04_squat_pickup": {
+      "title": "Goldawsyz çömelmek",
+      "age": "13–18 aý",
+      "how": "Ýere top ýa-da oýnawaç goýuň. Çagany hiç zatdan tutman çömelip, ony almaga we ýene galmaga höweslendiriň.",
+      "duration": "6–8 gaýtalama.",
+      "benefit": "Aýak güýjüni, deňagramlylygy we hereketi dolandyrmagy ösdürýär."
+    },
+    "1-2/07_push_basket": {
+      "title": "Sebedi itmek",
+      "age": "12–18 aý",
+      "how": "Ýeňil eşik sebedine birnäçe oýnawaç salyň. Çaga sebedi iki eli bilen otagyň ugruna itsin.",
+      "duration": "5–10 minut.",
+      "benefit": "Aýak we göwre myşsalaryny berkidýär, ýöreýşini durnuklaşdyrýar."
+    },
+    "1-2/08_climb_sofa": {
+      "title": "Pes diwana ýa-da ýassyga dyrmaşmak",
+      "age": "12–18 aý",
+      "how": "Dyz beýikligindäki berk ýassygy ýa-da pes diwany saýlaň. Çaga garnyny söýäp, bir dyzyny üstüne galdyryp çyksyn. Elleriňiz onuň otyrgyjynyň yzynda taýýar dursun. Düşmegi hem öwrediň: garnynyň üstünde, aýaklary öňden.",
+      "duration": "4–5 gaýtalama.",
+      "benefit": "Tutuş bedeniň güýjüni we hereketi meýilleşdirmegi ösdürýär.",
+      "caution": "Çagany beýik ýerde ýeke goýmaň."
+    },
+    "1-2/09_crawl_stairs": {
+      "title": "Basgançaga dyrmaşmak",
+      "age": "12–18 aý",
+      "how": "2–3 pes basgançakda çaga ellerini ýokarky basgança goýup çyksyn. Siz onuň yzynda, elleriňiz otyrgyjynyň ýanynda duruň. Düşende arkasy öňe, aýaklary bilen ilki düşmegi öwrediň.",
+      "duration": "3–4 gezek ýokaryk-aşak.",
+      "benefit": "Aýak güýjüni, koordinasiýany we basgançakda howpsuz hereket etmek endigini kemala getirýär.",
+      "caution": "Diňe gözegçilik astynda; beýleki wagtlar basgançak gapyjygy ýapyk bolsun."
+    },
+    "1-2/12_roll_ball": {
+      "title": "Topy togalamak",
+      "age": "12–18 aý",
+      "how": "Ýüzbe-ýüz oturyň ýa-da çömeliň. Topy biri-biriňize togalaň; çaga ony iki eli bilen tutup, yzyna itsin.",
+      "duration": "5 minut.",
+      "benefit": "Göz bilen eliň utgaşyklygyny, nobat bilen oýnamagy we göwräniň deňagramlylygyny ösdürýär."
+    },
+    "1-2/17_stack_blocks": {
+      "title": "Kubiklerden diň",
+      "age": "12–18 aý",
+      "how": "Çaga iri agaç kubikler beriň we 2–4 kubikden diň gurmagy görkeziň. Ýykylanda ýene guruň.",
+      "duration": "5–10 minut.",
+      "benefit": "Ownuk motorikany, eliň takyklygyny we sabyrlylygy ösdürýär."
+    },
+    "1-2/18_ball_in_box": {
+      "title": "Toplary gutä salmak",
+      "age": "12–18 aý",
+      "how": "Çaga dyzyna galyp ýa-da oturyp, toplary birin-birin alyp gutä salsyn. Soňra gutyny boşadyp, ýene başlaň.",
+      "duration": "5 minut.",
+      "benefit": "Tutmak-goýbermek endigini, göz bilen eliň utgaşyklygyny we dyz üstündäki deňagramlylygy ösdürýär."
+    },
+    "1-2/05_carry_toy": {
+      "title": "Oýnawajy göterip ýöremek",
+      "age": "15–18 aý",
+      "how": "Çaga iri, ýeňil oýnawaç beriň we ony otagyň beýleki başyna eltmegini haýyş ediň.",
+      "duration": "5 minut.",
+      "benefit": "Elleri meşgul wagty deňagramlylygy saklamagy öwredýär, göwre myşsalaryny berkidýär."
+    },
+    "1-2/06_pull_toy": {
+      "title": "Ýüpli oýnawajy yzyndan çekmek",
+      "age": "15–20 aý",
+      "how": "Tigirli oýnawajy gysga ýüpi bilen çaganyň eline beriň. Ýöreýärkä oýnawajy yzyndan çeksin we öwrülip oňa seretsin.",
+      "duration": "5–10 minut.",
+      "benefit": "Ýöreýärkä kelläni we göwräni öwürmegi, ünsi paýlamagy öwredýär.",
+      "caution": "Ýüp gysga bolsun (takmynan 30 sm); çagany ýüp bilen ýeke goýmaň."
+    },
+    "1-2/10_tunnel": {
+      "title": "Tunelden emeklemek",
+      "age": "12–24 aý",
+      "how": "Uly karton gutynyň iki tarapyny açyp, tunel ýasaň. Beýleki başyndan çagany çagyryň ýa-da ol ýere oýnawaç goýuň.",
+      "duration": "5–10 minut.",
+      "benefit": "Egin we göwre güýjüni, giňişligi duýmagy ösdürýär."
+    },
+    "1-2/11_cushion_path": {
+      "title": "Ýassyk ýodajygy",
+      "age": "15–20 aý",
+      "how": "Ýere birnäçe ýasy ýassyk düzüň. Çaga bir eliňizden tutup, olaryň üstünden ýöresin.",
+      "duration": "3–5 geçiş.",
+      "benefit": "Durnuksyz ýüzde deňagramlylygy we topuk myşsalaryny berkidýär."
+    },
+    "1-2/13_throw_ball": {
+      "title": "Topy sebede zyňmak",
+      "age": "15–24 aý",
+      "how": "Çagadan 1 ädim aralyga sebet goýuň. Ýumşak topy sebede zyňmagy görkeziň; başardygyça aralygy artdyryň.",
+      "duration": "8–10 zyňyş.",
+      "benefit": "Zyňmak hereketini, göz bilen eliň utgaşyklygyny we egin güýjüni ösdürýär."
+    },
+    "1-2/15_dance": {
+      "title": "Saz bilen tans",
+      "age": "12–24 aý",
+      "how": "Ritmli saz goýuň we çaga bilen bilelikde tans ediň: dyzlary epip yrgyldaň, el çarpyň, aýlanyň.",
+      "duration": "5–10 minut.",
+      "benefit": "Ritm duýgusyny, deňagramlylygy we çydamlylygy artdyrýar, keýpi gowulandyrýar."
+    },
+    "1-2/19_tidy_up": {
+      "title": "Oýnawaçlary ýygnamak",
+      "age": "15–24 aý",
+      "how": "Oýnawaçlary ýere dargadyň. Çaga egilip ýa-da çömelip, olary birin-birin alsyn we sebede salsyn.",
+      "duration": "Oýnawaçlar gutarýança.",
+      "benefit": "Gaýtalanýan egilip-galmak aýak we bil myşsalaryny berkidýär; tertip endigini döredýär."
+    },
+    "1-2/24_ride_on": {
+      "title": "Tigirli maşynda aýak bilen iteklenmek",
+      "age": "15–24 aý",
+      "how": "Çagany pedalsyz, pes tigirli oýnawaja oturdyň; aýaklary ýere doly ýetmeli. Aýaklary bilen iteklenip öňe gitsin.",
+      "duration": "10 minut.",
+      "benefit": "Aýak güýjüni, bedeniň iki tarapynyň utgaşyklygyny we ugry dolandyrmagy ösdürýär."
+    },
+    "1-2/14_kick_ball": {
+      "title": "Topa depmek",
+      "age": "18–24 aý",
+      "how": "Ýeňil topy çaganyň aýagynyň öňüne goýuň we depmegi görkeziň. Ilki bir elinden tutup bilersiňiz.",
+      "duration": "8–10 depiş.",
+      "benefit": "Bir aýakda gysga deňagramlylygy we aýak bilen gözüň utgaşyklygyny ösdürýär."
+    },
+    "1-2/16_bubbles": {
+      "title": "Sabyn köpürjiklerini tutmak",
+      "age": "18–24 aý",
+      "how": "Sabyn köpürjiklerini üfläň. Çaga barmaklarynyň ujunda galyp, uzanyp, ylgap olary ýarsyn.",
+      "duration": "5–10 minut.",
+      "benefit": "Barmak ujunda durmagy, ýokaryk uzanmagy we göz bilen eliň utgaşyklygyny türgenleşdirýär."
+    },
+    "1-2/20_stairs_hand": {
+      "title": "Elinden tutup basgançakdan çykmak",
+      "age": "18–24 aý",
+      "how": "Çaga dik durup, bir eliňizden (ýa-da tutawaçdan) tutup basgançaklardan çyksyn. Her basgança ilki bir aýagyny, soňra beýlekisini goýmagy kadaly ýagdaýdyr.",
+      "duration": "2–3 gezek ýokaryk-aşak.",
+      "benefit": "Aýak güýjüni we bir aýakdaky deňagramlylygy artdyrýar.",
+      "caution": "Düşende elmydama çagadan bir basgançak aşakda duruň."
+    },
+    "1-2/21_jump": {
+      "title": "Ýerinde bökmek",
+      "age": "20–24 aý",
+      "how": "Bökmegi özüňiz görkeziň: dyzlary epiň we iki aýak bilen ýerden göteriliň. Ilki ellerinden tutup ýa-da pes ýassykdan bökdürip bilersiňiz.",
+      "duration": "5–8 böküş.",
+      "benefit": "Aýaklaryň partlaýjy güýjüni, süňkleri we koordinasiýany berkidýär.",
+      "caution": "Ýumşak ýüzde ediň; iki aýak bilen bökmek köplenç 2 ýaşa golaý başa barýar."
+    },
+    "1-2/22_run": {
+      "title": "Ylgamak",
+      "age": "18–24 aý",
+      "how": "Giň, päsgelçiliksiz ýerde “tut meni” oýnaň ýa-da çagany uzakdan çagyryň.",
+      "duration": "Gysga arakesmeler bilen 5–10 minut.",
+      "benefit": "Çydamlylygy, tizligi we ýürek-damar ulgamyny ösdürýär."
+    },
+    "1-2/23_balance_line": {
+      "title": "Çyzyk boýunça ýöremek",
+      "age": "20–24 aý",
+      "how": "Ýere giň reňkli lenta ýelmäň. Çaga bir eliňizden tutup, aýaklaryny lentanyň üstüne goýup ýöresin.",
+      "duration": "3–5 geçiş.",
+      "benefit": "Deňagramlylygy we dar direg üstünde ýöremegi ösdürýär."
+    },
+    "1-2/25_bear_walk": {
+      "title": "“Aýy ýöreýşi”",
+      "age": "18–24 aý",
+      "how": "Eller we aýaklar ýerde, dyzlar ýere degmän, otyrgyç ýokarda öňe gitmegi görkeziň. Bilelikde “aýy ýaly” ýöräň.",
+      "duration": "Otagyň ugruna 2–3 geçiş.",
+      "benefit": "Egin, el we göwre myşsalaryny berkidýär, koordinasiýany gowulandyrýar."
+    },
+    "1-2/26_reach_and_touch_toes": {
+      "title": "Ýokaryk uzan, barmaklaryňa degin",
+      "age": "18–24 aý",
+      "how": "Çaga bilen ýüzbe-ýüz duruň. Ilki barmak ujuňyzda galyp elleriňizi ýokaryk uzadyň, soňra egilip aýak barmaklaryňyza degiň. Aýdym bilen utgaşdyryň.",
+      "duration": "5–6 gaýtalama.",
+      "benefit": "Çeýeligi, deňagramlylygy we hereketlere öýkünmegi ösdürýär; beden agzalaryny öwredýär."
+    },
+    "1-2/27_slide": {
+      "title": "Pes typgyç",
+      "age": "18–24 aý",
+      "how": "Çaga pes typgyjyň başynda oturyp, aýaklary öňden typsyn. Elleriňiz bilen göwresinden tutuň, soňra goldawy azaldyň.",
+      "duration": "5–6 gezek.",
+      "benefit": "Dyrmaşmagy, oturandaky deňagramlylygy we batyrlygy ösdürýär.",
+      "caution": "Çagany gujagyňyzda alyp typmaň; aýagy ilişip şikes alyp biler."
+    },
+    "1-2/28_back_walk": {
+      "title": "Yzyna ýöremek",
+      "age": "18–24 aý",
+      "how": "Çaga arabajygy ýa-da ýüpli oýnawajy özüne tarap çekip, yzyna ädimlesin. Ilki ellerinden tutup, bilelikde yzyna ýöräň.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Deňagramlylygy, bedeni duýmagy we hereketiň ugruny üýtgetmegi öwredýär.",
+      "caution": "Yzynda päsgelçiligiň ýokdugyna göz ýetiriň."
+    },
+    "2-3/01_jump_forward": {
+      "title": "Iki aýak bilen öňe bökmek",
+      "age": "24–30 aý",
+      "how": "Ýere reňkli lenta ýelmäň. Çaga dyzlaryny epip, iki aýagyny bile goýup, lentanyň üstünden böksün. Ilki özüňiz görkeziň.",
+      "duration": "6–8 böküş.",
+      "benefit": "Aýak güýjüni, iki aýagyň bilelikdäki işini we ýere ýumşak düşmegi ösdürýär."
+    },
+    "2-3/02_jump_down": {
+      "title": "Pes basgançakdan bökmek",
+      "age": "24–30 aý",
+      "how": "Çaga 10–15 sm beýiklikdäki berk basgançakdan bir eliňizden tutup, ýumşak düşekçä böksün. Dyzlary epip düşmegi görkeziň.",
+      "duration": "5–6 gezek.",
+      "benefit": "Batyrlygy, aýak güýjüni we düşen pursatyndaky deňagramlylygy ösdürýär.",
+      "caution": "Beýikligi artdyrmaň; basgançak typmaly däl."
+    },
+    "2-3/03_one_leg_stand": {
+      "title": "Bir aýakda durmak",
+      "age": "30–36 aý",
+      "how": "“Leglek ýaly dur” diýiň. Çaga bir eliňizden tutup, bir aýagyny galdyrsyn we 2–3 sekunt dursun. Aýaklary çalşyň, soňra goldawsyz synap görüň.",
+      "duration": "Her aýak üçin 3–4 gezek.",
+      "benefit": "Deňagramlylygy we topuk myşsalaryny berkidýär."
+    },
+    "2-3/04_tiptoe_walk": {
+      "title": "Barmak ujunda ýöremek",
+      "age": "24–36 aý",
+      "how": "“Ýuwaşja pişik ýaly ýöräliň” diýiň we barmak ujuňyzda otagyň içinden geçiň.",
+      "duration": "2–3 geçiş.",
+      "benefit": "Baldyr myşsalaryny, aýak gübürjigini we deňagramlylygy berkidýär.",
+      "caution": "Çaga hemişe barmak ujunda ýöreýän bolsa, bu barada pediatra aýdyň."
+    },
+    "2-3/05_balance_beam": {
+      "title": "Tagtanyň üstünde ýöremek",
+      "age": "24–36 aý",
+      "how": "Ýere giň, pes tagta goýuň. Çaga bir eliňizden tutup, onuň üstünden ýöresin; başardygyça goldawy goýberiň.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Deňagramlylygy, ünsi we aýaklary bir çyzykda goýmagy ösdürýär."
+    },
+    "2-3/26_beanbag_on_head": {
+      "title": "Kellesinde haltajyk bilen ýöremek",
+      "age": "30–36 aý",
+      "how": "Çaganyň kellesine kiçijik mata haltajyk (tüwi ýa-da nohut bilen doldurylan) goýuň. Düşürmezlik üçin haýal we dik ýöresin.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Dogry duruşy, deňagramlylygy we ünsi ösdürýär."
+    },
+    "2-3/25_stepping_spots": {
+      "title": "Tegelekden tegelege bökmek",
+      "age": "30–36 aý",
+      "how": "Ýere reňkli tegelekler (rezin düşekçeler, kagyz, ýassyklar) düzüň. Çaga birinden beýlekisine böksün ýa-da uly ädim ätsin.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Bökmegiň takyklygyny, deňagramlylygy we hereketi meýilleşdirmegi ösdürýär.",
+      "caution": "Tegelekler typmaly däl."
+    },
+    "2-3/06_stairs_alternate": {
+      "title": "Basgançakdan aýak çalşyp çykmak",
+      "age": "30–36 aý",
+      "how": "Çaga tutawaçdan tutup, her basgança bir aýagyny goýup çyksyn. Düşende häzirlikçe her basgança iki aýagyny goýmagy kadalydyr.",
+      "duration": "2–3 gezek ýokaryk-aşak.",
+      "benefit": "Aýak güýjüni we bir aýakdaky deňagramlylygy artdyrýar.",
+      "caution": "Düşende çagadan bir basgançak aşakda duruň."
+    },
+    "2-3/14_marching": {
+      "title": "Marş ýöreýşi",
+      "age": "24–36 aý",
+      "how": "Saz goýuň we “parad” geçiriň: dyzlary beýik galdyryp, elleri yrap ýöräň. Arada “aýlan”, “bök”, “dur” ýaly buýruklar beriň.",
+      "duration": "5 minut.",
+      "benefit": "Koordinasiýany, ritm duýgusyny we görkezmä eýermegi ösdürýär."
+    },
+    "2-3/20_run_and_stop": {
+      "title": "Ylga we dur",
+      "age": "24–36 aý",
+      "how": "“Ýaşyl yşyk” diýeniňizde çaga ylgaýar, “gyzyl yşyk” diýeniňizde ýerinde doňup galýar. Çyzyk çekip, onuň öňünde durmagy hem tabşyryp bilersiňiz.",
+      "duration": "5–10 minut.",
+      "benefit": "Tizligi, saklanmagy, bedeni dolandyrmagy we ünsi ösdürýär."
+    },
+    "2-3/19_pull_wagon": {
+      "title": "Arabajygy çekmek",
+      "age": "24–36 aý",
+      "how": "Arabajyga oýnawaçlar ýükläň; çaga ony tutawajyndan tutup çeksin, öwrümlerden geçirsin.",
+      "duration": "5–10 minut.",
+      "benefit": "Göwre we aýak myşsalaryny berkidýär, ugry dolandyrmagy öwredýär."
+    },
+    "2-3/07_tricycle": {
+      "title": "Üç tigirli welosiped",
+      "age": "30–36 aý",
+      "how": "Çagany üç tigirli welosipede oturdyň, aýaklaryny pedallara goýuň. Pedallaryň hereketini duýar ýaly, ilki yzyndan ýeňil itekläň.",
+      "duration": "10–15 minut.",
+      "benefit": "Aýaklaryň nobatlaşýan işini, güýji we ruly dolandyrmagy ösdürýär.",
+      "caution": "Kaska geýdiriň; ýoldan uzakda, tekiz ýüzde sürüň."
+    },
+    "2-3/12_crawl_under": {
+      "title": "Stoluň aşagyndan emeklemek",
+      "age": "24–36 aý",
+      "how": "Pes stoldan, oturgyçdan ýa-da karton gutudan “tunel” guruň. Çaga kellesini egip, aşagyndan emekläp geçsin.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Egin we göwre güýjüni, öz bedeniniň ölçegini duýmagy ösdürýär."
+    },
+    "2-3/13_climbing_frame": {
+      "title": "Dyrmaşma merdiweni",
+      "age": "24–36 aý",
+      "how": "Pes dyrmaşma üçburçlugynda ýa-da oýun meýdançasynda çaga elleri bilen tutup, aýaklaryny basgançakma-basgançak goýup çyksyn. Elleriňiz onuň otyrgyjynyň yzynda taýýar bolsun.",
+      "duration": "4–5 gezek.",
+      "benefit": "Tutuş bedeniň güýjüni, tutuş güýjüni we batyrlygy ösdürýär.",
+      "caution": "Aşagynda ýumşak ýüz bolsun; çagany ýeke goýmaň."
+    },
+    "2-3/28_slide_alone": {
+      "title": "Typgyçdan özbaşdak typmak",
+      "age": "24–36 aý",
+      "how": "Çaga merdiwenden özi çykyp, oturyp, aýaklary öňden typsyn. Siz aşakda garaşyň.",
+      "duration": "6–8 gezek.",
+      "benefit": "Dyrmaşmagy, oturandaky deňagramlylygy we özbaşdaklygy ösdürýär.",
+      "caution": "Kellesi aşak ýa-da garnynyň üstünde typmaga rugsat bermäň."
+    },
+    "2-3/23_bar_hang": {
+      "title": "Turnikden asylmak",
+      "age": "30–36 aý",
+      "how": "Çaga pes turnikden (aýaklary ýerden birnäçe santimetr ýokarda) iki eli bilen tutup, 3–5 sekunt asylyp dursun. Elleriňiz bilen bilinden tutuň.",
+      "duration": "3–4 gezek.",
+      "benefit": "El we egin güýjüni, tutmagy berkidýär.",
+      "caution": "Çagany ellerinden tutup galdyrmaň we yrgyldatmaň; aşagynda düşekçe bolsun."
+    },
+    "2-3/08_throw_overhand": {
+      "title": "Topy ýokardan zyňmak",
+      "age": "24–36 aý",
+      "how": "1–2 metr aralykda duruň. Çaga kiçijik ýumşak topy egniniň üstünden size zyňsyn.",
+      "duration": "8–10 zyňyş.",
+      "benefit": "Zyňmak tehnikasyny, egin güýjüni we nyşana gönükdirmegi ösdürýär."
+    },
+    "2-3/09_catch_ball": {
+      "title": "Topy tutmak",
+      "age": "30–36 aý",
+      "how": "Iri, ýeňil topy 1 metr aralykdan haýallyk bilen çaganyň döşüne tarap zyňyň. Ellerini öňe uzadyp, topy döşüne gysyp tutsun.",
+      "duration": "8–10 gezek.",
+      "benefit": "Göz bilen eliň utgaşyklygyny we reaksiýany ösdürýär."
+    },
+    "2-3/10_kick_ball": {
+      "title": "Ylgap gelip topa depmek",
+      "age": "24–36 aý",
+      "how": "Iki konusdan ýa-da gutudan “derweze” ýasaň. Çaga topa bir-iki ädim ätip gelip depsin.",
+      "duration": "8–10 depiş.",
+      "benefit": "Bir aýakda deňagramlylygy, aýak bilen gözüň utgaşyklygyny we güýji ösdürýär."
+    },
+    "2-3/11_beanbag_toss": {
+      "title": "Haltajygy halka zyňmak",
+      "age": "24–36 aý",
+      "how": "Ýere halka ýa-da legen goýuň. Çaga 1 ädim aralykdan haltajyklary aşakdan zyňyp, içine salsyn; başardygyça aralygy artdyryň.",
+      "duration": "8–10 zyňyş.",
+      "benefit": "Nyşana takyk zyňmagy we güýji ölçemegi öwredýär."
+    },
+    "2-3/27_bowling": {
+      "title": "Öý boulingi",
+      "age": "24–36 aý",
+      "how": "6 sany boş plastik çüýşäni üçburçluk görnüşinde düzüň. Çaga çömelip, topy iki eli bilen togalap, olary ýyksyn.",
+      "duration": "5–6 tapgyr.",
+      "benefit": "Nyşana gönükdirmegi, çömelmek güýjüni we nobat garaşmagy ösdürýär."
+    },
+    "2-3/24_balloon": {
+      "title": "Şary howada saklamak",
+      "age": "24–36 aý",
+      "how": "Şary howa zyňyň. Çaga eli bilen urup, onuň ýere düşmegine ýol bermesin.",
+      "duration": "5–10 minut.",
+      "benefit": "Göz bilen eliň utgaşyklygyny, ýokaryk uzanmagy we reaksiýany ösdürýär.",
+      "caution": "Ýarylan şaryň böleklerini derrew ýygnaň (bokurdaga dykylma howpy)."
+    },
+    "2-3/16_head_shoulders": {
+      "title": "“Kelle, egin, dyz, barmak”",
+      "age": "24–36 aý",
+      "how": "Aýdym bilen nobatma-nobat elleri kellä, egne, dyzlara we aýak barmaklaryna degiriň. Kem-kemden tizligi artdyryň.",
+      "duration": "3–4 gezek.",
+      "benefit": "Çeýeligi, koordinasiýany we beden agzalaryny tanamagy ösdürýär."
+    },
+    "2-3/15_spin": {
+      "title": "Aýlanmak",
+      "age": "24–36 aý",
+      "how": "Çaga ellerini gapdala açyp, ýerinde haýal-haýal aýlansyn; soňra ters tarapa.",
+      "duration": "Her tarapa 2–3 aýlaw.",
+      "benefit": "Deňagramlylyk (westibulýar) ulgamyny we bedeni dolandyrmagy ösdürýär.",
+      "caution": "Töwerekde päsgelçilik bolmasyn; kellesi aýlananda saklansyn."
+    },
+    "2-3/17_frog_jump": {
+      "title": "“Gurbaga” böküşi",
+      "age": "30–36 aý",
+      "how": "Çaga çuňňur çömelip, ellerini dyzlarynyň arasynda ýere goýsun, soňra gurbaga ýaly öňe böksün.",
+      "duration": "5–6 böküş.",
+      "benefit": "Aýak we otyrgyç myşsalarynyň güýjüni, uýluk bogunlarynyň hereketliligini artdyrýar."
+    },
+    "2-3/18_wheelbarrow": {
+      "title": "“El arabasy”",
+      "age": "30–36 aý",
+      "how": "Çaga ellerini ýere goýýar. Siz ony butlaryndan (dyzdan ýokarda) tutup, aýaklaryny galdyryň; elleri bilen birnäçe “ädim” ätsin.",
+      "duration": "3–5 ädim, 2–3 gezek.",
+      "benefit": "El, egin we göwre myşsalaryny berkidýär.",
+      "caution": "Topukdan däl, butdan tutuň; bili çökýän bolsa ýa-da ýadasa, bes ediň."
+    },
+    "2-3/21_log_roll": {
+      "title": "“Oklaw” ýaly togalanmak",
+      "age": "24–36 aý",
+      "how": "Çaga düşekçäniň üstünde göni ýatyp, ellerini kellesiniň üstüne uzatsyn we gapdalyna togalansyn; soňra ters tarapa.",
+      "duration": "Her tarapa 3–4 aýlaw.",
+      "benefit": "Göwre myşsalaryny, bedeni duýmagy we deňagramlylyk ulgamyny ösdürýär."
+    },
+    "2-3/22_butterfly_stretch": {
+      "title": "“Kebelek” süýnmesi",
+      "age": "24–36 aý",
+      "how": "Çaga oturyp, aýak aýalaryny biri-birine birikdirsin, elleri bilen aýaklaryny tutsun we dyzlaryny “ganat” ýaly ýeňil ýokaryk-aşak hereketlendirsin.",
+      "duration": "20–30 sekunt.",
+      "benefit": "Uýluk bogunlarynyň çeýeligini artdyrýar, maşkdan soň köşeşdirýär.",
+      "caution": "Dyzlara el bilen basyş etmäň."
+    },
+    "3-4/01_hop_one_foot": {
+      "title": "Bir aýakda bökmek",
+      "age": "3,5–4 ýaş",
+      "how": "Çaga bir aýagyny yzyna epip, beýleki aýagynda ýerinde ýa-da öňe böksün. Ilki elinden tutuň. Aýaklary çalşyň.",
+      "duration": "Her aýak bilen 3–5 böküş.",
+      "benefit": "Aýak güýjüni, deňagramlylygy we koordinasiýany ösdürýär."
+    },
+    "3-4/02_long_jump": {
+      "title": "Ýerinden uzaklyga bökmek",
+      "age": "3–4 ýaş",
+      "how": "Ýere çyzyk çekiň. Çaga dyzlaryny epip, ellerini yrap, iki aýak bilen mümkin boldugyça uzaga böksün. Düşen ýerini bellik edip, “rekordy” täzeläň.",
+      "duration": "5–6 synanyşyk.",
+      "benefit": "Aýaklaryň partlaýjy güýjüni we el bilen aýagyň utgaşyklygyny artdyrýar."
+    },
+    "3-4/03_jump_over_hurdle": {
+      "title": "Päsgelçiligiň üstünden bökmek",
+      "age": "3–4 ýaş",
+      "how": "10–15 sm beýiklikde ýumşak päsgelçilik (köpük taýajyk, togalanan süpürgiç) goýuň. Çaga iki aýak bilen onuň üstünden böküp geçsin.",
+      "duration": "6–8 gezek.",
+      "benefit": "Böküş beýikligini, batyrlygy we ýumşak düşmegi ösdürýär.",
+      "caution": "Päsgelçilik aýak ilişende aňsat ýykylýan bolmaly."
+    },
+    "3-4/04_hopscotch": {
+      "title": "“Klassiki” oýny",
+      "age": "3,5–4 ýaş",
+      "how": "Hek bilen ýere öýjükler çekiň: bir öýjük, soňra gapdal-gapdala iki öýjük. Çaga ýeke öýjüge bir aýak bilen, goşa öýjüge iki aýak bilen böksün. Ilki hemmesini iki aýak bilen edip biler.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Deňagramlylygy, ritmi we aýak çalyşmagy öwredýär."
+    },
+    "3-4/26_hoop_jumps": {
+      "title": "Halkadan halka bökmek",
+      "age": "3–4 ýaş",
+      "how": "Ýere 3–5 halka düzüň. Çaga iki aýak bilen birinden beýlekisine böksün.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Yzygiderli bökmegi, takyklygy we çydamlylygy ösdürýär."
+    },
+    "3-4/19_leap_river": {
+      "title": "“Derýanyň” üstünden bökmek",
+      "age": "3–4 ýaş",
+      "how": "Ýere gök mata ýa-da iki ýüp goýup, “derýa” ýasaň. Çaga ylgap gelip, bir aýak bilen iteklenip, beýleki aýagyna düşüp, onuň üstünden böksün. “Derýany” kem-kemden giňeldiň.",
+      "duration": "6–8 gezek.",
+      "benefit": "Uly ädim bilen bökmegi, güýji we aralygy çaklamagy ösdürýär."
+    },
+    "3-4/25_star_jump": {
+      "title": "“Ýyldyz” böküşi",
+      "age": "3,5–4 ýaş",
+      "how": "Çaga böküp, howada ellerini we aýaklaryny gapdala açsyn (“ýyldyz”), soňra aýaklaryny jemläp düşsün.",
+      "duration": "5–8 gezek.",
+      "benefit": "Elleriň we aýaklaryň bir wagtda işlemegini we çydamlylygy ösdürýär."
+    },
+    "3-4/05_gallop": {
+      "title": "“At çapmak”",
+      "age": "3–4 ýaş",
+      "how": "Bir aýak hemişe öňde, beýlekisi onuň yzyndan: “at ýaly çapalyň”. Soňra öňdäki aýagy çalşyň.",
+      "duration": "Otagyň ugruna 3–4 geçiş.",
+      "benefit": "Ritmi, koordinasiýany we çydamlylygy ösdürýär."
+    },
+    "3-4/06_tree_balance": {
+      "title": "“Agaç” duruşy",
+      "age": "3–4 ýaş",
+      "how": "Çaga bir aýagynyň aýasyny beýleki aýagynyň baldyryna söýesin, ellerini gapdala açsyn we 3–5 sekunt dursun. Aýaklary çalşyň.",
+      "duration": "Her aýak üçin 3 gezek.",
+      "benefit": "Deňagramlylygy, ünsi we topuk myşsalaryny berkidýär."
+    },
+    "3-4/07_heel_toe_line": {
+      "title": "Çyzyk boýunça ökjeden barmaga ýöremek",
+      "age": "3,5–4 ýaş",
+      "how": "Ýere lenta ýelmäň. Çaga öňdäki aýagynyň ökjesini yzdaky aýagynyň barmaklaryna degirip-degirip, lentanyň üstünden ýöresin.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Inçe deňagramlylygy we bedeni dolandyrmagy ösdürýär."
+    },
+    "3-4/08_balance_beam": {
+      "title": "Deňagramlylyk agajy",
+      "age": "3–4 ýaş",
+      "how": "Çaga ýerden 10 sm beýiklikdäki giň agajyň üstünden ellerini açyp, özbaşdak ýöresin. Ýanynda ýöräň.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Deňagramlylygy, batyrlygy we ünsi ösdürýär.",
+      "caution": "Aşagynda ýumşak düşekçe bolsun."
+    },
+    "3-4/09_stairs_down": {
+      "title": "Basgançakdan aýak çalşyp düşmek",
+      "age": "3,5–4 ýaş",
+      "how": "Çaga tutawaçdan tutup, her basgança bir aýagyny goýup düşsün.",
+      "duration": "2–3 gezek.",
+      "benefit": "Aýak güýjüni, deňagramlylygy we dolandyrylýan düşüşi ösdürýär.",
+      "caution": "Siz bir basgançak aşakda duruň."
+    },
+    "3-4/10_scooter": {
+      "title": "Samokat",
+      "age": "3–4 ýaş",
+      "how": "Üç tigirli samokatda çaga bir aýagyny platforma goýup, beýlekisi bilen ýerden iteklensin. Aýaklary çalyşmagy öwrediň.",
+      "duration": "10–15 minut.",
+      "benefit": "Deňagramlylygy, aýak güýjüni we ugry dolandyrmagy ösdürýär.",
+      "caution": "Kaska we ýapyk aýakgap hökmany; ýoldan uzakda, tekiz ýüzde sürüň."
+    },
+    "3-4/11_balance_bike": {
+      "title": "Deňagramlylyk welosipedi",
+      "age": "3–4 ýaş",
+      "how": "Pedalsyz welosipedde çaga oturyp, aýaklary bilen ýerden iteklenip gitsin. Tizlik alanda aýaklaryny galdyryp, deňagramlylygy saklamaga synanyşsyn.",
+      "duration": "10–15 minut.",
+      "benefit": "Deňagramlylygy ösdürýär, pedally welosipede geçmegi ýeňilleşdirýär.",
+      "caution": "Kaska we ýapyk aýakgap hökmany; oturgyç aýaklar ýere doly ýeter ýaly bolsun."
+    },
+    "3-4/17_tag": {
+      "title": "Tutdumaç",
+      "age": "3–4 ýaş",
+      "how": "Çagany kowalap, oňa ýeňil degiň; soňra ol sizi kowalasyn. Ugry ýygy-ýygydan üýtgediň.",
+      "duration": "Arakesmeler bilen 5–10 minut.",
+      "benefit": "Tizligi, çalasynlygy, çydamlylygy we reaksiýany ösdürýär."
+    },
+    "3-4/12_catch_bounce": {
+      "title": "Ýerden serpilen topy tutmak",
+      "age": "3–4 ýaş",
+      "how": "Topy çaganyň öňünde ýere uruň, bir gezek serpilip, onuň eline gelsin. Çaga ony iki eli bilen tutsun.",
+      "duration": "8–10 gezek.",
+      "benefit": "Göz bilen eliň utgaşyklygyny we topuň hereketini öňünden çaklamagy ösdürýär."
+    },
+    "3-4/13_target_throw": {
+      "title": "Nyşana zyňmak",
+      "age": "3–4 ýaş",
+      "how": "Diwara ýa-da diregä reňkli tegelek görnüşli nyşana asyň. Çaga 1,5–2 metrden ýumşak topy nyşana zyňsyn.",
+      "duration": "8–10 zyňyş.",
+      "benefit": "Zyňmagyň takyklygyny, egin güýjüni we ünsi ösdürýär."
+    },
+    "3-4/14_dribble_cones": {
+      "title": "Topy konuslaryň arasyndan alyp geçmek",
+      "age": "3,5–4 ýaş",
+      "how": "3–4 konusy (ýa-da çüýşäni) bir hatara düzüň. Çaga topy aýagy bilen ýeňil urup, olaryň arasyndan ýylan ýaly alyp geçsin.",
+      "duration": "3–4 geçiş.",
+      "benefit": "Aýak bilen gözüň utgaşyklygyny, topy dolandyrmagy we ugry üýtgetmegi ösdürýär."
+    },
+    "3-4/15_bounce_catch": {
+      "title": "Topy ýere urup tutmak",
+      "age": "3,5–4 ýaş",
+      "how": "Çaga orta ölçegli topy iki eli bilen ýere ursun we serpilende tutsun.",
+      "duration": "8–10 gezek.",
+      "benefit": "Eliň güýjüni ölçemegi, ritmi we göz bilen eliň utgaşyklygyny ösdürýär."
+    },
+    "3-4/16_balloon_paddle": {
+      "title": "Tarelka bilen şar oýny",
+      "age": "3–4 ýaş",
+      "how": "Çaga kagyz tarelkany raketka ýaly tutup, şary ýokaryk ursun we ýere düşürmesin. Soňra biri-biriňize geçiriň.",
+      "duration": "5–10 minut.",
+      "benefit": "Gural bilen urmak endigini, göz bilen eliň utgaşyklygyny we reaksiýany ösdürýär.",
+      "caution": "Ýarylan şaryň böleklerini derrew ýygnaň."
+    },
+    "3-4/20_forward_roll": {
+      "title": "Kömek bilen öňe togalanmak",
+      "age": "3,5–4 ýaş",
+      "how": "Galyň düşekçede çaga çömelip, ellerini ýere goýsun, eňegini döşüne gysyp, otyrgyjyny galdyrsyn. Bir eliňiz bilen boýnunyň yz tarapyny goraň, beýlekisi bilen otyrgyjyndan ýeňil agdaryň, arkasynyň üstünde togalansyn.",
+      "duration": "3–4 gezek.",
+      "benefit": "Bedeni duýmagy, batyrlygy we göwre myşsalaryny ösdürýär.",
+      "caution": "Agram kelläniň depesine düşmeli däl; eňek elmydama döşde bolsun. Diňe ýumşak düşekçede we kömek bilen."
+    },
+    "3-4/21_crab_walk": {
+      "title": "“Leňňeç” ýöreýşi",
+      "age": "3,5–4 ýaş",
+      "how": "Çaga oturyp, ellerini yzynda, aýaklaryny öňünde ýere goýsun, otyrgyjyny galdyrsyn we şu ýagdaýda öňe-yza hereket etsin.",
+      "duration": "2–3 gysga geçiş.",
+      "benefit": "El, egin, otyrgyç we göwre myşsalaryny berkidýär."
+    },
+    "3-4/22_bridge": {
+      "title": "“Köpri”",
+      "age": "3–4 ýaş",
+      "how": "Çaga arkan ýatyp, dyzlaryny epsin, aýaklaryny ýere bassyn we otyrgyjyny ýokaryk galdyryp, 3–5 sekunt saklasyn. Aşagyndan oýnawaç maşyn geçirip bilersiňiz.",
+      "duration": "5–6 gaýtalama.",
+      "benefit": "Otyrgyç, bil we butuň yz myşsalaryny berkidýär."
+    },
+    "3-4/23_superman": {
+      "title": "“Supermen”",
+      "age": "3–4 ýaş",
+      "how": "Çaga garnynyň üstünde ýatyp, ellerini öňe uzatsyn, soňra ellerini we aýaklaryny bir wagtda ýerden azajyk galdyryp, 3 sekunt “uçsun”.",
+      "duration": "4–5 gaýtalama.",
+      "benefit": "Arka myşsalaryny berkidýär, dogry duruşy goldaýar."
+    },
+    "3-4/24_downward_dog": {
+      "title": "“Aşak seredýän it” duruşy",
+      "age": "3–4 ýaş",
+      "how": "Çaga ellerini we aýaklaryny ýere goýup, otyrgyjyny ýokaryk galdyrsyn (“dag” ýa-da “güjük ýaly gerneliň”). 5 sekunt saklasyn.",
+      "duration": "3–4 gaýtalama.",
+      "benefit": "Elleri we egni berkidýär, aýaklaryň yz myşsalaryny süýndürýär."
+    },
+    "3-4/27_tug_of_war": {
+      "title": "Ýüp dartyşmak",
+      "age": "3–4 ýaş",
+      "how": "Ýumşak ýüpüň bir ujundan çaga, beýleki ujundan siz tutuň. Çaga dyzlaryny epip, yzyna ýaýkanyp dartsyn; güýjüňizi onuň güýjüne laýyklaşdyryň.",
+      "duration": "3–4 tapgyr.",
+      "benefit": "El, arka, göwre we aýak myşsalaryny berkidýär.",
+      "caution": "Ýüpi duýdansyz goýbermäň we ele saramaň."
+    },
+    "3-4/18_clap_and_stomp": {
+      "title": "El çarp, aýak depgile",
+      "age": "3–4 ýaş",
+      "how": "Aýdym bilen hereket ediň: “begenýän bolsaň, el çarp”, “aýagyňy ýere depgile”, “aýlan”, “bök”. Hereketleri nobatma-nobat çalşyň.",
+      "duration": "5 minut.",
+      "benefit": "Ritm duýgusyny, görkezmä eýermegi we koordinasiýany ösdürýär."
+    },
+    "3-4/28_ribbon_circles": {
+      "title": "Lenta bilen tegelekler",
+      "age": "3–4 ýaş",
+      "how": "Taýajyga daňlan uzyn lentany çaga elinde tutup, howada uly tegelekler, tolkunlar we “sekizlikler” çeksin. Elleri çalşyň.",
+      "duration": "3–5 minut.",
+      "benefit": "Egniň hereketliligini, bilegi dolandyrmagy we bedeniň iki tarapynyň utgaşyklygyny ösdürýär."
+    },
+    "4-5/01_skipping": {
+      "title": "Bökjekläp ýöremek",
+      "age": "4,5–5 ýaş",
+      "how": "“Ädim at, bök” ritmini görkeziň: bir aýak bilen ädim ätip, şol aýakda böküň, soňra beýleki aýak bilen. Elden-ele tutuşyp, bilelikde ediň.",
+      "duration": "Otagyň ýa-da howlynyň ugruna 3–4 geçiş.",
+      "benefit": "Ritmi, bedeniň iki tarapynyň nobatlaşýan işini we koordinasiýany ösdürýär."
+    },
+    "4-5/02_jump_rope": {
+      "title": "Ýüp bilen bökmek",
+      "age": "4,5–5 ýaş",
+      "how": "Ilki ýerde ýatan ýüpüň üstünden bökmegi, soňra ýüpi kelläniň üstünden öňe aýlap, üstünden ätlemegi öwrediň. Yzygiderli bökmek kem-kemden başa barýar.",
+      "duration": "5–10 synanyşyk.",
+      "benefit": "Ritmi, el bilen aýagyň utgaşyklygyny we çydamlylygy ösdürýär.",
+      "caution": "Ýüpüň uzynlygy çaga laýyk bolsun (ortasyna basyp duranda tutawaçlary goltugyna ýetmeli)."
+    },
+    "4-5/03_side_jumps": {
+      "title": "Çyzygyň üstünden gapdala bökmek",
+      "age": "4–5 ýaş",
+      "how": "Ýere lenta ýelmäň. Çaga iki aýagyny bile goýup, lentanyň bir tarapyndan beýleki tarapyna yzly-yzyna böksün.",
+      "duration": "8–10 böküş.",
+      "benefit": "Gapdala çalasynlygy, topuk güýjüni we ritmi ösdürýär."
+    },
+    "4-5/04_hop_through_hoops": {
+      "title": "Halkalardan bir aýakda bökmek",
+      "age": "4–5 ýaş",
+      "how": "4–5 halkany bir hatara düzüň. Çaga bir aýakda halkadan halka böksün; yzyna gaýdanda aýagyny çalşyp böksün.",
+      "duration": "Her aýak bilen 2–3 geçiş.",
+      "benefit": "Bir aýakdaky güýji, deňagramlylygy we takyklygy ösdürýär."
+    },
+    "4-5/05_jump_from_box": {
+      "title": "Gutudan böküp, ýumşak düşmek",
+      "age": "4–5 ýaş",
+      "how": "Çaga dyz beýikligindäki berk gutudan galyň düşekçä böksün we dyzlaryny epip, iki aýagynyň üstüne “ýuwaşja” düşsün. Eller öňde.",
+      "duration": "5–6 gezek.",
+      "benefit": "Dogry düşmek tehnikasyny, aýak güýjüni we batyrlygy ösdürýär.",
+      "caution": "Guty typmaly däl; beýikligi artdyrmaň."
+    },
+    "4-5/06_bicycle": {
+      "title": "Goşmaça tigirli welosiped",
+      "age": "4–5 ýaş",
+      "how": "Çaga pedallary aýlap sürsün, öwrümleri we tormozlamagy öwrensin. Deňagramlylygy gowulaşanda goşmaça tigirleri aýyryp bolar.",
+      "duration": "15–20 minut.",
+      "benefit": "Aýak güýjüni, çydamlylygy, deňagramlylygy we ýoly duýmagy ösdürýär.",
+      "caution": "Kaska we ýapyk aýakgap hökmany; ýoldan uzakda, tekiz ýüzde sürüň."
+    },
+    "4-5/07_shuttle_run": {
+      "title": "Mekik ylgaýşy",
+      "age": "4–5 ýaş",
+      "how": "4–5 metr aralyga bedre we birnäçe haltajyk goýuň. Çaga ylgap baryp bir haltajyk alsyn, yzyna ylgap gelip bedrä zyňsyn we hemmesi gutarýança dowam etsin.",
+      "duration": "2–3 tapgyr.",
+      "benefit": "Tizligi, ugry çalt üýtgetmegi, egilip-galmagy we çydamlylygy ösdürýär."
+    },
+    "4-5/08_freeze_statue": {
+      "title": "“Doň” oýny",
+      "age": "4–5 ýaş",
+      "how": "Saz çalynýarka çaga tans edýär ýa-da ylgaýar; saz duranda heýkel ýaly doňup galýar we gymyldamazlyga çalyşýar.",
+      "duration": "5–10 minut.",
+      "benefit": "Bedeni dolandyrmagy, deňagramlylygy, ünsi we özüňi saklamagy ösdürýär."
+    },
+    "4-5/09_hokey_pokey": {
+      "title": "“Aýagyň içerik, aýagyň daşaryk”",
+      "age": "4–5 ýaş",
+      "how": "Ýere halka goýuň. Aýdym bilen çaga nobatma-nobat bir aýagyny, elini, kellesini halkanyň içine uzadyp çykarsyn, soňra aýlansyn.",
+      "duration": "5 minut.",
+      "benefit": "Bir aýakda deňagramlylygy, sag-çep düşünjesini we görkezmä eýermegi ösdürýär."
+    },
+    "4-5/10_catch_small_ball": {
+      "title": "Kiçi topy el bilen tutmak",
+      "age": "4–5 ýaş",
+      "how": "1,5–2 metrden kiçijik ýumşak topy haýallyk bilen zyňyň. Çaga ony döşüne gysman, diňe elleri bilen tutsun.",
+      "duration": "10 gezek.",
+      "benefit": "Göz bilen eliň utgaşyklygyny we barmaklaryň çalasynlygyny ösdürýär."
+    },
+    "4-5/11_toss_and_catch": {
+      "title": "Ýokaryk zyňyp tutmak",
+      "age": "4–5 ýaş",
+      "how": "Çaga haltajygy ýa-da ýumşak topy özi ýokaryk zyňsyn we iki eli bilen tutsun. Soňra arada bir gezek el çarpmagy goşuň.",
+      "duration": "10 gezek.",
+      "benefit": "Güýji ölçemegi, yzarlamagy we reaksiýany ösdürýär."
+    },
+    "4-5/12_hand_dribble": {
+      "title": "Topy el bilen ýere urmak",
+      "age": "4,5–5 ýaş",
+      "how": "Çaga dyzlaryny azajyk epip, topy bir eli bilen yzly-yzyna ýere ursun. Ilki 2–3 gezek, soňra has köp. Elleri çalşyň.",
+      "duration": "Her el bilen 3–4 synanyşyk.",
+      "benefit": "Ritmi, eliň güýjüni dolandyrmagy we göz bilen eliň utgaşyklygyny ösdürýär."
+    },
+    "4-5/13_goal_shot": {
+      "title": "Derwezä depmek",
+      "age": "4–5 ýaş",
+      "how": "Kiçi derweze guruň (ýa-da iki zat goýuň). Çaga 2–3 metrden topy derwezä depsin; soňra togalanyp gelýän topa depmegi synap görüň.",
+      "duration": "10 depiş.",
+      "benefit": "Aýak bilen gözüň utgaşyklygyny, deňagramlylygy we depişiň takyklygyny ösdürýär."
+    },
+    "4-5/14_tee_ball": {
+      "title": "Diregdäki topa taýak bilen urmak",
+      "age": "4–5 ýaş",
+      "how": "Ýumşak topy pes diregiň üstüne goýuň. Çaga gapdal durup, ýeňil plastik taýagy iki eli bilen tutup, topa ursun.",
+      "duration": "8–10 urgy.",
+      "benefit": "Göwräniň towlanmagyny, göz bilen eliň utgaşyklygyny we gural bilen urmak endigini ösdürýär.",
+      "caution": "Töwerekde başga çaga bolmasyn; diňe ýumşak top we plastik taýak."
+    },
+    "4-5/15_basketball_hoop": {
+      "title": "Topy sebede taşlamak",
+      "age": "4–5 ýaş",
+      "how": "Çaga boýundan azajyk beýik sebede ýeňil topy iki eli bilen zyňsyn. Başardygyça bir ädim yza çekilsin.",
+      "duration": "10 zyňyş.",
+      "benefit": "Ýokaryk zyňmak güýjüni, takyklygy we aýak bilen eliň utgaşyklygyny ösdürýär."
+    },
+    "4-5/16_ring_toss": {
+      "title": "Halka zyňmak",
+      "age": "4–5 ýaş",
+      "how": "Çaga 1–1,5 metrden halkalary dik taýajyga geçirmäge synanyşsyn.",
+      "duration": "2–3 tapgyr.",
+      "benefit": "Inçe takyklygy, bilegi dolandyrmagy we sabyrlylygy ösdürýär."
+    },
+    "4-5/17_airplane_balance": {
+      "title": "“Uçar” duruşy",
+      "age": "4–5 ýaş",
+      "how": "Çaga bir aýakda durup, göwresini öňe egsin, beýleki aýagyny yza uzatsyn, ellerini ganat ýaly açsyn. 3–5 sekunt saklasyn we aýagyny çalşyp gaýtalasyn.",
+      "duration": "Her aýak üçin 3 gezek.",
+      "benefit": "Deňagramlylygy, göwre we otyrgyç myşsalaryny berkidýär."
+    },
+    "4-5/18_beam_step_over": {
+      "title": "Agajyň üstünde päsgelçilikden ätlemek",
+      "age": "4–5 ýaş",
+      "how": "Pes deňagramlylyk agajynyň üstüne haltajyk goýuň. Çaga agajyň üstünden ýöräp, haltajygyň üstünden ätlesin.",
+      "duration": "4–5 geçiş.",
+      "benefit": "Hereketdäki deňagramlylygy, ünsi we aýagy beýik galdyrmagy ösdürýär.",
+      "caution": "Aşagynda ýumşak düşekçe bolsun, ýanynda ýöräň."
+    },
+    "4-5/19_stork_stand": {
+      "title": "“Leglek” duruşy",
+      "age": "4–5 ýaş",
+      "how": "Çaga ellerini biline goýup, bir aýakda dursun, beýleki aýagyny dyzynyň öňüne galdyrsyn. 8–10 sekunda çenli sanamaga synanyşyň.",
+      "duration": "Her aýak üçin 2–3 gezek.",
+      "benefit": "Statik deňagramlylygy we ünsi ösdürýär."
+    },
+    "4-5/28_hula_hoop": {
+      "title": "Halkany bilde aýlamak",
+      "age": "4,5–5 ýaş",
+      "how": "Çaga halkany biline söýäp aýlasyn we bilini öňe-yza hereketlendirip, ony saklamaga synanyşsyn. Ilki birnäçe aýlaw ýeterlik.",
+      "duration": "5 minut.",
+      "benefit": "Göwre myşsalaryny, ritmi we koordinasiýany ösdürýär."
+    },
+    "4-5/20_forward_roll": {
+      "title": "Özbaşdak öňe togalanmak",
+      "age": "4–5 ýaş",
+      "how": "Galyň düşekçede çaga çömelip, ellerini ýere goýsun, eňegini döşüne gysyp, aýaklary bilen iteklenip, tegelek arkasynyň üstünde togalansyn we çömelen ýagdaýda galsyn.",
+      "duration": "3–5 gezek.",
+      "benefit": "Bedeni duýmagy, çalasynlygy we göwre myşsalaryny ösdürýär.",
+      "caution": "Agram kelläniň depesine düşmeli däl; eňek elmydama döşde. Ilki kömek bilen öwrediň."
+    },
+    "4-5/21_plank": {
+      "title": "Planka",
+      "age": "4–5 ýaş",
+      "how": "Çaga tirseklerine we aýak barmaklaryna daýanyp dursun, bedeni kelleden ökjä çenli göni çyzyk bolsun. 5–10 sekunt saklasyn.",
+      "duration": "2–3 gezek.",
+      "benefit": "Garyn, arka we egin myşsalaryny berkidýär.",
+      "caution": "Bili aşak çöken badyna bes etsin."
+    },
+    "4-5/22_chair_squat": {
+      "title": "“Görünmeýän oturgyç” çömelmesi",
+      "age": "4–5 ýaş",
+      "how": "Çaga aýaklaryny egin giňliginde açyp, ellerini öňe uzadyp, oturgyja oturýan ýaly çömelsin we galsyn. Ökjeler ýerde galsyn.",
+      "duration": "6–8 gaýtalama.",
+      "benefit": "Aýak we otyrgyç myşsalaryny berkidýär."
+    },
+    "4-5/23_boat_pose": {
+      "title": "“Gaýyk” duruşy",
+      "age": "4–5 ýaş",
+      "how": "Çaga oturyp, azajyk yza ýaýkansyn, dyzlaryny epip, aýaklaryny ýerden galdyrsyn, ellerini öňe uzatsyn. 5 sekunt deňagramlylygy saklasyn.",
+      "duration": "3–4 gaýtalama.",
+      "benefit": "Garyn myşsalaryny we deňagramlylygy berkidýär."
+    },
+    "4-5/24_cobra": {
+      "title": "“Kobra” süýnmesi",
+      "age": "4–5 ýaş",
+      "how": "Çaga garnynyň üstünde ýatyp, ellerini egniniň aşagyna goýsun we döşüni ýokaryk galdyrsyn; uýlugy ýerde galsyn. 5 sekunt saklasyn.",
+      "duration": "3–4 gaýtalama.",
+      "benefit": "Arka myşsalaryny berkidýär, garny we döşi süýndürýär.",
+      "caution": "Bili zor bilen egmäň."
+    },
+    "4-5/25_straddle_reach": {
+      "title": "Aýaklary aralap oturyp öňe uzanmak",
+      "age": "4–5 ýaş",
+      "how": "Çaga aýaklaryny giň açyp otursyn we ellerini ýer bilen öňe süýşürip uzansyn. 10 sekunt yrgyldaman saklasyn.",
+      "duration": "3 gaýtalama.",
+      "benefit": "Butuň iç we yz myşsalarynyň çeýeligini artdyrýar."
+    },
+    "4-5/26_monkey_bars": {
+      "title": "Keseligine merdiwende asylyp öňe gitmek",
+      "age": "4,5–5 ýaş",
+      "how": "Çaga pes keseligine merdiwenden asylyp, ellerini nobatma-nobat indiki taýaga geçirsin. Bilinden tutup, agramynyň bir bölegini özüňize alyň.",
+      "duration": "2–3 synanyşyk.",
+      "benefit": "Eliň, goluň we egniň güýjüni, tutmagy ösdürýär.",
+      "caution": "Aşagynda ýumşak ýüz bolsun; elleri öl bolmasyn."
+    },
+    "4-5/27_climbing_net": {
+      "title": "Ýüp tora dyrmaşmak",
+      "age": "4–5 ýaş",
+      "how": "Oýun meýdançasynda ýa-da öýde pes toruň üstünde çaga elleri bilen ýokardan tutup, aýaklaryny nobatma-nobat goýup dyrmaşsyn we şol ýol bilen düşsün.",
+      "duration": "3–4 gezek.",
+      "benefit": "Tutuş bedeniň güýjüni, koordinasiýany we batyrlygy ösdürýär.",
+      "caution": "Aşagynda ýumşak ýüz bolsun; ýanynda duruň."
+    }
+  }
+}

@@ -12,7 +12,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 |---|---|---|---|---|
 | `homeNotificationCountProvider` | `features/home/home_inputs.dart` | 0 | bell is disabled in React; settings' notifications query when re-enabled | 3 |
 | `ShellOverlayId.blogArticle` registration | `shell/feature_registry.dart` | placeholder | blog feature | 7 |
-| `chatGroupScreenProvider`, `chatGroupsProvider` (own group list query), `communityGroupsPanelProvider` | `features/chat/`, `features/community/community_slots.dart` | placeholder / chat-owned query | community groups (`social.groups`) | 5 |
 | `chatAudioRecorderProvider` | `features/chat/` | unsupported (voice recording off; playback via video_player) | `record` package + mic permissions | 9 |
 | `chatIncomingNotifierProvider`, `chatPushSenderProvider` | `features/chat/` | no-op / direct `send-push-notification` | foreground notifications service, `svc.push` | 9 |
 | `aiAnswerCardProvider` | `features/ai_chat/ai_chat_inputs.dart` | null (no card under answers) | weaning / parenting tools | 4 |
@@ -34,10 +33,12 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `photoGalleryViewerProvider` | `features/tools/photoshoot/photo_gallery_viewer.dart` | stand-in viewer | `overlay.photo-gallery` port | 3 |
 | `healthMoodPartnerNotifierProvider` | `features/tools/health_common/health_common.dart` | no-op | partner `notifyMoodUpdate` | 6 |
 | `healthAdSlotsProvider` (`recipes_banner`, inline anchor, `recipe_exit_interstitial`) | `features/tools/health_common/health_common.dart` | nothing; leaving a recipe goes back at once | ads | 9 |
-| `communityStoriesBarProvider`, `communityProfileStoriesProvider` (+ read `moderationOverlayOpenProvider` to pause) | `features/community/community_slots.dart` | nothing / empty "Aktiv hekayə yoxdur" card | community stories (`social.stories-*`) | 5 |
 | `communityBannerProvider` | `features/community/community_slots.dart` | nothing | banners | 9 |
 | `communityPostCreatedTrackerProvider` | `features/community/` | no-op | Customer.io post-created event | 9 |
 | `communityImageCodecProvider` | `features/community/data/community_media.dart` | uploads the picker-scaled original | JPEG/WebP encoder | 9 |
+| `playOpenBookStoreProvider` / `pendingBookOpenProvider` | `features/tools/play_together/play_together_tool.dart` | stores the book id and opens `ScreenId.books` | books screen calls `ref.read(pendingBookOpenProvider).take()` on mount (React `anacan_books_open_v1`) | 7 |
+| `storyAdBreaksProvider` | `features/community_stories/data/story_ads.dart` | never shows a story ad break | ads (native story ad) | 9 |
+| `storyImageEncoderProvider` | `features/community_stories/export/story_export.dart` | PNG (React: JPEG q 0.93–0.94) | JPEG encoder package | 9 |
 | Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |
@@ -58,7 +59,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `recapAudioFactoryProvider` | `features/recap/recap_audio.dart` | silent | `just_audio` playing `assets/recap/recap-2026.mp3` (package not in pubspec yet) | 9 |
 | `recapVideoEncoderProvider` | `features/recap/recap_export.dart` | "not supported" (image share only, React's no-MediaRecorder branch) | native H.264 encoder (AVAssetWriter / MediaCodec + MediaMuxer) with the mp3 | 9 |
 | `homeWaterGoalNotifierProvider` | `features/home/data/daily_logs.dart` | no-op | partner notification | 6 |
-| `storyExporterProvider` | `features/stories/story_viewer.dart` | fails ("Alınmadı") | story image export / share | 5 |
 | `cycleHealthWriterProvider` | `features/home_flow/flow_platform.dart` | no-op | HealthKit / Health Connect cycle bridge | 9 |
 | `healthPluginBridgeProvider`, `healthCyclePluginProvider`, `healthVitalsPluginProvider` | `features/settings/data/health_service.dart` | unavailable | native Health plugins | 9 |
 | `flowNotificationPlannerProvider`, `timerNotificationSchedulerProvider`, `reminderSchedulerProvider` | `features/home_flow/flow_platform.dart`, `features/baby/live_timer/live_timer.dart`, `features/settings/data/preferences.dart` | not native / no-op | central local-notification scheduler | 9 |
