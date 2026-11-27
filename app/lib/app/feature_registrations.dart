@@ -4,6 +4,7 @@
 // lands by adding its import and uncommenting / adding its line in its alphabetical slot. Anything not
 // registered renders the shell's placeholder.
 import '../features/entry/entry_feature.dart';
+import '../features/home/register_home.dart';
 import '../features/startup/startup.dart';
 import '../shell/feature_registry.dart';
 
@@ -13,7 +14,6 @@ import '../shell/feature_registry.dart';
 // import '../features/commerce/commerce.dart';
 // import '../features/community/community.dart';
 // import '../features/games/games.dart';
-// import '../features/home/home.dart';
 // import '../features/onboarding/onboarding.dart';
 // import '../features/partner/partner.dart';
 // import '../features/premium/premium.dart';
@@ -29,7 +29,7 @@ void registerAllFeatures(FeatureRegistry r) {
   // registerCommunityFeature(r);
   registerEntryFeature(r);
   // registerGamesFeature(r);
-  // registerHomeFeature(r);
+  registerHomeFeature(r);
   // registerOnboardingFeature(r);
   // registerPartnerFeature(r);
   // registerPremiumFeature(r);

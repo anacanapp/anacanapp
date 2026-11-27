@@ -23,3 +23,9 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 1. İcma postlarında moderator menyusu tətbiqdə qalsın? (qalır)
 2. Yalnız adminə görünən Mağaza ekranı köçürülsün? (yox, vebə keçir)
 3. `/h/:kod` və `/p/v/:token` səhifələri tətbiqdə olsun? (vebdə qalır)
+
+## Texniki borc (düzəldilməlidir)
+
+- Qabığın scroll konteyneri `SingleChildScrollView`-dur, ona görə şaquli siyahılar tənbəl qurulmur. Uzun siyahılar (icma lenti) üçün qabıq sliver əsaslı olmalıdır.
+- Ana ekranın girişləri (`home_inputs.dart`, `HomeSlots`) hələ neytral dəyərlərlə işləyir: premium, oxunmamış sayı, stories ayarı, bloq, banner.
+- Golden testlərdə emoji şrifti yoxdur (qutu kimi görünür).

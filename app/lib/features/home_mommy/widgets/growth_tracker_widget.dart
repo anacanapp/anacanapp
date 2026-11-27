@@ -127,7 +127,8 @@ class _GrowthTrackerWidgetState extends ConsumerState<GrowthTrackerWidget> {
       return Row(mainAxisSize: MainAxisSize.min, children: [
         Transform.rotate(angle: v > 0 ? 0 : 3.141592653589793, child: AIcon(AIcons.trendingUp, size: 10, color: color)),
         const SizedBox(width: 3),
-        Text('${v > 0 ? '+' : ''}$value', style: AStatText.label(t).copyWith(color: color)),
+        // `overflow-wrap: break-word` on the label: long values wrap inside the narrow tile.
+        Flexible(child: Text('${v > 0 ? '+' : ''}$value', style: AStatText.label(t).copyWith(color: color))),
       ]);
     }
 
