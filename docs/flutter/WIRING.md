@@ -17,11 +17,10 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `chatTextBuilderProvider`, `chatPhotoViewerProvider` | `features/chat/` | link-aware text / basic viewer | community `CommentText`, `PhotoGalleryViewer` | 5 |
 | `chatAudioRecorderProvider` | `features/chat/` | unsupported (voice recording off; playback via video_player) | `record` package + mic permissions | 9 |
 | `chatIncomingNotifierProvider`, `chatPushSenderProvider` | `features/chat/` | no-op / direct `send-push-notification` | foreground notifications service, `svc.push` | 9 |
-| `aiMotherMealsProvider` | `features/ai_chat/ai_chat_inputs.dart` | empty (AI context without meals) | nutrition tool (`useMealLogs`) | 4 |
 | `aiAnswerCardProvider` | `features/ai_chat/ai_chat_inputs.dart` | null (no card under answers) | weaning / parenting tools | 4 |
 | `aiPartnerSourceProvider` | `features/ai_chat/ai_chat_inputs.dart` | no partner profile (Ata AI assumes pregnancy, nothing shared) | partner `usePartnerData` | 6 |
 | `babyChatNotificationPlannerProvider` | `features/baby_chat/baby_chat_notifications.dart` | no-op | central local-notification scheduler | 9 |
-| `toolsHubSlotsProvider` (bannerSlot, adSurface / adInlineAnchor `tools_banner`, aptekSearchResults, prefetchFirstAid) | `features/tools/hub/hub_inputs.dart` | nothing | banners / ads (9), Aptek (7), first-aid tool (4) | 4–9 |
+| `toolsHubSlotsProvider` (bannerSlot, adSurface / adInlineAnchor `tools_banner`, aptekSearchResults) | `features/tools/hub/hub_inputs.dart` | nothing (prefetchFirstAid wired) | banners / ads (9), Aptek (7) | 7 / 9 |
 | `vaccineNotificationSchedulerProvider` | `features/tools/vaccines/vaccine_reminders.dart` | not native (no reminder switch) | central local-notification scheduler; app-start `useVaccineRemindersAtStart` (`VaccineReminders.refreshAll`) | 9 |
 | `solidFoodRecipesSlotProvider` | `features/tools/solid_food/solid_food_guide.dart` | opens Recipes without preselection | recipes tool (baby_food category / recipe) | 4 |
 | `babyAlbumOrderSlotProvider` | `features/tools/baby_album/baby_monthly_album.dart` | placeholder | shop (album order) | 7 |
@@ -35,6 +34,8 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `geolocationProvider` | `features/tools/media_common/media_ports.dart` | fails → weather shows Baku "location unavailable" | `geolocator` (coarse, 10 s) | 9 |
 | `photoSaverProvider` | `features/tools/media_common/media_ports.dart` | save fails (React error toast) | `gal` (save to gallery) | 9 |
 | `photoGalleryViewerProvider` | `features/tools/photoshoot/photo_gallery_viewer.dart` | stand-in viewer | `overlay.photo-gallery` port | 3 |
+| `healthMoodPartnerNotifierProvider` | `features/tools/health_common/health_common.dart` | no-op | partner `notifyMoodUpdate` | 6 |
+| `healthAdSlotsProvider` (`recipes_banner`, inline anchor, `recipe_exit_interstitial`) | `features/tools/health_common/health_common.dart` | nothing; leaving a recipe goes back at once | ads | 9 |
 | Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |

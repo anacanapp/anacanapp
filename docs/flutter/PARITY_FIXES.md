@@ -21,6 +21,8 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Ödəniş tarixçəsinin xətti `borderLeft` ilə çəkilir, RTL-də (ərəb) nöqtələrin əks tərəfində qalır | `BillingScreen.tsx` | Flutter-də xətt başlanğıc tərəfdədir |
 | Gecikmə banneri `/ai-chat?prompt=` ünvanına keçir, belə marşrut yoxdur (404) | `PeriodDelayBanner.tsx` | Flutter-də AI tabı sualla doldurulmuş açılır (göndərilmir) |
 | Körpə söhbətində 30 s saat çatdırılma ortasında yenidən başladırdı, açılış mesajı iki dəfə düşə bilirdi | `useBabyChat.ts` | Flutter-də bir dəfə çatdırılır |
+| Məşq seriyası dünən bitəndə bir gün artıq sayılırdı (dünən 1 qeyd → 2) | `useExerciseLogs.ts` `getStreak` | Flutter-də hər gün bir dəfə |
+| Psixi sağlamlıq: uğursuz `addMoodCheckin` söz verişi tutulmurdu (unhandled rejection) | `MentalHealthTracker.tsx` | Flutter-də səssiz tutulur (istifadəçi üçün eyni) |
 | Nəcis skaneri: native kamera/qalereya ləğv ediləndə sonra veb fayl seçici açılırdı | `PoopScanner.tsx` | Flutter-də açılmır |
 | Nağıl: JSON olmayan xəta cavabında istifadəçi JSON parse xətasını görürdü | `FairyTaleGenerator.tsx` | Flutter-də "Failed to generate story" |
 | Dekret kalkulyatoru: ata + atalıq qaydaları seçiləndə `benefitResult.dailySalary` oxunur, ekran çökür | `MaternityCalculator.tsx` | Flutter-də "Ödəniş Qaydaları" kartı göstərilir |

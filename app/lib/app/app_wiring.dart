@@ -21,7 +21,10 @@ import '../features/baby/hooks/baby_services.dart';
 import '../features/baby/hooks/use_children.dart' show childrenProvider;
 import '../features/baby/live_timer/live_timer.dart' show liveTimerNativeHooksProvider;
 import '../features/home/appointments/upcoming_appointments.dart';
-import '../features/ai_chat/ai_chat_inputs.dart' show aiKickSessionsProvider, aiWeightEntriesProvider;
+import '../features/ai_chat/ai_chat_inputs.dart' show aiKickSessionsProvider, aiMotherMealsProvider, aiWeightEntriesProvider;
+import '../features/tools/health_tools.dart' show healthToolsPrefetchFirstAid;
+import '../features/tools/hub/hub_inputs.dart' show ToolsHubSlots, toolsHubSlotsProvider;
+import '../features/tools/nutrition/meal_logs.dart' show mealLogsProvider;
 import '../features/ai_chat/register.dart' show aiChatFlowOpener;
 import '../features/baby_chat/register.dart' show babyChatCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
@@ -134,6 +137,9 @@ List<Override> featureWiringOverrides() => [
       aiWeightEntriesProvider.overrideWith((ref) => [
             for (final e in ref.watch(weightEntriesProvider).entries) {'weight': e.weight, 'entry_date': e.entryDate},
           ]),
+      aiMotherMealsProvider.overrideWith((ref) => ref.watch(mealLogsProvider).todayLogs),
+      // Tools hub: first aid must work offline (usePrefetchFirstAid).
+      toolsHubSlotsProvider.overrideWithValue(const ToolsHubSlots(prefetchFirstAid: healthToolsPrefetchFirstAid)),
       aiKickSessionsProvider.overrideWith((ref) => [for (final s in ref.watch(kickSessionsProvider).todaySessions) s.toRow()]),
       // Period-delay banner → AI tab with the prompt in the input.
       flowOpenAiChatProvider.overrideWith(aiChatFlowOpener),

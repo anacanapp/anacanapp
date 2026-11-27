@@ -19,6 +19,7 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 | Moderasiya tarixçəsi + şikayət, 25 dilli moderator mətnləri (generator `app/tool/moderation`) | hazır, qeydiyyatdan keçib | 7 test (`test/features/moderation`) |
 | Recap (kətan renderi React-ın çəkmə əmrləri ilə ±0.002 eyni, şəkil paylaşımı, fontlar və musiqi faylı paketdə) | hazır; musiqi səsi və video ixracı 9-cu mərhələdə | 65 test (`test/features/recap`) |
 | Alətlər mərkəzi (ToolsHub), alət dəsti (ToolKit), dinamik alət/konfiq/məzmun məlumatları | hazır; ayrı-ayrı alətlər dəstələrlə gedir | 52 test (`test/features/tools`) |
+| Sağlamlıq/həyat tərzi alətləri: qidalanma (+ vitaminlər tabı), məşqlər, əhval, psixi sağlamlıq (EPDS), təzyiq, qan şəkəri, vitaminlər, ilk yardım (oflayn), reseptlər, alış-veriş, həkimlər | hazır | 70 test (`test/features/tools/*`) |
 | AI/media alətləri: fotosessiya, ağlama tərcüməçisi, nəcis skaneri, nağıl, ulduz falı, hava/geyim, ağ səs, səs-küy ölçən | hazır; səs/mikrofon/yer 9-cu mərhələdə | 103 test (`test/features/tools/*`) |
 | Hamiləlik alətləri: təhlükəsizlik, təpik, sancı (5-1-1), çəki, xəstəxana çantası, adlar, dekret, döl inkişafı, təhlükə əlamətləri, albom | hazır; partnyor bildirişləri və SOS 6-cı, Health 9-cu mərhələdə | 78 test (`test/features/tools/*`) |
 | Körpə alətləri: izləyici (+ böyümə, diş bölmələri, nailiyyətlər), peyvənd təqvimi, əlavə qida, vaxtından əvvəl doğulanlar, körpə albomu | hazır; peyvənd xatırlatmaları 9-cu mərhələdə | 108 test (`test/features/tools/*`) |
