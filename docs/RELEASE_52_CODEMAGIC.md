@@ -26,3 +26,11 @@ xatırlatmalar daha dəqiq gəlir, Android-də geri düyməsi və iOS-də ağ s�
 
 **EN:** A lighter, faster app that works smoothly on weak connections and offline. Notifications and reminders
 arrive more reliably, the Android back button and iOS white noise are fixed, and sign-in issues are resolved.
+
+## Hadisə: 52.0.0 açılışda dayanırdı (2026-11-26/27)
+TestFlight 52.0.0 (f45bace-dən yığılıb) hər açılışda "Bağlantı hazırlanır" ekranında qalırdı. Səbəb: audit-2-də
+əlavə olunan `manualChunks` vendor bölgüsü React ilə Radix/framer-motion/react-query arasında chunk dövrü yaratdı,
+Radix React-dan əvvəl işə düşdü (`reading 'useLayoutEffect'`). Eyni xəta veb SPA-da da idi.
+Düzəliş c1585891: bölgü çıxarıldı, `src/lib/startup-chunks.test.ts` qoruyur. Veb gateway `ad0211b15141…`
+(plan `p6-web-plan.json`, rollback `rollback-p6-web-plan.json`) 2026-11-27 canlıdır.
+**52.0.0-ı mağazaya göndərməyin.** Codemagic-də c1585891 və ya sonrakı commit-dən 52.0.1 yığın.
