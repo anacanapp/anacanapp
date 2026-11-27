@@ -42,50 +42,70 @@ class PremiumGate extends ConsumerWidget {
         clipBehavior: Clip.antiAlias,
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(color: t.surface, borderRadius: BorderRadius.circular(t.radiusLg), boxShadow: t.cardShadow),
-        child: Stack(clipBehavior: Clip.none, children: [
-          PositionedDirectional(
-            top: -16,
-            end: -16,
-            // 90 px peach circle, translate(30%, -30%), opacity .45.
-            child: Transform.translate(
-              offset: Offset(Directionality.of(context) == TextDirection.rtl ? -27 : 27, -27),
-              child: Opacity(
-                opacity: 0.45,
-                child: Container(width: 90, height: 90, decoration: BoxDecoration(color: t.peach1, shape: BoxShape.circle)),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            PositionedDirectional(
+              top: -16,
+              end: -16,
+              // 90 px peach circle, translate(30%, -30%), opacity .45.
+              child: Transform.translate(
+                offset: Offset(Directionality.of(context) == TextDirection.rtl ? -27 : 27, -27),
+                child: Opacity(
+                  opacity: 0.45,
+                  child: Container(
+                    width: 90,
+                    height: 90,
+                    decoration: BoxDecoration(color: t.peach1, shape: BoxShape.circle),
+                  ),
+                ),
               ),
             ),
-          ),
-          Row(children: [
-            Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(gradient: t.gradPeach, borderRadius: BorderRadius.circular(14)),
-              alignment: Alignment.center,
-              child: Text(emoji, style: const TextStyle(fontSize: 20)),
+            Row(
+              children: [
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(gradient: t.gradPeach, borderRadius: BorderRadius.circular(14)),
+                  alignment: Alignment.center,
+                  child: Text(emoji, style: const TextStyle(fontSize: 20)),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          AIcon(AIcons.lock, size: 12, strokeWidth: 2.4, color: t.accentInk),
+                          const SizedBox(width: 6),
+                          Flexible(child: Text(title, style: x.aListTitle.copyWith(fontSize: 14))),
+                        ],
+                      ),
+                      Text(description ?? tr('pgate_default_desc_v2', 'Premium ilə açılır'), style: x.aListSub),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(gradient: t.gradPeach, borderRadius: BorderRadius.circular(999)),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AIcon(AIcons.crown, size: 11, strokeWidth: 2.4, color: t.accentInk),
+                      const SizedBox(width: 4),
+                      Text(
+                        tr('pgate_unlock', 'Aç'),
+                        style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, color: t.accentInk),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Row(children: [
-                  AIcon(AIcons.lock, size: 12, strokeWidth: 2.4, color: t.accentInk),
-                  const SizedBox(width: 6),
-                  Flexible(child: Text(title, style: x.aListTitle.copyWith(fontSize: 14))),
-                ]),
-                Text(description ?? tr('pgate_default_desc_v2', 'Premium ilə açılır'), style: x.aListSub),
-              ]),
-            ),
-            const SizedBox(width: 12),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(gradient: t.gradPeach, borderRadius: BorderRadius.circular(999)),
-              child: Row(mainAxisSize: MainAxisSize.min, children: [
-                AIcon(AIcons.crown, size: 11, strokeWidth: 2.4, color: t.accentInk),
-                const SizedBox(width: 4),
-                Text(tr('pgate_unlock', 'Aç'), style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, color: t.accentInk)),
-              ]),
-            ),
-          ]),
-        ]),
+          ],
+        ),
       ),
     );
     return _Appear(
@@ -126,19 +146,40 @@ class PremiumBlurGate extends ConsumerWidget {
     final sigma = (blurPx[blur] ?? 7) / 2;
     // The teaser is a neutral skeleton (`bg-muted` bars), never the real content.
     final teaser = ImageFiltered(
-      imageFilter: ui.ImageFilter.compose(outer: const ColorFilter.matrix(_saturate09), inner: ui.ImageFilter.blur(sigmaX: sigma, sigmaY: sigma)),
+      imageFilter: ui.ImageFilter.compose(
+        outer: const ColorFilter.matrix(_saturate09),
+        inner: ui.ImageFilter.blur(sigmaX: sigma, sigmaY: sigma),
+      ),
       child: Opacity(
         opacity: 0.9,
         child: Container(
           constraints: const BoxConstraints(minHeight: 170),
           padding: const EdgeInsets.all(20),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            FractionallySizedBox(widthFactor: 2 / 3, child: Container(height: 20, decoration: BoxDecoration(color: s.muted, borderRadius: BorderRadius.circular(4)))),
-            const SizedBox(height: 16),
-            Container(height: 48, decoration: BoxDecoration(color: s.muted, borderRadius: BorderRadius.circular(4))),
-            const SizedBox(height: 16),
-            FractionallySizedBox(widthFactor: 4 / 5, child: Container(height: 20, decoration: BoxDecoration(color: s.muted, borderRadius: BorderRadius.circular(4)))),
-          ]),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FractionallySizedBox(
+                widthFactor: 2 / 3,
+                child: Container(
+                  height: 20,
+                  decoration: BoxDecoration(color: s.muted, borderRadius: BorderRadius.circular(4)),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Container(
+                height: 48,
+                decoration: BoxDecoration(color: s.muted, borderRadius: BorderRadius.circular(4)),
+              ),
+              const SizedBox(height: 16),
+              FractionallySizedBox(
+                widthFactor: 4 / 5,
+                child: Container(
+                  height: 20,
+                  decoration: BoxDecoration(color: s.muted, borderRadius: BorderRadius.circular(4)),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -154,80 +195,117 @@ class PremiumBlurGate extends ConsumerWidget {
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: open,
-        child: Stack(children: [
-          ExcludeSemantics(child: IgnorePointer(child: teaser)),
-          // Overlay: soft surface gradient + centred CTA.
-          Positioned.fill(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [t.surface.withValues(alpha: 0.15), t.surface.withValues(alpha: 0.55), t.surface.withValues(alpha: 0.85)],
-                  stops: const [0, 0.45, 1],
+        child: Stack(
+          children: [
+            ExcludeSemantics(child: IgnorePointer(child: teaser)),
+            // Overlay: soft surface gradient + centred CTA.
+            Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [t.surface.withValues(alpha: 0.15), t.surface.withValues(alpha: 0.55), t.surface.withValues(alpha: 0.85)],
+                    stops: const [0, 0.45, 1],
+                  ),
                 ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  const _PopIn(child: _LockBubble()),
-                  const SizedBox(height: 8),
-                  Text(heading,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800, color: t.ink, shadows: [Shadow(color: t.surface.withValues(alpha: 0.8), blurRadius: 6, offset: const Offset(0, 1))])),
-                  if (subtitle != null) ...[
-                    const SizedBox(height: 8),
-                    ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 260),
-                      child: Text(subtitle!, textAlign: TextAlign.center, style: TextStyle(fontSize: 12, height: 1.5, color: t.inkSoft)),
-                    ),
-                  ],
-                  const SizedBox(height: 12),
-                  PressScale(
-                    scale: 0.95,
-                    enabled: !(AnacanTokens.of(context).lite || animationsDisabled(context)),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(999),
-                        // `linear-gradient(135deg, #FF7A7E, #FF5A5F)`, shadow rgba(217,58,64,.35) (PremiumBlurGate.tsx).
-                        gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFF7A7E), Color(0xFFFF5A5F)]),
-                        boxShadow: const [BoxShadow(color: Color.fromRGBO(217, 58, 64, 0.35), offset: Offset(0, 6), blurRadius: 16)],
-                      ),
-                      child: Row(mainAxisSize: MainAxisSize.min, children: [
-                        const AIcon(AIcons.crown, size: 14, strokeWidth: 2.5, color: Color(0xFFFFFFFF)),
-                        const SizedBox(width: 6),
-                        Flexible(
-                          child: Text(cta ?? tr('usepaywallconfig_premium_a_kec_2e8b0e', 'Premium-a Keç'),
-                              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: Color(0xFFFFFFFF))),
+                // CSS lets a taller overlay overflow the teaser box (centred, not clipped).
+                child: OverflowBox(
+                  minHeight: 0,
+                  maxHeight: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const _PopIn(child: _LockBubble()),
+                        const SizedBox(height: 8),
+                        Text(
+                          heading,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w800,
+                            color: t.ink,
+                            shadows: [Shadow(color: t.surface.withValues(alpha: 0.8), blurRadius: 6, offset: const Offset(0, 1))],
+                          ),
                         ),
-                      ]),
+                        if (subtitle != null) ...[
+                          const SizedBox(height: 8),
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 260),
+                            child: Text(
+                              subtitle!,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12, height: 1.5, color: t.inkSoft),
+                            ),
+                          ),
+                        ],
+                        const SizedBox(height: 12),
+                        PressScale(
+                          scale: 0.95,
+                          enabled: !(AnacanTokens.of(context).lite || animationsDisabled(context)),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(999),
+                              // `linear-gradient(135deg, #FF7A7E, #FF5A5F)`, shadow rgba(217,58,64,.35) (PremiumBlurGate.tsx).
+                              gradient: const LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [Color(0xFFFF7A7E), Color(0xFFFF5A5F)],
+                              ),
+                              boxShadow: const [BoxShadow(color: Color.fromRGBO(217, 58, 64, 0.35), offset: Offset(0, 6), blurRadius: 16)],
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const AIcon(AIcons.crown, size: 14, strokeWidth: 2.5, color: Color(0xFFFFFFFF)),
+                                const SizedBox(width: 6),
+                                Flexible(
+                                  child: Text(
+                                    cta ?? tr('usepaywallconfig_premium_a_kec_2e8b0e', 'Premium-a Keç'),
+                                    style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: Color(0xFFFFFFFF)),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ]),
+                ),
               ),
             ),
-          ),
-          // PREMIUM tag (top end).
-          PositionedDirectional(
-            top: 10,
-            end: 14,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(999),
-                // `linear-gradient(135deg, #ffe9b3, #ffd166)`, shadow rgba(180,130,0,.25) (PremiumBlurGate.tsx).
-                gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFFE9B3), Color(0xFFFFD166)]),
-                boxShadow: const [BoxShadow(color: Color.fromRGBO(180, 130, 0, 0.25), offset: Offset(0, 2), blurRadius: 8)],
+            // PREMIUM tag (top end).
+            PositionedDirectional(
+              top: 10,
+              end: 14,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(999),
+                  // `linear-gradient(135deg, #ffe9b3, #ffd166)`, shadow rgba(180,130,0,.25) (PremiumBlurGate.tsx).
+                  gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFFE9B3), Color(0xFFFFD166)]),
+                  boxShadow: const [BoxShadow(color: Color.fromRGBO(180, 130, 0, 0.25), offset: Offset(0, 2), blurRadius: 8)],
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    AIcon(AIcons.crown, size: 11, strokeWidth: 2.5, color: t.warnInk),
+                    const SizedBox(width: 4),
+                    Text(
+                      'PREMIUM',
+                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.w800, letterSpacing: em(0.06, 10), color: t.warnInk),
+                    ),
+                  ],
+                ),
               ),
-              child: Row(mainAxisSize: MainAxisSize.min, children: [
-                AIcon(AIcons.crown, size: 11, strokeWidth: 2.5, color: t.warnInk),
-                const SizedBox(width: 4),
-                Text('PREMIUM', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w800, letterSpacing: em(0.06, 10), color: t.warnInk)),
-              ]),
             ),
-          ),
-        ]),
+          ],
+        ),
       ),
     );
   }
@@ -245,17 +323,17 @@ class _LockBubble extends StatelessWidget {
   const _LockBubble();
   @override
   Widget build(BuildContext context) => Container(
-        width: 44,
-        height: 44,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          // `linear-gradient(135deg, #ffd166, #f9a03f)`, shadow rgba(249,160,63,.45) (PremiumBlurGate.tsx).
-          gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFFD166), Color(0xFFF9A03F)]),
-          boxShadow: [BoxShadow(color: Color.fromRGBO(249, 160, 63, 0.45), offset: Offset(0, 6), blurRadius: 18)],
-        ),
-        alignment: Alignment.center,
-        child: const AIcon(AIcons.lock, size: 20, strokeWidth: 2.4, color: Color(0xFFFFFFFF)),
-      );
+    width: 44,
+    height: 44,
+    decoration: const BoxDecoration(
+      shape: BoxShape.circle,
+      // `linear-gradient(135deg, #ffd166, #f9a03f)`, shadow rgba(249,160,63,.45) (PremiumBlurGate.tsx).
+      gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFFD166), Color(0xFFF9A03F)]),
+      boxShadow: [BoxShadow(color: Color.fromRGBO(249, 160, 63, 0.45), offset: Offset(0, 6), blurRadius: 18)],
+    ),
+    alignment: Alignment.center,
+    child: const AIcon(AIcons.lock, size: 20, strokeWidth: 2.4, color: Color(0xFFFFFFFF)),
+  );
 }
 
 /// framer `initial={{scale: .85, opacity: 0}} animate={{scale: 1, opacity: 1}} transition={{type:'spring', damping: 18, stiffness: 260}}`.
@@ -290,10 +368,13 @@ class _PopInState extends State<_PopIn> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
-        animation: _c,
-        builder: (context, child) => Opacity(opacity: _c.value.clamp(0.0, 1.0), child: Transform.scale(scale: 0.85 + 0.15 * _c.value, child: child)),
-        child: widget.child,
-      );
+    animation: _c,
+    builder: (context, child) => Opacity(
+      opacity: _c.value.clamp(0.0, 1.0),
+      child: Transform.scale(scale: 0.85 + 0.15 * _c.value, child: child),
+    ),
+    child: widget.child,
+  );
 }
 
 /// framer `initial={{opacity: 0, y: 12}} animate={{opacity: 1, y: 0}}` (default transitions).
@@ -331,10 +412,13 @@ class _AppearState extends State<_Appear> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
-        animation: Listenable.merge([_o, _y]),
-        builder: (context, child) => Opacity(opacity: _o.value.clamp(0.0, 1.0), child: Transform.translate(offset: Offset(0, _y.value), child: child)),
-        child: widget.child,
-      );
+    animation: Listenable.merge([_o, _y]),
+    builder: (context, child) => Opacity(
+      opacity: _o.value.clamp(0.0, 1.0),
+      child: Transform.translate(offset: Offset(0, _y.value), child: child),
+    ),
+    child: widget.child,
+  );
 }
 
 /// `border: 1px dashed`.
@@ -394,10 +478,6 @@ class _PremiumToolBoundaryState extends ConsumerState<PremiumToolBoundary> {
         ),
       );
     }
-    return PremiumModalView(
-      feature: widget.feature,
-      onClose: widget.onClose,
-      onPurchased: () => setState(() => _unlocked = true),
-    );
+    return PremiumModalView(feature: widget.feature, onClose: widget.onClose, onPurchased: () => setState(() => _unlocked = true));
   }
 }

@@ -32,48 +32,60 @@ class OnboardingFields extends StatelessWidget {
     final now = today ?? todayCalendarDate();
     final children = <Widget>[];
     if (draft.stage != 'flow') {
-      children.add(OnbFieldset(
-        legend: t(draft.stage == 'bump' ? 'count_bump' : 'count_mommy'),
-        child: OnbChips(children: [
-          for (final count in const [1, 2, 3, 4])
-            OnbChip(
-              key: ValueKey('baby-count-$count'),
-              label: onboardingNumber(language, count),
-              pressed: draft.babyCount == count,
-              disabled: disabled || (draft.saveStarted && count != draft.babyCount),
-              onTap: () => _update(draft.copyWith(
-                babyCount: count,
-                children: [for (var i = 0; i < count; i++) i < draft.children.length ? draft.children[i] : newOnboardingChild()],
-              )),
-            ),
-        ]),
-      ));
+      children.add(
+        OnbFieldset(
+          legend: t(draft.stage == 'bump' ? 'count_bump' : 'count_mommy'),
+          child: OnbChips(
+            children: [
+              for (final count in const [1, 2, 3, 4])
+                OnbChip(
+                  key: ValueKey('baby-count-$count'),
+                  label: onboardingNumber(language, count),
+                  pressed: draft.babyCount == count,
+                  disabled: disabled || (draft.saveStarted && count != draft.babyCount),
+                  onTap: () => _update(
+                    draft.copyWith(
+                      babyCount: count,
+                      children: [for (var i = 0; i < count; i++) i < draft.children.length ? draft.children[i] : newOnboardingChild()],
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
     }
     if (draft.stage == 'bump') {
-      children.add(OnbFieldset(
-        legend: t('data_bump_title'),
-        child: OnbChips(children: [
-          for (final mode in const ['lmp', 'due'])
-            OnbChip(
-              key: ValueKey('date-mode-$mode'),
-              label: t(mode == 'lmp' ? 'date_lmp' : 'date_due'),
-              pressed: draft.dateMode == mode,
-              disabled: disabled,
-              onTap: () => _update(draft.copyWith(dateMode: mode, pregnancyDate: '')),
-            ),
-        ]),
-      ));
+      children.add(
+        OnbFieldset(
+          legend: t('data_bump_title'),
+          child: OnbChips(
+            children: [
+              for (final mode in const ['lmp', 'due'])
+                OnbChip(
+                  key: ValueKey('date-mode-$mode'),
+                  label: t(mode == 'lmp' ? 'date_lmp' : 'date_due'),
+                  pressed: draft.dateMode == mode,
+                  disabled: disabled,
+                  onTap: () => _update(draft.copyWith(dateMode: mode, pregnancyDate: '')),
+                ),
+            ],
+          ),
+        ),
+      );
       final lmp = draft.dateMode == 'lmp';
-      children.add(OnbDateField(
-        fieldKey: const ValueKey('onb-pregnancy-date'),
-        label: t(draft.dateMode == 'due' ? 'due' : 'lmp'),
-        value: draft.pregnancyDate,
-        language: language,
-        min: addCalendarDays(now, lmp ? -308 : -28),
-        max: lmp ? now : addCalendarDays(now, 280),
-        disabled: disabled,
-        onChange: (v) => _update(draft.copyWith(pregnancyDate: v)),
-      ));
+      children.add(
+        OnbDateField(
+          fieldKey: const ValueKey('onb-pregnancy-date'),
+          label: t(draft.dateMode == 'due' ? 'due' : 'lmp'),
+          value: draft.pregnancyDate,
+          language: language,
+          min: addCalendarDays(now, lmp ? -308 : -28),
+          max: lmp ? now : addCalendarDays(now, 280),
+          disabled: disabled,
+          onChange: (v) => _update(draft.copyWith(pregnancyDate: v)),
+        ),
+      );
       final summary = <Widget>[];
       if (draft.pregnancyDate.isNotEmpty && onboardingDataError(draft, now) == null) {
         final dates = pregnancyDates(pregnancyDate: draft.pregnancyDate, dateMode: draft.dateMode);
@@ -86,44 +98,54 @@ class OnboardingFields extends StatelessWidget {
       for (final (index, child) in draft.children.indexed) {
         children.add(_childCard(context, index, child, now));
       }
-      children.add(_DeliverySelect(
-        label: t('delivery'),
-        value: draft.deliveryType,
-        options: [for (final v in const ['', 'natural', 'cesarean', 'assisted']) (v, t(v.isEmpty ? 'unknown' : v))],
-        disabled: disabled,
-        onChange: (v) => _update(draft.copyWith(deliveryType: v)),
-      ));
+      children.add(
+        _DeliverySelect(
+          label: t('delivery'),
+          value: draft.deliveryType,
+          options: [
+            for (final v in const ['', 'natural', 'cesarean', 'assisted']) (v, t(v.isEmpty ? 'unknown' : v)),
+          ],
+          disabled: disabled,
+          onChange: (v) => _update(draft.copyWith(deliveryType: v)),
+        ),
+      );
     }
     if (draft.stage == 'flow') {
-      children.add(OnbDateField(
-        fieldKey: const ValueKey('onb-last-period'),
-        label: t('lmp'),
-        value: draft.lastPeriodDate,
-        language: language,
-        max: now,
-        disabled: disabled,
-        onChange: (v) => _update(draft.copyWith(lastPeriodDate: v)),
-      ));
-      children.add(OnbCounter(
-        id: 'onb-cycle-length',
-        label: t('cycle_length'),
-        value: draft.cycleLength,
-        min: 10,
-        max: 50,
-        language: language,
-        disabled: disabled,
-        onChange: (v) => _update(draft.copyWith(cycleLength: v)),
-      ));
-      children.add(OnbCounter(
-        id: 'onb-period-length',
-        label: t('period_length'),
-        value: draft.periodLength,
-        min: 2,
-        max: draft.cycleLength < 10 ? draft.cycleLength : 10,
-        language: language,
-        disabled: disabled,
-        onChange: (v) => _update(draft.copyWith(periodLength: v)),
-      ));
+      children.add(
+        OnbDateField(
+          fieldKey: const ValueKey('onb-last-period'),
+          label: t('lmp'),
+          value: draft.lastPeriodDate,
+          language: language,
+          max: now,
+          disabled: disabled,
+          onChange: (v) => _update(draft.copyWith(lastPeriodDate: v)),
+        ),
+      );
+      children.add(
+        OnbCounter(
+          id: 'onb-cycle-length',
+          label: t('cycle_length'),
+          value: draft.cycleLength,
+          min: 10,
+          max: 50,
+          language: language,
+          disabled: disabled,
+          onChange: (v) => _update(draft.copyWith(cycleLength: v)),
+        ),
+      );
+      children.add(
+        OnbCounter(
+          id: 'onb-period-length',
+          label: t('period_length'),
+          value: draft.periodLength,
+          min: 2,
+          max: draft.cycleLength < 10 ? draft.cycleLength : 10,
+          language: language,
+          disabled: disabled,
+          onChange: (v) => _update(draft.copyWith(periodLength: v)),
+        ),
+      );
       children.add(Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [OnbNote(t('cycle_note')), OnbNote(t('date_estimate'))]));
     }
     return Column(
@@ -136,80 +158,102 @@ class OnboardingFields extends StatelessWidget {
 
   Widget _childCard(BuildContext context, int index, OnboardingChild child, String now) {
     final o = OnbStyle.of(context);
-    return Container(
+    // `<fieldset class="onb-child"><legend>`: the legend sits on the top border (cutting it), the 16 px padding
+    // starts below the legend.
+    const legendHalf = 21.7 / 2;
+    return Stack(
       key: ValueKey('child-$index'),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(border: Border.all(color: o.line), borderRadius: BorderRadius.circular(18)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: legendHalf),
+          padding: const EdgeInsets.fromLTRB(16, 16 + legendHalf, 16, 16),
+          decoration: BoxDecoration(
+            border: Border.all(color: o.line),
+            borderRadius: BorderRadius.circular(18),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              OnbTextField(
+                fieldKey: ValueKey('onb-child-name-$index'),
+                label: t('child_name'),
+                value: child.name,
+                maxLength: 80,
+                disabled: disabled,
+                onChanged: (v) => _updateChild(index, child.copyWith(name: v)),
+              ),
+              const SizedBox(height: 16),
+              OnbDateField(
+                fieldKey: ValueKey('onb-birth-$index'),
+                label: t('birth_date'),
+                value: child.birthDate,
+                language: language,
+                max: now,
+                disabled: disabled,
+                onChange: (v) => _updateChild(index, child.copyWith(birthDate: v)),
+              ),
+              const SizedBox(height: 16),
+              OnbFieldset(
+                legend: t('gender'),
+                child: OnbChips(
+                  children: [
+                    for (final gender in const ['girl', 'boy'])
+                      OnbChip(
+                        key: ValueKey('child-$index-gender-$gender'),
+                        label: t(gender),
+                        pressed: child.gender == gender,
+                        disabled: disabled,
+                        trailingCheck: child.gender == gender,
+                        onTap: () => _updateChild(index, child.copyWith(gender: gender)),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              OnbFieldset(
+                legend: t('term_question'),
+                child: OnbChips(
+                  children: [
+                    for (final term in const ['term', 'preterm', ''])
+                      OnbChip(
+                        key: ValueKey('child-$index-term-${term.isEmpty ? 'unknown' : term}'),
+                        label: t(term.isEmpty ? 'unknown' : term),
+                        pressed: child.term == term,
+                        disabled: disabled,
+                        onTap: () => _updateChild(index, child.copyWith(term: term)),
+                      ),
+                  ],
+                ),
+              ),
+              if (child.term == 'preterm') ...[
+                const SizedBox(height: 16),
+                OnbCounter(
+                  id: 'onb-gestation-$index',
+                  label: t('gestation'),
+                  value: child.gestationalWeeks,
+                  min: 22,
+                  max: 36,
+                  language: language,
+                  disabled: disabled,
+                  onChange: (v) => _updateChild(index, child.copyWith(gestationalWeeks: v)),
+                ),
+              ],
+            ],
+          ),
+        ),
+        PositionedDirectional(
+          top: 0,
+          start: 16,
+          child: Container(
+            color: o.surface,
             padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Text(t('child_number', {'n': onboardingNumber(language, index + 1)}), style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800)),
-          ),
-          const SizedBox(height: 16),
-          OnbTextField(
-            fieldKey: ValueKey('onb-child-name-$index'),
-            label: t('child_name'),
-            value: child.name,
-            maxLength: 80,
-            disabled: disabled,
-            onChanged: (v) => _updateChild(index, child.copyWith(name: v)),
-          ),
-          const SizedBox(height: 16),
-          OnbDateField(
-            fieldKey: ValueKey('onb-birth-$index'),
-            label: t('birth_date'),
-            value: child.birthDate,
-            language: language,
-            max: now,
-            disabled: disabled,
-            onChange: (v) => _updateChild(index, child.copyWith(birthDate: v)),
-          ),
-          const SizedBox(height: 16),
-          OnbFieldset(
-            legend: t('gender'),
-            child: OnbChips(children: [
-              for (final gender in const ['girl', 'boy'])
-                OnbChip(
-                  key: ValueKey('child-$index-gender-$gender'),
-                  label: t(gender),
-                  pressed: child.gender == gender,
-                  disabled: disabled,
-                  trailingCheck: child.gender == gender,
-                  onTap: () => _updateChild(index, child.copyWith(gender: gender)),
-                ),
-            ]),
-          ),
-          const SizedBox(height: 16),
-          OnbFieldset(
-            legend: t('term_question'),
-            child: OnbChips(children: [
-              for (final term in const ['term', 'preterm', ''])
-                OnbChip(
-                  key: ValueKey('child-$index-term-${term.isEmpty ? 'unknown' : term}'),
-                  label: t(term.isEmpty ? 'unknown' : term),
-                  pressed: child.term == term,
-                  disabled: disabled,
-                  onTap: () => _updateChild(index, child.copyWith(term: term)),
-                ),
-            ]),
-          ),
-          if (child.term == 'preterm') ...[
-            const SizedBox(height: 16),
-            OnbCounter(
-              id: 'onb-gestation-$index',
-              label: t('gestation'),
-              value: child.gestationalWeeks,
-              min: 22,
-              max: 36,
-              language: language,
-              disabled: disabled,
-              onChange: (v) => _updateChild(index, child.copyWith(gestationalWeeks: v)),
+            child: Text(
+              t('child_number', {'n': onboardingNumber(language, index + 1)}),
+              style: const TextStyle(fontSize: 14, height: 1.55, fontWeight: FontWeight.w800),
             ),
-          ],
-        ],
-      ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -221,12 +265,15 @@ class OnbFieldset extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(padding: const EdgeInsets.only(bottom: 9), child: Text(legend, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600))),
-          child,
-        ],
-      );
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Padding(
+        padding: const EdgeInsets.only(bottom: 9),
+        child: Text(legend, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+      ),
+      child,
+    ],
+  );
 }
 
 class OnbChips extends StatelessWidget {
@@ -256,10 +303,14 @@ class OnbChip extends StatelessWidget {
         border: Border.all(color: pressed ? o.ink : o.line, width: 1.5),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Row(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(label, style: TextStyle(fontSize: 13, color: fg)),
-        if (trailingCheck) ...[const SizedBox(width: 7), AIcon(AIcons.check, size: 14, color: fg)],
-      ]),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(label, style: TextStyle(fontSize: 13, color: fg)),
+          if (trailingCheck) ...[const SizedBox(width: 7), AIcon(AIcons.check, size: 14, color: fg)],
+        ],
+      ),
     );
     if (disabled) body = Opacity(opacity: 0.5, child: body);
     return Semantics(
@@ -273,7 +324,10 @@ class OnbChip extends StatelessWidget {
 
 InputDecoration _inputDecoration(BuildContext context) {
   final o = OnbStyle.of(context);
-  OutlineInputBorder border(Color c) => OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: c, width: 1.5));
+  OutlineInputBorder border(Color c) => OutlineInputBorder(
+    borderRadius: BorderRadius.circular(14),
+    borderSide: BorderSide(color: c, width: 1.5),
+  );
   return InputDecoration(
     isDense: true,
     filled: true,
@@ -282,14 +336,27 @@ InputDecoration _inputDecoration(BuildContext context) {
     contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
     enabledBorder: border(o.line),
     disabledBorder: border(o.line),
-    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: BorderSide(color: o.ink, width: 3)),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(14),
+      borderSide: BorderSide(color: o.ink, width: 3),
+    ),
     border: border(o.line),
   );
 }
 
 /// `.onb-field` label + `<input>`.
 class OnbTextField extends StatefulWidget {
-  const OnbTextField({super.key, required this.fieldKey, required this.label, required this.value, required this.onChanged, this.maxLength, this.disabled = false, this.onSubmitted, this.autofillHints});
+  const OnbTextField({
+    super.key,
+    required this.fieldKey,
+    required this.label,
+    required this.value,
+    required this.onChanged,
+    this.maxLength,
+    this.disabled = false,
+    this.onSubmitted,
+    this.autofillHints,
+  });
   final Key fieldKey;
   final String label;
   final String value;
@@ -347,7 +414,17 @@ class _OnbTextFieldState extends State<OnbTextField> {
 
 /// `<input type="date">` (value `YYYY-MM-DD`, `dir="ltr"`).
 class OnbDateField extends StatelessWidget {
-  const OnbDateField({super.key, required this.fieldKey, required this.label, required this.value, required this.language, required this.onChange, this.min, this.max, this.disabled = false});
+  const OnbDateField({
+    super.key,
+    required this.fieldKey,
+    required this.label,
+    required this.value,
+    required this.language,
+    required this.onChange,
+    this.min,
+    this.max,
+    this.disabled = false,
+  });
   final Key fieldKey;
   final String label;
   final String value;
@@ -388,7 +465,11 @@ class OnbDateField extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 52),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       alignment: AlignmentDirectional.centerStart,
-      decoration: BoxDecoration(color: o.bg, border: Border.all(color: o.line, width: 1.5), borderRadius: BorderRadius.circular(14)),
+      decoration: BoxDecoration(
+        color: o.bg,
+        border: Border.all(color: o.line, width: 1.5),
+        borderRadius: BorderRadius.circular(14),
+      ),
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: Text(value.isEmpty ? '' : onboardingDate(language, value), style: TextStyle(fontSize: 16, color: o.ink)),
@@ -413,7 +494,17 @@ class OnbDateField extends StatelessWidget {
 
 /// `.onb-counter` (− output +).
 class OnbCounter extends StatelessWidget {
-  const OnbCounter({super.key, required this.id, required this.label, required this.value, required this.min, required this.max, required this.language, required this.onChange, this.disabled = false});
+  const OnbCounter({
+    super.key,
+    required this.id,
+    required this.label,
+    required this.value,
+    required this.min,
+    required this.max,
+    required this.language,
+    required this.onChange,
+    this.disabled = false,
+  });
   final String id;
   final String label;
   final int value;
@@ -431,31 +522,50 @@ class OnbCounter extends StatelessWidget {
         width: 44,
         height: 44,
         alignment: Alignment.center,
-        decoration: BoxDecoration(border: Border.all(color: o.line), borderRadius: BorderRadius.circular(12)),
+        decoration: BoxDecoration(
+          border: Border.all(color: o.line),
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: AIcon(icon, size: 17, color: o.ink),
       );
       if (off) b = Opacity(opacity: 0.5, child: b);
-      return Semantics(button: true, enabled: !off, label: semantic, child: GestureDetector(onTap: off ? null : onTap, child: b));
+      return Semantics(
+        button: true,
+        enabled: !off,
+        label: semantic,
+        child: GestureDetector(onTap: off ? null : onTap, child: b),
+      );
     }
 
-    final controls = Row(mainAxisSize: MainAxisSize.min, children: [
-      button(AIcons.minus, onboardingText(language, 'decrease', {'field': label}), disabled || value <= min, () => onChange(value - 1)),
-      const SizedBox(width: 8),
-      ConstrainedBox(
-        constraints: const BoxConstraints(minWidth: 28),
-        child: Text(onboardingNumber(language, value),
+    final controls = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        button(AIcons.minus, onboardingText(language, 'decrease', {'field': label}), disabled || value <= min, () => onChange(value - 1)),
+        const SizedBox(width: 8),
+        ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: 28),
+          child: Text(
+            onboardingNumber(language, value),
             key: ValueKey(id),
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800, fontFeatures: [FontFeature.tabularFigures()])),
-      ),
-      const SizedBox(width: 8),
-      button(AIcons.plus, onboardingText(language, 'increase', {'field': label}), disabled || value >= max, () => onChange(value + 1)),
-    ]);
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800, fontFeatures: [FontFeature.tabularFigures()]),
+          ),
+        ),
+        const SizedBox(width: 8),
+        button(AIcons.plus, onboardingText(language, 'increase', {'field': label}), disabled || value >= max, () => onChange(value + 1)),
+      ],
+    );
     final text = Text(label, style: const TextStyle(fontSize: 13));
     if (OnbStyle.narrow(context)) {
       return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [text, const SizedBox(height: 12), controls]);
     }
-    return Row(children: [Expanded(child: text), const SizedBox(width: 12), controls]);
+    return Row(
+      children: [
+        Expanded(child: text),
+        const SizedBox(width: 12),
+        controls,
+      ],
+    );
   }
 }
 
@@ -479,7 +589,11 @@ class _DeliverySelect extends StatelessWidget {
           key: const ValueKey('onb-delivery'),
           constraints: const BoxConstraints(minHeight: 52),
           padding: const EdgeInsets.symmetric(horizontal: 14),
-          decoration: BoxDecoration(color: o.bg, border: Border.all(color: o.line, width: 1.5), borderRadius: BorderRadius.circular(14)),
+          decoration: BoxDecoration(
+            color: o.bg,
+            border: Border.all(color: o.line, width: 1.5),
+            borderRadius: BorderRadius.circular(14),
+          ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
               value: value,

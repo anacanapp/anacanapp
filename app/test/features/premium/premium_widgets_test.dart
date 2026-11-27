@@ -120,6 +120,7 @@ void main() {
   });
 
   group('AdFreePremiumOffer', () {
+    setUp(resetAdFreeOfferMemory);
     Widget dashboard() => const Column(children: [AdFreePremiumOffer(position: 'top'), Text('Dashboard content'), AdFreePremiumOffer(position: 'bottom')]);
     OnboardingTestEnv envFor(String language) {
       final env = OnboardingTestEnv(language: language);
@@ -153,6 +154,7 @@ void main() {
       env.setSubscription(const SubscriptionState());
       await tester.pump();
       expect(find.byKey(const ValueKey('ad-free-premium-offer')), findsOneWidget);
+      await pumpFor(tester, 1000);
     });
 
     testWidgets('keeps the first visible card at the top for that visit, then permanently uses the bottom on return', (tester) async {
@@ -173,6 +175,7 @@ void main() {
       expect(card(), findsOneWidget);
       expect(cardY() > contentY(), isTrue, reason: 'bottom on return');
       expect(env.container.read(localStoreProvider).getItem(adFreeOfferScope(backend, actor)), '1');
+      await pumpFor(tester, 1000);
     });
 
     testWidgets('does not consume the top introduction until the card is actually visible', (tester) async {
@@ -183,6 +186,7 @@ void main() {
       await tester.pumpWidget(env.wrap(dashboard()));
       await tester.pump();
       expect(env.container.read(localStoreProvider).getItem(adFreeOfferScope(backend, actor)), isNull);
+      await pumpFor(tester, 1000);
     });
   });
 

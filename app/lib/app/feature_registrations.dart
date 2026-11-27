@@ -6,6 +6,7 @@
 import '../features/entry/entry_feature.dart';
 import '../features/home/register_home.dart';
 import '../features/home_flow/home_flow.dart';
+import '../features/home_mommy/register_home_mommy.dart';
 import '../features/startup/startup.dart';
 import '../shell/feature_registry.dart';
 
@@ -32,6 +33,7 @@ void registerAllFeatures(FeatureRegistry r) {
   // registerGamesFeature(r);
   registerHomeFeature(r);
   registerHomeFlowFeature(r);
+  registerHomeMommyFeature(r);
   // registerOnboardingFeature(r);
   // registerPartnerFeature(r);
   // registerPremiumFeature(r);
