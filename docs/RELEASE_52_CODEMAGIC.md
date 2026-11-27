@@ -34,3 +34,9 @@ Radix React-dan əvvəl işə düşdü (`reading 'useLayoutEffect'`). Eyni xəta
 Düzəliş c1585891: bölgü çıxarıldı, `src/lib/startup-chunks.test.ts` qoruyur. Veb gateway `ad0211b15141…`
 (plan `p6-web-plan.json`, rollback `rollback-p6-web-plan.json`) 2026-11-27 canlıdır.
 **52.0.0-ı mağazaya göndərməyin.** Codemagic-də c1585891 və ya sonrakı commit-dən 52.0.1 yığın.
+
+## 52.0.1 yoxlaması (2026-11-27)
+52.0.1 açılır (server 05:51 UTC-də ilk 52.0 sorğusunu gördü), amma crash_reports-da
+`"LocalNotifications.then()" is not implemented on ios` (unhandled_rejection) var idi: yeni xatırlatma
+planlayıcısı plugin proxy-sini async funksiyadan qaytarırdı, ona görə iOS-də heç bir yerli xatırlatma
+qurulmurdu. Düzəliş a9ff22b4. **52.0.1-i də mağazaya göndərməyin**, a9ff22b4 və ya sonrakından 52.0.2 yığın.
