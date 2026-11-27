@@ -211,6 +211,7 @@ Measured (two clean runs each, DPR 3, same machine):
 
 | Subset | Unscrolled identical | Scrolled identical | Overall flake |
 |---|---|---|---|
+| **full matrix** (`full` vs `full2`, 1,064 shots present in both) | **920/936** (only 2 > 0.1 % of pixels) | 86/128 | 5.5 % |
 | 11 scenarios × 2 viewports × light/dark × az/ar (352 shots) | 279/288 | 60/64 | 3.7 % |
 | bump/mommy/flow tabs + settings + baby tracker, 2 vp × 2 themes × az/ar (240 shots) | 180/184 | 34/56 | 10.8 % |
 | bump/flow/mommy tabs, 2 vp × light × az/ar (108 shots) | 81/84 | 15/24 | 11.1 % |
