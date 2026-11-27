@@ -742,7 +742,14 @@ class AuthController extends Notifier<AuthViewState> {
     }
     // at: 0 → the first real session triggers a fresh server read.
     _hydrated = (userId: u.id, at: 0);
-    _applySession(Session.fromJson(stored.raw));
+    final raw = stored.raw;
+    _applySession(Session(
+      accessToken: stored.accessToken,
+      refreshToken: stored.refreshToken,
+      tokenType: raw['token_type'] is String ? raw['token_type'] as String : 'bearer',
+      expiresIn: raw['expires_in'] is num ? (raw['expires_in'] as num).toInt() : null,
+      user: u,
+    ));
     _applyUser(u);
     _store.setAuth(true, u.id, u.email ?? '', _or(u.userMetadata?['name'] as String?, _defaultName()));
     final cachedProfile = _cachedProfile(u.id), cachedRole = _cachedRole(u.id);

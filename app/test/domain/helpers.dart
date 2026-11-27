@@ -94,7 +94,8 @@ void expectJsonClose(Object? actual, Object? expected, {String path = r'$', doub
   }
   if (expected is Map) {
     expect(actual, isA<Map>(), reason: path);
-    final a = actual as Map;
+    // JSON.stringify drops `undefined` members: a Dart null member may stand for a missing key.
+    final a = {for (final e in (actual as Map).entries) if (e.value != null || expected.containsKey(e.key)) e.key: e.value};
     expect(a.keys.toSet(), expected.keys.toSet(), reason: '$path keys');
     for (final k in expected.keys) {
       expectJsonClose(a[k], expected[k], path: '$path.$k', tol: tol);
@@ -103,3 +104,22 @@ void expectJsonClose(Object? actual, Object? expected, {String path = r'$', doub
   }
   expect(actual, expected, reason: path);
 }
+
+/// Dart value → the fixture JSON shape: DateTime → {"\$date": ms}, non-finite numbers → {"\$num": "NaN"}.
+Object? fx(Object? v) {
+  if (v is DateTime) return {r'$date': v.millisecondsSinceEpoch};
+  if (identical(v, jsInvalidDate)) return {r'$date': null};
+  if (v is double && !v.isFinite) return {r'$num': v.isNaN ? 'NaN' : (v > 0 ? 'Infinity' : '-Infinity')};
+  if (v is Map) return {for (final e in v.entries) e.key.toString(): fx(e.value)};
+  if (v is Iterable) return [for (final x in v) fx(x)];
+  return v;
+}
+
+/// Fixture `{"\$date": ms|null}` → DateTime (null for an Invalid Date).
+DateTime? fxDate(Object? v) {
+  final ms = (v as Map?)?[r'$date'];
+  return ms == null ? null : DateTime.fromMillisecondsSinceEpoch((ms as num).toInt());
+}
+
+/// Stands for a JS Invalid Date in [fx] (serialized as {"\$date": null}).
+final Object jsInvalidDate = Object();

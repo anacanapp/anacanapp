@@ -20,6 +20,8 @@ function extractConst(file, name, scope = {}) {
   for (; j < src.length; j++) {
     const c = src[j];
     if (str) { if (c === '\\') j++; else if (c === str) str = null; continue; }
+    if (c === '/' && src[j + 1] === '/') { j = src.indexOf('\n', j); continue; }
+    if (c === '/' && src[j + 1] === '*') { j = src.indexOf('*/', j) + 1; continue; }
     if (c === "'" || c === '"' || c === '`') { str = c; continue; }
     if (c === open) depth++;
     else if (c === close && --depth === 0) break;
@@ -142,7 +144,7 @@ write('parenting/data/parenting_data.g.dart', 'src/data/parenting/index.ts (PARE
 // `normalize('NFD').replace(/[\u0300-\u036f]/g, '')` differs, as computed by this Node's ICU.
 const fold = {};
 for (let c = 0xa0; c < 0x10000; c++) {
-  if (c >= 0xac00 && c <= 0xd7a3) continue; // Hangul syllables (see README)
+  if (c >= 0xac00 && c <= 0xd7a3) continue; // Hangul syllables: decomposed algorithmically in Dart
   if (c >= 0xd800 && c <= 0xdfff) continue;
   const ch = String.fromCharCode(c);
   const out = ch.normalize('NFD').replace(/[\u0300-\u036f]/g, '');

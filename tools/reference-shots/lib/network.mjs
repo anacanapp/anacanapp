@@ -237,7 +237,16 @@ export async function installNetwork(context, mock, { appOrigin, fontMode }) {
     const req = route.request();
     const url = new URL(req.url());
     try {
-      if (url.origin === appOrigin) return await route.continue();
+      if (url.origin === appOrigin) {
+        // framer-motion: jump every animation to its end state (MotionGlobalConfig is module-scoped in Vite's
+        // pre-bundled dep). Only timing changes; final styles are the app's own.
+        if (/\/node_modules\/\.vite\/deps\/framer-motion\.js$/.test(url.pathname)) {
+          const response = await route.fetch();
+          const body = (await response.text()) + '\n;MotionGlobalConfig.skipAnimations = true; MotionGlobalConfig.instantAnimations = true;\n';
+          return await route.fulfill({ response, body });
+        }
+        return await route.continue();
+      }
       if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') {
         return await route.fulfill(await serveFont(url, fontMode, mock.recorder));
       }

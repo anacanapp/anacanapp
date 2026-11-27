@@ -201,7 +201,8 @@ PrematurityInfo getPrematurityInfo(Object? birthDate, Object? dueDate, {Tr tr = 
   );
 }
 
-/// Effective due date: LMP + 280 when LMP exists, else the explicit due date.
+/// Effective due date: LMP + 280 when LMP exists, else the explicit due date. Null when missing or invalid
+/// (the TypeScript returns an Invalid Date for an invalid stored value).
 DateTime? getEffectiveDueDate(Object? lastPeriodDate, [Object? explicitDueDate]) {
   if (_truthy(lastPeriodDate)) return calculateDueDate(lastPeriodDate);
   if (_truthy(explicitDueDate)) return _toLocalCalendarDate(explicitDueDate!);
@@ -246,10 +247,12 @@ num getDayInWeek(Object? lastPeriodDate) {
   return jsRem(d, 7);
 }
 
-/// Days remaining until the due date (never negative).
+/// Days remaining until the due date (never negative). As in JS, an invalid stored date gives NaN (the
+/// TypeScript gets an Invalid Date, which is truthy, and `Math.max(0, NaN)` is NaN); only a missing one gives 0.
 num getDaysUntilDue(Object? lastPeriodDate, [Object? dueDate]) {
+  if (!_truthy(lastPeriodDate) && !_truthy(dueDate)) return 0;
   final due = getEffectiveDueDate(lastPeriodDate, dueDate);
-  if (due == null) return 0;
+  if (due == null) return double.nan;
   final left = differenceInCalendarDays(due, _todayLocal());
   return left < 0 ? 0 : left;
 }

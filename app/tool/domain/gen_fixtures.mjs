@@ -34,6 +34,8 @@ function block(source, marker) {
   for (; i < source.length; i++) {
     const c = source[i];
     if (str) { if (c === '\\') i++; else if (c === str) str = null; continue; }
+    if (c === '/' && source[i + 1] === '/') { i = source.indexOf('\n', i); continue; }
+    if (c === '/' && source[i + 1] === '*') { i = source.indexOf('*/', i) + 1; continue; }
     if (c === "'" || c === '"' || c === '`') { str = c; continue; }
     if (c === '{') depth++;
     else if (c === '}' && --depth === 0) break;

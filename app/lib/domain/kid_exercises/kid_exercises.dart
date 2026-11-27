@@ -98,13 +98,19 @@ List<({String key, String label, List<KidExercise> items})> groupsOf(List<KidExe
 
 /// Accent-insensitive search text: `toLocaleLowerCase`, ə → e, ı → i, then NFD with the combining marks
 /// U+0300-U+036F removed. Dart has no `String.normalize`, so the NFD step uses a table generated from Node's ICU
-/// (data/search_fold_data.g.dart). Hangul syllables are not decomposed (JS decomposes them into jamo on both the
-/// query and the text, so whole-syllable queries match the same way).
+/// (data/search_fold_data.g.dart) plus the algorithmic Hangul syllable decomposition.
 String foldSearch(String text) {
   final lower = text.toLowerCase().replaceAll('ə', 'e').replaceAll('ı', 'i');
   final out = StringBuffer();
   for (final r in lower.runes) {
     if (r >= 0x300 && r <= 0x36f) continue;
+    if (r >= 0xac00 && r <= 0xd7a3) {
+      final s = r - 0xac00;
+      out.writeCharCode(0x1100 + s ~/ 588);
+      out.writeCharCode(0x1161 + (s % 588) ~/ 28);
+      if (s % 28 != 0) out.writeCharCode(0x11a7 + s % 28);
+      continue;
+    }
     final ch = String.fromCharCode(r);
     out.write(searchFoldMap[ch] ?? ch);
   }

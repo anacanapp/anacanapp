@@ -247,8 +247,9 @@ void main() {
         return {'ok': true};
       };
       await signedIn();
-      expect((await h.auth.linkPartner('ANACAN-ABCD23')).error, isNull);
+      final linked = await h.auth.linkPartner('ANACAN-ABCD23');
       expect(h.backend.rpcCalls, ['link_partner_by_code', 'get_user_linked_partner_id', 'unlink_partners', 'link_partner_by_code']);
+      expect(linked.error, isNull);
       expect(h.state.profile?.linkedPartnerId, 'other-profile');
     });
 
@@ -377,7 +378,9 @@ void main() {
       addTearDown(h.dispose);
       h.backend.authSession = tokenResponse;
       expect(await h.auth.completeNativeOAuthCallback('https://elsewhere/#access_token=a'), isFalse);
-      expect(await h.auth.completeNativeOAuthCallback('$nativeOAuthRedirect#access_token=at&refresh_token=rt&expires_in=3600'),
+      String b64(Object o) => base64Url.encode(utf8.encode(jsonEncode(o))).replaceAll('=', '');
+      final jwt = '${b64({'alg': 'HS256'})}.${b64({'sub': 'social-user', 'exp': DateTime.now().millisecondsSinceEpoch ~/ 1000 + 3600})}.sig';
+      expect(await h.auth.completeNativeOAuthCallback('$nativeOAuthRedirect#access_token=$jwt&refresh_token=rt&expires_in=3600'),
           isTrue);
     });
   });

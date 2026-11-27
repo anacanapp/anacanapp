@@ -50,7 +50,7 @@ class FakeBackend {
     final path = request.url.path;
     if (path.startsWith('/auth/v1/')) {
       calls.add('auth:${path.substring(9)}');
-      if (authSession != null) return _json(request, authSession);
+      if (authSession != null) return _json(request, path.endsWith('/user') ? authSession!['user'] : authSession);
       return _json(request, {'code': 'unexpected', 'msg': 'no fake auth'}, 400);
     }
     if (path.startsWith('/functions/v1/')) {
@@ -61,7 +61,8 @@ class FakeBackend {
     if (path.startsWith('/rest/v1/rpc/')) {
       final fn = path.substring(13);
       calls.add('rpc:$fn');
-      final params = request.body.isEmpty ? <String, dynamic>{} : jsonDecode(request.body) as Map<String, dynamic>;
+      final decoded = request.body.isEmpty ? null : jsonDecode(request.body);
+      final params = decoded is Map<String, dynamic> ? decoded : <String, dynamic>{};
       try {
         return _json(request, await onRpc?.call(fn, params));
       } on PostgrestException catch (e) {

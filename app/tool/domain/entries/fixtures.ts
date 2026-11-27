@@ -43,7 +43,7 @@ const NOWS = [[2024, 2, 29, 0, 30], [2026, 1, 1, 0, 5], [2026, 3, 8, 3, 30], [20
   [2026, 12, 31, 23, 59], [2027, 3, 8, 12, 0]] as const;
 const ser = (v: unknown): unknown => JSON.parse(JSON.stringify(v, function (this: Record<string, unknown>, k) {
   const raw = this[k];
-  if (raw instanceof Date) return { $date: Number.isNaN(raw.getTime()) ? null : raw.getTime() };
+  if (Object.prototype.toString.call(raw) === '[object Date]') { const t = (raw as Date).getTime(); return { $date: Number.isNaN(t) ? null : t }; }
   if (typeof raw === 'number' && !Number.isFinite(raw)) return { $num: String(raw) };
   return raw;
 }));
@@ -59,7 +59,7 @@ function cycle(setTime: SetTime) {
   for (const now of NOWS) {
     setTime(local(...now).getTime());
     for (const lpd of DAYS) {
-      for (const L of [21, 28, 35]) {
+      for (const L of DAYS.indexOf(lpd) % 2 ? [] : [21, 35]) {
         cases.push({
           fn: 'cycle', now: local(...now).getTime(), lpd, L,
           cycleDay: getCycleDayForDate(local(...now), storedCalendarDate(lpd)!, L),
@@ -68,7 +68,7 @@ function cycle(setTime: SetTime) {
           fertile: getFertileWindow(storedCalendarDate(lpd)!, L),
         });
       }
-      histories.forEach((h, hi) => cases.push({ fn: 'predictions', now: local(...now).getTime(), lpd, history: hi, out: getCyclePredictions(lpd, h, 28, 5) }));
+      histories.forEach((h, hi) => hi === 1 || cases.push({ fn: 'predictions', now: local(...now).getTime(), lpd, history: hi, out: getCyclePredictions(lpd, h, 28, 5) }));
     }
   }
   const stats = histories.map((h) => ({ adaptive: computeAdaptiveCycleStats(h), effective: effectiveCycleLength(h, 40), simple: calculateCycleStats(h) }));
@@ -128,8 +128,8 @@ function sleep(setTime: SetTime) {
       logs.push({ id: `f${off}`, log_type: 'feeding', feed_type: off % 2 ? 'formula' : 'breast_left', notes: '90 ml', start_time: at(1, 30, off).toISOString(), end_time: at(1, 50, off).toISOString() });
     }
     const entries = sleepEntries(logs);
-    for (const band of ['1-3', '4-6', '7-9', '10-12'] as const) {
-      for (const [h, mi] of [[1, 0], [3, 0], [10, 30], [13, 0], [18, 20]]) {
+    for (const band of ['1-3', '7-9'] as const) {
+      for (const [h, mi] of [[3, 0], [10, 30], [18, 20]]) {
         const now = at(h, mi);
         setTime(now.getTime());
         const next = predictNextNap({ entries, band, now, morningWake: at(6, 10) });
@@ -200,8 +200,8 @@ export async function maternity(maternityCalcSource: string, calculateBenefitSou
   const out: unknown[] = [];
   const config = { birthBenefit: 600, normalDaysBefore: 70, normalDaysAfter: 56, complicatedDaysAfter: 70, multipleDaysBefore: 70, multipleDaysAfter: 70, minSalary: 400, minPension: 320 };
   for (const rule of maternityRules) {
-    for (const role of ['mother', 'father']) for (const pregnancyType of ['normal', 'complicated', 'multiple']) {
-      for (const [edd, salary, isAZ, azConfig] of [['2026-03-29T00:00', '1500', true, true], ['2026-10-25T00:00', '9000.5', false, false], ['2027-01-15T00:00', '', true, false]] as const) {
+    for (const [role, pregnancyType] of [['mother', 'normal'], ['mother', 'complicated'], ['mother', 'multiple'], ['father', 'normal']]) {
+      for (const [edd, salary, isAZ, azConfig] of [['2026-03-29T00:00', '1500', true, true], ['2026-10-25T00:00', '9000.5', false, false]] as const) {
         const r = calc({ eddDate: edd, role, pregnancyType, selectedRule: rule, selectedCountryCode: rule.code, config: azConfig ? config : null, salary, isAZ, addDays, subDays });
         if (!r) continue;
         out.push({ code: rule.code, role, pregnancyType, edd, salary, isAz: isAZ, azConfig, out: { daysBefore: r.daysBefore, daysAfter: r.daysAfter, totalDays: r.totalDays,

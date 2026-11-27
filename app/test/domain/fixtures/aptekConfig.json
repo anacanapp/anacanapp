@@ -1,0 +1,1 @@
+{"enabled":true,"countries":["AZ"],"free_shipping_min":25.5,"shipping_fee":3,"bundle_discount_pct":15,"slots":["today_evening","tomorrow_morning","tomorrow_evening","day_after"],"bundles":[{"id":"b1","skus":["a","b"]},{"id":"b2","skus":["b","c","c"]}],"placements":{}}
