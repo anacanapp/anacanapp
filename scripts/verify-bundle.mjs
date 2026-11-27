@@ -82,6 +82,24 @@ for (const p of files) {
   }
 }
 
+// The sealed Source Supabase project must never be the build's backend. A Google build made without
+// .env.google silently falls back to the root .env (Source URL + Source anon key): web login then posts to
+// the sealed project and every web user is cut off (web p6, 26.11.2026). The Source *URL* may appear as a
+// constant (legacy storage-key migration), but its anon key (JWT payload "ref":"tntbjulojatnrqmylorp")
+// only ships when it was selected as the backend. Source-first native bundles (VITE_BACKEND_BOOTSTRAP=
+// source-first-v1) carry the Source key on purpose for one-way session adoption, so they are exempt.
+const SOURCE_FIRST = process.env.VITE_BACKEND_BOOTSTRAP === 'source-first-v1';
+const SOURCE_KEY_PAYLOAD = /eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRudGJqdWxvamF0bnJxbXlsb3JwI/;
+const SOURCE_BACKEND_URL = /url\s*:\s*"https:\/\/tntbjulojatnrqmylorp\.supabase\.co"/;
+for (const p of SOURCE_FIRST ? [] : files) {
+  if (!/\.(m?js|html)$/i.test(p)) continue;
+  let text = '';
+  try { text = readFileSync(p, 'utf8'); } catch { continue; }
+  if (SOURCE_KEY_PAYLOAD.test(text) || SOURCE_BACKEND_URL.test(text)) {
+    problems.push(`sealed Source Supabase backend configured in: ${relative(DIST, p)} (missing .env.google? run node setup-env-google.mjs)`);
+  }
+}
+
 // Native store bundles must keep RevenueCat enabled on the managed (azure-named) Google backend;
 // otherwise purchases, restore and entitlement sync are silently off in the shipped app.
 if (process.env.VITE_NATIVE_BUILD === 'true' && process.env.VITE_AZURE_REVENUECAT_ENABLED !== 'true') {
