@@ -12,7 +12,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
-import 'package:material_ui/material_ui.dart' show Theme;
 import 'package:url_launcher/url_launcher.dart';
 
 import 'content_typography.dart';
@@ -78,7 +77,7 @@ class MarkdownContent extends StatelessWidget {
     final li = base.merge(sizeStyle(t.li));
     final xs = base.merge(const TextStyle(fontSize: 12, height: 16 / 12));
     final mono = TextStyle(fontFamily: 'monospace', fontFamilyFallback: const <String>['Courier'], fontSize: 12, height: 16 / 12, backgroundColor: c.mutedBg);
-    final sheet = MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
+    final sheet = MarkdownStyleSheet(
       p: p,
       pPadding: EdgeInsets.only(bottom: t.pMargin),
       a: TextStyle(color: c.primary, decoration: TextDecoration.underline, decorationColor: c.primary),
