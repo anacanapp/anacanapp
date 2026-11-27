@@ -17,3 +17,6 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Vitamin günləri mətn kimi sıralanır | `VitaminTracker` | saxlanıb, düzəldilməlidir |
 | Partnyora "su hədəfi" bildirişi praktiki olaraq heç vaxt getmir (stəkan sayı 2000 ilə müqayisə olunur) | `useDailyLogs` | saxlanıb, düzəldilməlidir |
 | İlk veb açılış ekranında ağ loqo krem fonda görünmür | `index.html` bootstrap splash | Flutter-də 96 px loqo ekranı göstərilir |
+| Ödəniş tarixçəsində yenilənmələr heç vaxt görünmür: kod plaqinin CustomerInfo-da olmayan `allPurchaseDatesByProduct` açarını oxuyur | `BillingScreen.tsx` `fetchPaymentHistory` | Flutter-də SDK-nın `allPurchaseDates` sahəsi oxunur |
+| Ödəniş tarixçəsinin xətti `borderLeft` ilə çəkilir, RTL-də (ərəb) nöqtələrin əks tərəfində qalır | `BillingScreen.tsx` | Flutter-də xətt başlanğıc tərəfdədir |
+| Qeydiyyatda moderator şəbəkə məhdudiyyəti xətası moderator mətni ilə göstərilmirdi (Flutter-də qarmaq qoşulmamışdı) | `AuthScreen.tsx` → `moderatorError` | Flutter-də `registerModerationFeature` qoşur |

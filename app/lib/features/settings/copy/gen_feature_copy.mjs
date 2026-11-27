@@ -17,14 +17,13 @@ const lit = (v) => JSON.stringify(v).replace(/\$/g, '\\$');
 // Keyed tables (`copy.languages[lang][key] || copy.languages.en[key]`), only the keys these features use.
 const TABLES = {
   feature37: ['scripts/i18n/feature37-copy.json', ['ph_what_sees', 'pp_week', 'pp_baby_age_months', 'pp_baby_age_days', 'pp_points', 'pp_missions', 'pp_surprises', 'pp_messages', 'pp_profile', 'pp_level', 'pp_to_next', 'pp_connected_with', 'ph_linked', 'pp_achievements', 'pn_title', 'pp_settings', 'pp_logout']],
-  moderator: ['scripts/i18n/moderator-copy.json', ['user_history', 'open_panel', 'details']],
   privacy: ['scripts/i18n/privacy-copy.json', null],
 };
 // Feature text packs (`src/data/<name>/<lang>.json`, fallback en → az).
 const PACKS = ['feedback', 'widgets', 'health-sync', 'lock-offer', 'promo'];
 
 let out = '// GENERATED — do not edit; run node app/lib/features/settings/copy/gen_feature_copy.mjs\n';
-out += '// Ported from: scripts/i18n/{feature37,moderator,privacy}-copy.json, src/data/{' + PACKS.join(',') + '}/*.json\n';
+out += '// Ported from: scripts/i18n/{feature37,privacy}-copy.json, src/data/{' + PACKS.join(',') + '}/*.json\n';
 out += '// ignore_for_file: lines_longer_than_80_chars\n\n';
 for (const [name, [file, keys]] of Object.entries(TABLES)) {
   const langs = read(file).languages;

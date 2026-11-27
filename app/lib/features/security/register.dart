@@ -9,6 +9,7 @@ import '../../core/auth/auth.dart';
 import '../../shell/feature_registry.dart';
 import '../../shell/nav/ids.dart';
 import '../../shell/nav/shell_controller.dart';
+import '../../state/first_run_sheets.dart';
 import '../support/data/app_feedback.dart';
 import 'app_lock.dart';
 import 'app_lock_setup_sheet.dart';
@@ -43,10 +44,11 @@ class _LockOfferHostState extends ConsumerState<LockOfferHost> {
       if (!mounted) return;
       lock.markLockOfferSeen();
       ref.read(feedbackStoreProvider).markPromptShown();
-      final enable = await showLockOfferSheet(context);
+      final sheets = ref.read(firstRunSheetsProvider.notifier);
+      final enable = await sheets.during(FirstRunSheet.lockOffer, () => showLockOfferSheet(context));
       if (!enable || !mounted) return;
       _timer = Timer(const Duration(milliseconds: 350), () {
-        if (mounted) unawaited(showAppLockSetupSheet(context, preferBio: true));
+        if (mounted) unawaited(sheets.during(FirstRunSheet.lockSetup, () => showAppLockSetupSheet(context, preferBio: true)));
       });
     });
   }

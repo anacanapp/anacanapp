@@ -6,14 +6,14 @@
 import { createRequire } from 'node:module';
 import { existsSync, mkdirSync, readdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { startDevServer } from './lib/server.mjs';
 import { loadPersona, makeContext } from './lib/fixtures.mjs';
 import { MockBackend, installNetwork } from './lib/network.mjs';
 import { setupContext, buildSession, FROZEN_TIME } from './lib/page-setup.mjs';
 import { createHelpers, trackRequests } from './lib/helpers.mjs';
 
-const HERE = new URL('.', import.meta.url).pathname;
+const HERE = fileURLToPath(new URL('.', import.meta.url));
 
 export const VIEWPORTS = {
   '390x844': { width: 390, height: 844, platform: 'ios',

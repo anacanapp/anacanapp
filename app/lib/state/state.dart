@@ -2,6 +2,7 @@
 export 'cake_cart_store.dart';
 export 'calendar_utils.dart';
 export 'child_store.dart';
+export 'first_run_sheets.dart';
 export 'legacy_state_importer.dart';
 export 'local_store.dart';
 export 'persisted_store.dart';

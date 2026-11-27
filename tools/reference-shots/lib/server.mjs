@@ -5,8 +5,9 @@
 // Process env wins over the repo's .env files in Vite, so nothing is written to the repo root.
 import { spawn } from 'node:child_process';
 import { createServer } from 'node:net';
+import { fileURLToPath } from 'node:url';
 
-export const REPO_ROOT = new URL('../../../', import.meta.url).pathname.replace(/\/$/, '');
+export const REPO_ROOT = fileURLToPath(new URL('../../../', import.meta.url)).replace(/[\\/]$/, '');
 
 // Syntactically valid anon JWT that grants nothing anywhere (signature is not a real HMAC).
 const FAKE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InJlZmVyZW5jZS1zaG90cyJ9.cmVmZXJlbmNlLXNob3Rz';

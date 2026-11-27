@@ -111,6 +111,12 @@ class RevenueCatFlutterSdk implements PurchasesSdk {
   Future<Map<String, Object?>?> restorePurchases() async => customerInfoJson(await _call(rc.Purchases.restorePurchases));
 
   @override
+  Future<List<Map<String, Object?>>> getProducts(List<String> productIdentifiers) async {
+    final products = await _call(() => rc.Purchases.getProducts(productIdentifiers));
+    return [for (final p in products) _product(p)];
+  }
+
+  @override
   Future<String> presentPaywall({bool displayCloseButton = true}) async {
     final result = await _call(() => rcui.RevenueCatUI.presentPaywall(displayCloseButton: displayCloseButton));
     return switch (result) {
@@ -238,7 +244,8 @@ String storeName(rc.Store store) => switch (store) {
       rc.Store.galaxy => 'GALAXY',
     };
 
-/// Customer info → `{entitlements: {active: {...}, all: {...}}, activeSubscriptions, originalAppUserId}`.
+/// Customer info → `{entitlements: {active: {...}, all: {...}}, activeSubscriptions, originalAppUserId,
+/// originalPurchaseDate, allPurchaseDates, allExpirationDates}`.
 Map<String, Object?> customerInfoJson(rc.CustomerInfo info) {
   Map<String, Object?> entitlement(rc.EntitlementInfo e) => {
         'identifier': e.identifier,
@@ -260,5 +267,8 @@ Map<String, Object?> customerInfoJson(rc.CustomerInfo info) {
     },
     'activeSubscriptions': List<String>.of(info.activeSubscriptions),
     'originalAppUserId': info.originalAppUserId,
+    'originalPurchaseDate': info.originalPurchaseDate,
+    'allPurchaseDates': Map<String, String?>.of(info.allPurchaseDates),
+    'allExpirationDates': Map<String, String?>.of(info.allExpirationDates),
   };
 }

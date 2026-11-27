@@ -7,8 +7,9 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-export const FONT_CACHE = new URL('../.cache/fonts/', import.meta.url).pathname;
+export const FONT_CACHE = fileURLToPath(new URL('../.cache/fonts/', import.meta.url));
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
 
 const memo = new Map();

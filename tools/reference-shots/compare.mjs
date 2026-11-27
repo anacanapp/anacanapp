@@ -4,8 +4,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 
-const HERE = new URL('.', import.meta.url).pathname;
+const HERE = fileURLToPath(new URL('.', import.meta.url));
 const [a, b] = process.argv.slice(2).filter((x) => !x.startsWith('--'));
 const jsonOut = process.argv.includes('--json') ? process.argv[process.argv.indexOf('--json') + 1] : null;
 if (!a || !b) { console.error('usage: compare.mjs <runA> <runB>'); process.exit(2); }

@@ -25,7 +25,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `privacySlotsProvider` (ConsentSettings, ConsentControls) | `features/settings/privacy_screen.dart` | not shown | consent feature | 9 |
 | `analyticsConsentNotifierProvider` | `features/settings/data/preferences.dart` | no-op | Customer.io consent event | 9 |
 | `paywallExtensionsProvider` (EpointPayOption, QaygiCash option / earn line, SponsorEntry) | `features/premium/paywall_extensions.dart` | none | commerce / QayğıCash | 7 |
-| `ScreenId.billing` (BillingScreen, CancellationReasonDialog, BillingActions) | not ported | placeholder | billing screen (uses `InAppPurchaseHost`, `billingConfigProvider`) | 3 |
 | `HomeSlots.bannerSlot`, `adInlineAnchor` | `features/home/home_slots.dart` | none | banners / ads (`BannerSlot`, `AdInlineAnchor`, Index `AdSurface home_banner`) | 9 |
 | `HomeSlots.partnerCareCard`, `dailySummaryAutoSync` | `features/home/home_slots.dart` | none | partner | 6 |
 | `HomeSlots.recoveryHome` | `features/home/home_slots.dart` | none | pregnancy-loss `RecoveryHome` | 4 |
@@ -57,7 +56,7 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | Games UI (hub, 8 games) | `features/games/` (engines only) | not registered | games feature | 8 |
 | Tools hub and tools (`registerTool`) | — | placeholder | tools feature | 4 |
 
-Count by phase: 3 → 4, 4 → 7, 5 → 6, 6 → 5, 7 → 9, 8 → 1, 9 → 19 (rows spanning several phases counted under
+Count by phase: 3 → 3, 4 → 7, 5 → 6, 6 → 5, 7 → 9, 8 → 1, 9 → 19 (rows spanning several phases counted under
 each phase they name in the last column; the profile slots row once, as "4–9").
 
 ## Duplicated logic left in place

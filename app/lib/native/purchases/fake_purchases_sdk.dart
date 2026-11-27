@@ -37,6 +37,7 @@ class FakePurchasesSdk implements PurchasesSdk {
   FutureOr<Map<String, Object?>?> Function(Map<String, Object?> option, GoogleProductChange? change) onPurchaseOption =
       (_, _) => customerInfoWith(entitlement: const {});
   FutureOr<Map<String, Object?>?> Function() onRestore = () => customerInfoWith();
+  FutureOr<List<Map<String, Object?>>> Function(List<String> ids) onGetProducts = (_) => const [];
   FutureOr<String> Function() onPresentPaywall = () => PaywallResultCode.notPresented;
   FutureOr<void> Function()? onPresentCustomerCenter;
 
@@ -104,6 +105,12 @@ class FakePurchasesSdk implements PurchasesSdk {
   Future<Map<String, Object?>?> purchaseSubscriptionOption(Map<String, Object?> option, {GoogleProductChange? change}) async {
     calls.add(FakeSdkCall('purchaseSubscriptionOption', [option, change]));
     return onPurchaseOption(option, change);
+  }
+
+  @override
+  Future<List<Map<String, Object?>>> getProducts(List<String> productIdentifiers) async {
+    calls.add(FakeSdkCall('getProducts', [productIdentifiers]));
+    return onGetProducts(productIdentifiers);
   }
 
   @override

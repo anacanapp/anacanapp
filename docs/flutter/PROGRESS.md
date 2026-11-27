@@ -15,10 +15,17 @@ Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb
 | Tətbiq kökü, bağlantılar (`app/lib/app`), deeplink, OAuth callback | hazır; cihazda yoxlanmayıb | 83 test (`test/app`) + 1 smoke |
 | Giriş axını, onboarding, paywall/RevenueCat, ana ekranlar (flow, bump, mommy), stories, təqvim, profil, ayarlar, kilid, dəstək, hüquqi sənədlər | hazır, qeydiyyatdan keçib | 678 test (`test/features`) + 128 (`test/native`) |
 | Oyun mühərrikləri (8 oyun) | hazır; UI yoxdur | `test/features/games` daxilində |
+| Abunəliyim (Billing) + ləğv səbəbi dialoqu, anacan.az abunəliyi (`web-premium`) | hazır, qeydiyyatdan keçib; React istinad şəkli ilə hələ tutuşdurulmayıb | 20 test (`test/features/billing`) |
+| Moderasiya tarixçəsi + şikayət, 25 dilli moderator mətnləri (generator `app/tool/moderation`) | hazır, qeydiyyatdan keçib | 7 test (`test/features/moderation`) |
+| İlk açılış pəncərələri (kilid təklifi, kilid quraşdırma, avtomatik rəy) turu gözlədir | hazır | 1 test (`test/state`) |
 | Alətlər, icma, çat/AI, partnyor, ticarət, bloq, oyun UI, native tamamlama | başlanmayıb | qalan interfeyslər: `docs/flutter/WIRING.md` |
 | İstinad ekran şəkilləri | hazır | `docs/flutter/REFERENCE_SHOTS.md` |
 
-Cəmi: `flutter test` 2344 keçdi, 18 skip, 0 uğursuz; `flutter analyze` (lib + test) 0 problem.
+Cəmi (2026-11-27, Windows, Recap qovluğu xaric): `flutter test` 2 372 keçdi, 17 skip, 0 uğursuz; `flutter analyze` 0 problem.
+
+Golden-lər Linux-da çəkilib. `app/test/flutter_test_config.dart` Linux-dan başqa hostlarda (Codemagic `mac_mini_m2`, Windows)
+piksel fərqini xəbərdarlıq kimi çap edir, testi yıxmır; render xətaları yenə yıxır. Ciddi yoxlama: Linux və ya
+`ANACAN_STRICT_GOLDENS=1`. Bu olmasaydı, Codemagic-də `flutter test` 138 golden-də düşəcəkdi.
 
 ## Açıq qərarlar (cavab gələnə qədər mötərizədəki variant)
 

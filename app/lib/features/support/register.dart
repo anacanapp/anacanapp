@@ -8,6 +8,7 @@ import '../../core/auth/auth.dart';
 import '../../shell/feature_registry.dart';
 import '../../shell/nav/ids.dart';
 import '../../shell/nav/shell_controller.dart';
+import '../../state/first_run_sheets.dart';
 import '../security/app_lock.dart' show isNativePlatformProvider;
 import '../security/register.dart' show onboardingTourActiveProvider;
 import 'app_rating.dart';
@@ -52,7 +53,7 @@ class _AutoFeedbackHostState extends ConsumerState<AutoFeedbackHost> {
       if (ref.read(isNativePlatformProvider) &&
           store.shouldAutoPromptFeedback(accountCreatedAt: user.createdAt, lossRecovery: profile?.lossRecoveryActive == true)) {
         store.markPromptShown();
-        unawaited(showFeedbackSheet(context, auto: true));
+        unawaited(ref.read(firstRunSheetsProvider.notifier).during(FirstRunSheet.autoFeedback, () => showFeedbackSheet(context, auto: true)));
       }
     });
   }

@@ -18,7 +18,7 @@ void main() {
   test('every icon directory is declared as an asset directory in pubspec.yaml', () {
     final pubspec = File('pubspec.yaml').readAsStringSync();
     for (final d in Directory('assets/icons').listSync().whereType<Directory>()) {
-      final rel = '${d.path.replaceAll(r'\\', '/')}/';
+      final rel = '${d.path.replaceAll(r'\', '/')}/';
       expect(pubspec, contains('- $rel'), reason: '$rel is not bundled (asset directories are not recursive)');
     }
   });

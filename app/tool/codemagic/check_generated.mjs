@@ -14,6 +14,7 @@ const repoDir = resolve(appDir, '..');
 const GENERATORS = [
   ['tool/design/gen_tokens.mjs', ['--check']],
   ['tool/i18n/export.mjs', ['--check']],
+  ['tool/moderation/gen_moderator_copy.mjs', ['--check']],
 ];
 
 // Bare specifiers that are not node: built-ins ("from 'x'", "import('x')", "require('x')").

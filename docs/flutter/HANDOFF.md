@@ -15,6 +15,10 @@ Yenilənib: 2026-11-27. Budaq: `claude/blissful-sagan-lqhvv9` (baza `main-630mc7
 
 - Flutter 3.50.1 stable lazımdır. Yoxdursa: `releases_linux.json`-dan 3.50.1 arxivini endir, `/opt/flutter`-ə aç, `git config --global --add safe.directory /opt/flutter`.
 - React tərəfi üçün repo kökündə `npm ci`.
+- Windows: `git config core.autocrlf false` (yoxsa CRLF generasiya yoxlamalarını və oyun JSON baytlarını pozur);
+  PowerShell-də `npm.cmd`/`npx.cmd`. Node 26-da `app/tool/i18n/export.mjs --check` `intl_data.g.dart`-da yalnız
+  açar sırası fərqi göstərir (ICU versiyası); commit edilmiş faylı saxla. Golden-lər yalnız Linux-da ciddi yoxlanır
+  (`app/test/flutter_test_config.dart`).
 - Android SDK və Xcode yoxdursa, native kod kompilyasiya olunmur; yalnız `flutter analyze` və `flutter test`. Real yığım yalnız Codemagic-də (`ios-flutter-store`, `android-flutter-store`).
 
 ## Vəziyyət
@@ -31,7 +35,8 @@ Qoşulmamış interfeyslər: `docs/flutter/WIRING.md` (46 sətir). Native dəyi�
 heç vaxt kompilyasiya olunmayıb.
 
 Başlanmayıb (sıra ilə):
-1. Billing ekranı, moderasiya tarixçəsi, Recap ekranı, bildirişlər siyahısının qalan hissələri.
+1. ~~Billing ekranı, moderasiya tarixçəsi~~ (hazır), Recap ekranı (gedir). Bildirişlər: React-da zəng söndürülüb,
+   `homeNotificationCountProvider` parite üçün 0 qalır.
 2. Alətlər (mərhələ 4, ~41 min sətir): `ToolsHub` + hər alət. 4–5 dəstəyə böl.
 3. Sosial (mərhələ 5): icma lenti, post, şərhlər, stories, qruplar, mesajlar, stikerlər, AI söhbət (SSE axını).
 4. Partnyor rejimi (mərhələ 6).

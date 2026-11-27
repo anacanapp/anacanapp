@@ -1,5 +1,5 @@
 // GENERATED — do not edit; run node app/lib/features/settings/copy/gen_feature_copy.mjs
-// Ported from: scripts/i18n/{feature37,moderator,privacy}-copy.json, src/data/{feedback,widgets,health-sync,lock-offer,promo}/*.json
+// Ported from: scripts/i18n/{feature37,privacy}-copy.json, src/data/{feedback,widgets,health-sync,lock-offer,promo}/*.json
 // ignore_for_file: lines_longer_than_80_chars
 
 const Map<String, Map<String, String>> kFeature37Copy = {
@@ -28,34 +28,6 @@ const Map<String, Map<String, String>> kFeature37Copy = {
   "et": {"ph_what_sees": "Mida su partner näeb?", "pp_week": "{n}. nädal", "pp_baby_age_months": "Beebi on {n} kuud vana", "pp_baby_age_days": "Beebi on {n} päeva vana", "pp_points": "Punktid", "pp_missions": "Ülesanded", "pp_surprises": "Üllatused", "pp_messages": "Sõnumid", "pp_profile": "Profiil", "pp_level": "{n}. tase", "pp_to_next": "{n} punkti järgmise tasemeni", "pp_connected_with": "Ühendatud kasutajaga", "ph_linked": "Ühendatud", "pp_achievements": "Saavutused", "pn_title": "Partneri teavitused", "pp_settings": "Teavituste ja rakenduse seaded", "pp_logout": "Logi välja"},
   "tk": {"ph_what_sees": "Ýoldaşyňyz näme görer?", "pp_week": "{n}-nji hepde", "pp_baby_age_months": "Çaga {n} aýlyk", "pp_baby_age_days": "Çaga {n} günlük", "pp_points": "Ballar", "pp_missions": "Tabşyryklar", "pp_surprises": "Sürprizler", "pp_messages": "Hatlar", "pp_profile": "Profil", "pp_level": "{n}-nji dereje", "pp_to_next": "Indiki derejä {n} bal galdy", "pp_connected_with": "Birikdirilen", "ph_linked": "Birikdirildi", "pp_achievements": "Üstünlikler", "pn_title": "Ýoldaş bildirişleri", "pp_settings": "Bildiriş we programma sazlamalary", "pp_logout": "Çykmak"},
   "uk": {"ph_what_sees": "Що бачитиме ваш партнер?", "pp_week": "Тиждень {n}", "pp_baby_age_months": "Вік малюка (місяців): {n}", "pp_baby_age_days": "Вік малюка (днів): {n}", "pp_points": "Бали", "pp_missions": "Завдання", "pp_surprises": "Сюрпризи", "pp_messages": "Повідомлення", "pp_profile": "Профіль", "pp_level": "Рівень {n}", "pp_to_next": "Балів до наступного рівня: {n}", "pp_connected_with": "Під’єднано до", "ph_linked": "Під’єднано", "pp_achievements": "Досягнення", "pn_title": "Сповіщення від партнера", "pp_settings": "Налаштування сповіщень і застосунку", "pp_logout": "Вийти"},
-};
-
-const Map<String, Map<String, String>> kModeratorCopy = {
-  "az": {"user_history": "Moderasiya tarixçəsi", "open_panel": "Moderator paneli", "details": "Təfərrüatlar"},
-  "en": {"user_history": "Moderation history", "open_panel": "Open Moderator centre", "details": "Details"},
-  "tr": {"user_history": "Moderasyon geçmişi", "open_panel": "Moderatör merkezini aç", "details": "Ayrıntılar"},
-  "ru": {"user_history": "История модерации", "open_panel": "Открыть центр модератора", "details": "Подробнее"},
-  "de": {"user_history": "Moderationsverlauf", "open_panel": "Moderatorenzentrum öffnen", "details": "Details"},
-  "ar": {"user_history": "سجل الإشراف", "open_panel": "فتح مركز المشرفين", "details": "التفاصيل"},
-  "ka": {"user_history": "მოდერაციის ისტორია", "open_panel": "მოდერატორის ცენტრის გახსნა", "details": "დეტალები"},
-  "kk": {"user_history": "Модерация тарихы", "open_panel": "Модератор орталығын ашу", "details": "Мәліметтер"},
-  "uz": {"user_history": "Moderatsiya tarixi", "open_panel": "Moderator markazini ochish", "details": "Tafsilotlar"},
-  "zh": {"user_history": "管理记录", "open_panel": "打开版主中心", "details": "详情"},
-  "id": {"user_history": "Riwayat moderasi", "open_panel": "Buka Pusat Moderator", "details": "Detail"},
-  "fr": {"user_history": "Historique de modération", "open_panel": "Ouvrir le centre de modération", "details": "Détails"},
-  "es": {"user_history": "Historial de moderación", "open_panel": "Abrir el Centro de moderación", "details": "Detalles"},
-  "pt": {"user_history": "Histórico de moderação", "open_panel": "Abrir o Centro de moderação", "details": "Detalhes"},
-  "vi": {"user_history": "Lịch sử kiểm duyệt", "open_panel": "Mở Trung tâm kiểm duyệt", "details": "Chi tiết"},
-  "hi": {"user_history": "मॉडरेशन इतिहास", "open_panel": "मॉडरेटर केंद्र खोलें", "details": "विवरण"},
-  "ja": {"user_history": "モデレーション履歴", "open_panel": "モデレーターセンターを開く", "details": "詳細"},
-  "ko": {"user_history": "운영 조치 내역", "open_panel": "모더레이터 센터 열기", "details": "세부 정보"},
-  "pl": {"user_history": "Historia moderacji", "open_panel": "Otwórz Centrum moderatora", "details": "Szczegóły"},
-  "nl": {"user_history": "Moderatiegeschiedenis", "open_panel": "Moderatorcentrum openen", "details": "Details"},
-  "sv": {"user_history": "Moderationshistorik", "open_panel": "Öppna Moderatorcenter", "details": "Detaljer"},
-  "ky": {"user_history": "Модерация тарыхы", "open_panel": "Модератордук борборду ачуу", "details": "Чоо-жайы"},
-  "et": {"user_history": "Modereerimise ajalugu", "open_panel": "Ava moderaatori keskus", "details": "Üksikasjad"},
-  "tk": {"user_history": "Moderasiýa taryhy", "open_panel": "Moderator merkezini açmak", "details": "Jikme-jiklikler"},
-  "uk": {"user_history": "Історія модерації", "open_panel": "Відкрити центр модератора", "details": "Деталі"},
 };
 
 const Map<String, Map<String, String>> kPrivacyCopy = {

@@ -97,6 +97,9 @@ abstract interface class PurchasesSdk {
   Future<Map<String, Object?>?> getCustomerInfo();
   Future<Map<String, Object?>?> getOfferings();
 
+  /// `Purchases.getProducts({productIdentifiers})` (subscriptions): product maps (`identifier`, `priceString`, …).
+  Future<List<Map<String, Object?>>> getProducts(List<String> productIdentifiers);
+
   /// product id → `INTRO_ELIGIBILITY_STATUS` (0 unknown, 1 ineligible, 2 eligible, 3 no offer).
   Future<Map<String, int>> checkTrialOrIntroductoryPriceEligibility(List<String> productIdentifiers);
 

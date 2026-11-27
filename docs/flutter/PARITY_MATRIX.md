@@ -1,4 +1,4 @@
-# Flutter port: parity matrix
+# Flutter port: parity matrix (tests; no device) | (tests; no device) |
 
 Authoritative inventory of everything the Flutter app (`app/`) must reproduce from the Capacitor consumer app
 (`src/`), measured on branch `claude/blissful-sagan-lqhvv9` (HEAD `8e2bac89`, 2026-11-27). Every row starts as `todo`.
@@ -192,7 +192,7 @@ Static content that becomes assets (not in the LOC above): ≈ 532 000 lines of 
 | `screen.help` | Help / support tickets | `components/HelpScreen.tsx`, `hooks/useSupportTickets.ts`, `hooks/useSupportTicketReplies.ts` | 746 | hooks: useDynamicTools; lib: lib/date-utils | all | todo |
 | `screen.legal` | Legal documents | `components/LegalScreen.tsx`, `components/MarkdownContent.tsx`, `hooks/useLegalDocuments.ts`, `lib/legalProse.ts` | 381 | pkg: react-markdown; react-markdown | all | todo |
 | `screen.legal-route` | Legal route /legal/:docType | `pages/LegalPage.tsx` | 19 |  | all | todo |
-| `screen.billing` | Billing / subscription | `components/BillingScreen.tsx`, `components/CancellationReasonDialog.tsx`, `hooks/useSubscriptionCancellation.ts` | 723 | pkg: @revenuecat/purchases-capacitor; fn: sync-revenuecat-entitlement, web-premium; hooks: useAutoGrowTextarea, useInAppPurchase, usePaywallConfig, usePremiumConfig, useSubscription; lib: lib/analytics, lib/date-utils, lib/dynamicIcon, lib/purchase-errors, lib/revenuecat +1 | all | todo |
+| `screen.billing` | Billing / subscription | `components/BillingScreen.tsx`, `components/CancellationReasonDialog.tsx`, `hooks/useSubscriptionCancellation.ts` | 723 | pkg: @revenuecat/purchases-capacitor; fn: sync-revenuecat-entitlement, web-premium; hooks: useAutoGrowTextarea, useInAppPurchase, usePaywallConfig, usePremiumConfig, useSubscription; lib: lib/analytics, lib/date-utils, lib/dynamicIcon, lib/purchase-errors, lib/revenuecat +1 | all | ported (tests; no device) |
 | `screen.widgets` | Widget settings | `components/WidgetSettingsScreen.tsx`, `data/widgets/index.ts` | 149 | pkg: AnacanWidgets(plugin); hooks: useSubscription; lib: lib/home-widgets; data: widgets | bump,mommy | todo |
 | `screen.health-sync` | Health sync screen | `components/HealthSyncScreen.tsx`, `data/health-sync/index.ts` | 487 | pkg: HealthCycle(plugin), HealthVitals(plugin); hooks: useHealthData; lib: lib/health, lib/healthCycle, lib/healthVitals; data: health-sync | all | todo |
 | `screen.ad-preferences` | Ad preferences | `components/ads/AdPreferencesScreen.tsx` | 40 | hooks: useSubscription; lib: lib/ads/policy | all | todo |
@@ -202,7 +202,7 @@ Static content that becomes assets (not in the LOC above): ≈ 532 000 lines of 
 | `screen.loss-home` | Pregnancy-loss home (RecoveryHome, ready choices) | `components/pregnancy-loss/RecoveryHome.tsx`, `components/pregnancy-loss/ReadyChoices.tsx`, `data/pregnancy-loss/index.ts` | 184 | hooks: useDailyLogs; lib: lib/native, lib/pregnancy-loss; data: pregnancy-loss | !partner | todo |
 | `screen.loss-guide` | Loss recovery guide (+signs checker) | `components/pregnancy-loss/RecoveryGuideScreen.tsx`, `components/pregnancy-loss/LossSignsChecker.tsx` | 201 | lib: lib/pregnancy-loss; data: pregnancy-loss | !partner | todo |
 | `screen.loss-memories` | Loss memories | `components/pregnancy-loss/LossMemoriesScreen.tsx` | 122 | lib: lib/baby-chat, lib/pregnancy-loss; data: pregnancy-loss | !partner | todo |
-| `screen.moderation-history` | My moderation decisions | `components/moderation/MyModerationDecisions.tsx` | 43 | rpc: get_moderator_access_v1, get_my_moderation_status_v1, moderator_content_detail_v1, moderator_query_v1 +1; hooks: useModerator; lib: lib/moderator, lib/moderator-i18n | all | todo |
+| `screen.moderation-history` | My moderation decisions | `components/moderation/MyModerationDecisions.tsx` | 43 | rpc: get_moderator_access_v1, get_my_moderation_status_v1, moderator_content_detail_v1, moderator_query_v1 +1; hooks: useModerator; lib: lib/moderator, lib/moderator-i18n | all | ported (tests; no device) |
 | `screen.admin` | Admin panel entry (activeScreen 'admin' / showAdmin) -> open web admin link | (not ported: web link) | — | AdminPanel.tsx + src/components/admin/** stay React (plan decision 1) | admin | todo |
 | `screen.moderator` | Moderator console entry (activeScreen 'moderator') -> open web moderator link | (not ported: web link) | — | ModeratorPanel.tsx stays React; see DEAD_CODE.md | moderator | todo |
 | `screen.referral` | Referral | `components/ReferralScreen.tsx`, `hooks/useReferral.ts` | 424 | lib: lib/date-utils | all | todo |

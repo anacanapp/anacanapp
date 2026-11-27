@@ -47,6 +47,7 @@ import '../features/settings/theme_mode_setting.dart' show ThemeModeSetting, the
 import '../native/biometric/local_auth_biometric.dart';
 import '../native/purchases/subscription.dart' show subscriptionProvider, subscriptionUsageProvider;
 import '../shell/nav/shell_controller.dart' show shellProvider;
+import '../state/first_run_sheets.dart' show firstRunSheetsProvider;
 import '../state/shell_bindings.dart' show hasPendingOnboardingProvider;
 import '../state/timer_store.dart' show timerNativeHooksProvider;
 import 'theme_mode.dart';
@@ -60,9 +61,9 @@ List<Override> featureWiringOverrides() => [
       hasPendingOnboardingProvider.overrideWith((ref) => ref.watch(onboardingPendingProvider)),
       // usePrivacyConsent().decidedAt !== null
       tourConsentDecidedProvider.overrideWith((ref) => ref.watch(privacyConsentProvider.select((c) => c.decided))),
-      // Index: lockOffer || lockSetup || feedback || articleSlug — only the article overlay is observable today
-      // (the security / support sheets are pushed routes without a shared flag; WIRING.md).
-      tourBlockedProvider.overrideWith((ref) => ref.watch(shellProvider.select((s) => s.blogOverlay != null))),
+      // Index: lockOffer || lockSetup || autoFeedback || articleSlug (state/first_run_sheets.dart).
+      tourBlockedProvider.overrideWith((ref) =>
+          ref.watch(firstRunSheetsProvider.select((s) => s.isNotEmpty)) || ref.watch(shellProvider.select((s) => s.blogOverlay != null))),
       // OnboardingTourHost onRunningChange → Index `tourActive` (first-run lock offer waits for the tour).
       onboardingTourActiveProvider.overrideWith((ref) => ref.watch(tourRunningProvider)),
 

@@ -3,9 +3,9 @@
 // JSON fixtures may use template tokens relative to the frozen clock; .mjs fixtures export default (ctx, args) => value.
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
-export const FIXTURES_DIR = new URL('../fixtures/', import.meta.url).pathname;
+export const FIXTURES_DIR = fileURLToPath(new URL('../fixtures/', import.meta.url));
 
 const pad = (n) => String(n).padStart(2, '0');
 /** Calendar date in the app's reference timezone (Asia/Baku, UTC+4, no DST). */
