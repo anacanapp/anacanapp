@@ -38,7 +38,7 @@ void main() {
   for (final dark in <bool>[false, true]) {
     final mode = dark ? 'dark' : 'light';
     testWidgets('primitives $mode', (tester) async {
-      await _golden(tester, 'primitives_$mode', const GalleryPrimitives(animate: false), dark: dark, height: 2100);
+      await _golden(tester, 'primitives_$mode', const GalleryPrimitives(animate: false), dark: dark, height: 2400);
     });
     testWidgets('typography $mode', (tester) async {
       await _golden(tester, 'typography_$mode', const GalleryTypography(), dark: dark, height: 420);
@@ -49,7 +49,7 @@ void main() {
   }
 
   testWidgets('primitives rtl', (tester) async {
-    await _golden(tester, 'primitives_rtl', const GalleryPrimitives(animate: false), rtl: true, height: 2100);
+    await _golden(tester, 'primitives_rtl', const GalleryPrimitives(animate: false), rtl: true, height: 2400);
   });
   testWidgets('typography rtl (Noto Sans Arabic)', (tester) async {
     await _golden(tester, 'typography_rtl', const GalleryTypography(), rtl: true, height: 420);

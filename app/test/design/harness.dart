@@ -30,7 +30,7 @@ Future<void> loadAnacanFonts() async {
 
 /// Pumps, then lets SVG decoding (flutter_svg compiles off the fake-async zone) finish.
 Future<void> settleSvgs(WidgetTester tester) async {
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < 10; i++) {
     await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 60)));
     await tester.pump();
   }

@@ -109,7 +109,11 @@ function reactIconSvg(pkg, name) {
   const m = new RegExp(`export function ${name} \\(props\\) \\{\\s*return GenIcon\\((\\{.*\\})\\)\\(props\\);`).exec(js);
   const tree = JSON.parse(m[1]);
   const render = (n) => `<${n.tag} ${Object.entries(n.attr).map(([k, v]) => `${ATTR(k)}="${esc(v)}"`).join(' ')}${n.child?.length ? `>${n.child.map(render).join('')}</${n.tag}>` : ' />'}`;
-  const svg = render({ ...tree, attr: { xmlns: 'http://www.w3.org/2000/svg', ...tree.attr } });
+  // flutter_svg does not inherit a root-level fill="currentColor" through SvgTheme, so the fill
+  // is moved onto each child shape.
+  const { fill, ...rootAttr } = tree.attr;
+  const withFill = (n) => ({ ...n, attr: { ...n.attr, fill: n.attr.fill ?? fill }, child: (n.child ?? []).map(withFill) });
+  const svg = render({ ...tree, attr: { xmlns: 'http://www.w3.org/2000/svg', ...rootAttr }, child: tree.child.map(withFill) });
   return svg + '\n';
 }
 
@@ -123,7 +127,7 @@ function sonnerIcons() {
   const names = ['success', 'warning', 'info', 'error'];
   if (found.length !== 4) throw new Error(`expected 4 sonner icons, found ${found.length}`);
   found.forEach((f, i) => {
-    out[names[i]] = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${f.viewBox}" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="${f.d}" clip-rule="evenodd" /></svg>\n`;
+    out[names[i]] = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${f.viewBox}" width="20" height="20"><path fill="currentColor" fill-rule="evenodd" d="${f.d}" clip-rule="evenodd" /></svg>\n`;
   });
   return out;
 }

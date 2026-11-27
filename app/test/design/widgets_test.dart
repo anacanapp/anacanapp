@@ -36,6 +36,7 @@ void main() {
         s = DefaultTextStyle.of(c).style;
         return const SizedBox();
       })), rtl: true));
+      await tester.pumpAndSettle();
       expect(s.fontFamily, 'Noto Sans Arabic');
       expect(s.fontFamilyFallback, <String>['Inter', 'Nunito']);
     });

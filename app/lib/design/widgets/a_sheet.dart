@@ -344,8 +344,6 @@ class _ASheetFrameState extends State<_ASheetFrame> with SingleTickerProviderSta
       animation: _pos,
       child: sheet,
       builder: (context, child) {
-        final h = _height;
-        final dy = (1 - _pos.value) * h + _upOffset;
         return Stack(
           children: <Widget>[
             Positioned.fill(
@@ -357,7 +355,11 @@ class _ASheetFrameState extends State<_ASheetFrame> with SingleTickerProviderSta
               left: 0,
               right: 0,
               bottom: mq.viewInsets.bottom,
-              child: Transform.translate(offset: Offset(0, dy), child: child),
+              // translateY((1 - p) * 100%) of the sheet's own height, plus vaul's damped upward pull.
+              child: FractionalTranslation(
+                translation: Offset(0, 1 - _pos.value),
+                child: Transform.translate(offset: Offset(0, _upOffset), child: child),
+              ),
             ),
           ],
         );
