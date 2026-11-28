@@ -1,8 +1,9 @@
 # Mini games — engines, data and saves (Flutter port)
 
 Ported from: `src/components/games/**`, `src/hooks/useLocalGameProgress.ts`, `src/lib/game-score-sync.ts`.
-This folder holds **pure Dart only** (no Flutter imports): engines, generators, solvers, scoring, fixed-step
-physics, offline copy lookups and save codecs. No widgets yet.
+The `engine/`, `data/` and `persistence/` folders hold **pure Dart only** (no Flutter imports): engines, generators,
+solvers, scoring, fixed-step physics, offline copy lookups and save codecs. Widgets live in `<game>/ui/`, the hub in
+`hub/ui/`, shared game UI in `ui_common/` (see "UI" below).
 
 ## How equality with the React app is proven
 
@@ -63,16 +64,55 @@ Worker entry points for `Isolate.run`: `generateGardenLevelJob` (lexicon text + 
 ```
 `assets/games/manifest.json` is for tests only (no need to bundle). Total ≈ 1.4 MB.
 
-## UI work remaining (per game)
+## UI
 
-- **Word Garden:** DOM/CSS crossword board, SVG letter wheel with pointer drag (`crossedLetters`), keyboard entry,
-  three CSS themes (Scenery), WebAudio tones (`audio.ts`: sine oscillators), native haptics, timed-mode
-  ready/pause/lost dialogs, rewarded extra time via `useGameAds` (`reviveGardenRound`), level pages of 20,
-  `Intl.NumberFormat` for numbers in copy. Lexicon load + generation off the UI isolate.
-- **Two Friends / Clear the Way:** DOM grid boards, swipe/keyboard input, car drag (ParkingBoard), hint highlight
-  (isolate job, 5 s / 10 s timeouts), dialogs with focus/Escape/native back, webp characters, sounds/haptics prefs.
-- **Leaf Flight:** canvas (`FlightCanvas.tsx`) → `CustomPainter`; drive `advanceFlight` from a `Ticker`;
-  hold/release on pointer + Space/↑/W; release on cancel/blur/background; 2 s autosave of the round.
+### Hub and registration (`register.dart`, `hub/`)
+
+- `registerGamesFeature(FeatureRegistry r, {games})` registers the `mini-games` tool (`ToolId.miniGames` →
+  `MiniGamesHub`) and fills the shared game registry: Söz bağı, İki dost, Tumurcuğun uçuşu, Yolunu aç here, the other
+  folders through `games: [...]` (e.g. `registerGamesBatchB`). The dev-only `/mini-games` outer route is **not**
+  registered (SHELL.md §10).
+- `hub/ui/mini_games_hub.dart` (`MiniGamesHub.tsx`): Games / Leaderboard tabs, the fixed card list (8 cards in az,
+  7 elsewhere — Söz bağı only with an az library), own-screen games full screen, level games hub → levels → game with
+  `localGameProgressProvider` + score submission + analytics. Unregistered game → `GameNotAvailable`.
+- `hub/ui/leaderboard.dart` (`Leaderboard.tsx`), `hub/data/game_scores.dart` (`useGameScores.ts`:
+  `gameLeaderboardQuery`, `myGameScoreQuery`, `gameScoreSubmitterProvider`; backend seam `gameScoresBackendProvider`,
+  `gameAuthLoadingProvider` default false), `hub/data/game_score_sync.dart` (`game-score-sync.ts` +
+  `game-score-messages.ts`).
+
+### Shared game UI (`ui_common/`) — stable API for every game folder
+
+| File | React | API |
+|---|---|---|
+| `game_registry.dart` | MiniGamesHub view switch | `GameRegistry`, `registerGame(entry)`, `sharedGameRegistry`, `gameRegistryProvider`, `MiniGameIds`, `ScreenGameEntry(id, builder(ctx, GameScreenArgs{onBack}))`, `LevelGameEntry(id, levels(ctx, GameLevelsArgs), game(ctx, GamePlayArgs), levelCount(ref), nextLevel?)`, `GameLevelResult` |
+| `game_env.dart` | localStorage, native haptics, analytics, audio.ts | `gameStoreProvider` (`LocalStoreGameStore` over the app `LocalStore`, same keys as the WebView), `gameLanguageProvider`, `gameNumber(lang, n)`, `gameHapticsProvider`, `gameAnalyticsProvider`, `gameTonePlayerFactoryProvider` (silent default), `gameClockProvider` (`performance.now`), `gameAssetTextLoaderProvider` |
+| `game_data.dart` | bundled copy / catalogs | `gameDataProvider` → `GameData{garden, friends, casual, bubble, colorSort, friendsCatalog, parkingCatalog}` |
+| `local_game_progress.dart` | `useLocalGameProgress.ts` | `localGameProgressProvider(gameId)` (`.notifier.recordLevelResult`, `isLevelUnlocked`) |
+| `game_ads.dart` | `useGameAds.ts` | `GameAdsController(gameId, platform, phase, restore)` (`update`, `transition`, `revive`, `resetRound`, `canOffer`, `benefits`, …), `gameAdsPlatformProvider` (default `NoGameAdsPlatform` = React without an ads configuration) |
+| `game_revive_action.dart` | `GameReviveAction.tsx` | `GameReviveAction(ads, game: 'basket' or 'match', labels?, canOffer?)` |
+| `level_select_grid.dart` | `GameLevelSelectGrid.tsx` | `GameLevelSelectGrid(...)`, `LevelSection` |
+| `tier_labels.dart` | `tierLabels.ts` | `trTierName` |
+| `casual_ui.dart` | `casual/{GameLobby,GameDialog,useCasualText,art}` + casual.css | `CasualText`, `CasualPalette`, `CasualScreen`, `CasualHeader`, `CasualButton`, `GameLobby`, `GameDialog`, … |
+| `game_widgets.dart` | portals, pushBackHandler, window key / visibility listeners | `GamePortal` (full screen over the nav), `GameBackHandler`, `GameKeyboardListener` (newest first, handled keys stop), `GameLifecycleListener`, `GameStar`, `GameButton` |
+
+### Games of this batch
+
+- **Söz bağı** (`word_garden/ui/`): lobby (`WordGarden`/`GardenJourney`), `GardenGame` (clock 250 ms timed / 1 s calm
+  from `gameClockProvider`, flush on pause/settings/background/exit), `CrosswordBoard`, `LetterWheel` (drag with
+  `crossedLetters`, taps, keyboard), `GardenDialog` + settings/help, SVG scenery with the theme palette, generation via
+  `gardenLevelLoaderProvider` (`Isolate.run(generateGardenLevelJob)`, 15 s). Az only; other languages see the
+  "library pending" page.
+- **İki dost** (`iki_dost/ui/`): `TwoFriends`, `FriendsBoard` (swipe ≥ 22 px, LTR boards), dialogs; hints via
+  `friendsHintRunnerProvider` (`Isolate.run(friendsHintJob)`, 5 s).
+- **Tumurcuğun uçuşu** (`leaf_flight/ui/`): `LeafFlight` (Ticker → `advanceFlight`, 2 s autosave), `FlightPainter`.
+- **Yolunu aç** (`parking/ui/`): `ClearTheWay`, `ParkingBoard` (axis-clamped drag); hints via
+  `parkingHintRunnerProvider` (`Isolate.run(parkingHintJob)`, 10 s).
+
+Not reproduced: React `ErrorBoundary` crash fallbacks; landscape / very-short-screen CSS variants (only the
+`max-height: 610px` tweaks used by the boards); CSS keyframe animations except the cell bloom / spinning flower.
+
+### Other games (remaining notes)
+
 - **Color Sort:** SVG tubes (`ColorTube.tsx`) with pour animation, colour markers, hidden layers, +10 levels pack,
   worker generation with fallback + cache, rewarded extra moves (`bonusMoves`, max 60), leaderboard score submit.
 - **Bubble Pop:** CSS bubbles with fall/ghost/burst animations, 90 s clock (100 ms tick → `BubbleRound.tick`),
@@ -80,7 +120,6 @@ Worker entry points for `Isolate.run`: `generateGardenLevelJob` (lexicon text + 
   `submit_game_score_v1` (score ≤ 300 000, level 1).
 - **Birləşdir / Sağlam Səbət:** framer-motion tiles / falling items, cascade timings (140/160/360/450 ms),
   bonus banners, countdown, revive (`useGameAds` lives/moves/seconds), `submit_game_score_v1`, `Leaderboard.tsx`.
-- **Hub:** `MiniGamesHub.tsx` cards, `GameLevelSelectGrid`, tier labels via `tr()`, `useGameAds` interstitial cadence.
 
 ## Risks / notes
 

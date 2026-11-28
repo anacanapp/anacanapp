@@ -32,6 +32,9 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| Sağlam Səbət (ərəbcə): düşən əşyalar və səbət inline-start + LTR sürüşmə ilə ekrandan çıxırdı | `SaglamSebetGame.tsx` | Flutter-də soldan, toxunuş hesabı ilə eyni |
+| Birləşdir (ərəbcə): lövhə güzgülənirdi, swipe hesabı LTR qalırdı, səhv qonşu dəyişirdi | `BirlesdirGame.tsx` | Flutter-də lövhə LTR |
+| Oyunlar: xəta toast-unda "Yenidən cəhd et" düyməsi yoxdur (dizayn sistemi toast-unda əməliyyat yeri yoxdur); React error boundary-ləri yoxdur | `components/games/*` | boşluq, düzəliş deyil |
 | Hamiləlik itkisi pəncərəsi: brauzer tarix sahəsi əvəzinə native tarix seçici (son 365 gün, bu gündən gec olmayan) | `PregnancyLossSheet.tsx` | qəsdən |
 | Profil kartından doğuş onboarding-i bitəndə səhifə yenidən yüklənmir; analıq rejiminə keçid ekranları yeniləyir | `ProfilePregnancyCard.tsx` | qəsdən |
 | Temperatur siferblatı dar ekranda daşırdı | `IllnessSheets.tsx` | Flutter-də kiçilir |

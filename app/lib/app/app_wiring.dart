@@ -34,7 +34,9 @@ import '../features/album_order/register.dart' show albumOrderWiringOverrides, p
 import '../features/blog/register.dart' show blogHospitalBagArticles, blogWiringOverrides;
 import '../features/books/register.dart' show booksCarouselSlot, booksHomeCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
+import '../core/auth/auth_controller.dart' show authControllerProvider;
 import '../features/commerce/partners/qr_code.dart' show qrCodeBuilderProvider;
+import '../features/games/hub/data/game_scores.dart' show gameAuthLoadingProvider;
 import '../features/commerce/register.dart'
     show
         commerceAptekBagCard,
@@ -200,6 +202,8 @@ List<Override> featureWiringOverrides() => [
       aiWeightEntriesProvider.overrideWith((ref) => [
             for (final e in ref.watch(weightEntriesProvider).entries) {'weight': e.weight, 'entry_date': e.entryDate},
           ]),
+      // Games: leaderboard waits for auth like React's `useAuth().loading`.
+      gameAuthLoadingProvider.overrideWith((ref) => ref.watch(authControllerProvider.select((s) => s.loading))),
       // Weaning / Tərbiyə cards under matching AI answers.
       aiAnswerCardProvider.overrideWithValue(programmeAiAnswerCardBuilder),
       aiMotherMealsProvider.overrideWith((ref) => ref.watch(mealLogsProvider).todayLogs),

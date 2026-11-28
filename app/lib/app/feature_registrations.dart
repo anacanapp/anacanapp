@@ -14,6 +14,8 @@ import '../features/commerce/register.dart';
 import '../features/community/register.dart';
 import '../features/community_stories/register.dart';
 import '../features/entry/entry_feature.dart';
+import '../features/games/casual/register_games_batch_b.dart';
+import '../features/games/register.dart';
 import '../features/groups/register.dart';
 import '../features/health_screens/register.dart';
 import '../features/home/register_home.dart';
@@ -55,6 +57,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerCommunityFeature(r);
   registerCommunityStoriesFeature(r);
   registerEntryFeature(r);
+  registerGamesFeature(r, games: const [registerGamesBatchB]);
   registerGroupsFeature(r);
   registerHealthScreensFeature(r);
   registerHomeFeature(r);

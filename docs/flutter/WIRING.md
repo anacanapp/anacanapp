@@ -62,7 +62,8 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `useAdSafetyBlock` in AppRatingPrompt | `features/support/app_rating.dart` | not consulted | ads | 9 |
 | `screenshotGuardPlatformProvider` | `features/security/screen_capture_guard.dart` | no-op | ScreenshotGuard native plugin (FLAG_SECURE / secure surface, capture events) | 9 |
 | `dashboardCaptureAllowedProvider` | `features/security/screen_capture_guard.dart` | false (protected everywhere) | shell: main dashboard visible and no dialog route open (needs a navigator observer); meaningful only with the platform above | 9 |
-| Games UI (hub, 8 games) | `features/games/` (engines only) | not registered | games feature | 8 |
+| `gameAdsPlatformProvider` (rewarded revive / interstitial) | `features/games/ui_common/` | no ads: nothing offered, transitions run at once | AdMob | 9 |
+| `gameTonePlayerFactoryProvider` | `features/games/ui_common/` | silent | audio package | 9 |
 
 Count by phase: 3 → 3, 4 → 7, 5 → 6, 6 → 5, 7 → 9, 8 → 1, 9 → 19 (rows spanning several phases counted under
 each phase they name in the last column; the profile slots row once, as "4–9").

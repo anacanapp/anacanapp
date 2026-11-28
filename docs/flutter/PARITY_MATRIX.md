@@ -62,7 +62,7 @@ Static content that becomes assets (not in the LOC above): ≈ 532 000 lines of 
 | `tool.weaning` / `tool.sleep-training` | 2 028 / 1 689 | Plan state machines in localStorage + server sync + local reminders + widget actions. |
 | `svc.purchases` + `gate.onboarding*` | 3 203 | RevenueCat offerings, promo/one-time offer, Epoint fallback, entitlement monitor. |
 | `svc.ads` + `native.admob-patch` | 1 222 + patch | Native story ad has no Flutter equivalent (NativeAd factory), UMP, cadence and placements policy. |
-| `game.word-garden` | 1 660 + 1.1 MB lexicons | Worker generator → isolate; saved rounds must reopen on the exact lexicon revision. |
+| `game.word-garden` | 1 660 + 1.1 MB lexicons | ported (tests; no device; ads/sound: phase 9) |
 
 ## Not ported (web-only routes reachable in the native bundle)
 
@@ -349,18 +349,18 @@ Static content that becomes assets (not in the LOC above): ≈ 532 000 lines of 
 
 | ID | Unit | React source | LOC | Depends on | Stage/role | Status |
 |---|---|---|---|---|---|---|
-| `game.hub` | Mini games hub | `components/games/{MiniGamesHub.tsx,GameLevelSelectGrid.tsx,tierLabels.ts,GameReviveAction.tsx}`, `hooks/useLocalGameProgress.ts`, `hooks/useGameScores.ts`, `lib/game-score-sync.ts`, `lib/game-score-messages.ts` | 943 | rpc: get_public_community_profiles_v2, submit_game_score_v1; lib: lib/native, lib/public-profile-cards | all | todo |
-| `game.leaderboard` | Leaderboard | `components/games/Leaderboard.tsx` | 134 | hooks: useGameScores; lib: lib/game-score-messages | all | todo |
-| `game.ads` | Game ads (rewarded / interstitial cadence) | `hooks/useGameAds.ts` | 54 | hooks: useSubscription; lib: lib/ads/policy; AdMob rewarded | all | todo |
-| `game.saglam-sebet` | Sağlam Səbət | `components/games/saglam-sebet/{SaglamSebetGame.tsx,SaglamSebetLevels.tsx,levelConfig.ts}` | 944 | hooks: useGameAds; lib: lib/native | all | todo |
-| `game.birlesdir` | Birləşdir (match) | `components/games/birlesdir/{BirlesdirGame.tsx,BirlesdirLevels.tsx,matchEngine.ts,levelConfig.ts,tileDefs.ts}` | 1277 | hooks: useGameAds; lib: lib/native | all | todo |
-| `game.color-sort` | Color sort (worker) | `components/games/color-sort/{ColorSortGame.tsx,ColorSortLevels.tsx,useColorSortLibrary.ts,useColorSortText.ts,difficulty.ts}` (+8 owned) | 1262 | hooks: useGameAds; lib: lib/native; isolate | all | todo |
+| `game.hub` | Mini games hub | `components/games/{MiniGamesHub.tsx,GameLevelSelectGrid.tsx,tierLabels.ts,GameReviveAction.tsx}`, `hooks/useLocalGameProgress.ts`, `hooks/useGameScores.ts`, `lib/game-score-sync.ts`, `lib/game-score-messages.ts` | 943 | rpc: get_public_community_profiles_v2, submit_game_score_v1; lib: lib/native, lib/public-profile-cards | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.leaderboard` | Leaderboard | `components/games/Leaderboard.tsx` | 134 | hooks: useGameScores; lib: lib/game-score-messages | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.ads` | Game ads (rewarded / interstitial cadence) | `hooks/useGameAds.ts` | 54 | hooks: useSubscription; lib: lib/ads/policy; AdMob rewarded | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.saglam-sebet` | Sağlam Səbət | `components/games/saglam-sebet/{SaglamSebetGame.tsx,SaglamSebetLevels.tsx,levelConfig.ts}` | 944 | hooks: useGameAds; lib: lib/native | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.birlesdir` | Birləşdir (match) | `components/games/birlesdir/{BirlesdirGame.tsx,BirlesdirLevels.tsx,matchEngine.ts,levelConfig.ts,tileDefs.ts}` | 1277 | hooks: useGameAds; lib: lib/native | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.color-sort` | Color sort (worker) | `components/games/color-sort/{ColorSortGame.tsx,ColorSortLevels.tsx,useColorSortLibrary.ts,useColorSortText.ts,difficulty.ts}` (+8 owned) | 1262 | hooks: useGameAds; lib: lib/native; isolate | all | ported (tests; no device; ads/sound: phase 9) |
 | `game.word-garden` | Word garden (crossword, lexicon worker) | `components/games/word-garden/{WordGarden.tsx,library.ts,model.ts,messages.ts,audio.ts}` (+16 owned) | 1660 | hooks: useGameAds; lib: lib/backButton, lib/native; isolate; 1.1 MB lexicons | az language | todo |
-| `game.casual` | Casual lobby/dialog shared by leaf-flight, clear-the-way, qabarciq | `components/games/casual/{GameLobby.tsx,GameDialog.tsx,storage.ts,useCasualText.ts,messages.ts,art.ts}` | 167 | lib: lib/backButton | all | todo |
-| `game.iki-dost` | İki dost (two friends) | `components/games/iki-dost/{TwoFriends.tsx,model.ts,messages.ts,art.ts}` (+8 owned) | 776 | hooks: useGameAds; lib: lib/backButton, lib/native; isolate | all | todo |
-| `game.leaf-flight` | Leaf flight (canvas) | `components/games/leaf-flight/LeafFlight.tsx`, `components/games/leaf-flight/model.ts` (+2 owned) | 325 | hooks: useGameAds; lib: lib/backButton, lib/native, lib/touch-guards; CustomPainter | all | todo |
-| `game.parking` | Clear the way (parking, worker) | `components/games/parking/ClearTheWay.tsx`, `components/games/parking/model.ts` (+6 owned) | 334 | hooks: useGameAds; lib: lib/backButton, lib/native; isolate | all | todo |
-| `game.qabarciq` | Qabarcıq (bubble pop) + weekly leaderboard | `components/games/qabarciq/{BubblePop.tsx,engine.ts,messages.ts}` (+1 owned) | 640 | rpc: get_public_community_profiles_v2; hooks: useGameAds, useGameScores; lib: lib/backButton, lib/native, lib/public-profile-cards | all | todo |
+| `game.casual` | Casual lobby/dialog shared by leaf-flight, clear-the-way, qabarciq | `components/games/casual/{GameLobby.tsx,GameDialog.tsx,storage.ts,useCasualText.ts,messages.ts,art.ts}` | 167 | lib: lib/backButton | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.iki-dost` | İki dost (two friends) | `components/games/iki-dost/{TwoFriends.tsx,model.ts,messages.ts,art.ts}` (+8 owned) | 776 | hooks: useGameAds; lib: lib/backButton, lib/native; isolate | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.leaf-flight` | Leaf flight (canvas) | `components/games/leaf-flight/LeafFlight.tsx`, `components/games/leaf-flight/model.ts` (+2 owned) | 325 | hooks: useGameAds; lib: lib/backButton, lib/native, lib/touch-guards; CustomPainter | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.parking` | Clear the way (parking, worker) | `components/games/parking/ClearTheWay.tsx`, `components/games/parking/model.ts` (+6 owned) | 334 | hooks: useGameAds; lib: lib/backButton, lib/native; isolate | all | ported (tests; no device; ads/sound: phase 9) |
+| `game.qabarciq` | Qabarcıq (bubble pop) + weekly leaderboard | `components/games/qabarciq/{BubblePop.tsx,engine.ts,messages.ts}` (+1 owned) | 640 | rpc: get_public_community_profiles_v2; hooks: useGameAds, useGameScores; lib: lib/backButton, lib/native, lib/public-profile-cards | all | ported (tests; no device; ads/sound: phase 9) |
 
 ## Phase 9 — Native completion
 
