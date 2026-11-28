@@ -134,6 +134,9 @@ Addımlar:
    `verify` addımı write key, TikTok secret və Meta client token-in Dart/Flutter çıxışında olmadığını yoxlayır. iOS faylına Google
    girişi üçün `ANACAN_GOOGLE_IOS_CLIENT_ID`, `ANACAN_GOOGLE_REVERSED_CLIENT_ID`, `ANACAN_GOOGLE_SERVER_CLIENT_ID` də
    yazılır (Info.plist `GIDClientID`, `GIDServerClientID`, URL sxemi; eyni repodakı fayllardan).
+6. Golden-lər: `flutter-goldens-linux` (Linux `linux_x2`, imzasız) `flutter test --update-goldens` ilə bütün golden-ləri
+   yenidən çəkir, sonra `ANACAN_STRICT_GOLDENS=1` ilə sərt yoxlayır və `goldens.zip` artefaktı verir. Zip-i `app/`
+   içində açıb commit etmək kifayətdir. Linux maşınları Codemagic-in pulsuz planına daxil olmaya bilər.
 5. iOS: `ios-store` kimi sertifikat və App Store profili API ilə gətirilir (`keychain`, `fetch-signing-files --create`,
    `xcode-project use-profiles`), sonra `flutter build ipa`. Üç target imzalanır (`IOS_SIGNED_TARGETS`): `Runner`
    (`com.atlasoon.anacan`), `AnacanTimerWidgetExtExtension` (`.AnacanTimerWidgetExt`) və `AnacanNotificationService`;

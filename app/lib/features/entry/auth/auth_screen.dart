@@ -965,7 +965,8 @@ class _PartnerPairingRetryState extends State<PartnerPairingRetry> {
             enabled: !_busy,
             autocorrect: false,
             inputFormatters: [_UpperCaseFormatter(maxLength: 64)],
-            style: sm,
+            // shadcn Input: text-base (16/24) below 768px (keyboard.css agrees), md:text-sm from there.
+            style: phoneInputStyle(context, sm, lineHeightPx: 24),
             decoration: InputDecoration(
               isCollapsed: true,
               border: InputBorder.none,

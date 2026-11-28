@@ -540,7 +540,9 @@ class _CxInputState extends State<CxInput> {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = px(15, color: a.ink, height: 1.4);
+    final base = px(15, color: a.ink, height: 1.4);
+    // `.cx-input` on an `<input>` loses to keyboard.css on phones (16px); a `textarea.cx-input` keeps 15px.
+    final style = widget.maxLines > 1 ? base : phoneInputStyle(context, base);
     return Material(
       type: MaterialType.transparency,
       child: Container(

@@ -74,9 +74,6 @@ void main() {
   setUpAll(loadAnacanFonts);
 
   testWidgets('golden: bump Premium tools hub (reference shot bump.tabs__tools, 390×844 light az)', (tester) async {
-    // flutter_test paints BoxShadows without blur (debugDisableShadows), which hides the CSS card shadows.
-    debugDisableShadows = false;
-    addTearDown(() => debugDisableShadows = true);
     final h = HubHarness(
       context: HubContext(lifeStage: 'bump', language: 'az', countryCode: 'AZ', isPremium: true, currentWeek: 24, now: DateTime(2026, 11, 20, 9)),
       rows: _rows,
@@ -103,6 +100,5 @@ void main() {
     await settleSvgs(tester);
     await expectLater(find.byType(MaterialApp), matchesGoldenFile('goldens/tools_hub_bump_light.png'));
     await tearDownTree(tester);
-    debugDisableShadows = true;
   });
 }

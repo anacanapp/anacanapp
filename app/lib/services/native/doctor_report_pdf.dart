@@ -10,11 +10,12 @@
 import 'dart:typed_data';
 
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:intl/intl.dart' show DateFormat, NumberFormat;
+import 'package:intl/intl.dart' show DateFormat;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
-import '../../core/i18n/app_languages.dart' show appLanguage, isRtlLang;
+import '../../core/i18n/app_languages.dart' show isRtlLang;
+import '../../core/i18n/count_format.dart' show formatIntlNumber;
 import '../../core/i18n/tr.dart';
 import '../../features/health_screens/doctor_report/pdf_report.dart';
 
@@ -415,13 +416,7 @@ class _Layout {
     y += 5;
   }
 
-  String _weight(double value) {
-    try {
-      return NumberFormat.decimalPatternDigits(locale: appLanguage(language).intlLocale, decimalDigits: 1).format(value);
-    } catch (_) {
-      return value.toStringAsFixed(1);
-    }
-  }
+  String _weight(double value) => formatIntlNumber(language, value, maximumFractionDigits: 1, minimumFractionDigits: 1);
 
   Future<void> run() async {
     final createdAt = data.generatedAt ?? DateTime.now();

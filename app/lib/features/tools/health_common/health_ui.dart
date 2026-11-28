@@ -144,7 +144,8 @@ class _AFieldState extends State<AField> {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = DefaultTextStyle.of(context).style.merge(px(widget.fontSize, color: a.ink, weight: widget.fontWeight));
+    // `.a-input` `<input>`s (also with `text-lg`) lose their class size to keyboard.css on phones (16px).
+    final style = phoneInputStyle(context, DefaultTextStyle.of(context).style.merge(px(widget.fontSize, color: a.ink, weight: widget.fontWeight)));
     return Material(
       type: MaterialType.transparency,
       child: Container(
@@ -303,7 +304,8 @@ class ASearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = DefaultTextStyle.of(context).style.merge(px(13, color: a.ink));
+    // `.a-search input` (13px) loses to keyboard.css's phone rule (16px).
+    final style = phoneInputStyle(context, DefaultTextStyle.of(context).style.merge(px(13, color: a.ink)));
     return Material(
       type: MaterialType.transparency,
       child: Container(

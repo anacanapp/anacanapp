@@ -257,7 +257,8 @@ class _BirthOnboardingModalState extends ConsumerState<BirthOnboardingModal> wit
             onChanged: onChanged,
             textAlign: center ? TextAlign.center : TextAlign.start,
             keyboardType: numeric ? const TextInputType.numberWithOptions(decimal: true) : null,
-            style: TextStyle(fontSize: fontSize, fontWeight: center ? FontWeight.w500 : FontWeight.w400, color: s.foreground),
+            // `text-lg` loses to keyboard.css on phones: max(16px, 1em) of the 16px dialog.
+            style: TextStyle(fontSize: phoneInputFontSize(context, fontSize), fontWeight: center ? FontWeight.w500 : FontWeight.w400, color: s.foreground),
             decoration: InputDecoration(
               hintText: placeholder,
               hintStyle: TextStyle(color: s.mutedForeground),

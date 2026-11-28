@@ -681,13 +681,14 @@ class _PhotoViewerState extends State<_PhotoViewer> {
                             key: const ValueKey('album-caption'),
                             controller: _caption,
                             autofocus: true,
-                            style: px(14, color: white),
+                            // keyboard.css lifts the inherited 14px to 16px on phones.
+                            style: phoneInputStyle(context, px(14, color: white)),
                             cursorColor: white,
                             decoration: InputDecoration(
                               isCollapsed: true,
                               border: InputBorder.none,
                               hintText: tr('pregnancyalbum_basliq_elave_edin_082901', 'Başlıq əlavə edin...'),
-                              hintStyle: px(14, color: const Color(0x80FFFFFF)),
+                              hintStyle: phoneInputStyle(context, px(14, color: const Color(0x80FFFFFF))),
                             ),
                           ),
                         ),

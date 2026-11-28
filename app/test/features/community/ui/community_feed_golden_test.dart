@@ -6,7 +6,6 @@ import 'package:anacan/design/gallery.dart' show GalleryFrame;
 import 'package:anacan/features/community/community_slots.dart';
 import 'package:anacan/features/community/ui/community_post_feed.dart' show communityOnlineProvider;
 import 'package:anacan/features/community/ui/community_screen.dart';
-import 'package:flutter/painting.dart' show debugDisableShadows;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -21,9 +20,6 @@ void main() {
   });
 
   testWidgets('golden: community feed (reference shot bump.tabs__community, 390×844 light az)', (tester) async {
-    // flutter_test paints BoxShadows without blur (debugDisableShadows), which hides the CSS card shadows.
-    debugDisableShadows = false;
-    addTearDown(() => debugDisableShadows = true);
     final now = DateTime.now().toUtc();
     String ago(num hours) => now.subtract(Duration(minutes: (hours * 60).round())).toIso8601String();
     final members = <Map<String, dynamic>>[
@@ -73,7 +69,6 @@ void main() {
     await settleSvgs(tester);
     await expectLater(find.byType(GalleryFrame), matchesGoldenFile('goldens/community_feed_light.png'));
     await flushCommunity(tester);
-    debugDisableShadows = true;
   });
 }
 

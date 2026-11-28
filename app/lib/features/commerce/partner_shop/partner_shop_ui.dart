@@ -1036,6 +1036,8 @@ class _PartnerShopSectionState extends ConsumerState<PartnerShopSection> {
                   child: EditableTextField(
                     controller: _query,
                     placeholder: tr('partnershop_search_placeholder', 'Axtar: salfet, krem, bez...'),
+                    // text-sm loses to keyboard.css on phones.
+                    style: phoneInputStyle(context, TextStyle(fontSize: 14, color: s.foreground)),
                     onChanged: (_) => setState(() {}),
                   ),
                 ),

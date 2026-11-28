@@ -3,7 +3,6 @@
 //              covers left empty: the reference shot shows the harness's placeholder PNGs)
 import 'package:anacan/core/i18n/date_utils.dart' show ensureDateLocales;
 import 'package:anacan/features/blog/ui/blog_screen.dart';
-import 'package:flutter/painting.dart' show debugDisableShadows;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,9 +18,6 @@ void main() {
   });
 
   screenTest('golden: blog list (reference shot mommy.parity__blog)', (tester) async {
-    // flutter_test paints BoxShadows without blur (debugDisableShadows), which hides the CSS card shadows.
-    debugDisableShadows = false;
-    addTearDown(() => debugDisableShadows = true);
     const rows = [
       ('ikinci-trimestr', 'pregnancy', 'bump', 'İkinci trimestrdə nələri bilməlisiniz'),
       ('hamilelikde-demir', 'nutrition', 'bump', 'Hamiləlikdə dəmir: nə qədər və haradan?'),
@@ -50,6 +46,5 @@ void main() {
     await tester.pump();
     await tester.pump();
     await expectGolden(tester, 'blog_list_light');
-    debugDisableShadows = true;
   });
 }

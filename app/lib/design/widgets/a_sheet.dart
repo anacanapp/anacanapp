@@ -7,6 +7,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/widgets.dart';
 
+import '../../core/i18n/tr.dart' show copyText;
 import '../icons.g.dart';
 import '../motion.dart';
 import '../theme.dart';
@@ -26,8 +27,8 @@ class ASheet extends StatelessWidget {
     this.onBack,
     this.full = true,
     this.bodyController,
-    this.closeLabel = 'Close',
-    this.backLabel = 'Back',
+    this.closeLabel,
+    this.backLabel,
   });
 
   final Widget title;
@@ -45,9 +46,9 @@ class ASheet extends StatelessWidget {
   final bool full;
   final ScrollController? bodyController;
 
-  /// aria-labels; pass `rd('close')` / `rd('back')` from the i18n layer.
-  final String closeLabel;
-  final String backLabel;
+  /// aria-labels; null = Sheet.tsx's `rd('close')` / `rd('back')` (redesign copy).
+  final String? closeLabel;
+  final String? backLabel;
 
   /// `max-height: calc(100dvh - env(safe-area-inset-top) - 24px)`.
   static double maxHeightOf(BuildContext context) {
@@ -69,7 +70,7 @@ class ASheet extends StatelessWidget {
           children: <Widget>[
             AIconButton(
               solid: true,
-              semanticLabel: onBack != null ? backLabel : closeLabel,
+              semanticLabel: onBack != null ? backLabel ?? copyText('redesign', 'back') : closeLabel ?? copyText('redesign', 'close'),
               onPressed: onBack ?? onClose,
               icon: onBack != null
                   ? const AIcon(AIcons.chevronLeft, size: 18, mirrorInRtl: true)
@@ -188,8 +189,8 @@ Future<T?> showASheet<T>(
   VoidCallback? onBack,
   bool full = true,
   bool scaleBackground = true,
-  String closeLabel = 'Close',
-  String backLabel = 'Back',
+  String? closeLabel,
+  String? backLabel,
   bool useRootNavigator = true,
 }) {
   return Navigator.of(context, rootNavigator: useRootNavigator).push<T>(

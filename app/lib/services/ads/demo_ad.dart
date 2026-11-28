@@ -1,7 +1,8 @@
-// Ported from: src/components/ads/DemoAd.tsx, src/styles/ads.css (.admob-demo-*, .admob-preview-toolbar)
+// Ported from: src/components/ads/DemoAd.tsx, src/components/ads/AdExperienceProvider.tsx (preview toolbar),
+//              src/styles/ads.css (.admob-demo-*, .admob-preview-toolbar)
 //
 // Admin demo creatives: no request reaches Google and no revenue is generated. The visible copy is literal in
-// React (not localised; only the aria labels go through tr) and is kept literal here.
+// React and localised by the Vite inline plugin, so it goes through trInline / formatTrInline here.
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
@@ -51,9 +52,9 @@ class DemoBanner extends StatelessWidget {
             SizedBox(width: compact ? 7 : 10),
             Expanded(
               child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('DEMO · ADMOB',
+                Text(trInline('DemoAd.tsx', 'DEMO · ADMOB'),
                     style: TextStyle(fontSize: compact ? 7 : 8, fontWeight: FontWeight.w800, letterSpacing: (compact ? 7 : 8) * 0.12, color: const Color(0xFF907667))),
-                Text('Burada reklamınız görünəcək',
+                Text(trInline('DemoAd.tsx', 'Burada reklamınız görünəcək'),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: compact ? 11 : 14, height: compact ? 13 / 11 : 20 / 14, fontWeight: FontWeight.w700, color: const Color(0xFF43322C))),
@@ -67,7 +68,7 @@ class DemoBanner extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
               decoration: BoxDecoration(color: const Color(0xFFF6DBC9), borderRadius: BorderRadius.circular(9)),
-              child: const Text('Nümunə', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: Color(0xFF43322C))),
+              child: Text(trInline('DemoAd.tsx', 'Nümunə'), style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: Color(0xFF43322C))),
             ),
           ]),
         ),
@@ -167,7 +168,7 @@ class _DemoFullscreenState extends State<DemoFullscreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   decoration: BoxDecoration(color: const Color(0x66000000), borderRadius: BorderRadius.circular(999)),
-                  child: Text('REKLAM · DEMO ${video ? 'VİDEO' : 'NATIVE'}', style: const TextStyle(fontSize: 10, color: Color(0xFFFFFFFF))),
+                  child: Text('${trInline('DemoAd.tsx', 'REKLAM · DEMO')} ${trInline('DemoAd.tsx', video ? 'VİDEO' : 'NATIVE')}', style: const TextStyle(fontSize: 10, color: Color(0xFFFFFFFF))),
                 ),
                 _close(const Color(0x66000000)),
               ]),
@@ -183,10 +184,10 @@ class _DemoFullscreenState extends State<DemoFullscreen> {
                   decoration: BoxDecoration(color: const Color(0x33FFFFFF), borderRadius: BorderRadius.circular(24)),
                   child: video ? const AIcon(AIcons.play, size: 58, color: Color(0xFFFFFFFF)) : const AIcon(AIcons.sparkles, size: 58, color: Color(0xFF6D28D9)),
                 ),
-                Text('Story ölçüsündə reklam',
+                Text(trInline('DemoAd.tsx', 'Story ölçüsündə reklam'),
                     textAlign: TextAlign.center, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: video ? const Color(0xFFFFFFFF) : const Color(0xFF1E293B))),
                 const SizedBox(height: 12),
-                Text('9:16 demo səhnə. Real native mediaya AdMob SDK-sı xidmət edir.',
+                Text(trInline('DemoAd.tsx', '9:16 demo səhnə. Real native mediaya AdMob SDK-sı xidmət edir.'),
                     textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: video ? const Color(0xCCFFFFFF) : const Color(0xFF475569))),
               ]),
             ),
@@ -199,9 +200,10 @@ class _DemoFullscreenState extends State<DemoFullscreen> {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(color: const Color(0x99000000), borderRadius: BorderRadius.circular(16)),
               child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-                const Text('Demo sponsor', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Color(0xFFFFFFFF))),
+                Text(trInline('DemoAd.tsx', 'Demo sponsor'), style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Color(0xFFFFFFFF))),
                 const SizedBox(height: 4),
-                const Text('Şəxsi story kimi göstərilmir və baxış sayınıza əlavə olunmur.', style: TextStyle(fontSize: 11, color: Color(0xB3FFFFFF))),
+                Text(trInline('DemoAd.tsx', 'Şəxsi story kimi göstərilmir və baxış sayınıza əlavə olunmur.'),
+                    style: const TextStyle(fontSize: 11, color: Color(0xB3FFFFFF))),
                 const SizedBox(height: 12),
                 GestureDetector(
                   onTap: () => widget.onFinish(false),
@@ -209,7 +211,7 @@ class _DemoFullscreenState extends State<DemoFullscreen> {
                     height: 40,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(color: const Color(0xFFFFFFFF), borderRadius: BorderRadius.circular(6)),
-                    child: Text('Növbəti story · ${_remaining}s', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xFF0F172A))),
+                    child: Text('${trInline('DemoAd.tsx', 'Növbəti story ·')} $_remaining${trInline('DemoAd.tsx', 's')}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xFF0F172A))),
                   ),
                 ),
               ]),
@@ -223,19 +225,27 @@ class _DemoFullscreenState extends State<DemoFullscreen> {
   Widget _fullscreenView(BuildContext context) {
     final s = context.tokens.shadcn;
     final gameReward = widget.placementId == 'game_revive_rewarded';
-    final title = gameReward ? 'Can / gediş bərpası' : _rewarded ? '${widget.rewardMinutes} dəqiqə reklamsız' : 'Təbii keçiddə reklam';
-    final description = gameReward
-        ? 'Videonu tamamladıqda cari oyunda can və ya əlavə gediş bərpa edilir. Xal saxlanır; bağlamaq bərpa vermir.'
+    final title = gameReward
+        ? trInline('DemoAd.tsx', 'Can / gediş bərpası')
         : _rewarded
-            ? 'Videonun tamamlanmasını burada demo olaraq sınaqdan keçirirsiniz. Bağlamaq mükafat vermir.'
-            : 'Bu nümunə təbii keçid nöqtəsini göstərir. Bağladıqdan sonra naviqasiya davam edir.';
-    final label = _remaining > 0
-        ? 'Demo video · $_remaining san.'
-        : gameReward
-            ? 'Demoyu tamamla və canı bərpa et'
+            ? formatTrInline('DemoAd.tsx', '{inline_0} dəqiqə reklamsız', [widget.rewardMinutes])
+            : trInline('DemoAd.tsx', 'Təbii keçiddə reklam');
+    final description = trInline(
+        'DemoAd.tsx',
+        gameReward
+            ? 'Videonu tamamladıqda cari oyunda can və ya əlavə gediş bərpa edilir. Xal saxlanır; bağlamaq bərpa vermir.'
             : _rewarded
-                ? 'Demoyu tamamla və fasiləni sına'
-                : 'Davam et';
+                ? 'Videonun tamamlanmasını burada demo olaraq sınaqdan keçirirsiniz. Bağlamaq mükafat vermir.'
+                : 'Bu nümunə təbii keçid nöqtəsini göstərir. Bağladıqdan sonra naviqasiya davam edir.');
+    final label = _remaining > 0
+        ? formatTrInline('DemoAd.tsx', 'Demo video · {inline_0} san.', [_remaining])
+        : trInline(
+            'DemoAd.tsx',
+            gameReward
+                ? 'Demoyu tamamla və canı bərpa et'
+                : _rewarded
+                    ? 'Demoyu tamamla və fasiləni sına'
+                    : 'Davam et');
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 390),
       child: ClipRRect(
@@ -259,8 +269,8 @@ class _DemoFullscreenState extends State<DemoFullscreen> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                       decoration: BoxDecoration(color: const Color(0xCCFFFFFF), borderRadius: BorderRadius.circular(999)),
-                      child: const Text('DEMO · REAL REKLAM DEYİL',
-                          style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, letterSpacing: 1, color: Color(0xFF1E293B))),
+                      child: Text(trInline('DemoAd.tsx', 'DEMO · REAL REKLAM DEYİL'),
+                          style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w700, letterSpacing: 1, color: Color(0xFF1E293B))),
                     ),
                   ),
                   Center(
@@ -303,7 +313,7 @@ class _DemoFullscreenState extends State<DemoFullscreen> {
                   ),
                 ),
                 const SizedBox(height: 12),
-                Text('Google-a reklam sorğusu göndərilmir. Demo gəlir yaratmır.', textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: s.mutedForeground)),
+                Text(trInline('DemoAd.tsx', 'Google-a reklam sorğusu göndərilmir. Demo gəlir yaratmır.'), textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: s.mutedForeground)),
               ]),
             ),
           ]),
@@ -356,11 +366,12 @@ class AdPreviewToolbar extends StatelessWidget {
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           const AIcon(AIcons.eye, size: 13, color: Color(0xFFFFFFFF)),
           const SizedBox(width: 7),
-          Text('Ad demo · $platform · ${premium ? 'Premium' : 'Free'}', style: const TextStyle(fontSize: 10, color: Color(0xFFFFFFFF))),
+          Text('${trInline('AdExperienceProvider.tsx', 'Ad demo ·')} $platform · ${premium ? 'Premium' : trInline('AdExperienceProvider.tsx', 'Free')}',
+              style: const TextStyle(fontSize: 10, color: Color(0xFFFFFFFF))),
           const SizedBox(width: 7),
-          _button('Demo limitlərini sıfırla', AIcons.settings2, onReset),
+          _button(trInline('AdExperienceProvider.tsx', 'Demo limitlərini sıfırla'), AIcons.settings2, onReset),
           const SizedBox(width: 7),
-          _button('Demo rejimini bağla', AIcons.x, onClose),
+          _button(trInline('AdExperienceProvider.tsx', 'Demo rejimini bağla'), AIcons.x, onClose),
         ]),
       );
 }

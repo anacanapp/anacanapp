@@ -5,6 +5,7 @@ export 'a_icon.dart';
 export 'device_tier.dart';
 export 'icons.g.dart';
 export 'motion.dart';
+export 'phone_input.dart';
 export 'theme.dart';
 export 'widgets/a_button.dart';
 export 'widgets/a_card.dart';

@@ -484,13 +484,14 @@ class _InitialLanguageScreenState extends ConsumerState<InitialLanguageScreen> {
                   key: const ValueKey('country-search'),
                   controller: _search,
                   onChanged: (v) => setState(() => _query = v),
-                  style: css(14, FontWeight.w400, color: a.ink, height: 1.43),
+                  // text-sm loses to keyboard.css on phones (16px; the 20px line box stays).
+                  style: phoneInputStyle(context, css(14, FontWeight.w400, color: a.ink, height: 1.43), lineHeightPx: 20),
                   cursorColor: a.ink,
                   decoration: InputDecoration(
                     isCollapsed: true,
                     border: InputBorder.none,
                     hintText: searchPlaceholder,
-                    hintStyle: css(14, FontWeight.w400, color: context.tokens.shadcn.mutedForeground, height: 1.43),
+                    hintStyle: phoneInputStyle(context, css(14, FontWeight.w400, color: context.tokens.shadcn.mutedForeground, height: 1.43), lineHeightPx: 20),
                   ),
                 ),
               ),

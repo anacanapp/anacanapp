@@ -386,7 +386,8 @@ class _NumberInputState extends State<_NumberInput> {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = px(13, color: a.ink);
+    // `.a-input` (13px) loses to keyboard.css's phone rule (16px).
+    final style = phoneInputStyle(context, px(13, color: a.ink));
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(color: a.surface, borderRadius: BorderRadius.circular(12), border: Border.all(color: a.lineStrong)),

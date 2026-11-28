@@ -4,7 +4,8 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import '../../../core/i18n/app_languages.dart' show appLanguageLocale;
+import '../../../core/i18n/app_languages.dart' show appLanguageLocale, normalizeAppLanguage;
+import '../../../core/i18n/count_format.dart' show formatIntlNumber;
 import '../../../core/i18n/tr.dart';
 import '../../../design/design.dart';
 import '../../../state/user_store.dart';
@@ -20,7 +21,9 @@ String _percent(double fraction, String language) {
   try {
     return NumberFormat.percentPattern(appLanguageLocale(language).replaceAll('-', '_')).format(fraction);
   } catch (_) {
-    return '${(fraction * 100).round()}%';
+    // intl has no data for Turkmen; Node ICU (React) formats tk as `50 %` with a no-break space.
+    final number = formatIntlNumber(language, fraction * 100, maximumFractionDigits: 0);
+    return normalizeAppLanguage(language) == 'tk' ? '$number\u00a0%' : '$number%';
   }
 }
 

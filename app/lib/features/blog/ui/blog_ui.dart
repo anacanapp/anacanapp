@@ -156,7 +156,7 @@ class BlogSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = px(MediaQuery.sizeOf(context).width <= 767 ? 16 : 13, color: a.ink);
+    final style = phoneInputStyle(context, px(13, color: a.ink));
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(color: a.surface, borderRadius: BorderRadius.circular(999), border: Border.all(color: a.line), boxShadow: a.cardShadow),

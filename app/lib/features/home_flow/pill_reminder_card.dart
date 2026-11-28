@@ -127,7 +127,8 @@ class _PillReminderCardState extends ConsumerState<PillReminderCard> {
           _AInput(child: EditableText(
             controller: _title,
             focusNode: _focus,
-            style: TextStyle(fontSize: 13, color: a.ink),
+            // `.a-input` (13px) loses to keyboard.css's phone rule (16px), as does the time input below.
+            style: phoneInputStyle(context, TextStyle(fontSize: 13, color: a.ink)),
             cursorColor: a.peach2,
             backgroundCursorColor: a.inkFaint,
           )),
@@ -144,7 +145,7 @@ class _PillReminderCardState extends ConsumerState<PillReminderCard> {
                 setState(() => _time = '${picked.hour.toString().padLeft(2, '0')}:${picked.minute.toString().padLeft(2, '0')}');
               }
             },
-            child: _AInput(minHeight: 48, child: Text(_time, style: TextStyle(fontSize: 13, color: a.ink))),
+            child: _AInput(minHeight: 48, child: Text(_time, style: phoneInputStyle(context, TextStyle(fontSize: 13, color: a.ink)))),
           ),
           const SizedBox(height: 12),
           Row(children: [

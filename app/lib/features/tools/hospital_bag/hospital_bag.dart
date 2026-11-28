@@ -396,7 +396,8 @@ class _HospitalBagState extends ConsumerState<HospitalBag> {
   Widget _addForm(BuildContext context) {
     final a = context.a;
     final canSave = cleanItemName(_newName.text).isNotEmpty && !_saving;
-    final style = px(13, color: a.ink);
+    // `.a-input` (13px) loses to keyboard.css's phone rule (16px).
+    final style = phoneInputStyle(context, px(13, color: a.ink));
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(color: a.surface, borderRadius: BorderRadius.circular(a.radiusLg), border: Border.all(color: a.line), boxShadow: a.cardShadow),

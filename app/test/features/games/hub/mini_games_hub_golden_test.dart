@@ -15,9 +15,6 @@ void main() {
   setUpAll(loadAnacanFonts);
 
   testWidgets('golden: mini games hub (reference shot mommy.parity__mini-games)', (tester) async {
-    // flutter_test paints BoxShadows without blur (debugDisableShadows), which hides the CSS card shadows.
-    debugDisableShadows = false;
-    addTearDown(() => debugDisableShadows = true);
     final env = GameTestEnv();
     installTestI18n();
     tester.view.physicalSize = const Size(390, 844);
@@ -39,6 +36,5 @@ void main() {
     await expectLater(find.byType(MaterialApp), matchesGoldenFile('goldens/mini_games_hub_light.png'));
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(seconds: 5));
-    debugDisableShadows = true;
   });
 }

@@ -157,7 +157,8 @@ class _PromoCodeDialogState extends ConsumerState<PromoCodeDialog> {
             autofocus: true,
             height: 48,
             radius: 12,
-            style: TextStyle(fontSize: 18, letterSpacing: 1.8, fontFamily: 'monospace', color: t.foreground),
+            // text-lg + tracking-[0.1em]; keyboard.css makes the input 16px on phones.
+            style: TextStyle(fontSize: 18, letterSpacing: 0.1 * phoneInputFontSize(context, 18), fontFamily: 'monospace', color: t.foreground),
             inputFormatters: [
               TextInputFormatter.withFunction((oldValue, newValue) {
                 final next = newValue.text.toUpperCase().replaceAll(RegExp(r'[^A-Z0-9-]'), '');

@@ -86,9 +86,10 @@ class _CouponInputState extends State<CouponInput> {
                   key: const ValueKey('coupon-code'),
                   controller: _c,
                   onChanged: (v) => widget.onCodeChange(v.toUpperCase()),
-                  style: Tw.sm.copyWith(color: s.foreground),
+                  // text-sm loses to keyboard.css on phones (16px, line-height stays 20px).
+                  style: phoneInputStyle(context, Tw.sm.copyWith(color: s.foreground), lineHeightPx: 20),
                   cursorColor: s.primary,
-                  decoration: InputDecoration(isCollapsed: true, border: InputBorder.none, hintText: tr('untranslated_kupon_kodu_xiawxh', 'Kupon kodu'), hintStyle: Tw.sm.copyWith(color: s.mutedForeground)),
+                  decoration: InputDecoration(isCollapsed: true, border: InputBorder.none, hintText: tr('untranslated_kupon_kodu_xiawxh', 'Kupon kodu'), hintStyle: phoneInputStyle(context, Tw.sm.copyWith(color: s.mutedForeground), lineHeightPx: 20)),
                 ),
               ),
             ),

@@ -64,8 +64,8 @@ class AIconBtn extends StatelessWidget {
             color: background ?? a.surface,
             borderRadius: BorderRadius.circular(radius),
             border: border ? Border.all(color: a.btnBorder) : null,
-            // 0 6px 14px -8px rgba(217, 108, 74, 0.35)
-            boxShadow: const <BoxShadow>[BoxShadow(color: Color(0x59D96C4A), offset: Offset(0, 6), blurRadius: 14, spreadRadius: -8)],
+            // 0 6px 14px -8px rgba(217, 108, 74, 0.35); CSS blur 14 -> sigma 7 as in the design tokens.
+            boxShadow: const <BoxShadow>[BoxShadow(color: Color(0x59D96C4A), offset: Offset(0, 6), blurRadius: 11.258, spreadRadius: -8)],
           ),
           child: IconTheme.merge(data: IconThemeData(color: foreground ?? a.ink), child: icon),
         ),
@@ -219,11 +219,7 @@ class ShadSwitch extends StatelessWidget {
           decoration: BoxDecoration(
             color: t.shadcn.background,
             shape: BoxShape.circle,
-            // shadow-lg
-            boxShadow: const <BoxShadow>[
-              BoxShadow(color: Color(0x1A000000), offset: Offset(0, 10), blurRadius: 15, spreadRadius: -3),
-              BoxShadow(color: Color(0x1A000000), offset: Offset(0, 4), blurRadius: 6, spreadRadius: -4),
-            ],
+            boxShadow: AToastShadows.tailwindLg, // shadow-lg
           ),
         ),
       ),
@@ -326,7 +322,10 @@ class ShadInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = context.tokens.shadcn;
-    final base = DefaultTextStyle.of(context).style.merge(Tw.base).copyWith(color: textColor ?? s.foreground).merge(style);
+    final merged = DefaultTextStyle.of(context).style.merge(Tw.base).copyWith(color: textColor ?? s.foreground).merge(style);
+    // Single-line = `<Input>`: a class size (e.g. `text-lg`) loses to keyboard.css on phones; the multi-line
+    // `<Textarea>` keeps its class size.
+    final base = maxLines == 1 ? phoneInputStyle(context, merged) : merged;
     final field = TextField(
       key: fieldKey,
       controller: controller,
@@ -464,10 +463,7 @@ class ShadDialogFrame extends StatelessWidget {
         color: s.background,
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(color: s.border),
-        boxShadow: const <BoxShadow>[
-          BoxShadow(color: Color(0x1A000000), offset: Offset(0, 10), blurRadius: 15, spreadRadius: -3),
-          BoxShadow(color: Color(0x1A000000), offset: Offset(0, 4), blurRadius: 6, spreadRadius: -4),
-        ],
+        boxShadow: AToastShadows.tailwindLg,
       ),
       child: VGap(gap: 16, children: children),
     );
@@ -791,7 +787,8 @@ class _ASkyState extends State<ASky> with SingleTickerProviderStateMixin {
   }
 }
 
-/// `.a-input` (padding 10 14, radius 12, 1px `--a-line-strong`, surface, 13px, focus `--a-peach-2`).
+/// `.a-input` (padding 10 14, radius 12, 1px `--a-line-strong`, surface, 13px — 16px on phones —, focus
+/// `--a-peach-2`).
 class AInput extends StatefulWidget {
   const AInput({super.key, this.controller, this.placeholder, this.onChanged, this.height, this.style, this.textAlign = TextAlign.start, this.inputFormatters, this.fieldKey, this.obscure = false, this.keyboardType});
   final TextEditingController? controller;
@@ -825,7 +822,8 @@ class _AInputState extends State<AInput> {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = DefaultTextStyle.of(context).style.merge(px(13, color: a.ink)).merge(widget.style);
+    // Every `.a-input` this widget ports is an `<input>`: keyboard.css lifts it to 16px on phones.
+    final style = phoneInputStyle(context, DefaultTextStyle.of(context).style.merge(px(13, color: a.ink)).merge(widget.style));
     return Material(
       type: MaterialType.transparency,
       child: Container(

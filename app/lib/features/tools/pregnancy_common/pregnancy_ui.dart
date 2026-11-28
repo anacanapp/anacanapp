@@ -146,7 +146,8 @@ class PSearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = px(13.5, weight: FontWeight.w600, color: a.ink);
+    // The class size of the search input loses to keyboard.css's phone rule (16px).
+    final style = phoneInputStyle(context, px(13.5, weight: FontWeight.w600, color: a.ink));
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(

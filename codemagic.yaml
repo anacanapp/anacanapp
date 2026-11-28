@@ -375,3 +375,30 @@ workflows:
     artifacts:
       - app/build/app/outputs/bundle/release/*.aab
       - app/build/app/outputs/flutter-apk/app-release.apk
+
+  flutter-goldens-linux:
+    name: Flutter goldens on Linux (regenerate, no signing)
+    # Goldens are only compared strictly on Linux (app/test/flutter_test_config.dart); this workflow re-renders them
+    # with --update-goldens and returns every goldens/ folder as goldens.zip. Unzip it over app/test/ and commit.
+    instance_type: linux_x2
+    max_build_duration: 60
+    environment:
+      flutter: 3.50.1
+      node: 22
+    scripts:
+      - name: Flutter pub get
+        script: |
+          flutter --version 2>/dev/null | grep -q "^Flutter 3\.50\.1 " || { echo "Flutter 3.50.1 expected"; exit 1; }
+          (cd app && flutter pub get)
+      - name: Regenerate goldens
+        script: |
+          cd app
+          flutter test --update-goldens
+      - name: Verify strictly and pack
+        script: |
+          cd app
+          ANACAN_STRICT_GOLDENS=1 flutter test
+          find test -type d -name goldens | zip -r -q "$CM_BUILD_DIR/goldens.zip" -@
+          unzip -l "$CM_BUILD_DIR/goldens.zip" | tail -n 1
+    artifacts:
+      - goldens.zip

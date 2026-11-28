@@ -73,7 +73,8 @@ class _ChatMemberPickerState extends ConsumerState<ChatMemberPicker> {
         if (person['user_id'] != userId && !widget.excluded.contains(person['user_id'])) person,
     ];
     final hint = chatTr('chat_find_member', 'Ad ilə istifadəçi axtarın');
-    final style = px(13, color: a.ink);
+    // `.a-search input` (13px) loses to keyboard.css's phone rule.
+    final style = phoneInputStyle(context, px(13, color: a.ink));
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
       // .a-search
       Container(

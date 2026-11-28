@@ -318,7 +318,7 @@ class _BabyChatScreenState extends ConsumerState<BabyChatScreen> {
                 child: Stack(alignment: AlignmentDirectional.centerStart, children: [
                   if (_draft.text.isEmpty)
                     IgnorePointer(
-                      child: Text(u('placeholder'), maxLines: 1, overflow: TextOverflow.clip, style: TextStyle(fontSize: 15, color: a.inkFaint, height: 1.2)),
+                      child: Text(u('placeholder'), maxLines: 1, overflow: TextOverflow.clip, style: phoneInputStyle(context, TextStyle(fontSize: 15, color: a.inkFaint, height: 1.2))),
                     ),
                   EditableText(
                     key: const ValueKey('bc-input'),
@@ -326,7 +326,8 @@ class _BabyChatScreenState extends ConsumerState<BabyChatScreen> {
                     focusNode: _focus,
                     maxLines: 1,
                     inputFormatters: [LengthLimitingTextInputFormatter(300)],
-                    style: TextStyle(fontSize: 15, color: a.ink, height: 1.2),
+                    // `.bc-input input` (15px) loses to keyboard.css's phone rule.
+                    style: phoneInputStyle(context, TextStyle(fontSize: 15, color: a.ink, height: 1.2)),
                     cursorColor: a.ink,
                     backgroundCursorColor: a.inkFaint,
                     textInputAction: TextInputAction.send,

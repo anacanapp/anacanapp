@@ -768,7 +768,8 @@ class _Field extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = px(13, color: a.ink);
+    // `.a-input` (13px) loses to keyboard.css's phone rule (16px).
+    final style = phoneInputStyle(context, px(13, color: a.ink));
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14),
       alignment: AlignmentDirectional.centerStart,

@@ -57,7 +57,9 @@ class GroupTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = context.tokens.shadcn;
-    final style = px(14, color: s.foreground, height: 20 / 14);
+    final base = px(14, color: s.foreground, height: 20 / 14);
+    // The `<input>` loses text-sm to keyboard.css on phones (16px, 20px line box); the textarea keeps it.
+    final style = multiline ? base : phoneInputStyle(context, base, lineHeightPx: 20);
     return Semantics(
       label: label,
       textField: true,

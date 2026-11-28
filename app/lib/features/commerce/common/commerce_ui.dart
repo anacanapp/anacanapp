@@ -482,7 +482,10 @@ class _CommerceTextFieldState extends State<CommerceTextField> {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = TextStyle(fontSize: widget.fontSize, color: a.ink, height: 1.3);
+    final base = TextStyle(fontSize: widget.fontSize, color: a.ink, height: 1.3);
+    // Single-line fields are `<input>`s, which keyboard.css lifts to 16px on phones over their class size; the
+    // textareas keep their class size (`.ck-input` 15px).
+    final style = widget.maxLines == 1 ? phoneInputStyle(context, base) : base;
     final field = Material(
       type: MaterialType.transparency,
       child: TextField(

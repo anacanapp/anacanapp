@@ -349,7 +349,8 @@ class _SearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = DefaultTextStyle.of(context).style.merge(px(14, color: a.ink));
+    // `.ke-search input` (14px) loses to keyboard.css's phone rule (16px).
+    final style = phoneInputStyle(context, DefaultTextStyle.of(context).style.merge(px(14, color: a.ink)));
     return Material(
       type: MaterialType.transparency,
       child: Container(

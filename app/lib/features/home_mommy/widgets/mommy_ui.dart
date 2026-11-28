@@ -263,7 +263,8 @@ class _AInputState extends State<AInput> {
   @override
   Widget build(BuildContext context) {
     final t = context.a;
-    final style = TextStyle(fontSize: 13, color: t.ink, height: 1.5);
+    // `.a-input` (13px) loses to keyboard.css's phone rule (16px).
+    final style = phoneInputStyle(context, TextStyle(fontSize: 13, color: t.ink, height: 1.5));
     return GestureDetector(
       onTap: _focus.requestFocus,
       child: Container(

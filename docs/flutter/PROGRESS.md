@@ -76,17 +76,16 @@ və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən ç
   "cüzi problemlər" bildirdi, təfsilat gözlənilir. Flutter Android workflow-u hələ işə salınmayıb.
 - Səs/mikrofon/yer paketləri (`just_audio`, `record`, `geolocator`, `gal`) hələ yoxdur: ağ səs, ağlama tərcüməçisi,
   səs-küy ölçən, hava, səsli mesaj yazma "dəstəklənmir" yolu ilə işləyir (WIRING.md, 9-cu mərhələ).
-- Aşağı prioritet i18n: `demo_ad.dart` mətnləri (yalnız demo/sınaq rejimi; React-da `trInline('DemoAd.tsx', …)`),
-  `a_sheet.dart` `closeLabel = 'Close'` (ekran oxuyucusu; nullable parametr + `trInline('sheet.tsx', 'Close')`),
-  `water_widget.dart` və `doctor_report_pdf.dart`-da intl rəqəm formatı → `formatIntlNumber`.
-- Golden-lərdə kölgə yoxdur: flutter_test kölgələri bulanıqlıqsız çəkir (Billing geri düyməsinin "itən" kölgəsi də
-  budur, tətbiq qüsuru deyil). Yeni paritet golden-ləri bunu söndürür; ortaq harness-lərdə də açmaq (Linux-da yenidən
-  çəkməklə) təklif olunur.
-- Telefon mətn sahələri: React telefonlarda bütün input-ları ən azı 16 px edir; Flutter-də yalnız alətlər və bloq
-  axtarışı düzəldilib, qalanları 13 px — dizayn səviyyəsində köməkçi lazımdır.
+- Golden-lər üçün real kölgələr indi standartdır (`app/test/flutter_test_config.dart`: `goldens/` qovluğu olan test
+  qovluqlarında `disableShadows == false` olan binding). **Bütün golden-lər Linux-da
+  `flutter test --update-goldens` ilə yenidən çəkilməlidir** (Windows-da çəkilməyib; əvvəlki Linux şəkilləri kölgəsizdir).
+  Telefon input ölçüsü (aşağıda) dil seçimi axtarışını və körpə çatı input-unu da dəyişdi.
+- Telefon mətn sahələri: `app/lib/design/phone_input.dart` (`phoneInputStyle` / `phoneInputFontSize`) keyboard.css-in
+  `max(16px, 1em)` qaydasını köçürür və React qaydasının çatdığı bütün sahələrə tətbiq olunub. İstisnalar React kimi:
+  inline `style={{ fontSize }}` olan input-lar və class ilə ölçü verilən `textarea`-lar. Tarix/saat sahələri Flutter-də
+  `Text` kimi çəkilir və (pill xatırlatma saatından başqa) hələ 16 px-ə qaldırılmayıb.
 - Flutter sətir hündürlüyünü tam piksələ yuvarlaqlaşdırır (19.5 → 20): uzun siyahılar sətir başına ~1 px sürüşür
   (ayarlar ekranının 5-ci bölməsində ~11 px). `inline-flex` paraqraflarında bir neçə px aralıq fərqi ola bilər.
-- `settings_ui.dart`-da (`ShadSwitch`, `AIconBtn`) kölgə blur-u CSS-dən 1:1 köçürülüb, tokenlərdən fərqli — bir az yumşaq.
 - 2026-11-28 vizual müqayisə (12 ekran, React istinad şəkilləri ilə): 10 real fərq düzəldildi (ana ekran 6 px sürüşmə,
   təqvim sətirləri, məqalə kartı eni, alətlər başlıqları və axtarış ölçüsü, icma başlıq düymələri və boşluq, AI mesaj
   qutusu 2 sətir, bloq axtarışı). Yeni/yenilənmiş golden-lər Windows-da çəkilib, Linux-da yenidən çəkilməlidir.

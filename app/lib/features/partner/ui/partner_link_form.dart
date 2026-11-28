@@ -71,7 +71,9 @@ class _PartnerLinkFormState extends ConsumerState<PartnerLinkForm> {
   Widget build(BuildContext context) {
     final a = context.a;
     final disabled = _busy || _code.text.trim().isEmpty;
-    final inputStyle = pText(13, color: a.ink).copyWith(fontFamily: 'monospace', letterSpacing: 13 * 0.06);
+    // `.a-input` (13px) loses to keyboard.css on phones (16px); letter-spacing is 0.06em of the used size.
+    final inputSize = phoneInputFontSize(context, 13);
+    final inputStyle = pText(inputSize, color: a.ink).copyWith(fontFamily: 'monospace', letterSpacing: inputSize * 0.06);
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 384),
       child: PartnerCard(

@@ -936,13 +936,14 @@ class _SearchBoxState extends State<_SearchBox> {
                 maxLength: 80,
                 onChanged: widget.ctx.setQuery,
                 textInputAction: TextInputAction.search,
-                style: css(14.5, color: a.ink),
+                // `.a-par-search input` (14.5px) loses to keyboard.css's phone rule (16px).
+                style: phoneInputStyle(context, css(14.5, color: a.ink)),
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   isDense: true,
                   counterText: '',
                   hintText: pt('par_search_placeholder'),
-                  hintStyle: css(14.5, color: a.inkFaint),
+                  hintStyle: phoneInputStyle(context, css(14.5, color: a.inkFaint)),
                   contentPadding: const EdgeInsets.symmetric(vertical: 12),
                 ),
               ),
@@ -1688,7 +1689,8 @@ class _ReminderCardState extends State<_ReminderCard> {
                     key: const ValueKey('par-reminder-time'),
                     controller: _time,
                     keyboardType: TextInputType.datetime,
-                    style: css(15, weight: FontWeight.w800, color: a.ink),
+                    // `.a-par-time input` (15px) loses to keyboard.css: max(16px, 1em) of the 13px row = 16px.
+                    style: phoneInputStyle(context, css(15, weight: FontWeight.w800, color: a.ink)),
                     decoration: const InputDecoration(border: InputBorder.none, isDense: true, contentPadding: EdgeInsets.symmetric(vertical: 6)),
                     onChanged: (v) {
                       if (RegExp(r'^\d{2}:\d{2}$').hasMatch(v)) set(time: v);
