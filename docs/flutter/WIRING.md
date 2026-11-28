@@ -13,7 +13,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `homeNotificationCountProvider` | `features/home/home_inputs.dart` | 0 | bell is disabled in React; settings' notifications query when re-enabled | 3 |
 | `chatAudioRecorderProvider` | `features/chat/` | unsupported (voice recording off; playback via video_player) | `record` package + mic permissions | 9 |
 | `chatIncomingNotifierProvider`, `chatPushSenderProvider` | `features/chat/` | no-op / direct `send-push-notification` | foreground notifications service, `svc.push` | 9 |
-| `aiAnswerCardProvider` | `features/ai_chat/ai_chat_inputs.dart` | null (no card under answers) | weaning / parenting tools | 4 |
 | `babyChatNotificationPlannerProvider` | `features/baby_chat/baby_chat_notifications.dart` | no-op | central local-notification scheduler | 9 |
 | `toolsHubSlotsProvider` (bannerSlot, adSurface / adInlineAnchor `tools_banner`; first aid + Aptek search wired) | `features/tools/hub/hub_inputs.dart` | nothing | banners / ads | 9 |
 | `vaccineNotificationSchedulerProvider` | `features/tools/vaccines/vaccine_reminders.dart` | not native (no reminder switch) | central local-notification scheduler; app-start `useVaccineRemindersAtStart` (`VaccineReminders.refreshAll`) | 9 |
@@ -33,9 +32,12 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `storyAdBreaksProvider` | `features/community_stories/data/story_ads.dart` | never shows a story ad break | ads (native story ad) | 9 |
 | `storyImageEncoderProvider` | `features/community_stories/export/story_export.dart` | PNG (React: JPEG q 0.93–0.94) | JPEG encoder package | 9 |
 | `sosLocationProvider` | `features/partner/partner_ports.dart` | no location (alert sent without coordinates, React's no-location path) | `geolocator` | 9 |
-| `partnerHomeSlotsProvider` (`illnessHomeCard`, `adInlineAnchor`; loss card wired) — extend `kPartnerScreensHomeSlots` in `features/partner/screens/screens_wiring.dart`, never a second override | `features/partner/` | not shown | illness screen (3), ads (9) | 3 / 9 |
+| `partnerHomeSlotsProvider` (`adInlineAnchor`; loss card + illness card wired) — extend `kPartnerScreensHomeSlots` | `features/partner/screens/screens_wiring.dart` | not shown | ads | 9 |
 | `blogAdSlotsProvider` (list / article banners, exit interstitial) | `features/blog/` | none; leaving an article goes back at once | ads | 9 |
 | `albumProofPickerProvider` | `features/album_order/` | photo library only (no PDF proof) | document picker package | 9 |
+| `programmeNotificationsProvider` (nap 880001–880003, weaning 881100–881111 at 09:00, Tərbiyə 882200–882207 at 20:30) | `features/tools/parenting/programme_ports.dart` | no-op | central local-notification scheduler | 9 |
+| `doctorReportPdfRendererProvider`, `pdfDeliveryPlatformProvider` | `features/health_screens/doctor_report/pdf_report.dart` | unsupported → "PDF yaradıla bilmədi" toast | `pdf` (+ Noto fonts) and `printing` or share_plus + path_provider | 9 |
+| `illnessReminderPlannerProvider`, `illnessNotificationPermissionProvider` (namespace `illness:<episode>`, ids 900000000 + hash) | `features/health_screens/illness/` | no-op | central local-notification scheduler | 9 |
 | Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |
@@ -47,7 +49,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `privacySlotsProvider` (ConsentSettings, ConsentControls) | `features/settings/privacy_screen.dart` | not shown | consent feature | 9 |
 | `analyticsConsentNotifierProvider` | `features/settings/data/preferences.dart` | no-op | Customer.io consent event | 9 |
 | `HomeSlots.bannerSlot`, `adInlineAnchor` | `features/home/home_slots.dart` | none | banners / ads (`BannerSlot`, `AdInlineAnchor`, Index `AdSurface home_banner`) | 9 |
-| `HomeSlots.recoveryHome` | `features/home/home_slots.dart` | none | pregnancy-loss `RecoveryHome` | 4 |
 | `homeWidgetBridgeProvider`, `homeWidgetsSyncProvider` | `features/home/home_slots.dart`, `features/settings/widget_settings_screen.dart` | no-op | AnacanWidgets native bridge (home-screen widgets) | 9 |
 | `recapAudioFactoryProvider` | `features/recap/recap_audio.dart` | silent | `just_audio` playing `assets/recap/recap-2026.mp3` (package not in pubspec yet) | 9 |
 | `recapVideoEncoderProvider` | `features/recap/recap_export.dart` | "not supported" (image share only, React's no-MediaRecorder branch) | native H.264 encoder (AVAssetWriter / MediaCodec + MediaMuxer) with the mp3 | 9 |
@@ -56,8 +57,7 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `flowNotificationPlannerProvider`, `timerNotificationSchedulerProvider`, `reminderSchedulerProvider` | `features/home_flow/flow_platform.dart`, `features/baby/live_timer/live_timer.dart`, `features/settings/data/preferences.dart` | not native / no-op | central local-notification scheduler | 9 |
 | `liveTimerBridgeProvider` | `features/baby/live_timer/live_timer.dart` | no-op (web behaviour) | LiveActivity / timer FGS method channel | 9 |
 | `liveTimerIosFailureToastProvider` | `features/baby/live_timer/live_timer.dart` | null | a root toast handle (only fires once the bridge exists) | 9 |
-| `MommySlot.illnessActive`, `illnessEntry`, `weaningHome`, `weaningFeedingLink`, `parentingHome` | `features/home_mommy/mommy_home_slots.dart` | none | illness, weaning, parenting tools | 4 |
-| `profileSlotsProvider` (`bannerSlot`, `pregnancyCard`; partner link, QayğıCash card, promo dialog wired) — one `ProfileSlots` in app_wiring.dart | `features/profile/profile_interfaces.dart` | not shown | banners (9), ProfilePregnancyCard (3) | 3 / 9 |
+| `profileSlotsProvider` (`bannerSlot`; partner link, QayğıCash, promo, pregnancy card wired) — one `ProfileSlots` in app_wiring.dart | `features/profile/profile_interfaces.dart` | not shown | banners | 9 |
 | `adPreferencesControllerProvider` | `features/settings/ad_preferences_screen.dart` | no-op | `useAdExperience` (UMP privacy options, rewarded) | 9 |
 | `useAdSafetyBlock` in AppRatingPrompt | `features/support/app_rating.dart` | not consulted | ads | 9 |
 | `screenshotGuardPlatformProvider` | `features/security/screen_capture_guard.dart` | no-op | ScreenshotGuard native plugin (FLAG_SECURE / secure surface, capture events) | 9 |

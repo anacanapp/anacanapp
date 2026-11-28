@@ -15,6 +15,7 @@ import '../features/community/register.dart';
 import '../features/community_stories/register.dart';
 import '../features/entry/entry_feature.dart';
 import '../features/groups/register.dart';
+import '../features/health_screens/register.dart';
 import '../features/home/register_home.dart';
 import '../features/home_flow/home_flow.dart';
 import '../features/home_mommy/register_home_mommy.dart';
@@ -22,6 +23,7 @@ import '../features/legal/register.dart';
 import '../features/moderation/register.dart';
 import '../features/onboarding/register.dart';
 import '../features/partner/register.dart';
+import '../features/partner/screens/register_screens.dart';
 import '../features/premium/register.dart';
 import '../features/profile/register.dart';
 import '../features/recap/register.dart';
@@ -34,6 +36,7 @@ import '../features/tools/health_tools.dart';
 import '../features/tools/media_tools.dart';
 import '../features/tools/more_tools.dart';
 import '../features/tools/pregnancy_tools.dart';
+import '../features/tools/programme_tools.dart';
 import '../features/tools/register.dart';
 import '../shell/feature_registry.dart';
 
@@ -53,6 +56,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerCommunityStoriesFeature(r);
   registerEntryFeature(r);
   registerGroupsFeature(r);
+  registerHealthScreensFeature(r);
   registerHomeFeature(r);
   registerHomeFlowFeature(r);
   registerHomeMommyFeature(r);
@@ -60,6 +64,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerModerationFeature(r);
   registerOnboardingFeature(r);
   registerPartnerFeature(r);
+  registerPartnerScreens(r);
   registerPremiumFeature(r);
   registerProfileFeature(r);
   registerRecapFeature(r);
@@ -73,6 +78,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerMediaTools(r);
   registerMoreTools(r);
   registerPregnancyTools(r);
+  registerProgrammeTools(r);
 }
 
 /// The registry the app root installs (`featureRegistryProvider`).

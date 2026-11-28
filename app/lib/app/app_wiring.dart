@@ -22,7 +22,9 @@ import '../features/baby/hooks/baby_services.dart';
 import '../features/baby/hooks/use_children.dart' show childrenProvider;
 import '../features/baby/live_timer/live_timer.dart' show liveTimerNativeHooksProvider;
 import '../features/home/appointments/upcoming_appointments.dart';
-import '../features/ai_chat/ai_chat_inputs.dart' show aiKickSessionsProvider, aiMotherMealsProvider, aiWeightEntriesProvider;
+import '../features/ai_chat/ai_chat_inputs.dart'
+    show aiAnswerCardProvider, aiKickSessionsProvider, aiMotherMealsProvider, aiWeightEntriesProvider;
+import '../features/tools/programme_tools.dart' show programmeAiAnswerCardBuilder, programmeMommySlots;
 import '../features/tools/health_tools.dart' show healthToolsPrefetchFirstAid;
 import '../features/tools/hub/hub_inputs.dart' show ToolsHubSlots, toolsHubSlotsProvider;
 import '../features/tools/nutrition/meal_logs.dart' show mealLogsProvider;
@@ -48,6 +50,8 @@ import '../features/tools/pregnancy_common/pregnancy_ports.dart' show PregnancyT
 import '../features/community/register.dart' show communityWiringOverrides;
 import '../features/community_stories/register.dart' show communityStoriesWiringOverrides;
 import '../features/groups/register.dart' show groupsWiringOverrides;
+import '../features/health_screens/register.dart'
+    show healthScreensWiringOverrides, illnessActiveSlot, illnessEntrySlot, pregnancyCardSlot, recoveryHomeSlot;
 import '../features/home/dashboard/medical_disclaimer.dart' show homeEmergencyNumberProvider;
 import '../features/home/dashboard/recap_home_card.dart' show recapHomeYearQuery;
 import '../features/home/dashboard/water_widget.dart';
@@ -137,7 +141,9 @@ List<Override> featureWiringOverrides() => [
         partnerLinkForm: partnerLinkFormSlot,
         qaygiCashCard: commerceQaygiCashProfileCard,
         promoDialog: commercePromoDialog,
+        pregnancyCard: pregnancyCardSlot,
       )),
+      ...healthScreensWiringOverrides(),
 
       // ── blog / album order / pregnancy tool slots (one PregnancyToolSlots; Aptek and ads add their fields) ────────
       ...blogWiringOverrides(),
@@ -172,6 +178,7 @@ List<Override> featureWiringOverrides() => [
         childSelectorCompact: buildMommyTopBarAction,
         babyChatCard: babyChatCardSlot,
         booksHomeCard: booksHomeCardSlot,
+        recoveryHome: recoveryHomeSlot,
         aptekHomeCard: commerceAptekHomeCard,
         partnerHomeCard: commercePartnerHomeCard,
         partnerCareCard: partnerCareCardSlot,
@@ -193,6 +200,8 @@ List<Override> featureWiringOverrides() => [
       aiWeightEntriesProvider.overrideWith((ref) => [
             for (final e in ref.watch(weightEntriesProvider).entries) {'weight': e.weight, 'entry_date': e.entryDate},
           ]),
+      // Weaning / Tərbiyə cards under matching AI answers.
+      aiAnswerCardProvider.overrideWithValue(programmeAiAnswerCardBuilder),
       aiMotherMealsProvider.overrideWith((ref) => ref.watch(mealLogsProvider).todayLogs),
       // Tools hub: first aid must work offline (usePrefetchFirstAid).
       toolsHubSlotsProvider.overrideWithValue(
@@ -213,6 +222,9 @@ List<Override> featureWiringOverrides() => [
           MommySlot.waterWidget: (context, _) => const WaterWidget(variant: WaterWidgetVariant.anacan),
           MommySlot.booksCarousel: booksCarouselSlot,
           ...commerceMommySlots,
+          ...programmeMommySlots(),
+          MommySlot.illnessActive: illnessActiveSlot,
+          MommySlot.illnessEntry: illnessEntrySlot,
         },
         premiumGate: (context, a) => PremiumBlurGate(feature: a.feature, title: a.title, subtitle: a.subtitle, blur: a.blur ?? 'md', child: a.child),
         showPremiumModal: (context, feature) => showPremiumModal(context, feature: feature),

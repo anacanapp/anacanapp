@@ -23,6 +23,7 @@ import 'data/partner_missions.dart';
 import 'data/partner_notifications.dart';
 import 'data/partner_progress.dart';
 import 'data/sos_alert.dart';
+import 'screens/screens_wiring.dart' show partnerScreensWiringOverrides;
 import 'ui/partner_care_card.dart';
 
 /// `usePartnerData()` as the AI tab reads it (Ata AI's partner context).
@@ -109,4 +110,6 @@ List<Override> partnerWiringOverrides() => [
       sosAlertPortProvider.overrideWith((ref) => ref.watch(sosAlertPortFromPartnerProvider)),
       healthMoodPartnerNotifierProvider.overrideWith((ref) => (mood) => ref.read(partnerNotifierProvider).notifyMoodUpdate(mood)),
       homeWaterGoalNotifierProvider.overrideWith((ref) => () => ref.read(partnerNotifierProvider).notifyWaterGoal()),
+      // Partner screens: parenting data for PartnerParentingScreen, PartnerLossCard + loss text on the partner home.
+      ...partnerScreensWiringOverrides(),
     ];

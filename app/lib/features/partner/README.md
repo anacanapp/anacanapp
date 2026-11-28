@@ -68,6 +68,35 @@ placeholder until registered. What they need:
 Shared widgets: `PartnerCard`, `PartnerTap`, `PartnerLucide` (filled lucide), `pText` (`ui/partner_ui.dart`),
 `LevelUpCelebration`, `SosButton`, `MotherSosSheet`.
 
+## Partner screens (`screens/`)
+
+All 16 are ported; `registerPartnerScreens` (`screens/register_screens.dart`) registers them (role guards stay in the
+shell). Tests: `app/test/features/partner/screens/`.
+
+| React | Dart |
+|---|---|
+| `NameVotingScreen.tsx`, `hooks/usePartnerFavoriteNames.ts` | `screens/name_voting_screen.dart`, `screens/data/partner_favorite_names.dart` (tools `favoriteNamesProvider`, `babyNamesQuery(null)`) |
+| `PartnerHospitalBagScreen.tsx` | `screens/partner_hospital_bag_screen.dart` (`partnerHospitalBagProvider`, tools `confirmPromptProvider`) |
+| `DailySummaryScreen.tsx` | `screens/daily_summary_screen.dart` (`partnerDayStageQuery`) |
+| `v2/PartnerShoppingScreen.tsx` | `screens/partner_shopping_screen.dart` (tools `shoppingItemsProvider`) |
+| `v2/PartnerAppointmentsScreen.tsx` | `screens/partner_appointments_screen.dart` |
+| `v2/PartnerBabyDayScreen.tsx` | `screens/partner_baby_day_screen.dart` (`partnerSleepPlanProvider` ← sleep-training `fetchSharedSleepPlan`) |
+| `v2/PartnerWeeklyStatsScreen.tsx`, `WeeklyStatsTab.tsx`, `hooks/usePartnerWeeklyStats.ts` | `screens/partner_weekly_stats_screen.dart`, `screens/data/partner_weekly_stats.dart` |
+| `v2/PartnerSurprisesScreen.tsx`, `SurpriseTab.tsx` | `screens/partner_surprises_screen.dart` (tools `surpriseIdeasQuery`) |
+| `tools/parenting/PartnerParentingScreen.tsx` (data + Index boundary) | `screens/partner_parenting.dart` (the screen itself is the parenting tool's) |
+| `v2/HospitalRunScreen.tsx` | `screens/hospital_run_screen.dart` |
+| `v2/LiveContractionsScreen.tsx`, `PartnerBabyDayScreen` realtime | `screens/live_contractions_screen.dart`, `screens/data/partner_live_rows.dart` |
+| `v2/PartnerSharingScreen.tsx` (mother) | `screens/partner_sharing_screen.dart` (profile `accountActionsProvider` / `shareServiceProvider` / `premiumPromptProvider`, settings `unlinkPartnersProvider`) |
+| `v2/NightShiftScreen.tsx`, `v2/BirthPlanScreen.tsx` | `screens/night_shift_screen.dart`, `screens/birth_plan_screen.dart` |
+| `v2/PostpartumSupportScreen.tsx` | `screens/postpartum_support_screen.dart` |
+| `pregnancy-loss/PartnerLossSupportScreen.tsx`, `PartnerLossCard.tsx` | `screens/partner_loss_support_screen.dart` (text, `LossSignsChecker` and the loss kit of `features/health_screens/loss/`) |
+| table reads with ranges / orderings | `screens/data/screens_backend.dart` (`partnerScreensBackendProvider`) |
+| `feature37Text` keys `ph_*`, `ns_*`, `bp_*`, `family_*` | `screens/screens_copy.dart` + `screens/generated/partner_screens_copy.g.dart` (`node app/lib/features/partner/screens/generated/gen_partner_screens_data.mjs`) |
+
+`partnerWiringOverrides()` includes `partnerScreensWiringOverrides()` (`screens/screens_wiring.dart`):
+`partnerParentingDataProvider` ← `usePartnerData`, and `partnerHomeSlotsProvider` with `lossCard` (PartnerLossCard) and
+`lossText` (the pregnancy-loss text).
+
 ## Seams (`partner_ports.dart`) and their defaults
 
 | Provider | Default |
@@ -76,6 +105,6 @@ Shared widgets: `PartnerCard`, `PartnerTap`, `PartnerLucide` (filled lucide), `p
 | `sosLocationProvider` | no location (`geolocator` is not a dependency): the alert is sent without coordinates, React's denied-permission branch |
 | `partnerChatSenderProvider` | chat feature `sendPartnerMessage` (chat_send_message_v2 + push) |
 | `partnerMessagesFeedProvider` | chat feature `partnerMessagesProvider` |
-| `partnerHomeSlotsProvider` (`illnessHomeCard`, `lossCard`, `lossText`, `adInlineAnchor`) | not shown (illness, pregnancy-loss and ads features) |
+| `partnerHomeSlotsProvider` (`illnessHomeCard`, `lossCard`, `lossText`, `adInlineAnchor`) | not shown; `partnerWiringOverrides()` fills `lossCard` / `lossText` (partner screens); illness and ads still to come |
 | `alertMapsOpenerProvider` | `ShellPlatform.openExternalUrl` |
 | `partnerLinkActionProvider` | `AuthController.linkPartner` |

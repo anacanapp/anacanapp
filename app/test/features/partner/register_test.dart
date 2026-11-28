@@ -15,6 +15,7 @@ void main() {
   });
 
   test('wiring overrides one value per phase-6 seam', () {
-    expect(partnerWiringOverrides(), hasLength(7));
+    // 7 for the partner core + 2 of the partner screens (parenting data, partner home loss slots).
+    expect(partnerWiringOverrides(), hasLength(9));
   });
 }
