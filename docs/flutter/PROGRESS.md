@@ -1,7 +1,8 @@
 # Flutter keçidi: gedişat
 
-Yenilənib: 2026-11-27. Budaq: `claude/blissful-sagan-lqhvv9`. Test sayları `app/` içində `flutter test` ilə alınıb.
-Heç nə cihazda işlədilməyib və heç bir Codemagic yığımı aparılmayıb.
+Yenilənib: 2026-11-28. Budaq: `claude/blissful-sagan-lqhvv9`. Test sayları `app/` içində `flutter test` ilə alınıb.
+Sahibin məlumatı (2026-11-28): Android Codemagic yığımında problem yoxdur; iOS-da cüzi problemlər var, sahib
+yekun nəticəni sonra bildirəcək. Agent özü heç nəyi cihazda işlətməyib.
 
 | İş | Vəziyyət | Yoxlama |
 |---|---|---|
@@ -51,7 +52,8 @@ və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən ç
 
 ## Qəbul olunmuş qərarlar (2026-11-27)
 
-- `analyze-cry` m4a/Ogg da qəbul edir (backend dəyişikliyi; **deploy gözlənilir**, köhnə tətbiqlər dəyişmədən WebM göndərir).
+- `analyze-cry` m4a/Ogg da qəbul edir (backend dəyişikliyi; sahib 2026-11-28 deploy etdi; köhnə tətbiqlər dəyişmədən WebM göndərir).
+- Switzer şriftinin lisenziyası sahib tərəfindən təsdiqlənib (2026-11-28); Recap şriftləri `app/assets/fonts/recap/`-da qalır.
 - Oxunmamış mesaj nişanı inbox-dakı bütün qrupları sayır.
 
 ## Açıq qərarlar (cavab gələnə qədər mötərizədəki variant)
@@ -62,10 +64,9 @@ və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən ç
 
 ## Texniki borc (düzəldilməlidir)
 
-- Ana ekranın qalan slotları (oxunmamış sayı, bloq, banner, reklam, partnyor, kitab, Aptek) öz feature-ləri gələnə qədər boşdur (`docs/flutter/WIRING.md`).
-- iOS: Codemagic-də ilk dəfə kompilyasiya olunub, imzalanıb və App Store Connect-ə yüklənib (2026-11-27), Apple emalda
-  qəbul etməyib; icazə mətnləri, privacy manifest və entitlements əlavə edilib (`app/tool/ios/apply_ios_parity.mjs`),
-  yenidən yığım gözlənilir. Android heç vaxt kompilyasiya olunmayıb.
+- iOS: Codemagic-də kompilyasiya olunub, imzalanıb və yüklənib; ilk build Apple emalında qəbul olunmamışdı, icazə
+  mətnləri, privacy manifest və entitlements əlavə edildi (`app/tool/ios/apply_ios_parity.mjs`). Sahib 2026-11-28
+  "cüzi problemlər" bildirdi, təfsilat gözlənilir. Android yığımı sahibə görə problemsizdir.
 - Səs/mikrofon/yer paketləri (`just_audio`, `record`, `geolocator`, `gal`) hələ yoxdur: ağ səs, ağlama tərcüməçisi,
   səs-küy ölçən, hava, səsli mesaj yazma "dəstəklənmir" yolu ilə işləyir (WIRING.md, 9-cu mərhələ).
 - Billing istinad müqayisəsi: başlıqdakı geri düyməsinin kölgəsi Flutter golden-də görünmür (React-da var);
