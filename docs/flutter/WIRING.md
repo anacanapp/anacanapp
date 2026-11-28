@@ -18,11 +18,10 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `pregnancyToolSlotsProvider` — all fields wired; one `PregnancyToolSlots` in app_wiring.dart | `features/tools/pregnancy_common/pregnancy_ports.dart` | — | — | done |
 | `photoGalleryViewerProvider` | `features/tools/photoshoot/photo_gallery_viewer.dart` | stand-in viewer | `overlay.photo-gallery` port | 3 |
 | `partnerHomeSlotsProvider` — all fields wired; extend `kPartnerScreensHomeSlots` | `features/partner/screens/screens_wiring.dart` | — | — | done |
-| iOS extension targets (home widgets, Live Activity, Notification Service Extension) | `app/ios/extensions_pending/`, `docs/flutter/IOS_EXTENSIONS.md` | not built; Live Activity start refused → ongoing-notification fallback | Xcode targets after the owner stabilises iOS | 9 native |
-| TikTok / Customer.io / Meta SDKs (Android real ports in `app/android/native_pending/`; iOS Swift packages) | `services/analytics/` | "not_configured" (same as the Capacitor app today) | SDK deps + credentials | 9 native |
-| `healthPluginBridgeProvider` (steps, workouts, mindfulness — capacitor-health) | `native/platform/` | default (no reads) | Health Connect / HealthKit reads | 9 native |
+| iOS extension targets (home widgets, Live Activity, Notification Service Extension) | `app/ios/AnacanTimerWidgetExt/`, `app/ios/AnacanNotificationService/`, `docs/flutter/IOS_EXTENSIONS.md` | in the project and signed in `ios-flutter-store`; unverified until a Codemagic build | — | 9 native |
 | iOS screenshot blanking (`secureSurfaceEnabled = false`) | `app/ios/Runner/ScreenshotGuardChannel.swift` | app-switcher cover + recording block only | device test, then enable | 9 native |
 | White-noise lock-screen / Now Playing controls | `state/white_noise_store.dart` | none | `audio_service` + MainActivity change | 9 native |
+| TikTok / Customer.io / Meta credentials | Codemagic group `anacan_native` (`FACEBOOK_APP_ID`, `FACEBOOK_CLIENT_TOKEN`, `TIKTOK_{ANDROID,IOS}_{APP_ID,TT_APP_ID,APP_SECRET}`, `VITE_CUSTOMERIO_*`) | SDK off when a set is missing | owner adds the variables | 9 native |
 | Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
 | `storyEventLoggerProvider` | `features/stories/story_viewer.dart` | no-op | analytics | 9 |
@@ -33,7 +32,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `homeWidgetBridgeProvider`, `homeWidgetsSyncProvider` | `features/home/home_slots.dart`, `features/settings/widget_settings_screen.dart` | no-op | AnacanWidgets native bridge (home-screen widgets) | 9 |
 | `recapVideoEncoderProvider` | `features/recap/recap_export.dart` | "not supported" (image share only, React's no-MediaRecorder branch) | native H.264 encoder (AVAssetWriter / MediaCodec + MediaMuxer) with the mp3 | 9 |
 | `cycleHealthWriterProvider` | `features/home_flow/flow_platform.dart` | no-op | HealthKit / Health Connect cycle bridge | 9 |
-| `healthPluginBridgeProvider`, `healthCyclePluginProvider`, `healthVitalsPluginProvider` | `features/settings/data/health_service.dart` | unavailable | native Health plugins | 9 |
 | `liveTimerBridgeProvider` | `features/baby/live_timer/live_timer.dart` | no-op (web behaviour) | LiveActivity / timer FGS method channel | 9 |
 | `liveTimerIosFailureToastProvider` | `features/baby/live_timer/live_timer.dart` | null | a root toast handle (only fires once the bridge exists) | 9 |
 | `profileSlotsProvider` — all fields wired; one `ProfileSlots` in app_wiring.dart (add new fields there) | `features/profile/profile_interfaces.dart` | — | — | done |

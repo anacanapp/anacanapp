@@ -29,8 +29,11 @@ import FBSDKCoreKit
 #if canImport(FBSDKCoreKit)
     // Meta SDK (FacebookAppID / FacebookClientToken from Info.plist). Unlike the Capacitor AppDelegate, auto-logging
     // and the advertiser id stay as Info.plist sets them and there is no unconditional activateApp: events are sent
-    // only from Dart after attribution consent (services/analytics/facebook_events.dart).
-    ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+    // only from Dart after attribution consent (services/analytics/facebook_events.dart). A build without the
+    // FACEBOOK_* values (empty $(ANACAN_FACEBOOK_*)) leaves the SDK untouched, so FbEventsChannel sends nothing.
+    if FbEventsChannel.isConfigured {
+      ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
 #endif
     // Foreground presentation and taps for flutter_local_notifications / firebase_messaging (FlutterAppDelegate
     // forwards the UNUserNotificationCenterDelegate callbacks to the plugins).
@@ -52,6 +55,8 @@ import FBSDKCoreKit
         ScreenshotGuardChannel(messenger: messenger),
         LiveActivityChannel(messenger: messenger),
         HealthChannels(messenger: messenger),
+        // capacitor-health `Health` reads: steps, workouts, mindful minutes.
+        HealthReadsChannel(messenger: messenger),
         HomeWidgetsChannel(messenger: messenger),
         FbEventsChannel(messenger: messenger),
         // AdMob, TikTok events, Customer.io (SDK code guarded by canImport; inert until the SDKs are in the build).

@@ -5,4 +5,4 @@
        tools:keep="@drawable/ic_stat_*,@raw/anacan_*"
      Add the entries together with the feature that needs them (docs/flutter/BUILD.md). -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@mipmap/ic_launcher*,@drawable/anacan_ln_fallback_icon" />
+    tools:keep="@mipmap/ic_launcher*,@drawable/anacan_ln_fallback_icon,@string/anacan_customerio_*,@string/anacan_tiktok_*" />

@@ -5,10 +5,11 @@ import Foundation
 /// "LiveActivity" (iOS side), ported from the Capacitor app's LiveActivityPlugin.swift: feeding / sleep (and
 /// contraction / kick) timers as a Lock Screen + Dynamic Island Live Activity. Several timers at once (by id).
 ///
-/// The Live Activity UI and the "Dayandır" button live in the widget extension (AnacanTimerWidgetExt), which is not in
-/// the Flutter project yet (docs/flutter/IOS_EXTENSIONS.md). Until it is, Info.plist has no `NSSupportsLiveActivities`
-/// and `startActivity` fails, so Dart shows its ongoing local-notification fallback instead of an invisible
-/// activity. Pending stops written by the extension's stop intent (iOS 17+) are read from the App Group
+/// The Live Activity UI and the "Dayandır" button live in the widget extension (target AnacanTimerWidgetExtExtension,
+/// app/ios/AnacanTimerWidgetExt/, docs/flutter/IOS_EXTENSIONS.md). Info.plist carries `NSSupportsLiveActivities` as in
+/// Capacitor; a build without that key (no extension) still fails `startActivity`, so Dart shows its ongoing
+/// local-notification fallback instead of an invisible activity. Pending stops written by the extension's stop intent
+/// (iOS 17+) are read from the App Group
 /// `group.com.atlasoon.anacan`, key `anacan-pending-timer-stops`, exactly as before.
 ///
 /// Channel "anacan/live_timer": startActivity {id, type, label, startTime, feedType?, subLabel?, stopLabel?},

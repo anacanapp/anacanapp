@@ -8,6 +8,7 @@ import 'package:anacan/features/home_flow/flow_platform.dart' show cycleHealthWr
 import 'package:anacan/features/security/screen_capture_guard.dart';
 import 'package:anacan/features/settings/data/health_service.dart';
 import 'package:anacan/native/platform/health_channels.dart';
+import 'package:anacan/native/platform/health_reads_channel.dart';
 import 'package:anacan/native/platform/live_timer_channel.dart';
 import 'package:anacan/native/platform/native_host.dart';
 import 'package:anacan/native/platform/native_platform_wiring.dart';
@@ -31,6 +32,7 @@ void main() {
     expect(container.read(liveTimerBridgeProvider).isNative, isFalse);
     expect(container.read(facebookEventsPluginProvider), isNull);
     expect(container.read(healthCyclePluginProvider), isA<MissingHealthPlugins>());
+    expect(container.read(healthPluginBridgeProvider), isA<MissingHealthPlugins>());
     expect(container.read(cycleHealthWriterProvider), isA<HealthServiceCycleWriter>());
   });
 
@@ -41,6 +43,7 @@ void main() {
     final bridge = container.read(liveTimerBridgeProvider);
     expect(bridge, isA<MethodChannelLiveTimerBridge>());
     expect(bridge.isNative, isTrue);
+    expect(container.read(healthPluginBridgeProvider), isA<MethodChannelHealth>());
     expect(container.read(healthCyclePluginProvider), isA<MethodChannelHealthCycle>());
     expect(container.read(healthVitalsPluginProvider), isA<MethodChannelHealthVitals>());
     expect(container.read(facebookEventsPluginProvider), isNotNull);

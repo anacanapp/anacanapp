@@ -1,5 +1,6 @@
 // Ported from: android/app/src/main/java/com/atlasoon/anacan/MainActivity.java (load(): registerPlugin of the local
-//              plugins) and ios/App/App/MainViewController.swift (capacitorDidLoad(): registerPluginInstance)
+//              plugins) and ios/App/App/MainViewController.swift (capacitorDidLoad(): registerPluginInstance), plus
+//              the capacitor-health plugin of capacitor.config.json
 //
 // The overrides that put the app's own native code (method channels in app/android/app/src/main/kotlin/com/atlasoon/
 // anacan/ and app/ios/Runner/) behind the feature seams. The channel-backed seams are only overridden on the iOS /
@@ -14,13 +15,14 @@ import '../../features/home/home_slots.dart' show homeWidgetBridgeProvider;
 import '../../features/home_flow/flow_platform.dart' show CycleHealthWriter, cycleHealthWriterProvider;
 import '../../features/security/screen_capture_guard.dart' show screenshotGuardPlatformProvider;
 import '../../features/settings/data/health_service.dart'
-    show healthCyclePluginProvider, healthServiceProvider, healthVitalsPluginProvider;
+    show healthCyclePluginProvider, healthPluginBridgeProvider, healthServiceProvider, healthVitalsPluginProvider;
 import '../../features/settings/widget_settings_screen.dart' show homeWidgetsSyncProvider;
 import '../../features/tools/pregnancy_common/pregnancy_ports.dart' show healthVitalsBackgroundSyncProvider;
 import '../../services/analytics/facebook_events.dart' show facebookEventsPluginProvider;
 import '../../services/security/dashboard_capture.dart' show MethodChannelScreenshotGuard;
 import 'facebook_events_channel.dart';
 import 'health_channels.dart';
+import 'health_reads_channel.dart';
 import 'home_widgets/home_widgets_service.dart';
 import 'live_timer_channel.dart';
 import 'native_host.dart';
@@ -58,7 +60,9 @@ List<Override> nativePlatformWiringOverrides({NativeHost? host}) {
       // AnacanWidgets (home-screen widgets): the home journey push and the widget-settings change event.
       homeWidgetBridgeProvider.overrideWith((ref) => ref.watch(homeWidgetsServiceProvider)),
       homeWidgetsSyncProvider.overrideWith((ref) => ref.watch(homeWidgetsServiceProvider)),
-      // HealthCycle / HealthVitals (Health Connect, HealthKit).
+      // capacitor-health `Health` reads (steps, workouts, mindfulness), HealthCycle / HealthVitals writes
+      // (Health Connect, HealthKit).
+      healthPluginBridgeProvider.overrideWithValue(const MethodChannelHealth()),
       healthCyclePluginProvider.overrideWithValue(const MethodChannelHealthCycle()),
       healthVitalsPluginProvider.overrideWithValue(const MethodChannelHealthVitals()),
       // FbEvents (Meta App Events; consent and the event map stay in Dart).

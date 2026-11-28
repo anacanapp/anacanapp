@@ -8,6 +8,13 @@ ANACAN_CUSTOMERIO_ENABLED = false
 ANACAN_CUSTOMERIO_ENVIRONMENT =
 ANACAN_CUSTOMERIO_REGION =
 ANACAN_CUSTOMERIO_CDP_WRITE_KEY =
+// TikTok Business SDK (Info.plist AnacanTikTok*) and Meta SDK (FacebookAppID / FacebookClientToken): empty locally, so
+// TikTok answers "not_configured" and the Meta SDK is never started. Codemagic: TIKTOK_IOS_*, FACEBOOK_*.
+ANACAN_TIKTOK_APP_ID =
+ANACAN_TIKTOK_TT_APP_ID =
+ANACAN_TIKTOK_APP_SECRET =
+ANACAN_FACEBOOK_APP_ID =
+ANACAN_FACEBOOK_CLIENT_TOKEN =
 // Google sign-in (public OAuth client ids; Info.plist GIDClientID / GIDServerClientID / reversed-client URL scheme).
 // Written by apply_native_config.mjs from the committed ios/App/App/GoogleService-Info.plist and
 // android/app/google-services.json; empty locally until it runs.

@@ -1,8 +1,8 @@
 // Ported from: src/lib/facebook-events.ts (the plugin surface: Android local `FbEvents`, iOS `capacitor-facebook-events`)
 //
-// [FacebookEventsPlugin] over the `anacan/fb_events` method channel. Native side: Android `FbEventsPlugin.kt` (a silent
-// stub until the Meta SDK dependency is added, app/android/native_pending/README.md), iOS `FbEventsChannel.swift`
-// (no-op unless FBSDKCoreKit is in the build). Consent and the event map stay in services/analytics/facebook_events.dart.
+// [FacebookEventsPlugin] over the `anacan/fb_events` method channel. Native side: Android `FbEventsPlugin.kt` (Meta
+// SDK; silent when the build has no app id / client token), iOS `FbEventsChannel.swift` (no-op unless FBSDKCoreKit is
+// in the build and FacebookAppID / FacebookClientToken are set). Consent and the event map stay in services/analytics/facebook_events.dart.
 import 'package:flutter/services.dart';
 
 import '../../services/analytics/facebook_events.dart' show FacebookEventsPlugin;

@@ -2,17 +2,23 @@
 // scripts/codemagic/apply-native-config.mjs.
 //
 //   node app/tool/codemagic/apply_native_config.mjs ios|android
-//     Before `flutter build`: writes the live AdMob app ID and the Customer.io Data In
-//     settings (including the CDP write key) into gitignored native configuration only:
+//     Before `flutter build`: writes the live AdMob app ID, the Customer.io Data In
+//     settings (including the CDP write key), the TikTok Business SDK credentials
+//     (TIKTOK_IOS_* / TIKTOK_ANDROID_*, the Capacitor names) and the Meta app id / client token
+//     (FACEBOOK_APP_ID, FACEBOOK_CLIENT_TOKEN) into gitignored native configuration only:
 //       android: app/android/anacan-native.properties -> build.gradle.kts manifest
-//                placeholder ${anacanAdmobAppId} and resValue strings anacan_customerio_*
+//                placeholder ${anacanAdmobAppId} and resValue strings anacan_customerio_*,
+//                anacan_tiktok_*, facebook_app_id, facebook_client_token
 //       ios:     app/ios/Flutter/AnacanNative.xcconfig -> $(ANACAN_ADMOB_APP_ID),
-//                $(ANACAN_CUSTOMERIO_*) build settings (Info.plist AnacanCustomerIo* keys) and the public Google
+//                $(ANACAN_CUSTOMERIO_*) build settings (Info.plist AnacanCustomerIo* keys),
+//                $(ANACAN_TIKTOK_*) (AnacanTikTok*), $(ANACAN_FACEBOOK_*) (FacebookAppID /
+//                FacebookClientToken) and the public Google
 //                sign-in ids $(ANACAN_GOOGLE_IOS_CLIENT_ID|_REVERSED_CLIENT_ID|_SERVER_CLIENT_ID) (Info.plist
 //                GIDClientID, GIDServerClientID, URL scheme), read from the committed Firebase files (public_ids.mjs)
 //
 //   node app/tool/codemagic/apply_native_config.mjs verify ios|android
-//     After `flutter build`: fails when the write key appears in any Dart / Flutter asset
+//     After `flutter build`: fails when the Customer.io write key, the TikTok app secret or the
+//     Meta client token appears in any Dart / Flutter asset
 //     output (AOT snapshot, kernel, flutter_assets, the dart-define file), in the build
 //     tree and inside the built IPA / AAB / APK.
 //
@@ -59,6 +65,9 @@ function applyConfig() {
     customerIo = { enabled: 'true', environment, region: 'EU', writeKey };
   }
 
+  const tiktok = tiktokConfig();
+  const facebook = facebookConfig();
+
   const target = paths[platform];
   let content;
   if (platform === 'android') {
@@ -69,6 +78,11 @@ function applyConfig() {
       `customerIoEnvironment=${customerIo.environment}`,
       `customerIoRegion=${customerIo.region}`,
       `customerIoCdpWriteKey=${customerIo.writeKey}`,
+      `tiktokAppId=${tiktok.appId}`,
+      `tiktokTtAppId=${tiktok.ttAppId}`,
+      `tiktokAppSecret=${tiktok.appSecret}`,
+      `facebookAppId=${facebook.appId}`,
+      `facebookClientToken=${facebook.clientToken}`,
     ];
   } else {
     let google;
@@ -86,6 +100,11 @@ function applyConfig() {
       `ANACAN_CUSTOMERIO_ENVIRONMENT = ${customerIo.environment}`,
       `ANACAN_CUSTOMERIO_REGION = ${customerIo.region}`,
       `ANACAN_CUSTOMERIO_CDP_WRITE_KEY = ${xc(customerIo.writeKey)}`,
+      `ANACAN_TIKTOK_APP_ID = ${xc(tiktok.appId)}`,
+      `ANACAN_TIKTOK_TT_APP_ID = ${xc(tiktok.ttAppId)}`,
+      `ANACAN_TIKTOK_APP_SECRET = ${xc(tiktok.appSecret)}`,
+      `ANACAN_FACEBOOK_APP_ID = ${facebook.appId}`,
+      `ANACAN_FACEBOOK_CLIENT_TOKEN = ${facebook.clientToken}`,
       `ANACAN_GOOGLE_IOS_CLIENT_ID = ${google.ANACAN_GOOGLE_IOS_CLIENT_ID}`,
       `ANACAN_GOOGLE_REVERSED_CLIENT_ID = ${google.ANACAN_GOOGLE_REVERSED_CLIENT_ID}`,
       `ANACAN_GOOGLE_SERVER_CLIENT_ID = ${google.ANACAN_GOOGLE_SERVER_CLIENT_ID}`,
@@ -94,7 +113,46 @@ function applyConfig() {
   assertIgnored(target);
   writeFileSync(target, content.join('\n') + '\n', { mode: 0o600 });
   console.log(`Native config OK for ${platform}: AdMob live app ID set, Customer.io ${customerIo.environment || 'off'}`
-    + ` (${relative(appDir, target)}).`);
+    + `, TikTok ${tiktok.appId ? 'on' : 'off'}, Meta ${facebook.appId ? 'on' : 'off'} (${relative(appDir, target)}).`);
+}
+
+// TikTok Business SDK: the Capacitor variable names (scripts/native/tiktok-native-config.mjs). All three or none;
+// without them the native plugin answers "not_configured" (no TikTok traffic), as the Capacitor build did.
+function tiktokConfig() {
+  const prefix = platform === 'ios' ? 'TIKTOK_IOS_' : 'TIKTOK_ANDROID_';
+  const names = { appId: `${prefix}APP_ID`, ttAppId: `${prefix}TT_APP_ID`, appSecret: `${prefix}APP_SECRET` };
+  return pairedConfig('TikTok', names, /^[A-Za-z0-9._:-]{1,256}$/);
+}
+
+// Meta SDK: app id + client token (Capacitor shipped them in res/values/strings.xml and Info.plist). Both or none;
+// without them the SDK is never started and no Meta event is sent.
+function facebookConfig() {
+  const config = pairedConfig('Meta', { appId: 'FACEBOOK_APP_ID', clientToken: 'FACEBOOK_CLIENT_TOKEN' },
+    /^[A-Za-z0-9]{1,128}$/);
+  if (config.appId && !/^\d{5,32}$/.test(config.appId)) fail('FACEBOOK_APP_ID must be the numeric Meta app id');
+  return config;
+}
+
+function pairedConfig(label, names, pattern) {
+  const values = Object.fromEntries(Object.entries(names).map(([key, name]) => [key, (env[name] ?? '').trim()]));
+  const missing = Object.entries(names).filter(([key]) => !values[key]).map(([, name]) => name);
+  if (missing.length === Object.keys(names).length) {
+    console.log(`${label}: ${Object.values(names).join(', ')} not set; ${label} stays off in this build.`);
+    return Object.fromEntries(Object.keys(names).map(key => [key, '']));
+  }
+  if (missing.length) fail(`${label} needs ${Object.values(names).join(', ')}; missing ${missing.join(', ')}`);
+  for (const [key, name] of Object.entries(names)) {
+    // Plain token characters only: the value must survive .properties, resValue and .xcconfig syntax unchanged.
+    if (!pattern.test(values[key])) fail(`${name} has unexpected characters`);
+  }
+  return values;
+}
+
+// Private native values that must never reach Dart / Flutter output.
+function nativeSecrets() {
+  const names = ['VITE_CUSTOMERIO_CDP_WRITE_KEY', platform === 'ios' ? 'TIKTOK_IOS_APP_SECRET' : 'TIKTOK_ANDROID_APP_SECRET',
+    'FACEBOOK_CLIENT_TOKEN'];
+  return names.map(name => [name, (env[name] ?? '').trim()]).filter(([, value]) => value);
 }
 
 // The generated file holds a private value: refuse to write it where Git would pick it up.
@@ -108,15 +166,20 @@ function assertIgnored(file) {
 }
 
 function verifyOutput() {
-  if (!writeKey) {
-    console.log(`Write-key scan skipped for ${platform}: VITE_CUSTOMERIO_CDP_WRITE_KEY is not set.`);
+  const secrets = nativeSecrets();
+  if (!secrets.length) {
+    console.log(`Native-secret scan skipped for ${platform}: no Customer.io write key, TikTok secret or Meta client token set.`);
     return;
   }
-  const needles = [Buffer.from(writeKey, 'utf8'), Buffer.from(writeKey, 'utf16le')];
-  const contains = buffer => needles.some(needle => buffer.includes(needle));
+  const needles = secrets.map(([name, value]) => [name, [Buffer.from(value, 'utf8'), Buffer.from(value, 'utf16le')]]);
   const hits = [];
   let scanned = 0;
-  const check = (label, buffer) => { scanned += 1; if (contains(buffer)) hits.push(label); };
+  const check = (label, buffer) => {
+    scanned += 1;
+    for (const [name, forms] of needles) {
+      if (forms.some(needle => buffer.includes(needle))) hits.push(`${name} in ${label}`);
+    }
+  };
 
   // Dart / Flutter outputs in the build tree. Native outputs (resources.arsc, Info.plist) are
   // expected to hold the key and are not scanned.
@@ -161,9 +224,10 @@ function verifyOutput() {
     }
   }
 
-  if (hits.length) fail(`Customer.io write key found in Dart/Flutter output: ${hits.join(', ')}`);
+  if (hits.length) fail(`native-only value found in Dart/Flutter output: ${hits.join(', ')}`);
   if (!archives.length || scanned < 2) fail(`no ${platform} Dart output found to scan; run after flutter build`);
-  console.log(`Write-key scan OK for ${platform}: ${scanned} Dart/asset files, ${archives.length} package(s).`);
+  console.log(`Native-secret scan OK for ${platform} (${secrets.map(([name]) => name).join(', ')}): ${scanned}`
+    + ` Dart/asset files, ${archives.length} package(s).`);
 }
 
 function listFiles(dir, extension) {

@@ -1,0 +1,23 @@
+{
+  "_comment": "Remote Swift packages added to app/ios/Runner.xcodeproj by app/tool/ios/add_extensions.rb (Codemagic runs it before flutter build). Entry: {\"url\": \"https://github.com/<org>/<repo>.git\", \"requirement\": \"1.2.3\" | \"exact:1.2.3\" | \"from:1.2.3\" | \"upToNextMinor:1.2.3\" | \"branch:main\" | \"revision:<sha>\" | {\"kind\": \"upToNextMajorVersion\", \"minimumVersion\": \"1.2.3\"}, \"products\": [\"Product\"], \"target\": \"Runner\" (default)}. Entries are only added or updated, never removed: delete a package from the Xcode project by hand.",
+  "packages": [
+    {
+      "url": "https://github.com/facebook/facebook-ios-sdk.git",
+      "requirement": { "kind": "upToNextMajorVersion", "minimumVersion": "18.0.0" },
+      "products": ["FacebookCore"],
+      "target": "Runner"
+    },
+    {
+      "url": "https://github.com/tiktok/tiktok-business-ios-sdk.git",
+      "requirement": "exact:1.7.2",
+      "products": ["TikTokBusinessSDK"],
+      "target": "Runner"
+    },
+    {
+      "url": "https://github.com/customerio/customerio-ios.git",
+      "requirement": "exact:4.9.0",
+      "products": ["DataPipelines"],
+      "target": "Runner"
+    }
+  ]
+}

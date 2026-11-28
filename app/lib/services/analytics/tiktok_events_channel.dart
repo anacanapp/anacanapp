@@ -1,8 +1,8 @@
 // Ported from: packages/tiktok-events/index.d.ts (the TikTokEvents plugin surface)
 //
 // [TikTokEventsPlugin] over the `anacan/tiktok_events` method channel. Native side: Android `TikTokEventsPlugin.kt`
-// (a "not_configured" stub until the TikTok Business SDK dependency is added, app/android/native_pending/README.md),
-// iOS `TikTokEventsChannel.swift` (answers "not_configured" unless TikTokBusinessSDK is in the build). Credentials stay
+// (TikTok Business SDK; "not_configured" without the anacan_tiktok_* build configuration), iOS
+// `TikTokEventsChannel.swift` (answers "not_configured" unless TikTokBusinessSDK is in the build and configured). Credentials stay
 // in the native configuration; consent, the event map and identity stay in tiktok_events.dart.
 import 'package:flutter/services.dart';
 

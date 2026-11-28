@@ -16,6 +16,7 @@ class MainActivity : FlutterFragmentActivity() {
     private var screenshotGuard: ScreenshotGuardPlugin? = null
     private var timer: TimerWidgetPlugin? = null
     private var health: HealthPlugins? = null
+    private var healthReads: HealthReadsPlugin? = null
     private var ads: AnacanAdsPlugin? = null
     private var legacyWebStorage: LegacyWebStorageChannel? = null
     private val channels = mutableListOf<MethodChannel>()
@@ -38,6 +39,8 @@ class MainActivity : FlutterFragmentActivity() {
         channels += AnacanWidgetsPlugin.register(this, messenger)
         // Health Connect writes: period (HealthCycle), weight / blood pressure / glucose (HealthVitals).
         health = HealthPlugins.register(this, messenger)
+        // Health Connect reads (capacitor-health `Health`): steps, exercise sessions.
+        healthReads = HealthReadsPlugin.register(this, messenger)
         // Meta App Events (consent-gated in Dart).
         channels += FbEventsPlugin.register(this, messenger)
         // AdMob (banners, interstitial, rewarded, native story ad, UMP), TikTok events, Customer.io Data Pipelines.
@@ -53,6 +56,8 @@ class MainActivity : FlutterFragmentActivity() {
         timer = null
         health?.detach()
         health = null
+        healthReads?.detach()
+        healthReads = null
         ads?.detach()
         ads = null
         legacyWebStorage?.detach()

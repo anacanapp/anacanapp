@@ -2,7 +2,7 @@ import ActivityKit
 import Foundation
 
 /// Live Activity atributları — HƏM "Runner" target-ə, HƏM DƏ widget extension target-ə
-/// ("AnacanTimerWidgetExt", docs/flutter/IOS_EXTENSIONS.md) üzv edilməlidir.
+/// ("AnacanTimerWidgetExtExtension", docs/flutter/IOS_EXTENSIONS.md) üzv edilməlidir.
 /// Copied unchanged from the Capacitor app (ios/App/AnacanTimerWidgetExt/AnacanTimerAttributes.swift): the type name
 /// and fields must stay identical in both targets, or the extension cannot decode activities the app started.
 struct AnacanTimerAttributes: ActivityAttributes {

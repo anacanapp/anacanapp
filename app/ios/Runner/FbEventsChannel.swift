@@ -14,6 +14,16 @@ import FBSDKCoreKit
 final class FbEventsChannel {
   static let channelName = "anacan/fb_events"
 
+  /// FacebookAppID / FacebookClientToken come from $(ANACAN_FACEBOOK_APP_ID|CLIENT_TOKEN), written by
+  /// app/tool/codemagic/apply_native_config.mjs; both are empty in local builds. The SDK raises on events without an
+  /// app id, so nothing touches it unless both are set.
+  static let isConfigured: Bool = {
+    let value = { (key: String) in
+      ((Bundle.main.object(forInfoDictionaryKey: key) as? String) ?? "").trimmingCharacters(in: .whitespaces)
+    }
+    return !value("FacebookAppID").isEmpty && !value("FacebookClientToken").isEmpty
+  }()
+
   private let channel: FlutterMethodChannel
 
   init(messenger: FlutterBinaryMessenger) {
@@ -32,6 +42,10 @@ final class FbEventsChannel {
         return
       }
       #if canImport(FBSDKCoreKit)
+      guard isConfigured else {
+        result(nil)
+        return
+      }
       var parameters: [AppEvents.ParameterName: Any] = [:]
       for (key, value) in args["params"] as? [String: Any] ?? [:] {
         if let text = value as? String { parameters[AppEvents.ParameterName(key)] = text }
@@ -52,7 +66,7 @@ final class FbEventsChannel {
         return
       }
       #if canImport(FBSDKCoreKit)
-      Settings.shared.isAdvertiserTrackingEnabled = enabled
+      if isConfigured { Settings.shared.isAdvertiserTrackingEnabled = enabled }
       #else
       _ = enabled
       #endif

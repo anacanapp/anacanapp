@@ -86,6 +86,8 @@ aşağıdakı qrup adına əlavə edilir.
    | `VITE_CUSTOMERIO_ENABLED` / `_ENVIRONMENT` / `_REGION` | `true` / `production` / `EU` |
    | `VITE_CUSTOMERIO_WORKSPACE_ID` / `_SOURCE_ID` | `224149` / `93570` |
    | `VITE_CUSTOMERIO_CDP_WRITE_KEY` | `.env.customerio.production.local` və ya Customer.io → workspace 224149 → Data & Integrations → Sources → source 93570 → API key |
+   | `TIKTOK_IOS_APP_ID` / `_TT_APP_ID` / `_APP_SECRET`, `TIKTOK_ANDROID_APP_ID` / `_TT_APP_ID` / `_APP_SECRET` | Yalnız Flutter build-i üçün (secure). `.env.tiktok.local` / TikTok Events Manager. Üçü birlikdə və ya heç biri; yoxdursa TikTok sönülü qalır |
+   | `FACEBOOK_APP_ID` / `FACEBOOK_CLIENT_TOKEN` | Yalnız Flutter build-i üçün. Capacitor-un `android/app/src/main/res/values/strings.xml`-dakı `facebook_app_id` / `facebook_client_token` (və ya Meta → App settings → Advanced → Client token). Yoxdursa Meta SDK başlamır |
 
    Firebase web dəyişənləri repodakı `.env`-dən avtomatik gəlir. Yoxlama skripti
    bootstrap, cutover, açarlar və admission səhv olarsa build-i dayandırır.
@@ -103,8 +105,8 @@ iOS build nömrəsi App Store Connect-dən avtomatik hesablanır (53.0.0-dan).
 
 `ios-flutter-store` və `android-flutter-store` `app/` qovluğundakı Flutter tətbiqini yığır. Eyni `mac_mini_m2`,
 eyni əl ilə başlatma, eyni artifact/yükləmə qaydası, eyni üç qrup (`anacan_native`, `anacan_ios_signing`,
-`anacan_android_signing`). **Yeni sirr və ya yeni qrup lazım deyil**: Flutter build-i mövcud `VITE_*` dəyərlərini
-özü çevirir. Texniki təfərrüat (ingiliscə): `docs/flutter/BUILD.md`.
+`anacan_android_signing`). Yeni qrup lazım deyil: Flutter build-i mövcud `VITE_*` dəyərlərini özü çevirir. Yalnız
+TikTok və Meta üçün `anacan_native`-ə yeni dəyişənlər əlavə olunur (yuxarıdakı cədvəl); onlarsız bu iki SDK sönülüdür. Texniki təfərrüat (ingiliscə): `docs/flutter/BUILD.md`.
 
 Addımlar:
 
@@ -125,14 +127,18 @@ Addımlar:
    (`REVENUECAT_CONFIG.ANDROID_API_KEY` / `IOS_API_KEY` / `API_KEY`), `ANACAN_GOOGLE_SERVER_CLIENT_ID` ←
    `android/app/google-services.json` (`client_type: 3` olan web client), `ANACAN_GOOGLE_IOS_CLIENT_ID` ←
    `ios/App/App/GoogleService-Info.plist` (`CLIENT_ID`). Eyni adlı mühit dəyişəni verilsə, o üstün tutulur (məs. test layihəsi).
-4. `apply_native_config.mjs`: canlı AdMob ID-si və Customer.io write key yalnız Git-ə düşməyən native fayla yazılır
-   (Android `app/android/anacan-native.properties`, iOS `app/ios/Flutter/AnacanNative.xcconfig`). iOS faylına Google
+4. `apply_native_config.mjs`: canlı AdMob ID-si, Customer.io write key, TikTok (`TIKTOK_IOS_*` / `TIKTOK_ANDROID_*`)
+   və Meta (`FACEBOOK_APP_ID`, `FACEBOOK_CLIENT_TOKEN`) dəyərləri yalnız Git-ə düşməyən native fayla yazılır
+   (Android `app/android/anacan-native.properties`, iOS `app/ios/Flutter/AnacanNative.xcconfig`). TikTok/Meta
+   dəyişənləri yoxdursa həmin SDK sönülü qalır (build dayanmır); natamam dəst build-i dayandırır. Build-dən sonra
+   `verify` addımı write key, TikTok secret və Meta client token-in Dart/Flutter çıxışında olmadığını yoxlayır. iOS faylına Google
    girişi üçün `ANACAN_GOOGLE_IOS_CLIENT_ID`, `ANACAN_GOOGLE_REVERSED_CLIENT_ID`, `ANACAN_GOOGLE_SERVER_CLIENT_ID` də
    yazılır (Info.plist `GIDClientID`, `GIDServerClientID`, URL sxemi; eyni repodakı fayllardan).
 5. iOS: `ios-store` kimi sertifikat və App Store profili API ilə gətirilir (`keychain`, `fetch-signing-files --create`,
-   `xcode-project use-profiles`), sonra `flutter build ipa`. Hələlik yalnız `Runner` (`com.atlasoon.anacan`) imzalanır;
-   widget və bildiriş xidməti target-ləri Flutter layihəsinə köçürüləndə `IOS_SIGNED_TARGETS` siyahısına bir sətir
-   əlavə olunur. Android: `keystore.properties` `ios-store`/`android-store`-dakı eyni upload keystore-dan yazılır,
+   `xcode-project use-profiles`), sonra `flutter build ipa`. Üç target imzalanır (`IOS_SIGNED_TARGETS`): `Runner`
+   (`com.atlasoon.anacan`), `AnacanTimerWidgetExtExtension` (`.AnacanTimerWidgetExt`) və `AnacanNotificationService`;
+   yığımdan əvvəl `app/tool/ios/add_extensions.rb` layihəni yoxlayır, Runner Swift fayllarını və
+   `app/ios/spm_packages.json` paketlərini əlavə edir (`docs/flutter/IOS_EXTENSIONS.md`). Android: `keystore.properties` `ios-store`/`android-store`-dakı eyni upload keystore-dan yazılır,
    `flutter build appbundle` və `flutter build apk`.
 6. Yoxlama: write key Dart/Flutter çıxışında (snapshot, `flutter_assets`, IPA/AAB/APK içində) tapılsa build dayanır.
    Android-də imza sertifikatının SHA-256-sı loga yazılır (debug açarı ilə imzalanıbsa build dayanır) və APK 16 KB

@@ -1,8 +1,8 @@
 // Ported from: packages/customerio-data-in/index.d.ts (the CustomerIoDataIn plugin surface)
 //
-// [CustomerIoDataInPlugin] over the `anacan/customerio` method channel. Native side: Android `CustomerIoPlugin.kt` (a
-// stub that rejects initialize until the Data Pipelines dependency is added, app/android/native_pending/README.md),
-// iOS `CustomerIoChannel.swift` (rejects initialize unless CioDataPipelines is in the build). The CDP write key never
+// [CustomerIoDataInPlugin] over the `anacan/customerio` method channel. Native side: Android `CustomerIoPlugin.kt`
+// (Data Pipelines SDK; rejects initialize without the anacan_customerio_* build configuration), iOS
+// `CustomerIoChannel.swift` (rejects initialize unless CioDataPipelines is in the build and configured). The CDP write key never
 // crosses the channel: initialize sends only the region and environment this build expects, and the native side
 // compares them with its own configuration.
 import 'package:flutter/services.dart';

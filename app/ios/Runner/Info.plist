@@ -96,6 +96,10 @@
 	<string>$(ANACAN_GOOGLE_SERVER_CLIENT_ID)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>NSSupportsLiveActivitiesFrequentUpdates</key>
+	<false/>
 	<key>AnacanCustomerIoEnabled</key>
 	<string>$(ANACAN_CUSTOMERIO_ENABLED)</string>
 	<key>AnacanCustomerIoEnvironment</key>
@@ -110,6 +114,16 @@
 	<string>$(ANACAN_TIKTOK_TT_APP_ID)</string>
 	<key>AnacanTikTokAppSecret</key>
 	<string>$(ANACAN_TIKTOK_APP_SECRET)</string>
+	<key>FacebookAppID</key>
+	<string>$(ANACAN_FACEBOOK_APP_ID)</string>
+	<key>FacebookClientToken</key>
+	<string>$(ANACAN_FACEBOOK_CLIENT_TOKEN)</string>
+	<key>FacebookDisplayName</key>
+	<string>Anacan</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<false/>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<true/>
 	<key>GADApplicationIdentifier</key>
 	<string>$(ANACAN_ADMOB_APP_ID)</string>
 	<key>GADDelayAppMeasurementInit</key>

@@ -62,8 +62,8 @@ from `app/`.
 
 | Platform | File (gitignored, written by `apply_native_config.mjs`) | Consumed as | Local default |
 |---|---|---|---|
-| Android | `app/android/anacan-native.properties` | `manifestPlaceholders["anacanAdmobAppId"]`; resValue strings `anacan_customerio_enabled/_environment/_region/_cdp_write_key` | Google test AdMob id, Customer.io off |
-| iOS | `app/ios/Flutter/AnacanNative.xcconfig` (`#include?` from `Debug.xcconfig`/`Release.xcconfig`) | `$(ANACAN_ADMOB_APP_ID)`; Info.plist `AnacanCustomerIoEnabled/Environment/Region/CdpWriteKey` from `$(ANACAN_CUSTOMERIO_*)`; Info.plist `GIDClientID` / `GIDServerClientID` / Google URL scheme from `$(ANACAN_GOOGLE_IOS_CLIENT_ID)` / `$(ANACAN_GOOGLE_SERVER_CLIENT_ID)` / `$(ANACAN_GOOGLE_REVERSED_CLIENT_ID)` (from the committed Firebase files) | same; Google ids empty (Google sign-in on iOS needs the script run once locally) |
+| Android | `app/android/anacan-native.properties` | `manifestPlaceholders["anacanAdmobAppId"]`; resValue strings `anacan_customerio_enabled/_environment/_region/_cdp_write_key`, `anacan_tiktok_app_id/_tt_app_id/_app_secret` (`TIKTOK_ANDROID_*`), `facebook_app_id` / `facebook_client_token` (`FACEBOOK_APP_ID` / `FACEBOOK_CLIENT_TOKEN`) | Google test AdMob id, Customer.io / TikTok / Meta off |
+| iOS | `app/ios/Flutter/AnacanNative.xcconfig` (`#include?` from `Debug.xcconfig`/`Release.xcconfig`) | `$(ANACAN_ADMOB_APP_ID)`; Info.plist `AnacanCustomerIoEnabled/Environment/Region/CdpWriteKey` from `$(ANACAN_CUSTOMERIO_*)`; `AnacanTikTok*` from `$(ANACAN_TIKTOK_*)` (`TIKTOK_IOS_*`); `FacebookAppID` / `FacebookClientToken` from `$(ANACAN_FACEBOOK_*)` (`FACEBOOK_*`); Info.plist `GIDClientID` / `GIDServerClientID` / Google URL scheme from `$(ANACAN_GOOGLE_IOS_CLIENT_ID)` / `$(ANACAN_GOOGLE_SERVER_CLIENT_ID)` / `$(ANACAN_GOOGLE_REVERSED_CLIENT_ID)` (from the committed Firebase files) | same; Google ids empty (Google sign-in on iOS needs the script run once locally) |
 
 The script refuses to write either file when Git does not ignore it.
 
@@ -127,7 +127,7 @@ Play Console declarations (Advertising ID, Health Connect, foreground service, d
 | meta-data `com.google.android.gms.ads.APPLICATION_ID` | AdMob | value `${anacanAdmobAppId}` (placeholder already defined) |
 | meta-data `com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT=true` | AdMob | |
 | meta-data `com.google.firebase.messaging.default_notification_channel_id=high_importance_channel` | push | keep channel id; also timer channel `anacan_timer_channel` (user channel settings persist across the update) |
-| meta-data `com.facebook.sdk.ApplicationId`, `ClientToken` (strings `facebook_app_id`, `facebook_client_token`, `fb_login_protocol_scheme`), `AutoInitEnabled=true`, `AutoLogAppEventsEnabled=false`, `AdvertiserIDCollectionEnabled=false` | Meta SDK events (consent-gated) | |
+| meta-data `com.facebook.sdk.ApplicationId`, `ClientToken` (strings `facebook_app_id`, `facebook_client_token`, `fb_login_protocol_scheme`), `AutoInitEnabled=true`, `AutoLogAppEventsEnabled=false`, `AdvertiserIDCollectionEnabled=false` | Meta SDK events (consent-gated) | **done**: meta-data + `facebook_app_id` / `facebook_client_token` resValues from `apply_native_config.mjs` (no committed values); `fb_login_protocol_scheme` not needed (no Facebook login) |
 | meta-data `firebase_analytics_collection_enabled=false`, `google_analytics_default_allow_analytics_storage`, `_ad_storage`, `_ad_user_data`, `_ad_personalization_signals` = false | Firebase Analytics consent (`src/lib/privacyConsent.ts`) | must ship with the first Firebase plugin |
 | MainActivity `intent-filter` VIEW/DEFAULT/BROWSABLE, schemes `anacan` and `com.atlasoon.anacan` | deep links, OAuth redirects (Google/Apple sign-in), notification links | **done** (+ meta-data `flutter_deeplinking_enabled=false`: app_links delivers links, go_router must not) |
 | MainActivity attributes: `launchMode="singleTask"` (Flutter template: `singleTop`), `windowOptOutEdgeToEdgeEnforcement="true"`, `configChanges` incl. `navigation` | deep-link / notification-tap routing, edge-to-edge | `singleTask` **done**, template `taskAffinity=""` removed (Capacitor used the default affinity); the edge-to-edge opt-out was a WebView workaround and is not copied; `navigation` not needed |
@@ -161,8 +161,9 @@ Version: `flutter build ipa --build-name=60.0 --build-number=60.0.N` (Flutter ke
 processed by App Store Connect: `CFBundleDevelopmentRegion` `az`, `CFBundleLocalizations`, the 15 usage strings
 (incl. Health and ATT) with the 25 `InfoPlist.strings`, `LSApplicationQueriesSchemes` (non-Meta), `PrivacyInfo.xcprivacy`,
 `Runner.entitlements` / `Runner.Debug.entitlements` (= Capacitor `App*.entitlements`: push, Sign in with Apple,
-HealthKit, App Group) on the Runner configurations. Still open below: background modes, Live Activities, AdMob,
-Meta, Firebase consent keys, status-bar keys, the extension targets.
+HealthKit, App Group) on the Runner configurations. Background modes, Live Activities, AdMob, Meta, Firebase consent keys and the
+extension targets were added in phase 9 (extension targets: `docs/flutter/IOS_EXTENSIONS.md`); all unverified until a
+Codemagic iOS Flutter build.
 
 From `ios/App/App/Info.plist`, `App.entitlements`, the 25 `*.lproj/InfoPlist.strings` and the extension targets.
 
@@ -175,9 +176,9 @@ From `ios/App/App/Info.plist`, `App.entitlements`, the 25 `*.lproj/InfoPlist.str
 | `NSSupportsLiveActivities` true, `NSSupportsLiveActivitiesFrequentUpdates` false | timer Live Activities | with the widget extension |
 | `CFBundleURLTypes`: `anacan` + `com.atlasoon.anacan` (name `com.atlasoon.anacan`), `fb927014948766655`, `com.googleusercontent.apps.296566533432-m57putge5tnil0t0kgh5sdqnp9r0oatc` | deep links/OAuth, Facebook, Google sign-in | **done** for `anacan`/`com.atlasoon.anacan` and Google (`$(ANACAN_GOOGLE_REVERSED_CLIENT_ID)`), plus `GIDClientID`/`GIDServerClientID` and `FlutterDeepLinkingEnabled=false`; `fb…` waits for the Meta SDK feature |
 | `GADApplicationIdentifier` (= `$(ANACAN_ADMOB_APP_ID)`), `GADDelayAppMeasurementInit` true, `SKAdNetworkItems` (`cstr6suwn9.skadnetwork`) | AdMob | build setting already provided |
-| `FacebookAppID`, `FacebookClientToken`, `FacebookDisplayName`, `FacebookAutoLogAppEventsEnabled` false, `FacebookAdvertiserIDCollectionEnabled` true | Meta SDK | |
+| `FacebookAppID`, `FacebookClientToken`, `FacebookDisplayName`, `FacebookAutoLogAppEventsEnabled` false, `FacebookAdvertiserIDCollectionEnabled` true | Meta SDK | **done**, app id / client token from `$(ANACAN_FACEBOOK_*)`; the SDK is started only when both are set (`FbEventsChannel.isConfigured`) |
 | `FIREBASE_ANALYTICS_COLLECTION_ENABLED` false, `GOOGLE_ANALYTICS_DEFAULT_ALLOW_ANALYTICS_STORAGE` / `_AD_STORAGE` / `_AD_USER_DATA` / `_AD_PERSONALIZATION_SIGNALS` false | Firebase consent | with the first Firebase plugin; `GoogleService-Info.plist` (committed in `ios/App/App/`) too |
-| TikTok (Android too) | TikTok events | no Info.plist/manifest key: `scripts/native/tiktok-native-config.mjs` stages `TIKTOK_IOS_*` / `TIKTOK_ANDROID_*` (app id, TikTok app id, app secret) into the generated `capacitor.config.json` after `cap sync`; they are not in `anacan_native` per `docs/CODEMAGIC.md`, so Codemagic Capacitor builds report `not_configured`. With the feature: treat the secret like the Customer.io key (native-only via `apply_native_config.mjs`, never a Dart define) |
+| TikTok (Android too) | TikTok events | no Info.plist/manifest key: `scripts/native/tiktok-native-config.mjs` stages `TIKTOK_IOS_*` / `TIKTOK_ANDROID_*` (app id, TikTok app id, app secret) into the generated `capacitor.config.json` after `cap sync`; they are not in `anacan_native` per `docs/CODEMAGIC.md`, so Codemagic Capacitor builds report `not_configured`. **done** for Flutter: `apply_native_config.mjs` writes them native-only (resValues / `$(ANACAN_TIKTOK_*)`), never a Dart define; the `verify` step scans Dart output for the secret |
 | `LSApplicationQueriesSchemes`: `itms-apps`, `mailto`, `tel`, `https`, `http`, `fbapi`, `fb-messenger-share-api`, `fbauth2`, `fbshareextension` | url_launcher checks, Facebook | |
 | `NSAppTransportSecurity` (`NSAllowsArbitraryLoads` false, `NSAllowsArbitraryLoadsInWebContent` true) | WebView content | only if a WebView feature is kept |
 | `UIViewControllerBasedStatusBarAppearance` true, `UIStatusBarStyle` default, `UIViewEdgeAntialiasing`/`UIViewGroupOpacity` false, `UIFileSharingEnabled`/`LSSupportsOpeningDocumentsInPlace` false | shell | review with the shell; `UIRequiredDeviceCapabilities armv7` and `CAPACITOR_DEBUG` are dropped (arm64 only) |

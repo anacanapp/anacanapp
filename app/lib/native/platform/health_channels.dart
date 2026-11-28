@@ -5,8 +5,8 @@
 // Android `HealthPlugins.kt` (Health Connect), iOS `HealthChannels.swift` (HealthKit). As with Capacitor, a
 // rejected call throws (PlatformException) and HealthService turns it into "unavailable" / a failed write.
 //
-// The capacitor-health `Health` plugin (steps / workouts / mindfulness reads, settings shortcuts) is a third-party
-// package, not part of this port: healthPluginBridgeProvider keeps its default.
+// The capacitor-health `Health` plugin (steps / workouts / mindfulness reads, settings shortcuts) is
+// health_reads_channel.dart (`anacan/health`).
 import 'package:flutter/services.dart';
 
 import '../../domain/cycle/health_cycle.dart' show MenstruationWrite;

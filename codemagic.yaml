@@ -57,7 +57,8 @@ definitions:
         DEFINES="$CM_BUILD_DIR/app/build/codemagic/dart_defines.json"
         node app/tool/codemagic/write_dart_defines.mjs "$DEFINES"
         echo "DART_DEFINES_FILE=$DEFINES" >> "$CM_ENV"
-        # Live AdMob app ID + Customer.io into gitignored native config only
+        # Live AdMob app ID + Customer.io, TikTok (TIKTOK_IOS_*/TIKTOK_ANDROID_*), Meta (FACEBOOK_APP_ID,
+        # FACEBOOK_CLIENT_TOKEN) into gitignored native config only; each SDK stays off without its variables
         node app/tool/codemagic/apply_native_config.mjs "$FLUTTER_PLATFORM"
 
 workflows:
@@ -216,10 +217,9 @@ workflows:
         # 60.0: first Flutter release (docs/FLUTTER_MIGRATION_PLAN.md §7); above every Capacitor 53.0.x build.
         APP_VERSION: "60.0"
         FLUTTER_PLATFORM: ios
-        # Signed targets as "<bundle id>=<Xcode target in app/ios>", space separated. Only Runner exists today.
-        # When the widget / notification service targets are ported, append e.g.
-        #   com.atlasoon.anacan.AnacanTimerWidgetExt=<widget target> com.atlasoon.anacan.AnacanNotificationService=<service target>
-        IOS_SIGNED_TARGETS: "com.atlasoon.anacan=Runner"
+        # Signed targets as "<bundle id>=<Xcode target in app/ios>", space separated: the app, the widget / Live
+        # Activity extension and the push image extension (same bundle ids as ios-store; docs/flutter/IOS_EXTENSIONS.md).
+        IOS_SIGNED_TARGETS: "com.atlasoon.anacan=Runner com.atlasoon.anacan.AnacanTimerWidgetExt=AnacanTimerWidgetExtExtension com.atlasoon.anacan.AnacanNotificationService=AnacanNotificationService"
     scripts:
       - *flutter_check_env
       - *flutter_prepare
@@ -243,6 +243,16 @@ workflows:
           echo "Latest TestFlight build for $APP_VERSION: ${LATEST:-none} -> building $NEXT"
           echo "IOS_BUILD_VERSION=$NEXT" >> "$CM_ENV"
       - *flutter_native_config
+      - name: Sync iOS extension targets, Runner Swift sources and Swift packages
+        script: |
+          # Idempotent (docs/flutter/IOS_EXTENSIONS.md): the committed project already has the widget and notification
+          # service targets; this adds Swift files dropped into app/ios/Runner/ and app/ios/spm_packages.json entries
+          # that are not in project.pbxproj yet, then checks the project structure.
+          if ! ruby -rxcodeproj -e 'exit(Gem::Version.new(Xcodeproj::VERSION) >= Gem::Version.new("1.27.0"))' 2>/dev/null; then
+            gem install xcodeproj --no-document || gem install xcodeproj --no-document --user-install
+          fi
+          ruby app/tool/ios/add_extensions.rb
+          node app/tool/ios/check_pbxproj.mjs
       - name: Generate Flutter Xcode configuration
         script: |
           # Writes Generated.xcconfig and the Swift package wrappers so xcodebuild can read the project below
@@ -254,6 +264,9 @@ workflows:
         script: |
           # Uses APP_STORE_CONNECT_* and CERTIFICATE_PRIVATE_KEY from anacan_ios_signing (same as ios-store)
           keychain initialize
+          # Notification Service Extension App ID: create once; "already exists" is ignored (as in ios-store).
+          app-store-connect bundle-ids create com.atlasoon.anacan.AnacanNotificationService \
+            --name "Anacan Notification Service" --platform IOS || true
           for PAIR in $IOS_SIGNED_TARGETS; do
             app-store-connect fetch-signing-files "${PAIR%%=*}" --type IOS_APP_STORE --create
           done

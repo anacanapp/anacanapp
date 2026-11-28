@@ -32,6 +32,11 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| Health (Android): `isHealthAvailable`-dan əvvəl çağırış çökürdü; indi Health Connect klienti yaradılır | capacitor-health 8.1.2 | düzəldilib |
+| Health (Android): məşqin `sourceName`-i cihaz modelini iki dəfə təkrarlayırdı | capacitor-health 8.1.2 | düzəldilib |
+| Health (iOS): boş icazə siyahısı HealthKit daxilində çökürdü; indi "heç nə verilməyib" | capacitor-health 8.1.2 | düzəldilib |
+| Meta: App ID və client token repoda yazılmışdı; indi yalnız Codemagic dəyişənlərindən (`FACEBOOK_APP_ID`, `FACEBOOK_CLIENT_TOKEN`), boş olanda SDK işə düşmür | `strings.xml`, `Info.plist` | qəsdən |
+| TikTok (Android): plugin Flutter-ə iki dəfə cavab verirdi (Capacitor dözürdü, Flutter çökür) | `packages/tiktok-events` | düzəldilib |
 | Tarixlər: ay/gün adları 25 dilin 13-də React-dan fərqli idi (məs. az "5 yanvar" ↔ React "5 Yanvar"); indi React-ın date-fns adları | `date_utils.dart` (Flutter qüsuru) | düzəldilib; `date_fns_parity_test.dart` |
 | ~60 sərt yazılmış mətn (Match, SOS, PREMIUM, story etiketləri, placeholder-lər) React-da tərcümə olunurdu | Flutter qüsuru | `trInline` ilə düzəldilib |
 | React məlumat qüsuru: `settingsscreen_sil_27792d` və `safetylookup_ai_ile_axtaris_edin_780816` az/de/ar/ka/kk/uz-da tək `\`; `appearancescreen_vurgu` az-da xarab ("VurÄŸu"); `usestoryreplies_i_stifadeci_b6bdd6` az-da escape kodları | `src/locales/az.json`, `scripts/i18n/*.seed.json` | Flutter-də müvəqqəti həll; əsl düzəliş React mənbəsində, sonra `export.mjs` |

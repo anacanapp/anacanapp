@@ -24,7 +24,8 @@ if (System.getenv("ANACAN_REQUIRE_RELEASE_SIGNING") == "true" && !hasKeystorePro
 
 // Live native values written by app/tool/codemagic/apply_native_config.mjs (gitignored
 // app/android/anacan-native.properties). Without it (local builds) AdMob uses Google's test
-// app ID and Customer.io stays off. The Customer.io write key is native-only, never a Dart define.
+// app ID and Customer.io, TikTok and Meta stay off. The Customer.io write key and the TikTok app
+// secret are native-only, never Dart defines.
 val nativeConfigFile = rootProject.file("anacan-native.properties")
 val nativeConfig = Properties()
 if (nativeConfigFile.exists()) {
@@ -72,6 +73,15 @@ android {
         resValue("string", "anacan_customerio_environment", nativeValue("customerIoEnvironment"))
         resValue("string", "anacan_customerio_region", nativeValue("customerIoRegion"))
         resValue("string", "anacan_customerio_cdp_write_key", nativeValue("customerIoCdpWriteKey"))
+        // TikTok Business SDK (TikTokEventsPlugin.kt; Capacitor plugins.TikTokEvents.android* from TIKTOK_ANDROID_*).
+        // Empty locally: start() answers "not_configured".
+        resValue("string", "anacan_tiktok_app_id", nativeValue("tiktokAppId"))
+        resValue("string", "anacan_tiktok_tt_app_id", nativeValue("tiktokTtAppId"))
+        resValue("string", "anacan_tiktok_app_secret", nativeValue("tiktokAppSecret"))
+        // Meta SDK (manifest com.facebook.sdk.ApplicationId / ClientToken, as Capacitor's res/values/strings.xml).
+        // Empty locally: the SDK does not initialize and FbEventsPlugin sends nothing.
+        resValue("string", "facebook_app_id", nativeValue("facebookAppId"))
+        resValue("string", "facebook_client_token", nativeValue("facebookClientToken"))
     }
 
     signingConfigs {
@@ -114,4 +124,13 @@ dependencies {
     // Health Connect writes (HealthPlugins.kt: HealthCycle / HealthVitals), same versions as the Capacitor app.
     implementation("androidx.health.connect:connect-client:1.2.0-alpha01")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+    // Meta App Events (FbEventsPlugin.kt), Capacitor android/app/build.gradle version.
+    implementation("com.facebook.android:facebook-android-sdk:18.0.0")
+    // TikTok Business SDK (TikTokEventsPlugin.kt; JitPack, see ../build.gradle.kts), packages/tiktok-events versions.
+    implementation("com.github.tiktok:tiktok-business-android-sdk:1.7.1")
+    implementation("androidx.lifecycle:lifecycle-process:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.6.2")
+    implementation("com.android.installreferrer:installreferrer:2.2")
+    // Customer.io Data Pipelines (CustomerIoPlugin.kt), packages/customerio-data-in version.
+    implementation("io.customer.android:datapipelines:4.22.0")
 }

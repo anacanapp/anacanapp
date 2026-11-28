@@ -18,16 +18,16 @@
 # ── Plugin rules: uncomment / extend together with the feature that adds the plugin ─────────────
 # Capacitor kept these (android/app/proguard-rules.pro); re-check each against the Flutter plugin.
 #
-# Facebook / Meta SDK (consumer rules usually suffice)
-#-keep class com.facebook.** { *; }
+# Facebook / Meta SDK (FbEventsPlugin.kt): the AAR's consumer rules suffice, as in the Capacitor app.
 #
-# TikTok Business SDK (packages/tiktok-events) and the billing client it reflects on
-#-keep class com.tiktok.** { *; }
-#-keep class com.android.billingclient.api.** { *; }
-#-keep class androidx.lifecycle.** { *; }
+# TikTok Business SDK (TikTokEventsPlugin.kt) and the billing client it reflects on: the consumer rules of
+# packages/tiktok-events/android/proguard-rules.pro, kept as the Capacitor android/app/proguard-rules.pro did.
+-keep class com.tiktok.** { *; }
+-keep class com.android.billingclient.api.** { *; }
+-keep class androidx.lifecycle.** { *; }
 #
-# Customer.io Data Pipelines (local plugin az.anacan.customerio in the Capacitor app)
-#-keep class az.anacan.customerio.** { *; }
+# Customer.io Data Pipelines (CustomerIoPlugin.kt): the Capacitor app's rule kept only its own plugin class
+# (az.anacan.customerio.**), here covered by com.atlasoon.anacan.** above; the SDK ships consumer rules.
 #
 # Firebase Messaging / RevenueCat / Google Mobile Ads / Health Connect: no rules expected
 # (consumer rules in their AARs); add here if R8 reports missing classes.
