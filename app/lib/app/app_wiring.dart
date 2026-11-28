@@ -35,9 +35,43 @@ import '../features/blog/register.dart' show blogHospitalBagArticles, blogWiring
 import '../features/books/register.dart' show booksCarouselSlot, booksHomeCardSlot;
 import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
 import '../core/auth/auth_controller.dart' show authControllerProvider;
+import '../core/i18n/tr.dart' show tr;
 import '../features/commerce/partners/qr_code.dart' show qrCodeBuilderProvider;
 import '../features/games/hub/data/game_scores.dart' show gameAuthLoadingProvider;
+import '../features/banners/banners_seams.dart'
+    show communityBanner, homeBannerSlot, profileBannerSlot, toolsHubBannerSlot;
+import '../features/blog/ui/blog_ui.dart' show BlogAdSlots, blogAdSlotsProvider;
+import '../features/community/community_slots.dart' show communityBannerProvider;
+import '../features/community/data/community.dart' show communityPostCreatedTrackerProvider;
+import '../features/community_stories/data/story_ads.dart' show storyAdBreaksProvider;
+import '../features/games/ui_common/game_ads.dart' show gameAdsPlatformProvider;
+import '../features/security/screen_capture_guard.dart' show dashboardCaptureAllowedProvider;
+import '../features/settings/ad_preferences_screen.dart' show adPreferencesControllerProvider;
+import '../features/settings/data/preferences.dart' show analyticsConsentNotifierProvider;
+import '../features/tools/health_common/health_common.dart' show HealthAdSlots, healthAdSlotsProvider;
+import '../native/purchases/purchases_providers.dart' show analyticsSinkProvider;
+import '../services/ads/ad_seams.dart'
+    show
+        adExitSlot,
+        adInlineAnchorSlot,
+        adSurfaceSlot,
+        babyNamesAdSlot,
+        blogAdSurfaceSlot,
+        experienceAdPreferencesController,
+        experienceGameAdsPlatform,
+        experienceStoryAdBreaks,
+        healthAdSurfaceSlot,
+        homeAdInlineAnchorSlot;
+import '../services/analytics/analytics_providers.dart'
+    show ServiceAnalyticsSink, analyticsServiceProvider;
+import '../services/analytics/customerio.dart' show customerIoProvider;
+import '../services/analytics/customerio_session.dart' show customerIoConsentNotifier;
 import '../services/native/services_wiring.dart' show notificationServicesWiringOverrides;
+import '../services/security/dashboard_capture.dart' show dashboardCaptureAllowed;
+import '../services/ads/ad_widgets.dart' show AdBottomNavAnchor;
+import '../services/ads/ads_providers.dart' show adPrivacyUnavailableProvider;
+import 'app_toasts.dart';
+import '../shell/shell_inputs.dart' show shellBottomNavWrapperProvider;
 import '../features/commerce/register.dart'
     show
         commerceAptekBagCard,
@@ -145,6 +179,7 @@ List<Override> featureWiringOverrides() => [
         qaygiCashCard: commerceQaygiCashProfileCard,
         promoDialog: commercePromoDialog,
         pregnancyCard: pregnancyCardSlot,
+        bannerSlot: profileBannerSlot,
       )),
       ...healthScreensWiringOverrides(),
 
@@ -156,6 +191,7 @@ List<Override> featureWiringOverrides() => [
         hospitalBagArticles: blogHospitalBagArticles,
         albumOrderScreen: pregnancyAlbumOrderSlot,
         aptekBagCard: commerceAptekBagCard,
+        babyNamesAd: babyNamesAdSlot,
       )),
       // ── commerce: paywall extensions, QayğıCash row, books wallet, partner QR ─────────────────────────────────
       ...commerceWiringOverrides(),
@@ -182,6 +218,8 @@ List<Override> featureWiringOverrides() => [
         babyChatCard: babyChatCardSlot,
         booksHomeCard: booksHomeCardSlot,
         recoveryHome: recoveryHomeSlot,
+        bannerSlot: homeBannerSlot,
+        adInlineAnchor: homeAdInlineAnchorSlot,
         aptekHomeCard: commerceAptekHomeCard,
         partnerHomeCard: commercePartnerHomeCard,
         partnerCareCard: partnerCareCardSlot,
@@ -205,6 +243,26 @@ List<Override> featureWiringOverrides() => [
           ]),
       // Central local-notification scheduler + push sender behind every feature's notification seam.
       ...notificationServicesWiringOverrides(),
+      // ── analytics, ads, banners, capture guard (phase 9 Dart side; SDKs behind interfaces) ─────────────────────
+      analyticsSinkProvider.overrideWith((ref) => ServiceAnalyticsSink(ref.watch(analyticsServiceProvider))),
+      shellBottomNavWrapperProvider.overrideWithValue((nav) => AdBottomNavAnchor(child: nav)),
+      adPrivacyUnavailableProvider.overrideWith((ref) {
+        final toasts = ref.watch(appToastControllerProvider);
+        return () => toasts.error(
+            tr('adexp_privacy_unavailable', 'Reklam məxfilik seçimləri hazırda açılmır. Yenidən cəhd edin.'));
+      }),
+      analyticsConsentNotifierProvider.overrideWith(customerIoConsentNotifier),
+      communityPostCreatedTrackerProvider
+          .overrideWith((ref) => (a, b, id) => ref.read(customerIoProvider).postCreated(a, b, id)),
+      dashboardCaptureAllowedProvider.overrideWith(dashboardCaptureAllowed),
+      communityBannerProvider.overrideWithValue(communityBanner),
+      gameAdsPlatformProvider.overrideWith(experienceGameAdsPlatform),
+      storyAdBreaksProvider.overrideWith(experienceStoryAdBreaks),
+      adPreferencesControllerProvider.overrideWith(experienceAdPreferencesController),
+      blogAdSlotsProvider.overrideWithValue(
+          const BlogAdSlots(surface: blogAdSurfaceSlot, inlineAnchor: adInlineAnchorSlot, exit: adExitSlot)),
+      healthAdSlotsProvider.overrideWithValue(
+          const HealthAdSlots(adSurface: healthAdSurfaceSlot, adInlineAnchor: adInlineAnchorSlot, adExit: adExitSlot)),
       // Games: leaderboard waits for auth like React's `useAuth().loading`.
       gameAuthLoadingProvider.overrideWith((ref) => ref.watch(authControllerProvider.select((s) => s.loading))),
       // Weaning / Tərbiyə cards under matching AI answers.
@@ -212,7 +270,13 @@ List<Override> featureWiringOverrides() => [
       aiMotherMealsProvider.overrideWith((ref) => ref.watch(mealLogsProvider).todayLogs),
       // Tools hub: first aid must work offline (usePrefetchFirstAid).
       toolsHubSlotsProvider.overrideWithValue(
-          const ToolsHubSlots(prefetchFirstAid: healthToolsPrefetchFirstAid, aptekSearchResults: commerceAptekSearchResults)),
+          const ToolsHubSlots(
+        prefetchFirstAid: healthToolsPrefetchFirstAid,
+        aptekSearchResults: commerceAptekSearchResults,
+        bannerSlot: toolsHubBannerSlot,
+        adSurface: adSurfaceSlot,
+        adInlineAnchor: adInlineAnchorSlot,
+      )),
       aiKickSessionsProvider.overrideWith((ref) => [for (final s in ref.watch(kickSessionsProvider).todaySessions) s.toRow()]),
       // Period-delay banner → AI tab with the prompt in the input.
       flowOpenAiChatProvider.overrideWith(aiChatFlowOpener),

@@ -19,6 +19,7 @@ import '../core/net/backend_client.dart' show BootstrapOpened;
 import '../core/net/backend_providers.dart';
 import '../features/chat/data/unread.dart' show chatUnreadCountProvider;
 import '../features/community/data/unread_community_posts.dart' show communityUnreadCountProvider;
+import '../services/analytics/analytics_providers.dart' show AnalyticsShellPlatform;
 import '../shell/gates/gate_sequence.dart';
 import '../shell/shell_inputs.dart';
 import 'persisted_store.dart';
@@ -178,4 +179,7 @@ List<Override> shellStateOverrides() => [
       // useUnreadCommunityPosts (community feature).
       unreadCommunityPostsCountProvider.overrideWith((ref) => ref.watch(communityUnreadCountProvider)),
       bottomNavStyleProvider.overrideWith((ref) => ref.watch(bottomNavStyleFromSettingsProvider)),
+      // Shell platform + useScreenAnalytics (screen views on shell navigation). Here, not in app_wiring.dart: app
+      // tests pass their own FakePlatform.
+      shellPlatformProvider.overrideWith(AnalyticsShellPlatform.new),
     ];

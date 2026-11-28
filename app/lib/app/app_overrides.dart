@@ -3,12 +3,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 
-import '../core/auth/auth_controller.dart'
-    show AuthSideEffects, authSideEffectsProvider;
+import '../core/auth/auth_controller.dart' show authSideEffectsProvider;
 import '../design/device_tier.dart' show liteModeProvider;
 import '../features/entry/entry_feature.dart';
 import '../features/startup/app_update/app_update.dart'
     show legacyForceUpdateGateProvider, updateCentreForceGateProvider;
+import '../services/analytics/analytics_providers.dart'
+    show analyticsAuthSideEffects;
 import '../shell/feature_registry.dart';
 import '../state/shell_bindings.dart';
 import 'app_wiring.dart';
@@ -39,8 +40,10 @@ List<Override> appRootOverrides({
     (ref) => ref.watch(legacyForceUpdateGateProvider),
   ),
   // AuthContext → reportAuthError (crash reports for sign-in failures).
-  authSideEffectsProvider.overrideWithValue(
-    AuthSideEffects(
+  // + analytics identify / reset on sign-in and logout (analytics.ts via AuthContext).
+  authSideEffectsProvider.overrideWith(
+    (ref) => analyticsAuthSideEffects(
+      ref,
       reportAuthError: (provider, error) =>
           CrashReporting.reportAuthError(provider, error),
     ),

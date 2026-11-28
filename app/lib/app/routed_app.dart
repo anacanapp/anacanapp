@@ -17,7 +17,10 @@ import '../features/security/app_lock_screen.dart' show AppLockGate;
 import '../features/security/screen_capture_guard.dart' show ScreenCaptureGuard;
 import '../features/startup/error_boundary.dart';
 import '../features/startup/offline_sync_indicator.dart';
+import '../services/ads/ad_widgets.dart' show AdExperienceHost, AdRouteObserver, adLayoutRegistryProvider;
+import '../services/security/dashboard_capture.dart' show CapturePopupObserver;
 import '../shell/router.dart';
+import 'app_toasts.dart';
 import 'device_tier.dart';
 import 'localization.dart';
 import 'session_hosts.dart';
@@ -36,6 +39,11 @@ class RoutedApp extends ConsumerStatefulWidget {
 class _RoutedAppState extends ConsumerState<RoutedApp> {
   late final GoRouter _router = buildShellRouter(
     initialLocation: widget.initialLocation,
+    // Dialogs/sheets on the root navigator: the ad layer pauses for them, and they hold the capture block.
+    observers: [
+      AdRouteObserver(ref.read(adLayoutRegistryProvider)),
+      CapturePopupObserver(ProviderScope.containerOf(context, listen: false)),
+    ],
   );
 
   @override
@@ -89,13 +97,13 @@ class _RoutedAppState extends ConsumerState<RoutedApp> {
 /// status bar style, the capture curtain (`z-index: 2147483647`, above the toasts), the toasters (mounted once),
 /// then the router with the offline pill (`z-60`) and the app lock (`z-400`) over it; the headless session hosts
 /// (entitlement monitor, link handler, pending timer stops) sit beside them.
-class AppChrome extends StatelessWidget {
+class AppChrome extends ConsumerWidget {
   const AppChrome({super.key, required this.language, required this.child});
   final String language;
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final dark = Theme.of(context).brightness == Brightness.dark;
     return WebViewTextScale(
       child: Directionality(
@@ -106,12 +114,13 @@ class AppChrome extends StatelessWidget {
             type: MaterialType.transparency,
             child: ScreenCaptureGuard(
               child: AToastHost(
+                controller: ref.watch(appToastControllerProvider),
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
                     const Positioned(left: 0, top: 0, width: 0, height: 0, child: AppSessionHosts()),
-                    // <BrowserRouter><ModeratorEnforcement><Routes/></ModeratorEnforcement></BrowserRouter>
-                    ModeratorEnforcement(child: child),
+                    // <AdExperienceProvider><BrowserRouter><ModeratorEnforcement><Routes/>…
+                    AdExperienceHost(child: ModeratorEnforcement(child: child)),
                     const OfflineSyncIndicator(),
                     const AppLockGate(),
                   ],

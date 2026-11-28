@@ -115,10 +115,15 @@ String _locationOf(OuterPage p) => switch (p.id) {
     };
 
 /// The outer router. `/` hosts the Index gates and shell inside [AndroidBackScope].
-GoRouter buildShellRouter({String initialLocation = '/', DateTime Function()? clock}) {
+GoRouter buildShellRouter({
+  String initialLocation = '/',
+  DateTime Function()? clock,
+  List<NavigatorObserver> observers = const [],
+}) {
   final now = clock ?? DateTime.now;
   return GoRouter(
     initialLocation: initialLocation,
+    observers: observers,
     redirect: (context, state) {
       final uri = state.uri;
       final route = resolveOuterRoute(uri.path, uri.hasQuery ? '?${uri.query}' : '');

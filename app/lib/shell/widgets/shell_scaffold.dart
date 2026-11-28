@@ -253,7 +253,8 @@ class _ShellFrameState extends ConsumerState<ShellFrame> {
             left: 0,
             right: 0,
             bottom: 0,
-            child: BottomNavCapsule(activeTab: tab, onTabChange: controller.selectTab, isPartner: partnerRole),
+            child: ref.watch(shellBottomNavWrapperProvider)(
+                BottomNavCapsule(activeTab: tab, onTabChange: controller.selectTab, isPartner: partnerRole)),
           ),
         ],
       ),

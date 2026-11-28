@@ -32,6 +32,10 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| Native reklam kartı: `offer` kartının qırıq xətli haşiyəsi düz çəkilir; `minimal` kartın vurğu zolağı vahid haşiyənin içindədir | `NativeAdCard.tsx` | Flutter məhdudiyyəti |
+| Reseptlər çıxış reklamı bütün `recipes_banner` səthləri ilə qeydə alınır (siyahını detaldan ayırmaq olmur) — siyahı açıq olanda da əvvəlcədən yüklənə bilər | `AdExperienceProvider.tsx` | boşluq |
+| Story fasiləsi səthi ilk `opportunity()`-dən sonuncudan 60 s sonraya qədər saxlanılır | `StoryViewer.tsx` | boşluq |
+| Brend ölçməsi: görünürlük IntersectionObserver əvəzinə hər 250 ms yoxlanır; native kreativlər "şəkil yükləndi" sayılır | `brand-measurement.ts` | yaxın ekvivalent |
 | Push xəta hesabatlarında `runtime` sahəsi yoxdur (`FunctionException` cavab başlıqlarını vermir) | `push.ts` | boşluq |
 | `device_tokens.device_name`: `navigator.userAgent` əvəzinə `<platform> - Anacan-Flutter (<os> <versiya>)` | `useDeviceToken.ts` | qəsdən |
 | Kodlaşdırma: bir neçə faylda UTF-8 mətn Windows-1252 kimi oxunub yenidən yazılmışdı (qrup "İstifadəçi" ehtiyat adı daxil) | Flutter qüsuru | düzəldilib; `test/tooling/no_mojibake_test.dart` qoruyur |

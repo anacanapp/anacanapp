@@ -14,6 +14,8 @@ import '../core/net/backend_providers.dart' show backendOpenProvider;
 import '../features/baby/hooks/use_pending_timer_stops.dart' show PendingTimerStopsHost;
 import '../native/purchases/premium_entitlement.dart' show PremiumEntitlementMonitor;
 import '../native/purchases/subscription.dart' as subscription show deviceTimeZone;
+import '../services/analytics/analytics_providers.dart' show PrivacyConsentApplier, TikTokSessionHost;
+import '../services/analytics/customerio_session.dart' show CustomerIoSessionHost;
 import '../services/native/native_services_host.dart' show NativeServicesHost;
 import 'deep_links.dart';
 
@@ -51,6 +53,10 @@ class _AppSessionHostsState extends ConsumerState<AppSessionHosts> {
         const IncomingLinkHost(),
         // Device token, vaccine refresh at start, native init, legacy appointment cleanup.
         const NativeServicesHost(),
+        // CustomerIoSession / TikTokSession / privacy-consent appliers from App.tsx.
+        const CustomerIoSessionHost(),
+        const TikTokSessionHost(),
+        const PrivacyConsentApplier(),
         // App.tsx mounts the monitor inside AuthProvider; without an account it has nothing to watch.
         if (signedIn) const PremiumEntitlementMonitor(),
         const PendingTimerStopsHost(),

@@ -252,3 +252,6 @@ class DefaultShellPlatform implements ShellPlatform {
 }
 
 final shellPlatformProvider = Provider<ShellPlatform>((ref) => DefaultShellPlatform(ref));
+
+/// Wraps the bottom nav (the ads layer measures it as `AdBottomNavAnchor`). Default: the nav itself.
+final shellBottomNavWrapperProvider = Provider<Widget Function(Widget nav)>((ref) => (nav) => nav);
