@@ -438,7 +438,7 @@ class _WeatherClothingState extends ConsumerState<WeatherClothing> {
                       children: [
                         stat(a.blue1, a.blueInk, AIcons.droplets, tr('weatherclothing_rutubet_3d8e74', 'Rütubət'), '${advice.humidity}%'),
                         stat(a.green1, a.greenInk, AIcons.wind, tr('weatherclothing_kulek_cc8bf6', 'Külək'), '${_round(advice.windSpeed)} km/h'),
-                        stat(a.yellow1, a.warnInk, AIcons.sun, 'UV', '${advice.uvIndex}'),
+                        stat(a.yellow1, a.warnInk, AIcons.sun, trInline('WeatherClothing.tsx', 'UV'), '${advice.uvIndex}'),
                       ],
                     ),
                   ),

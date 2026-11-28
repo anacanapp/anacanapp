@@ -297,7 +297,7 @@ class PremiumBlurGate extends ConsumerWidget {
                     AIcon(AIcons.crown, size: 11, strokeWidth: 2.5, color: t.warnInk),
                     const SizedBox(width: 4),
                     Text(
-                      'PREMIUM',
+                      trInline('PremiumBlurGate.tsx', 'PREMIUM'),
                       style: TextStyle(fontSize: 10, fontWeight: FontWeight.w800, letterSpacing: em(0.06, 10), color: t.warnInk),
                     ),
                   ],

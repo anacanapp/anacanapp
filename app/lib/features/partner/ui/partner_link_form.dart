@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/auth/auth.dart';
+import '../../../core/i18n/tr.dart' show trInline;
 import '../../../design/design.dart';
 import '../../settings/ui/settings_ui.dart' show toasts;
 import '../partner_copy.dart';
@@ -110,7 +111,7 @@ class _PartnerLinkFormState extends ConsumerState<PartnerLinkForm> {
                   isCollapsed: true,
                   border: InputBorder.none,
                   counterText: '',
-                  hintText: 'ANACAN-XXXXXX',
+                  hintText: trInline('PartnerLinkForm.tsx', 'ANACAN-XXXXXX'),
                   hintStyle: inputStyle.copyWith(color: a.inkFaint),
                 ),
               ),

@@ -56,6 +56,10 @@ String compiledAdmobAppId(AdPlatform platform) {
   return value.isNotEmpty ? value : testAppIds[platform]!;
 }
 
+/// The build's AdMob app id per platform. Default [compiledAdmobAppId]; the native app build reads the id its native
+/// configuration declares (google_mobile_ads_sdk.dart [NativeAdmobAppId]), where Codemagic writes the live id.
+final compiledAdmobAppIdProvider = Provider<String Function(AdPlatform platform)>((ref) => compiledAdmobAppId);
+
 /// `useQuery(['admob-configuration', backend.url], fetchAdmobConfiguration)`: 30 min poll, re-read on resume /
 /// reconnect once 60 s stale, no retry.
 final admobConfigurationQuery = queryProvider<AdsConfiguration>((ref) {
@@ -98,7 +102,7 @@ final adExperienceEnvProvider = Provider<AdExperienceEnv>((ref) {
     store: ref.watch(localStoreProvider),
     platform: platform == 'ios' ? 'ios' : 'android',
     native: platform != 'web',
-    compiledAppId: compiledAdmobAppId,
+    compiledAppId: ref.watch(compiledAdmobAppIdProvider),
     appVersion: () async => (await PackageInfo.fromPlatform()).version,
     newId: newClientId,
     adapter: sdk == null ? null : NativeAdmobAdapter(sdk),

@@ -723,7 +723,7 @@ class _VaccineCalendarState extends ConsumerState<VaccineCalendar> {
                 Flexible(
                   child: Text(
                     '${tr('vaccinecalendar_menbe_87d8be', 'Mənbə:')} '
-                    '${lang == 'en' && (country?.sourceLabel ?? '').contains('Səhiyyə Nazirliyi') ? 'Ministry of Health of the Republic of Azerbaijan — National Immunization Schedule' : ((country?.sourceLabel ?? '').isNotEmpty ? country!.sourceLabel! : sourceUrl)}',
+                    '${lang == 'en' && (country?.sourceLabel ?? '').contains('Səhiyyə Nazirliyi') ? trInline('VaccineCalendar.tsx', 'Ministry of Health of the Republic of Azerbaijan — National Immunization Schedule') : ((country?.sourceLabel ?? '').isNotEmpty ? country!.sourceLabel! : sourceUrl)}',
                     style: TextStyle(fontSize: 10.5, fontWeight: FontWeight.w600, color: a.inkSoft, height: 1.5),
                   ),
                 ),

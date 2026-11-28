@@ -148,7 +148,9 @@ class AppearanceScreen extends ConsumerWidget {
                         const SizedBox(width: 8),
                         sample(tr('appearancescreen_seth', 'Səth'), bg: a.surfaceSoft, ink: a.inkSoft),
                         const SizedBox(width: 8),
-                        sample(tr('appearancescreen_vurgu', 'Vurğu'), bg: a.peach2, ink: const Color(0xFFFFFFFF), w: FontWeight.w700),
+                        // React bug: src/locales/az.json holds a double-encoded (mojibake) value for this key.
+                        sample(currentLanguage() == 'az' ? 'Vurğu' : tr('appearancescreen_vurgu', 'Vurğu'),
+                            bg: a.peach2, ink: const Color(0xFFFFFFFF), w: FontWeight.w700),
                       ]),
                       Container(
                         padding: const EdgeInsets.all(14),

@@ -463,7 +463,9 @@ class _BlogPostDetailState extends ConsumerState<BlogPostDetail> {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 6),
                           decoration: BoxDecoration(color: a.lav1, borderRadius: BorderRadius.circular(999)),
-                          child: Text(badge == 'admin' ? '👑 Admin' : badge == 'premium' ? '⭐ Premium' : '🛡️ Mod', style: px(10, weight: FontWeight.w700, color: a.lavInk)),
+                          child: Text(
+                              trInline('BlogPostDetail.tsx', badge == 'admin' ? '👑 Admin' : badge == 'premium' ? '⭐ Premium' : '🛡️ Mod'),
+                              style: px(10, weight: FontWeight.w700, color: a.lavInk)),
                         ),
                     ]),
                   ),

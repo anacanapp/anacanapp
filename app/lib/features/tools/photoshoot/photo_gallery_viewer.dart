@@ -11,6 +11,8 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../../core/i18n/tr.dart';
 import '../../../design/design.dart';
+import '../../../services/native/media_natives.dart' show saveImageToPhotoLibrary;
+import '../../../services/native/mobile_host.dart' show isMobileHost;
 import '../../settings/ui/settings_ui.dart' show ALoader, px;
 import '../media_common/media_ports.dart';
 
@@ -25,8 +27,7 @@ class GalleryPhoto {
 
 /// `saveImageToGallery(url, fileName)` → saved.
 final photoSaverProvider = Provider<Future<bool> Function(String url, String fileName)>(
-  (ref) =>
-      (url, fileName) async => false,
+  (ref) => isMobileHost ? saveImageToPhotoLibrary : (url, fileName) async => false,
 );
 
 typedef PhotoGalleryOpener = Future<void> Function(

@@ -410,7 +410,7 @@ class _PremiumBanner extends StatelessWidget {
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                    Text(isPremium ? 'Anacan Premium ✨' : 'Anacan Premium', style: px(13, weight: FontWeight.w700, color: a.ink)),
+                    Text(trInline('ProfileScreen.tsx', isPremium ? 'Anacan Premium ✨' : 'Anacan Premium'), style: px(13, weight: FontWeight.w700, color: a.ink)),
                     Padding(
                       padding: const EdgeInsets.only(top: 2),
                       child: Text(
@@ -1188,7 +1188,7 @@ class _Hero extends StatelessWidget {
                     const SizedBox(width: 6),
                     Text(country!.$2, style: badgeStyle),
                   ]),
-                if (isAdmin) badge(<Widget>[Text('👑 Admin', style: badgeStyle)]),
+                if (isAdmin) badge(<Widget>[Text(trInline('ProfileScreen.tsx', '👑 Admin'), style: badgeStyle)]),
               ]),
             ]),
           ),

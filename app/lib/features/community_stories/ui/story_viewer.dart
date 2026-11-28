@@ -531,7 +531,7 @@ class CommunityStoryViewerState extends ConsumerState<CommunityStoryViewer> with
                 },
                 onEnded: () => unawaited(_goToNextStory()),
               )
-            : Image.network(url, fit: BoxFit.contain, semanticLabel: 'Story', errorBuilder: (_, _, _) => const SizedBox.shrink()),
+            : Image.network(url, fit: BoxFit.contain, semanticLabel: trInline('StoryViewer.tsx', 'Story'), errorBuilder: (_, _, _) => const SizedBox.shrink()),
       ),
     );
   }

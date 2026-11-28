@@ -104,6 +104,23 @@
 	<string>$(ANACAN_CUSTOMERIO_REGION)</string>
 	<key>AnacanCustomerIoCdpWriteKey</key>
 	<string>$(ANACAN_CUSTOMERIO_CDP_WRITE_KEY)</string>
+	<key>AnacanTikTokAppId</key>
+	<string>$(ANACAN_TIKTOK_APP_ID)</string>
+	<key>AnacanTikTokTtAppId</key>
+	<string>$(ANACAN_TIKTOK_TT_APP_ID)</string>
+	<key>AnacanTikTokAppSecret</key>
+	<string>$(ANACAN_TIKTOK_APP_SECRET)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>$(ANACAN_ADMOB_APP_ID)</string>
+	<key>GADDelayAppMeasurementInit</key>
+	<true/>
+	<key>SKAdNetworkItems</key>
+	<array>
+		<dict>
+			<key>SKAdNetworkIdentifier</key>
+			<string>cstr6suwn9.skadnetwork</string>
+		</dict>
+	</array>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>az</string>
@@ -170,5 +187,21 @@
 		<string>https</string>
 		<string>http</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>audio</string>
+		<string>fetch</string>
+	</array>
+	<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_ANALYTICS_STORAGE</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_STORAGE</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_USER_DATA</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS</key>
+	<false/>
 </dict>
 </plist>

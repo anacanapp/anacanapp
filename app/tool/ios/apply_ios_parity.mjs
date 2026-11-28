@@ -2,8 +2,10 @@
 // Brings the Flutter iOS Runner to the Capacitor app's App Store–relevant configuration (docs/flutter/BUILD.md
 // "Info.plist / entitlements parity backlog"): development region + CFBundleLocalizations, the 15 usage strings
 // (base value Azerbaijani) and their 25 InfoPlist.strings translations, LSApplicationQueriesSchemes (non-Meta),
-// PrivacyInfo.xcprivacy, and the Runner entitlements (push, Sign in with Apple, HealthKit, App Group).
-// Sources: ios/App/App/{Info.plist,*.lproj/InfoPlist.strings,PrivacyInfo.xcprivacy,App*.entitlements}.
+// PrivacyInfo.xcprivacy, the Runner entitlements (push, Sign in with Apple, HealthKit, App Group), UIBackgroundModes,
+// the Firebase consent keys and GoogleService-Info.plist (Runner resource).
+// Sources: ios/App/App/{Info.plist,*.lproj/InfoPlist.strings,PrivacyInfo.xcprivacy,App*.entitlements,
+// GoogleService-Info.plist}.
 //   node app/tool/ios/apply_ios_parity.mjs          (idempotent: running it again changes nothing)
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -37,8 +39,16 @@ const USAGE_KEYS = [
   'NSLocalNetworkUsageDescription', 'NSUserTrackingUsageDescription',
 ];
 
+// Push (remote-notification), white noise in the background (audio), fetch: the Capacitor background modes.
+// Firebase consent defaults (src/lib/privacyConsent.ts): nothing is collected until the person agrees.
+const FIREBASE_KEYS = [
+  'FIREBASE_ANALYTICS_COLLECTION_ENABLED', 'GOOGLE_ANALYTICS_DEFAULT_ALLOW_ANALYTICS_STORAGE',
+  'GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_STORAGE', 'GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_USER_DATA',
+  'GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS',
+];
+
 const add = [];
-for (const key of ['CFBundleLocalizations', ...USAGE_KEYS]) {
+for (const key of ['CFBundleLocalizations', ...USAGE_KEYS, 'UIBackgroundModes', ...FIREBASE_KEYS]) {
   if (!plist.includes(`<key>${key}</key>`)) add.push(capBlock(key));
 }
 if (!plist.includes('<key>LSApplicationQueriesSchemes</key>')) {
@@ -58,6 +68,8 @@ for (const d of lprojs) {
 copyFileSync(join(cap, 'PrivacyInfo.xcprivacy'), join(runner, 'PrivacyInfo.xcprivacy'));
 copyFileSync(join(cap, 'App.entitlements'), join(runner, 'Runner.entitlements'));
 copyFileSync(join(cap, 'App.Debug.entitlements'), join(runner, 'Runner.Debug.entitlements'));
+// Firebase (push): the committed Capacitor config, read by Firebase.initializeApp() from the app bundle.
+copyFileSync(join(cap, 'GoogleService-Info.plist'), join(runner, 'GoogleService-Info.plist'));
 
 // ── Xcode project ───────────────────────────────────────────────────────────────────────────────────────────
 let pbx = readFileSync(pbxPath, 'utf8');
@@ -110,5 +122,14 @@ if (!pbx.includes('/* PrivacyInfo.xcprivacy */')) {
   pbx = pbx.replace(/(\t\t\tbuildSettings = \{\n)((?:(?!\t\t\t\};)[\s\S])*?INFOPLIST_FILE = Runner\/Info\.plist;[\s\S]*?\t\t\t\};\n\t\t\tname = (\w+);)/g,
     (m, open, body, name) => `${open}\t\t\t\tCODE_SIGN_ENTITLEMENTS = ${name === 'Debug' ? 'Runner/Runner.Debug.entitlements' : 'Runner/Runner.entitlements'};\n${body}`);
 }
+if (!pbx.includes('/* GoogleService-Info.plist */')) {
+  const gsi = id('google-service-info'), gsiBuild = id('google-service-info-build');
+  insertBefore('/* End PBXBuildFile section */',
+    `\t\t${gsiBuild} /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ${gsi} /* GoogleService-Info.plist */; };\n`);
+  insertBefore('/* End PBXFileReference section */',
+    `\t\t${gsi} /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };\n`);
+  addToList('97C146F01CF9000F007C117D /* Runner */ = {', `${gsi} /* GoogleService-Info.plist */,`);
+  addToList('97C146EC1CF9000F007C117D /* Resources */ = {', `${gsiBuild} /* GoogleService-Info.plist in Resources */,`);
+}
 writeFileSync(pbxPath, pbx);
-console.log(`Info.plist: +${add.length} keys; ${lprojs.length} InfoPlist.strings; PrivacyInfo + entitlements; project updated`);
+console.log(`Info.plist: +${add.length} keys; ${lprojs.length} InfoPlist.strings; PrivacyInfo + entitlements + GoogleService-Info; project updated`);

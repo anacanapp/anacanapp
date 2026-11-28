@@ -243,7 +243,7 @@ class _PartnerCareCardState extends ConsumerState<PartnerCareCard> {
                   child: Row(mainAxisSize: MainAxisSize.min, children: [
                     AIcon(AIcons.siren, size: 15, color: a.alertInk),
                     const SizedBox(width: 6),
-                    const Text('SOS'),
+                    Text(trInline('PartnerCareCard.tsx', 'SOS')),
                   ]),
                 ),
               ]),

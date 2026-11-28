@@ -144,7 +144,7 @@ class _NameVotingScreenState extends ConsumerState<NameVotingScreen> {
           items: [
             ('browse', Text(tr('namevotingscreen_adlari_beyen_67dae3', 'Adları Bəyən'))),
             ('mine', Text('${tr('namevotingscreen_sevimlilerim_c5c6a9', 'Sevimlilər (')}${favorites.length})')),
-            ('matches', Row(mainAxisSize: MainAxisSize.min, children: [const Text('Match'), if (matches.isNotEmpty) badge])),
+            ('matches', Row(mainAxisSize: MainAxisSize.min, children: [Text(trInline('NameVotingScreen.tsx', 'Match')), if (matches.isNotEmpty) badge])),
           ],
         ),
         const SizedBox(height: 14),
@@ -299,7 +299,7 @@ class _NameRow extends StatelessWidget {
                   child: Row(mainAxisSize: MainAxisSize.min, children: [
                     const AIcon(AIcons.sparkles, size: 10, color: Color(0xFFFFFFFF)),
                     const SizedBox(width: 2),
-                    Text('Match', style: pText(9.5, weight: FontWeight.w800, color: const Color(0xFFFFFFFF))),
+                    Text(trInline('NameVotingScreen.tsx', 'Match'), style: pText(9.5, weight: FontWeight.w800, color: const Color(0xFFFFFFFF))),
                   ]),
                 ),
               ],

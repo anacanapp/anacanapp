@@ -5,7 +5,8 @@
 // One provider per service, and [notificationServicesWiringOverrides]: the feature seams (docs/flutter/WIRING.md) implemented on
 // these services, for `featureWiringOverrides()` in app/app_wiring.dart. The OS plugins are the four interfaces
 // [localNotificationBackendProvider], [pushPlatformProvider], [notificationTapSourcesProvider] (taps, installed from
-// `main()`) and [nativePermissionsProvider]; each defaults to React's web / no-plugin behaviour.
+// `main()`) and [nativePermissionsProvider]: the plugin implementations inside the iOS / Android app
+// ([isMobileHost]), React's web / no-plugin behaviour anywhere else (tests on a desktop host).
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 
@@ -25,23 +26,28 @@ import '../../features/tools/parenting/programme_ports.dart' show programmeNotif
 import '../../features/tools/vaccines/vaccine_reminders.dart' show vaccineNotificationSchedulerProvider;
 import '../../shell/nav/shell_controller.dart' show notificationTapQueueProvider, pushNavRouterProvider;
 import '../../state/persisted_store.dart' show localStoreProvider;
+import 'mobile_host.dart';
 import 'native_platform.dart';
 import '../notifications/chat_notifications.dart';
+import '../notifications/flutter_local_notification_backend.dart';
 import '../notifications/local_notification_backend.dart';
 import '../notifications/local_notification_scheduler.dart';
 import '../notifications/local_reminders.dart';
 import '../notifications/notification_seams.dart';
 import '../notifications/vaccine_reminders_at_start.dart';
 import '../push/device_token.dart';
+import '../push/firebase_push_platform.dart';
 import '../push/notification_tap_listeners.dart';
 import '../push/push_platform.dart';
 import '../push/send_push.dart';
 
 // ── Local notifications ──
 
-/// The OS notification plugin. Default: unavailable (web). Native step: flutter_local_notifications.
-final localNotificationBackendProvider =
-    Provider<LocalNotificationBackend>((ref) => const UnavailableLocalNotificationBackend(), name: 'localNotificationBackendProvider');
+/// The OS notification plugin: flutter_local_notifications in the app build, unavailable elsewhere (web, tests).
+final localNotificationBackendProvider = Provider<LocalNotificationBackend>(
+  (ref) => isMobileHost ? FlutterLocalNotificationBackend() : const UnavailableLocalNotificationBackend(),
+  name: 'localNotificationBackendProvider',
+);
 
 final localNotificationSchedulerProvider = Provider<LocalNotificationScheduler>((ref) {
   final scheduler = LocalNotificationScheduler(store: ref.watch(localStoreProvider), backend: ref.watch(localNotificationBackendProvider));
@@ -64,8 +70,11 @@ final vaccineRefreshDepsProvider =
 
 // ── Push ──
 
-/// The remote-push plugins. Default: the web build (no push). Native step: firebase_messaging.
-final pushPlatformProvider = Provider<PushPlatform>((ref) => const WebPushPlatform(), name: 'pushPlatformProvider');
+/// The remote-push plugins: Firebase Messaging in the app build, the web build (no push) elsewhere.
+final pushPlatformProvider = Provider<PushPlatform>(
+  (ref) => isMobileHost ? FirebasePushPlatform(platform: isIOSHost ? 'ios' : 'android') : const WebPushPlatform(),
+  name: 'pushPlatformProvider',
+);
 
 final deviceTokenRepositoryProvider =
     Provider<DeviceTokenRepository>((ref) => SupabaseDeviceTokenRepository(ref.watch(dbProvider)), name: 'deviceTokenRepositoryProvider');

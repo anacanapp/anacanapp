@@ -10,6 +10,8 @@ import 'dart:ui' as ui;
 import 'package:flutter/painting.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../services/native/media_natives.dart' show JpegStoryImageEncoder;
+import '../../../services/native/mobile_host.dart' show isMobileHost;
 import 'story_scene.dart';
 
 /// `STORY_FONTS`: Arial / Georgia / Courier New with the platform's generic families as fallbacks.
@@ -236,7 +238,8 @@ class PngStoryImageEncoder implements StoryImageEncoder {
   }
 }
 
-final storyImageEncoderProvider = Provider<StoryImageEncoder>((ref) => const PngStoryImageEncoder());
+final storyImageEncoderProvider =
+    Provider<StoryImageEncoder>((ref) => isMobileHost ? const JpegStoryImageEncoder() : const PngStoryImageEncoder());
 
 /// `exportStoryImage(media, scene)`: the 1080×1920 composite.
 Future<StoryImageFile> exportStoryImage(ui.Image media, StoryScene scene, {StoryImageEncoder encoder = const PngStoryImageEncoder()}) async {

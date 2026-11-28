@@ -11,6 +11,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../features/tools/media_common/media_ports.dart' show cameraPermissionDenied;
+import 'mobile_host.dart';
+import 'native_permission_ports.dart' show pluginNativePermissions;
 
 export '../../features/tools/media_common/media_ports.dart' show isCameraPermissionError;
 
@@ -319,4 +321,8 @@ class NativePermissions {
   }
 }
 
-final nativePermissionsProvider = Provider<NativePermissions>((ref) => const NativePermissions.web(), name: 'nativePermissionsProvider');
+/// The plugin ports inside the iOS / Android app (native_permission_ports.dart); the web branch anywhere else.
+final nativePermissionsProvider = Provider<NativePermissions>(
+  (ref) => isMobileHost ? pluginNativePermissions() : const NativePermissions.web(),
+  name: 'nativePermissionsProvider',
+);

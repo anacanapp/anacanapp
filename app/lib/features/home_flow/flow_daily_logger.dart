@@ -320,7 +320,7 @@ class _FlowDailyLoggerState extends ConsumerState<FlowDailyLogger> {
         ]),
         const SizedBox(height: 24),
         // Ovulation test
-        label(tr('flowdailylogger_ovulyasiya_testi', 'Ovulyasiya testi'), extra: hint('(OPK/LH)')),
+        label(tr('flowdailylogger_ovulyasiya_testi', 'Ovulyasiya testi'), extra: hint(trInline('FlowDailyLogger.tsx', '(OPK/LH)'))),
         Row(children: gap([
           for (final o in _opk())
             Expanded(child: () {

@@ -407,7 +407,7 @@ class _PrivacyDeleteDialogState extends ConsumerState<_PrivacyDeleteDialog> {
               expand: true,
               variant: ShadButtonVariant.destructive,
               onPressed: _deleting ? null : _delete,
-              child: Text(_deleting ? 'Silinir...' : tr('${_p}_beli_sil_fd44c5', 'Bəli, Sil')),
+              child: Text(_deleting ? trInline('PrivacyScreen.tsx', 'Silinir...') : tr('${_p}_beli_sil_fd44c5', 'Bəli, Sil')),
             ),
           ),
         ]),

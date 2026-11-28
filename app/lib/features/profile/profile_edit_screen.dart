@@ -533,7 +533,7 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
                             ),
                           ),
                           field(
-                            'Bio',
+                            trInline('ProfileEditScreen.tsx', 'Bio'),
                             ShadInput(
                               fieldKey: const ValueKey<String>('edit-bio'),
                               controller: _ctl('bio'),
@@ -547,7 +547,7 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
                             ),
                           ),
                           field(
-                            'Email',
+                            trInline('ProfileEditScreen.tsx', 'Email'),
                             ShadInput(
                               controller: TextEditingController(text: user?.email ?? ''),
                               enabled: false,

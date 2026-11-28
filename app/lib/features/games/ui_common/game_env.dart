@@ -15,6 +15,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/i18n/count_format.dart' show formatIntlNumber;
 import '../../../core/i18n/language_controller.dart';
 import '../../../native/purchases/purchases_providers.dart' show analyticsSinkProvider;
+import '../../../services/native/audio_players.dart' show JustAudioGameTonePlayer;
+import '../../../services/native/mobile_host.dart' show isMobileHost;
 import '../../../shell/shell_inputs.dart' show shellPlatformProvider;
 import '../../../state/local_store.dart';
 import '../../../state/persisted_store.dart' show localStoreProvider;
@@ -96,7 +98,8 @@ List<double> gardenToneFrequencies(String kind) => switch (kind) {
       _ => const [440],
     };
 
-final gameTonePlayerFactoryProvider = Provider<GameTonePlayer Function()>((ref) => () => const SilentGameTonePlayer());
+final gameTonePlayerFactoryProvider = Provider<GameTonePlayer Function()>(
+    (ref) => isMobileHost ? JustAudioGameTonePlayer.new : () => const SilentGameTonePlayer());
 
 /// `performance.now()` in milliseconds (monotonic). Tests replace it with a controllable clock.
 abstract interface class GameClock {

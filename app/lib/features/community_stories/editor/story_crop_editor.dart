@@ -408,11 +408,14 @@ class _StoryCropEditorState extends ConsumerState<StoryCropEditor> {
                     pressed: selected.font == font,
                     onTap: () => _updateText((t) => t.copyWith(font: font)),
                     child: Text(
-                      font == 'sans'
-                          ? 'Aa'
-                          : font == 'serif'
-                          ? 'Serif'
-                          : 'Mono',
+                      trInline(
+                        'StoryCropEditor.tsx',
+                        font == 'sans'
+                            ? 'Aa'
+                            : font == 'serif'
+                            ? 'Serif'
+                            : 'Mono',
+                      ),
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -447,7 +450,7 @@ class _StoryCropEditorState extends ConsumerState<StoryCropEditor> {
                         : 'none';
                     return t.copyWith(background: background, color: background == 'light' ? '#111827' : '#ffffff');
                   }),
-                  child: const Text('A▣'),
+                  child: Text(trInline('StoryCropEditor.tsx', 'A▣')),
                 ),
                 const SizedBox(width: 8),
                 _iconButton(

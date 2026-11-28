@@ -977,7 +977,7 @@ class _BookStoreScreenState extends ConsumerState<BookStoreScreen> {
         Padding(
           padding: const EdgeInsets.only(top: 10),
           child: Text(
-            adminTest ? 'Admin test rejimi: ödəniş qoşulmayıb, kitablar pulsuz sizin hesaba əlavə olunacaq.' : t('pay_note'),
+            adminTest ? trInline('BookStoreScreen.tsx', 'Admin test rejimi: ödəniş qoşulmayıb, kitablar pulsuz sizin hesaba əlavə olunacaq.') : t('pay_note'),
             textAlign: TextAlign.center,
             style: px(11.5, color: a.inkSoft, height: 1.45),
           ),

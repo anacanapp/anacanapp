@@ -4,6 +4,8 @@ plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+    // google-services.json (copied from the Capacitor project android/app/) → Firebase string resources.
+    id("com.google.gms.google-services")
 }
 
 // Release signing: app/android/keystore.properties (gitignored), same property names as the
@@ -43,6 +45,8 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        // flutter_local_notifications needs core library desugaring (java.time on older Android).
+        isCoreLibraryDesugaringEnabled = true
     }
 
     buildFeatures {
@@ -103,4 +107,11 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+    // Health Connect writes (HealthPlugins.kt: HealthCycle / HealthVitals), same versions as the Capacitor app.
+    implementation("androidx.health.connect:connect-client:1.2.0-alpha01")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 }

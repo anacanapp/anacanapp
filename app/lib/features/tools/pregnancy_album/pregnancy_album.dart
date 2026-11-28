@@ -423,7 +423,7 @@ class _PregnancyAlbumState extends ConsumerState<PregnancyAlbum> {
               child: Row(children: [
                 cell(tr('pregnancyalbum_sehife_fd1fa9', 'Səhifə'), '9+'),
                 const SizedBox(width: 8),
-                cell('Format', 'A4'),
+                cell(trInline('PregnancyAlbum.tsx', 'Format'), trInline('PregnancyAlbum.tsx', 'A4')),
                 const SizedBox(width: 8),
                 cell(tr('pregnancyalbum_catdirilma_e955cf', 'Çatdırılma'), tr('pregnancyalbum_3_5_gun_5d513c', '3-5 gün')),
               ]),

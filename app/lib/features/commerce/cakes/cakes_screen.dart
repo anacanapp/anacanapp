@@ -1778,7 +1778,7 @@ class _CakeOrderFormState extends ConsumerState<CakeOrderForm> {
                     const SizedBox(height: 14),
                     field(
                       tr('cakeorderform_elaqe_nomresi_feb8b9', 'Əlaqə nömrəsi *'),
-                      input(_phone, 'ck-phone', placeholder: '+994 XX XXX XX XX', keyboard: TextInputType.phone),
+                      input(_phone, 'ck-phone', placeholder: trInline('CakeOrderForm.tsx', '+994 XX XXX XX XX'), keyboard: TextInputType.phone),
                     ),
                     const SizedBox(height: 14),
                     field(

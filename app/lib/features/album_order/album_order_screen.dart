@@ -13,6 +13,8 @@ import 'package:material_ui/material_ui.dart';
 import '../../core/auth/auth.dart';
 import '../../core/i18n/tr.dart';
 import '../../design/design.dart';
+import '../../services/native/media_natives.dart' show pickAlbumProof;
+import '../../services/native/mobile_host.dart' show isMobileHost;
 import '../settings/ui/settings_ui.dart' show AIconBtn, ALoader, ShadInput, px, toasts;
 import 'album_order_backend.dart';
 import 'coupon_input.dart';
@@ -23,11 +25,15 @@ typedef AlbumProofFile = ({String name, Uint8List bytes, String? mimeType});
 
 /// `<input type="file" accept="image/*,application/pdf">`. Default: the photo library (image_picker has no PDF
 /// picker; a document picker package would add PDFs).
-final albumProofPickerProvider = Provider<Future<AlbumProofFile?> Function()>((ref) => () async {
-      final x = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (x == null) return null;
-      return (name: x.name, bytes: await x.readAsBytes(), mimeType: x.mimeType);
-    }, name: 'albumProofPickerProvider');
+final albumProofPickerProvider = Provider<Future<AlbumProofFile?> Function()>(
+    (ref) => isMobileHost
+        ? pickAlbumProof
+        : () async {
+            final x = await ImagePicker().pickImage(source: ImageSource.gallery);
+            if (x == null) return null;
+            return (name: x.name, bytes: await x.readAsBytes(), mimeType: x.mimeType);
+          },
+    name: 'albumProofPickerProvider');
 
 /// `Date.now()` (tests override).
 final albumOrderClockProvider = Provider<DateTime Function()>((ref) => DateTime.now, name: 'albumOrderClockProvider');

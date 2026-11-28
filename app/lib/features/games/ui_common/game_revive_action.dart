@@ -5,6 +5,7 @@ library;
 
 import 'package:flutter/widgets.dart';
 
+import '../../../core/i18n/tr.dart' show trInline;
 import '../../../design/design.dart';
 import '../../settings/ui/settings_ui.dart' show ALoader, px;
 import 'game_ads.dart';
@@ -73,7 +74,7 @@ class GameReviveAction extends StatelessWidget {
         if (ads.message.isNotEmpty) ...[const SizedBox(height: 6), Text(labels?.failed ?? ads.message, style: small)],
         if (!ads.canRequest && ads.message.isEmpty) ...[const SizedBox(height: 6), Text(labels?.unavailable ?? ads.reason, style: small)],
         const SizedBox(height: 6),
-        Text(labels?.note ?? 'Xal və lövhə saxlanır. Video bağlanarsa bərpa verilmir.', style: small),
+        Text(labels?.note ?? trInline('GameReviveAction.tsx', 'Xal və lövhə saxlanır. Video bağlanarsa bərpa verilmir.'), style: small),
       ],
     );
   }

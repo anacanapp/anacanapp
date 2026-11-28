@@ -172,7 +172,7 @@ class _FlowDashboardState extends ConsumerState<FlowDashboard> {
             Text.rich(
               TextSpan(text: '${tr('flowdashboard_secilen_tarix_104372', 'Seçilən tarix:')} ', children: [
                 TextSpan(text: flowFormat(end, 'd MMMM yyyy'), style: bold),
-                const TextSpan(text: ' • Period: '),
+                TextSpan(text: ' ${trInline('FlowDashboard.tsx', '• Period:')} '),
                 TextSpan(text: '${differenceInCalendarDays(end, lastPeriodDate) + 1} ${tr('flowdashboard_gun_54e78d', 'gün')}', style: bold),
               ]),
               textAlign: TextAlign.center,

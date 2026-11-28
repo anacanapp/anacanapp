@@ -12,12 +12,23 @@
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		7884E8682EC3CC0700C636F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */; };
+		A1A0C0DE0000000000000101 /* ScreenshotGuardChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000001 /* ScreenshotGuardChannel.swift */; };
+		A1A0C0DE0000000000000102 /* HealthChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000002 /* HealthChannels.swift */; };
+		A1A0C0DE0000000000000103 /* AnacanTimerAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000003 /* AnacanTimerAttributes.swift */; };
+		A1A0C0DE0000000000000104 /* LiveActivityChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000004 /* LiveActivityChannel.swift */; };
+		A1A0C0DE0000000000000105 /* HomeWidgetsChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000005 /* HomeWidgetsChannel.swift */; };
+		A1A0C0DE0000000000000106 /* FbEventsChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000006 /* FbEventsChannel.swift */; };
+		A1A0C0DE0000000000000107 /* AnacanAdsChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000007 /* AnacanAdsChannel.swift */; };
+		A1A0C0DE0000000000000108 /* TikTokEventsChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000008 /* TikTokEventsChannel.swift */; };
+		A1A0C0DE0000000000000109 /* CustomerIoChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE0000000000000009 /* CustomerIoChannel.swift */; };
+		A1A0C0DE000000000000010A /* LegacyWebStorageChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0C0DE000000000000000A /* LegacyWebStorageChannel.swift */; };
 		78A318202AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A3181F2AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		08002A823C21B5D53F9EAB4D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6EFBF1054A334678B20D89E7 /* PrivacyInfo.xcprivacy */; };
 		B96F34681CA5DFED8D35C852 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00EFDEFC16D1CD435C1A2571 /* InfoPlist.strings */; };
+		1B523D45E3CEBEA1DC7C752A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD35B6240DFB36F15C0AA46B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +63,16 @@
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000001 /* ScreenshotGuardChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotGuardChannel.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000002 /* HealthChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthChannels.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000003 /* AnacanTimerAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnacanTimerAttributes.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000004 /* LiveActivityChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityChannel.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000005 /* HomeWidgetsChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWidgetsChannel.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000006 /* FbEventsChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbEventsChannel.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000007 /* AnacanAdsChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnacanAdsChannel.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000008 /* TikTokEventsChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokEventsChannel.swift; sourceTree = "<group>"; };
+		A1A0C0DE0000000000000009 /* CustomerIoChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerIoChannel.swift; sourceTree = "<group>"; };
+		A1A0C0DE000000000000000A /* LegacyWebStorageChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyWebStorageChannel.swift; sourceTree = "<group>"; };
 		78E0A7A72DC9AD7400C4905E /* FlutterGeneratedPluginSwiftPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = FlutterGeneratedPluginSwiftPackage; path = Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
@@ -89,6 +110,7 @@
 		A82EAA9E37313CD0AA78A29E /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		467A11D5525DB4732FADD197 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D2C33455F6433FBDC63DA400 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh-Hans; path = zh-Hans.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BD35B6240DFB36F15C0AA46B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,11 +175,22 @@
 				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				7884E8672EC3CC0400C636F2 /* SceneDelegate.swift */,
+				A1A0C0DE0000000000000001 /* ScreenshotGuardChannel.swift */,
+				A1A0C0DE0000000000000002 /* HealthChannels.swift */,
+				A1A0C0DE0000000000000003 /* AnacanTimerAttributes.swift */,
+				A1A0C0DE0000000000000004 /* LiveActivityChannel.swift */,
+				A1A0C0DE0000000000000005 /* HomeWidgetsChannel.swift */,
+				A1A0C0DE0000000000000006 /* FbEventsChannel.swift */,
+				A1A0C0DE0000000000000007 /* AnacanAdsChannel.swift */,
+				A1A0C0DE0000000000000008 /* TikTokEventsChannel.swift */,
+				A1A0C0DE0000000000000009 /* CustomerIoChannel.swift */,
+				A1A0C0DE000000000000000A /* LegacyWebStorageChannel.swift */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
 				6EFBF1054A334678B20D89E7 /* PrivacyInfo.xcprivacy */,
 				00EFDEFC16D1CD435C1A2571 /* InfoPlist.strings */,
 				B5C444DD1FBE791A7A145BAE /* Runner.entitlements */,
 				863FB96747AA89E89708942C /* Runner.Debug.entitlements */,
+				BD35B6240DFB36F15C0AA46B /* GoogleService-Info.plist */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -289,6 +322,7 @@
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
 				08002A823C21B5D53F9EAB4D /* PrivacyInfo.xcprivacy in Resources */,
 				B96F34681CA5DFED8D35C852 /* InfoPlist.strings in Resources */,
+				1B523D45E3CEBEA1DC7C752A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +378,16 @@
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 				7884E8682EC3CC0700C636F2 /* SceneDelegate.swift in Sources */,
+				A1A0C0DE0000000000000101 /* ScreenshotGuardChannel.swift in Sources */,
+				A1A0C0DE0000000000000102 /* HealthChannels.swift in Sources */,
+				A1A0C0DE0000000000000103 /* AnacanTimerAttributes.swift in Sources */,
+				A1A0C0DE0000000000000104 /* LiveActivityChannel.swift in Sources */,
+				A1A0C0DE0000000000000105 /* HomeWidgetsChannel.swift in Sources */,
+				A1A0C0DE0000000000000106 /* FbEventsChannel.swift in Sources */,
+				A1A0C0DE0000000000000107 /* AnacanAdsChannel.swift in Sources */,
+				A1A0C0DE0000000000000108 /* TikTokEventsChannel.swift in Sources */,
+				A1A0C0DE0000000000000109 /* CustomerIoChannel.swift in Sources */,
+				A1A0C0DE000000000000010A /* LegacyWebStorageChannel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

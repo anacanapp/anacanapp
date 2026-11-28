@@ -11,6 +11,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../core/auth/auth.dart';
 import '../../core/i18n/language_controller.dart' show appLanguageProvider;
+import '../../core/i18n/tr.dart' show trInline;
 import '../../design/design.dart';
 import '../../domain/health/emergency.dart' show getEmergencyNumber;
 import '../../domain/js_compat.dart';
@@ -285,7 +286,7 @@ class _WeekTabState extends ConsumerState<_WeekTab> {
             Expanded(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(t.s('checkin_title'), style: px(14.5, weight: FontWeight.w700, color: a.ink)),
-                Text(widget.todayCheckin != null ? t.s('checkin_saved') : '30 s', style: cxSub(context)),
+                Text(widget.todayCheckin != null ? t.s('checkin_saved') : trInline('RecoveryScreen.tsx', '30 s'), style: cxSub(context)),
               ]),
             ),
             chevron,

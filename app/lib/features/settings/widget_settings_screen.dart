@@ -11,6 +11,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/i18n/tr.dart' show trInline;
 import '../../design/design.dart';
 import '../../state/state.dart';
 import '../profile/profile_interfaces.dart';
@@ -356,7 +357,7 @@ class WidgetPreview extends StatelessWidget {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
           Text(bump ? '🌽' : '👶', style: const TextStyle(fontSize: 34)),
           const Spacer(),
-          Text(bump ? t('trimester').replaceAll('{n}', '2').toUpperCase() : 'MURAD', style: st(10, w: FontWeight.w800, color: _berry)),
+          Text(bump ? t('trimester').replaceAll('{n}', '2').toUpperCase() : trInline('WidgetSettingsScreen.tsx', 'MURAD'), style: st(10, w: FontWeight.w800, color: _berry)),
           Text(title, style: st(18, w: FontWeight.w800, h: 1.15)),
         ]),
       );
@@ -390,7 +391,7 @@ class WidgetPreview extends StatelessWidget {
           const SizedBox(width: 10),
           Expanded(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-              Text(settings.privacy ? 'ANACAN' : 'NURAY', style: st(10, w: FontWeight.w800, color: _berry)),
+              Text(trInline('WidgetSettingsScreen.tsx', settings.privacy ? 'ANACAN' : 'NURAY'), style: st(10, w: FontWeight.w800, color: _berry)),
               Text(settings.privacy ? '' : t('baby_months').replaceAll('{m}', '3').replaceAll('{d}', '12'), style: st(16, w: FontWeight.w700)),
             ]),
           ),

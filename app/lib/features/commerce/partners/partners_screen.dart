@@ -423,7 +423,7 @@ class _VenueDetail extends ConsumerWidget {
     final actions = <Widget>[
       if (v.phone != null) action(AIcons.phone, tr('partnersscreen_zeng_4cba42', 'Zəng'), 'tel:${v.phone}'),
       if (v.website != null) action(AIcons.globe, tr('untranslated_veb_sayt_16w317', 'Veb sayt'), v.website!),
-      if (v.instagram != null) action(AIcons.instagram, 'Instagram', 'https://instagram.com/${v.instagram!.replaceFirst('@', '')}'),
+      if (v.instagram != null) action(AIcons.instagram, trInline('PartnersScreen.tsx', 'Instagram'), 'https://instagram.com/${v.instagram!.replaceFirst('@', '')}'),
       if (v.latitude != null && v.latitude != 0 && v.longitude != null && v.longitude != 0)
         action(
           AIcons.mapPin,

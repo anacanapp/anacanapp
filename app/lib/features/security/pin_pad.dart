@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/i18n/tr.dart' show trInline;
 import '../../design/design.dart';
 import 'app_lock.dart';
 
@@ -93,7 +94,7 @@ class _PinPadState extends State<PinPad> with TickerProviderStateMixin {
       if (k == 'bio') {
         if (!widget.showBiometric) return const SizedBox(width: 68, height: 68);
         return Semantics(
-          label: 'Biometric',
+          label: trInline('PinPad.tsx', 'Biometric'),
           button: true,
           child: PressScale(
             key: const ValueKey<String>('pin-bio'),
@@ -105,7 +106,7 @@ class _PinPadState extends State<PinPad> with TickerProviderStateMixin {
       }
       if (k == 'back') {
         return Semantics(
-          label: 'Backspace',
+          label: trInline('PinPad.tsx', 'Backspace'),
           button: true,
           child: PressScale(
             key: const ValueKey<String>('pin-back'),

@@ -301,7 +301,7 @@ class _ReferralScreenState extends ConsumerState<ReferralScreen> {
                                 child: AInput(
                                   fieldKey: const ValueKey<String>('referral-input'),
                                   controller: _redeem,
-                                  placeholder: 'ABC123',
+                                  placeholder: trInline('ReferralScreen.tsx', 'ABC123'),
                                   height: 48,
                                   style: px(16, weight: FontWeight.w800, ls: 0.15),
                                   inputFormatters: <TextInputFormatter>[

@@ -90,7 +90,7 @@ class CalendarScreenState extends ConsumerState<CalendarScreen> {
       final log = logs.where((l) => l['log_date'] == key).firstOrNull;
       final mood = log?.number('mood');
       if (mood != null && mood != 0) {
-        events.add((type: 'mood', label: tr('calendarscreen_ehval_qeyd_aa4f19', 'Æhval qeyd'), color: CalendarDots.mood));
+        events.add((type: 'mood', label: tr('calendarscreen_ehval_qeyd_aa4f19', 'Əhval qeyd'), color: CalendarDots.mood));
       }
       if (lifeStage == 'flow' && cycleData != null) {
         final info = getPhaseInfoForDate(day, lastPeriodDate, cycleLength, periodLength);
@@ -333,7 +333,7 @@ class CalendarScreenState extends ConsumerState<CalendarScreen> {
                       iconBtn(
                         AIcons.chevronLeft,
                         () => setState(() => _month = DateTime(_month.year, _month.month - 1, 1)),
-                        tr('calendarscreen_evvelki_ay', 'Ævvəlki ay'),
+                        tr('calendarscreen_evvelki_ay', 'Əvvəlki ay'),
                         key: const ValueKey('calendar-prev'),
                       ),
                       Text(

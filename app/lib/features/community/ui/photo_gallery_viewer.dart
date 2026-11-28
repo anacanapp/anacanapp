@@ -12,6 +12,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/i18n/i18n.dart';
 import '../../../design/design.dart';
+import '../../../services/native/media_natives.dart' show saveImageToPhotoLibrary;
+import '../../../services/native/mobile_host.dart' show isMobileHost;
 import '../../profile/profile_interfaces.dart' show shareServiceProvider;
 import '../../settings/ui/settings_ui.dart' show toasts;
 import 'community_widgets.dart';
@@ -19,7 +21,7 @@ import 'community_widgets.dart';
 /// `saveImageToGallery(url, fileName)` → saved.
 typedef PhotoSaver = Future<bool> Function(String url, String fileName);
 
-final photoSaverProvider = Provider<PhotoSaver>((ref) => (url, fileName) async => false);
+final photoSaverProvider = Provider<PhotoSaver>((ref) => isMobileHost ? saveImageToPhotoLibrary : (url, fileName) async => false);
 
 class GalleryPhoto {
   const GalleryPhoto({required this.id, required this.url});

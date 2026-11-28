@@ -370,7 +370,7 @@ class _PartnerHomeScreenState extends ConsumerState<PartnerHomeScreen> {
                 dy: 0,
                 dx: -20,
                 delay: const Duration(milliseconds: 50),
-                child: Text('${tr('partnerv2_salam', 'Salam')}, ${name != null && name.isNotEmpty ? name : 'Partner'}! 👋',
+                child: Text('${tr('partnerv2_salam', 'Salam')}, ${name != null && name.isNotEmpty ? name : trInline('PartnerHomeScreen.tsx', 'Partner')}! 👋',
                     style: pText(19, weight: FontWeight.w700, color: context.a.onBg, ls: -0.01, height: 1.35)),
               ),
             ]),

@@ -12,6 +12,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/i18n/tr.dart';
+import '../../../services/native/mobile_host.dart' show isMobileHost;
+import '../../../services/native/record_audio.dart' show recordAudioPlatform;
 import 'media_ports.dart' show MediaToastData;
 
 /// A DOMException-like failure (`name`: `NotAllowedError`, `NotSupportedError`, `NotReadableError`, …).
@@ -110,8 +112,9 @@ class AudioPlatform {
   final FrameScheduler frames;
 }
 
-/// No microphone plugin yet: every capture path reports `NotSupportedError`.
-final audioPlatformProvider = Provider<AudioPlatform>((ref) => const AudioPlatform());
+/// Inside the app: the `record` plugin (services/native/record_audio.dart). Elsewhere every capture path reports
+/// `NotSupportedError`.
+final audioPlatformProvider = Provider<AudioPlatform>((ref) => isMobileHost ? recordAudioPlatform : const AudioPlatform());
 
 bool _microphoneOpening = false;
 

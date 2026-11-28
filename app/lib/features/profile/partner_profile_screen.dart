@@ -81,7 +81,7 @@ class PartnerProfileScreen extends ConsumerWidget {
     final avatar = ref.watch(profileAvatarBuilderProvider);
     void nav(String id) => onNavigate != null ? onNavigate!(id) : ref.read(shellProvider.notifier).openScreen(id);
     final isLinked = profile?.linkedPartnerId != null;
-    final name = (store.name?.isNotEmpty ?? false) ? store.name! : 'Partner';
+    final name = (store.name?.isNotEmpty ?? false) ? store.name! : trInline('PartnerProfileScreen.tsx', 'Partner');
 
     final achievements = (d.achievementRows.isNotEmpty ? d.achievementRows : fallbackAchievements()).map((r) {
       final key = '${r['achievement_key']}';

@@ -66,6 +66,8 @@ import '../services/analytics/analytics_providers.dart'
     show ServiceAnalyticsSink, analyticsServiceProvider;
 import '../services/analytics/customerio.dart' show customerIoProvider;
 import '../services/analytics/customerio_session.dart' show customerIoConsentNotifier;
+import '../native/platform/native_platform_wiring.dart' show nativePlatformWiringOverrides;
+import '../services/analytics/sdk_wiring.dart' show adsAnalyticsSdkWiringOverrides;
 import '../services/native/services_wiring.dart' show notificationServicesWiringOverrides;
 import '../services/security/dashboard_capture.dart' show dashboardCaptureAllowed;
 import '../services/ads/ad_widgets.dart' show AdBottomNavAnchor;
@@ -243,6 +245,10 @@ List<Override> featureWiringOverrides() => [
           ]),
       // Central local-notification scheduler + push sender behind every feature's notification seam.
       ...notificationServicesWiringOverrides(),
+      // Native channels (screenshot guard, live timer, home widgets, Health, Meta) and the ad/analytics SDKs; both
+      // switch to the real platform only on Android/iOS hosts.
+      ...nativePlatformWiringOverrides(),
+      ...adsAnalyticsSdkWiringOverrides(),
       // ── analytics, ads, banners, capture guard (phase 9 Dart side; SDKs behind interfaces) ─────────────────────
       analyticsSinkProvider.overrideWith((ref) => ServiceAnalyticsSink(ref.watch(analyticsServiceProvider))),
       shellBottomNavWrapperProvider.overrideWithValue((nav) => AdBottomNavAnchor(child: nav)),

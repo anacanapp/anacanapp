@@ -483,7 +483,7 @@ class _AddScanFormState extends State<_AddScanForm> {
         padding: const EdgeInsets.only(bottom: 20),
         child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           Padding(padding: const EdgeInsets.only(bottom: 8), child: Text(tr('fetalgrowth_efw_label', 'Təxmini çəki (qram)'), style: x.aListTime)),
-          PBigInput(fieldKey: const ValueKey('fetal-efw'), controller: _efw, placeholder: '1200', unit: 'q', decimal: false),
+          PBigInput(fieldKey: const ValueKey('fetal-efw'), controller: _efw, placeholder: '1200', unit: trInline('FetalGrowthTracker.tsx', 'q'), decimal: false),
         ]),
       ),
       PTap(

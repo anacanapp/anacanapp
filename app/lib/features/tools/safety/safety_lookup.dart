@@ -33,6 +33,13 @@ final safetyAiLookupProvider = Provider<Future<({Object? data, Object? error})> 
 
 typedef _Status = ({Gradient grad, Color soft, Color ink, Color deepInk, AIconData icon, String label, String emoji});
 
+/// React bug: the az/de/ar/ka/kk/uz dictionaries hold a bare `\` for this key (the `\"` of the source literal cut
+/// the extracted text); React renders it. Fall back to the Azerbaijani text instead.
+String _aiSearchSuffix() {
+  final value = tr('safetylookup_ai_ile_axtaris_edin_780816', '" — AI ilə axtarış edin');
+  return value == r'\' ? '" — AI ilə axtarış edin' : value;
+}
+
 class SafetyLookup extends ConsumerStatefulWidget {
   const SafetyLookup({super.key, required this.onBack});
   final VoidCallback onBack;
@@ -225,7 +232,7 @@ class _SafetyLookupState extends ConsumerState<SafetyLookup> {
               Padding(padding: const EdgeInsets.only(bottom: 4), child: Text(tr('safetylookup_bazada_tapilmadi_1e2889', 'Bazada tapılmadı'), style: x.aListTitle)),
               Padding(
                 padding: const EdgeInsets.only(bottom: 16),
-                child: Text('"${_search.text}${tr('safetylookup_ai_ile_axtaris_edin_780816', '" — AI ilə axtarış edin')}', textAlign: TextAlign.center, style: x.aListSub),
+                child: Text('"${_search.text}${_aiSearchSuffix()}', textAlign: TextAlign.center, style: x.aListSub),
               ),
               Opacity(
                 opacity: _aiLoading ? 0.6 : 1,

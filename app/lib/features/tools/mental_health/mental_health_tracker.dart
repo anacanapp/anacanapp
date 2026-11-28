@@ -462,7 +462,7 @@ class _MentalHealthTrackerState extends ConsumerState<MentalHealthTracker> {
                                 text: (level?.label ?? '').toLowerCase(),
                                 style: TextStyle(fontWeight: FontWeight.w700, color: a.accentInk),
                               ),
-                              const TextSpan(text: ' hiss edirsiniz'),
+                              TextSpan(text: ' ${trInline('MentalHealthTracker.tsx', 'hiss edirsiniz')}'),
                             ],
                           ),
                           textAlign: TextAlign.center,

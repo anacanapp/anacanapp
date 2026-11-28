@@ -84,7 +84,9 @@ final storyRepliesQuery = queryProviderFamily<List<CRow>, ({String? storyId, boo
             return <String, dynamic>{
               ...reply,
               'author': author != null
-                  ? {'name': name is String && name.isNotEmpty ? name : tr('usestoryreplies_i_stifadeci_b6bdd6', 'İstifadəçi'), 'avatar_url': avatar is String && avatar.isNotEmpty ? avatar : null}
+                  // React bug: az.json holds the escaped source text "\u0130stifad\u0259\xE7i" for
+                  // usestoryreplies_i_stifadeci_b6bdd6; the sibling key of the same file has the same text, translated.
+                  ? {'name': name is String && name.isNotEmpty ? name : tr('usestoryreplies_istifadeci_b6bdd6', 'İstifadəçi'), 'avatar_url': avatar is String && avatar.isNotEmpty ? avatar : null}
                   : {'name': tr('usestoryreplies_istifadeci_b6bdd6', 'İstifadəçi'), 'avatar_url': null},
             };
           }(),
@@ -118,7 +120,7 @@ final createStoryReplyMutation = mutationProvider<void, StoryReplyInput, QuerySn
         unawaited(() async {
           try {
             final preview = v.content.length > 50 ? '${v.content.substring(0, 50)}...' : v.content;
-            final name = v.replierName != null && v.replierName!.isNotEmpty ? v.replierName! : tr('usestoryreplies_i_stifadeci_b6bdd6', 'İstifadəçi');
+            final name = v.replierName != null && v.replierName!.isNotEmpty ? v.replierName! : tr('usestoryreplies_istifadeci_b6bdd6', 'İstifadəçi');
             await push.send(SendPushPayload(
               userId: v.storyAuthorId!,
               title: tr('usestoryreplies_yeni_cavab_923a12', 'Yeni cavab 💬'),

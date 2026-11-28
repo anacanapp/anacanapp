@@ -1,11 +1,10 @@
 // Ported from: src/components/tools/MaternityCalculator.tsx
 import 'package:flutter/services.dart' show FilteringTextInputFormatter;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart' show NumberFormat;
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/auth/auth_providers.dart';
-import '../../../core/i18n/app_languages.dart';
+import '../../../core/i18n/count_format.dart' show formatIntlNumber;
 import '../../../core/i18n/date_utils.dart';
 import '../../../core/i18n/tr.dart';
 import '../../../design/design.dart';
@@ -33,10 +32,7 @@ double? jsParseFloat(String s) {
 }
 
 /// `toLocaleString(getLocaleTag(), { maximumFractionDigits: 2 })`.
-String localeNumber(num value) {
-  final f = NumberFormat.decimalPattern(appLanguage(currentLanguage()).intlLocale)..maximumFractionDigits = 2;
-  return f.format(value);
-}
+String localeNumber(num value) => formatIntlNumber(currentLanguage(), value, maximumFractionDigits: 2);
 
 class MaternityCalculator extends ConsumerStatefulWidget {
   const MaternityCalculator({super.key, required this.onBack});
@@ -585,7 +581,7 @@ class _MaternityCalculatorState extends ConsumerState<MaternityCalculator> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: Text.rich(TextSpan(style: x.aListSub, children: [
-                  TextSpan(text: 'Formula:', style: TextStyle(color: a.ink, fontWeight: FontWeight.w700)),
+                  TextSpan(text: trInline('MaternityCalculator.tsx', 'Formula:'), style: TextStyle(color: a.ink, fontWeight: FontWeight.w700)),
                   TextSpan(text: ' $formula'),
                 ])),
               ),

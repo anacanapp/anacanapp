@@ -292,7 +292,7 @@ class _BabyMonthlyAlbumState extends ConsumerState<BabyMonthlyAlbum> {
                             child: Row(children: [
                               fact(tr('babymonthlyalbum_sehife_fd1fa9', 'Səhifə'), '12+'),
                               const SizedBox(width: 8),
-                              fact('Format', 'A4'),
+                              fact(trInline('BabyMonthlyAlbum.tsx', 'Format'), trInline('BabyMonthlyAlbum.tsx', 'A4')),
                               const SizedBox(width: 8),
                               fact(tr('babymonthlyalbum_catdirilma_e955cf', 'Çatdırılma'), tr('babymonthlyalbum_3_5_gun_5d513c', '3-5 gün')),
                             ]),

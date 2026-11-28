@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "296566533432",
+    "project_id": "anacan-mobile",
+    "storage_bucket": "anacan-mobile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296566533432:android:17f742ee894f6be1d1a5cd",
+        "android_client_info": {
+          "package_name": "com.atlasoon.anacan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296566533432-46uvqoq2kamhbln9t99893atnl1pi2gr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.atlasoon.anacan",
+            "certificate_hash": "dbb58a9e15d55c1f744e6e66a7234c0090914ef6"
+          }
+        },
+        {
+          "client_id": "296566533432-gpmp4takbhknosmejaic4aopdakgd0o3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs9YYSIgVDMZgkxRGLsUOWsjrb3JgxFFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296566533432-gpmp4takbhknosmejaic4aopdakgd0o3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

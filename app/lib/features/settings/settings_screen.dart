@@ -381,6 +381,13 @@ class SettingRow extends StatelessWidget {
   }
 }
 
+/// React bug: az/de/ar/ka/kk/uz hold a bare `\` for `settingsscreen_sil_27792d` (the `\"SİL\"` source literal was cut
+/// at the escape); React renders it. Show the keyword the user has to type, quoted, instead.
+String _deleteKeywordLabel() {
+  final value = tr('settingsscreen_sil_27792d', '"SİL"');
+  return value == r'\' ? '"${tr('settingsscreen_delete_confirm_keyword', 'SİL')}"' : value;
+}
+
 /// Settings "Hesabı sil" AlertDialog: type the keyword ("SİL") to enable the destructive action.
 class DeleteAccountDialog extends ConsumerStatefulWidget {
   const DeleteAccountDialog({super.key});
@@ -466,7 +473,7 @@ class _DeleteAccountDialogState extends ConsumerState<DeleteAccountDialog> {
                   child: Text.rich(
                     TextSpan(children: <InlineSpan>[
                       TextSpan(text: '${tr('settingsscreen_tesdiqlemek_ucun_fd471c', 'Təsdiqləmək üçün')} '),
-                      TextSpan(text: tr('settingsscreen_sil_27792d', '"SİL"'), style: const TextStyle(fontWeight: FontWeight.w700)),
+                      TextSpan(text: _deleteKeywordLabel(), style: const TextStyle(fontWeight: FontWeight.w700)),
                       TextSpan(text: ' ${tr('settingsscreen_yazin_e343c0', 'yazın:')}'),
                     ]),
                     style: Tw.xs.copyWith(fontWeight: FontWeight.w500, color: a.ink),

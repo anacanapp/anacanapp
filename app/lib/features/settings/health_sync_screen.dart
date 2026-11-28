@@ -176,13 +176,8 @@ class _HealthSyncScreenState extends ConsumerState<HealthSyncScreen> {
     final platform = s.healthPlatform();
     final android = platform == 'android';
     final locale = appLanguage(store.language).intlLocale;
-    String number(int n) {
-      try {
-        return NumberFormat.decimalPattern(locale).format(n);
-      } catch (_) {
-        return NumberFormat.decimalPattern('en_US').format(n);
-      }
-    }
+    // `n.toLocaleString(locale)` with the ICU symbols React renders (package:intl's CLDR data differs for some locales).
+    String number(int n) => formatIntlNumber(store.language, n);
 
     final availability = ref.watch(healthAvailabilityQuery);
     final hcMissing = android && availability.data == false && !availability.isLoading;

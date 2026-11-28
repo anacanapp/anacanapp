@@ -105,7 +105,7 @@ class _SosButtonState extends ConsumerState<SosButton> with SingleTickerProvider
     if (widget.variant == SosButtonVariant.compact) {
       return Semantics(
         button: true,
-        label: 'SOS',
+        label: trInline('SOSButton.tsx', 'SOS'),
         child: _holdable(
           child: Container(
             key: const ValueKey('sos-button-compact'),
@@ -177,7 +177,7 @@ class _SosButtonState extends ConsumerState<SosButton> with SingleTickerProvider
                     const AIcon(AIcons.triangleAlert, size: 32, color: _white),
                     const SizedBox(width: 12),
                     Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Text('SOS', style: pText(20, weight: FontWeight.w700, color: _white, height: 28 / 20)),
+                      Text(trInline('SOSButton.tsx', 'SOS'), style: pText(20, weight: FontWeight.w700, color: _white, height: 28 / 20)),
                       Text(loading ? tr('sosbutton_gonderilir_1d548c', 'Göndərilir...') : tr('sosbutton_basib_saxla_2_san_27183d', 'Basıb saxla (2 san)'),
                           style: pText(14, color: _white.withValues(alpha: 0.8), height: 20 / 14)),
                     ]),

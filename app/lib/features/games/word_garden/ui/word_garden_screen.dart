@@ -246,9 +246,9 @@ class GardenJourneyState extends ConsumerState<GardenJourney> {
         ),
       ),
       GardenMuted(t('sourceNote'), palette: p),
-      link('Wiktionary / Kaikki.org', 'https://kaikki.org/dictionary/Azerbaijani/', GardenButtonKind.secondary),
-      link('Leipzig · aosp-dict-az', 'https://github.com/subhangadirli/aosp-dict-az/tree/c68c85cb297510d19cee04787e445e2a558b1f70', GardenButtonKind.secondary),
-      link('CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/', GardenButtonKind.text),
+      link(trInline('WordGarden.tsx', 'Wiktionary / Kaikki.org'), 'https://kaikki.org/dictionary/Azerbaijani/', GardenButtonKind.secondary),
+      link(trInline('WordGarden.tsx', 'Leipzig · aosp-dict-az'), 'https://github.com/subhangadirli/aosp-dict-az/tree/c68c85cb297510d19cee04787e445e2a558b1f70', GardenButtonKind.secondary),
+      link(trInline('WordGarden.tsx', 'CC BY-SA 4.0'), 'https://creativecommons.org/licenses/by-sa/4.0/', GardenButtonKind.text),
     ];
   }
 
@@ -278,7 +278,7 @@ class GardenJourneyState extends ConsumerState<GardenJourney> {
                     TextSpan(children: [
                       const TextSpan(text: 'Anacan'),
                       const WidgetSpan(child: SizedBox(width: 8)),
-                      TextSpan(text: 'PLAY', style: wgText(8, weight: FontWeight.w800, color: p.accentDeep, ls: 2)),
+                      TextSpan(text: trInline('WordGarden.tsx', 'PLAY'), style: wgText(8, weight: FontWeight.w800, color: p.accentDeep, ls: 2)),
                     ]),
                     style: wgText(19, weight: FontWeight.w900, color: p.ink, ls: -.7),
                   ),

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Small icon of on-device reminders. The Capacitor app asked for "ic_stat_icon" (capacitor.config.json) but never
+     shipped that drawable, so @capacitor/local-notifications fell back to android.R.drawable.ic_dialog_info; this
+     wraps the same framework icon under a name flutter_local_notifications can resolve. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:drawable/ic_dialog_info" />
+</layer-list>

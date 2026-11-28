@@ -62,7 +62,9 @@ const Map<String, (String, String)> _babyFeedingCopy = {
 (String, String) _babyFeeding() => _babyFeedingCopy[normalizeAppLanguage(currentLanguage())] ?? _babyFeedingCopy['en']!;
 
 /// The "N items" word of a meal row / summary (Nutrition.tsx inline per-language copy).
-String mealItemWord(String language, int n) => switch (language) {
+/// Each word is inline-localized by the Vite plugin (`tr(inline_nutrition_*, word)`), so the pack languages get
+/// their own word for the `_` branch.
+String mealItemWord(String language, int n) => trInline('Nutrition.tsx', switch (language) {
       'en' => n == 1 ? 'item' : 'items',
       'ru' => 'продукт',
       'tr' => 'ürün',
@@ -72,7 +74,7 @@ String mealItemWord(String language, int n) => switch (language) {
       'de' => n == 1 ? 'Eintrag' : 'Einträge',
       'ar' => 'عنصر',
       _ => 'qida',
-    };
+    });
 
 const Map<String, Map<String, String>> _mealNameTr = {
   'Əlavə qida': {'en': 'Snack', 'ru': 'Перекус', 'tr': 'Ara öğün', 'kk': 'Жеңіл тамақ', 'uz': 'Yengil tamaddi', 'ka': 'წახემსება', 'de': 'Snack', 'ar': 'وجبة خفيفة'},

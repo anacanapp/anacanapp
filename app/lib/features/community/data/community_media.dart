@@ -9,6 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../core/i18n/i18n.dart';
+import '../../../services/native/media_natives.dart' show EngineJpegImageCodec;
+import '../../../services/native/mobile_host.dart' show isMobileHost;
 import '../../chat/platform/chat_media_picker.dart' show pickedMime;
 import '../../tools/baby_album/image_compress.dart';
 import 'community_backend.dart';
@@ -70,7 +72,8 @@ final communityMediaPickerProvider = Provider<CommunityMediaPicker>((ref) => Ima
 
 /// The canvas codec of `compressImageForUpload`. No JPEG/WebP encoder ships with Flutter: the default uploads the
 /// (picker-scaled) original, like the WebView without `createImageBitmap`.
-final communityImageCodecProvider = Provider<ImageCodec>((ref) => const NoImageCodec());
+final communityImageCodecProvider =
+    Provider<ImageCodec>((ref) => isMobileHost ? const EngineJpegImageCodec() : const NoImageCodec());
 
 const String kCommunityMediaBucket = 'community-media';
 

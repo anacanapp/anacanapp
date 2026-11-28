@@ -123,7 +123,7 @@ class ByPartner extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text('by', style: TextStyle(fontSize: 12, color: s.mutedForeground)),
+        Text(trInline('PartnerShop.tsx', 'by'), style: TextStyle(fontSize: 12, color: s.mutedForeground)),
         const SizedBox(width: 6),
         if (p.logoUrl != null)
           Semantics(

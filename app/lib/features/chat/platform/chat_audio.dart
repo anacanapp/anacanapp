@@ -12,6 +12,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../core/i18n/i18n.dart';
+import '../../../services/native/mobile_host.dart' show isMobileHost;
+import '../../../services/native/record_audio.dart' show RecordChatAudioRecorder;
 import '../data/chat.dart' show ChatMediaFile;
 import '../data/partner_messages.dart' show ChatToast;
 
@@ -75,8 +77,10 @@ class UnavailableChatAudioRecorder implements ChatAudioRecorder {
   Future<void> release() async {}
 }
 
-/// Creates a recorder per recording. Override with a `record`-based implementation.
-final chatAudioRecorderProvider = Provider<ChatAudioRecorder Function()>((ref) => () => const UnavailableChatAudioRecorder());
+/// Creates a recorder per recording: the `record` plugin inside the app (services/native/record_audio.dart),
+/// unavailable elsewhere.
+final chatAudioRecorderProvider = Provider<ChatAudioRecorder Function()>(
+    (ref) => isMobileHost ? RecordChatAudioRecorder.new : () => const UnavailableChatAudioRecorder());
 
 /// `<audio>` media events VoiceMessage listens to.
 enum ChatAudioEvent { loadedMetadata, durationChange, timeUpdate, play, pause, ended, error }

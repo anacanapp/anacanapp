@@ -48,15 +48,117 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <!-- Native ports of the Capacitor app's local plugins (app/android/app/src/main/kotlin/com/atlasoon/anacan/).
+             Same class names as the Capacitor manifest, so placed widgets and the timer channel survive the update. -->
+        <!-- Health Connect permission rationale (Android 13 and below). -->
+        <activity android:name=".HealthPermissionsActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+            </intent-filter>
+        </activity>
+        <!-- Health Connect permission rationale (Android 14+). -->
+        <activity-alias
+            android:name="ViewPermissionUsageActivity"
+            android:exported="true"
+            android:targetActivity=".HealthPermissionsActivity"
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
+            </intent-filter>
+        </activity-alias>
+        <!-- Süd vermə / yuxu taymerləri: kilid ekranı xronometr bildirişi (TimerWidgetPlugin). -->
+        <service
+            android:name=".TimerForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Aktiv körpə qulluq taymeri (süd vermə/yuxu) — istifadəçi tərəfindən başladılan, kilid ekranında canlı sayğac və dayandırma düyməsi"
+            />
+        </service>
+        <!-- Home-screen widgets (snapshot from AnacanWidgetsPlugin). -->
+        <receiver android:name=".AnacanJourneyWidget" android:exported="false" android:label="@string/widget_journey_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_journey_info" />
+        </receiver>
+        <receiver android:name=".AnacanCareWidget" android:exported="false" android:label="@string/widget_care_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_care_info" />
+        </receiver>
+        <receiver android:name=".AnacanWordWidget" android:exported="false" android:label="@string/widget_word_name">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_word_info" />
+        </receiver>
+
+        <!-- Push + on-device reminders (app/lib/services/{push,notifications}). FCM default channel id as in the
+             Capacitor manifest; like there, nothing creates that channel, so FCM falls back to its own. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="high_importance_channel" />
+        <!-- flutter_local_notifications: scheduled reminders and their restore after reboot / app update
+             (Capacitor LocalNotifications' TimedNotificationPublisher + LocalNotificationRestoreReceiver). -->
+        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
+        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+        <!-- Opt-in consent (src/lib/privacyConsent.ts), same as the Capacitor manifest: Firebase collects nothing
+             until the person agrees. -->
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="false" />
+        <meta-data android:name="google_analytics_default_allow_analytics_storage" android:value="false" />
+        <meta-data android:name="google_analytics_default_allow_ad_storage" android:value="false" />
+        <meta-data android:name="google_analytics_default_allow_ad_user_data" android:value="false" />
+        <meta-data android:name="google_analytics_default_allow_ad_personalization_signals" android:value="false" />
+        <!-- AdMob (google_mobile_ads + AnacanAdsPlugin), as the Capacitor manifest: the app id is Google's test id in
+             local builds and the live id from app/tool/codemagic/apply_native_config.mjs (build.gradle.kts
+             placeholder), like Capacitor's res/values/admob.xml. -->
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="${anacanAdmobAppId}" />
+        <meta-data android:name="com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT" android:value="true" />
     </application>
     <!-- Core networking (backend, admission). Flutter's template only adds it to debug/profile manifests. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Timer foreground service (lock-screen chronometer). POST_NOTIFICATIONS comes with the notifications port. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <!-- Screenshot attempt detection (Android 14+, normal permission, granted automatically). -->
+    <uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
+    <!-- Notifications (Android 13+ runtime prompt), reminders after reboot, vibration: Capacitor manifest set. No
+         SCHEDULE_EXACT_ALARM, as in Capacitor: reminders use inexact alarms on Android 12+. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Feature permissions, same names as the Capacitor manifest (and the Play declarations): camera, weather / SOS
+         location, cry analysis / voice messages / noise meter, saving photos on old Android. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Health Connect: same set as the Capacitor manifest and the Play Health Connect declaration (copies of period,
+         weight, blood-pressure and blood-glucose records; steps + exercise reads for the Health screen). -->
+    <uses-permission android:name="android.permission.health.WRITE_MENSTRUATION" />
+    <uses-permission android:name="android.permission.health.WRITE_WEIGHT" />
+    <uses-permission android:name="android.permission.health.WRITE_BLOOD_PRESSURE" />
+    <uses-permission android:name="android.permission.health.WRITE_BLOOD_GLUCOSE" />
+    <uses-permission android:name="android.permission.health.READ_STEPS" />
+    <uses-permission android:name="android.permission.health.READ_EXERCISE" />
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
          https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
 
          In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
     <queries>
+        <!-- Health Connect app (HealthConnectClient.getSdkStatus). -->
+        <package android:name="com.google.android.apps.healthdata" />
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>

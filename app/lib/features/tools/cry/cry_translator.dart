@@ -627,7 +627,7 @@ class CryTranslatorState extends ConsumerState<CryTranslator> with WidgetsBindin
                 ),
               ),
               const SizedBox(width: 8),
-              Text('/10s', style: px(12, color: a.inkSoft)),
+              Text(trInline('CryTranslator.tsx', '/10s'), style: px(12, color: a.inkSoft)),
             ],
           ),
           const SizedBox(height: 8),

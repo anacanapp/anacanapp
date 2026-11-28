@@ -25,6 +25,8 @@ import '../../../design/design.dart';
 import '../../../domain/billing/usage_limits.dart' show UsageDecision;
 import '../../../domain/pregnancy/pregnancy_utils.dart' show getRealCalendarAge;
 import '../../../native/purchases/subscription.dart' show subscriptionProvider, subscriptionUsageProvider, SubscriptionUsage;
+import '../../../services/native/mobile_host.dart' show isMobileHost;
+import '../../../services/native/permissions.dart' show nativePermissionsProvider;
 import '../../premium/premium_modal.dart' show showPremiumModal;
 import '../health_common/health_db.dart';
 
@@ -262,11 +264,16 @@ class GeoPosition {
   final double longitude;
 }
 
-/// `getCurrentPosition()` (coarse, 10 s timeout, 60 s maximum age). No location plugin yet: it always fails, which
-/// is the React path when geolocation is unavailable (the weather tool falls back to Baku).
+/// `getCurrentPosition()` (coarse, 10 s timeout, 60 s maximum age). Inside the app: the permission flow of
+/// permissions.ts on geolocator; elsewhere it always fails, which is the React path when geolocation is unavailable
+/// (the weather tool falls back to Baku).
 final geolocationProvider = Provider<Future<GeoPosition> Function()>(
-  (ref) =>
-      () async => throw UnsupportedError('Geolocation is unavailable'),
+  (ref) => isMobileHost
+      ? () async {
+          final p = await ref.read(nativePermissionsProvider).getCurrentPosition();
+          return GeoPosition(p.latitude, p.longitude);
+        }
+      : () async => throw UnsupportedError('Geolocation is unavailable'),
 );
 
 // ── AI context ──

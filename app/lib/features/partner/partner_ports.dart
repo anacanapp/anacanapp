@@ -15,6 +15,8 @@ import '../chat/data/chat.dart' show sendPartnerMessage;
 import '../chat/data/chat_backend.dart' show chatBackendProvider;
 import '../chat/data/chat_push.dart' show chatPushSenderProvider;
 import '../chat/data/partner_messages.dart' show partnerMessagesProvider;
+import '../../services/native/mobile_host.dart' show isMobileHost;
+import '../../services/native/native_permission_ports.dart' show sosCurrentLocation;
 
 /// `hapticFeedback.light / medium / heavy` (Capacitor Haptics impact → Flutter [HapticFeedback]).
 @immutable
@@ -41,9 +43,9 @@ class SosLocation {
 }
 
 /// `getCurrentLocation()` of useSOSAlert: asks for the permission when needed; null when denied or failed.
-/// Default: no location (`geolocator` is not a dependency yet) — React's denied-permission branch, the alert is
-/// still sent, just without coordinates.
-final sosLocationProvider = Provider<Future<SosLocation?> Function()>((ref) => () async => null);
+/// Inside the app: geolocator (services/native/native_permission_ports.dart). Elsewhere: no location — React's
+/// denied-permission branch, the alert is still sent, just without coordinates.
+final sosLocationProvider = Provider<Future<SosLocation?> Function()>((ref) => isMobileHost ? sosCurrentLocation : () async => null);
 
 /// `sendPartnerMessage(actor, partnerUserId, content)` (src/lib/chat.ts: chat_send_message_v2 + push).
 final partnerChatSenderProvider = Provider<Future<void> Function(String actor, String partnerUserId, String content)>((ref) {

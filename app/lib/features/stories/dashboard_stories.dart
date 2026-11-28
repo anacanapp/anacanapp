@@ -8,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/cache/cache.dart';
+import '../../core/i18n/tr.dart' show trInline;
 import '../../design/design.dart';
 import '../../domain/cycle/cycle_utils.dart' show getCycleDayForDate;
 import '../../domain/models/anacan.dart' show fruitSizes;
@@ -207,7 +208,7 @@ class _DashboardStoriesState extends ConsumerState<DashboardStories> {
 
     final t = context.a;
     return Semantics(
-      label: 'Story-lər',
+      label: trInline('DashboardStories.tsx', 'Story-lər'),
       container: true,
       child: Padding(
         key: const ValueKey('dashboard-stories'),

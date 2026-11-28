@@ -4,8 +4,8 @@
 // The lifecycle rules around the AdMob SDK: UMP before initialize, one banner generation at a time (late
 // callbacks of a removed banner are ignored), bounded loads, one full-screen presentation at a time, an earned
 // reward granted once and only on the SDK's reward signal, preloads invalidated by [reset]. The SDK itself is
-// [AdmobSdk]; no implementation ships in this build (no native ads package yet), so [admobSdkProvider] is null and
-// the app behaves like React without the AdMob plugin (`hasNativeAdmob() === false`).
+// [AdmobSdk]: google_mobile_ads_sdk.dart in the iOS / Android app (services/analytics/sdk_wiring.dart); elsewhere
+// [admobSdkProvider] stays null and the app behaves like React without the AdMob plugin (`hasNativeAdmob() === false`).
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
@@ -445,5 +445,5 @@ class NativeAdmobAdapter {
   Widget? buildBannerView(BuildContext context) => sdk.buildBannerView(context);
 }
 
-/// The native AdMob SDK binding (`google_mobile_ads` in the native step). Null = this build has no AdMob SDK.
+/// The native AdMob SDK binding (`GoogleMobileAdsSdk` on iOS / Android). Null = no AdMob SDK (web, tests).
 final admobSdkProvider = Provider<AdmobSdk?>((ref) => null);

@@ -6,6 +6,9 @@
 // the screen mute itself, like the rejected `audio.play()` promise), pause(), muted.
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../services/native/audio_players.dart' show JustAudioRecapAudio;
+import '../../services/native/mobile_host.dart' show isMobileHost;
+
 abstract interface class RecapAudio {
   /// `!audio.paused`.
   bool get playing;
@@ -42,4 +45,5 @@ class SilentRecapAudio implements RecapAudio {
 }
 
 /// Creates the player for one RecapScreen (asset: recap_export.dart `recapMusicAsset`).
-final recapAudioFactoryProvider = Provider<RecapAudio Function()>((ref) => SilentRecapAudio.new);
+final recapAudioFactoryProvider =
+    Provider<RecapAudio Function()>((ref) => isMobileHost ? JustAudioRecapAudio.new : SilentRecapAudio.new);

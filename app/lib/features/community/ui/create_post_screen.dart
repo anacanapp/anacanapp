@@ -270,7 +270,7 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
             end: 10,
             top: 10,
             child: CommunityButton(
-              label: 'Emoji',
+              label: trInline('CreatePostScreen.tsx', 'Emoji'),
               onTap: () => setState(() => _emoji = !_emoji),
               child: Container(
                 width: 32,
@@ -421,7 +421,7 @@ class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
                     ? null
                     : () async => _add(await ref.read(communityMediaPickerProvider).pickImages(), false)),
                 const SizedBox(width: 12),
-                iconButton(AIcons.video, 'Video', a.blueInk, _media.length >= 4 || _uploading
+                iconButton(AIcons.video, trInline('CreatePostScreen.tsx', 'Video'), a.blueInk, _media.length >= 4 || _uploading
                     ? null
                     : () async {
                         final v = await ref.read(communityMediaPickerProvider).pickVideo();

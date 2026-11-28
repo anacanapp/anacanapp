@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home-screen widget gallery names (default/English), from the Capacitor app's android/app/src/main/res/values/strings.xml.
+     The 24 values-<lang>/widget_strings.xml files are copies of the Capacitor ones. -->
+<resources>
+    <string name="widget_journey_name">Anacan · Journey</string>
+    <string name="widget_journey_desc">Pregnancy week and baby size, or your baby\'s age</string>
+    <string name="widget_care_name">Anacan · Feeding and sleep</string>
+    <string name="widget_care_desc">Last feed, next nap and quick buttons (Premium)</string>
+    <string name="widget_word_name">Anacan · Word of the day</string>
+    <string name="widget_word_desc">A gentle daily affirmation</string>
+</resources>

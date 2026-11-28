@@ -6,6 +6,9 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../services/native/audio_players.dart' show JustAudioWhiteNoise;
+import '../services/native/mobile_host.dart' show isMobileHost;
+
 class WhiteNoiseSound {
   const WhiteNoiseSound({
     required this.id,
@@ -48,7 +51,13 @@ class NoopWhiteNoiseAudio implements WhiteNoiseAudio {
   void setGain(double gain) {}
 }
 
-final whiteNoiseAudioProvider = Provider<WhiteNoiseAudio>((ref) => const NoopWhiteNoiseAudio());
+/// just_audio inside the app (services/native/audio_players.dart); silent elsewhere.
+final whiteNoiseAudioProvider = Provider<WhiteNoiseAudio>((ref) {
+  if (!isMobileHost) return const NoopWhiteNoiseAudio();
+  final audio = JustAudioWhiteNoise();
+  ref.onDispose(audio.stop);
+  return audio;
+});
 
 class WhiteNoiseState {
   const WhiteNoiseState({

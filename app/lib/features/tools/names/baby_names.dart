@@ -285,7 +285,7 @@ class _BabyNamesState extends ConsumerState<BabyNames> {
                   Text('${pregnancyFollowupText('names_catalog_source', language)}: ', style: x.aListSub),
                   GestureDetector(
                     onTap: () => ref.read(namesLinkLauncherProvider)(Uri.parse('https://github.com/faker-js/faker/tree/v9.9.0/src/locales')),
-                    child: Text('Faker v9.9.0 · MIT', style: x.aListSub.copyWith(decoration: TextDecoration.underline)),
+                    child: Text(trInline('BabyNames.tsx', 'Faker v9.9.0 · MIT'), style: x.aListSub.copyWith(decoration: TextDecoration.underline)),
                   ),
                 ]),
               ),
@@ -485,7 +485,7 @@ class _NameDetail extends StatelessWidget {
                     color: ink,
                     fontSize: 10,
                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                    child: Text(upperCss(gender == 'boy' ? tr('babynames_oglan_e9715e', 'Oğlan') : (gender == 'girl' ? tr('babynames_qiz_79bf6b', 'Qız') : 'Unisex'))),
+                    child: Text(upperCss(gender == 'boy' ? tr('babynames_oglan_e9715e', 'Oğlan') : (gender == 'girl' ? tr('babynames_qiz_79bf6b', 'Qız') : trInline('BabyNames.tsx', 'Unisex')))),
                   ),
                   PCtaBadge(
                     background: a.chipOverlay,

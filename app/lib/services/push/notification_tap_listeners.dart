@@ -12,6 +12,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../shell/links/notification_taps.dart';
+import '../native/mobile_host.dart';
+import 'native_tap_sources.dart';
 
 /// The tap events of the three plugins. Each stream emits the raw payload of one tap.
 abstract interface class NotificationTapSources {
@@ -92,5 +94,9 @@ final NotificationTapListeners processNotificationTapListeners = NotificationTap
 void installNotificationTapListeners([NotificationTapSources sources = const NoNotificationTapSources()]) =>
     processNotificationTapListeners.install(sources);
 
-/// The tap sources the native step provides (tests and diagnostics read it; listeners are installed from `main()`).
-final notificationTapSourcesProvider = Provider<NotificationTapSources>((ref) => const NoNotificationTapSources());
+/// The tap sources of this process (tests and diagnostics read it; listeners are installed from `main()`).
+final notificationTapSourcesProvider = Provider<NotificationTapSources>((ref) => defaultNotificationTapSources());
+
+/// The app build: Firebase Messaging + local notifications; anything else (tests, web): none.
+NotificationTapSources defaultNotificationTapSources() =>
+    isMobileHost ? const NativeNotificationTapSources() : const NoNotificationTapSources();

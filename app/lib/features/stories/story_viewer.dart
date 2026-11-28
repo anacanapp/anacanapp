@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/i18n/tr.dart';
 import '../../design/design.dart';
 import '../../shell/shell.dart' show OverlayBackHandler;
 import 'dashboard_stories.dart' show StoryArt;
@@ -384,8 +385,8 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
             opacity: 0.78,
             child: Text('MİF VƏ FAKT', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 0.96)),
           ),
-          box('MİF', sl['myth'] as String?, false),
-          box('FAKT', sl['fact'] as String?, true),
+          box(trInline('StoryViewer.tsx', 'MİF'), sl['myth'] as String?, false),
+          box(trInline('StoryViewer.tsx', 'FAKT'), sl['fact'] as String?, true),
           ?source,
           const Spacer(),
           small,
@@ -446,7 +447,7 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
                   : Text.rich(
                       TextSpan(
                         children: [
-                          TextSpan(text: _answer == correct ? 'Düzdür! ' : 'Əslində: '),
+                          TextSpan(text: '${trInline('StoryViewer.tsx', _answer == correct ? 'Düzdür!' : 'Əslində:')} '),
                           WidgetSpan(child: rich(sl['explain'] as String?, const TextStyle(fontSize: 15, height: 1.38, fontWeight: FontWeight.w600))),
                         ],
                       ),
@@ -657,7 +658,7 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
                                 const Spacer(),
                                 Semantics(
                                   button: true,
-                                  label: 'Story-ni yüklə',
+                                  label: trInline('StoryViewer.tsx', 'Story-ni yüklə'),
                                   child: GestureDetector(
                                     key: const ValueKey('story-download'),
                                     onTap: _saving == 'busy' ? null : _save,
@@ -678,11 +679,14 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
                                             ),
                                             const SizedBox(width: 6),
                                             Text(
-                                              _saving == 'done'
-                                                  ? 'Hazırdır'
-                                                  : _saving == 'error'
-                                                  ? 'Alınmadı'
-                                                  : 'Yüklə',
+                                              trInline(
+                                                'StoryViewer.tsx',
+                                                _saving == 'done'
+                                                    ? 'Hazırdır'
+                                                    : _saving == 'error'
+                                                    ? 'Alınmadı'
+                                                    : 'Yüklə',
+                                              ),
                                               style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700),
                                             ),
                                           ],
@@ -693,7 +697,7 @@ class StoryViewerState extends ConsumerState<StoryViewer> with SingleTickerProvi
                                 ),
                                 Semantics(
                                   button: true,
-                                  label: 'Bağla',
+                                  label: trInline('StoryViewer.tsx', 'Bağla'),
                                   child: GestureDetector(
                                     key: const ValueKey('story-close'),
                                     onTap: widget.onClose,

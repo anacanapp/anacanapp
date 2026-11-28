@@ -2,6 +2,7 @@
 //              .bk-sheet), src/components/books/BookStoreScreen.tsx (PrintGuide, Sheet)
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/i18n/tr.dart' show trInline;
 import '../../design/design.dart';
 import '../settings/ui/settings_ui.dart' show ALoader, px;
 import 'books_catalog.dart';
@@ -166,7 +167,7 @@ class BooksSheet extends StatelessWidget {
                       top: 14,
                       child: Semantics(
                         button: true,
-                        label: 'Close',
+                        label: trInline('BookStoreScreen.tsx', 'Close'),
                         child: GestureDetector(
                           key: const ValueKey('books-sheet-close'),
                           onTap: onClose,

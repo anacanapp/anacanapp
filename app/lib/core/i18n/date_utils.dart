@@ -6,6 +6,7 @@ import 'package:intl/date_time_patterns.dart';
 import 'package:intl/intl.dart';
 
 import 'app_languages.dart';
+import 'generated/date_fns_names.g.dart';
 import 'generated/intl_data.g.dart';
 import 'tr.dart';
 
@@ -209,9 +210,68 @@ Future<void> ensureDateLocales() async {
 /// date-fns-only tokens (`do`, `P`, `p`, …) must be translated by the caller.
 String formatDatePattern(DateTime date, String pattern, {String? language}) {
   final info = appLanguage(language ?? currentLanguage());
+  // Month / weekday names come from the React locale (date-fns, generated/date_fns_names.g.dart): CLDR (intl) differs
+  // in case and abbreviations (az "yanvar" vs "Yanvar", ru "вт" vs "втр", vi "tháng 6" vs "tháng 06", ...). Each
+  // name token becomes a private-use placeholder (a literal for intl) that is replaced after formatting.
+  final names = <String>[];
+  final rewritten = _dateFnsNameTokens(date, pattern, info.code, names);
   // intl swaps a pattern that equals a CLDR skeleton (e.g. 'EEEE' → 'cccc', stand-alone forms);
   // date-fns never does. A trailing quoted sentinel keeps the pattern literal; it is stripped after.
-  final format = DateFormat("$pattern'\u0001'", info.intlLocale)..useNativeDigits = false;
-  final text = format.format(date);
-  return text.endsWith('\u0001') ? text.substring(0, text.length - 1) : text;
+  final format = DateFormat("$rewritten'\u0001'", info.intlLocale)..useNativeDigits = false;
+  var text = format.format(date);
+  if (text.endsWith('\u0001')) text = text.substring(0, text.length - 1);
+  for (var i = 0; i < names.length; i++) {
+    text = text.replaceAll(String.fromCharCode(0xE000 + i), names[i]);
+  }
+  return text;
+}
+
+/// Replaces the date-fns name tokens `MMMM`, `MMM`, `LLLL`, `EEEE` and `E`…`EEE` outside quoted literals by
+/// placeholders U+E000+i and collects the names (formatting context, as date-fns renders them) into [names].
+String _dateFnsNameTokens(DateTime date, String pattern, String language, List<String> names) {
+  final table = kDateFnsNames[language];
+  if (table == null) return pattern;
+  final out = StringBuffer();
+  var i = 0;
+  while (i < pattern.length) {
+    final char = pattern[i];
+    if (char == "'") {
+      var j = i + 1;
+      while (j < pattern.length) {
+        if (pattern[j] == "'") {
+          if (j + 1 < pattern.length && pattern[j + 1] == "'") {
+            j += 2;
+            continue;
+          }
+          break;
+        }
+        j++;
+      }
+      final end = j < pattern.length ? j + 1 : pattern.length;
+      out.write(pattern.substring(i, end));
+      i = end;
+      continue;
+    }
+    var j = i;
+    while (j < pattern.length && pattern[j] == char) {
+      j++;
+    }
+    final count = j - i;
+    final name = switch ((char, count)) {
+      ('M', 4) => table.$1[date.month - 1],
+      ('M', 3) => table.$2[date.month - 1],
+      ('L', 4) => table.$3[date.month - 1],
+      ('E', 4) => table.$4[date.weekday % 7],
+      ('E', <= 3) => table.$5[date.weekday % 7],
+      _ => null,
+    };
+    if (name == null) {
+      out.write(pattern.substring(i, j));
+    } else {
+      out.write(String.fromCharCode(0xE000 + names.length));
+      names.add(name);
+    }
+    i = j;
+  }
+  return out.toString();
 }

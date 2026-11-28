@@ -10,6 +10,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/i18n/tr.dart';
+import '../../../services/native/doctor_report_pdf.dart' show PdfPackageDoctorReportRenderer;
+import '../../../services/native/media_natives.dart' show SharePlusPdfDelivery;
+import '../../../services/native/mobile_host.dart' show isMobileHost;
 
 @immutable
 class ReportRow {
@@ -125,8 +128,9 @@ class UnsupportedDoctorReportPdfRenderer implements DoctorReportPdfRenderer {
   Future<Uint8List> render(DoctorReportData data) async => throw UnsupportedError('REPORT_PDF_UNAVAILABLE');
 }
 
-/// Default: unsupported until the `pdf` package lands (phase 9).
-final doctorReportPdfRendererProvider = Provider<DoctorReportPdfRenderer>((ref) => const UnsupportedDoctorReportPdfRenderer());
+/// Inside the app: the `pdf` package (services/native/doctor_report_pdf.dart); elsewhere unsupported (error toast).
+final doctorReportPdfRendererProvider = Provider<DoctorReportPdfRenderer>(
+    (ref) => isMobileHost ? PdfPackageDoctorReportRenderer() : const UnsupportedDoctorReportPdfRenderer());
 
 /// 'shared' | 'downloaded' | 'cancelled'.
 typedef PdfDeliveryResult = String;
@@ -186,7 +190,9 @@ class UnsupportedPdfDeliveryPlatform implements PdfDeliveryPlatform {
   Future<void> saveDownload(String fileName, Uint8List bytes) async => throw UnsupportedError('REPORT_SAVE_UNAVAILABLE');
 }
 
-final pdfDeliveryPlatformProvider = Provider<PdfDeliveryPlatform>((ref) => const UnsupportedPdfDeliveryPlatform());
+/// Inside the app: cache folder + share sheet (services/native/media_natives.dart).
+final pdfDeliveryPlatformProvider =
+    Provider<PdfDeliveryPlatform>((ref) => isMobileHost ? const SharePlusPdfDelivery() : const UnsupportedPdfDeliveryPlatform());
 
 bool _isCancelled(Object error) {
   if (error is PdfShareCancelled) return true;
