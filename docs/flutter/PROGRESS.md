@@ -1,8 +1,10 @@
 # Flutter keçidi: gedişat
 
 Yenilənib: 2026-11-28. Budaq: `claude/blissful-sagan-lqhvv9`. Test sayları `app/` içində `flutter test` ilə alınıb.
-Sahibin məlumatı (2026-11-28): Android Codemagic yığımında problem yoxdur; iOS-da cüzi problemlər var, sahib
-yekun nəticəni sonra bildirəcək. Agent özü heç nəyi cihazda işlətməyib.
+Sahibin məlumatı (2026-11-28): Codemagic build #21 (`ba008a1`) keçdi, amma bu Capacitor workflow-u idi
+(`android-store`, "Android Google Play (AAB)"), Flutter yox. Flutter Android (`android-flutter-store`) hələ
+kompilyasiya olunmayıb. iOS-da cüzi problemlər var, sahib yekun nəticəni sonra bildirəcək. Agent özü heç nəyi
+cihazda işlətməyib.
 
 | İş | Vəziyyət | Yoxlama |
 |---|---|---|
@@ -71,7 +73,7 @@ və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən ç
 
 - iOS: Codemagic-də kompilyasiya olunub, imzalanıb və yüklənib; ilk build Apple emalında qəbul olunmamışdı, icazə
   mətnləri, privacy manifest və entitlements əlavə edildi (`app/tool/ios/apply_ios_parity.mjs`). Sahib 2026-11-28
-  "cüzi problemlər" bildirdi, təfsilat gözlənilir. Android yığımı sahibə görə problemsizdir.
+  "cüzi problemlər" bildirdi, təfsilat gözlənilir. Flutter Android workflow-u hələ işə salınmayıb.
 - Səs/mikrofon/yer paketləri (`just_audio`, `record`, `geolocator`, `gal`) hələ yoxdur: ağ səs, ağlama tərcüməçisi,
   səs-küy ölçən, hava, səsli mesaj yazma "dəstəklənmir" yolu ilə işləyir (WIRING.md, 9-cu mərhələ).
 - Aşağı prioritet i18n: `demo_ad.dart` mətnləri (yalnız demo/sınaq rejimi; React-da `trInline('DemoAd.tsx', …)`),
