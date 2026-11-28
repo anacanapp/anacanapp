@@ -56,6 +56,8 @@ və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən ç
 ## Qəbul olunmuş qərarlar (2026-11-27)
 
 - `analyze-cry` m4a/Ogg da qəbul edir (backend dəyişikliyi; sahib 2026-11-28 deploy etdi; köhnə tətbiqlər dəyişmədən WebM göndərir).
+- React tərcümə mənbələrindəki 4 məlumat xətası (`\` dəyərləri, "VurÄŸu", escape kodları) React-da düzəldilmir: React
+  tətbiqi bu versiya ilə ləğv olunur (sahib, 2026-11-28). Flutter-dəki müvəqqəti həllər qalır.
 - Switzer şriftinin lisenziyası sahib tərəfindən təsdiqlənib (2026-11-28); Recap şriftləri `app/assets/fonts/recap/`-da qalır.
 - Oxunmamış mesaj nişanı inbox-dakı bütün qrupları sayır.
 
@@ -72,6 +74,9 @@ və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən ç
   "cüzi problemlər" bildirdi, təfsilat gözlənilir. Android yığımı sahibə görə problemsizdir.
 - Səs/mikrofon/yer paketləri (`just_audio`, `record`, `geolocator`, `gal`) hələ yoxdur: ağ səs, ağlama tərcüməçisi,
   səs-küy ölçən, hava, səsli mesaj yazma "dəstəklənmir" yolu ilə işləyir (WIRING.md, 9-cu mərhələ).
+- Aşağı prioritet i18n: `demo_ad.dart` mətnləri (yalnız demo/sınaq rejimi; React-da `trInline('DemoAd.tsx', …)`),
+  `a_sheet.dart` `closeLabel = 'Close'` (ekran oxuyucusu; nullable parametr + `trInline('sheet.tsx', 'Close')`),
+  `water_widget.dart` və `doctor_report_pdf.dart`-da intl rəqəm formatı → `formatIntlNumber`.
 - Golden-lərdə kölgə yoxdur: flutter_test kölgələri bulanıqlıqsız çəkir (Billing geri düyməsinin "itən" kölgəsi də
   budur, tətbiq qüsuru deyil). Yeni paritet golden-ləri bunu söndürür; ortaq harness-lərdə də açmaq (Linux-da yenidən
   çəkməklə) təklif olunur.
