@@ -297,7 +297,8 @@ class _BabyChatScreenState extends ConsumerState<BabyChatScreen> {
     );
 
     final canSend = _draft.text.trim().isNotEmpty && !_typing;
-    final input = DecoratedBox(
+    // Taps on the input bar (send) keep the keyboard open; the app-wide KeyboardDismissScope closes it elsewhere.
+    final input = TextFieldTapRegion(child: DecoratedBox(
       decoration: BoxDecoration(color: a.surface.withValues(alpha: a.surface.a * 0.7), border: Border(top: BorderSide(color: a.line))),
       child: Padding(
         padding: EdgeInsets.fromLTRB(12, 10, 12, 10 + (insets.bottom > 0 ? 0 : pad.bottom)),
@@ -355,7 +356,7 @@ class _BabyChatScreenState extends ConsumerState<BabyChatScreen> {
           ),
         ]),
       ),
-    );
+    ));
 
     return DecoratedBox(
       decoration: BoxDecoration(

@@ -146,6 +146,22 @@ article overlay (the shell is only rendered after the gates). Back pops: screen 
 (only on the Tools tab, via `handleToolBack`) and remembers it; forward re-opens it once; a push clears it. Never
 switches tabs.
 
+**Interactive back swipe (iOS, `widgets/edge_swipe_back.dart`, no React source).** `edgeSwipeBackPlatformProvider`
+(iOS only: Android's system back gesture/button already reaches `AndroidBackScope`). A drag starting ≤ 20 px from
+the leading edge (trailing in RTL) slides the top layer (the blog article over the mounted layer, else the shell
+layer) with a shadow over the dimmed `--a-bg`; release past 35 % of the width or a flick ≥ 700 px/s → slide out,
+unfocus, then `edgeSwipeBack`: `BackDispatcher` overlay + screen layers (same handlers/guards as the back button),
+then the root layer only when `edgeBackCanPopRoot` (a layer above the frame, or a tool on the Tools tab) — never the
+tab switch or exit toast. Starts only when `edgeSwipeCanGoBack`; claims the pointer after 6 px (before carousel and
+scroll slop), vertical-first or backwards movement releases it. While on, the Index detector above ignores
+back-edge starts (`reserveBackEdge`), so a swipe never goes back twice; forward swipes stay. Dialogs/sheets are
+Navigator routes above the shell and get no edge swipe.
+
+**Keyboard** (`design/widgets/keyboard_dismiss.dart`, `KeyboardDismissScope` in `AppChrome`): a tap outside the
+focused field's `TextFieldTapRegion` group unfocuses it; a vertical user drag of any scroll view unfocuses a text
+field (not the text scroll inside a multi-line field). Chat composers (DM/group, AI, baby chat) are wrapped in
+`TextFieldTapRegion`, so send keeps the keyboard open.
+
 ## 8. Deep links and push taps
 
 `parseDeeplink(url)` accepts `anacan://`, `com.atlasoon.anacan://` (host + path, host case kept), `https://` on

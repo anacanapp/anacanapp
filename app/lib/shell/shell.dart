@@ -23,4 +23,5 @@ export 'router.dart';
 export 'shell_inputs.dart';
 export 'widgets/android_back_scope.dart';
 export 'widgets/bottom_nav_capsule.dart';
+export 'widgets/edge_swipe_back.dart';
 export 'widgets/shell_scaffold.dart';

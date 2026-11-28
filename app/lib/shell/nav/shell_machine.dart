@@ -543,6 +543,12 @@ ShellLayer layerFor(ShellState s, ShellGuardContext c) {
   return ShellLayer.frame;
 }
 
+/// Native edge swipe-back (no React counterpart): the root back handler is only asked when it would pop something
+/// visible — a layer above the frame or an open tool on the Tools tab. Root tabs have nothing to go back to (the
+/// back button's "non-home tab → home" and exit toast stay button-only).
+bool edgeBackCanPopRoot(ShellState s, ShellGuardContext c) =>
+    layerFor(s, c) != ShellLayer.frame || (s.activeTool != null && s.activeTab == ShellTab.tools);
+
 /// GA screen names (`SCREEN_NAME_MAP`).
 const Map<String, String> kScreenNameMap = {
   'home': 'Dashboard', 'tools': 'ToolsHub', 'ai': 'AIChat', 'shop': 'Shop', 'cakes': 'Cakes', 'profile': 'Profile',

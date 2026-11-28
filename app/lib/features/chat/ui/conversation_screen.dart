@@ -1175,13 +1175,17 @@ class _ConversationState extends ConsumerState<_Conversation> {
         Semantics(liveRegion: true, child: ChatNotice(child: Text(groupTr('chat_uploading', 'Fayl yüklənir…')))),
     ];
 
-    return Container(
-      padding: EdgeInsets.fromLTRB(12, 8, 12, 9 + MediaQuery.paddingOf(context).bottom),
-      decoration: BoxDecoration(color: a.surface, border: Border(top: BorderSide(color: a.line))),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 760),
-          child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: children),
+    // React refocuses the input after send / emoji: taps inside the composer keep the keyboard open
+    // (the app-wide KeyboardDismissScope closes it for taps elsewhere).
+    return TextFieldTapRegion(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(12, 8, 12, 9 + MediaQuery.paddingOf(context).bottom),
+        decoration: BoxDecoration(color: a.surface, border: Border(top: BorderSide(color: a.line))),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 760),
+            child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: children),
+          ),
         ),
       ),
     );

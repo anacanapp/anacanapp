@@ -26,8 +26,11 @@ class BackDispatcher {
   }
 
   /// `dispatchBack()`: true when someone consumed the press. A throwing handler is skipped.
-  bool dispatch() {
+  /// [layers] limits the walk (in [BackLayer] order) — the edge swipe asks the root layer only when the shell has
+  /// something to pop.
+  bool dispatch({Iterable<BackLayer> layers = BackLayer.values}) {
     for (final layer in BackLayer.values) {
+      if (!layers.contains(layer)) continue;
       final list = _handlers[layer]!;
       for (var i = list.length - 1; i >= 0; i--) {
         try {

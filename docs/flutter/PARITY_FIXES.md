@@ -33,6 +33,8 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
 | **Çökmə (iOS 60.0.5):** premium istifadəçi Profil → "Abunəliyim" açanda tətbiq bağlanırdı: ekran RevenueCat qurulmamış `getCustomerInfo` göndərirdi və PurchasesHybridCommon `fatalError("Purchases has not been configured")` atırdı. İndi ekran quraşdırmanı gözləyir, bütün RevenueCat çağırışları `isConfigured` yoxlayır (`BILLING_UNAVAILABLE`) | Flutter qüsuru (crash log `Runner-2026-11-28-170519.ips`) | düzəldilib; `test/app/premium_profile_billing_test.dart` |
+| Klaviatura bağlanmırdı (rəy, mesaj, AI): Flutter mobil TextField kənara toxunanda heç nə etmir. Kökdə `KeyboardDismissScope`: kənara toxunma və şaquli sürüşdürmə klaviaturanı bağlayır (WebView kimi); çat composer-lərində göndər/emoji klaviaturanı saxlayır | Flutter qüsuru | düzəldilib |
+| iOS-da kənardan sürüşdürərək geri qayıtma yox idi: interaktiv edge swipe-back (20 px zona, 35% və ya sürətli flick), Android geri düyməsi ilə eyni handler-lər; Android-də sistem jesti qalır | native əlavə | əlavə edilib |
 | Native kanallar: Android reklam `show` və iOS TikTok `start` Flutter-ə iki dəfə cavab verə bilirdi; iOS kanalları obyekt yoxdursa cavabsız qalırdı | Flutter qüsuru | düzəldilib |
 | Health (Android): `isHealthAvailable`-dan əvvəl çağırış çökürdü; indi Health Connect klienti yaradılır | capacitor-health 8.1.2 | düzəldilib |
 | Health (Android): məşqin `sourceName`-i cihaz modelini iki dəfə təkrarlayırdı | capacitor-health 8.1.2 | düzəldilib |

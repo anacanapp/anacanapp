@@ -12,6 +12,7 @@ import '../core/i18n/app_languages.dart' show appLanguage;
 import '../core/i18n/language_controller.dart' show appLanguageProvider;
 import '../design/theme.dart';
 import '../design/widgets/a_toast.dart';
+import '../design/widgets/keyboard_dismiss.dart';
 import '../features/community/moderation/moderator_enforcement.dart' show ModeratorEnforcement;
 import '../features/security/app_lock_screen.dart' show AppLockGate;
 import '../features/security/screen_capture_guard.dart' show ScreenCaptureGuard;
@@ -115,15 +116,18 @@ class AppChrome extends ConsumerWidget {
             child: ScreenCaptureGuard(
               child: AToastHost(
                 controller: ref.watch(appToastControllerProvider),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    const Positioned(left: 0, top: 0, width: 0, height: 0, child: AppSessionHosts()),
-                    // <AdExperienceProvider><BrowserRouter><ModeratorEnforcement><Routes/>…
-                    AdExperienceHost(child: ModeratorEnforcement(child: child)),
-                    const OfflineSyncIndicator(),
-                    const AppLockGate(),
-                  ],
+                // WebView keyboard behaviour: a tap outside the focused field or a vertical drag closes it.
+                child: KeyboardDismissScope(
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      const Positioned(left: 0, top: 0, width: 0, height: 0, child: AppSessionHosts()),
+                      // <AdExperienceProvider><BrowserRouter><ModeratorEnforcement><Routes/>…
+                      AdExperienceHost(child: ModeratorEnforcement(child: child)),
+                      const OfflineSyncIndicator(),
+                      const AppLockGate(),
+                    ],
+                  ),
                 ),
               ),
             ),

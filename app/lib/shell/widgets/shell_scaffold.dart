@@ -19,6 +19,7 @@ import '../nav/shell_state.dart';
 import '../nav/swipe.dart';
 import '../shell_inputs.dart';
 import 'bottom_nav_capsule.dart';
+import 'edge_swipe_back.dart';
 
 /// The shell after the gates: renders the layer Index would render for the current [ShellState].
 class ShellScaffold extends ConsumerWidget {
@@ -66,18 +67,31 @@ class ShellScaffold extends ConsumerWidget {
     }
 
     final blogOpen = controller.blogOverlayOpen;
-    final children = <Widget>[
-      Positioned.fill(child: body),
-      if (blogOpen)
-        Positioned.fill(
-          child: _BlogArticleLayer(slug: state.blogOverlay!.slug, onClose: controller.closeBlogOverlay),
-        ),
-    ];
+    final edgeBack = ref.watch(edgeSwipeBackPlatformProvider);
+    final back = ref.read(backDispatcherProvider);
     return SwipeNavigationDetector(
       enabled: user.isAuthenticated && !blogOpen,
+      // The interactive edge swipe owns the back edge where it is on; forward swipes stay here.
+      reserveBackEdge: edgeBack,
       onSwipeBack: controller.swipeBack,
       onSwipeForward: controller.swipeForward,
-      child: Stack(children: children),
+      child: EdgeSwipeBack(
+        enabled: edgeBack && user.isAuthenticated,
+        canGoBack: () => edgeSwipeCanGoBack(back, ref.read(shellProvider), ref.read(shellUserProvider).guard),
+        onBack: () => edgeSwipeBack(back, ref.read(shellProvider), ref.read(shellUserProvider).guard),
+        // Fixed child order (underlay, layer, article) so the layer keeps its state when the article opens.
+        builder: (context, progress) => Stack(children: [
+          Positioned.fill(child: EdgeSwipeUnderlay(progress: progress)),
+          Positioned.fill(child: EdgeSwipeSlide(progress: progress, active: !blogOpen, child: body)),
+          if (blogOpen)
+            Positioned.fill(
+              child: EdgeSwipeSlide(
+                progress: progress,
+                child: _BlogArticleLayer(slug: state.blogOverlay!.slug, onClose: controller.closeBlogOverlay),
+              ),
+            ),
+        ]),
+      ),
     );
   }
 }
@@ -453,12 +467,17 @@ class SwipeNavigationDetector extends StatefulWidget {
     required this.onSwipeBack,
     required this.onSwipeForward,
     this.enabled = true,
+    this.reserveBackEdge = false,
   });
 
   final Widget child;
   final VoidCallback onSwipeBack;
   final VoidCallback onSwipeForward;
   final bool enabled;
+
+  /// Ignore touches that start on the back edge (left, right in RTL): the interactive [EdgeSwipeBack] handles
+  /// them, so one swipe never goes back twice or with two different stacks.
+  final bool reserveBackEdge;
 
   @override
   State<SwipeNavigationDetector> createState() => _SwipeNavigationDetectorState();
@@ -487,8 +506,13 @@ class _SwipeNavigationDetectorState extends State<SwipeNavigationDetector> {
       behavior: HitTestBehavior.translucent,
       onPointerDown: (e) {
         if (!widget.enabled || _pointer != null) return; // touches[0] only
+        final width = MediaQuery.sizeOf(context).width;
+        if (widget.reserveBackEdge &&
+            (rtl ? e.position.dx >= width - _tracker.edgeWidth : e.position.dx <= _tracker.edgeWidth)) {
+          return;
+        }
         _pointer = e.pointer;
-        _tracker.start(e.position.dx, e.position.dy, MediaQuery.sizeOf(context).width);
+        _tracker.start(e.position.dx, e.position.dy, width);
       },
       onPointerMove: (e) {
         if (e.pointer == _pointer) _tracker.move(e.position.dx, e.position.dy);

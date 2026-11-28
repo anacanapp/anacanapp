@@ -878,7 +878,9 @@ class _InputArea extends StatelessWidget {
               ),
             ]),
           ),
-        Container(
+        // Taps on the input pill (attach, send, stop) keep the keyboard open; the app-wide KeyboardDismissScope
+        // closes it for taps elsewhere.
+        TextFieldTapRegion(child: Container(
           padding: const EdgeInsetsDirectional.fromSTEB(16, 6, 6, 6),
           decoration: BoxDecoration(
             color: a.surface,
@@ -960,7 +962,7 @@ class _InputArea extends StatelessWidget {
                 child: const AIcon(AIcons.send, size: 15, strokeWidth: 2.2, color: _white),
               ),
           ]),
-        ),
+        )),
       ]),
     );
   }
