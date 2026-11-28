@@ -42,7 +42,8 @@ void main() {
     expect(c.read(userStoreProvider).hasCompletedFunnel, isFalse);
     h.store.setItem('anacan_pending_funnel', '{"userId":"user-a","backend":""}');
     expect(c.read(legacyFunnelFlagMatchesProvider), isTrue);
-    expect(shellStateOverrides(), hasLength(6));
+    // user, gate inputs, gate actions, unread messages, unread posts, nav style, shell platform (analytics).
+    expect(shellStateOverrides(), hasLength(7));
     expect(BottomNavStyle.classic, isNotNull);
   });
 }
