@@ -4,11 +4,17 @@
 // Runs once after the upgrade: copies the exported localStorage strings byte for byte into the
 // LocalStore under the same keys, so the stores (zustand envelopes), the offline outbox
 // (`anacan_outbox_v1:<uid>`, replayed with the same ids) and every feature that read localStorage
-// directly find their values. Rules:
-// - only the current account's keys (keys that carry a user id) plus unscoped keys;
+// directly find their values. The source is the 53.0 export or, without one, the hidden-WebView
+// read of the old localStorage (MigrationImport). Rules:
+// - every account's keys are imported, like the WebView localStorage kept them: features only read
+//   the keys of the signed-in user, and a user who was signed out at upgrade time (logout tombstone)
+//   finds their device-only data (unsent outbox, letters, plans) again when they sign back in, as in
+//   the Capacitor app. Keys of other accounts than the current one are reported in `otherAccount`;
 // - a key Flutter already has is never overwritten (Flutter data is newer);
 // - credentials, the react-query cache and server caches are never imported, even if present;
-// - `skipped` keys are absent from `entries` and therefore treated as missing.
+// - `skipped` keys are absent from `entries` and therefore treated as missing;
+// - one-way and once: the receipt (`anacan.migration.localstore.imported.v1`) is written after the
+//   LocalStore is on disk; a later launch never re-applies the legacy data.
 
 import '../core/storage/migration_import.dart';
 import 'local_store.dart';
@@ -36,6 +42,7 @@ bool isOtherAccountKey(String key, String? currentUserId) {
 class LegacyImportResult {
   const LegacyImportResult({
     this.found = false,
+    this.source,
     this.imported = const [],
     this.keptExisting = const [],
     this.otherAccount = const [],
@@ -44,6 +51,9 @@ class LegacyImportResult {
   });
 
   final bool found;
+
+  /// [MigrationSource] of the adopted data (null when nothing was pending).
+  final String? source;
   final List<String> imported;
   final List<String> keptExisting;
   final List<String> otherAccount;
@@ -78,6 +88,7 @@ class LegacyStateImporter {
     }
     return LegacyImportResult(
       found: true,
+      source: export.source,
       imported: result.imported,
       keptExisting: result.keptExisting,
       otherAccount: result.otherAccount,
@@ -92,13 +103,12 @@ class LegacyStateImporter {
     for (final MapEntry(:key, :value) in entries.entries) {
       if (isExcludedLegacyKey(key)) {
         excluded.add(key);
-      } else if (isOtherAccountKey(key, currentUserId)) {
-        other.add(key);
       } else if (store.containsKey(key)) {
         kept.add(key);
       } else {
         store.setItem(key, value);
         imported.add(key);
+        if (isOtherAccountKey(key, currentUserId)) other.add(key);
       }
     }
     return LegacyImportResult(found: true, imported: imported, keptExisting: kept, otherAccount: other, excluded: excluded);

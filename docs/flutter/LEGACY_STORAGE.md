@@ -39,10 +39,32 @@ Preferences key `anacan.migration.localstore.v1` (iOS `CapacitorStorage.anacan.m
 - `skipped`: keys that matched but were not copied: a single value over 256 Ki chars, or the total over 1.5 Mi chars
   (lower-priority rules, later in the list, are dropped first). Flutter should treat these keys as missing.
 - `exportedAt` changes only when the content changes. Values for every user who signed in on the device are present
-  (keys carry `<uid>`); import only the current account's keys plus the unscoped ones.
+  (keys carry `<uid>`). Flutter imports all of them, as localStorage kept them: features read only the signed-in
+  user's keys, and a user signed out at upgrade time (logout tombstone) finds their device-only data again on sign-in.
 - Never contains auth tokens (`sb-*-auth-token`), session backups, admission pins or the react-query cache, even if a
   pattern would match (`MIGRATION_EXPORT_EXCLUDED`).
 - Users who skip 53.0 (52 → 60) have no export; plan §6 fallback (hidden WebView on the same origin) applies.
+
+## Flutter side (60.0)
+
+Startup step `importLegacyState` (`app/lib/core/app_bootstrap.dart`), after the session is decided (a pending
+session recovery shows the retry screen and imports nothing):
+
+1. `MigrationImport.pendingImport()` (`app/lib/core/storage/migration_import.dart`): nothing when the receipt
+   `anacan.migration.localstore.imported.v1` exists. Otherwise the 53.0 export; its `skipped` keys are recovered from
+   the WebView when it can be read. Without a usable export (absent or corrupt), the hidden-WebView read
+   (`legacy_web_storage.dart`; native `LegacyWebStorageChannel.kt` / `.swift`, channel `az.anacan/legacy_web_storage`)
+   on `https://app.anacan.az` (Android) / `capacitor://app.anacan.az` (iOS). The page is local (no network) and the
+   script applies the export rules (`migration_export_rules.dart`, drift-tested against `migration-export.ts`) inside
+   the WebView, so tokens never leave it. No WebView data directory (fresh install) → empty receipt, no WebView.
+   A failed read is retried on the next launches; after 3 (`anacan.migration.webview.attempts.v1`) an empty receipt.
+   A Preferences bridge failure decides nothing.
+2. `LegacyStateImporter` copies the entries byte for byte into the LocalStore, never over a key Flutter already
+   has, never credentials/server caches; flushes; then writes the receipt (`source`: `export`, `export+webview`,
+   `webview`, `none`, `webview-unavailable`). One-way: the export, the WebView storage and the session/adoption/
+   admission keys are never rewritten by the import.
+3. `restorePrivacyConsent`: Preferences `anacan_privacy_consent_v1` → LocalStore when its decision differs (React
+   `loadPrivacyConsent`, every start). This key is not in the export, so it is the only copy for every upgrade.
 
 ## Capacitor Preferences (native, already readable)
 
@@ -157,9 +179,26 @@ Preferences key `anacan.migration.localstore.v1` (iOS `CapacitorStorage.anacan.m
 
 - IndexedDB `anacan-content-packs`: not exported (multi-MB); Flutter re-downloads. Offline-first users need one
   online launch after updating.
-- Values listed under `skipped` (very large baby-chat history or many game profiles exceeding the 1.5 Mi total).
+- Values listed under `skipped` (very large baby-chat history or many game profiles exceeding the 1.5 Mi total),
+  unless the hidden-WebView read on the first Flutter launch succeeds.
 - Anything written after the last export and before the app was killed without a background transition (rare:
   the debounce is 3 s and backgrounding flushes).
-- Users who update 52 → 60 directly: no export; only the plan §6 hidden-WebView fallback can recover their keys.
+- Users who update 52 → 60 directly: no export; the hidden-WebView fallback recovers their keys if the WebView
+  storage is readable on the device (verified only in tests with fakes so far; needs a device upgrade test).
 - The offline outbox is exported, but Flutter must replay it with the same client ids (`id` is the row primary key) so
   a partial send by 53.0 does not duplicate rows.
+
+## Manual device upgrade test (owner)
+
+1. Install the current Store **52** build. Sign in, pick Russian, accept privacy, set up twins, select the second child,
+   start a sleep timer and a feeding timer, play Word Garden to level 3+ and a mini-game, change widget settings, turn
+   on the app lock, log one item while offline. Fully close the app.
+2. Install the Flutter **60** build over it (same signing) and open it. Expect: no login screen, Russian, the lock
+   screen with the old PIN, both timers running with the right start times, the second child selected, game levels and
+   widget settings kept, the offline item sent, no privacy prompt.
+3. Close and reopen: same state, no second import.
+4. Repeat 1–2 with **53.0** (keep it open ~10 s and background it before updating).
+5. Repeat with: logged out in 52 before the update (login screen; after signing in to the same account the device-only
+   data is back); airplane mode on the first Flutter launch (retry screen, then signed in once online); a fresh install
+   of 60 (language screen, no delay).
+6. Do 1–2 on both iOS and Android.

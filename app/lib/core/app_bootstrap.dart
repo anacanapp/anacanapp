@@ -7,7 +7,8 @@
 //   ┌ LocalStore.load ─┬─ language: restorePreferences (≤ 3 s) → normalize → ensureLanguageReady ─┐
 //   └ backend: admission → SDK client → session restore (8 s / 15 s bound) ───────────────────────┤
 //        failure → updateRequired / maintenance / retry (React: main.tsx, before startApp)         │
-//   → legacy state import (once, current account) → stores hydrate (+ Preferences flags)         │
+//   → legacy state import (once: 53.0 export, else hidden-WebView read) + privacy consent restore  │
+//   → stores hydrate (+ Preferences flags)                                                          │
 //   → query cache restore (buster of the admitted backend) + persistence/lifecycle wiring          │
 //   → await language (failure → retry screen) ←────────────────────────────────────────────────────┘
 //   → runtime wiring: LocalStore `language`, DB overlay for non-az, content packs
@@ -17,7 +18,7 @@
 
 import 'dart:async';
 
-import 'package:flutter/foundation.dart' show debugPrint;
+import 'package:flutter/foundation.dart' show TargetPlatform, debugPrint, defaultTargetPlatform, kIsWeb;
 import 'package:flutter/widgets.dart' show AppLifecycleListener;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,11 +34,13 @@ import 'cache/providers.dart';
 import 'cache/query_client.dart';
 import 'cache/query_persistence.dart';
 import 'content_packs/content_translations.dart';
+import 'data/privacy_consent.dart' show restorePrivacyConsent;
 import 'i18n/app_languages.dart';
 import 'i18n/language_controller.dart';
 import 'net/backend_client.dart';
 import 'net/backend_providers.dart';
 import 'offline/connectivity.dart';
+import 'storage/legacy_web_storage.dart';
 import 'storage/migration_import.dart';
 
 /// Why the retry screen is shown.
@@ -227,10 +230,17 @@ class DefaultStartupSteps implements StartupSteps {
   String? currentUserId(BootstrapOpened backend) => backend.client?.auth.currentUser?.id;
 
   @override
-  Future<LegacyImportResult> importLegacyState(String? currentUserId) => LegacyStateImporter(
-        migration: MigrationImport(container.read(backendClientProvider).legacyPreferences),
-        store: container.read(localStoreProvider),
-      ).run(currentUserId: currentUserId);
+  Future<LegacyImportResult> importLegacyState(String? currentUserId) async {
+    final preferences = container.read(backendClientProvider).legacyPreferences;
+    final store = container.read(localStoreProvider);
+    final result = await LegacyStateImporter(
+      migration: MigrationImport(preferences, webStorage: container.read(legacyWebStorageReaderProvider)),
+      store: store,
+    ).run(currentUserId: currentUserId);
+    // Preferences-only keys the stores read from the LocalStore (React restores them on every start).
+    await restorePrivacyConsent(store, preferences);
+    return result;
+  }
 
   @override
   Future<StartupPreferences> readStartupPreferences() async {
@@ -289,6 +299,12 @@ class DefaultStartupSteps implements StartupSteps {
     if (language != 'az') unawaited(runtime.loadTranslations(language).catchError((Object _) {}));
   }
 }
+
+/// Hidden-WebView reader of the Capacitor app's localStorage (52 → 60 upgrades); a no-op off Android/iOS.
+final legacyWebStorageReaderProvider = Provider<LegacyWebStorageReader>((ref) =>
+    !kIsWeb && (defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS)
+        ? const MethodChannelLegacyWebStorageReader()
+        : const NoLegacyWebStorageReader());
 
 /// `appStartupProvider`: the shell awaits it once per process (retry = `BackendClient.restart()` +
 /// `container.invalidate(backendClientProvider)` + `container.invalidate(appStartupProvider)`).

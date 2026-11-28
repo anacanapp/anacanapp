@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:anacan/core/storage/legacy_preferences.dart';
+import 'package:anacan/core/storage/legacy_web_storage.dart';
 import 'package:anacan/core/storage/migration_import.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -75,6 +76,91 @@ void main() {
       'exportedAt': '2026-11-20T10:00:00.000Z',
       'appVersion': '53.0',
       'importedAt': '2026-11-27T00:00:00.000Z',
+      'source': 'export',
+      'entries': 4,
+    });
+  });
+
+  group('hidden-WebView fallback', () {
+    const legacyLocalStorage = {
+      'anacan_lock_enabled': '1',
+      'anacan-timers': '{"state":{"activeTimers":[]},"version":0}',
+      'sb-tntbjulojatnrqmylorp-auth-token': '{"access_token":"a","refresh_token":"r"}',
+      'anacan-rq-cache': '{}',
+    };
+
+    test('no export (52 → 60): the WebView localStorage becomes the export, credentials stay out', () async {
+      final prefs = InMemoryLegacyPreferences();
+      final web = InMemoryLegacyWebStorageReader(legacyLocalStorage);
+      final importer = MigrationImport(prefs, webStorage: web);
+      final pending = (await importer.pendingImport())!;
+      expect(pending.source, MigrationSource.webView);
+      expect(pending.entries.keys, unorderedEquals(['anacan_lock_enabled', 'anacan-timers']));
+      await importer.markImported(pending);
+      expect(await importer.pendingImport(), isNull);
+      expect(web.reads, 1);
+      expect(jsonDecode(prefs.values[migrationImportedKey]!), containsPair('source', 'webview'));
+      // One-way: the Capacitor export key is never written by Flutter.
+      expect(prefs.values.containsKey(migrationExportKey), isFalse);
+    });
+
+    test('a corrupt export also falls back to the WebView', () async {
+      final prefs = InMemoryLegacyPreferences({migrationExportKey: 'not-json'});
+      final pending = await MigrationImport(prefs, webStorage: InMemoryLegacyWebStorageReader(legacyLocalStorage))
+          .pendingImport();
+      expect(pending!.source, MigrationSource.webView);
+    });
+
+    test('a fresh install records an empty receipt and never opens a WebView again', () async {
+      final prefs = InMemoryLegacyPreferences();
+      final web = InMemoryLegacyWebStorageReader({}, false);
+      final importer = MigrationImport(prefs, webStorage: web);
+      final pending = (await importer.pendingImport())!;
+      expect(pending.source, MigrationSource.none);
+      expect(pending.entries, isEmpty);
+      await importer.markImported(pending);
+      expect(await importer.pendingImport(), isNull);
+      expect(web.reads, 1);
+    });
+
+    test('a failed read is retried on the next launches, then given up after the cap', () async {
+      final prefs = InMemoryLegacyPreferences();
+      final web = InMemoryLegacyWebStorageReader(legacyLocalStorage)..failWith = 'TIMEOUT';
+      final importer = MigrationImport(prefs, webStorage: web);
+      expect(await importer.pendingImport(), isNull);
+      expect(await importer.pendingImport(), isNull);
+      final last = (await importer.pendingImport())!;
+      expect(last.source, MigrationSource.webViewUnavailable);
+      expect(prefs.values[migrationWebStorageAttemptsKey], '$maxWebStorageAttempts');
+    });
+
+    test('a Preferences bridge failure decides nothing (no WebView, no attempt)', () async {
+      final prefs = InMemoryLegacyPreferences()..onGet = (key) async => key == migrationExportKey ? throw Exception('bridge') : null;
+      final web = InMemoryLegacyWebStorageReader(legacyLocalStorage);
+      expect(await MigrationImport(prefs, webStorage: web).pendingImport(), isNull);
+      expect(web.reads, 0);
+    });
+
+    test('keys the 53.0 exporter skipped (size caps) are recovered from the WebView', () async {
+      const uid = '6f1c2a3b-4d5e-4f60-8a7b-9c0d1e2f3a4b';
+      final chat = '{"2026-11-27":[{"id":"1","from":"me","text":"${'x' * 300000}","at":1}]}';
+      final prefs = InMemoryLegacyPreferences({
+        migrationExportKey: export(entries: {'anacan_lock_enabled': '1'}, skipped: ['anacan_baby_chat_v1:$uid']),
+      });
+      final web = InMemoryLegacyWebStorageReader({
+        'anacan_lock_enabled': '0',
+        'anacan_baby_chat_v1:$uid': chat,
+      });
+      final pending = (await MigrationImport(prefs, webStorage: web).pendingImport())!;
+      expect(pending.source, MigrationSource.bridgeExportAndWebView);
+      expect(pending.raw('anacan_baby_chat_v1:$uid'), chat);
+      // The export stays authoritative for the keys it holds.
+      expect(pending.raw('anacan_lock_enabled'), '1');
+      expect(pending.skipped, isEmpty);
+      // Without skipped keys no WebView is opened.
+      final plain = InMemoryLegacyWebStorageReader({});
+      await MigrationImport(InMemoryLegacyPreferences({migrationExportKey: export()}), webStorage: plain).pendingImport();
+      expect(plain.reads, 0);
     });
   });
 }

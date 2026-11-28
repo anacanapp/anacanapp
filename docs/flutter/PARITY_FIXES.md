@@ -32,6 +32,8 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| Yeniləmə: məxfilik razılığı (`anacan_privacy_consent_v1`) 53.0 ixracında yox idi və hər yeniləmədə itirdi; indi hər açılışda Preferences-dən bərpa olunur (React kimi) | `privacy-consent.ts` / importer | düzəldilib |
+| Yeniləmə: yeniləmə anında çıxış etmiş istifadəçinin cihazdakı məlumatları (göndərilməmiş qeydlər, planlar) atılırdı; indi bütün hesabların açarları idxal olunur | Flutter importer | düzəldilib |
 | Native reklam kartı: `offer` kartının qırıq xətli haşiyəsi düz çəkilir; `minimal` kartın vurğu zolağı vahid haşiyənin içindədir | `NativeAdCard.tsx` | Flutter məhdudiyyəti |
 | Reseptlər çıxış reklamı bütün `recipes_banner` səthləri ilə qeydə alınır (siyahını detaldan ayırmaq olmur) — siyahı açıq olanda da əvvəlcədən yüklənə bilər | `AdExperienceProvider.tsx` | boşluq |
 | Story fasiləsi səthi ilk `opportunity()`-dən sonuncudan 60 s sonraya qədər saxlanılır | `StoryViewer.tsx` | boşluq |

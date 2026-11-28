@@ -78,7 +78,7 @@ void main() {
   });
 
   group('LegacyStateImporter', () {
-    test('imports the current account and unscoped keys once, never credentials or other accounts', () async {
+    test('imports every account and unscoped keys once (like localStorage kept them), never credentials', () async {
       final prefs = InMemoryLegacyPreferences({
         migrationExportKey: exportJson({
           'anacan-user-store': '{"state":{"userId":"$me","language":"tr"},"version":0}',
@@ -98,7 +98,9 @@ void main() {
       expect(result.marked, isTrue);
       expect(result.imported, containsAll(['anacan-user-store', 'anacan_lock_enabled', 'anacan_outbox_v1:$me',
         'anacan_consent_pending_v1:https://api.anacan.az:$me']));
+      expect(result.source, 'export');
       expect(result.otherAccount, ['anacan_outbox_v1:$other']);
+      expect(store.getItem('anacan_outbox_v1:$other'), '[]');
       expect(result.excluded, containsAll(['sb-tntbjulojatnrqmylorp-auth-token', 'anacan-rq-cache']));
       expect(result.keptExisting, ['selected-child-storage']);
       expect(store.getItem('anacan_outbox_v1:$me'),
@@ -112,12 +114,13 @@ void main() {
       expect(store.getItem('anacan_lock_enabled'), isNull);
     });
 
-    test('signed out: only unscoped keys', () {
+    test('signed out at upgrade: account keys are kept for when that account signs back in', () {
       final store = LocalStore.memory();
       final result = LegacyStateImporter(migration: MigrationImport(InMemoryLegacyPreferences()), store: store)
           .importEntries({'language': 'en', 'anacan_kick_active_v1:$me': '{}'});
-      expect(result.imported, ['language']);
+      expect(result.imported, ['language', 'anacan_kick_active_v1:$me']);
       expect(result.otherAccount, ['anacan_kick_active_v1:$me']);
+      expect(store.getItem('anacan_kick_active_v1:$me'), '{}');
     });
   });
 }
