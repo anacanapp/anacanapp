@@ -249,11 +249,7 @@ void main() {
     // file|text pairs that are not UI copy or belong to other work streams (reported, see docs/flutter).
     const allowed = {
       'lib/design/widgets/a_sheet.dart|Close', // const default parameter of the design kit (sheet.tsx sr-only text)
-      'lib/features/ai_chat/ai_chat_screen.dart|Reset',
-      'lib/features/ai_chat/ai_chat_screen.dart|Send',
       'lib/services/ads/demo_ad.dart|*',
-      'lib/shell/widgets/bottom_nav_capsule.dart|Primary',
-      'lib/features/community/ui/photo_gallery_viewer.dart|Photo',
       'lib/features/games/color_sort/ui/color_sort_game.dart|from', // notice parameter names
       'lib/features/games/color_sort/ui/color_sort_game.dart|to',
       // story-export.ts canvas text (not inline-localized in React); the header names StoryViewer.tsx.

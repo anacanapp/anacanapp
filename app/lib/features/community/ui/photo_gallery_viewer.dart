@@ -154,7 +154,7 @@ class _PhotoGalleryViewerState extends ConsumerState<PhotoGalleryViewer> {
                     duration: const Duration(milliseconds: 300),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),
-                      child: Image.network(photo.url, fit: BoxFit.contain, semanticLabel: 'Photo', errorBuilder: (_, _, _) => const SizedBox()),
+                      child: Image.network(photo.url, fit: BoxFit.contain, semanticLabel: trInline('PhotoGalleryViewer.tsx', 'Photo'), errorBuilder: (_, _, _) => const SizedBox()),
                     ),
                   ),
                 ),

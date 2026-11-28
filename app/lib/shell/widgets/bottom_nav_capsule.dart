@@ -97,7 +97,7 @@ class BottomNavBar extends StatelessWidget {
         heightFactor: 1,
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: capsule ? 360 : 394),
-          child: Semantics(container: true, label: 'Primary', explicitChildNodes: true, child: nav),
+          child: Semantics(container: true, label: trInline('BottomNav.tsx', 'Primary'), explicitChildNodes: true, child: nav),
         ),
       ),
     );

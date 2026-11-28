@@ -420,7 +420,7 @@ class _Header extends StatelessWidget {
           ]),
         ),
         const SizedBox(width: 12),
-        _IconBtn(semanticLabel: 'Reset', onTap: onReset, child: AIcon(AIcons.refreshCw, size: 15, color: a.ink)),
+        _IconBtn(semanticLabel: trInline('AIChatScreen.tsx', 'Reset'), onTap: onReset, child: AIcon(AIcons.refreshCw, size: 15, color: a.ink)),
       ]),
     );
   }
@@ -954,7 +954,7 @@ class _InputArea extends StatelessWidget {
             else
               _SendButton(
                 key: const ValueKey('ai-send'),
-                label: 'Send',
+                label: trInline('AIChatScreen.tsx', 'Send'),
                 enabled: canSend,
                 onTap: onSend,
                 child: const AIcon(AIcons.send, size: 15, strokeWidth: 2.2, color: _white),
