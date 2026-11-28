@@ -81,6 +81,10 @@ class _BillingScreenState extends ConsumerState<BillingScreen> with InAppPurchas
     if (_platform == 'web') return;
     setState(() => _loadingPayments = true);
     try {
+      // The store SDK is configured / bound to the account by this screen's own controller; reading before that
+      // finishes would reach an unconfigured native SDK.
+      await purchases.ready;
+      if (!mounted) return;
       final store = ref.read(billingStoreReaderProvider);
       final info = await store.customerInfo();
       if (info == null) throw StateError('no customer info');

@@ -32,6 +32,8 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| **Çökmə (iOS 60.0.5):** premium istifadəçi Profil → "Abunəliyim" açanda tətbiq bağlanırdı: ekran RevenueCat qurulmamış `getCustomerInfo` göndərirdi və PurchasesHybridCommon `fatalError("Purchases has not been configured")` atırdı. İndi ekran quraşdırmanı gözləyir, bütün RevenueCat çağırışları `isConfigured` yoxlayır (`BILLING_UNAVAILABLE`) | Flutter qüsuru (crash log `Runner-2026-11-28-170519.ips`) | düzəldilib; `test/app/premium_profile_billing_test.dart` |
+| Native kanallar: Android reklam `show` və iOS TikTok `start` Flutter-ə iki dəfə cavab verə bilirdi; iOS kanalları obyekt yoxdursa cavabsız qalırdı | Flutter qüsuru | düzəldilib |
 | Health (Android): `isHealthAvailable`-dan əvvəl çağırış çökürdü; indi Health Connect klienti yaradılır | capacitor-health 8.1.2 | düzəldilib |
 | Health (Android): məşqin `sourceName`-i cihaz modelini iki dəfə təkrarlayırdı | capacitor-health 8.1.2 | düzəldilib |
 | Health (iOS): boş icazə siyahısı HealthKit daxilində çökürdü; indi "heç nə verilməyib" | capacitor-health 8.1.2 | düzəldilib |

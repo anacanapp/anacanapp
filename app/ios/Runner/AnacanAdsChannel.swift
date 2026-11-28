@@ -30,7 +30,8 @@ final class AnacanAdsChannel: NSObject {
     story.notify = { [weak self] name in self?.channel.invokeMethod("event", arguments: ["name": name]) }
     #endif
     channel.setMethodCallHandler { [weak self] call, result in
-      self?.handle(call, result: result)
+      guard let self else { result(FlutterError(code: "UNAVAILABLE", message: nil, details: nil)); return }
+      self.handle(call, result: result)
     }
   }
 

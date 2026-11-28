@@ -34,6 +34,17 @@ class RevenueCatFlutterSdk implements PurchasesSdk {
     }
   }
 
+  /// [_call] for everything that reaches `Purchases.shared` natively. Before `configure` the iOS hybrid layer
+  /// stops the process (`fatalError("Purchases has not been configured…")`) and Android throws; a call that
+  /// would run unconfigured fails here as BILLING_UNAVAILABLE instead.
+  Future<T> _configuredCall<T>(Future<T> Function() run) => _call(() async {
+        if (!await rc.Purchases.isConfigured) throw notConfiguredError;
+        return run();
+      });
+
+  static const PurchasesSdkException notConfiguredError =
+      PurchasesSdkException(code: 'NOT_CONFIGURED', message: PurchaseErrorCode.billingUnavailable, readableErrorCode: 'NOT_CONFIGURED');
+
   @override
   Future<void> setLogLevelWarn() => _call(() => rc.Purchases.setLogLevel(rc.LogLevel.warn));
 
@@ -49,23 +60,23 @@ class RevenueCatFlutterSdk implements PurchasesSdk {
       });
 
   @override
-  Future<void> enableAdServicesAttributionTokenCollection() => _call(rc.Purchases.enableAdServicesAttributionTokenCollection);
+  Future<void> enableAdServicesAttributionTokenCollection() => _configuredCall(rc.Purchases.enableAdServicesAttributionTokenCollection);
 
   @override
-  Future<void> logIn(String appUserId) => _call(() => rc.Purchases.logIn(appUserId));
+  Future<void> logIn(String appUserId) => _configuredCall(() => rc.Purchases.logIn(appUserId));
 
   @override
-  Future<void> logOut() => _call(rc.Purchases.logOut);
+  Future<void> logOut() => _configuredCall(rc.Purchases.logOut);
 
   @override
-  Future<String> getAppUserId() => _call(() => rc.Purchases.appUserID);
+  Future<String> getAppUserId() => _configuredCall(() => rc.Purchases.appUserID);
 
   @override
-  Future<Map<String, Object?>?> getCustomerInfo() async => customerInfoJson(await _call(rc.Purchases.getCustomerInfo));
+  Future<Map<String, Object?>?> getCustomerInfo() async => customerInfoJson(await _configuredCall(rc.Purchases.getCustomerInfo));
 
   @override
   Future<Map<String, Object?>?> getOfferings() async {
-    final offerings = await _call(rc.Purchases.getOfferings);
+    final offerings = await _configuredCall(rc.Purchases.getOfferings);
     return {
       'all': {for (final e in offerings.all.entries) e.key: _offering(e.value)},
       'current': offerings.current == null ? null : _offering(offerings.current!),
@@ -74,7 +85,7 @@ class RevenueCatFlutterSdk implements PurchasesSdk {
 
   @override
   Future<Map<String, int>> checkTrialOrIntroductoryPriceEligibility(List<String> productIdentifiers) async {
-    final result = await _call(() => rc.Purchases.checkTrialOrIntroductoryPriceEligibility(productIdentifiers));
+    final result = await _configuredCall(() => rc.Purchases.checkTrialOrIntroductoryPriceEligibility(productIdentifiers));
     return {for (final e in result.entries) e.key: e.value.status.index};
   }
 
@@ -82,7 +93,7 @@ class RevenueCatFlutterSdk implements PurchasesSdk {
   Future<Map<String, Object?>?> purchasePackage(Map<String, Object?> package) async {
     final typed = _packages[package];
     if (typed == null) throw const PurchasesSdkException(code: '5', message: 'PURCHASE_OPTION_UNAVAILABLE');
-    final result = await _call(() => rc.Purchases.purchase(rc.PurchaseParams.package(typed)));
+    final result = await _configuredCall(() => rc.Purchases.purchase(rc.PurchaseParams.package(typed)));
     return customerInfoJson(result.customerInfo);
   }
 
@@ -103,22 +114,22 @@ class RevenueCatFlutterSdk implements PurchasesSdk {
               _ => null,
             },
           );
-    final result = await _call(() => rc.Purchases.purchase(rc.PurchaseParams.subscriptionOption(typed, productChangeInfo: changeInfo)));
+    final result = await _configuredCall(() => rc.Purchases.purchase(rc.PurchaseParams.subscriptionOption(typed, productChangeInfo: changeInfo)));
     return customerInfoJson(result.customerInfo);
   }
 
   @override
-  Future<Map<String, Object?>?> restorePurchases() async => customerInfoJson(await _call(rc.Purchases.restorePurchases));
+  Future<Map<String, Object?>?> restorePurchases() async => customerInfoJson(await _configuredCall(rc.Purchases.restorePurchases));
 
   @override
   Future<List<Map<String, Object?>>> getProducts(List<String> productIdentifiers) async {
-    final products = await _call(() => rc.Purchases.getProducts(productIdentifiers));
+    final products = await _configuredCall(() => rc.Purchases.getProducts(productIdentifiers));
     return [for (final p in products) _product(p)];
   }
 
   @override
   Future<String> presentPaywall({bool displayCloseButton = true}) async {
-    final result = await _call(() => rcui.RevenueCatUI.presentPaywall(displayCloseButton: displayCloseButton));
+    final result = await _configuredCall(() => rcui.RevenueCatUI.presentPaywall(displayCloseButton: displayCloseButton));
     return switch (result) {
       rcui.PaywallResult.notPresented => PaywallResultCode.notPresented,
       rcui.PaywallResult.cancelled => PaywallResultCode.cancelled,
@@ -129,7 +140,7 @@ class RevenueCatFlutterSdk implements PurchasesSdk {
   }
 
   @override
-  Future<void> presentCustomerCenter() => _call(rcui.RevenueCatUI.presentCustomerCenter);
+  Future<void> presentCustomerCenter() => _configuredCall(rcui.RevenueCatUI.presentCustomerCenter);
 
   // ── JSON conversion (purchases-hybrid-common field names) ──
 

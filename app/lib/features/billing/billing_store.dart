@@ -1,7 +1,10 @@
 // Ported from: src/components/BillingScreen.tsx (`Purchases.getCustomerInfo()`, `Purchases.getProducts()`,
 //              `getPlatform()`)
 //
-// The store reads the billing screen makes directly on the SDK (not through the paywall controller).
+// The store reads the billing screen makes. React called the SDK directly; here they go through
+// [RevenueCatService], which only reads once the SDK is bound to the signed-in account: before `configure`
+// the native iOS SDK stops the process (`fatalError`), which closed the app when a Premium user (who never
+// opened a paywall) opened "My Subscription".
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../native/purchases/purchases_providers.dart';
@@ -17,22 +20,17 @@ abstract interface class BillingStoreReader {
 }
 
 class SdkBillingStoreReader implements BillingStoreReader {
-  SdkBillingStoreReader(this.sdk);
-  final PurchasesSdk sdk;
+  SdkBillingStoreReader(this.rc);
+  final RevenueCatService rc;
 
   @override
-  Future<Map<String, Object?>?> customerInfo() => sdk.getCustomerInfo();
+  Future<Map<String, Object?>?> customerInfo() => rc.readCustomerInfo();
 
   @override
-  Future<String?> priceString(String productId) async {
-    final products = await sdk.getProducts(<String>[productId]);
-    if (products.isEmpty) return null;
-    final price = products.first['priceString'];
-    return price is String ? price : null;
-  }
+  Future<String?> priceString(String productId) => rc.readPriceString(productId);
 }
 
-final billingStoreReaderProvider = Provider<BillingStoreReader>((ref) => SdkBillingStoreReader(ref.watch(purchasesSdkProvider)));
+final billingStoreReaderProvider = Provider<BillingStoreReader>((ref) => SdkBillingStoreReader(ref.watch(revenueCatServiceProvider)));
 
 /// `useSubscription().refetch` (subscription row, usage, entitlement, household).
 final billingRefetchSubscriptionProvider = Provider<Future<void> Function(WidgetRef ref)>((ref) => refetchSubscription);

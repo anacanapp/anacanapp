@@ -130,6 +130,16 @@ void main() {
     expect(prompt.shown, 1);
   });
 
+  screenTest('Premium user: the Premium card opens My Subscription, never the paywall', (tester) async {
+    final prompt = RecordingPremium();
+    final opened = <String>[];
+    await open(tester, profileOverrides(premium: true, prompt: prompt), nav: opened.add);
+    await tester.tap(find.text('Anacan Premium ✨'));
+    await tester.pump();
+    expect(opened, ['billing']);
+    expect(prompt.shown, 0);
+  });
+
   screenTest('classic layout renders the menu list and the legal section', (tester) async {
     await open(tester, profileOverrides(layout: 'classic'), nav: (_) {});
     await tester.pumpAndSettle();

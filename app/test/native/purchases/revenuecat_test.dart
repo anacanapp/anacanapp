@@ -66,6 +66,22 @@ void main() {
     expect(sdk.callsOf('purchasePackage').single.args.single, {'identifier': 'fixture-package'});
   });
 
+  test('billing reads never reach the SDK before the managed account is bound (unconfigured iOS SDK = fatalError)', () async {
+    final rc = service(azure: true, azureEnabled: true);
+    sdk.onGetProducts = (_) => [
+          {'priceString': '₼6.99'},
+        ];
+    expect(await rc.readCustomerInfo(), isNull);
+    expect(await rc.readPriceString('com.atlasoon.anacan.premium.monthly'), isNull);
+    expect(sdk.calls, isEmpty);
+    await rc.initRevenueCat(user);
+    expect(await rc.readCustomerInfo(), isNotNull);
+    expect(await rc.readPriceString('com.atlasoon.anacan.premium.monthly'), '₼6.99');
+    expect(sdk.calls.map((c) => c.method), ['setLogLevel', 'configure', 'enableAdServicesAttributionTokenCollection', 'getCustomerInfo', 'getProducts']);
+    sdk.onGetCustomerInfo = () => throw const PurchasesSdkException(code: 'NOT_CONFIGURED');
+    expect(await rc.readCustomerInfo(), isNull);
+  });
+
   test('explicit Azure activation waits for an authenticated UUID and coalesces repeated initialization', () async {
     final rc = service(azure: true, azureEnabled: true);
     expect(rc.enabled, isTrue);

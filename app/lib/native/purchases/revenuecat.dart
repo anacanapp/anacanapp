@@ -350,6 +350,30 @@ class RevenueCatService {
     }
   }
 
+  /// Raw customer info for the billing screen; null while the SDK is not bound to the signed-in account
+  /// (an unconfigured native SDK stops the process on iOS) or when it could not be read.
+  Future<Map<String, Object?>?> readCustomerInfo() async {
+    if (!enabled || !hasRevenueCatPlugin() || !await _currentAzureIdentity()) return null;
+    try {
+      return await withNativeTimeout(sdk.getCustomerInfo(), rcNativeTimeout, 'RC_CUSTOMER_INFO_TIMEOUT');
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Store price string ("₼6.99") of [productId]; null under the same conditions as [readCustomerInfo].
+  Future<String?> readPriceString(String productId) async {
+    if (!enabled || !hasRevenueCatPlugin() || !await _currentAzureIdentity()) return null;
+    try {
+      final products = await withNativeTimeout(sdk.getProducts(<String>[productId]), rcNativeTimeout, 'RC_PRODUCTS_TIMEOUT');
+      if (products.isEmpty) return null;
+      final price = products.first['priceString'];
+      return price is String ? price : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
   /// Offerings; null when they could not be loaded (a hung bridge counts as failed).
   Future<Map<String, Object?>?> getOfferings() async {
     if (!enabled || !hasRevenueCatPlugin() || !await _currentAzureIdentity()) return null;

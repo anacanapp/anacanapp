@@ -237,14 +237,25 @@ class AnacanAdsPlugin private constructor(
             next.setOnClickListener { page.dismiss() }
             page.show()
             page.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            notify("nativeStoryAdShowed")
-            result.success(null)
             if (current.mediaContent?.hasVideoContent() != true) {
                 handler.postDelayed({ if (dialog === page) page.dismiss() }, 6000)
             }
+            notify("nativeStoryAdShowed")
         } catch (error: Exception) {
+            // A Flutter result may be answered once only (a second reply throws IllegalStateException): the success
+            // below is never reached after this error.
+            if (dialog != null) {
+                val page = dialog
+                dialog = null
+                try {
+                    page?.dismiss()
+                } catch (ignored: Exception) {
+                }
+            }
             result.error("FAILED", "Native story presentation failed", null)
+            return
         }
+        result.success(null)
     }
 
     private fun clear() {

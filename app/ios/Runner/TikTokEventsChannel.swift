@@ -22,7 +22,8 @@ final class TikTokEventsChannel {
   init(messenger: FlutterBinaryMessenger) {
     channel = FlutterMethodChannel(name: TikTokEventsChannel.channelName, binaryMessenger: messenger)
     channel.setMethodCallHandler { [weak self] call, result in
-      self?.handle(call, result: result)
+      guard let self else { result(FlutterError(code: "UNAVAILABLE", message: nil, details: nil)); return }
+      self.handle(call, result: result)
     }
   }
 
@@ -101,10 +102,15 @@ final class TikTokEventsChannel {
     // ATT is owned by the app (asked once, after consent). Without "authorized" the SDK reads no IDFA and
     // attribution falls back to SKAdNetwork; `tracking` is only passed for diagnostics.
     _ = args["tracking"]
+    // A FlutterResult may be called once only (a second call raises in the engine): the SDK completion is answered
+    // at most once, on the main thread.
+    var replied = false
     DispatchQueue.main.async {
       TikTokBusiness.initializeSdk(config) { [weak self] success, error in
         DispatchQueue.main.async {
           self?.starting = false
+          guard !replied else { return }
+          replied = true
           if success { result(["started": true]) }
           else { result(["started": false, "reason": error?.localizedDescription ?? "init_failed"]) }
         }

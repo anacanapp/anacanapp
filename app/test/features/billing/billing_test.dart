@@ -217,6 +217,8 @@ void main() {
       Map<String, Object?>? webStatus,
       List<Map<String, dynamic>>? features,
       Size size = const Size(390, 1400),
+      bool realStoreReader = false,
+      void Function(OnboardingTestEnv env)? setup,
     }) async {
       store = FakeStore(customerInfo, price: price);
       backend = FakeSubscriptionBackend();
@@ -224,7 +226,7 @@ void main() {
       webActions = [];
       refetches = 0;
       env = OnboardingTestEnv(language: 'az', native: true, platform: platform, extra: [
-        billingStoreReaderProvider.overrideWithValue(store),
+        if (!realStoreReader) billingStoreReaderProvider.overrideWithValue(store),
         billingPlatformProvider.overrideWithValue(platform),
         billingRefetchSubscriptionProvider.overrideWithValue((_) async => refetches++),
         billingLinkOpenerProvider.overrideWithValue((uri) async => opened.add(uri)),
@@ -241,6 +243,7 @@ void main() {
         }, openExternal: (uri) async => opened.add(uri))),
       ]);
       env.setSubscription(sub);
+      setup?.call(env);
       addTearDown(env.dispose);
       // Unmount and let toast / cache timers run out before the binding checks for pending timers.
       addTearDown(() async {
@@ -288,6 +291,50 @@ void main() {
       await mount(tester, sub: const SubscriptionState(loading: true));
       expect(find.byKey(const ValueKey('billing-status-loading')), findsOneWidget);
       expect(find.byKey(const ValueKey('billing-upgrade-free')), findsNothing);
+    });
+
+    // Owner report: a Premium user (who never opened a paywall, so the store SDK was never configured) tapped
+    // the Premium card in Profile → "My Subscription" read the SDK before configure → iOS fatalError.
+    testWidgets('Premium user from Profile: the store SDK is configured before the screen reads it', (tester) async {
+      var configured = false;
+      final readsBeforeConfigure = <String>[];
+      await mount(
+        tester,
+        realStoreReader: true,
+        sub: const SubscriptionState(
+          isPremium: true,
+          ownPremium: true,
+          entitlementReady: true,
+          subscription: {'plan_type': 'premium', 'status': 'active', 'started_at': '2026-01-10T10:00:00Z', 'expires_at': '2026-12-10T10:00:00Z'},
+        ),
+        setup: (env) {
+          // The native configure takes a moment; the screen must not read the store meanwhile.
+          env.sdk.onConfigure = (_, _) => Future<void>.delayed(const Duration(milliseconds: 100), () => configured = true);
+          env.sdk.onGetCustomerInfo = () {
+            if (!configured) {
+              readsBeforeConfigure.add('getCustomerInfo');
+              throw const PurchasesSdkException(code: 'NOT_CONFIGURED');
+            }
+            return info(
+              original: '2026-01-10T10:00:00Z',
+              entitlement: {'store': 'APP_STORE', 'productIdentifier': 'com.atlasoon.anacan.premium.monthly', 'expirationDate': '2026-12-10T10:00:00Z', 'willRenew': true},
+            );
+          };
+          env.sdk.onGetProducts = (ids) {
+            if (!configured) readsBeforeConfigure.add('getProducts');
+            return [
+              {'identifier': ids.single, 'priceString': '₼6.99'},
+            ];
+          };
+        },
+      );
+      expect(tester.takeException(), isNull);
+      expect(readsBeforeConfigure, isEmpty);
+      final methods = env.sdk.calls.map((c) => c.method).toList();
+      expect(methods.indexOf('configure'), lessThan(methods.indexOf('getCustomerInfo')));
+      expect(find.byKey(const ValueKey('billing-active-badge')), findsOneWidget);
+      expect(find.text('₼6.99'), findsOneWidget);
+      expect(find.byKey(const ValueKey('billing-history')), findsOneWidget);
     });
 
     testWidgets('Play subscription: store price, dates, history; cancel asks why, records it, then opens Play', (tester) async {

@@ -187,11 +187,16 @@ class InAppPurchaseController extends ChangeNotifier {
 
   /// The hook's `[user?.id]` effect: call with the signed-in user id (null when signed out).
   Future<void> bindUser(String? userId) {
-    if (_started && userId == _user) return Future.value();
+    if (_started && userId == _user) return _ready;
     _started = true;
     _user = userId;
-    return _init();
+    return _ready = _init();
   }
+
+  Future<void> _ready = Future<void>.value();
+
+  /// Completes when the latest [bindUser] finished (store SDK configured and bound to the account, or given up).
+  Future<void> get ready => _ready;
 
   Future<void> _init() async {
     final owner = _user;
