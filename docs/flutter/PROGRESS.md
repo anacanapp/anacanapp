@@ -69,6 +69,15 @@ və sonrakı alt-agentlərinkilər) Linux-da `--update-goldens` ilə yenidən ç
   "cüzi problemlər" bildirdi, təfsilat gözlənilir. Android yığımı sahibə görə problemsizdir.
 - Səs/mikrofon/yer paketləri (`just_audio`, `record`, `geolocator`, `gal`) hələ yoxdur: ağ səs, ağlama tərcüməçisi,
   səs-küy ölçən, hava, səsli mesaj yazma "dəstəklənmir" yolu ilə işləyir (WIRING.md, 9-cu mərhələ).
-- Billing istinad müqayisəsi: başlıqdakı geri düyməsinin kölgəsi Flutter golden-də görünmür (React-da var);
-  `BackdropFilter` altında test renderi ilə bağlı ola bilər, cihazda yoxlanmalıdır.
+- Golden-lərdə kölgə yoxdur: flutter_test kölgələri bulanıqlıqsız çəkir (Billing geri düyməsinin "itən" kölgəsi də
+  budur, tətbiq qüsuru deyil). Yeni paritet golden-ləri bunu söndürür; ortaq harness-lərdə də açmaq (Linux-da yenidən
+  çəkməklə) təklif olunur.
+- Telefon mətn sahələri: React telefonlarda bütün input-ları ən azı 16 px edir; Flutter-də yalnız alətlər və bloq
+  axtarışı düzəldilib, qalanları 13 px — dizayn səviyyəsində köməkçi lazımdır.
+- Flutter sətir hündürlüyünü tam piksələ yuvarlaqlaşdırır (19.5 → 20): uzun siyahılar sətir başına ~1 px sürüşür
+  (ayarlar ekranının 5-ci bölməsində ~11 px). `inline-flex` paraqraflarında bir neçə px aralıq fərqi ola bilər.
+- `settings_ui.dart`-da (`ShadSwitch`, `AIconBtn`) kölgə blur-u CSS-dən 1:1 köçürülüb, tokenlərdən fərqli — bir az yumşaq.
+- 2026-11-28 vizual müqayisə (12 ekran, React istinad şəkilləri ilə): 10 real fərq düzəldildi (ana ekran 6 px sürüşmə,
+  təqvim sətirləri, məqalə kartı eni, alətlər başlıqları və axtarış ölçüsü, icma başlıq düymələri və boşluq, AI mesaj
+  qutusu 2 sətir, bloq axtarışı). Yeni/yenilənmiş golden-lər Windows-da çəkilib, Linux-da yenidən çəkilməlidir.
 - Golden testlərdə emoji şrifti yoxdur (qutu kimi görünür).

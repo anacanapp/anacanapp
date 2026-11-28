@@ -370,8 +370,10 @@ class _ToolsHubState extends ConsumerState<ToolsHub> {
   Widget _searchBox(BuildContext context, HubContext c) {
     final a = context.a;
     final placeholder = tr('toolshub_alet_axtarin_fad58b', 'Alət axtarın...');
-    // Preflight: inputs inherit the .a-scope font.
-    final style = DefaultTextStyle.of(context).style.merge(TextStyle(fontSize: 13, color: a.ink, height: 1.5));
+    // Preflight: inputs inherit the .a-scope font. keyboard.css lifts text inputs to `max(16px, 1em)` on phones
+    // (max-width 767px, iOS zoom guard), over `.a-search input { font-size: 13px }`.
+    final fontSize = MediaQuery.sizeOf(context).width <= 767 ? 16.0 : 13.0;
+    final style = DefaultTextStyle.of(context).style.merge(TextStyle(fontSize: fontSize, color: a.ink, height: 1.5));
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
@@ -692,7 +694,8 @@ class _HubTileState extends State<_HubTile> with SingleTickerProviderStateMixin 
         borderRadius: BorderRadius.circular(a.radiusMd),
         boxShadow: a.cardShadow,
       ),
-      child: Stack(children: [
+      // `.a-tool-grid.compact .a-tool-tile`: flex column, align-items center (one-line titles stay centred).
+      child: Stack(alignment: AlignmentDirectional.topCenter, children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(6, 12, 6, 11),
           child: Column(mainAxisSize: MainAxisSize.min, children: [

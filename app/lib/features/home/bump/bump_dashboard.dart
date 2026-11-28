@@ -378,7 +378,9 @@ class _Hero extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 10),
+              // `.a-hero-eyebrow` is inline-flex: it sits on a line box with the section's 16px/1.5 strut, which
+              // puts ~6px above it (measured on the reference shot).
+              padding: const EdgeInsets.only(top: 6, bottom: 10),
               child: Wrap(
                 alignment: WrapAlignment.center,
                 spacing: 6,

@@ -185,6 +185,9 @@ stable), `sleep(ms)`. Scenario ids must be unique; keep `<persona short>.<area>.
   segments, AI — paywall sheet for the free `flow` user), partner shell (Bu gün, Birlikdə, Mesajlar, Məsləhət, Profil).
 * Sub-screens: settings (gear button), notifications, calendar (bump/flow/mommy), edit-profile, appearance, privacy,
   help, billing, referral, widgets, partner notifications.
+* Parity pass (`scenarios/parity.mjs`, 2026-11-28): bump home after a 4 s settle (the first `bump.tabs__home` frame
+  can still be the loading spinner on a cold dev server), the chat inbox (`messages` deeplink), the mini-games hub
+  (`tool` deeplink `mini-games`) and the blog list (`screen` deeplink `blog`).
 * Tools (24): bump kick, maternity calculator, weight, hospital bag, names, mental health, safety, blood pressure,
   danger signs, fetal growth, vitamins, doctors; mommy baby tracker (+ growth, teething sections), vaccine calendar,
   first aid, sleep training, solid-food guide, white noise; flow mental health, horoscope, doctors, weight (paywall).

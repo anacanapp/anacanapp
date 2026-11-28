@@ -291,8 +291,9 @@ class _CommunityScreenState extends ConsumerState<CommunityScreen> {
     final banner = ref.watch(communityBannerProvider);
     final stories = ref.watch(communityStoriesBarProvider);
 
+    // `.a-topbar .a-icon-btn { min-width: 44px; min-height: 44px }` (startup.css).
     Widget iconButton({required String label, required Widget icon, required VoidCallback onTap, String? badge}) => Stack(clipBehavior: Clip.none, children: [
-          AIconBtn(onTap: onTap, semanticLabel: label, icon: icon),
+          AIconBtn(size: 44, onTap: onTap, semanticLabel: label, icon: icon),
           if (badge != null) CommunityCountBadge(badge),
         ]);
 
@@ -301,7 +302,7 @@ class _CommunityScreenState extends ConsumerState<CommunityScreen> {
       backScale: 0.9,
       leading: Row(children: [
         if (widget.onBack != null) ...[
-          AIconBtn(onTap: widget.onBack, icon: const AIcon(AIcons.arrowLeft, size: 16, mirrorInRtl: true)),
+          AIconBtn(size: 44, onTap: widget.onBack, icon: const AIcon(AIcons.arrowLeft, size: 16, mirrorInRtl: true)),
           const SizedBox(width: 10),
         ],
         Flexible(
@@ -315,6 +316,7 @@ class _CommunityScreenState extends ConsumerState<CommunityScreen> {
       actions: [
         if (user != null)
           AIconBtn(
+            size: 44,
             onTap: () => _userClick(user.id),
             semanticLabel: tr('community_my_profile', 'Cəmiyyət profilim'),
             icon: CommunityAvatar(size: 32, url: own?.avatarUrl, fallbackColor: a.peach1, fallbackWidget: AIcon(AIcons.userRound, size: 18, color: a.ink)),
@@ -389,7 +391,14 @@ class _CommunityScreenState extends ConsumerState<CommunityScreen> {
             alignment: Alignment.center,
             child: (own?.avatarUrl ?? '').isNotEmpty
                 ? Image.network(own!.avatarUrl!, width: 36, height: 36, fit: BoxFit.cover, errorBuilder: (_, _, _) => const SizedBox())
-                : Text(charAt0(own?.name).isEmpty ? 'A' : charAt0(own?.name), style: px(16, color: a.ink, height: 1)),
+                // shadcn `<AvatarFallback>` (rounded-full bg-muted) covers the `.a-composer-avatar` gradient.
+                : Container(
+                    width: 36,
+                    height: 36,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(color: context.tokens.shadcn.muted, shape: BoxShape.circle),
+                    child: Text(charAt0(own?.name).isEmpty ? 'A' : charAt0(own?.name), style: px(16, color: a.ink, height: 1)),
+                  ),
           ),
           const SizedBox(width: 12),
           Expanded(child: Text(chatTr('communityscreen_ne_dusunursunuz_0378b3', 'Nə düşünürsünüz?'), style: px(13, weight: FontWeight.w500, color: a.inkFaint))),
@@ -409,6 +418,8 @@ class _CommunityScreenState extends ConsumerState<CommunityScreen> {
     final feed = parts.feed?.call(context, onCreatePost: create, onUserClick: _userClick) ??
         SliverMainAxisGroup(slivers: [
           SliverToBoxAdapter(child: PostSearchFilter(sortBy: _feedView, onSortChange: (v) => setState(() => _feedView = v))),
+          // GroupFeed embedded is `space-y-3`: its 12px collapses with the tabs' 8px margin-bottom.
+          const SliverToBoxAdapter(child: SizedBox(height: 4)),
           CommunityPostFeed(
             key: ValueKey('feed-${_feedView.id}'),
             view: _feedView,

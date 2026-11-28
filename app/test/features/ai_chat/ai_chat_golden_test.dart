@@ -1,6 +1,8 @@
 // Ported from: (visual regression baselines of src/components/AIChatScreen.tsx, AiConsentGate.tsx,
-//              PartnerAIPremiumGate.tsx — Flutter renders, never compared with the WebView)
+//              PartnerAIPremiumGate.tsx — Flutter renders; the welcome screen is compared by eye with the reference
+//              shot bump.tabs__ai)
 import 'package:anacan/design/gallery.dart' show GalleryFrame;
+import 'package:anacan/features/ai_chat/ai_chat_inputs.dart' show aiChatClockProvider;
 import 'package:anacan/features/ai_chat/ai_chat_screen.dart';
 import 'package:anacan/features/ai_chat/ai_consent_gate.dart';
 import 'package:anacan/features/ai_chat/ai_premium_gate.dart';
@@ -26,7 +28,8 @@ void main() {
 
   for (final dark in [false, true]) {
     testWidgets('chat welcome (${dark ? 'dark' : 'light'})', (tester) async {
-      final env = AiChatEnv();
+      // Frozen clock of the reference shots (welcome timestamp 09:00).
+      final env = AiChatEnv(extra: [aiChatClockProvider.overrideWithValue(() => DateTime(2026, 11, 20, 9))]);
       await env.pump(tester, const AIChatScreen(), dark: dark);
       await _golden(tester, 'ai_chat_welcome_${dark ? 'dark' : 'light'}');
       await env.finish(tester);

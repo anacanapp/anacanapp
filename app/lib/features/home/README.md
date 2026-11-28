@@ -52,8 +52,9 @@ classes inlined because flutter_svg ignores them), `node app/tool/home/gen_stori
 * The home tab is registered with `registerTabSlivers` (`DashboardSliver` + `DashboardSky` background, update banner
   above): stage slivers sit directly in the shell's scroll view. `Dashboard` (box, shrink-wrapped) stays for tests.
 * Reference-shot comparison (bump week 24, 390×844 light): hero, chips, progress bar, tips list, cards, calendar list,
-  trio, water card match. Remaining: hero block sits ~6 pt higher than in the web shot; the fetal-length note wraps one
-  word later; emoji render as boxes in goldens (no emoji font in the test harness).
+  trio, water card match (2026-11-28: hero eyebrow line box +6, appointment rows 73 px, blog rail cards 310 px fixed).
+  Remaining: the fetal-length note wraps one word later; emoji render as boxes in goldens (no emoji font in the test
+  harness).
 * Not ported: the default (non-redesign) Dashboard branch and RecentBlogPosts default variant (no woman stage reaches
   them), PregnancyDayNavigator (unused: "naviqasiya UI silinib"), RedFlagBanner urgent pulse, story mascot images,
   HomeWidgetSync care (Premium feeding / nap) section, `.loss-scope` sky tint.

@@ -57,6 +57,9 @@ final aiChatHttpClientProvider = Provider<http.Client>((ref) {
   return client;
 });
 
+/// `new Date()` of message timestamps (fixed in goldens).
+final aiChatClockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
+
 /// `checkAndConsume('ai_chat')`.
 final aiChatConsumeProvider = Provider<Future<UsageDecision> Function()>((ref) {
   return () => ref.read(subscriptionUsageProvider).checkAndConsume('ai_chat');

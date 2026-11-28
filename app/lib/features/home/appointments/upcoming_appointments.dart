@@ -119,8 +119,11 @@ class UpcomingAppointments extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(a.title, maxLines: 1, overflow: TextOverflow.ellipsis, style: x.aListTitle),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 2),
+                  // `.a-list-sub inline-flex` (margin-top 2) sits on a line box of the button's 16px/1.5 strut:
+                  // 24px tall with the text ~3.7px below its top (reference shot: 73px rows).
+                  Container(
+                    constraints: const BoxConstraints(minHeight: 24),
+                    padding: const EdgeInsets.only(top: 3.5, bottom: 3.5),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [

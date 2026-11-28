@@ -269,7 +269,9 @@ class _MommyDashboardState extends ConsumerState<MommyDashboard> {
           padding: const EdgeInsets.fromLTRB(2, 18, 2, 6),
           child: Column(children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 10),
+              // `.a-hero-eyebrow` is inline-flex: it sits on a line box with the section's 16px/1.5 strut, which
+              // puts ~6px above it (measured on the reference shot).
+              padding: const EdgeInsets.only(top: 6, bottom: 10),
               child: Row(mainAxisSize: MainAxisSize.min, children: [
                 Text(upper(tr('mommy_hero_day_label', 'Gün')), style: eyebrow),
                 const SizedBox(width: 6),

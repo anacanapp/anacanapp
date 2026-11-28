@@ -283,6 +283,8 @@ class _CommunityPostFeedState extends ConsumerState<CommunityPostFeed> {
     final posts = feed.posts;
     return SliverMainAxisGroup(slivers: [
       for (final w in head) SliverPadding(padding: const EdgeInsets.only(bottom: 16), sliver: SliverToBoxAdapter(child: w)),
+      // The 1px top sentinel and the `space-y-4` gap after it always precede the cards.
+      if (posts.isNotEmpty) const SliverToBoxAdapter(child: SizedBox(height: 17)),
       SliverList.builder(
         itemCount: posts.length,
         itemBuilder: (context, index) {

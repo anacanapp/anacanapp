@@ -145,7 +145,8 @@ class BlogMeta extends StatelessWidget {
   }
 }
 
-/// `.a-search`: surface pill, 1px line, card shadow, padding 12×16, gap 10, search icon + borderless 13px input.
+/// `.a-search`: surface pill, 1px line, card shadow, padding 12×16, gap 10, search icon + borderless 13px input
+/// (16px on phones: keyboard.css `max(16px, 1em)` for text inputs below 768px wins over `.a-search input`).
 class BlogSearchField extends StatelessWidget {
   const BlogSearchField({super.key, required this.controller, required this.placeholder, required this.onChanged});
   final TextEditingController controller;
@@ -155,7 +156,7 @@ class BlogSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = context.a;
-    final style = px(13, color: a.ink);
+    final style = px(MediaQuery.sizeOf(context).width <= 767 ? 16 : 13, color: a.ink);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(color: a.surface, borderRadius: BorderRadius.circular(999), border: Border.all(color: a.line), boxShadow: a.cardShadow),

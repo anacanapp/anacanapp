@@ -80,6 +80,7 @@ class _AIChatScreenState extends ConsumerState<AIChatScreen> implements AiChatSe
         upload: ref.read(aiChatUploadProvider),
         buildBody: _buildBody,
         userId: userId,
+        now: ref.read(aiChatClockProvider),
       ),
       this,
     )..addListener(_onSession);
@@ -839,6 +840,8 @@ class _InputArea extends StatelessWidget {
     final a = context.a;
     final canSend = controller.text.trim().isNotEmpty || attached != null;
     final image = attached;
+    // `.a-chat-input textarea` (13px) out-ranks keyboard.css's phone rule for a bare `textarea`.
+    const fontSize = 13.0;
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 10),
       child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -913,7 +916,7 @@ class _InputArea extends StatelessWidget {
                       if (controller.text.isEmpty)
                         IgnorePointer(
                           child: Text(tr('aichat_input_ph', 'Anacan.AI-yə sualınızı yazın...'),
-                              maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 13, color: a.inkFaint, height: 18 / 13)),
+                              maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: fontSize, color: a.inkFaint, height: 20 / fontSize)),
                         ),
                       Semantics(
                         textField: true,
@@ -923,11 +926,13 @@ class _InputArea extends StatelessWidget {
                           controller: controller,
                           focusNode: focus,
                           readOnly: loading,
+                          // `<textarea>` keeps its default rows=2 (React shot: 56px field); `text-sm` line-height 20px.
+                          minLines: 2,
                           maxLines: null,
                           keyboardType: TextInputType.multiline,
                           textInputAction: TextInputAction.send,
                           onSubmitted: (_) => onSend(),
-                          style: TextStyle(fontSize: 13, color: a.ink, height: 18 / 13),
+                          style: TextStyle(fontSize: fontSize, color: a.ink, height: 20 / fontSize),
                           cursorColor: a.ink,
                           backgroundCursorColor: a.inkFaint,
                         ),

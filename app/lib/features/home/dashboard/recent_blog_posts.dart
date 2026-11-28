@@ -153,9 +153,10 @@ class _BlogCarouselState extends State<BlogCarousel> {
         children: [
           LayoutBuilder(
             builder: (context, c) {
-              // `.a-blog-rail`: margin-inline -20px, padding 2 20 10; cards `calc(100% - 40px)` of the rail.
+              // `.a-blog-rail`: margin-inline -20px, padding 2 20 10; cards `calc(100% - 40px)` of the rail's
+              // content box (railW - 40), so the next card peeks in.
               final railW = c.maxWidth + 40;
-              final cardW = railW - 40;
+              final cardW = railW - 40 - 40;
               _step = cardW + 12;
               final coverH = cardW * 21 / 40;
               final rtl = Directionality.of(context) == TextDirection.rtl;
