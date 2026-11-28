@@ -36,8 +36,9 @@ fun nativeValue(name: String, fallback: String = ""): String =
 
 android {
     namespace = "com.atlasoon.anacan"
-    // 36 = Capacitor android/variables.gradle; Flutter 3.50.1 defaults are also 36. Never go below 36.
-    compileSdk = maxOf(36, flutter.compileSdkVersion)
+    // 37: androidx.core 1.19.0 (pulled in by the phase 9 plugins) requires compiling against API 37 (AAR metadata
+    // check). Only the compile SDK moves; targetSdk stays 36 like Capacitor android/variables.gradle.
+    compileSdk = maxOf(37, flutter.compileSdkVersion)
     // Flutter 3.50.1: NDK 28.2.13676358 (r28 links 16 KB-aligned ELF segments by default) with AGP 9.3.1
     // (16 KB zip alignment of uncompressed native libraries). Codemagic checks the APK with zipalign -P 16.
     ndkVersion = flutter.ndkVersion
