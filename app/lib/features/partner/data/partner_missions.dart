@@ -33,7 +33,7 @@ class PartnerMissionDef {
   final MissionCategory category;
   final MissionDifficulty difficulty;
 
-  /// `MissionIcon` name (coffee, heart, â€¦).
+  /// `MissionIcon` name (coffee, heart, …).
   final String icon;
 
   int get points => difficulty == 'easy' ? 10 : difficulty == 'medium' ? 20 : 30;

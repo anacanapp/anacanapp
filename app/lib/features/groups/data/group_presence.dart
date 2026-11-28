@@ -39,7 +39,7 @@ abstract interface class GroupPresenceConnection {
   void close();
 }
 
-/// `supabase.channel(name, { config: { presence: { key } } }).on('presence', { event: 'sync' }, â€¦).subscribe(â€¦)`.
+/// `supabase.channel(name, { config: { presence: { key } } }).on('presence', { event: 'sync' }, …).subscribe(…)`.
 abstract interface class GroupPresenceTransport {
   GroupPresenceConnection open({
     required String channelName,
@@ -90,7 +90,7 @@ class _SupabasePresenceConnection implements GroupPresenceConnection {
 
 final groupPresenceTransportProvider = Provider<GroupPresenceTransport>((ref) => SupabaseGroupPresenceTransport(ref.watch(dbProvider).client));
 
-String _userFallback() => tr('usegrouppresence_i_stifadeci_b6bdd6', 'Ä°stifadÉ™Ã§i');
+String _userFallback() => tr('usegrouppresence_i_stifadeci_b6bdd6', 'İstifadəçi');
 
 class GroupPresence extends Notifier<GroupPresenceState> {
   GroupPresence(this.groupId);

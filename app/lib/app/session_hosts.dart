@@ -14,6 +14,7 @@ import '../core/net/backend_providers.dart' show backendOpenProvider;
 import '../features/baby/hooks/use_pending_timer_stops.dart' show PendingTimerStopsHost;
 import '../native/purchases/premium_entitlement.dart' show PremiumEntitlementMonitor;
 import '../native/purchases/subscription.dart' as subscription show deviceTimeZone;
+import '../services/native/native_services_host.dart' show NativeServicesHost;
 import 'deep_links.dart';
 
 class AppSessionHosts extends ConsumerStatefulWidget {
@@ -48,6 +49,8 @@ class _AppSessionHostsState extends ConsumerState<AppSessionHosts> {
     return Stack(
       children: [
         const IncomingLinkHost(),
+        // Device token, vaccine refresh at start, native init, legacy appointment cleanup.
+        const NativeServicesHost(),
         // App.tsx mounts the monitor inside AuthProvider; without an account it has nothing to watch.
         if (signedIn) const PremiumEntitlementMonitor(),
         const PendingTimerStopsHost(),

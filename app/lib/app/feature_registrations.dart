@@ -40,9 +40,8 @@ import '../features/tools/more_tools.dart';
 import '../features/tools/pregnancy_tools.dart';
 import '../features/tools/programme_tools.dart';
 import '../features/tools/register.dart';
+import '../services/links/register.dart';
 import '../shell/feature_registry.dart';
-
-// Not landed yet (add in order when they exist): blog, chat, commerce, community, games (UI), partner, individual tools.
 
 /// Registers every landed feature on [r].
 void registerAllFeatures(FeatureRegistry r) {
@@ -64,6 +63,7 @@ void registerAllFeatures(FeatureRegistry r) {
   registerHomeFlowFeature(r);
   registerHomeMommyFeature(r);
   registerLegalFeature(r);
+  registerLinksServiceFeature(r);
   registerModerationFeature(r);
   registerOnboardingFeature(r);
   registerPartnerFeature(r);

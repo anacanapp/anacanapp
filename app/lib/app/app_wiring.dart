@@ -37,6 +37,7 @@ import '../features/chat/data/unread.dart' show chatHomeTotalUnreadProvider;
 import '../core/auth/auth_controller.dart' show authControllerProvider;
 import '../features/commerce/partners/qr_code.dart' show qrCodeBuilderProvider;
 import '../features/games/hub/data/game_scores.dart' show gameAuthLoadingProvider;
+import '../services/native/services_wiring.dart' show notificationServicesWiringOverrides;
 import '../features/commerce/register.dart'
     show
         commerceAptekBagCard,
@@ -202,6 +203,8 @@ List<Override> featureWiringOverrides() => [
       aiWeightEntriesProvider.overrideWith((ref) => [
             for (final e in ref.watch(weightEntriesProvider).entries) {'weight': e.weight, 'entry_date': e.entryDate},
           ]),
+      // Central local-notification scheduler + push sender behind every feature's notification seam.
+      ...notificationServicesWiringOverrides(),
       // Games: leaderboard waits for auth like React's `useAuth().loading`.
       gameAuthLoadingProvider.overrideWith((ref) => ref.watch(authControllerProvider.select((s) => s.loading))),
       // Weaning / Tərbiyə cards under matching AI answers.

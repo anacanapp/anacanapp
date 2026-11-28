@@ -1,4 +1,4 @@
-// Ported from: (no vitest suite for BillingScreen / CancellationReasonDialog / web-premium-client) â€” cases follow
+// Ported from: (no vitest suite for BillingScreen / CancellationReasonDialog / web-premium-client) — cases follow
 //              the branches of src/components/BillingScreen.tsx, src/components/CancellationReasonDialog.tsx and
 //              src/lib/web-premium-client.ts
 import 'package:anacan/core/auth/auth.dart';
@@ -154,10 +154,10 @@ void main() {
     });
 
     test('price only from the store, never for free or household-only accounts', () {
-      expect(st(price: 'â‚¼6.99').planPrice, 'â‚¼6.99');
+      expect(st(price: '₼6.99').planPrice, '₼6.99');
       expect(st(price: null).planPrice, '');
-      expect(st(premium: false, sub: null, price: 'â‚¼6.99').planPrice, '');
-      expect(st(own: false, household: true, price: 'â‚¼6.99').planPrice, '');
+      expect(st(premium: false, sub: null, price: '₼6.99').planPrice, '');
+      expect(st(own: false, household: true, price: '₼6.99').planPrice, '');
     });
 
     test('Free is shown only once the entitlement finished loading', () {
@@ -231,7 +231,7 @@ void main() {
         subscriptionBackendProvider.overrideWithValue(backend),
         authUserProvider.overrideWithValue(user()),
         premiumConfigProvider.overrideWithValue(PremiumCatalog(features: features ?? const [
-          {'title': 'Limitsiz AI', 'icon': 'âœ¨', 'is_included_premium': true},
+          {'title': 'Limitsiz AI', 'icon': '✨', 'is_included_premium': true},
           {'title': 'Gizli', 'icon': 'x', 'is_included_premium': false},
         ], loading: false)),
         webPremiumClientProvider.overrideWithValue(WebPremiumClient((action) async {
@@ -303,11 +303,11 @@ void main() {
           original: '2026-01-10T10:00:00Z',
           entitlement: {'store': 'PLAY_STORE', 'productIdentifier': 'com.atlasoon.anacan.premium.monthly', 'expirationDate': '2026-12-10T10:00:00Z', 'willRenew': true},
         ),
-        price: 'â‚¼6.99',
+        price: '₼6.99',
       );
-      expect(find.text('Premium AylÄ±q'), findsOneWidget);
+      expect(find.text('Premium Aylıq'), findsOneWidget);
       expect(find.byKey(const ValueKey('billing-active-badge')), findsOneWidget);
-      expect(find.text('â‚¼6.99'), findsOneWidget);
+      expect(find.text('₼6.99'), findsOneWidget);
       expect(find.byKey(const ValueKey('billing-start')), findsOneWidget);
       expect(find.byKey(const ValueKey('billing-end')), findsOneWidget);
       expect(find.byKey(const ValueKey('billing-history')), findsOneWidget);
@@ -340,7 +340,7 @@ void main() {
         sub: const SubscriptionState(isPremium: true, ownPremium: true, subscription: {'plan_type': 'premium_plus', 'status': 'active', 'started_at': '2026-01-10T10:00:00Z'}),
         customerInfo: info(entitlement: {'store': 'PLAY_STORE', 'productIdentifier': 'yearly'}),
       );
-      expect(find.text('Premium Ä°llik'), findsOneWidget);
+      expect(find.text('Premium İllik'), findsOneWidget);
       expect(find.byKey(const ValueKey('billing-end')), findsNothing);
 
       await tester.tap(find.byKey(const ValueKey('billing-cancel')));
@@ -354,7 +354,7 @@ void main() {
       await settle(tester);
       await tester.tap(find.byKey(const ValueKey('cancel-reason-other')));
       await tester.pump();
-      await tester.enterText(find.byKey(const ValueKey('cancel-reason-other')).last, '  Ã§ox bahadÄ±r  ');
+      await tester.enterText(find.byKey(const ValueKey('cancel-reason-other')).last, '  çox bahadır  ');
       backend.fail = true;
       await tester.tap(find.byKey(const ValueKey('cancel-reason-submit')));
       await settle(tester);
@@ -366,10 +366,10 @@ void main() {
       await settle(tester);
       await tester.tap(find.byKey(const ValueKey('cancel-reason-other')));
       await tester.pump();
-      await tester.enterText(find.byKey(const ValueKey('cancel-reason-other')).last, '  Ã§ox bahadÄ±r  ');
+      await tester.enterText(find.byKey(const ValueKey('cancel-reason-other')).last, '  çox bahadır  ');
       await tester.tap(find.byKey(const ValueKey('cancel-reason-submit')));
       await settle(tester);
-      expect(backend.cancellations.single['reason_text'], 'Ã§ox bahadÄ±r');
+      expect(backend.cancellations.single['reason_text'], 'çox bahadır');
       expect(backend.cancellations.single['plan_type'], 'premium_plus');
     });
 
@@ -396,11 +396,11 @@ void main() {
       );
       expect(find.byKey(const ValueKey('billing-cancelled-badge')), findsOneWidget);
       expect(find.text(cssUpper('Premium bitir', 'az')), findsOneWidget);
-      expect(find.text('MaÄŸazada idarÉ™ et'), findsOneWidget);
+      expect(find.text('Mağazada idarə et'), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('billing-restore')));
       await settle(tester);
       expect(opened.single.host, 'play.google.com');
-      expect(find.text('Avtomatik yenilÉ™nmÉ™ni maÄŸazanÄ±n abunÉ™lik sÉ™hifÉ™sindÉ™ yenidÉ™n aktiv edin.'), findsOneWidget);
+      expect(find.text('Avtomatik yenilənməni mağazanın abunəlik səhifəsində yenidən aktiv edin.'), findsOneWidget);
     });
 
     testWidgets('anacan.az subscription: cancel stops renewal on the server after confirming', (tester) async {
@@ -434,7 +434,7 @@ void main() {
       expect(find.text(purchaseErrorMessage('PREMIUM_SOURCE_NON_STORE')), findsOneWidget);
     });
 
-    testWidgets('golden: own Premium, no store (reference shot bump.screen.billing, 390Ã—844 light az)', (tester) async {
+    testWidgets('golden: own Premium, no store (reference shot bump.screen.billing, 390×844 light az)', (tester) async {
       await mount(
         tester,
         platform: 'web',
@@ -451,8 +451,8 @@ void main() {
     });
 
     testWidgets('household-only Premium: family plan name, no price, no own-subscription block', (tester) async {
-      await mount(tester, sub: const SubscriptionState(isPremium: true, householdPremium: true, subscription: {'plan_type': 'premium'}), price: 'â‚¼6.99');
-      expect(find.text('AilÉ™ Premium-u (partnyorunuzun abunÉ™liyi)'), findsOneWidget);
+      await mount(tester, sub: const SubscriptionState(isPremium: true, householdPremium: true, subscription: {'plan_type': 'premium'}), price: '₼6.99');
+      expect(find.text('Ailə Premium-u (partnyorunuzun abunəliyi)'), findsOneWidget);
       expect(find.byKey(const ValueKey('billing-price')), findsNothing);
       expect(find.byKey(const ValueKey('billing-actions')), findsNothing);
       expect(webActions, isEmpty, reason: 'the web state is read only for own Premium');

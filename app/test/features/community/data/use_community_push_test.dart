@@ -109,7 +109,7 @@ void main() {
 
   group('server-held post creation', () {
     const owner = 'c35b3d1e-0f96-4cc0-a8c3-80d651c3f60c';
-    const input = CreatePostVars(groupId: null, content: 'SifariÅŸ Ã¼Ã§Ã¼n yazÄ±n', language: 'az', isAnonymous: true);
+    const input = CreatePostVars(groupId: null, content: 'Sifariş üçün yazın', language: 'az', isAnonymous: true);
     late List<(String, String, String)> tracked;
     late int ids;
 
@@ -129,7 +129,7 @@ void main() {
       final c = makeOwner();
       listen(c, createPostMutation);
       await c.read(createPostMutation.notifier).mutateAsync(const CreatePostVars(
-        groupId: null, content: 'SifariÅŸ Ã¼Ã§Ã¼n yazÄ±n', language: 'az', isAnonymous: true, //
+        groupId: null, content: 'Sifariş üçün yazın', language: 'az', isAnonymous: true, //
         mediaUrls: ['https://example.invalid/image.png'], taggedGroupIds: ['group-a', 'group-a'], blogPostId: 'article-a',
       ));
       final args = backend.rpcArgs('submit_community_post_v2').single!;
@@ -214,7 +214,7 @@ void main() {
     backend.onRpc = (fn, params) async => {'id': 'post-id', 'state': 'checking', 'revision': 1};
     final c = make(user: owner);
     listen(c, editPostMutation);
-    await c.read(editPostMutation.notifier).mutateAsync(const EditPostVars(postId: 'post-id', content: 'Yeni mÉ™tn', currentLanguage: 'az', expectedRevision: 4));
+    await c.read(editPostMutation.notifier).mutateAsync(const EditPostVars(postId: 'post-id', content: 'Yeni mətn', currentLanguage: 'az', expectedRevision: 4));
     final args = backend.rpcArgs('edit_community_post_v1').single!;
     expect(args, allOf(containsPair('p_actor', owner), containsPair('p_post', 'post-id'), containsPair('p_expected_revision', 4)));
     expect(backend.named('select'), isEmpty);

@@ -12,10 +12,7 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 |---|---|---|---|---|
 | `homeNotificationCountProvider` | `features/home/home_inputs.dart` | 0 | bell is disabled in React; settings' notifications query when re-enabled | 3 |
 | `chatAudioRecorderProvider` | `features/chat/` | unsupported (voice recording off; playback via video_player) | `record` package + mic permissions | 9 |
-| `chatIncomingNotifierProvider`, `chatPushSenderProvider` | `features/chat/` | no-op / direct `send-push-notification` | foreground notifications service, `svc.push` | 9 |
-| `babyChatNotificationPlannerProvider` | `features/baby_chat/baby_chat_notifications.dart` | no-op | central local-notification scheduler | 9 |
 | `toolsHubSlotsProvider` (bannerSlot, adSurface / adInlineAnchor `tools_banner`; first aid + Aptek search wired) | `features/tools/hub/hub_inputs.dart` | nothing | banners / ads | 9 |
-| `vaccineNotificationSchedulerProvider` | `features/tools/vaccines/vaccine_reminders.dart` | not native (no reminder switch) | central local-notification scheduler; app-start `useVaccineRemindersAtStart` (`VaccineReminders.refreshAll`) | 9 |
 | `solidFoodRecipesSlotProvider` | `features/tools/solid_food/solid_food_guide.dart` | opens Recipes without preselection | recipes tool (baby_food category / recipe) | 4 |
 | Image compression (`compressImageForUpload`) | `features/tools/baby_album/image_compress.dart` | uploads the picker output (1600 px, q 82) | JPEG/WebP encoder package | 9 |
 | `healthVitalsBackgroundSyncProvider` | `features/tools/pregnancy_common/pregnancy_ports.dart` | no-op | Health | 9 |
@@ -35,15 +32,15 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `partnerHomeSlotsProvider` (`adInlineAnchor`; loss card + illness card wired) — extend `kPartnerScreensHomeSlots` | `features/partner/screens/screens_wiring.dart` | not shown | ads | 9 |
 | `blogAdSlotsProvider` (list / article banners, exit interstitial) | `features/blog/` | none; leaving an article goes back at once | ads | 9 |
 | `albumProofPickerProvider` | `features/album_order/` | photo library only (no PDF proof) | document picker package | 9 |
-| `programmeNotificationsProvider` (nap 880001–880003, weaning 881100–881111 at 09:00, Tərbiyə 882200–882207 at 20:30) | `features/tools/parenting/programme_ports.dart` | no-op | central local-notification scheduler | 9 |
 | `doctorReportPdfRendererProvider`, `pdfDeliveryPlatformProvider` | `features/health_screens/doctor_report/pdf_report.dart` | unsupported → "PDF yaradıla bilmədi" toast | `pdf` (+ Noto fonts) and `printing` or share_plus + path_provider | 9 |
-| `illnessReminderPlannerProvider`, `illnessNotificationPermissionProvider` (namespace `illness:<episode>`, ids 900000000 + hash) | `features/health_screens/illness/` | no-op | central local-notification scheduler | 9 |
+| `localNotificationBackendProvider` (OS scheduling under the central scheduler; all feature notification seams now go through it) | `services/notifications/local_notification_backend.dart` | unavailable (web: nothing scheduled, vaccine switch hidden) | `flutter_local_notifications` + `timezone` | 9 native |
+| `pushPlatformProvider` (FCM/APNs token, permission) | `services/push/push_platform.dart` | web, no push | `firebase_core` + `firebase_messaging` | 9 native |
+| `notificationTapSourcesProvider` + `installNotificationTapListeners` in `main()` | `services/push/notification_tap_listeners.dart` | none | `firebase_messaging` + `flutter_local_notifications` | 9 native |
+| `nativePermissionsProvider` (camera, microphone, location) | `services/native/permissions.dart` | web branch | `permission_handler`, `geolocator` | 9 native |
 | Individual tools (`registerTool`) | `features/tools/<tool>/` | shell placeholder | tool batches | 4 |
 | `ShellPlatform.logScreenView` | `shell/shell_inputs.dart` (`DefaultShellPlatform`) | no-op | analytics (Firebase, consent-gated) | 9 |
-| `notificationTapQueueProvider.deliver` / `clearQueued` callers | `shell/links/notification_taps.dart` | nothing delivers | FCM + local-notification tap listeners at boot | 9 |
 | `analyticsSinkProvider` | `native/purchases/purchases_providers.dart` | `NoopAnalyticsSink` | analytics | 9 |
 | `storyEventLoggerProvider` | `features/stories/story_viewer.dart` | no-op | analytics | 9 |
-| `notificationPermissionProvider`, `pushGrantedCallbackProvider` | `features/onboarding/onboarding_ports.dart` | unsupported / no-op | Firebase Messaging permission + device-token registration | 9 |
 | `tourBlockedProvider` (lock offer / lock setup / feedback sheet parts) | `features/onboarding/onboarding_tour_host.dart` | wired to the article overlay only | a shared "first-run sheet open" flag from security / support | 3 |
 | Privacy consent writer (`PrivacyConsentSheet`, `setPrivacyConsent`, `applyPrivacyConsent`, Preferences copy of the key) | `core/data/privacy_consent.dart` is read-only | undecided unless migrated | consent feature (sheet + Firebase/Meta/TikTok consent) | 9 |
 | `privacySlotsProvider` (ConsentSettings, ConsentControls) | `features/settings/privacy_screen.dart` | not shown | consent feature | 9 |
@@ -54,7 +51,6 @@ Phases are those of `docs/FLUTTER_MIGRATION_PLAN.md` §9: 3 = home screens (left
 | `recapVideoEncoderProvider` | `features/recap/recap_export.dart` | "not supported" (image share only, React's no-MediaRecorder branch) | native H.264 encoder (AVAssetWriter / MediaCodec + MediaMuxer) with the mp3 | 9 |
 | `cycleHealthWriterProvider` | `features/home_flow/flow_platform.dart` | no-op | HealthKit / Health Connect cycle bridge | 9 |
 | `healthPluginBridgeProvider`, `healthCyclePluginProvider`, `healthVitalsPluginProvider` | `features/settings/data/health_service.dart` | unavailable | native Health plugins | 9 |
-| `flowNotificationPlannerProvider`, `timerNotificationSchedulerProvider`, `reminderSchedulerProvider` | `features/home_flow/flow_platform.dart`, `features/baby/live_timer/live_timer.dart`, `features/settings/data/preferences.dart` | not native / no-op | central local-notification scheduler | 9 |
 | `liveTimerBridgeProvider` | `features/baby/live_timer/live_timer.dart` | no-op (web behaviour) | LiveActivity / timer FGS method channel | 9 |
 | `liveTimerIosFailureToastProvider` | `features/baby/live_timer/live_timer.dart` | null | a root toast handle (only fires once the bridge exists) | 9 |
 | `profileSlotsProvider` (`bannerSlot`; partner link, QayğıCash, promo, pregnancy card wired) — one `ProfileSlots` in app_wiring.dart | `features/profile/profile_interfaces.dart` | not shown | banners | 9 |

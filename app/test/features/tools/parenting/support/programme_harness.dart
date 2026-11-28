@@ -1,4 +1,4 @@
-// Ported from: (test support) â€” the vi.mock setups of the programme tool tests (useAuth / useChildren /
+// Ported from: (test support) — the vi.mock setups of the programme tool tests (useAuth / useChildren /
 // useSubscription / useAppSetting / supabase client / native share / local notifications / pushNav events) as
 // provider overrides: in-memory LocalStore, fake remotes, recorded navigation, shares and notifications, and the
 // bundled content read from app/assets/i18n.
@@ -262,7 +262,7 @@ class ProgrammeHarness {
         fetchOverrides: (language) async => [for (final r in overrides) r.toJson()],
       );
 
-  /// Pumps [child] at 390Ã—1600 in a MaterialApp frame (the tool gets unbounded height) and settles async loads.
+  /// Pumps [child] at 390×1600 in a MaterialApp frame (the tool gets unbounded height) and settles async loads.
   Future<void> pump(WidgetTester tester, Widget child, {bool settle = true}) async {
     tester.view.physicalSize = const Size(390, 1600);
     tester.view.devicePixelRatio = 1;

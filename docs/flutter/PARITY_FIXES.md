@@ -32,6 +32,9 @@ Qərar (2026-11-27): köçürmədə tapılan qüsurlar Flutter-də düzəldilir.
 | Nailiyyət açılarkən istifadəçinin nailiyyətləri hələ yüklənməyibsə yoxlama boş siyahıya baxırdı (DB dublikat xətasına güvənirdi) | `useAchievements.ts` | Flutter-də əvvəl yüklənir |
 | Körpə albomunda silmə təsdiqi brauzerin `window.confirm`-i idi | `BabyMonthlyAlbum.tsx` | Flutter-də tətbiq daxili dialoq (Ləğv / Sil) |
 | Böyümə ölçülərində onluq vergül ("5,2") yazmaq olmurdu (number input) | `BabyGrowthTracker.tsx` | Flutter-də qəbul olunur |
+| Push xəta hesabatlarında `runtime` sahəsi yoxdur (`FunctionException` cavab başlıqlarını vermir) | `push.ts` | boşluq |
+| `device_tokens.device_name`: `navigator.userAgent` əvəzinə `<platform> - Anacan-Flutter (<os> <versiya>)` | `useDeviceToken.ts` | qəsdən |
+| Kodlaşdırma: bir neçə faylda UTF-8 mətn Windows-1252 kimi oxunub yenidən yazılmışdı (qrup "İstifadəçi" ehtiyat adı daxil) | Flutter qüsuru | düzəldilib; `test/tooling/no_mojibake_test.dart` qoruyur |
 | Sağlam Səbət (ərəbcə): düşən əşyalar və səbət inline-start + LTR sürüşmə ilə ekrandan çıxırdı | `SaglamSebetGame.tsx` | Flutter-də soldan, toxunuş hesabı ilə eyni |
 | Birləşdir (ərəbcə): lövhə güzgülənirdi, swipe hesabı LTR qalırdı, səhv qonşu dəyişirdi | `BirlesdirGame.tsx` | Flutter-də lövhə LTR |
 | Oyunlar: xəta toast-unda "Yenidən cəhd et" düyməsi yoxdur (dizayn sistemi toast-unda əməliyyat yeri yoxdur); React error boundary-ləri yoxdur | `components/games/*` | boşluq, düzəliş deyil |
